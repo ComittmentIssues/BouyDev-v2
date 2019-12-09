@@ -20,10 +20,10 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "HAL_GPS.h"
 #include "stm32f4xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "HAL_GPS.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -207,7 +207,6 @@ void DMA1_Stream2_IRQHandler(void)
   /* USER CODE BEGIN DMA1_Stream2_IRQn 0 */
 	DMA_Rx_IRQHandler(&hdma_uart4_rx,&huart4);
   /* USER CODE END DMA1_Stream2_IRQn 0 */
-
   /* USER CODE BEGIN DMA1_Stream2_IRQn 1 */
 
   /* USER CODE END DMA1_Stream2_IRQn 1 */
@@ -221,7 +220,6 @@ void UART4_IRQHandler(void)
   /* USER CODE BEGIN UART4_IRQn 0 */
 	USART_GPS_IRQHandler(&huart4,&hdma_uart4_rx);
   /* USER CODE END UART4_IRQn 0 */
-
   /* USER CODE BEGIN UART4_IRQn 1 */
 
   /* USER CODE END UART4_IRQn 1 */

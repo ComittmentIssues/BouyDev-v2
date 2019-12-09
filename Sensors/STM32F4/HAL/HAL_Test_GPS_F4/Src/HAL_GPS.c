@@ -41,7 +41,7 @@ void USART_GPS_IRQHandler( UART_HandleTypeDef* huart, DMA_HandleTypeDef* hdma )
 			tmp = huart->Instance->SR;
 			(void)tmp;
 			//Disable DMA Peripheral to Memory Stream
-			hdma->Instance->CR &= ~DMA_SxCR_EN;
+			__HAL_UART_CLEAR_IDLEFLAG(huart);
 	}
 }
 
@@ -55,6 +55,6 @@ void DMA_Rx_IRQHandler( DMA_HandleTypeDef* hdma, UART_HandleTypeDef* huart )
 		__HAL_DMA_CLEAR_FLAG(hdma,DMA_FLAG_TCIF2_6);
 
 		//enable stream
-		//hdma->Instance->CR |= DMA_SxCR_EN;
+		hdma->Instance->CR |= DMA_SxCR_EN;
 	}
 }
