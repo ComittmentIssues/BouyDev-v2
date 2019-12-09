@@ -1,0 +1,4 @@
+Delay.c:10:6:init_Delay	24	static
+Delay.c:33:6:Delay_begin_Timeout	24	static
+Delay.c:44:6:TIM2_IRQHandler	8	static
+Delay.c:53:6:Delay_Disable	8	static

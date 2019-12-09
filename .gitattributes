@@ -1,0 +1,5 @@
+*.psd filter=lfs diff=lfs merge=lfs -text
+*.exe filter=lfs diff=lfs merge=lfs -text
+BouyDev.git/Resources/TM filter=lfs diff=lfs merge=lfs -text
+Libraries/BouyDev.git/bfg.jar filter=lfs diff=lfs merge=lfs -text
+*.pack filter=lfs diff=lfs merge=lfs -text

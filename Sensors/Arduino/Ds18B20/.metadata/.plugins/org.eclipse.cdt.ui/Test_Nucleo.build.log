@@ -1,0 +1,14 @@
+10:54:50 **** Rebuild of configuration Debug for project Test_Nucleo ****
+Info: Internal Builder is used for build
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list .elf 
+Generate build reports...
+Print size information
+arm-atollic-eabi-size: '.elf': No such file
+Print size information done
+Generate listing file
+Output sent to: .list
+Generate listing file done
+Generate build reports done
+
+10:54:50 Build Finished (took 438ms)
+

@@ -1,0 +1,6 @@
+main.c:52:6:GPIOA_INIT	16	static
+main.c:65:6:ADC_Config	40	static
+main.c:96:10:ADC_Read	8	static
+main.c:113:5:main	8	static
+main.c:151:6:EVAL_AUDIO_TransferComplete_CallBack	16	static
+main.c:160:10:EVAL_AUDIO_GetSampleCallBack	4	static

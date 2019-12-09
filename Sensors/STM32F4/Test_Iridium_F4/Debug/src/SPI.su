@@ -1,0 +1,3 @@
+SPI.c:10:6:init_SPI	40	static
+SPI.c:43:6:init_Control_pin	16	static
+SPI.c:55:9:SPI_Transfer	16	static

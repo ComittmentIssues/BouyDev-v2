@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Test_Nucleo/BUOY_FiRMWARE_F4&apos; to &apos;Test_Nucleo&apos;" description="Rename resource &apos;BUOY_FiRMWARE_F4&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="BUOY_FiRMWARE_F4" name="Test_Nucleo" stamp="1567155137432" updateReferences="true"/>
+</session>

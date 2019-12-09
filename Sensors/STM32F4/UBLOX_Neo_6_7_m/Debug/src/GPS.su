@@ -1,0 +1,15 @@
+GPS.c:13:6:init_USART_GPS	96	static
+GPS.c:144:6:deinit_USART_GPS	16	static
+GPS.c:176:6:USART_transmit_byte	16	static
+GPS.c:181:6:USART_transmit_string	24	static
+GPS.c:191:15:USART_receive_byte	8	static
+GPS.c:200:6:zero_dma_gnss_memory	16	static
+GPS.c:207:6:zero_gnss_memory	16	static
+GPS.c:220:6:UART4_IRQHandler	16	static
+GPS.c:241:6:DMA1_Stream2_IRQHandler	8	static
+GPS.c:271:6:DMA2_Stream0_IRQHandler	16	static
+GPS.c:338:9:is_valid	40	static
+GPS.c:391:9:char_to_hex	16	static
+GPS.c:415:9:parse_ZDA	40	static
+GPS.c:447:9:Parse_GLL	40	static
+GPS.c:486:9:parse_GSA	40	static

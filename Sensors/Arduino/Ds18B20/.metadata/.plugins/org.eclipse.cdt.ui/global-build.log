@@ -1,0 +1,1152 @@
+14:58:07 **** Rebuild of configuration Debug for project Test_BoschSense_Nucleo ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\src\system_stm32f4xx.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F446xx -I../src -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src\system_stm32f4xx.o 
+arm-atollic-eabi-gcc -c ..\src\main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F446xx -I../src -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src\main.o 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DSTM32F446xx -I../src -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -g -Wa,--warn -x assembler-with-cpp -specs=nano.specs -o src\startup_stm32f446xx.o ..\src\startup_stm32f446xx.s 
+arm-atollic-eabi-gcc -c ..\src\tiny_printf.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F446xx -I../src -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src\tiny_printf.o 
+arm-atollic-eabi-gcc -o Test_BoschSense_Nucleo.elf src\main.o src\startup_stm32f446xx.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=Test_BoschSense_Nucleo.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list Test_BoschSense_Nucleo.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+    824	      8	   1052	   1884	    75c	Test_BoschSense_Nucleo.elf
+Print size information done
+Generate listing file
+Output sent to: Test_BoschSense_Nucleo.list
+Generate listing file done
+Generate build reports done
+15:10:43 **** Incremental Build of configuration Debug for project Test_BoschSense_Nucleo ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F446xx -DUSE_FULL_SPL_DRIVERS -I../src -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -IC:\Users\jamie\OneDrive\Documents\GitHub\BouyDev\Resources\STM32F4xx_StdPeriph_Driver\inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o Drivers\F4_SPL_Drivers\stm32f4xx_cryp.o 
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c: In function 'CRYP_Init':
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:238:3: warning: implicit declaration of function 'assert_param' [-Wimplicit-function-declaration]
+   assert_param(IS_CRYP_ALGOMODE(CRYP_InitStruct->CRYP_AlgoMode));
+   ^~~~~~~~~~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:243:3: error: 'CRYP' undeclared (first use in this function)
+   CRYP->CR &= ~CRYP_CR_ALGOMODE;
+   ^~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:243:3: note: each undeclared identifier is reported only once for each function it appears in
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:243:16: error: 'CRYP_CR_ALGOMODE' undeclared (first use in this function)
+   CRYP->CR &= ~CRYP_CR_ALGOMODE;
+                ^~~~~~~~~~~~~~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:247:16: error: 'CRYP_CR_DATATYPE' undeclared (first use in this function)
+   CRYP->CR &= ~CRYP_CR_DATATYPE;
+                ^~~~~~~~~~~~~~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:257:18: error: 'CRYP_CR_KEYSIZE' undeclared (first use in this function)
+     CRYP->CR &= ~CRYP_CR_KEYSIZE;
+                  ^~~~~~~~~~~~~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:264:16: error: 'CRYP_CR_ALGODIR' undeclared (first use in this function)
+   CRYP->CR &= ~CRYP_CR_ALGODIR;
+                ^~~~~~~~~~~~~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c: In function 'CRYP_KeyInit':
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:299:3: error: 'CRYP' undeclared (first use in this function)
+   CRYP->K0LR = CRYP_KeyInitStruct->CRYP_Key0Left;
+   ^~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c: In function 'CRYP_IVInit':
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:335:3: error: 'CRYP' undeclared (first use in this function)
+   CRYP->IV0LR = CRYP_IVInitStruct->CRYP_IV0Left;
+   ^~~~
+In file included from ..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:164:0:
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c: In function 'CRYP_PhaseConfig':
+C:\Users\jamie\OneDrive\Documents\GitHub\BouyDev\Resources\STM32F4xx_StdPeriph_Driver\inc/stm32f4xx_cryp.h:176:35: error: 'CRYP_CR_GCM_CCMPH_0' undeclared (first use in this function)
+ #define CRYP_Phase_Header         CRYP_CR_GCM_CCMPH_0
+                                   ^
+C:\Users\jamie\OneDrive\Documents\GitHub\BouyDev\Resources\STM32F4xx_StdPeriph_Driver\inc/stm32f4xx_cryp.h:181:43: note: in expansion of macro 'CRYP_Phase_Header'
+                               ((PHASE) == CRYP_Phase_Header)  || \
+                                           ^~~~~~~~~~~~~~~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:370:16: note: in expansion of macro 'IS_CRYP_PHASE'
+   assert_param(IS_CRYP_PHASE(CRYP_Phase));
+                ^~~~~~~~~~~~~
+C:\Users\jamie\OneDrive\Documents\GitHub\BouyDev\Resources\STM32F4xx_StdPeriph_Driver\inc/stm32f4xx_cryp.h:177:35: error: 'CRYP_CR_GCM_CCMPH_1' undeclared (first use in this function)
+ #define CRYP_Phase_Payload        CRYP_CR_GCM_CCMPH_1
+                                   ^
+C:\Users\jamie\OneDrive\Documents\GitHub\BouyDev\Resources\STM32F4xx_StdPeriph_Driver\inc/stm32f4xx_cryp.h:182:43: note: in expansion of macro 'CRYP_Phase_Payload'
+                               ((PHASE) == CRYP_Phase_Payload) || \
+                                           ^~~~~~~~~~~~~~~~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:370:16: note: in expansion of macro 'IS_CRYP_PHASE'
+   assert_param(IS_CRYP_PHASE(CRYP_Phase));
+                ^~~~~~~~~~~~~
+C:\Users\jamie\OneDrive\Documents\GitHub\BouyDev\Resources\STM32F4xx_StdPeriph_Driver\inc/stm32f4xx_cryp.h:178:35: error: 'CRYP_CR_GCM_CCMPH' undeclared (first use in this function)
+ #define CRYP_Phase_Final          CRYP_CR_GCM_CCMPH
+                                   ^
+C:\Users\jamie\OneDrive\Documents\GitHub\BouyDev\Resources\STM32F4xx_StdPeriph_Driver\inc/stm32f4xx_cryp.h:183:43: note: in expansion of macro 'CRYP_Phase_Final'
+                               ((PHASE) == CRYP_Phase_Final))
+                                           ^~~~~~~~~~~~~~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:370:16: note: in expansion of macro 'IS_CRYP_PHASE'
+   assert_param(IS_CRYP_PHASE(CRYP_Phase));
+                ^~~~~~~~~~~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:373:12: error: 'CRYP' undeclared (first use in this function)
+   tempcr = CRYP->CR;
+            ^~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c: In function 'CRYP_FIFOFlush':
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:394:3: error: 'CRYP' undeclared (first use in this function)
+   CRYP->CR |= CRYP_CR_FFLUSH;
+   ^~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:394:15: error: 'CRYP_CR_FFLUSH' undeclared (first use in this function)
+   CRYP->CR |= CRYP_CR_FFLUSH;
+               ^~~~~~~~~~~~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c: In function 'CRYP_Cmd':
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:411:5: error: 'CRYP' undeclared (first use in this function)
+     CRYP->CR |= CRYP_CR_CRYPEN;
+     ^~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:411:17: error: 'CRYP_CR_CRYPEN' undeclared (first use in this function)
+     CRYP->CR |= CRYP_CR_CRYPEN;
+                 ^~~~~~~~~~~~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c: In function 'CRYP_DataIn':
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:448:3: error: 'CRYP' undeclared (first use in this function)
+   CRYP->DR = Data;
+   ^~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c: In function 'CRYP_DataOut':
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:458:10: error: 'CRYP' undeclared (first use in this function)
+   return CRYP->DOUT;
+          ^~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c: In function 'CRYP_SaveContext':
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:505:3: error: 'CRYP' undeclared (first use in this function)
+   CRYP->DMACR &= ~(uint32_t)CRYP_DMACR_DIEN;
+   ^~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:505:29: error: 'CRYP_DMACR_DIEN' undeclared (first use in this function)
+   CRYP->DMACR &= ~(uint32_t)CRYP_DMACR_DIEN;
+                             ^~~~~~~~~~~~~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:511:30: error: 'CRYP_CR_ALGOMODE_TDES_ECB' undeclared (first use in this function)
+   if ((CRYP->CR & (uint32_t)(CRYP_CR_ALGOMODE_TDES_ECB | CRYP_CR_ALGOMODE_TDES_CBC)) != (uint32_t)0 )/* TDES */
+                              ^~~~~~~~~~~~~~~~~~~~~~~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:511:58: error: 'CRYP_CR_ALGOMODE_TDES_CBC' undeclared (first use in this function)
+   if ((CRYP->CR & (uint32_t)(CRYP_CR_ALGOMODE_TDES_ECB | CRYP_CR_ALGOMODE_TDES_CBC)) != (uint32_t)0 )/* TDES */
+                                                          ^~~~~~~~~~~~~~~~~~~~~~~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:513:18: error: 'CRYP_SR_IFEM' undeclared (first use in this function)
+     ckeckmask =  CRYP_SR_IFEM | CRYP_SR_BUSY ;
+                  ^~~~~~~~~~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:513:33: error: 'CRYP_SR_BUSY' undeclared (first use in this function)
+     ckeckmask =  CRYP_SR_IFEM | CRYP_SR_BUSY ;
+                                 ^~~~~~~~~~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:517:48: error: 'CRYP_SR_OFNE' undeclared (first use in this function)
+     ckeckmask =  CRYP_SR_IFEM | CRYP_SR_BUSY | CRYP_SR_OFNE;
+                                                ^~~~~~~~~~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:537:31: error: 'CRYP_DMACR_DOEN' undeclared (first use in this function)
+     CRYP->DMACR &= ~(uint32_t)CRYP_DMACR_DOEN;
+                               ^~~~~~~~~~~~~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:538:28: error: 'CRYP_CR_CRYPEN' undeclared (first use in this function)
+     CRYP->CR &= ~(uint32_t)CRYP_CR_CRYPEN;
+                            ^~~~~~~~~~~~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:541:55: error: 'CRYP_CR_GCM_CCMPH' undeclared (first use in this function)
+     CRYP_ContextSave->CR_CurrentConfig  = CRYP->CR & (CRYP_CR_GCM_CCMPH |
+                                                       ^~~~~~~~~~~~~~~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:542:55: error: 'CRYP_CR_KEYSIZE' undeclared (first use in this function)
+                                                       CRYP_CR_KEYSIZE  |
+                                                       ^~~~~~~~~~~~~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:543:55: error: 'CRYP_CR_DATATYPE' undeclared (first use in this function)
+                                                       CRYP_CR_DATATYPE |
+                                                       ^~~~~~~~~~~~~~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:544:55: error: 'CRYP_CR_ALGOMODE' undeclared (first use in this function)
+                                                       CRYP_CR_ALGOMODE |
+                                                       ^~~~~~~~~~~~~~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:545:55: error: 'CRYP_CR_ALGODIR' undeclared (first use in this function)
+                                                       CRYP_CR_ALGODIR);
+                                                       ^~~~~~~~~~~~~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c: In function 'CRYP_RestoreContext':
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:606:3: error: 'CRYP' undeclared (first use in this function)
+   CRYP->CR = CRYP_ContextRestore->CR_CurrentConfig;
+   ^~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:644:15: error: 'CRYP_CR_CRYPEN' undeclared (first use in this function)
+   CRYP->CR |= CRYP_CR_CRYPEN;
+               ^~~~~~~~~~~~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c: In function 'CRYP_DMACmd':
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:690:5: error: 'CRYP' undeclared (first use in this function)
+     CRYP->DMACR |= CRYP_DMAReq;
+     ^~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c: In function 'CRYP_ITConfig':
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:808:5: error: 'CRYP' undeclared (first use in this function)
+     CRYP->IMSCR |= CRYP_IT;
+     ^~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c: In function 'CRYP_GetITStatus':
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:834:8: error: 'CRYP' undeclared (first use in this function)
+   if ((CRYP->MISR &  CRYP_IT) != (uint8_t)RESET)
+        ^~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c: In function 'CRYP_GetCmdStatus':
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:857:8: error: 'CRYP' undeclared (first use in this function)
+   if ((CRYP->CR & CRYP_CR_CRYPEN) != 0)
+        ^~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:857:19: error: 'CRYP_CR_CRYPEN' undeclared (first use in this function)
+   if ((CRYP->CR & CRYP_CR_CRYPEN) != 0)
+                   ^~~~~~~~~~~~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c: In function 'CRYP_GetFlagStatus':
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:894:15: error: 'CRYP' undeclared (first use in this function)
+     tempreg = CRYP->RISR;
+               ^~~~
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c: In function 'CRYP_DataOut':
+..\..\..\Resources\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c:459:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+09:27:58 **** Rebuild of configuration Debug for project Test_I2C_F4 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DSTM32F446xx -I../src -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -g -Wa,--warn -x assembler-with-cpp -o src\startup_stm32f446xx.o ..\src\startup_stm32f446xx.s 
+arm-atollic-eabi-gcc -c ..\src\main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F446xx -I../src -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -o src\main.o 
+arm-atollic-eabi-gcc -c ..\src\system_stm32f4xx.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F446xx -I../src -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -o src\system_stm32f4xx.o 
+arm-atollic-eabi-gcc -o Test_I2C_F4.elf src\main.o src\startup_stm32f446xx.o src\system_stm32f4xx.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=Test_I2C_F4.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list Test_I2C_F4.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+    824	      8	   1052	   1884	    75c	Test_I2C_F4.elf
+Print size information done
+Generate listing file
+Output sent to: Test_I2C_F4.list
+Generate listing file done
+Generate build reports done
+10:47:45 **** Incremental Build of configuration Debug for project Test_I2C_F4 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F446xx -I../src -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.o 
+In file included from ..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:76:0:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:465:21: error: unknown type name 'LTDC_Layer_TypeDef'
+ void LTDC_LayerInit(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_Layer_InitTypeDef* LTDC_Layer_InitStruct);
+                     ^~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:467:20: error: unknown type name 'LTDC_Layer_TypeDef'
+ void LTDC_LayerCmd(LTDC_Layer_TypeDef* LTDC_Layerx, FunctionalState NewState);
+                    ^~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:471:29: error: unknown type name 'LTDC_Layer_TypeDef'
+ void LTDC_ColorKeyingConfig(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_ColorKeying_InitTypeDef* LTDC_colorkeying_InitStruct, FunctionalState NewState);
+                             ^~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:473:19: error: unknown type name 'LTDC_Layer_TypeDef'
+ void LTDC_CLUTCmd(LTDC_Layer_TypeDef* LTDC_Layerx, FunctionalState NewState);
+                   ^~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:474:20: error: unknown type name 'LTDC_Layer_TypeDef'
+ void LTDC_CLUTInit(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_CLUT_InitTypeDef* LTDC_CLUT_InitStruct);
+                    ^~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:476:25: error: unknown type name 'LTDC_Layer_TypeDef'
+ void LTDC_LayerPosition(LTDC_Layer_TypeDef* LTDC_Layerx, uint16_t OffsetX, uint16_t OffsetY);
+                         ^~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:477:22: error: unknown type name 'LTDC_Layer_TypeDef'
+ void LTDC_LayerAlpha(LTDC_Layer_TypeDef* LTDC_Layerx, uint8_t ConstantAlpha);
+                      ^~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:478:24: error: unknown type name 'LTDC_Layer_TypeDef'
+ void LTDC_LayerAddress(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t Address);
+                        ^~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:479:21: error: unknown type name 'LTDC_Layer_TypeDef'
+ void LTDC_LayerSize(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t Width, uint32_t Height);
+                     ^~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:480:28: error: unknown type name 'LTDC_Layer_TypeDef'
+ void LTDC_LayerPixelFormat(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t PixelFormat);
+                            ^~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c: In function 'LTDC_Init':
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:156:3: warning: implicit declaration of function 'assert_param' [-Wimplicit-function-declaration]
+   assert_param(IS_LTDC_HSYNC(LTDC_InitStruct->LTDC_HorizontalSync));
+   ^~~~~~~~~~~~
+In file included from ..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:76:0:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:236:43: error: 'LTDC_GCR_HSPOL' undeclared (first use in this function)
+ #define LTDC_HSPolarity_AH                LTDC_GCR_HSPOL                        /*!< Horizontal Synchronization is active high. */
+                                           ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:239:43: note: in expansion of macro 'LTDC_HSPolarity_AH'
+                               ((HSPOL) == LTDC_HSPolarity_AH))
+                                           ^~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:164:16: note: in expansion of macro 'IS_LTDC_HSPOL'
+   assert_param(IS_LTDC_HSPOL(LTDC_InitStruct->LTDC_HSPolarity));
+                ^~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:236:43: note: each undeclared identifier is reported only once for each function it appears in
+ #define LTDC_HSPolarity_AH                LTDC_GCR_HSPOL                        /*!< Horizontal Synchronization is active high. */
+                                           ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:239:43: note: in expansion of macro 'LTDC_HSPolarity_AH'
+                               ((HSPOL) == LTDC_HSPolarity_AH))
+                                           ^~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:164:16: note: in expansion of macro 'IS_LTDC_HSPOL'
+   assert_param(IS_LTDC_HSPOL(LTDC_InitStruct->LTDC_HSPolarity));
+                ^~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:248:43: error: 'LTDC_GCR_VSPOL' undeclared (first use in this function)
+ #define LTDC_VSPolarity_AH                LTDC_GCR_VSPOL                        /*!< Vertical Synchronization is active high. */
+                                           ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:251:43: note: in expansion of macro 'LTDC_VSPolarity_AH'
+                               ((VSPOL) == LTDC_VSPolarity_AH))
+                                           ^~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:165:16: note: in expansion of macro 'IS_LTDC_VSPOL'
+   assert_param(IS_LTDC_VSPOL(LTDC_InitStruct->LTDC_VSPolarity));
+                ^~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:260:43: error: 'LTDC_GCR_DEPOL' undeclared (first use in this function)
+ #define LTDC_DEPolarity_AH                LTDC_GCR_DEPOL                        /*!< Data Enable, is active high. */
+                                           ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:263:44: note: in expansion of macro 'LTDC_DEPolarity_AH'
+                               ((DEPOL) ==  LTDC_DEPolarity_AH))
+                                            ^~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:166:16: note: in expansion of macro 'IS_LTDC_DEPOL'
+   assert_param(IS_LTDC_DEPOL(LTDC_InitStruct->LTDC_DEPolarity));
+                ^~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:272:43: error: 'LTDC_GCR_PCPOL' undeclared (first use in this function)
+ #define LTDC_PCPolarity_IIPC              LTDC_GCR_PCPOL                        /*!< inverted input pixel clock. */
+                                           ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:275:44: note: in expansion of macro 'LTDC_PCPolarity_IIPC'
+                               ((PCPOL) ==  LTDC_PCPolarity_IIPC))
+                                            ^~~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:167:16: note: in expansion of macro 'IS_LTDC_PCPOL'
+   assert_param(IS_LTDC_PCPOL(LTDC_InitStruct->LTDC_PCPolarity));
+                ^~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:173:3: error: 'LTDC' undeclared (first use in this function)
+   LTDC->SSCR &= ~(LTDC_SSCR_VSH | LTDC_SSCR_HSW);
+   ^~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:173:19: error: 'LTDC_SSCR_VSH' undeclared (first use in this function)
+   LTDC->SSCR &= ~(LTDC_SSCR_VSH | LTDC_SSCR_HSW);
+                   ^~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:173:35: error: 'LTDC_SSCR_HSW' undeclared (first use in this function)
+   LTDC->SSCR &= ~(LTDC_SSCR_VSH | LTDC_SSCR_HSW);
+                                   ^~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:178:19: error: 'LTDC_BPCR_AVBP' undeclared (first use in this function)
+   LTDC->BPCR &= ~(LTDC_BPCR_AVBP | LTDC_BPCR_AHBP);
+                   ^~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:178:36: error: 'LTDC_BPCR_AHBP' undeclared (first use in this function)
+   LTDC->BPCR &= ~(LTDC_BPCR_AVBP | LTDC_BPCR_AHBP);
+                                    ^~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:183:19: error: 'LTDC_AWCR_AAH' undeclared (first use in this function)
+   LTDC->AWCR &= ~(LTDC_AWCR_AAH | LTDC_AWCR_AAW);
+                   ^~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:183:35: error: 'LTDC_AWCR_AAW' undeclared (first use in this function)
+   LTDC->AWCR &= ~(LTDC_AWCR_AAH | LTDC_AWCR_AAW);
+                                   ^~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:188:19: error: 'LTDC_TWCR_TOTALH' undeclared (first use in this function)
+   LTDC->TWCR &= ~(LTDC_TWCR_TOTALH | LTDC_TWCR_TOTALW);
+                   ^~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:188:38: error: 'LTDC_TWCR_TOTALW' undeclared (first use in this function)
+   LTDC->TWCR &= ~(LTDC_TWCR_TOTALH | LTDC_TWCR_TOTALW);
+                                      ^~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:200:19: error: 'LTDC_BCCR_BCBLUE' undeclared (first use in this function)
+   LTDC->BCCR &= ~(LTDC_BCCR_BCBLUE | LTDC_BCCR_BCGREEN | LTDC_BCCR_BCRED);
+                   ^~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:200:38: error: 'LTDC_BCCR_BCGREEN' undeclared (first use in this function)
+   LTDC->BCCR &= ~(LTDC_BCCR_BCBLUE | LTDC_BCCR_BCGREEN | LTDC_BCCR_BCRED);
+                                      ^~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:200:58: error: 'LTDC_BCCR_BCRED' undeclared (first use in this function)
+   LTDC->BCCR &= ~(LTDC_BCCR_BCBLUE | LTDC_BCCR_BCGREEN | LTDC_BCCR_BCRED);
+                                                          ^~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c: In function 'LTDC_Cmd':
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:246:5: error: 'LTDC' undeclared (first use in this function)
+     LTDC->GCR |= (uint32_t)LTDC_GCR_LTDCEN;
+     ^~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:246:28: error: 'LTDC_GCR_LTDCEN' undeclared (first use in this function)
+     LTDC->GCR |= (uint32_t)LTDC_GCR_LTDCEN;
+                            ^~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c: In function 'LTDC_DitherCmd':
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:270:5: error: 'LTDC' undeclared (first use in this function)
+     LTDC->GCR |= (uint32_t)LTDC_GCR_DTEN;
+     ^~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:270:28: error: 'LTDC_GCR_DTEN' undeclared (first use in this function)
+     LTDC->GCR |= (uint32_t)LTDC_GCR_DTEN;
+                            ^~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c: In function 'LTDC_GetRGBWidth':
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:290:3: error: 'LTDC' undeclared (first use in this function)
+   LTDC->GCR &= (uint32_t)GCR_MASK;
+   ^~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c: In function 'LTDC_LIPConfig':
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:326:3: error: 'LTDC' undeclared (first use in this function)
+   LTDC->LIPCR = (uint32_t)LTDC_LIPositionConfig;
+   ^~~~
+In file included from ..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:76:0:
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c: In function 'LTDC_ReloadConfig':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:283:43: error: 'LTDC_SRCR_IMR' undeclared (first use in this function)
+ #define LTDC_IMReload                     LTDC_SRCR_IMR                         /*!< Immediately Reload. */
+                                           ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:286:46: note: in expansion of macro 'LTDC_IMReload'
+ #define IS_LTDC_RELOAD(RELOAD) (((RELOAD) == LTDC_IMReload) || \
+                                              ^~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:341:16: note: in expansion of macro 'IS_LTDC_RELOAD'
+   assert_param(IS_LTDC_RELOAD(LTDC_Reload));
+                ^~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:284:43: error: 'LTDC_SRCR_VBR' undeclared (first use in this function)
+ #define LTDC_VBReload                     LTDC_SRCR_VBR                         /*!< Vertical Blanking Reload. */
+                                           ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:287:46: note: in expansion of macro 'LTDC_VBReload'
+                                 ((RELOAD) == LTDC_VBReload))
+                                              ^~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:341:16: note: in expansion of macro 'IS_LTDC_RELOAD'
+   assert_param(IS_LTDC_RELOAD(LTDC_Reload));
+                ^~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:344:3: error: 'LTDC' undeclared (first use in this function)
+   LTDC->SRCR = (uint32_t)LTDC_Reload;
+   ^~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c: At top level:
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:359:21: error: unknown type name 'LTDC_Layer_TypeDef'
+ void LTDC_LayerInit(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_Layer_InitTypeDef* LTDC_Layer_InitStruct)
+                     ^~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:486:20: error: unknown type name 'LTDC_Layer_TypeDef'
+ void LTDC_LayerCmd(LTDC_Layer_TypeDef* LTDC_Layerx, FunctionalState NewState)
+                    ^~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c: In function 'LTDC_GetPosStatus':
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:515:3: error: 'LTDC' undeclared (first use in this function)
+   LTDC->CPSR &= ~(LTDC_CPSR_CYPOS | LTDC_CPSR_CXPOS);
+   ^~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:515:19: error: 'LTDC_CPSR_CYPOS' undeclared (first use in this function)
+   LTDC->CPSR &= ~(LTDC_CPSR_CYPOS | LTDC_CPSR_CXPOS);
+                   ^~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:515:37: error: 'LTDC_CPSR_CXPOS' undeclared (first use in this function)
+   LTDC->CPSR &= ~(LTDC_CPSR_CYPOS | LTDC_CPSR_CXPOS);
+                                     ^~~~~~~~~~~~~~~
+In file included from ..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:76:0:
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c: In function 'LTDC_GetCDStatus':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:326:42: error: 'LTDC_CDSR_VDES' undeclared (first use in this function)
+ #define LTDC_CD_VDES                     LTDC_CDSR_VDES
+                                          ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:331:38: note: in expansion of macro 'LTDC_CD_VDES'
+ #define IS_LTDC_GET_CD(CD) (((CD) == LTDC_CD_VDES) || ((CD) == LTDC_CD_HDES) || \
+                                      ^~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:552:16: note: in expansion of macro 'IS_LTDC_GET_CD'
+   assert_param(IS_LTDC_GET_CD(LTDC_CD));
+                ^~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:327:42: error: 'LTDC_CDSR_HDES' undeclared (first use in this function)
+ #define LTDC_CD_HDES                     LTDC_CDSR_HDES
+                                          ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:331:64: note: in expansion of macro 'LTDC_CD_HDES'
+ #define IS_LTDC_GET_CD(CD) (((CD) == LTDC_CD_VDES) || ((CD) == LTDC_CD_HDES) || \
+                                                                ^~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:552:16: note: in expansion of macro 'IS_LTDC_GET_CD'
+   assert_param(IS_LTDC_GET_CD(LTDC_CD));
+                ^~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:328:42: error: 'LTDC_CDSR_VSYNCS' undeclared (first use in this function)
+ #define LTDC_CD_VSYNC                    LTDC_CDSR_VSYNCS
+                                          ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:332:40: note: in expansion of macro 'LTDC_CD_VSYNC'
+                               ((CD) == LTDC_CD_VSYNC) || ((CD) == LTDC_CD_HSYNC))
+                                        ^~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:552:16: note: in expansion of macro 'IS_LTDC_GET_CD'
+   assert_param(IS_LTDC_GET_CD(LTDC_CD));
+                ^~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:329:42: error: 'LTDC_CDSR_HSYNCS' undeclared (first use in this function)
+ #define LTDC_CD_HSYNC                    LTDC_CDSR_HSYNCS
+                                          ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:332:67: note: in expansion of macro 'LTDC_CD_HSYNC'
+                               ((CD) == LTDC_CD_VSYNC) || ((CD) == LTDC_CD_HSYNC))
+                                                                   ^~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:552:16: note: in expansion of macro 'IS_LTDC_GET_CD'
+   assert_param(IS_LTDC_GET_CD(LTDC_CD));
+                ^~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:554:8: error: 'LTDC' undeclared (first use in this function)
+   if ((LTDC->CDSR & LTDC_CD) != (uint32_t)RESET)
+        ^~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c: At top level:
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:574:29: error: unknown type name 'LTDC_Layer_TypeDef'
+ void LTDC_ColorKeyingConfig(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_ColorKeying_InitTypeDef* LTDC_colorkeying_InitStruct, FunctionalState NewState)
+                             ^~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:631:19: error: unknown type name 'LTDC_Layer_TypeDef'
+ void LTDC_CLUTCmd(LTDC_Layer_TypeDef* LTDC_Layerx, FunctionalState NewState)
+                   ^~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:660:20: error: unknown type name 'LTDC_Layer_TypeDef'
+ void LTDC_CLUTInit(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_CLUT_InitTypeDef* LTDC_CLUT_InitStruct)
+                    ^~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:707:25: error: unknown type name 'LTDC_Layer_TypeDef'
+ void LTDC_LayerPosition(LTDC_Layer_TypeDef* LTDC_Layerx, uint16_t OffsetX, uint16_t OffsetY)
+                         ^~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:768:22: error: unknown type name 'LTDC_Layer_TypeDef'
+ void LTDC_LayerAlpha(LTDC_Layer_TypeDef* LTDC_Layerx, uint8_t ConstantAlpha)
+                      ^~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:783:24: error: unknown type name 'LTDC_Layer_TypeDef'
+ void LTDC_LayerAddress(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t Address)
+                        ^~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:799:21: error: unknown type name 'LTDC_Layer_TypeDef'
+ void LTDC_LayerSize(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t Width, uint32_t Height)
+                     ^~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:861:28: error: unknown type name 'LTDC_Layer_TypeDef'
+ void LTDC_LayerPixelFormat(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t PixelFormat)
+                            ^~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c: In function 'LTDC_ITConfig':
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:983:5: error: 'LTDC' undeclared (first use in this function)
+     LTDC->IER |= LTDC_IT;
+     ^~~~
+In file included from ..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:76:0:
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c: In function 'LTDC_GetFlagStatus':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:354:42: error: 'LTDC_ISR_LIF' undeclared (first use in this function)
+ #define LTDC_FLAG_LI                     LTDC_ISR_LIF
+                                          ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:359:40: note: in expansion of macro 'LTDC_FLAG_LI'
+ #define IS_LTDC_FLAG(FLAG) (((FLAG) == LTDC_FLAG_LI) || ((FLAG) == LTDC_FLAG_FU) || \
+                                        ^~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:1006:16: note: in expansion of macro 'IS_LTDC_FLAG'
+   assert_param(IS_LTDC_FLAG(LTDC_FLAG));
+                ^~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:355:42: error: 'LTDC_ISR_FUIF' undeclared (first use in this function)
+ #define LTDC_FLAG_FU                     LTDC_ISR_FUIF
+                                          ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:359:68: note: in expansion of macro 'LTDC_FLAG_FU'
+ #define IS_LTDC_FLAG(FLAG) (((FLAG) == LTDC_FLAG_LI) || ((FLAG) == LTDC_FLAG_FU) || \
+                                                                    ^~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:1006:16: note: in expansion of macro 'IS_LTDC_FLAG'
+   assert_param(IS_LTDC_FLAG(LTDC_FLAG));
+                ^~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:356:42: error: 'LTDC_ISR_TERRIF' undeclared (first use in this function)
+ #define LTDC_FLAG_TERR                   LTDC_ISR_TERRIF
+                                          ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:360:43: note: in expansion of macro 'LTDC_FLAG_TERR'
+                                ((FLAG) == LTDC_FLAG_TERR) || ((FLAG) == LTDC_FLAG_RR))
+                                           ^~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:1006:16: note: in expansion of macro 'IS_LTDC_FLAG'
+   assert_param(IS_LTDC_FLAG(LTDC_FLAG));
+                ^~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:357:42: error: 'LTDC_ISR_RRIF' undeclared (first use in this function)
+ #define LTDC_FLAG_RR                     LTDC_ISR_RRIF
+                                          ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:360:73: note: in expansion of macro 'LTDC_FLAG_RR'
+                                ((FLAG) == LTDC_FLAG_TERR) || ((FLAG) == LTDC_FLAG_RR))
+                                                                         ^~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:1006:16: note: in expansion of macro 'IS_LTDC_FLAG'
+   assert_param(IS_LTDC_FLAG(LTDC_FLAG));
+                ^~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:1008:8: error: 'LTDC' undeclared (first use in this function)
+   if ((LTDC->ISR & LTDC_FLAG) != (uint32_t)RESET)
+        ^~~~
+In file included from ..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:76:0:
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c: In function 'LTDC_ClearFlag':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:354:42: error: 'LTDC_ISR_LIF' undeclared (first use in this function)
+ #define LTDC_FLAG_LI                     LTDC_ISR_LIF
+                                          ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:359:40: note: in expansion of macro 'LTDC_FLAG_LI'
+ #define IS_LTDC_FLAG(FLAG) (((FLAG) == LTDC_FLAG_LI) || ((FLAG) == LTDC_FLAG_FU) || \
+                                        ^~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:1032:16: note: in expansion of macro 'IS_LTDC_FLAG'
+   assert_param(IS_LTDC_FLAG(LTDC_FLAG));
+                ^~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:355:42: error: 'LTDC_ISR_FUIF' undeclared (first use in this function)
+ #define LTDC_FLAG_FU                     LTDC_ISR_FUIF
+                                          ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:359:68: note: in expansion of macro 'LTDC_FLAG_FU'
+ #define IS_LTDC_FLAG(FLAG) (((FLAG) == LTDC_FLAG_LI) || ((FLAG) == LTDC_FLAG_FU) || \
+                                                                    ^~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:1032:16: note: in expansion of macro 'IS_LTDC_FLAG'
+   assert_param(IS_LTDC_FLAG(LTDC_FLAG));
+                ^~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:356:42: error: 'LTDC_ISR_TERRIF' undeclared (first use in this function)
+ #define LTDC_FLAG_TERR                   LTDC_ISR_TERRIF
+                                          ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:360:43: note: in expansion of macro 'LTDC_FLAG_TERR'
+                                ((FLAG) == LTDC_FLAG_TERR) || ((FLAG) == LTDC_FLAG_RR))
+                                           ^~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:1032:16: note: in expansion of macro 'IS_LTDC_FLAG'
+   assert_param(IS_LTDC_FLAG(LTDC_FLAG));
+                ^~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:357:42: error: 'LTDC_ISR_RRIF' undeclared (first use in this function)
+ #define LTDC_FLAG_RR                     LTDC_ISR_RRIF
+                                          ^
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ltdc.h:360:73: note: in expansion of macro 'LTDC_FLAG_RR'
+                                ((FLAG) == LTDC_FLAG_TERR) || ((FLAG) == LTDC_FLAG_RR))
+                                                                         ^~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:1032:16: note: in expansion of macro 'IS_LTDC_FLAG'
+   assert_param(IS_LTDC_FLAG(LTDC_FLAG));
+                ^~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:1035:3: error: 'LTDC' undeclared (first use in this function)
+   LTDC->ICR = (uint32_t)LTDC_FLAG;
+   ^~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c: In function 'LTDC_GetITStatus':
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:1055:8: error: 'LTDC' undeclared (first use in this function)
+   if ((LTDC->ISR & LTDC_IT) != (uint32_t)RESET)
+        ^~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c: In function 'LTDC_ClearITPendingBit':
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ltdc.c:1092:3: error: 'LTDC' undeclared (first use in this function)
+   LTDC->ICR = (uint32_t)LTDC_IT;
+   ^~~~
+10:49:16 **** Incremental Build of configuration Debug for project Test_I2C_F4 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_crc.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F446xx -DUSE_STDPERIPH_DRIVER -I../src -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_crc.o 
+arm-atollic-eabi-gcc -c ..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_pwr.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F446xx -DUSE_STDPERIPH_DRIVER -I../src -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_pwr.o 
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_pwr.c: In function 'PWR_BackupAccessCmd':
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_pwr.c:186:3: warning: implicit declaration of function 'assert_param' [-Wimplicit-function-declaration]
+   assert_param(IS_FUNCTIONAL_STATE(NewState));
+   ^~~~~~~~~~~~
+arm-atollic-eabi-gcc -c ..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_fmpi2c.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F446xx -DUSE_STDPERIPH_DRIVER -I../src -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_fmpi2c.o 
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_fmpi2c.c: In function 'FMPI2C_DeInit':
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_fmpi2c.c:148:3: warning: implicit declaration of function 'assert_param' [-Wimplicit-function-declaration]
+   assert_param(IS_FMPI2C_ALL_PERIPH(FMPI2Cx));
+   ^~~~~~~~~~~~
+arm-atollic-eabi-gcc -c ..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_adc.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F446xx -DUSE_STDPERIPH_DRIVER -I../src -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_adc.o 
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_adc.c: In function 'ADC_Init':
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_adc.c:240:3: warning: implicit declaration of function 'assert_param' [-Wimplicit-function-declaration]
+   assert_param(IS_ADC_ALL_PERIPH(ADCx));
+   ^~~~~~~~~~~~
+arm-atollic-eabi-gcc -c ..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F446xx -DUSE_STDPERIPH_DRIVER -I../src -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.o 
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_DeInit':
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:190:3: warning: implicit declaration of function 'assert_param' [-Wimplicit-function-declaration]
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+   ^~~~~~~~~~~~
+In file included from ..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:92:0:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:190:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: note: each undeclared identifier is reported only once for each function it appears in
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:190:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:190:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:190:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:190:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_Init':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:254:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:254:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:254:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:254:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_Cmd':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:430:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:430:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:430:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:430:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_SetPrescaler':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:456:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:456:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:456:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:456:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_OverSampling8Cmd':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:477:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:477:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:477:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:477:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_OneBitMethodCmd':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:503:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:503:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:503:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:503:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_SendData':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:560:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:560:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:560:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:560:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_ReceiveData':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:576:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:576:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:576:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:576:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_SetAddress':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:628:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:628:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:628:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:628:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_ReceiverWakeUpCmd':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:648:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:648:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:648:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:648:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_WakeUpConfig':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:675:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:675:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:675:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:675:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_LINBreakDetectLengthConfig':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:744:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:744:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:744:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:744:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_LINCmd':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:762:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:762:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:762:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:762:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_SendBreak':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:786:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:786:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:786:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:786:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_HalfDuplexCmd':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:839:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:839:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:839:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:839:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_IrDAConfig':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1038:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1038:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1038:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1038:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_IrDACmd':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1056:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1056:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1056:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1056:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_DMACmd':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1102:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1102:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1102:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1102:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_ITConfig':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1236:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1236:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1236:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1236:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_GetFlagStatus':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1299:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1299:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1299:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1299:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_ClearFlag':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1347:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1347:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1347:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1347:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_GetITStatus':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1383:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1383:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1383:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1383:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_ClearITPendingBit':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1456:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1456:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1456:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1456:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+10:54:50 **** Rebuild of configuration Debug for project Test_Nucleo ****
+Info: Internal Builder is used for build
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list .elf 
+Generate build reports...
+Print size information
+arm-atollic-eabi-size: '.elf': No such file
+Print size information done
+Generate listing file
+Output sent to: .list
+Generate listing file done
+Generate build reports done

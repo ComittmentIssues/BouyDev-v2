@@ -1,0 +1,5 @@
+Wind.c:17:6:init_ADC	48	static
+Wind.c:42:10:get_ADC_Val	8	static
+Wind.c:51:7:get_Wind_Direction	16	static
+Wind.c:57:6:init_InputCapture	40	static
+Wind.c:95:6:TIM2_IRQHandler	40	static

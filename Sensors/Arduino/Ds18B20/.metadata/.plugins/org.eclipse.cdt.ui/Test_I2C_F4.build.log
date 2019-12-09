@@ -1,0 +1,607 @@
+10:49:16 **** Incremental Build of configuration Debug for project Test_I2C_F4 ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_crc.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F446xx -DUSE_STDPERIPH_DRIVER -I../src -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_crc.o 
+arm-atollic-eabi-gcc -c ..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_pwr.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F446xx -DUSE_STDPERIPH_DRIVER -I../src -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_pwr.o 
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_pwr.c: In function 'PWR_BackupAccessCmd':
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_pwr.c:186:3: warning: implicit declaration of function 'assert_param' [-Wimplicit-function-declaration]
+   assert_param(IS_FUNCTIONAL_STATE(NewState));
+   ^~~~~~~~~~~~
+arm-atollic-eabi-gcc -c ..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_fmpi2c.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F446xx -DUSE_STDPERIPH_DRIVER -I../src -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_fmpi2c.o 
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_fmpi2c.c: In function 'FMPI2C_DeInit':
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_fmpi2c.c:148:3: warning: implicit declaration of function 'assert_param' [-Wimplicit-function-declaration]
+   assert_param(IS_FMPI2C_ALL_PERIPH(FMPI2Cx));
+   ^~~~~~~~~~~~
+arm-atollic-eabi-gcc -c ..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_adc.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F446xx -DUSE_STDPERIPH_DRIVER -I../src -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_adc.o 
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_adc.c: In function 'ADC_Init':
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_adc.c:240:3: warning: implicit declaration of function 'assert_param' [-Wimplicit-function-declaration]
+   assert_param(IS_ADC_ALL_PERIPH(ADCx));
+   ^~~~~~~~~~~~
+arm-atollic-eabi-gcc -c ..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F446xx -DUSE_STDPERIPH_DRIVER -I../src -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -o Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.o 
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_DeInit':
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:190:3: warning: implicit declaration of function 'assert_param' [-Wimplicit-function-declaration]
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+   ^~~~~~~~~~~~
+In file included from ..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:92:0:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:190:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: note: each undeclared identifier is reported only once for each function it appears in
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:190:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:190:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:190:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:190:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_Init':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:254:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:254:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:254:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:254:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_Cmd':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:430:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:430:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:430:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:430:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_SetPrescaler':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:456:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:456:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:456:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:456:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_OverSampling8Cmd':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:477:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:477:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:477:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:477:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_OneBitMethodCmd':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:503:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:503:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:503:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:503:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_SendData':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:560:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:560:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:560:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:560:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_ReceiveData':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:576:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:576:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:576:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:576:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_SetAddress':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:628:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:628:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:628:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:628:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_ReceiverWakeUpCmd':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:648:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:648:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:648:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:648:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_WakeUpConfig':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:675:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:675:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:675:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:675:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_LINBreakDetectLengthConfig':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:744:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:744:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:744:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:744:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_LINCmd':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:762:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:762:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:762:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:762:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_SendBreak':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:786:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:786:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:786:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:786:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_HalfDuplexCmd':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:839:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:839:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:839:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:839:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_IrDAConfig':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1038:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1038:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1038:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1038:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_IrDACmd':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1056:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1056:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1056:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1056:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_DMACmd':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1102:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1102:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1102:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1102:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_ITConfig':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1236:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1236:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1236:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1236:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_GetFlagStatus':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1299:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1299:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1299:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1299:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_ClearFlag':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1347:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1347:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1347:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1347:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_GetITStatus':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1383:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1383:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1383:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1383:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c: In function 'USART_ClearITPendingBit':
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:116:51: error: 'UART7' undeclared (first use in this function)
+                                      ((PERIPH) == UART7)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1456:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:117:51: error: 'UART8' undeclared (first use in this function)
+                                      ((PERIPH) == UART8)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1456:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:118:51: error: 'UART9' undeclared (first use in this function)
+                                      ((PERIPH) == UART9)  || \
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1456:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_usart.h:119:51: error: 'UART10' undeclared (first use in this function)
+                                      ((PERIPH) == UART10))
+                                                   ^
+..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_usart.c:1456:16: note: in expansion of macro 'IS_USART_ALL_PERIPH'
+   assert_param(IS_USART_ALL_PERIPH(USARTx));
+                ^~~~~~~~~~~~~~~~~~~
+
+10:49:17 Build Finished (took 1s.205ms)
+

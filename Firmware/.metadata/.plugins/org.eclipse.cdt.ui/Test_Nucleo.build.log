@@ -1,0 +1,17 @@
+15:31:48 **** Incremental Build of configuration Debug for project Test_Nucleo ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\src\main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F446xx -I../src -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -o src\main.o 
+arm-atollic-eabi-gcc -o Test_Nucleo.elf src\main.o src\startup_stm32f446xx.o src\system_stm32f4xx.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=Test_Nucleo.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list Test_Nucleo.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+    872	      8	   1052	   1932	    78c	Test_Nucleo.elf
+Print size information done
+Generate listing file
+Output sent to: Test_Nucleo.list
+Generate listing file done
+Generate build reports done
+
+15:31:49 Build Finished (took 574ms)
+

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Move &apos;asdf&apos; to &apos;Drivers&apos;" description="Move &apos;asdf&apos; to &apos;Drivers&apos;" destination="Drivers" element1="asdf" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1567084180715" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;Test_BoschSense_Nucleo/Drivers/asdf&apos; to &apos;F4_SPL_Drivers&apos;" description="Rename resource &apos;asdf&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Drivers/asdf" name="F4_SPL_Drivers" stamp="1567084213240" updateReferences="true"/>
+</session>
