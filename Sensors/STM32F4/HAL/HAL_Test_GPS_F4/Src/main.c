@@ -80,7 +80,6 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -96,9 +95,8 @@ int main(void)
   MX_UART4_Init();
   /* USER CODE BEGIN 2 */
   //enable Idle Line detection
-  __HAL_UART_ENABLE_IT(&huart4, UART_IT_IDLE);	   // peripheral uart trasnfer complete triggered by an idle line
-  __HAL_DMA_ENABLE_IT(&hdma_uart4_rx, DMA_IT_TC); //set handler to trigger when conversion complete
-  hdma_uart4_rx.Instance->CR &= ~DMA_SxCR_HTIE;
+  __HAL_UART_ENABLE_IT(&huart4,UART_IT_IDLE);
+  __HAL_DMA_DISABLE_IT(&hdma_uart4_rx,DMA_IT_TC);
   HAL_UART_Receive_DMA(&huart4,DMA_RX_Buffer,DMA_RX_BUFFER_SIZE);
   /* USER CODE END 2 */
 
@@ -174,7 +172,7 @@ static void MX_UART4_Init(void)
 
   /* USER CODE END UART4_Init 1 */
   huart4.Instance = UART4;
-  huart4.Init.BaudRate = 115200;
+  huart4.Init.BaudRate = 9600;
   huart4.Init.WordLength = UART_WORDLENGTH_8B;
   huart4.Init.StopBits = UART_STOPBITS_1;
   huart4.Init.Parity = UART_PARITY_NONE;
@@ -235,7 +233,54 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void USART_GPS_IRQHandler( UART_HandleTypeDef* huart, DMA_HandleTypeDef* hdma )
+{
+	if(__HAL_UART_GET_IT_SOURCE(huart,UART_IT_IDLE))
+	{
+		//clear the register, disable the stream
+		uint32_t temp = huart->Instance->DR;
+		temp = huart->Instance->SR;
+		(void)temp;
+		//disable the stream
+		hdma->Instance->CR &= ~DMA_SxCR_EN;
 
+	}
+}
+void DMA_Rx_IRQHandler( DMA_HandleTypeDef* hdma, UART_HandleTypeDef* huart )
+{
+	typedef struct
+		{
+			__IO uint32_t ISR;   /*!< DMA interrupt status register */
+			__IO uint32_t Reserved0;
+			__IO uint32_t IFCR;  /*!< DMA interrupt flag clear register */
+		} DMA_Base_Registers;
+
+	if(__HAL_DMA_GET_IT_SOURCE(hdma,DMA_IT_TC))
+	{
+		DMA_Base_Registers *reg  = (DMA_Base_Registers *)hdma->StreamBaseAddress;
+		//clear Transfer complete flag
+		__HAL_DMA_CLEAR_FLAG(hdma,DMA_Rx_Flag_TCF);
+		//get position
+		gnss_length = DMA_RX_BUFFER_SIZE - __HAL_DMA_GET_COUNTER(hdma);
+
+		/*****************************************************************/
+		/*    	     TODO: Additional processing HERE    				 */
+		/*****************************************************************/
+
+
+		/*****************************************************************/
+		/*    	     					end				   				 */
+		/*****************************************************************/
+
+		/* Method to prepare for next DMA transfer*/
+		reg->IFCR = 0x3FU << hdma->StreamIndex; // clear all interrupts
+		hdma->Instance->M0AR = (uint32_t)DMA_RX_Buffer; //reset the pointer
+		hdma->Instance->NDTR = DMA_RX_BUFFER_SIZE; //set the number of bytes to expect
+		hdma->Instance->CR |= DMA_SxCR_EN;            /* Start DMA transfer */
+
+	}
+
+}
 /* USER CODE END 4 */
 
 /**

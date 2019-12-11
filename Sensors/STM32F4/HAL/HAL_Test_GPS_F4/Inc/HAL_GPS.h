@@ -152,6 +152,10 @@ typedef enum{
 
 /* USART Private Macros*/
 
+#define USART_GPS UART4	//defines the nucleo peripheral for UART communication
+
+#define DMA_Rx_Flag_TCF DMA_FLAG_TCIF2_6 //Transfer complete flag for USART Rx DMA stream
+#define DMA_Rx_IT_TCF DMA_IT_TCIF2     //Transfer complete Interrupt for USART Rx DMA stream
 //===========================================================================
 
 
@@ -159,8 +163,8 @@ typedef enum{
 #define STM32_GMEM_USE_DMA	//enables initialization and use of MEM-MEM DMA Transfer
 
 //USART BUFFER lengths
-#define DMA_RX_BUFFER_SIZE          2000
-#define GNSS_LOG_BUFFER_SIZE		2000
+#define DMA_RX_BUFFER_SIZE          500
+#define GNSS_LOG_BUFFER_SIZE		500
 
 
 uint8_t DMA_RX_Buffer[DMA_RX_BUFFER_SIZE];		//large buffer to hold data from GPS
@@ -188,7 +192,7 @@ uint8_t packet_full; //0bx x x x	x T D C		//T = successfully recorded Time
 /*
  * Flag Description:
  *
- * The following flags are used to interrpret the data from the GPS.
+ * The following flags are used to interpret the data from the GPS.
  *
  * The library expects two types of data: Either a UBX message or an NMEA Message
  *
@@ -215,8 +219,14 @@ uint8_t packet_full; //0bx x x x	x T D C		//T = successfully recorded Time
 uint8_t Ack_message, Recieve_GPS_Data; //flags to show Micro how to deal with incoming messages
 
 //=============================================================================================
+/* private peripheral handlers*/
 
+/*
+ * These instances are used to handle data coming to and from peripherals
+ */
 
+//=============================================================================================
+uint8_t init_GPS(void);
 extern void USART_GPS_IRQHandler( UART_HandleTypeDef* huart, DMA_HandleTypeDef* hdma );
 extern void DMA_Rx_IRQHandler( DMA_HandleTypeDef* hdma, UART_HandleTypeDef* huart );
 #endif /* HAL_GPS_H_ */
