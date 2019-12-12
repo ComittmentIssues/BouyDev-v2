@@ -164,10 +164,12 @@ typedef enum{
 
 //USART BUFFER lengths
 #define DMA_RX_BUFFER_SIZE          500
+#define DMA_TX_BUFFER_SIZE			500
 #define GNSS_LOG_BUFFER_SIZE		500
 
 
 uint8_t DMA_RX_Buffer[DMA_RX_BUFFER_SIZE];		//large buffer to hold data from GPS
+uint8_t DMA_TX_Buffer[DMA_TX_BUFFER_SIZE];		//large buffer for transmitting to device
 uint8_t GNSS_LOG_Buffer[GNSS_LOG_BUFFER_SIZE];  //large buffer for logging to SD Card
 //==========================================================================================
 
@@ -229,4 +231,5 @@ uint8_t Ack_message, Recieve_GPS_Data; //flags to show Micro how to deal with in
 uint8_t init_GPS(void);
 extern void USART_GPS_IRQHandler( UART_HandleTypeDef* huart, DMA_HandleTypeDef* hdma );
 extern void DMA_Rx_IRQHandler( DMA_HandleTypeDef* hdma, UART_HandleTypeDef* huart );
+extern void DMA_Tx_IRQHandler( DMA_HandleTypeDef* hdma, UART_HandleTypeDef* huart );
 #endif /* HAL_GPS_H_ */

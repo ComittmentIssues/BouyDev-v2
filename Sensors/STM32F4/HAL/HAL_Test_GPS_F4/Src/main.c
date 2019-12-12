@@ -44,6 +44,7 @@
 /* Private variables ---------------------------------------------------------*/
 UART_HandleTypeDef huart4;
 DMA_HandleTypeDef hdma_uart4_rx;
+DMA_HandleTypeDef hdma_uart4_tx;
 
 /* USER CODE BEGIN PV */
 
@@ -97,12 +98,63 @@ int main(void)
   //enable Idle Line detection
   __HAL_UART_ENABLE_IT(&huart4,UART_IT_IDLE);
   __HAL_DMA_DISABLE_IT(&hdma_uart4_rx,DMA_IT_TC);
-  HAL_UART_Receive_DMA(&huart4,DMA_RX_Buffer,DMA_RX_BUFFER_SIZE);
+
+  //send acknowledgement
+ uint8_t ubx_ack_string[] = {0xB5 ,0x62 ,0x06 ,0x09 ,0x0D ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0xFF ,0xFF ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x17 ,0x31 ,0xBF };
+ int size = (sizeof(ubx_ack_string)/sizeof(*ubx_ack_string));
+ for (int i = 0; i < size ; ++i)
+ {
+	DMA_TX_Buffer[i] = ubx_ack_string[i];
+ }
+
+ HAL_UART_Receive_DMA(&huart4,DMA_RX_Buffer,DMA_RX_BUFFER_SIZE);
+ HAL_UART_Transmit_DMA(&huart4,DMA_TX_Buffer,size);
+ char msg [10];
+ for (int i = 0; i < 10; ++i)
+ {
+ 	 msg[i] = DMA_RX_Buffer[i];
+ }
+ UBX_MSG_t GPS_Acknowledgement_State;
+ uint16_t header = ((uint16_t)msg[0]<<8) | ((uint16_t)msg[1]);
+ if(header == 0xb562)
+ {
+	 uint8_t ck_A =0, ck_B =0;
+	 for (int i = 2; i < 8; ++i)
+	 {
+	 	ck_A += (uint8_t)msg[i];
+	 	ck_B += ck_A;
+	 }
+	 if((ck_A == msg[8])&& (ck_B == msg[9]))
+	 {
+	 	//acknowledgement
+	 	if(msg[2] == 0x05)
+	 	{
+	 		switch (msg[3])
+	 		{
+	 			case 0:
+	 			GPS_Acknowledgement_State = UBX_ACK_NACK;
+	 			break;
+	 			case 1:
+	 			GPS_Acknowledgement_State = UBX_ACK_ACK;
+	 			break;
+	 		}
+	 	}
+	 }
+	 else
+	 {
+	 	GPS_Acknowledgement_State = UBX_ERROR;
+	 }
+ }
+// validate message
+
+
+
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_5, GPIO_PIN_SET);
+
   while (1)
   {
     /* USER CODE END WHILE */
@@ -202,6 +254,9 @@ static void MX_DMA_Init(void)
   /* DMA1_Stream2_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Stream2_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Stream2_IRQn);
+  /* DMA1_Stream4_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Stream4_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream4_IRQn);
 
 }
 
@@ -233,6 +288,13 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void USART_clear_Buffer(uint8_t* buffer, uint32_t size)
+{
+	for (int i = 0; i < size; ++i)
+	{
+		buffer[i] = 0;
+	}
+}
 void USART_GPS_IRQHandler( UART_HandleTypeDef* huart, DMA_HandleTypeDef* hdma )
 {
 	if(__HAL_UART_GET_IT_SOURCE(huart,UART_IT_IDLE))
@@ -280,6 +342,11 @@ void DMA_Rx_IRQHandler( DMA_HandleTypeDef* hdma, UART_HandleTypeDef* huart )
 
 	}
 
+}
+void HAL_UART_TxHalfCpltCallback(UART_HandleTypeDef *huart)
+{
+	//clear TX Buffer
+	USART_clear_Buffer(DMA_TX_Buffer,DMA_TX_BUFFER_SIZE);
 }
 /* USER CODE END 4 */
 
