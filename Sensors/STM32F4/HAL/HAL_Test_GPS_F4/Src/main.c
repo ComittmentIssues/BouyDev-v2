@@ -100,60 +100,12 @@ int main(void)
   __HAL_DMA_DISABLE_IT(&hdma_uart4_rx,DMA_IT_TC);
 
   //send acknowledgement
- uint8_t ubx_ack_string[] = {0xB5 ,0x62 ,0x06 ,0x09 ,0x0D ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0xFF ,0xFF ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x17 ,0x31 ,0xBF };
- int size = (sizeof(ubx_ack_string)/sizeof(*ubx_ack_string));
- for (int i = 0; i < size ; ++i)
+ UBX_MSG_t ack_state = UBX_Send_Ack();
+ if(ack_state == UBX_ACK_ACK)
  {
-	DMA_TX_Buffer[i] = ubx_ack_string[i];
+	 HAL_GPIO_WritePin(GPIOA,LD2_Pin, GPIO_PIN_SET);
  }
-
- HAL_UART_Transmit_DMA(&huart4,DMA_TX_Buffer,size);
- HAL_UART_Receive_DMA(&huart4,DMA_RX_Buffer,DMA_RX_BUFFER_SIZE);
-
- while(!RX_COMPLETE_FLAG);
- //wait for Rx to complete
- char msg [10];
- for (int i = 0; i < 10; ++i)
- {
- 	 msg[i] = DMA_RX_Buffer[i];
- }
- UBX_MSG_t GPS_Acknowledgement_State;
- uint16_t header = ((uint16_t)msg[0]<<8) | ((uint16_t)msg[1]);
- if(header == 0xb562)
- {
-	 uint8_t ck_A =0, ck_B =0;
-	 for (int i = 2; i < 8; ++i)
-	 {
-	 	ck_A += (uint8_t)msg[i];
-	 	ck_B += ck_A;
-	 }
-	 if((ck_A == msg[8])&& (ck_B == msg[9]))
-	 {
-	 	//acknowledgement
-	 	if(msg[2] == 0x05)
-	 	{
-	 		switch (msg[3])
-	 		{
-	 			case 0:
-	 			GPS_Acknowledgement_State = UBX_ACK_NACK;
-	 			break;
-	 			case 1:
-	 			GPS_Acknowledgement_State = UBX_ACK_ACK;
-	 			break;
-	 		}
-	 	}
-	 }
-	 else
-	 {
-	 	GPS_Acknowledgement_State = UBX_ERROR;
-	 }
- }
-// validate message
-
-
-
-
-  /* USER CODE END 2 */
+ /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
@@ -291,6 +243,59 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+UBX_MSG_t UBX_Send_Ack(void)
+{
+	uint8_t ubx_ack_string[] = {0xB5 ,0x62 ,0x06 ,0x09 ,0x0D ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0xFF ,0xFF ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x17 ,0x31 ,0xBF };
+	 int size = (sizeof(ubx_ack_string)/sizeof(*ubx_ack_string));
+	 for (int i = 0; i < size ; ++i)
+	 {
+		DMA_TX_Buffer[i] = ubx_ack_string[i];
+	 }
+
+	 HAL_UART_Transmit_DMA(&huart4,DMA_TX_Buffer,size);
+	 HAL_UART_Receive_DMA(&huart4,DMA_RX_Buffer,DMA_RX_BUFFER_SIZE);
+
+	 while(!RX_COMPLETE_FLAG);
+	 //wait for Rx to complete
+	 char msg [10];
+	 for (int i = 0; i < 10; ++i)
+	 {
+	 	 msg[i] = DMA_RX_Buffer[i];
+	 }
+	 UBX_MSG_t GPS_Acknowledgement_State;
+	 uint16_t header = ((uint16_t)msg[0]<<8) | ((uint16_t)msg[1]);
+	 if(header == 0xb562)
+	 {
+		 uint8_t ck_A =0, ck_B =0;
+		 for (int i = 2; i < 8; ++i)
+		 {
+		 	ck_A += (uint8_t)msg[i];
+		 	ck_B += ck_A;
+		 }
+		 if((ck_A == msg[8])&& (ck_B == msg[9]))
+		 {
+		 	//acknowledgement
+		 	if(msg[2] == 0x05)
+		 	{
+		 		switch (msg[3])
+		 		{
+		 			case 0:
+		 			GPS_Acknowledgement_State = UBX_ACK_NACK;
+		 			break;
+		 			case 1:
+		 			GPS_Acknowledgement_State = UBX_ACK_ACK;
+		 			break;
+		 		}
+		 	}
+		 }
+		 else
+		 {
+		 	GPS_Acknowledgement_State = UBX_ERROR;
+		 }
+	 }
+	 return GPS_Acknowledgement_State;
+}
 void USART_clear_Buffer(uint8_t* buffer, uint32_t size)
 {
 	for (int i = 0; i < size; ++i)
