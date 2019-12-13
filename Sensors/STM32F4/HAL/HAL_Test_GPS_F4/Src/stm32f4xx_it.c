@@ -206,11 +206,11 @@ void SysTick_Handler(void)
 void DMA1_Stream2_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA1_Stream2_IRQn 0 */
-  DMA_Rx_IRQHandler(&hdma_uart4_rx,&huart4);
-  /* USER CODE END DMA1_Stream2_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_uart4_rx);
-  /* USER CODE BEGIN DMA1_Stream2_IRQn 1 */
 
+  /* USER CODE END DMA1_Stream2_IRQn 0 */
+  //HAL_DMA_IRQHandler(&hdma_uart4_rx);
+  /* USER CODE BEGIN DMA1_Stream2_IRQn 1 */
+  DMA_Rx_IRQHandler(&hdma_uart4_rx,&huart4);
   /* USER CODE END DMA1_Stream2_IRQn 1 */
 }
 
@@ -223,7 +223,7 @@ void DMA1_Stream4_IRQHandler(void)
   /* USER CODE END DMA1_Stream4_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_uart4_tx);
   /* USER CODE BEGIN DMA1_Stream4_IRQn 1 */
-
+  //DMA_Tx_IRQHandler(&hdma_uart4_tx, &huart4);
   /* USER CODE END DMA1_Stream4_IRQn 1 */
 }
 
@@ -235,7 +235,7 @@ void UART4_IRQHandler(void)
   /* USER CODE BEGIN UART4_IRQn 0 */
 	USART_GPS_IRQHandler(&huart4,&hdma_uart4_rx);
   /* USER CODE END UART4_IRQn 0 */
-  HAL_UART_IRQHandler(&huart4);
+	//HAL_UART_IRQHandler(&huart4);
   /* USER CODE BEGIN UART4_IRQn 1 */
 
   /* USER CODE END UART4_IRQn 1 */

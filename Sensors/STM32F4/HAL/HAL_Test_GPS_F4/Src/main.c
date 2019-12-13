@@ -107,8 +107,11 @@ int main(void)
 	DMA_TX_Buffer[i] = ubx_ack_string[i];
  }
 
- HAL_UART_Receive_DMA(&huart4,DMA_RX_Buffer,DMA_RX_BUFFER_SIZE);
  HAL_UART_Transmit_DMA(&huart4,DMA_TX_Buffer,size);
+ HAL_UART_Receive_DMA(&huart4,DMA_RX_Buffer,DMA_RX_BUFFER_SIZE);
+
+ while(!RX_COMPLETE_FLAG);
+ //wait for Rx to complete
  char msg [10];
  for (int i = 0; i < 10; ++i)
  {
@@ -295,6 +298,7 @@ void USART_clear_Buffer(uint8_t* buffer, uint32_t size)
 		buffer[i] = 0;
 	}
 }
+
 void USART_GPS_IRQHandler( UART_HandleTypeDef* huart, DMA_HandleTypeDef* hdma )
 {
 	if(__HAL_UART_GET_IT_SOURCE(huart,UART_IT_IDLE))
@@ -308,6 +312,7 @@ void USART_GPS_IRQHandler( UART_HandleTypeDef* huart, DMA_HandleTypeDef* hdma )
 
 	}
 }
+
 void DMA_Rx_IRQHandler( DMA_HandleTypeDef* hdma, UART_HandleTypeDef* huart )
 {
 	typedef struct
@@ -328,7 +333,7 @@ void DMA_Rx_IRQHandler( DMA_HandleTypeDef* hdma, UART_HandleTypeDef* huart )
 		/*****************************************************************/
 		/*    	     TODO: Additional processing HERE    				 */
 		/*****************************************************************/
-
+		RX_COMPLETE_FLAG = 1;
 
 		/*****************************************************************/
 		/*    	     					end				   				 */
@@ -343,10 +348,41 @@ void DMA_Rx_IRQHandler( DMA_HandleTypeDef* hdma, UART_HandleTypeDef* huart )
 	}
 
 }
-void HAL_UART_TxHalfCpltCallback(UART_HandleTypeDef *huart)
-{
+
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
+{	//disable  TX transfer stream
+
 	//clear TX Buffer
 	USART_clear_Buffer(DMA_TX_Buffer,DMA_TX_BUFFER_SIZE);
+
+	//disable Tx stream
+	huart->hdmatx->Instance->CR &= ~DMA_SxCR_EN;
+}
+void DMA_Tx_IRQHandler(DMA_HandleTypeDef* hdma, UART_HandleTypeDef* huart)
+{
+	typedef struct
+			{
+				__IO uint32_t ISR;   /*!< DMA interrupt status register */
+				__IO uint32_t Reserved0;
+				__IO uint32_t IFCR;  /*!< DMA interrupt flag clear register */
+			} DMA_Base_Registers;
+
+		if(__HAL_DMA_GET_IT_SOURCE(hdma,DMA_IT_TC))
+		{
+			DMA_Base_Registers *reg  = (DMA_Base_Registers *)hdma->StreamBaseAddress;
+			//clear Transfer complete flag
+			__HAL_DMA_CLEAR_FLAG(hdma,DMA_Rx_Flag_TCF);
+
+			//set Rx flag to show ready for data recieve
+			GPS_tx_Complete = 1;
+
+			/* Method to prepare for next DMA transfer*/
+			reg->IFCR = 0x3FU << hdma->StreamIndex; // clear all interrupts
+			hdma->Instance->M0AR = (uint32_t)DMA_TX_Buffer; //reset the pointer
+			hdma->Instance->NDTR = DMA_RX_BUFFER_SIZE; //set the number of bytes to expect
+			//hdma->Instance->CR |= DMA_SxCR_EN;            /* Start DMA transfer */
+		}
+
 }
 /* USER CODE END 4 */
 

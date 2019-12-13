@@ -188,6 +188,7 @@ Diagnostic_t diag;		//storage variable for Diagnostic information
 //===========================================================================================
 
 /* private flag*/
+
 uint8_t packet_full; //0bx x x x	x T D C		//T = successfully recorded Time
 												//D = successfully recorded diagnostic
 												//C = successfully recorded coordinate
@@ -217,8 +218,9 @@ uint8_t packet_full; //0bx x x x	x T D C		//T = successfully recorded Time
  * Name..................Description
  * Ack_message...........Tells system it is about to read a UBX message
  * Recieve_GPS_Data .....Tells system it is about to read an NMEA message
+ * GPS_tx_Complete...........Tells system that message has been transfered successfully
  */
-uint8_t Ack_message, Recieve_GPS_Data; //flags to show Micro how to deal with incoming messages
+uint8_t Ack_message, Recieve_GPS_Data,GPS_tx_Complete; //flags to show Micro how to deal with incoming messages
 
 //=============================================================================================
 /* private peripheral handlers*/
