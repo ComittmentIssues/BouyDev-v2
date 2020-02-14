@@ -236,7 +236,7 @@ void DMA2_Channel5_IRQHandler(void)
   /* USER CODE BEGIN DMA2_Channel5_IRQn 0 */
 	DMA_Rx_IRQHandler(&hdma_uart4_rx,&huart4);
   /* USER CODE END DMA2_Channel5_IRQn 0 */
-  //HAL_DMA_IRQHandler(&hdma_uart4_rx);
+  HAL_DMA_IRQHandler(&hdma_uart4_rx);
   /* USER CODE BEGIN DMA2_Channel5_IRQn 1 */
 
   /* USER CODE END DMA2_Channel5_IRQn 1 */

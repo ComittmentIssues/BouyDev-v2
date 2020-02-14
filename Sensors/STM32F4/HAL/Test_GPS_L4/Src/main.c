@@ -97,10 +97,10 @@ int main(void)
   MX_UART4_Init();
   /* USER CODE BEGIN 2 */
   __HAL_DMA_ENABLE_IT(&hdma_uart4_rx, DMA_IT_TC);
-
   UBX_MSG_t ack_state = UBX_Send_Ack();
    if(ack_state == UBX_ACK_ACK)
    {
+	 uint32_t baud = huart4.Init.BaudRate;
   	 HAL_GPIO_WritePin(GPIOA,LD2_Pin, GPIO_PIN_SET);
    }
 
@@ -112,7 +112,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  i++;
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -178,13 +178,11 @@ void SystemClock_Config(void)
   */
 static void MX_UART4_Init(void)
 {
-
   /* USER CODE BEGIN UART4_Init 0 */
 
   /* USER CODE END UART4_Init 0 */
 
   /* USER CODE BEGIN UART4_Init 1 */
-
   /* USER CODE END UART4_Init 1 */
   huart4.Instance = UART4;
   huart4.Init.BaudRate = 9600;
@@ -201,7 +199,6 @@ static void MX_UART4_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN UART4_Init 2 */
-
   /* USER CODE END UART4_Init 2 */
 
 }
@@ -266,10 +263,11 @@ void  USART_GPS_IRQHandler( UART_HandleTypeDef* huart, DMA_HandleTypeDef* hdma )
 		__HAL_UART_CLEAR_FLAG(huart, UART_FLAG_IDLE);
 		//calculate array length
 		gnss_length = DMA_RX_BUFFER_SIZE - __HAL_DMA_GET_COUNTER(hdma);
-
-
-		old_gnss_length = gnss_length;
-
+		if((huart->Instance->ISR & USART_ISR_RTOF) == 1)
+		{
+			//timeout has occured
+			__NOP();
+		}
 	}
 }
 
@@ -301,7 +299,7 @@ void DMA_Rx_IRQHandler( DMA_HandleTypeDef* hdma, UART_HandleTypeDef* huart )
 	}
 
 }
-/* USER CODE END 4 */
+
 UBX_MSG_t UBX_Send_Ack(void)
 {
 	uint8_t ubx_ack_string[] = {0xB5 ,0x62 ,0x06 ,0x09 ,0x0D ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0xFF ,0xFF ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x17 ,0x31 ,0xBF };
@@ -312,9 +310,16 @@ UBX_MSG_t UBX_Send_Ack(void)
 	 }
 
 	 HAL_UART_Transmit_DMA(&huart4,DMA_TX_Buffer,size);
-	 HAL_UART_Receive_DMA(&huart4,DMA_RX_Buffer,DMA_RX_BUFFER_SIZE);
-
-	 while(!RX_COMPLETE_FLAG);
+	 HAL_UART_Receive_DMA(&huart4,DMA_RX_Buffer,10);
+	 uint32_t count = HAL_GetTick();
+	 while(!RX_COMPLETE_FLAG)
+	 {
+		 uint32_t temp_tick = HAL_GetTick();
+		 if((temp_tick - count) == 100)
+		 {
+			 return UBX_ERROR;
+		 }
+	 }
 	 //wait for Rx to complete
 	 char msg [10];
 	 for (int i = 0; i < 10; ++i)
@@ -354,6 +359,8 @@ UBX_MSG_t UBX_Send_Ack(void)
 	 }
 	 return GPS_Acknowledgement_State;
 }
+/* USER CODE END 4 */
+
 /**
   * @brief  This function is executed in case of error occurrence.
   * @retval None
