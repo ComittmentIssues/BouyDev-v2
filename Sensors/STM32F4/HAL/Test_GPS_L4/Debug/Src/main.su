@@ -1,0 +1,9 @@
+main.c:71:5:main	16	static
+main.c:125:6:SystemClock_Config	232	static
+main.c:179:13:MX_UART4_Init	8	static
+main.c:209:13:MX_DMA_Init	16	static
+main.c:230:13:MX_GPIO_Init	48	static
+main.c:261:7:USART_GPS_IRQHandler	16	static
+main.c:266:6:DMA_Rx_IRQHandler	16	static
+main.c:295:11:UBX_Send_Ack	80	static
+main.c:363:6:Error_Handler	4	static
