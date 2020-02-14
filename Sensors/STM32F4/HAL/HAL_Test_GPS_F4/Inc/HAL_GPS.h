@@ -234,7 +234,4 @@ uint8_t init_GPS(void);
 extern void USART_GPS_IRQHandler( UART_HandleTypeDef* huart, DMA_HandleTypeDef* hdma );
 extern void DMA_Rx_IRQHandler( DMA_HandleTypeDef* hdma, UART_HandleTypeDef* huart );
 extern void DMA_Tx_IRQHandler( DMA_HandleTypeDef* hdma, UART_HandleTypeDef* huart );
-
-/* UBX Functions*/
-UBX_MSG_t UBX_Send_Ack(void);
 #endif /* HAL_GPS_H_ */
