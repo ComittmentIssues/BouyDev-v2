@@ -97,6 +97,7 @@ int main(void)
   MX_UART4_Init();
   /* USER CODE BEGIN 2 */
   __HAL_DMA_ENABLE_IT(&hdma_uart4_rx, DMA_IT_TC);
+  __HAL_UART_ENABLE_IT(&huart4,UART_IT_IDLE);
   UBX_MSG_t ack_state = UBX_Send_Ack();
    if(ack_state == UBX_ACK_ACK)
    {
@@ -178,6 +179,7 @@ void SystemClock_Config(void)
   */
 static void MX_UART4_Init(void)
 {
+
   /* USER CODE BEGIN UART4_Init 0 */
 
   /* USER CODE END UART4_Init 0 */
@@ -199,6 +201,24 @@ static void MX_UART4_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN UART4_Init 2 */
+  // clear any additional errors
+  		if(__HAL_UART_GET_FLAG(&huart4,UART_FLAG_PE))
+  		{
+  			__HAL_UART_CLEAR_FLAG(&huart4,UART_FLAG_PE);
+  		}
+  		if(__HAL_UART_GET_FLAG(&huart4,UART_FLAG_NE))
+  		{
+  			__HAL_UART_CLEAR_FLAG(&huart4,UART_FLAG_NE);
+  		}
+  		if(__HAL_UART_GET_FLAG(&huart4,UART_FLAG_FE))
+  		{
+  			__HAL_UART_CLEAR_FLAG(&huart4,UART_FLAG_FE);
+  		}
+  		if(__HAL_UART_GET_FLAG(&huart4,UART_FLAG_ORE))
+  		{
+  			__HAL_UART_CLEAR_FLAG(&huart4,UART_FLAG_ORE);
+  		}
+  		__HAL_UART_CLEAR_FLAG(&huart4,UART_FLAG_IDLE);
   /* USER CODE END UART4_Init 2 */
 
 }
@@ -260,14 +280,26 @@ void  USART_GPS_IRQHandler( UART_HandleTypeDef* huart, DMA_HandleTypeDef* hdma )
 {
 	if(__HAL_UART_GET_IT_SOURCE(huart,UART_IT_IDLE))
 	{
-		__HAL_UART_CLEAR_FLAG(huart, UART_FLAG_IDLE);
-		//calculate array length
-		gnss_length = DMA_RX_BUFFER_SIZE - __HAL_DMA_GET_COUNTER(hdma);
-		if((huart->Instance->ISR & USART_ISR_RTOF) == 1)
-		{
-			//timeout has occured
-			__NOP();
-		}
+
+		//clears IDLE AND OVERRUN ERROR FLAG
+		uint32_t temp  = huart->Instance->RDR;
+		temp = huart->Instance->ISR;
+		(void)temp;
+
+
+
+
+
+		//clear DMA stream
+		//This code overcomes the errata in the DMA where
+		//all three Transfer flags active causes the DMA Channel
+		//To become disabled
+		hdma->Instance->CCR |= DMA_CCR_EN;
+		hdma->DmaBaseAddress->ISR &= ~(DMA_Rx_ISR_HTF| DMA_Rx_ISR_TE);
+		hdma->DmaBaseAddress->ISR |= DMA_Rx_ISR_TCF;
+		hdma->Instance->CCR &= ~DMA_CCR_EN;
+
+
 	}
 }
 
@@ -277,7 +309,6 @@ void DMA_Rx_IRQHandler( DMA_HandleTypeDef* hdma, UART_HandleTypeDef* huart )
 
 	if(__HAL_DMA_GET_IT_SOURCE(hdma,DMA_IT_TC))
 	{
-
 		//clear Transfer complete flag
 		__HAL_DMA_CLEAR_FLAG(hdma,DMA_Rx_Flag_TCF);
 		//get position
@@ -309,16 +340,19 @@ UBX_MSG_t UBX_Send_Ack(void)
 		DMA_TX_Buffer[i] = ubx_ack_string[i];
 	 }
 
-	 HAL_UART_Transmit_DMA(&huart4,DMA_TX_Buffer,size);
-	 HAL_UART_Receive_DMA(&huart4,DMA_RX_Buffer,10);
+	 if(HAL_UART_Transmit_DMA(&huart4,DMA_TX_Buffer,size)== HAL_OK)
+	 {
+		 HAL_UART_Receive_DMA(&huart4,DMA_RX_Buffer,DMA_RX_BUFFER_SIZE);
+	 }
+
 	 uint32_t count = HAL_GetTick();
 	 while(!RX_COMPLETE_FLAG)
 	 {
-		 uint32_t temp_tick = HAL_GetTick();
-		 if((temp_tick - count) == 100)
-		 {
-			 return UBX_ERROR;
-		 }
+//		 uint32_t temp_tick = HAL_GetTick();
+//		 if((temp_tick - count) == 100)
+//		 {
+//			 return UBX_ERROR;
+//		 }
 	 }
 	 //wait for Rx to complete
 	 char msg [10];

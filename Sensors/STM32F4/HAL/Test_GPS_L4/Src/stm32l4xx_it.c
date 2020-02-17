@@ -206,9 +206,36 @@ void SysTick_Handler(void)
 void UART4_IRQHandler(void)
 {
   /* USER CODE BEGIN UART4_IRQn 0 */
-	//USART_GPS_IRQHandler(&huart4,&hdma_uart4_rx);
+ USART_GPS_IRQHandler(&huart4,&hdma_uart4_rx);
   /* USER CODE END UART4_IRQn 0 */
-  HAL_UART_IRQHandler(&huart4);
+ // HAL_UART_IRQHandler(&huart4);
+ if(RX_COMPLETE_FLAG)
+ 		{
+	 	 	uint32_t temp  = READ_REG(huart4.Instance->ISR);
+	 		temp =  READ_REG(huart4.Instance->ISR);
+ 			__HAL_UART_DISABLE_IT(&huart4, UART_IT_IDLE);
+ 			CLEAR_BIT(huart4.Instance->CR1, (USART_CR1_RXNEIE | USART_CR1_PEIE));
+ 			CLEAR_BIT(huart4.Instance->CR3, USART_CR3_EIE);
+ 			huart4.Instance->ICR = 0xFFFF;
+ 			if(__HAL_UART_GET_FLAG(&huart4,UART_FLAG_ORE))
+ 			{
+ 				__HAL_UART_CLEAR_FLAG(&huart4,UART_FLAG_ORE);
+ 			}
+ 			// clear any additional errors
+ 			if(__HAL_UART_GET_FLAG(&huart4,UART_FLAG_PE))
+ 			{
+ 				__HAL_UART_CLEAR_FLAG(&huart4,UART_FLAG_PE);
+ 			}
+ 			if(__HAL_UART_GET_FLAG(&huart4,UART_FLAG_NE))
+ 			{
+ 				__HAL_UART_CLEAR_FLAG(&huart4,UART_FLAG_NE);
+ 			}
+ 			if(__HAL_UART_GET_FLAG(&huart4,UART_FLAG_FE))
+ 			{
+ 				__HAL_UART_CLEAR_FLAG(&huart4,UART_FLAG_FE);
+ 			}
+ 		}
+
   /* USER CODE BEGIN UART4_IRQn 1 */
 
   /* USER CODE END UART4_IRQn 1 */
@@ -224,6 +251,7 @@ void DMA2_Channel3_IRQHandler(void)
   /* USER CODE END DMA2_Channel3_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_uart4_tx);
   /* USER CODE BEGIN DMA2_Channel3_IRQn 1 */
+  //disable HDMA channel and clear intterupts
 
   /* USER CODE END DMA2_Channel3_IRQn 1 */
 }
@@ -236,7 +264,7 @@ void DMA2_Channel5_IRQHandler(void)
   /* USER CODE BEGIN DMA2_Channel5_IRQn 0 */
 	DMA_Rx_IRQHandler(&hdma_uart4_rx,&huart4);
   /* USER CODE END DMA2_Channel5_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_uart4_rx);
+  //HAL_DMA_IRQHandler(&hdma_uart4_rx);
   /* USER CODE BEGIN DMA2_Channel5_IRQn 1 */
 
   /* USER CODE END DMA2_Channel5_IRQn 1 */
