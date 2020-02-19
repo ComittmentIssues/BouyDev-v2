@@ -331,6 +331,33 @@ void DMA_Rx_IRQHandler( DMA_HandleTypeDef* hdma, UART_HandleTypeDef* huart )
 
 }
 
+void HAL_USART_Error_Handle(UART_HandleTypeDef *huart)
+{
+	uint32_t temp  = READ_REG(huart->Instance->ISR);
+		 		temp =  READ_REG(huart->Instance->ISR);
+		 		(void)temp;
+	 			__HAL_UART_DISABLE_IT(huart, UART_IT_IDLE);
+	 			CLEAR_BIT(huart->Instance->CR1, (USART_CR1_RXNEIE | USART_CR1_PEIE));
+	 			CLEAR_BIT(huart->Instance->CR3, USART_CR3_EIE);
+	 			huart4.Instance->ICR = 0xFFFF;
+	 			if(__HAL_UART_GET_FLAG(huart,UART_FLAG_ORE))
+	 			{
+	 				__HAL_UART_CLEAR_FLAG(huart,UART_FLAG_ORE);
+	 			}
+	 			// clear any additional errors
+	 			if(__HAL_UART_GET_FLAG(huart,UART_FLAG_PE))
+	 			{
+	 				__HAL_UART_CLEAR_FLAG(huart,UART_FLAG_PE);
+	 			}
+	 			if(__HAL_UART_GET_FLAG(huart,UART_FLAG_NE))
+	 			{
+	 				__HAL_UART_CLEAR_FLAG(huart,UART_FLAG_NE);
+	 			}
+	 			if(__HAL_UART_GET_FLAG(huart,UART_FLAG_FE))
+	 			{
+	 				__HAL_UART_CLEAR_FLAG(huart,UART_FLAG_FE);
+	 			}
+}
 UBX_MSG_t UBX_Send_Ack(void)
 {
 	uint8_t ubx_ack_string[] = {0xB5 ,0x62 ,0x06 ,0x09 ,0x0D ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0xFF ,0xFF ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x17 ,0x31 ,0xBF };
