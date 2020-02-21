@@ -111,16 +111,16 @@ int main(void)
 	 //GPS is configured for 9600, change baud to 115200
 	 uint8_t ubx_baude_rate_config[] = {0xB5,0x62,0x06,0x00,0x14,0x00,0x01,0x00,0x00,0x00,0xD0,0x08,0x00,0x00,0x00,0xC2,0x01,0x00,0x07,0x00,0x03,0x00,0x00,0x00,0x00,0x00,0xC0,0x7E};
 	 uint8_t ubx_poll_config[] = {0xB5, 0x62, 0x06, 0x00, 0x01, 0x00, 0x01, 0x08, 0x22};
-	 uint32_t size =  sizeof(ubx_poll_config)/sizeof(ubx_baude_rate_config[0]);
-	 memcpy(DMA_TX_Buffer,ubx_poll_config,size);
+	 uint32_t size =  sizeof(ubx_baude_rate_config)/sizeof(ubx_baude_rate_config[0]);
+	 memcpy(DMA_TX_Buffer,ubx_baude_rate_config,size);
 	 //Send poll request
 	 HAL_USART_Error_Handle(&huart4);
-	 __HAL_UART_ENABLE_IT(&huart4, UART_IT_IDLE);
 	 if(HAL_UART_Transmit_DMA(&huart4,DMA_TX_Buffer,size) == HAL_OK)
 	 {
+		 __HAL_UART_ENABLE_IT(&huart4,UART_IT_IDLE);
 		 HAL_UART_Receive_DMA(&huart4,DMA_RX_Buffer,DMA_RX_BUFFER_SIZE);
-		 while(!RX_COMPLETE_FLAG);
-		 Clear_Buffer(DMA_TX_Buffer,DMA_TX_BUFFER_SIZE);
+		while(!RX_COMPLETE_FLAG);
+		Clear_Buffer(DMA_TX_Buffer,DMA_TX_BUFFER_SIZE);
 	 }
    }
 
@@ -362,10 +362,14 @@ void  USART_GPS_IRQHandler( UART_HandleTypeDef* huart, DMA_HandleTypeDef* hdma )
 
 
 	}
+	//Tx USART_Handler
 	if(__HAL_UART_GET_IT(huart,UART_IT_TC))
 	{
 		//clear flag
 		__HAL_UART_CLEAR_FLAG(huart,UART_FLAG_TC);
+		//disable DMA
+		TX_COMPLETE_FLAG = 1;
+		Clear_Buffer(DMA_TX_Buffer,DMA_TX_BUFFER_SIZE);
 		CLEAR_BIT(huart->Instance->CR3, USART_CR3_DMAT);
 		huart->gState = HAL_UART_STATE_READY;
 	}
@@ -445,7 +449,7 @@ UBX_MSG_t UBX_Send_Ack(void)
 	 if(HAL_UART_Transmit_DMA(&huart4,DMA_TX_Buffer,size)== HAL_OK)
 	 {
 		 HAL_UART_Receive_DMA(&huart4,DMA_RX_Buffer,DMA_RX_BUFFER_SIZE);
-		 USART_Begin_Timeout(&htim5,10000);
+		 USART_Begin_Timeout(&htim5,1000);
 	 }else
 	 {
 		 return UBX_TIMEOUT_Tx;

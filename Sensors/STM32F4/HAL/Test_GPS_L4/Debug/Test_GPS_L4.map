@@ -671,36 +671,36 @@ LOAD c:/program files (x86)/atollic/truestudio for stm32 9.0.0/armtools/bin/../l
                 0x0800e1c2                HAL_UARTEx_EnableStopMode
                 0x0800e206                HAL_UARTEx_DisableStopMode
  *fill*         0x0800e28e        0x2 
- .text          0x0800e290      0x8b4 Src\main.o
+ .text          0x0800e290      0x8cc Src\main.o
                 0x0800e290                main
                 0x0800e368                SystemClock_Config
                 0x0800e6cc                USART_GPS_IRQHandler
-                0x0800e782                DMA_Rx_IRQHandler
-                0x0800e808                HAL_USART_Error_Handle
-                0x0800e8c4                UBX_Send_Ack
-                0x0800eaa4                USART_GPS_Timout_Handler
-                0x0800eacc                USART_Begin_Timeout
-                0x0800eb00                Clear_Buffer
-                0x0800eb34                Error_Handler
- .text          0x0800eb44      0x268 Src\stm32l4xx_hal_msp.o
-                0x0800eb44                HAL_MspInit
-                0x0800eb8c                HAL_TIM_Base_MspInit
-                0x0800ebd8                HAL_TIM_Base_MspDeInit
-                0x0800ec0c                HAL_UART_MspInit
-                0x0800ed58                HAL_UART_MspDeInit
- .text          0x0800edac       0xf0 Src\stm32l4xx_it.o
-                0x0800edac                NMI_Handler
-                0x0800edba                HardFault_Handler
-                0x0800edc0                MemManage_Handler
-                0x0800edc6                BusFault_Handler
-                0x0800edcc                UsageFault_Handler
-                0x0800edd2                SVC_Handler
-                0x0800ede0                DebugMon_Handler
-                0x0800edee                PendSV_Handler
-                0x0800edfc                SysTick_Handler
-                0x0800ee08                TIM5_IRQHandler
-                0x0800ee20                UART4_IRQHandler
-                0x0800ee58                DMA2_Channel3_IRQHandler
+                0x0800e79c                DMA_Rx_IRQHandler
+                0x0800e820                HAL_USART_Error_Handle
+                0x0800e8dc                UBX_Send_Ack
+                0x0800eabc                USART_GPS_Timout_Handler
+                0x0800eae4                USART_Begin_Timeout
+                0x0800eb18                Clear_Buffer
+                0x0800eb4c                Error_Handler
+ .text          0x0800eb5c      0x268 Src\stm32l4xx_hal_msp.o
+                0x0800eb5c                HAL_MspInit
+                0x0800eba4                HAL_TIM_Base_MspInit
+                0x0800ebf0                HAL_TIM_Base_MspDeInit
+                0x0800ec24                HAL_UART_MspInit
+                0x0800ed70                HAL_UART_MspDeInit
+ .text          0x0800edc4       0xd8 Src\stm32l4xx_it.o
+                0x0800edc4                NMI_Handler
+                0x0800edd2                HardFault_Handler
+                0x0800edd8                MemManage_Handler
+                0x0800edde                BusFault_Handler
+                0x0800ede4                UsageFault_Handler
+                0x0800edea                SVC_Handler
+                0x0800edf8                DebugMon_Handler
+                0x0800ee06                PendSV_Handler
+                0x0800ee14                SysTick_Handler
+                0x0800ee20                TIM5_IRQHandler
+                0x0800ee38                UART4_IRQHandler
+                0x0800ee70                DMA2_Channel3_IRQHandler
                 0x0800ee84                DMA2_Channel5_IRQHandler
  .text          0x0800ee9c      0x1e0 Src\system_stm32l4xx.o
                 0x0800ee9c                SystemInit
@@ -1084,7 +1084,7 @@ OUTPUT(Test_GPS_L4.elf elf32-littlearm)
  .debug_aranges
                 0x00000200       0x28 startup\startup_stm32l476xx.o
 
-.debug_line     0x00000000     0x5497
+.debug_line     0x00000000     0x5496
  .debug_line    0x00000000      0x2df Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal.o
  .debug_line    0x000002df      0x3c8 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_cortex.o
  .debug_line    0x000006a7      0x3c4 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_dma.o
@@ -1097,11 +1097,11 @@ OUTPUT(Test_GPS_L4.elf elf32-littlearm)
  .debug_line    0x00003151      0x73b Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_tim_ex.o
  .debug_line    0x0000388c      0xa4e Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_uart.o
  .debug_line    0x000042da      0x366 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_uart_ex.o
- .debug_line    0x00004640      0x51b Src\main.o
- .debug_line    0x00004b5b      0x2b5 Src\stm32l4xx_hal_msp.o
- .debug_line    0x00004e10      0x3bd Src\stm32l4xx_it.o
- .debug_line    0x000051cd      0x24c Src\system_stm32l4xx.o
- .debug_line    0x00005419       0x7e startup\startup_stm32l476xx.o
+ .debug_line    0x00004640      0x51c Src\main.o
+ .debug_line    0x00004b5c      0x2b5 Src\stm32l4xx_hal_msp.o
+ .debug_line    0x00004e11      0x3bb Src\stm32l4xx_it.o
+ .debug_line    0x000051cc      0x24c Src\system_stm32l4xx.o
+ .debug_line    0x00005418       0x7e startup\startup_stm32l476xx.o
 
 .debug_str      0x00000000     0x5257
  .debug_str     0x00000000      0xe2c Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal.o

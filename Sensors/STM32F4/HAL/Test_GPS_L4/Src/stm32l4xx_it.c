@@ -243,8 +243,7 @@ void DMA2_Channel3_IRQHandler(void)
   HAL_DMA_IRQHandler(&hdma_uart4_tx);
   /* USER CODE BEGIN DMA2_Channel3_IRQn 1 */
   //disable HDMA channel and clear intterupts
-  TX_COMPLETE_FLAG = 1;
-  Clear_Buffer(DMA_TX_Buffer,DMA_TX_BUFFER_SIZE);
+
   /* USER CODE END DMA2_Channel3_IRQn 1 */
 }
 
