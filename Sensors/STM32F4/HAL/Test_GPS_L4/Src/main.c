@@ -42,6 +42,8 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+TIM_HandleTypeDef htim5;
+
 UART_HandleTypeDef huart4;
 DMA_HandleTypeDef hdma_uart4_rx;
 DMA_HandleTypeDef hdma_uart4_tx;
@@ -55,6 +57,7 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
 static void MX_UART4_Init(void);
+static void MX_TIM5_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -95,14 +98,30 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_UART4_Init();
+  MX_TIM5_Init();
   /* USER CODE BEGIN 2 */
-  __HAL_DMA_ENABLE_IT(&hdma_uart4_rx, DMA_IT_TC);
-  __HAL_UART_ENABLE_IT(&huart4,UART_IT_IDLE);
+
+  //calculate timeout
+
   UBX_MSG_t ack_state = UBX_Send_Ack();
    if(ack_state == UBX_ACK_ACK)
    {
-	 uint32_t baud = huart4.Init.BaudRate;
-  	 HAL_GPIO_WritePin(GPIOA,LD2_Pin, GPIO_PIN_SET);
+	  Clear_Buffer(DMA_RX_Buffer,DMA_RX_BUFFER_SIZE);
+	  Clear_Buffer(DMA_TX_Buffer,DMA_TX_BUFFER_SIZE);
+	 //GPS is configured for 9600, change baud to 115200
+	 uint8_t ubx_baude_rate_config[] = {0xB5,0x62,0x06,0x00,0x14,0x00,0x01,0x00,0x00,0x00,0xD0,0x08,0x00,0x00,0x00,0xC2,0x01,0x00,0x07,0x00,0x03,0x00,0x00,0x00,0x00,0x00,0xC0,0x7E};
+	 uint8_t ubx_poll_config[] = {0xB5, 0x62, 0x06, 0x00, 0x01, 0x00, 0x01, 0x08, 0x22};
+	 uint32_t size =  sizeof(ubx_poll_config)/sizeof(ubx_baude_rate_config[0]);
+	 memcpy(DMA_TX_Buffer,ubx_poll_config,size);
+	 //Send poll request
+	 HAL_USART_Error_Handle(&huart4);
+	 __HAL_UART_ENABLE_IT(&huart4, UART_IT_IDLE);
+	 if(HAL_UART_Transmit_DMA(&huart4,DMA_TX_Buffer,size) == HAL_OK)
+	 {
+		 HAL_UART_Receive_DMA(&huart4,DMA_RX_Buffer,DMA_RX_BUFFER_SIZE);
+		 while(!RX_COMPLETE_FLAG);
+		 Clear_Buffer(DMA_TX_Buffer,DMA_TX_BUFFER_SIZE);
+	 }
    }
 
   /* USER CODE END 2 */
@@ -170,6 +189,51 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+}
+
+/**
+  * @brief TIM5 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM5_Init(void)
+{
+
+  /* USER CODE BEGIN TIM5_Init 0 */
+
+  /* USER CODE END TIM5_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM5_Init 1 */
+
+  /* USER CODE END TIM5_Init 1 */
+  htim5.Instance = TIM5;
+  htim5.Init.Prescaler = 23999;
+  htim5.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim5.Init.Period = 480;
+  htim5.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim5.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim5) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim5, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim5, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM5_Init 2 */
+
+  /* USER CODE END TIM5_Init 2 */
+
 }
 
 /**
@@ -285,11 +349,7 @@ void  USART_GPS_IRQHandler( UART_HandleTypeDef* huart, DMA_HandleTypeDef* hdma )
 		uint32_t temp  = huart->Instance->RDR;
 		temp = huart->Instance->ISR;
 		(void)temp;
-
-
-
-
-
+		 HAL_USART_Error_Handle(huart);
 		//clear DMA stream
 		//This code overcomes the errata in the DMA where
 		//all three Transfer flags active causes the DMA Channel
@@ -297,9 +357,17 @@ void  USART_GPS_IRQHandler( UART_HandleTypeDef* huart, DMA_HandleTypeDef* hdma )
 		hdma->Instance->CCR |= DMA_CCR_EN;
 		hdma->DmaBaseAddress->ISR &= ~(DMA_Rx_ISR_HTF| DMA_Rx_ISR_TE);
 		hdma->DmaBaseAddress->ISR |= DMA_Rx_ISR_TCF;
+		while(!HAL_IS_BIT_SET(hdma->DmaBaseAddress->ISR,DMA_Rx_ISR_TCF));
 		hdma->Instance->CCR &= ~DMA_CCR_EN;
 
 
+	}
+	if(__HAL_UART_GET_IT(huart,UART_IT_TC))
+	{
+		//clear flag
+		__HAL_UART_CLEAR_FLAG(huart,UART_FLAG_TC);
+		CLEAR_BIT(huart->Instance->CR3, USART_CR3_DMAT);
+		huart->gState = HAL_UART_STATE_READY;
 	}
 }
 
@@ -317,7 +385,8 @@ void DMA_Rx_IRQHandler( DMA_HandleTypeDef* hdma, UART_HandleTypeDef* huart )
 		/*    	     TODO: Additional processing HERE    				 */
 		/*****************************************************************/
 		RX_COMPLETE_FLAG = 1;
-
+		//stop timer
+		HAL_TIM_Base_Stop_IT(&htim5);
 		/*****************************************************************/
 		/*    	     					end				   				 */
 		/*****************************************************************/
@@ -326,14 +395,13 @@ void DMA_Rx_IRQHandler( DMA_HandleTypeDef* hdma, UART_HandleTypeDef* huart )
 		hdma->DmaBaseAddress->IFCR = 0x3FU << hdma->ChannelIndex; // clear all interrupts
 		hdma->Instance->CMAR = (uint32_t)DMA_RX_Buffer; //reset the pointer
 		hdma->Instance->CNDTR = DMA_RX_BUFFER_SIZE; //set the number of bytes to expect
-
 	}
 
 }
 
 void HAL_USART_Error_Handle(UART_HandleTypeDef *huart)
 {
-	uint32_t temp  = READ_REG(huart->Instance->ISR);
+				uint32_t temp  = READ_REG(huart->Instance->ISR);
 		 		temp =  READ_REG(huart->Instance->ISR);
 		 		(void)temp;
 	 			__HAL_UART_DISABLE_IT(huart, UART_IT_IDLE);
@@ -358,10 +426,17 @@ void HAL_USART_Error_Handle(UART_HandleTypeDef *huart)
 	 				__HAL_UART_CLEAR_FLAG(huart,UART_FLAG_FE);
 	 			}
 }
+/********************* END OF PERIPHERAL FUNCTIONS ********************************/
+
+/********************* START OF UBX FUNCTIONS ************************************/
 UBX_MSG_t UBX_Send_Ack(void)
 {
+	  __HAL_UART_ENABLE_IT(&huart4, UART_IT_TC);
+	  __HAL_DMA_ENABLE_IT(&hdma_uart4_rx, DMA_IT_TC);
+	  __HAL_UART_ENABLE_IT(&huart4,UART_IT_IDLE);
 	uint8_t ubx_ack_string[] = {0xB5 ,0x62 ,0x06 ,0x09 ,0x0D ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0xFF ,0xFF ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x17 ,0x31 ,0xBF };
 	 int size = (sizeof(ubx_ack_string)/sizeof(*ubx_ack_string));
+
 	 for (int i = 0; i < size ; ++i)
 	 {
 		DMA_TX_Buffer[i] = ubx_ack_string[i];
@@ -370,23 +445,34 @@ UBX_MSG_t UBX_Send_Ack(void)
 	 if(HAL_UART_Transmit_DMA(&huart4,DMA_TX_Buffer,size)== HAL_OK)
 	 {
 		 HAL_UART_Receive_DMA(&huart4,DMA_RX_Buffer,DMA_RX_BUFFER_SIZE);
+		 USART_Begin_Timeout(&htim5,10000);
+	 }else
+	 {
+		 return UBX_TIMEOUT_Tx;
 	 }
 
-	 uint32_t count = HAL_GetTick();
 	 while(!RX_COMPLETE_FLAG)
 	 {
-//		 uint32_t temp_tick = HAL_GetTick();
-//		 if((temp_tick - count) == 100)
-//		 {
-//			 return UBX_ERROR;
-//		 }
+		 if(RX_TIMEOUT_FLAG)
+		 {
+			 RX_TIMEOUT_FLAG = 0;
+			 return UBX_TIMEOUT_Rx;
+		 }
 	 }
+	 RX_COMPLETE_FLAG = 0;
 	 //wait for Rx to complete
-	 char msg [10];
-	 for (int i = 0; i < 10; ++i)
-	 {
-	 	 msg[i] = DMA_RX_Buffer[i];
-	 }
+	 //find first occurance of 0xB5
+	 	 char val = (char) 0xB5;
+	 	 int index = (int)(strchr((char*)DMA_RX_Buffer,val))-(int)DMA_RX_Buffer;
+	 	 if(index < 0)
+	 	 {
+	 		 return UBX_ERROR;
+	 	 }
+	 	 char msg [10];
+	 	 for (int i = 0; i < 10; ++i)
+	 	 {
+	 		 msg[i+index] = DMA_RX_Buffer[i];
+	 	 }
 	 UBX_MSG_t GPS_Acknowledgement_State;
 	 uint16_t header = ((uint16_t)msg[0]<<8) | ((uint16_t)msg[1]);
 	 if(header == 0xb562)
@@ -419,6 +505,32 @@ UBX_MSG_t UBX_Send_Ack(void)
 		 }
 	 }
 	 return GPS_Acknowledgement_State;
+}
+
+void USART_GPS_Timout_Handler(TIM_HandleTypeDef *htim, UART_HandleTypeDef *huart)
+{
+	//disable Timer
+	HAL_TIM_Base_Stop_IT(htim);
+	RX_TIMEOUT_FLAG = 1;
+	//disable DMA
+	HAL_UART_DMAStop(huart);
+}
+
+void USART_Begin_Timeout(TIM_HandleTypeDef *htim,uint32_t ms)
+{
+	  uint32_t time = ms; //ms
+	  //clear any pending updates
+	  __HAL_TIM_SET_AUTORELOAD(htim,time);
+	  __HAL_TIM_CLEAR_IT(htim,TIM_IT_UPDATE);
+	  HAL_TIM_Base_Start_IT(htim);
+}
+
+void Clear_Buffer(uint8_t* buffer,int size)
+{
+	for (int i = 0; i < size; ++i)
+	{
+		buffer[i] = 0;
+	}
 }
 /* USER CODE END 4 */
 

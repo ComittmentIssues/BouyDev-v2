@@ -135,6 +135,8 @@ typedef enum{
 	UBX_ACK_ACK = 1,
 	UBX_ACK_NACK = 0,
 	UBX_ERROR = -1,
+	UBX_TIMEOUT_Tx = -2,
+	UBX_TIMEOUT_Rx = -3,
 
 } UBX_MSG_t;
 
@@ -163,9 +165,6 @@ typedef enum{
 //===========================================================================
 
 
-#define STM32_GNSS_USE_DMA  //enables initialization and use of UART-MEM DMA Transfer
-#define STM32_GMEM_USE_DMA	//enables initialization and use of MEM-MEM DMA Transfer
-
 //USART BUFFER lengths
 #define DMA_RX_BUFFER_SIZE          500
 #define DMA_TX_BUFFER_SIZE			500
@@ -175,11 +174,16 @@ typedef enum{
 uint8_t DMA_RX_Buffer[DMA_RX_BUFFER_SIZE];		//large buffer to hold data from GPS
 uint8_t DMA_TX_Buffer[DMA_TX_BUFFER_SIZE];		//large buffer for transmitting to device
 uint8_t GNSS_LOG_Buffer[GNSS_LOG_BUFFER_SIZE];  //large buffer for logging to SD Card
+
+//UBX Message Buffers
+
 //==========================================================================================
 
 /* State Variables */
 
 volatile int RX_COMPLETE_FLAG;				//Indicates That GPS has completed data transfer to Device
+volatile int TX_COMPLETE_FLAG;
+volatile int RX_TIMEOUT_FLAG;				//indicates a timeout has occured
 volatile int gnss_length;					//counter to keep track of data transfer in DMA
 
 //===========================================================================================
@@ -239,4 +243,8 @@ extern void USART_GPS_IRQHandler( UART_HandleTypeDef* huart, DMA_HandleTypeDef* 
 extern void DMA_Rx_IRQHandler( DMA_HandleTypeDef* hdma, UART_HandleTypeDef* huart );
 extern void DMA_Tx_IRQHandler( DMA_HandleTypeDef* hdma, UART_HandleTypeDef* huart );
 UBX_MSG_t UBX_Send_Ack(void);
+void HAL_USART_Error_Handle(UART_HandleTypeDef *huart);
+void USART_GPS_Timout_Handler(TIM_HandleTypeDef *htim, UART_HandleTypeDef *huart);
+void USART_Begin_Timeout(TIM_HandleTypeDef *htim,uint32_t ms);
+void Clear_Buffer(uint8_t* buffer,int size);
 #endif /* HAL_GPS_H_ */
