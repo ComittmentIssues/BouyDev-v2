@@ -56,7 +56,7 @@ DMA_HandleTypeDef hdma_uart4_tx;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
-static void MX_UART4_Init(void);
+static void MX_UART4_Init(uint32_t baud);
 static void MX_TIM5_Init(void);
 /* USER CODE BEGIN PFP */
 
@@ -97,7 +97,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
-  MX_UART4_Init();
+  MX_UART4_Init(9600);
   MX_TIM5_Init();
   /* USER CODE BEGIN 2 */
 
@@ -110,29 +110,52 @@ int main(void)
 	  Clear_Buffer(DMA_TX_Buffer,DMA_TX_BUFFER_SIZE);
 	 //GPS is configured for 9600, change baud to 115200
 	 uint8_t ubx_baude_rate_config[] = {0xB5,0x62,0x06,0x00,0x14,0x00,0x01,0x00,0x00,0x00,0xD0,0x08,0x00,0x00,0x00,0xC2,0x01,0x00,0x07,0x00,0x03,0x00,0x00,0x00,0x00,0x00,0xC0,0x7E};
-	 uint8_t ubx_poll_config[] = {0xB5, 0x62, 0x06, 0x00, 0x01, 0x00, 0x01, 0x08, 0x22};
 	 uint32_t size =  sizeof(ubx_baude_rate_config)/sizeof(ubx_baude_rate_config[0]);
 	 memcpy(DMA_TX_Buffer,ubx_baude_rate_config,size);
 	 //Send poll request
 	 HAL_USART_Error_Handle(&huart4);
 	 if(HAL_UART_Transmit_DMA(&huart4,DMA_TX_Buffer,size) == HAL_OK)
 	 {
-		 __HAL_UART_ENABLE_IT(&huart4,UART_IT_IDLE);
-		 HAL_UART_Receive_DMA(&huart4,DMA_RX_Buffer,DMA_RX_BUFFER_SIZE);
-		while(!RX_COMPLETE_FLAG);
-		Clear_Buffer(DMA_TX_Buffer,DMA_TX_BUFFER_SIZE);
+		 //disable
+		 while(!__HAL_UART_GET_FLAG(&huart4,UART_FLAG_TXE));
+		 __HAL_UART_DISABLE_IT(&huart4, UART_IT_TC);
+		 __HAL_UART_DISABLE(&huart4);
+		 HAL_UART_DeInit(&huart4);
+		 MX_UART4_Init(115200);
+		 __HAL_UART_DISABLE(&huart4);
+		 HAL_USART_Error_Handle(&huart4);
+		 __HAL_UART_ENABLE(&huart4);
+		 ack_state = UBX_Send_Ack();
+
 	 }
-   }
+   }else if(ack_state == UBX_TIMEOUT_Rx)
+	 {
+		 //deinit
+	   	while(!__HAL_UART_GET_FLAG(&huart4,UART_FLAG_TXE));
+	  	__HAL_UART_DISABLE(&huart4);
+	  	__HAL_UART_DISABLE_IT(&huart4,UART_IT_TC);
+		 HAL_UART_DeInit(&huart4);
+		 MX_UART4_Init(115200);
+		 __HAL_UART_DISABLE(&huart4);
+		 HAL_USART_Error_Handle(&huart4);
+		 __HAL_UART_ENABLE(&huart4);
+		 ack_state = UBX_Send_Ack();
+
+	 }
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   int i;
+  if(ack_state == UBX_ACK_ACK)
+  {
+
+  }
   while (1)
   {
     /* USER CODE END WHILE */
-
+	  i++;
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -241,7 +264,7 @@ static void MX_TIM5_Init(void)
   * @param None
   * @retval None
   */
-static void MX_UART4_Init(void)
+static void MX_UART4_Init(uint32_t baud)
 {
 
   /* USER CODE BEGIN UART4_Init 0 */
@@ -251,7 +274,7 @@ static void MX_UART4_Init(void)
   /* USER CODE BEGIN UART4_Init 1 */
   /* USER CODE END UART4_Init 1 */
   huart4.Instance = UART4;
-  huart4.Init.BaudRate = 9600;
+  huart4.Init.BaudRate = baud;
   huart4.Init.WordLength = UART_WORDLENGTH_8B;
   huart4.Init.StopBits = UART_STOPBITS_1;
   huart4.Init.Parity = UART_PARITY_NONE;
@@ -354,19 +377,31 @@ void  USART_GPS_IRQHandler( UART_HandleTypeDef* huart, DMA_HandleTypeDef* hdma )
 		//This code overcomes the errata in the DMA where
 		//all three Transfer flags active causes the DMA Channel
 		//To become disabled
-		hdma->Instance->CCR |= DMA_CCR_EN;
-		hdma->DmaBaseAddress->ISR &= ~(DMA_Rx_ISR_HTF| DMA_Rx_ISR_TE);
-		hdma->DmaBaseAddress->ISR |= DMA_Rx_ISR_TCF;
-		while(!HAL_IS_BIT_SET(hdma->DmaBaseAddress->ISR,DMA_Rx_ISR_TCF));
-		hdma->Instance->CCR &= ~DMA_CCR_EN;
+		 if(hdma->State == HAL_DMA_STATE_BUSY)
+		 {
+				hdma->Instance->CCR |= DMA_CCR_EN;
+				hdma->DmaBaseAddress->ISR &= ~(DMA_Rx_ISR_HTF| DMA_Rx_ISR_TE);
+				hdma->DmaBaseAddress->ISR |= DMA_Rx_ISR_TCF;
+
+				while(!HAL_IS_BIT_SET(hdma->DmaBaseAddress->ISR,DMA_Rx_ISR_TCF))
+				{
+				}
 
 
-	}
+					hdma->Instance->CCR &= ~DMA_CCR_EN;
+		 	 }
+
+
+}
+
+
 	//Tx USART_Handler
 	if(__HAL_UART_GET_IT(huart,UART_IT_TC))
 	{
+		//read from TDR
+		uint32_t temp = huart->Instance->TDR;
 		//clear flag
-		__HAL_UART_CLEAR_FLAG(huart,UART_FLAG_TC);
+		__HAL_UART_CLEAR_FLAG(huart,UART_FLAG_TC |UART_FLAG_TXE);
 		//disable DMA
 		TX_COMPLETE_FLAG = 1;
 		Clear_Buffer(DMA_TX_Buffer,DMA_TX_BUFFER_SIZE);
@@ -436,8 +471,6 @@ void HAL_USART_Error_Handle(UART_HandleTypeDef *huart)
 UBX_MSG_t UBX_Send_Ack(void)
 {
 	  __HAL_UART_ENABLE_IT(&huart4, UART_IT_TC);
-	  __HAL_DMA_ENABLE_IT(&hdma_uart4_rx, DMA_IT_TC);
-	  __HAL_UART_ENABLE_IT(&huart4,UART_IT_IDLE);
 	uint8_t ubx_ack_string[] = {0xB5 ,0x62 ,0x06 ,0x09 ,0x0D ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0xFF ,0xFF ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x17 ,0x31 ,0xBF };
 	 int size = (sizeof(ubx_ack_string)/sizeof(*ubx_ack_string));
 
@@ -448,8 +481,10 @@ UBX_MSG_t UBX_Send_Ack(void)
 
 	 if(HAL_UART_Transmit_DMA(&huart4,DMA_TX_Buffer,size)== HAL_OK)
 	 {
+		  __HAL_DMA_ENABLE_IT(&hdma_uart4_rx, DMA_IT_TC);
+		  __HAL_UART_ENABLE_IT(&huart4,UART_IT_IDLE);
 		 HAL_UART_Receive_DMA(&huart4,DMA_RX_Buffer,DMA_RX_BUFFER_SIZE);
-		 USART_Begin_Timeout(&htim5,1000);
+		 USART_Begin_Timeout(&htim5,10000);
 	 }else
 	 {
 		 return UBX_TIMEOUT_Tx;
@@ -468,7 +503,7 @@ UBX_MSG_t UBX_Send_Ack(void)
 	 //find first occurance of 0xB5
 	 	 char val = (char) 0xB5;
 	 	 int index = (int)(strchr((char*)DMA_RX_Buffer,val))-(int)DMA_RX_Buffer;
-	 	 if(index < 0)
+	 	 if((index < 0) || (index > DMA_RX_BUFFER_SIZE))
 	 	 {
 	 		 return UBX_ERROR;
 	 	 }
