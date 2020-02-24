@@ -146,7 +146,21 @@ int main(void)
   int i;
   if(ack_state == UBX_ACK_ACK)
   {
-	  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
+	__HAL_DMA_ENABLE_IT(&hdma_uart4_rx, DMA_IT_TC);
+	uint8_t gll[] = {0xB5,0x62,0x06,0x01,0x03,0x00,0xF0,0x01,0x01,0xFC,0x12};
+	int len = sizeof(gll)/sizeof(gll[0]);
+	HAL_UART_Transmit_DMA(&huart4,gll,len);
+	uint8_t gsa[] = {0xB5,0x62,0x06,0x01,0x03,0x00,0xF0,0x02,0x01,0xFD,0x14};
+	uint8_t zda[] = {0xB5,0x62,0x06,0x01,0x03,0x00,0xF0,0x08,0x01,0x03,0x20};
+	HAL_UART_Transmit_DMA(&huart4,gsa,len);
+	HAL_UART_Transmit_DMA(&huart4,zda,len);
+	//set device ready to recieve GPS
+	Recieve_GPS_Data = 1;
+	Ack_message = 0;
+	__HAL_UART_ENABLE_IT(&huart4,UART_IT_IDLE);
+	HAL_UART_Receive_DMA(&huart4,DMA_RX_Buffer,DMA_RX_BUFFER_SIZE);
+	while(!RX_COMPLETE_FLAG){};
+	 HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
   }
   while (1)
   {
@@ -379,20 +393,14 @@ void  USART_GPS_IRQHandler( UART_HandleTypeDef* huart, DMA_HandleTypeDef* hdma )
 				hdma->Instance->CCR |= DMA_CCR_EN;
 				hdma->DmaBaseAddress->ISR &= ~(DMA_Rx_ISR_HTF| DMA_Rx_ISR_TE);
 				hdma->DmaBaseAddress->ISR |= DMA_Rx_ISR_TCF;
-
 				while(!HAL_IS_BIT_SET(hdma->DmaBaseAddress->ISR,DMA_Rx_ISR_TCF))
 				{
 					 HAL_USART_Error_Handle(huart);
 				}
 
-
-					hdma->Instance->CCR &= ~DMA_CCR_EN;
+				hdma->Instance->CCR &= ~DMA_CCR_EN;
 		 	 }
-
-
 	}
-
-
 	//Tx USART_Handler
 	if(__HAL_UART_GET_IT(huart,UART_IT_TC))
 	{
