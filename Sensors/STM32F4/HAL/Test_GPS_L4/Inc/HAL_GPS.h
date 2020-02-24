@@ -228,7 +228,7 @@ uint8_t packet_full; //0bx x x x	x T D C		//T = successfully recorded Time
  * Recieve_GPS_Data .....Tells system it is about to read an NMEA message
  * GPS_tx_Complete...........Tells system that message has been transfered successfully
  */
-uint8_t Ack_message, Recieve_GPS_Data,GPS_tx_Complete; //flags to show Micro how to deal with incoming messages
+uint8_t Ack_message, Recieve_GPS_Data,GPS_tx_Complete,USART_TX_Ready; //flags to show Micro how to deal with incoming messages
 
 //=============================================================================================
 /* private peripheral handlers*/

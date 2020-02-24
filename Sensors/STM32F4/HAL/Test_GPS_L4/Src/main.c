@@ -302,6 +302,7 @@ static void MX_UART4_Init(uint32_t baud)
   			__HAL_UART_CLEAR_FLAG(&huart4,UART_FLAG_ORE);
   		}
   		__HAL_UART_CLEAR_FLAG(&huart4,UART_FLAG_IDLE);
+  		USART_TX_Ready = 1;
   /* USER CODE END UART4_Init 2 */
 
 }
@@ -381,7 +382,7 @@ void  USART_GPS_IRQHandler( UART_HandleTypeDef* huart, DMA_HandleTypeDef* hdma )
 
 				while(!HAL_IS_BIT_SET(hdma->DmaBaseAddress->ISR,DMA_Rx_ISR_TCF))
 				{
-
+					 HAL_USART_Error_Handle(huart);
 				}
 
 
@@ -389,22 +390,32 @@ void  USART_GPS_IRQHandler( UART_HandleTypeDef* huart, DMA_HandleTypeDef* hdma )
 		 	 }
 
 
-}
+	}
 
 
 	//Tx USART_Handler
 	if(__HAL_UART_GET_IT(huart,UART_IT_TC))
 	{
 		//read from TDR
-		uint32_t temp = huart->Instance->TDR;
-		//clear flag
-		__HAL_UART_CLEAR_FLAG(huart,UART_FLAG_TC |UART_FLAG_TXE);
-		//disable DMA
-		TX_COMPLETE_FLAG = 1;
-		Clear_Buffer(DMA_TX_Buffer,DMA_TX_BUFFER_SIZE);
-		CLEAR_BIT(huart->Instance->CR3, USART_CR3_DMAT);
-		huart->gState = HAL_UART_STATE_READY;
+		if(USART_TX_Ready)
+		{
+			uint32_t temp = huart->Instance->TDR;
+			(void)temp;
+			//clear flag
+			__HAL_UART_CLEAR_FLAG(huart,UART_FLAG_TC |UART_FLAG_TXE);
+			//disable DMA
+			TX_COMPLETE_FLAG = 1;
+			Clear_Buffer(DMA_TX_Buffer,DMA_TX_BUFFER_SIZE);
+			CLEAR_BIT(huart->Instance->CR3, USART_CR3_DMAT);
+			huart->gState = HAL_UART_STATE_READY;
+		}else
+		{
+			__HAL_UART_CLEAR_FLAG(huart,UART_FLAG_TC |UART_FLAG_TXE);
+			__HAL_UART_DISABLE_IT(huart, UART_IT_TC);
+
+		}
 	}
+
 }
 
 void DMA_Rx_IRQHandler( DMA_HandleTypeDef* hdma, UART_HandleTypeDef* huart )
