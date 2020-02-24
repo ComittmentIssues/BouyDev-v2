@@ -96,13 +96,13 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_DMA_Init();
-  MX_UART4_Init(9600);
+
   MX_TIM5_Init();
   /* USER CODE BEGIN 2 */
 
   //calculate timeout
-
+  MX_DMA_Init();
+  MX_UART4_Init(9600);
   UBX_MSG_t ack_state = UBX_Send_Ack();
    if(ack_state == UBX_ACK_ACK)
    {
@@ -122,9 +122,7 @@ int main(void)
 		 __HAL_UART_DISABLE(&huart4);
 		 HAL_UART_DeInit(&huart4);
 		 MX_UART4_Init(115200);
-		 __HAL_UART_DISABLE(&huart4);
 		 HAL_USART_Error_Handle(&huart4);
-		 __HAL_UART_ENABLE(&huart4);
 		 ack_state = UBX_Send_Ack();
 
 	 }
@@ -136,9 +134,7 @@ int main(void)
 	  	__HAL_UART_DISABLE_IT(&huart4,UART_IT_TC);
 		 HAL_UART_DeInit(&huart4);
 		 MX_UART4_Init(115200);
-		 __HAL_UART_DISABLE(&huart4);
 		 HAL_USART_Error_Handle(&huart4);
-		 __HAL_UART_ENABLE(&huart4);
 		 ack_state = UBX_Send_Ack();
 
 	 }
@@ -150,7 +146,7 @@ int main(void)
   int i;
   if(ack_state == UBX_ACK_ACK)
   {
-
+	  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
   }
   while (1)
   {
@@ -385,6 +381,7 @@ void  USART_GPS_IRQHandler( UART_HandleTypeDef* huart, DMA_HandleTypeDef* hdma )
 
 				while(!HAL_IS_BIT_SET(hdma->DmaBaseAddress->ISR,DMA_Rx_ISR_TCF))
 				{
+
 				}
 
 
@@ -510,7 +507,7 @@ UBX_MSG_t UBX_Send_Ack(void)
 	 	 char msg [10];
 	 	 for (int i = 0; i < 10; ++i)
 	 	 {
-	 		 msg[i+index] = DMA_RX_Buffer[i];
+	 		 msg[i] = DMA_RX_Buffer[i+index];
 	 	 }
 	 UBX_MSG_t GPS_Acknowledgement_State;
 	 uint16_t header = ((uint16_t)msg[0]<<8) | ((uint16_t)msg[1]);
