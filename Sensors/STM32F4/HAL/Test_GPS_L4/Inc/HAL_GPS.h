@@ -243,7 +243,7 @@ extern void USART_GPS_IRQHandler( UART_HandleTypeDef* huart, DMA_HandleTypeDef* 
 extern void DMA_Rx_IRQHandler( DMA_HandleTypeDef* hdma, UART_HandleTypeDef* huart );
 extern void DMA_Tx_IRQHandler( DMA_HandleTypeDef* hdma, UART_HandleTypeDef* huart );
 UBX_MSG_t UBX_Send_Ack(void);
-UBX_MSG_t UBX_Configure_BaudRate(void);
+UBX_MSG_t UBX_Configure_Baud(void);
 void HAL_USART_Error_Handle(UART_HandleTypeDef *huart);
 void USART_GPS_Timout_Handler(TIM_HandleTypeDef *htim, UART_HandleTypeDef *huart);
 void USART_Begin_Timeout(TIM_HandleTypeDef *htim,uint32_t ms);
