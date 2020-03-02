@@ -315,7 +315,7 @@ void DMA2_Stream0_IRQHandler (void)
 		/* Enable DMA transfer */
 		DMA_Cmd(USART_DMA_RxStream, ENABLE);
 		while (DMA_GetCmdStatus(USART_DMA_RxStream ) != ENABLE);
-
+		
 	}
 }
 #endif

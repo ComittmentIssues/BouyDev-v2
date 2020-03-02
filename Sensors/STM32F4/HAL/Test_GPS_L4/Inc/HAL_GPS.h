@@ -160,7 +160,7 @@ typedef enum{
 #define DMA_Rx_ISR_TCF DMA_ISR_TCIF5 // ISR Transfer flag for Channel x
 #define DMA_Rx_ISR_HTF DMA_ISR_HTIF5 // ISR Half Transfer flag for Channel x
 #define DMA_Rx_ISR_TE DMA_ISR_TEIF5 // ISR Transfer flag for Channel x
-
+#define DMA_MEM_FLAG_TC DMA_FLAG_TC1 //MEM DMA TC Flag
 #define DMA_Rx_IT_TCF DMA_IT_TC    //Transfer complete Interrupt for USART Rx DMA stream
 //===========================================================================
 
@@ -242,6 +242,7 @@ uint8_t init_GPS(void);
 extern void USART_GPS_IRQHandler( UART_HandleTypeDef* huart, DMA_HandleTypeDef* hdma );
 extern void DMA_Rx_IRQHandler( DMA_HandleTypeDef* hdma, UART_HandleTypeDef* huart );
 extern void DMA_Tx_IRQHandler( DMA_HandleTypeDef* hdma, UART_HandleTypeDef* huart );
+void DMA_MEM_IRQHandler(DMA_HandleTypeDef* hdma, UART_HandleTypeDef* huart);
 UBX_MSG_t UBX_Send_Ack(void);
 UBX_MSG_t UBX_Configure_BaudRate(void);
 void HAL_USART_Error_Handle(UART_HandleTypeDef *huart);
