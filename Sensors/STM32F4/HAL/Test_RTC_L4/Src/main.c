@@ -42,23 +42,46 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+LPTIM_HandleTypeDef hlptim1;
+
 RTC_HandleTypeDef hrtc;
 
 /* USER CODE BEGIN PV */
-
+uint32_t count;
+uint16_t LSE_CLK_CNT[32];
+uint32_t flag;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_RTC_Init(void);
+static void MX_LPTIM1_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+extern void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+		if(count >= 32)
+		{
+			//stop
+			flag = 1;
+			HAL_LPTIM_Counter_Stop(&hlptim1);
+			HAL_NVIC_DisableIRQ(EXTI2_IRQn);
+			__HAL_GPIO_EXTI_CLEAR_IT(EXTI_LINE_2);
 
+		} else
+		{
+			//increment counter
+			//save Counter from LSE
+			LSE_CLK_CNT[count++] = HAL_LPTIM_ReadCounter(&hlptim1);
+			HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
+		}
+		//clear flag
+}
 /* USER CODE END 0 */
 
 /**
@@ -91,20 +114,37 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_RTC_Init();
+  MX_LPTIM1_Init();
   /* USER CODE BEGIN 2 */
-  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin, SET);
-  HAL_Delay(500);
+
+//  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin, SET);
+//  HAL_Delay(500);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  	  int i = 0;
-  	  HAL_PWREx_EnterSHUTDOWNMode();
+//  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 100, RTC_WAKEUPCLOCK_CK_SPRE_16BITS) != HAL_OK)
+//   {
+//     Error_Handler();
+//   }
+//  	  int i = 0;
+//  	  HAL_PWREx_EnterSHUTDOWNMode();
+HAL_LPTIM_Counter_Start(&hlptim1,0xFFFF);
+
+
+//calculate periods
+
+int i = 0;
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  if(i < 1)
+	  {
+		  i++;
+	  }
+	  __NOP();
   }
   /* USER CODE END 3 */
 }
@@ -148,7 +188,8 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_RTC;
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_RTC|RCC_PERIPHCLK_LPTIM1;
+  PeriphClkInit.Lptim1ClockSelection = RCC_LPTIM1CLKSOURCE_LSE;
   PeriphClkInit.RTCClockSelection = RCC_RTCCLKSOURCE_LSE;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
@@ -163,6 +204,40 @@ void SystemClock_Config(void)
   /** Enable MSI Auto calibration 
   */
   HAL_RCCEx_EnableMSIPLLMode();
+}
+
+/**
+  * @brief LPTIM1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_LPTIM1_Init(void)
+{
+
+  /* USER CODE BEGIN LPTIM1_Init 0 */
+
+  /* USER CODE END LPTIM1_Init 0 */
+
+  /* USER CODE BEGIN LPTIM1_Init 1 */
+
+  /* USER CODE END LPTIM1_Init 1 */
+  hlptim1.Instance = LPTIM1;
+  hlptim1.Init.Clock.Source = LPTIM_CLOCKSOURCE_APBCLOCK_LPOSC;
+  hlptim1.Init.Clock.Prescaler = LPTIM_PRESCALER_DIV1;
+  hlptim1.Init.Trigger.Source = LPTIM_TRIGSOURCE_SOFTWARE;
+  hlptim1.Init.OutputPolarity = LPTIM_OUTPUTPOLARITY_HIGH;
+  hlptim1.Init.UpdateMode = LPTIM_UPDATE_IMMEDIATE;
+  hlptim1.Init.CounterSource = LPTIM_COUNTERSOURCE_INTERNAL;
+  hlptim1.Init.Input1Source = LPTIM_INPUT1SOURCE_GPIO;
+  hlptim1.Init.Input2Source = LPTIM_INPUT2SOURCE_GPIO;
+  if (HAL_LPTIM_Init(&hlptim1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN LPTIM1_Init 2 */
+
+  /* USER CODE END LPTIM1_Init 2 */
+
 }
 
 /**
@@ -196,19 +271,13 @@ static void MX_RTC_Init(void)
   }
   /** Enable the WakeUp 
   */
-  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 1800, RTC_WAKEUPCLOCK_CK_SPRE_16BITS) != HAL_OK)
+  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 100, RTC_WAKEUPCLOCK_CK_SPRE_16BITS) != HAL_OK)
   {
     Error_Handler();
   }
   /** Enable Calibration 
   */
   if (HAL_RTCEx_SetCalibrationOutPut(&hrtc, RTC_CALIBOUTPUT_1HZ) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /** Enable the reference Clock input 
-  */
-  if (HAL_RTCEx_SetRefClock(&hrtc) != HAL_OK)
   {
     Error_Handler();
   }
@@ -231,6 +300,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
@@ -243,10 +313,31 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LD2_GPIO_Port, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : PD2 */
+  GPIO_InitStruct.Pin = GPIO_PIN_2;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI2_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI2_IRQn);
+
 }
 
 /* USER CODE BEGIN 4 */
+extern void HAL_LPTIM_AutoReloadMatchCallback(LPTIM_HandleTypeDef* hlptim)
+{
+	if(__HAL_LPTIM_GET_IT_SOURCE(hlptim,LPTIM_IT_ARRM))
+	{
+		//reset counter
+		HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
+		hlptim->Instance->CNT = 0;
 
+		//clear flag
+		__HAL_LPTIM_CLEAR_FLAG(hlptim,LPTIM_FLAG_ARRM);
+	}
+}
 /* USER CODE END 4 */
 
 /**

@@ -78,6 +78,50 @@ void HAL_MspInit(void)
 }
 
 /**
+* @brief LPTIM MSP Initialization
+* This function configures the hardware resources used in this example
+* @param hlptim: LPTIM handle pointer
+* @retval None
+*/
+void HAL_LPTIM_MspInit(LPTIM_HandleTypeDef* hlptim)
+{
+  if(hlptim->Instance==LPTIM1)
+  {
+  /* USER CODE BEGIN LPTIM1_MspInit 0 */
+
+  /* USER CODE END LPTIM1_MspInit 0 */
+    /* Peripheral clock enable */
+    __HAL_RCC_LPTIM1_CLK_ENABLE();
+  /* USER CODE BEGIN LPTIM1_MspInit 1 */
+
+  /* USER CODE END LPTIM1_MspInit 1 */
+  }
+
+}
+
+/**
+* @brief LPTIM MSP De-Initialization
+* This function freeze the hardware resources used in this example
+* @param hlptim: LPTIM handle pointer
+* @retval None
+*/
+void HAL_LPTIM_MspDeInit(LPTIM_HandleTypeDef* hlptim)
+{
+  if(hlptim->Instance==LPTIM1)
+  {
+  /* USER CODE BEGIN LPTIM1_MspDeInit 0 */
+
+  /* USER CODE END LPTIM1_MspDeInit 0 */
+    /* Peripheral clock disable */
+    __HAL_RCC_LPTIM1_CLK_DISABLE();
+  /* USER CODE BEGIN LPTIM1_MspDeInit 1 */
+
+  /* USER CODE END LPTIM1_MspDeInit 1 */
+  }
+
+}
+
+/**
 * @brief RTC MSP Initialization
 * This function configures the hardware resources used in this example
 * @param hrtc: RTC handle pointer
@@ -85,7 +129,6 @@ void HAL_MspInit(void)
 */
 void HAL_RTC_MspInit(RTC_HandleTypeDef* hrtc)
 {
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
   if(hrtc->Instance==RTC)
   {
   /* USER CODE BEGIN RTC_MspInit 0 */
@@ -93,18 +136,6 @@ void HAL_RTC_MspInit(RTC_HandleTypeDef* hrtc)
   /* USER CODE END RTC_MspInit 0 */
     /* Peripheral clock enable */
     __HAL_RCC_RTC_ENABLE();
-  
-    __HAL_RCC_GPIOB_CLK_ENABLE();
-    /**RTC GPIO Configuration    
-    PB15     ------> RTC_REFIN 
-    */
-    GPIO_InitStruct.Pin = GPIO_PIN_15;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-    GPIO_InitStruct.Alternate = GPIO_AF0_RTC_50Hz;
-    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
     /* RTC interrupt Init */
     HAL_NVIC_SetPriority(RTC_WKUP_IRQn, 0, 0);
     HAL_NVIC_EnableIRQ(RTC_WKUP_IRQn);
@@ -130,14 +161,6 @@ void HAL_RTC_MspDeInit(RTC_HandleTypeDef* hrtc)
   /* USER CODE END RTC_MspDeInit 0 */
     /* Peripheral clock disable */
     __HAL_RCC_RTC_DISABLE();
-  
-    /**RTC GPIO Configuration    
-    PC13     ------> RTC_OUT_CALIB
-    PB15     ------> RTC_REFIN 
-    */
-    HAL_GPIO_DeInit(GPIOC, GPIO_PIN_13);
-
-    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_15);
 
     /* RTC interrupt DeInit */
     HAL_NVIC_DisableIRQ(RTC_WKUP_IRQn);
