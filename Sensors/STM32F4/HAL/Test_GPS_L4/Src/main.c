@@ -104,11 +104,15 @@ int main(void)
   MX_DMA_Init();
   MX_UART4_Init();
 
-  uint32_t ack_ack = UBX_Send_Ack();
-  if(ack_ack == UBX_ACK_ACK)
-  {
-	  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
-  }
+  __HAL_DMA_ENABLE_IT(&hdma_uart4_rx, DMA_IT_TC);
+  __HAL_UART_ENABLE_IT(&huart4,UART_IT_IDLE);
+  HAL_UART_Receive_DMA(&huart4,DMA_RX_Buffer,DMA_RX_BUFFER_SIZE);
+  //uint32_t ack_ack = UBX_Send_Ack();
+//  if(ack_ack == UBX_ACK_ACK)
+//  {
+//	  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
+//  }
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -117,7 +121,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+	 i++;
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -378,6 +382,7 @@ void  USART_GPS_IRQHandler( UART_HandleTypeDef* huart, DMA_HandleTypeDef* hdma )
 		uint32_t temp  = huart->Instance->RDR;
 		temp = huart->Instance->ISR;
 		(void)temp;
+
 		 HAL_USART_Error_Handle(huart);
 		//clear DMA stream
 		//This code overcomes the errata in the DMA where
@@ -385,7 +390,6 @@ void  USART_GPS_IRQHandler( UART_HandleTypeDef* huart, DMA_HandleTypeDef* hdma )
 		//To become disabled
 
 		__HAL_DMA_DISABLE(hdma);
-		while(__HAL_DMA_GET_FLAG(hdma,DMA_Rx_Flag_TCF) == RESET);
 		__NOP();
 
 
@@ -490,7 +494,7 @@ void HAL_USART_Error_Handle(UART_HandleTypeDef *huart)
 /********************* START OF UBX FUNCTIONS ************************************/
 UBX_MSG_t UBX_Send_Ack(void)
 {
-	  __HAL_UART_ENABLE_IT(&huart4, UART_IT_TC);
+
 	uint8_t ubx_ack_string[] = {0xB5 ,0x62 ,0x06 ,0x09 ,0x0D ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0xFF ,0xFF ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x17 ,0x31 ,0xBF };
 	 int size = (sizeof(ubx_ack_string)/sizeof(*ubx_ack_string));
 
@@ -498,13 +502,13 @@ UBX_MSG_t UBX_Send_Ack(void)
 	 {
 		DMA_TX_Buffer[i] = ubx_ack_string[i];
 	 }
-
+	 __HAL_UART_ENABLE_IT(&huart4, UART_IT_TC);
 	 if(HAL_UART_Transmit_DMA(&huart4,DMA_TX_Buffer,size)== HAL_OK)
 	 {
 		  __HAL_DMA_ENABLE_IT(&hdma_uart4_rx, DMA_IT_TC);
 		  __HAL_UART_ENABLE_IT(&huart4,UART_IT_IDLE);
 		 HAL_UART_Receive_DMA(&huart4,DMA_RX_Buffer,DMA_RX_BUFFER_SIZE);
-		 USART_Begin_Timeout(&htim5,10000);
+		// USART_Begin_Timeout(&htim5,10000);
 	 }else
 	 {
 		 return UBX_TIMEOUT_Tx;

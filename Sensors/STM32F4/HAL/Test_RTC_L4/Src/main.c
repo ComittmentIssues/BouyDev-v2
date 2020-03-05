@@ -47,9 +47,11 @@ LPTIM_HandleTypeDef hlptim1;
 RTC_HandleTypeDef hrtc;
 
 /* USER CODE BEGIN PV */
-uint32_t count;
-uint16_t LSE_CLK_CNT[32];
+uint8_t count;
+uint32_t LSE_CLK_PULSE_TOTAL;
 uint32_t flag;
+uint32_t clock_sync_flag;
+uint32_t prev_ss,curr_ss;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -58,29 +60,88 @@ static void MX_GPIO_Init(void);
 static void MX_RTC_Init(void);
 static void MX_LPTIM1_Init(void);
 /* USER CODE BEGIN PFP */
-
+void EXTI_ENABLE_IT(IRQn_Type IRQn);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void calibrate_RTC(void)
+{
+	uint32_t expected_pulses = 1048576;
+	int32_t smooth_calib_plus_pulses = RTC_SMOOTHCALIB_PLUSPULSES_RESET;
+	int32_t smooth_calib_minus_pulses_value = 0x0;
+	if(LSE_CLK_PULSE_TOTAL > expected_pulses)
+	{
+		smooth_calib_minus_pulses_value = (uint32_t)(LSE_CLK_PULSE_TOTAL - expected_pulses);
+	} else
+	{
+		smooth_calib_plus_pulses = RTC_SMOOTHCALIB_PLUSPULSES_SET;
+		smooth_calib_minus_pulses_value = (uint32_t)(((uint32_t) 0x000001FF) - (expected_pulses - LSE_CLK_PULSE_TOTAL));
+	}
+    if (smooth_calib_minus_pulses_value > ((uint32_t) 0x000001FF))
+    {
+      smooth_calib_minus_pulses_value = (uint32_t) (((uint32_t) 0x000001FF));
+    }
+	HAL_RTCEx_SetSmoothCalib(&hrtc,RTC_SMOOTHCALIB_PERIOD_32SEC,smooth_calib_plus_pulses,smooth_calib_minus_pulses_value);
+}
+void EXTI_ENABLE_IT(IRQn_Type IRQn)
+{
+	 HAL_NVIC_ClearPendingIRQ(IRQn);
+	 HAL_NVIC_EnableIRQ(IRQn);
+}
 extern void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
+	if(clock_sync_flag)
+	{
+
+			//set RTC clock counter to 0;
+			RTC_TimeTypeDef time;
+			RTC_DateTypeDef date;
+			HAL_RTC_GetTime(&hrtc,&time,RTC_FORMAT_BIN);
+			count++;
+			prev_ss = curr_ss;
+			curr_ss = time.SubSeconds;
+			if(count == 2)
+			{
+				//calculate difference in subseconds
+
+				uint16_t time_diff = curr_ss - prev_ss;
+				if(time_diff < 0)
+				{
+					HAL_RTCEx_SetSynchroShift(&hrtc,RTC_SHIFTADD1S_SET,-time_diff);
+				} else if(time_diff > 0)
+				{
+					HAL_RTCEx_SetSynchroShift(&hrtc,RTC_SHIFTADD1S_RESET,time_diff);
+				}else if (time_diff == 0)
+				{
+					clock_sync_flag = 0;
+					count = 0;
+				}
+			}
+
+
+	}else{
+
 		if(count >= 32)
 		{
 			//stop
 			flag = 1;
+			LSE_CLK_PULSE_TOTAL += HAL_LPTIM_ReadCounter(&hlptim1);
 			HAL_LPTIM_Counter_Stop(&hlptim1);
+			HAL_NVIC_ClearPendingIRQ(EXTI2_IRQn);
 			HAL_NVIC_DisableIRQ(EXTI2_IRQn);
 			__HAL_GPIO_EXTI_CLEAR_IT(EXTI_LINE_2);
+
 
 		} else
 		{
 			//increment counter
 			//save Counter from LSE
-			LSE_CLK_CNT[count++] = HAL_LPTIM_ReadCounter(&hlptim1);
+			count++;
 			HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
 		}
-		//clear flag
+	}
+
 }
 /* USER CODE END 0 */
 
@@ -116,7 +177,14 @@ int main(void)
   MX_RTC_Init();
   MX_LPTIM1_Init();
   /* USER CODE BEGIN 2 */
+  //synchronise clock to incoming signal
+  clock_sync_flag = SET;
+  EXTI_ENABLE_IT(EXTI2_IRQn);
+  //wait for synchronization
+  while(clock_sync_flag == SET)
+  {
 
+  }
 //  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin, SET);
 //  HAL_Delay(500);
   /* USER CODE END 2 */
@@ -129,20 +197,26 @@ int main(void)
 //   }
 //  	  int i = 0;
 //  	  HAL_PWREx_EnterSHUTDOWNMode();
+//begin IC Timer on LSE
+ __HAL_LPTIM_ENABLE_IT(&hlptim1,LPTIM_IT_ARRM);
 HAL_LPTIM_Counter_Start(&hlptim1,0xFFFF);
 
+//begin Rising Trigger detection on GPIO EXTI
+
+
+//c
 
 //calculate periods
-
-int i = 0;
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  if(i < 1)
+	  if(flag)
 	  {
-		  i++;
+		 //run callibration procedure
+		  calibrate_RTC();
+		  flag = 0;
 	  }
 	  __NOP();
   }
@@ -321,7 +395,7 @@ static void MX_GPIO_Init(void)
 
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI2_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(EXTI2_IRQn);
+
 
 }
 
@@ -330,10 +404,8 @@ extern void HAL_LPTIM_AutoReloadMatchCallback(LPTIM_HandleTypeDef* hlptim)
 {
 	if(__HAL_LPTIM_GET_IT_SOURCE(hlptim,LPTIM_IT_ARRM))
 	{
-		//reset counter
-		HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
-		hlptim->Instance->CNT = 0;
-
+		//Add Counter val to Total pulses
+		LSE_CLK_PULSE_TOTAL += 0xFFFF;
 		//clear flag
 		__HAL_LPTIM_CLEAR_FLAG(hlptim,LPTIM_FLAG_ARRM);
 	}
