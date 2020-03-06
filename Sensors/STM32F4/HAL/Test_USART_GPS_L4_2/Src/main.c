@@ -23,16 +23,26 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "string.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+typedef enum{
+	UBX_OK = 2,
+	UBX_ACK_ACK = 1,
+	UBX_ACK_NACK = 0,
+	UBX_ERROR = -1,
+	UBX_TIMEOUT_Tx = -2,
+	UBX_TIMEOUT_Rx = -3,
+
+} UBX_MSG_t;
 
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define DMA_TX_BUFFER_SIZE 2048
 #define DMA_RX_BUFFER_SIZE 2048
 #define GNSS_BUFFER_SIZE 2048
 /* USER CODE END PD */
@@ -47,13 +57,14 @@ TIM_HandleTypeDef htim2;
 
 UART_HandleTypeDef huart4;
 DMA_HandleTypeDef hdma_uart4_rx;
+DMA_HandleTypeDef hdma_uart4_tx;
 
 DMA_HandleTypeDef hdma_memtomem_dma1_channel1;
 /* USER CODE BEGIN PV */
 uint8_t DMA_RX_Buffer[DMA_RX_BUFFER_SIZE];
 uint8_t GNSS_Buffer[GNSS_BUFFER_SIZE];
-
-uint8_t M2M_Txfer_Cplt, TIM_IDLE_Timeout;
+uint8_t DMA_TX_Buffer[DMA_TX_BUFFER_SIZE];
+uint8_t M2M_Txfer_Cplt, TIM_IDLE_Timeout,TX_Cplt;
 int gnss_length;
 /* USER CODE END PV */
 
@@ -66,6 +77,7 @@ static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 void USART_GPS_IRQHandler(UART_HandleTypeDef *huart);
 void DMA_GNSS_MEM_IRQHandler(DMA_HandleTypeDef *hdma);
+UBX_MSG_t UBX_Send_Ack(UART_HandleTypeDef *huart,TIM_HandleTypeDef *htim);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -97,6 +109,7 @@ void USART_TIM_RTO_Handler(TIM_HandleTypeDef *htim)
 void DMA_GNSS_MEM_IRQHandler(DMA_HandleTypeDef *hdma)
 {
 		M2M_Txfer_Cplt = SET;
+
 }
 
 
@@ -116,12 +129,12 @@ void USART_GPS_IRQHandler(UART_HandleTypeDef *huart)
 		if(TIM_IDLE_Timeout == SET)
 		{
 			gnss_length = DMA_RX_BUFFER_SIZE - __HAL_DMA_GET_COUNTER(huart->hdmarx);
+			//Disable DMA and unlink from UART
+			HAL_UART_DMAStop(huart);
+			//Timeout case: USART has recieved no data, Reciever timeout
+			M2M_Txfer_Cplt = HAL_TIMEOUT;
 			if(gnss_length > 0)
 			{
-				//Disable DMA and unlink from UART
-				HAL_UART_DMAStop(huart);
-//				huart->hdmarx->Instance->CCR &= ~DMA_CCR_EN;
-//				huart->Instance->CR3 &= ~ USART_CR3_DMAR;
 				//begin transfer from mem to mem
 				__HAL_DMA_ENABLE_IT(&hdma_memtomem_dma1_channel1,DMA_IT_TC);
 				HAL_DMA_Start(&hdma_memtomem_dma1_channel1,(uint32_t)DMA_RX_Buffer,(uint32_t)GNSS_Buffer,gnss_length);
@@ -134,13 +147,92 @@ void USART_GPS_IRQHandler(UART_HandleTypeDef *huart)
 			 */
 
 			//clear tim flag
-
 			TIM_IDLE_Timeout = 0;
-
+			__HAL_UART_DISABLE_IT(huart,UART_IT_IDLE);
 		}
 
 		__HAL_UART_CLEAR_FLAG(huart,UART_FLAG_IDLE);
+	} if(__HAL_UART_GET_IT_SOURCE(huart,UART_IT_TC))
+	{
+		HAL_UART_AbortTransmit_IT(huart);
+		__HAL_UART_CLEAR_FLAG(huart,UART_FLAG_IDLE);
+		__HAL_UART_DISABLE_IT(huart,UART_IT_IDLE);
+
+		TX_Cplt = 1;
+
 	}
+}
+
+UBX_MSG_t UBX_Send_Ack(UART_HandleTypeDef *huart,TIM_HandleTypeDef *htim)
+{
+	 uint8_t ubx_ack_string[] = {0xB5 ,0x62 ,0x06 ,0x09 ,0x0D ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0xFF ,0xFF ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x17 ,0x31 ,0xBF };
+	 int size = (sizeof(ubx_ack_string)/sizeof(*ubx_ack_string));
+	 for (int i = 0; i < size ; ++i)
+	 {
+	  	DMA_TX_Buffer[i] = ubx_ack_string[i];
+	 }
+	 if( HAL_UART_Transmit_DMA(&huart4,DMA_TX_Buffer, size) == HAL_OK)
+	 {
+	  //begin DMA Reception
+	 while(TX_Cplt != SET);
+	 __HAL_UART_ENABLE_IT(huart,UART_IT_IDLE);
+	 __HAL_DMA_ENABLE_IT(huart->hdmarx, DMA_IT_TC);
+	 __HAL_TIM_ENABLE_IT(htim,TIM_IT_CC1);
+	 HAL_UART_Receive_DMA(huart,DMA_RX_Buffer, DMA_RX_BUFFER_SIZE);
+	 HAL_TIM_OC_Start_IT(htim, TIM_CHANNEL_1);
+	 HAL_TIM_Base_Start_IT(htim);
+	 }
+	  while(M2M_Txfer_Cplt != SET)
+	  {
+		  //TODO: SET DEVICE TO LOW POWER MODE WHILE DMA TRASNFER OCCURS
+		  if(M2M_Txfer_Cplt == HAL_TIMEOUT)
+		  {
+			  return UBX_TIMEOUT_Rx;
+		  }
+	  }
+	  M2M_Txfer_Cplt = RESET;
+	  char val = (char) 0xB5;
+	  int index = (int)(strchr((char*)GNSS_Buffer,val))-(int)GNSS_Buffer;
+	  UBX_MSG_t GPS_Acknowledgement_State;
+	  if((index < 0) || (index >GNSS_BUFFER_SIZE))
+	  {
+
+	  }else{
+	  uint8_t msg[10] = {0};
+	  memcpy(msg,&GNSS_Buffer[index],10);
+
+	  uint16_t header = ((uint16_t)msg[0]<<8) | ((uint16_t)msg[1]);
+	  if(header == 0xb562)
+	  {
+	 	 uint8_t ck_A =0, ck_B =0;
+	 	 for (int i = 2; i < 8; ++i)
+	 	 {
+	 	 	ck_A += (uint8_t)msg[i];
+	 	 	ck_B += ck_A;
+	 	 }
+	 	 if((ck_A == msg[8])&& (ck_B == msg[9]))
+	 	 {
+	 	 	//acknowledgement
+	 	 	if(msg[2] == 0x05)
+	 	 	{
+	 		 	switch (msg[3])
+	 		 	{
+	 		 		case 0:
+	 		 			GPS_Acknowledgement_State = UBX_ACK_NACK;
+	 		 			break;
+	 		 		case 1:
+	 		 			GPS_Acknowledgement_State = UBX_ACK_ACK;
+	 		 			break;
+	 		 		}
+	 		 	}
+	 		 }
+	 		 else
+	 		 {
+	 		 	GPS_Acknowledgement_State = UBX_ERROR;
+	 		 }
+	 	 }
+	  }
+	  return GPS_Acknowledgement_State;
 }
 /* USER CODE END 0 */
 
@@ -179,19 +271,30 @@ int main(void)
   /* USER CODE BEGIN 2 */
   //clear all pending interrupts
 /********************* TEST  Circular buffer*************************/
-  __HAL_UART_ENABLE_IT(&huart4,UART_IT_IDLE);
-  __HAL_DMA_ENABLE_IT(&hdma_uart4_rx, DMA_IT_TC);
-  HAL_UART_Receive_DMA(&huart4,DMA_RX_Buffer, DMA_RX_BUFFER_SIZE);
-  __HAL_TIM_ENABLE_IT(&htim2,TIM_IT_CC1);
-  HAL_TIM_OC_Start_IT(&htim2, TIM_CHANNEL_1);
-  HAL_TIM_Base_Start_IT(&htim2);
+  //set interrupts
 
-  while(M2M_Txfer_Cplt != SET)
-  {
+  //copy Ack String to buffer
 
-  }
-  __NOP();
+UBX_MSG_t GPS_Acknowledgement_State = UBX_Send_Ack(&huart4,&htim2);
+if(GPS_Acknowledgement_State == UBX_ACK_ACK)
+{
+	HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
+}
 /***************************************************************/
+//  int i ;
+//  for (i= 0; i < 300; ++i)
+//  {
+//	  DMA_TX_Buffer[i] = i*50;
+//  }
+//  __NOP();
+//  HAL_UART_Transmit_DMA(&huart4,DMA_TX_Buffer,i);
+//  HAL_UART_Receive_DMA(&huart4,DMA_RX_Buffer, DMA_RX_BUFFER_SIZE);
+//  HAL_TIM_Base_Start_IT(&htim2);
+//  while(M2M_Txfer_Cplt != SET)
+//  {
+// 	 //TODO: SET DEVICE TO LOW POWER MODE WHILE DMA TRASNFER OCCURS
+//  }
+//   GNSS_Buffer[400] = 1 ;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -350,6 +453,8 @@ static void MX_UART4_Init(void)
   /* USER CODE END UART4_Init 0 */
 
   /* USER CODE BEGIN UART4_Init 1 */
+	//check for interrupts and reset
+
 
   /* USER CODE END UART4_Init 1 */
   huart4.Instance = UART4;
@@ -400,9 +505,15 @@ static void MX_DMA_Init(void)
   }
 
   /* DMA interrupt init */
+  CLEAR_REG(hdma_uart4_rx.DmaBaseAddress->ISR);
+  CLEAR_REG(hdma_uart4_tx.DmaBaseAddress->ISR);
+  CLEAR_REG(hdma_memtomem_dma1_channel1.DmaBaseAddress->ISR);
   /* DMA1_Channel1_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
+  /* DMA2_Channel3_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA2_Channel3_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Channel3_IRQn);
   /* DMA2_Channel5_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA2_Channel5_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA2_Channel5_IRQn);
