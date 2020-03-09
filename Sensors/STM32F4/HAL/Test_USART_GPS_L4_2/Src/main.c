@@ -161,6 +161,32 @@ void USART_GPS_IRQHandler(UART_HandleTypeDef *huart)
 		TX_Cplt = 1;
 
 	}
+	// additional error handling
+	if(__HAL_UART_GET_IT_SOURCE(huart,UART_IT_ERR))
+	{
+		//clear framing error
+		if(__HAL_UART_GET_FLAG(huart,UART_FLAG_FE) == SET)
+		{
+			__HAL_UART_CLEAR_FEFLAG(huart);
+		}
+		//clear noise error
+		if(__HAL_UART_GET_FLAG(huart,UART_FLAG_NE) == SET)
+		{
+			__HAL_UART_CLEAR_NEFLAG(huart);
+		}
+		//clear overun error
+		if(__HAL_UART_GET_FLAG(huart,UART_FLAG_ORE) == SET)
+		{
+			uint8_t temp = huart->Instance->RDR;
+			(void)temp;
+			__HAL_UART_CLEAR_OREFLAG(huart);
+		}
+		//clear parity errors
+		if(__HAL_UART_GET_FLAG(huart,UART_FLAG_PE) == SET)
+		{
+			__HAL_UART_CLEAR_PEFLAG(huart);
+		}
+	}
 }
 
 UBX_MSG_t UBX_Send_Ack(UART_HandleTypeDef *huart,TIM_HandleTypeDef *htim)
