@@ -213,13 +213,14 @@ void HAL_UART_MspInit(UART_HandleTypeDef* huart)
     __HAL_LINKDMA(huart,hdmatx,hdma_uart4_tx);
 
     /* UART4 interrupt Init */
+
+  /* USER CODE BEGIN UART4_MspInit 1 */
 	CLEAR_REG(huart->Instance->CR1);
 	CLEAR_REG(huart->Instance->CR2);
 	CLEAR_REG(huart->Instance->CR3);
+
     HAL_NVIC_SetPriority(UART4_IRQn, 0, 0);
     HAL_NVIC_EnableIRQ(UART4_IRQn);
-  /* USER CODE BEGIN UART4_MspInit 1 */
-
   /* USER CODE END UART4_MspInit 1 */
   }
 
