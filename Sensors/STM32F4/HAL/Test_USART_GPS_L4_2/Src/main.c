@@ -38,6 +38,14 @@ typedef enum{
 
 } UBX_MSG_t;
 
+typedef enum{
+	GPS_Init_OK = 1,
+	GPS_Init_Ack_Error = 2,
+	GPS_Init_Baud_Config_Error = 3,
+	GPS_Init_MSG_Config_Error = 4,
+	GPS_Init_Ack_Tx_Error = 5
+
+}GPS_Init_msg_t;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -84,6 +92,7 @@ void USART_GPS_IRQHandler(UART_HandleTypeDef *huart);
 void DMA_GNSS_MEM_IRQHandler(DMA_HandleTypeDef *hdma);
 void DMA_GNSS_Periph_IRQHandler(DMA_HandleTypeDef *hdma_periph, DMA_HandleTypeDef *hdma_mem);
 //GPS FUNCTIONS
+GPS_Init_msg_t init_GPS(UART_HandleTypeDef *huart,TIM_HandleTypeDef *htim, DMA_HandleTypeDef *hdma);
 UBX_MSG_t UBX_Send_Ack(UART_HandleTypeDef *huart,TIM_HandleTypeDef *htim);
 UBX_MSG_t UBX_Configure_Baudrate(UART_HandleTypeDef *huart, TIM_HandleTypeDef *htim);
 UBX_MSG_t UBX_Configure_Messages(UART_HandleTypeDef *huart);
@@ -421,6 +430,44 @@ UBX_MSG_t UBX_Configure_Messages(UART_HandleTypeDef *huart)
 	return UBX_ERROR;
 
 }
+
+GPS_Init_msg_t init_GPS(UART_HandleTypeDef *huart,TIM_HandleTypeDef *htim, DMA_HandleTypeDef *hdma)
+{
+	//send acknowledgement
+	UBX_MSG_t GPS_Acknowledgement_State = UBX_Send_Ack(huart,htim);
+	if(GPS_Acknowledgement_State == UBX_ACK_ACK)
+	{
+		Clear_Buffer(DMA_TX_Buffer,DMA_TX_BUFFER_SIZE);
+		Clear_Buffer(GNSS_Buffer,GNSS_BUFFER_SIZE);
+		if( UBX_Configure_Baudrate(huart, htim) != UBX_ACK_ACK)
+		{
+			return GPS_Init_Baud_Config_Error;
+		}
+
+	}else if(GPS_Acknowledgement_State == UBX_TIMEOUT_Rx)
+	{
+		/*
+		 * If Not recieving Ack-Ack on 115200, it could be possible that the device is
+		 * already configured. change baud rate and try again
+		 */
+		//configure baud rate to 115200 and try again
+		if(USART_Set_Baudrate(huart,htim,115200) == HAL_OK)
+		{
+			GPS_Acknowledgement_State = UBX_Send_Ack(huart,htim);
+		}
+
+
+	}else if(GPS_Acknowledgement_State == UBX_TIMEOUT_Tx)
+	{
+		return GPS_Init_Ack_Tx_Error;
+	}
+	//configure message buffer
+	if( UBX_Configure_Messages(huart) != UBX_OK )
+	{
+		return GPS_Init_MSG_Config_Error;
+	}
+	return GPS_Init_OK;
+}
 /* USER CODE END 0 */
 
 /**
@@ -451,45 +498,16 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-  MX_GPIO_Init();
-  MX_DMA_Init();
-  MX_UART4_Init();
-  MX_TIM2_Init();
+  //initialise Peripherals
+  	  MX_GPIO_Init();
+  	  MX_DMA_Init();
+  	  MX_UART4_Init();
+  	  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-  //clear all pending interrupts
-/********************* TEST  Circular buffer*************************/
-  //set interrupts
-
-  //copy Ack String to buffer
-
-UBX_MSG_t GPS_Acknowledgement_State = UBX_Send_Ack(&huart4,&htim2);
-if(GPS_Acknowledgement_State == UBX_ACK_ACK)
-{
-	Clear_Buffer(DMA_TX_Buffer,DMA_TX_BUFFER_SIZE);
-	Clear_Buffer(GNSS_Buffer,GNSS_BUFFER_SIZE);
-	GPS_Acknowledgement_State = UBX_Configure_Baudrate(&huart4, &htim2);
-
-}else
-{
-	/*
-	 * If Not recieving Ack-Ack on 115200, it could be possible that the device is
-	 * already configured. change baud rate and try again
-	 */
-	//configure baud rate to 115200 and try again
-	if(USART_Set_Baudrate(&huart4,&htim2,115200) == HAL_OK)
-	{
-		GPS_Acknowledgement_State = UBX_Send_Ack(&huart4,&htim2);
-	}
-
-
-}
-if(GPS_Acknowledgement_State == UBX_ACK_ACK)
-{
-	GPS_Acknowledgement_State = UBX_Configure_Messages(&huart4);
-}
-
-
-/***************************************************************/
+  if(init_GPS(&huart4,&htim2,&hdma_memtomem_dma1_channel1)== GPS_Init_OK)
+  {
+	  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
+  }
   /* USER CODE END 2 */
 
   /* Infinite loop */
