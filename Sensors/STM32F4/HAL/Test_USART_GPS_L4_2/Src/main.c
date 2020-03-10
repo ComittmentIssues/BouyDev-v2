@@ -76,13 +76,18 @@ static void MX_UART4_Init(void);
 static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 
+//USART CONFIG FUNCTIONS
 HAL_StatusTypeDef USART_Set_Baudrate(UART_HandleTypeDef* huart, TIM_HandleTypeDef *htim, uint32_t baud);
 
+//CUSTOM IRQ Handle Functions
 void USART_GPS_IRQHandler(UART_HandleTypeDef *huart);
 void DMA_GNSS_MEM_IRQHandler(DMA_HandleTypeDef *hdma);
 void DMA_GNSS_Periph_IRQHandler(DMA_HandleTypeDef *hdma_periph, DMA_HandleTypeDef *hdma_mem);
+//GPS FUNCTIONS
 UBX_MSG_t UBX_Send_Ack(UART_HandleTypeDef *huart,TIM_HandleTypeDef *htim);
 UBX_MSG_t UBX_Configure_Baudrate(UART_HandleTypeDef *huart, TIM_HandleTypeDef *htim);
+UBX_MSG_t UBX_Configure_Messages(UART_HandleTypeDef *huart);
+//utility Functions
 void  Clear_Buffer(uint8_t *buffer,uint32_t size);
 /* USER CODE END PFP */
 
@@ -198,6 +203,7 @@ void DMA_GNSS_Periph_IRQHandler(DMA_HandleTypeDef *hdma_periph, DMA_HandleTypeDe
 		__HAL_DMA_DISABLE_IT(hdma_periph,DMA_IT_TE);
 	}
 }
+
 void USART_GPS_IRQHandler(UART_HandleTypeDef *huart)
 {
 	if(__HAL_UART_GET_IT_SOURCE(huart,UART_IT_IDLE))
@@ -379,6 +385,42 @@ UBX_MSG_t UBX_Configure_Baudrate(UART_HandleTypeDef *huart, TIM_HandleTypeDef *h
 	}
 	return UBX_TIMEOUT_Tx;
 }
+
+UBX_MSG_t UBX_Configure_Messages(UART_HandleTypeDef *huart)
+{
+	//clear all active/useless messages
+	uint8_t NMEA_Clear_buffer[] = {0xB5, 0x62, 0x06, 0x01, 0x03, 0x00, 0xF0, 0x0A, 0x00, 0x04, 0x23, 0xB5, 0x62, 0x06, 0x01, 0x03, 0x00, 0xF0, 0x09, 0x00, 0x03, 0x21, 0xB5, 0x62, 0x06, 0x01, 0x03, 0x00, 0xF0, 0x00, 0x00, 0xFA, 0x0F, 0xB5, 0x62, 0x06, 0x01, 0x03, 0x00, 0xF0, 0x0D, 0x00, 0x07, 0x29, 0xB5, 0x62, 0x06, 0x01, 0x03, 0x00, 0xF0, 0x06, 0x00, 0x00, 0x1B, 0xB5, 0x62, 0x06, 0x01, 0x03, 0x00, 0xF0, 0x07, 0x00, 0x01, 0x1D, 0xB5, 0x62, 0x06, 0x01, 0x03, 0x00, 0xF0, 0x03, 0x00, 0xFD, 0x15, 0xB5, 0x62, 0x06, 0x01, 0x03, 0x00, 0xF0, 0x04, 0x00, 0xFE, 0x17, 0xB5, 0x62, 0x06, 0x01, 0x03, 0x00, 0xF0, 0x0F, 0x00, 0x09, 0x2D, 0xB5, 0x62, 0x06, 0x01, 0x03, 0x00, 0xF0, 0x05, 0x00, 0xFF, 0x19} ;
+	uint32_t size = sizeof(NMEA_Clear_buffer)/sizeof(NMEA_Clear_buffer[0]);
+	 if(__HAL_UART_GET_FLAG(huart,UART_FLAG_TC))
+	 {
+		__HAL_UART_CLEAR_FLAG(huart,UART_FLAG_TC);
+	 }
+	__HAL_UART_ENABLE_IT(huart,UART_IT_TC);
+	if(HAL_UART_Transmit_DMA(huart,NMEA_Clear_buffer,size) != HAL_OK)
+	{
+		return UBX_ERROR;
+	}
+	while(TX_Cplt != SET);
+	TX_Cplt = 0;
+	(void)NMEA_Clear_buffer;
+	//enable messages GLL ZDA GSA
+	uint8_t NMEA_msgs[] = {0xB5,0x62,0x06,0x01,0x03,0x00,0xF0,0x01,0x01,0xFC,0x12,0xB5,0x62,0x06,0x01,0x03,0x00,0xF0,0x02,0x01,0xFD,0x14,0xB5,0x62,0x06,0x01,0x03,0x00,0xF0,0x08,0x01,0x03,0x20};
+	size = sizeof(NMEA_msgs)/sizeof(NMEA_msgs[0]);
+	 if(__HAL_UART_GET_FLAG(huart,UART_FLAG_TC))
+	 {
+		 __HAL_UART_CLEAR_FLAG(huart,UART_FLAG_TC);
+	 }
+	 __HAL_UART_ENABLE_IT(huart,UART_IT_TC);
+	if(HAL_UART_Transmit_DMA(huart,NMEA_msgs,size) == HAL_OK)
+	{
+		while(TX_Cplt != SET);
+		TX_Cplt = 0;
+		return UBX_OK;
+	}
+
+	return UBX_ERROR;
+
+}
 /* USER CODE END 0 */
 
 /**
@@ -425,7 +467,7 @@ if(GPS_Acknowledgement_State == UBX_ACK_ACK)
 {
 	Clear_Buffer(DMA_TX_Buffer,DMA_TX_BUFFER_SIZE);
 	Clear_Buffer(GNSS_Buffer,GNSS_BUFFER_SIZE);
-	 GPS_Acknowledgement_State = UBX_Configure_Baudrate(&huart4, &htim2);
+	GPS_Acknowledgement_State = UBX_Configure_Baudrate(&huart4, &htim2);
 
 }else
 {
@@ -443,7 +485,7 @@ if(GPS_Acknowledgement_State == UBX_ACK_ACK)
 }
 if(GPS_Acknowledgement_State == UBX_ACK_ACK)
 {
-	HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
+	GPS_Acknowledgement_State = UBX_Configure_Messages(&huart4);
 }
 
 
