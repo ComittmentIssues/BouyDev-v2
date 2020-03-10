@@ -263,11 +263,11 @@ void DMA2_Channel3_IRQHandler(void)
 void DMA2_Channel5_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA2_Channel5_IRQn 0 */
-
+  DMA_GNSS_Periph_IRQHandler(&hdma_uart4_rx,&hdma_memtomem_dma1_channel1);
   /* USER CODE END DMA2_Channel5_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_uart4_rx);
+  //HAL_DMA_IRQHandler(&hdma_uart4_rx);
   /* USER CODE BEGIN DMA2_Channel5_IRQn 1 */
-HAL_DMA_Abort(&hdma_uart4_rx);
+
   /* USER CODE END DMA2_Channel5_IRQn 1 */
 }
 

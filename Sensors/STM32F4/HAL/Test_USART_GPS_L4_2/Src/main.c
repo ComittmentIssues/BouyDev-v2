@@ -75,10 +75,12 @@ static void MX_DMA_Init(void);
 static void MX_UART4_Init(void);
 static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
-HAL_StatusTypeDef USART_Detect_Baudrate(UART_HandleTypeDef* huart);
+
+HAL_StatusTypeDef USART_Set_Baudrate(UART_HandleTypeDef* huart, TIM_HandleTypeDef *htim, uint32_t baud);
 
 void USART_GPS_IRQHandler(UART_HandleTypeDef *huart);
 void DMA_GNSS_MEM_IRQHandler(DMA_HandleTypeDef *hdma);
+void DMA_GNSS_Periph_IRQHandler(DMA_HandleTypeDef *hdma_periph, DMA_HandleTypeDef *hdma_mem);
 UBX_MSG_t UBX_Send_Ack(UART_HandleTypeDef *huart,TIM_HandleTypeDef *htim);
 UBX_MSG_t UBX_Configure_Baudrate(UART_HandleTypeDef *huart, TIM_HandleTypeDef *htim);
 void  Clear_Buffer(uint8_t *buffer,uint32_t size);
@@ -91,11 +93,50 @@ void  Clear_Buffer(uint8_t *buffer,uint32_t size)
 {
 	memset(buffer,0,size);
 }
-HAL_StatusTypeDef USART_Detect_Baudrate(UART_HandleTypeDef* huart)
-{
 
-	return HAL_OK;
+HAL_StatusTypeDef USART_Set_Baudrate(UART_HandleTypeDef* huart, TIM_HandleTypeDef *htim, uint32_t baud)
+{
+	//disable UART peripheral and change baud rate
+ 	 huart->Instance->CR1 &= ~USART_CR1_UE;
+	 huart->Init.BaudRate = baud;
+	 if(HAL_UART_Init(huart) != HAL_OK)
+	 {
+		return HAL_ERROR;
+	 }
+	 huart->Instance->CR1 |= USART_CR1_UE;
+	 //clear all errors
+	 //clear framing error
+	 if(__HAL_UART_GET_FLAG(huart,UART_FLAG_FE) == SET)
+	 {
+	 	__HAL_UART_CLEAR_FEFLAG(huart);
+	 }
+	 //clear noise error
+	 if(__HAL_UART_GET_FLAG(huart,UART_FLAG_NE) == SET)
+	 {
+	 	__HAL_UART_CLEAR_NEFLAG(huart);
+	 }
+	 //clear overun error
+	 if(__HAL_UART_GET_FLAG(huart,UART_FLAG_ORE) == SET)
+	 {
+	 	uint8_t temp = huart4.Instance->RDR;
+	 	(void)temp;
+	 	__HAL_UART_CLEAR_OREFLAG(huart);
+	 }
+	 //clear parity errors
+	 if(__HAL_UART_GET_FLAG(huart,UART_FLAG_PE) == SET)
+	 {
+	 	__HAL_UART_CLEAR_PEFLAG(huart);
+	 }
+	 //clear hanging idle flag
+	 if(__HAL_UART_GET_FLAG(huart,UART_FLAG_IDLE) == SET)
+	 {
+	  	__HAL_UART_CLEAR_IDLEFLAG(huart);
+     }
+	 //increase Timeout value to allow for longer waits
+	 __HAL_TIM_SET_COMPARE(htim,TIM_CHANNEL_1,1152000);
+	 return HAL_OK;
 }
+
 
 void DMA_Test_Mem2MeM(void)
 {
@@ -128,7 +169,35 @@ void DMA_GNSS_MEM_IRQHandler(DMA_HandleTypeDef *hdma)
 
 }
 
+void DMA_GNSS_Periph_IRQHandler(DMA_HandleTypeDef *hdma_periph, DMA_HandleTypeDef *hdma_mem)
+{
+	if(__HAL_DMA_GET_IT_SOURCE(hdma_periph,DMA_IT_TC))
+	{
+		__HAL_DMA_CLEAR_FLAG(hdma_periph,DMA_FLAG_TC5);
+		//stop timer and reset flag
+		HAL_TIM_Base_Stop(&htim2);
+		__HAL_TIM_DISABLE_IT(&htim2,TIM_IT_CC1);
+		if(__HAL_TIM_GET_FLAG(&htim2,TIM_FLAG_CC1))
+		{
+			__HAL_TIM_CLEAR_FLAG(&htim2,TIM_FLAG_CC1);
+		}
+		TIM_IDLE_Timeout = RESET;
 
+		//begin a Memory to Memory PEripheral transfer
+		__HAL_DMA_ENABLE_IT(&hdma_memtomem_dma1_channel1,DMA_IT_TC);
+		HAL_DMA_Start(hdma_mem,(uint32_t)DMA_RX_Buffer,(uint32_t)GNSS_Buffer,DMA_RX_BUFFER_SIZE);
+
+	}if(__HAL_DMA_GET_IT_SOURCE(hdma_periph,DMA_IT_HT))
+	{
+		__HAL_DMA_CLEAR_FLAG(hdma_periph,DMA_IT_HT);
+		__HAL_DMA_DISABLE_IT(hdma_periph,DMA_IT_HT);
+	}
+	if(__HAL_DMA_GET_IT_SOURCE(hdma_periph,DMA_IT_TE))
+	{
+		__HAL_DMA_CLEAR_FLAG(hdma_periph,DMA_IT_TE);
+		__HAL_DMA_DISABLE_IT(hdma_periph,DMA_IT_TE);
+	}
+}
 void USART_GPS_IRQHandler(UART_HandleTypeDef *huart)
 {
 	if(__HAL_UART_GET_IT_SOURCE(huart,UART_IT_IDLE))
@@ -148,20 +217,22 @@ void USART_GPS_IRQHandler(UART_HandleTypeDef *huart)
 			//Disable DMA and unlink from UART
 			HAL_UART_DMAStop(huart);
 			//Timeout case: USART has recieved no data, Reciever timeout
-			M2M_Txfer_Cplt = HAL_TIMEOUT;
+
 			if(gnss_length > 0)
 			{
 				//begin transfer from mem to mem
 				__HAL_DMA_ENABLE_IT(&hdma_memtomem_dma1_channel1,DMA_IT_TC);
 				HAL_DMA_Start(&hdma_memtomem_dma1_channel1,(uint32_t)DMA_RX_Buffer,(uint32_t)GNSS_Buffer,gnss_length);
 
-			}
+			}else
+			{
 			/*
 			 * Case 2: gnss_length == 0;
 			 *
 			 * Reciever has recieved no data and has thus timed out.
 			 */
-
+				M2M_Txfer_Cplt = HAL_TIMEOUT;
+			}
 			//clear tim flag
 			TIM_IDLE_Timeout = 0;
 			__HAL_UART_DISABLE_IT(huart,UART_IT_IDLE);
@@ -230,7 +301,7 @@ UBX_MSG_t UBX_Send_Ack(UART_HandleTypeDef *huart,TIM_HandleTypeDef *htim)
 	 {
 		 __HAL_TIM_CLEAR_FLAG(htim,TIM_FLAG_CC1);
 	 }
-
+	 M2M_Txfer_Cplt = 0;
 	 HAL_UART_Receive_DMA(huart,DMA_RX_Buffer, DMA_RX_BUFFER_SIZE);
 	 __HAL_TIM_ENABLE_IT(htim,TIM_IT_CC1);
 	 HAL_TIM_OC_Start_IT(htim, TIM_CHANNEL_1);
@@ -300,43 +371,10 @@ UBX_MSG_t UBX_Configure_Baudrate(UART_HandleTypeDef *huart, TIM_HandleTypeDef *h
 	{
 		 while(TX_Cplt != SET);
 		 Clear_Buffer(DMA_TX_Buffer,DMA_TX_BUFFER_SIZE);
-		 //update baudrate to new value
-		 huart->Instance->CR1 &= ~USART_CR1_UE;
-		 huart->Init.BaudRate = 115200;
-		 if(HAL_UART_Init(huart) != HAL_OK)
+		 if(USART_Set_Baudrate(huart,htim,115200) != HAL_OK)
 		 {
-			return UBX_ERROR;
+			 return UBX_ERROR;
 		 }
-		 huart->Instance->CR1 |= USART_CR1_UE;
-		 //clear all errors
-		 //clear framing error
-		 if(__HAL_UART_GET_FLAG(huart,UART_FLAG_FE) == SET)
-		 {
-		 	__HAL_UART_CLEAR_FEFLAG(huart);
-		 }
-		 //clear noise error
-		 if(__HAL_UART_GET_FLAG(huart,UART_FLAG_NE) == SET)
-		 {
-		 	__HAL_UART_CLEAR_NEFLAG(huart);
-		 }
-		 //clear overun error
-		 if(__HAL_UART_GET_FLAG(huart,UART_FLAG_ORE) == SET)
-		 {
-		 	uint8_t temp = huart4.Instance->RDR;
-		 	(void)temp;
-		 	__HAL_UART_CLEAR_OREFLAG(huart);
-		 }
-		 //clear parity errors
-		 if(__HAL_UART_GET_FLAG(huart,UART_FLAG_PE) == SET)
-		 {
-		 	__HAL_UART_CLEAR_PEFLAG(huart);
-		 }
-		 //clear hanging idle flag
-		 if(__HAL_UART_GET_FLAG(huart,UART_FLAG_IDLE) == SET)
-		  {
-		  	__HAL_UART_CLEAR_IDLEFLAG(huart);
-		  }
-		 __HAL_TIM_SET_COMPARE(htim,TIM_CHANNEL_1,96000);
 		 return UBX_Send_Ack(huart,htim);
 	}
 	return UBX_TIMEOUT_Tx;
@@ -389,7 +427,21 @@ if(GPS_Acknowledgement_State == UBX_ACK_ACK)
 	Clear_Buffer(GNSS_Buffer,GNSS_BUFFER_SIZE);
 	 GPS_Acknowledgement_State = UBX_Configure_Baudrate(&huart4, &htim2);
 
-}if(GPS_Acknowledgement_State == UBX_ACK_ACK)
+}else
+{
+	/*
+	 * If Not recieving Ack-Ack on 115200, it could be possible that the device is
+	 * already configured. change baud rate and try again
+	 */
+	//configure baud rate to 115200 and try again
+	if(USART_Set_Baudrate(&huart4,&htim2,115200) == HAL_OK)
+	{
+		GPS_Acknowledgement_State = UBX_Send_Ack(&huart4,&htim2);
+	}
+
+
+}
+if(GPS_Acknowledgement_State == UBX_ACK_ACK)
 {
 	HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
 }
