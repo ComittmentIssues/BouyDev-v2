@@ -23,6 +23,19 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#define _XOPEN_SOURCE // Definition for time.h to work
+#define ARM_MATH_CM4  // Also defined for the time.h embedded implementation
+//======================================================================================
+
+/* Includes */
+#include <stm32l4xx.h> //StandardPeriph Driver Header
+#include "string.h"	   // for string handlings
+#include "stdio.h"
+#include "stdlib.h"
+#include <math.h>  //Header for additional Math Functions
+#include <time.h>		// contains function to convert UTC to Epoch Time
+//=======================================================================================
+
 #include "string.h"
 /* USER CODE END Includes */
 
@@ -46,6 +59,71 @@ typedef enum{
 	GPS_Init_Ack_Tx_Error = 5
 
 }GPS_Init_msg_t;
+
+/* private structs */
+
+/*
+ * Coordinate Object
+ *
+ * Stores the Cordinates of GPS in the form DDMM.mmmm
+ * where DD - Degrees
+ * 	     MM - Minutes
+ * 	   mmmm - Fractional minutes
+ * Variables:	Name.............Type.................................Description
+ * 				lat..............float32_t............................GPS Lattitude
+ * 				longi............float32_t............................GPS Longitude
+ */
+typedef struct
+{
+	float_t lat;
+	float_t longi;
+}Coord_t;
+/*
+ * DOP Object
+ *
+ * Dilation of Precision is a metric of how the elevation, satelite number and satelite spread
+ * affects the accuracy of the signal. This object allows for the conversion and storage of a
+ * 32 bit float value representing a DOP into an 8 bit digit and 8 bit precision the range of
+ * values outputted from the GPS is between 0,0 and 99.9. This will allow for accuracy up to 2
+ * decimal places.
+ *
+ * Variables:	Name.............Type.................................Description
+ * 				digit............uint8_t..............................8 bit representation of the whole number
+ * 				precision........uint8_t..............................2 significant places representation of the fraction
+ *
+ */
+typedef struct
+{
+	uint8_t digit;
+	uint8_t precision;
+}DOP_t;
+
+/*
+ * Diagnostic Object
+ *
+ * Structure to Hold the GPS data signal diagnostics
+ *
+ * Variables:	Name.............Type.................................Description
+ * 				PDOP.............DOP_t................................Positional Dilation of Precision (3D)
+ * 				HDOP.............DOP_t................................Horizontal Dilation of Precision
+ * 				VDOP.............DOP_t................................Vertical   Dilation of Precision
+ * 				num_sats.........uint8_t..............................Number of Satelites used to obtain positional Fix
+ * 				fix_type.........uint8_t..............................number between 1-3 describing the type of fix obtained
+ *
+ * Fix types
+ * 1 - No Fix
+ * 2 - 2D Fix (No altitude)
+ * 3 - 3D Fix
+ */
+typedef struct
+{
+	DOP_t PDOP;
+	DOP_t HDOP;
+	DOP_t VDOP;
+	uint8_t num_sats;
+	uint8_t fix_type;
+}Diagnostic_t;
+
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -66,14 +144,19 @@ TIM_HandleTypeDef htim2;
 UART_HandleTypeDef huart4;
 DMA_HandleTypeDef hdma_uart4_rx;
 DMA_HandleTypeDef hdma_uart4_tx;
-
 DMA_HandleTypeDef hdma_memtomem_dma1_channel1;
+
 /* USER CODE BEGIN PV */
+Coord_t GPS_coord;		//storage variable for coordinates from GPS
+uint32_t eTime;			//storage variable for Epoch Time
+Diagnostic_t diag;		//storage variable for Diagnostic information
+
 uint8_t DMA_RX_Buffer[DMA_RX_BUFFER_SIZE];
 uint8_t GNSS_Buffer[GNSS_BUFFER_SIZE];
 uint8_t DMA_TX_Buffer[DMA_TX_BUFFER_SIZE];
 uint8_t M2M_Txfer_Cplt, TIM_IDLE_Timeout,TX_Cplt;
 int gnss_length;
+uint8_t packet_full;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -98,6 +181,8 @@ UBX_MSG_t UBX_Configure_Baudrate(UART_HandleTypeDef *huart, TIM_HandleTypeDef *h
 UBX_MSG_t UBX_Configure_Messages(UART_HandleTypeDef *huart);
 //utility Functions
 void  Clear_Buffer(uint8_t *buffer,uint32_t size);
+uint8_t char_to_hex(char c);
+uint8_t is_valid(char* nmeamsg);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -468,6 +553,207 @@ GPS_Init_msg_t init_GPS(UART_HandleTypeDef *huart,TIM_HandleTypeDef *htim, DMA_H
 	}
 	return GPS_Init_OK;
 }
+
+uint8_t is_valid(char* nmeamsg)
+{
+	uint8_t flag = 0;
+
+	char msg[4] = {0};
+	for (int i = 0; i < 3; ++i)
+	{
+		msg[i] = *(nmeamsg+2+i);
+	}
+	if((strcmp((char*)msg,"GLL") != 0))
+	{
+
+		if (strcmp((char*)msg,"ZDA") != 0)
+		{
+			if(strcmp((char*)msg,"GSA") != 0)
+			{
+				return -1;
+			}
+			else
+			{
+				flag = 2;
+			}
+		}else
+		{
+			flag = 3;
+		}
+
+	}
+	else
+	{
+		flag = 1;
+	}
+	/* check sum */
+	uint16_t checksum = 0;
+	while(*nmeamsg != '*')
+	{
+		checksum^= *nmeamsg;
+		nmeamsg++;
+	}
+	uint8_t h = char_to_hex(*(++nmeamsg))*16;
+	uint8_t l = char_to_hex(*(++nmeamsg));
+	uint16_t checkbyte= h+l;
+
+	if(!(checksum == checkbyte))
+	{
+		return -1;
+	}
+
+	return flag;
+}
+/*
+ * Flag keeps track of successful coordinate retrievals
+ */
+
+uint8_t char_to_hex(char c)
+{
+	if(c == '\0')
+	{
+		return 0;
+	}
+	if ((c >='0') &&(c <='9'))
+	{
+		return (uint8_t)c - 48;
+	}
+	if((c >='a') &&(c <='f'))
+	{
+		return (uint8_t)c - 87;
+	}
+	if((c >='A') &&(c <='F'))
+	{
+		return (uint8_t)c - 55;
+	}
+	return -1; //invalid charachter
+}
+
+/*
+ * Parser Functions:
+ * Extract key data from NMEA message strings.
+ */
+uint8_t parse_ZDA(char* ZDAstring)
+{
+	time_t t;
+	struct tm *timepointer;
+
+	t = time(NULL);
+	timepointer = localtime(&t);
+	/* Get UTC time*/
+	while(*ZDAstring++ != ',');
+	char* temp = ZDAstring++;
+	for (int i = 0; i < strlen(ZDAstring); ++i)
+	{
+		if ((ZDAstring[i]==',')&&(ZDAstring[i+1] == ','))
+		{
+			/* Data is invalid*/
+			return -1;
+		}
+	}
+	timepointer->tm_hour = (temp[0]-48)*10+ (temp[1]-48)+2;
+	timepointer->tm_min = (temp[2]-48)*10+ (temp[3]-48)-1;
+	timepointer->tm_sec = (temp[4]-48)*10+ (temp[5]-48) -1 ;
+	while(*ZDAstring++ != ',');
+	temp = ZDAstring;
+	timepointer->tm_mday = (temp[0]-48)*10+ (temp[1]-48);
+	timepointer->tm_mon = (temp[3]-48)*10+ (temp[4]-48)-1;
+	timepointer->tm_year = (temp[6]-48)*1000 +(temp[7]-48)*100 + (temp[8]-48)*10 +(temp[9]-48)-1900;
+	time_t result;
+
+	 result = mktime(timepointer);
+	 eTime =  result;
+	return 0;
+}
+
+uint8_t Parse_GLL(char* GLLstring)
+{
+	/* Extract latitude*/
+	uint8_t flag = 0;
+	GLLstring+= 6;
+	char* temp = GLLstring;
+	uint8_t count = 0;
+	while(*GLLstring++ != ',')
+	{
+		count++;
+	}
+	if((count > 0))
+	{
+		temp[count] = '\0';
+		int8_t sign = 1 -2*( temp[++count] =='S');
+		GPS_coord.lat = sign*atof(temp);
+		flag++;
+	}
+
+	/* Extract longitude */
+	while(*GLLstring++ !=',');
+	temp = GLLstring;
+	count = 0;
+	while(*GLLstring++ != ',')
+	{
+			count++;
+	}
+	if((count > 0))
+	{
+			temp[count] = '\0';
+			int8_t sign = 1 -2*( temp[++count] =='W');
+			GPS_coord.longi = sign*atof(temp);
+			flag++;
+
+	}
+
+return flag;
+
+}
+
+uint8_t parse_GSA(char* GSA_string)
+{
+	/* Isolate Dilation of Precisions*/
+	uint8_t count = 0;
+	char* t = GSA_string;
+	while(count < 2)
+	{
+		if(*t++==',')count++;
+	}
+	diag.fix_type = (*t++-48);
+
+	//field 3 - 15 indicate satelites
+	uint8_t numsats = 0;
+	uint8_t numfields = 0;
+	while(numfields < 12)
+	{
+		uint8_t count = 0;
+		while(*++t !=',')count++;
+		if(count > 0)
+		{
+			numsats++;
+		}
+		numfields++;
+
+	}
+	diag.num_sats = numsats;
+	DOP_t dop[3] = {0};
+	for (int i = 0; i < 3; ++i)
+	{
+		//get digit
+		while(*++t != '.')
+		{
+			dop[i].digit = dop[i].digit*10 +(*t-48);
+		}
+		while(*++t != ',')
+		{
+			dop[i].precision = dop[i].precision*10+(*t-48);
+		}
+	}
+	/*
+	 * If successful, add to diagnostic struct
+	 *
+	 */
+diag.HDOP = dop[0];
+diag.PDOP = dop[1];
+diag.VDOP = dop[2];
+	return 0;
+}
 /* USER CODE END 0 */
 
 /**
@@ -512,10 +798,55 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  __HAL_UART_ENABLE_IT(&huart4,UART_IT_IDLE);
+  __HAL_DMA_ENABLE_IT(huart4.hdmarx, DMA_IT_TC);
+  if(__HAL_TIM_GET_FLAG(&htim2,TIM_FLAG_CC1) == SET)
+  {
+   __HAL_TIM_CLEAR_FLAG(&htim2,TIM_FLAG_CC1);
+  }
+  M2M_Txfer_Cplt = 0;
+  __HAL_TIM_ENABLE_IT(&htim2,TIM_IT_CC1);
+  HAL_TIM_OC_Start_IT(&htim2, TIM_CHANNEL_1);
+  HAL_TIM_Base_Start_IT(&htim2);
   while (1)
   {
     /* USER CODE END WHILE */
-
+	//sample GPS
+	__HAL_TIM_ENABLE_IT(&htim2,TIM_IT_CC1);
+	HAL_TIM_OC_Start_IT(&htim2, TIM_CHANNEL_1);
+	HAL_TIM_Base_Start_IT(&htim2);
+	HAL_UART_Receive_DMA(&huart4,DMA_RX_Buffer,DMA_RX_BUFFER_SIZE);
+	while(M2M_Txfer_Cplt != SET);
+	M2M_Txfer_Cplt = RESET;
+	char* msg = strtok((char*)GNSS_Buffer, "$");
+	while(msg != NULL)
+	{
+		switch(is_valid(msg))
+		{
+		  case 1:
+			if(Parse_GLL(msg) == 2)
+			{
+				packet_full |= 0b1;
+			}
+			break;
+		  case 2:
+			if(parse_GSA(msg) == 0)
+			{
+				packet_full |= 0b10;
+			}
+			break;
+	      case 3:
+	    	if(parse_ZDA(msg) == 0)
+	    	{
+	    		packet_full |= 0b100;
+	    	}
+	    	break;
+		  default:
+			// invalid case
+			break;
+		}
+		msg = strtok(NULL,"$");
+	}
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
