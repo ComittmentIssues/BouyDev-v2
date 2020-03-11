@@ -22,6 +22,7 @@
 #include "main.h"
 #include "stm32l4xx_it.h"
 /* Private includes ----------------------------------------------------------*/
+#include "HAL_GPS.h"
 /* USER CODE BEGIN Includes */
 /* USER CODE END Includes */
 
@@ -211,7 +212,7 @@ void DMA1_Channel1_IRQHandler(void)
   /* USER CODE END DMA1_Channel1_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_memtomem_dma1_channel1);
   /* USER CODE BEGIN DMA1_Channel1_IRQn 1 */
-  DMA_GNSS_MEM_IRQHandler(&hdma_memtomem_dma1_channel1);
+  DMA_GNSS_MEM_IRQHandler(&hdma_memtomem_dma1_channel1,&htim2,&huart4);
 
   /* USER CODE END DMA1_Channel1_IRQn 1 */
 }
@@ -236,7 +237,7 @@ void TIM2_IRQHandler(void)
 void UART4_IRQHandler(void)
 {
   /* USER CODE BEGIN UART4_IRQn 0 */
-	USART_GPS_IRQHandler(&huart4);
+	USART_GPS_IRQHandler(&huart4,&hdma_memtomem_dma1_channel1);
   /* USER CODE END UART4_IRQn 0 */
   /* USER CODE BEGIN UART4_IRQn 1 */
 
@@ -263,7 +264,7 @@ void DMA2_Channel3_IRQHandler(void)
 void DMA2_Channel5_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA2_Channel5_IRQn 0 */
-  DMA_GNSS_Periph_IRQHandler(&hdma_uart4_rx,&hdma_memtomem_dma1_channel1);
+  DMA_GNSS_Periph_IRQHandler(&hdma_uart4_rx,&hdma_memtomem_dma1_channel1,&htim2);
   /* USER CODE END DMA2_Channel5_IRQn 0 */
   //HAL_DMA_IRQHandler(&hdma_uart4_rx);
   /* USER CODE BEGIN DMA2_Channel5_IRQn 1 */
