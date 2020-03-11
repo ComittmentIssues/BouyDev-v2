@@ -156,7 +156,7 @@ uint8_t GNSS_Buffer[GNSS_BUFFER_SIZE];
 uint8_t DMA_TX_Buffer[DMA_TX_BUFFER_SIZE];
 uint8_t M2M_Txfer_Cplt, TIM_IDLE_Timeout,TX_Cplt;
 int gnss_length;
-uint8_t packet_full;
+uint8_t packet_full, log_gps;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -183,6 +183,10 @@ UBX_MSG_t UBX_Configure_Messages(UART_HandleTypeDef *huart);
 void  Clear_Buffer(uint8_t *buffer,uint32_t size);
 uint8_t char_to_hex(char c);
 uint8_t is_valid(char* nmeamsg);
+
+uint8_t parse_ZDA(char* ZDAstring);
+uint8_t Parse_GLL(char* GLLstring);
+uint8_t parse_GSA(char* GSA_string);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -236,7 +240,6 @@ HAL_StatusTypeDef USART_Set_Baudrate(UART_HandleTypeDef* huart, TIM_HandleTypeDe
 	 return HAL_OK;
 }
 
-
 void DMA_Test_Mem2MeM(void)
 {
 	  int i;
@@ -262,9 +265,60 @@ void USART_TIM_RTO_Handler(TIM_HandleTypeDef *htim)
 
 	}
 }
+
 void DMA_GNSS_MEM_IRQHandler(DMA_HandleTypeDef *hdma)
 {
+
 		M2M_Txfer_Cplt = SET;
+		if(log_gps)
+		{
+			Clear_Buffer(DMA_RX_Buffer,DMA_RX_BUFFER_SIZE);
+			//reset pointer
+			char* msg = strtok((char*)GNSS_Buffer, "$");
+				while(msg != NULL)
+				{
+					switch(is_valid(msg))
+					{
+					  case 1:
+						if(Parse_GLL(msg) == 2)
+						{
+							packet_full |= 0b1;
+						}
+						break;
+					  case 2:
+						if(parse_GSA(msg) == 0)
+						{
+							packet_full |= 0b10;
+						}
+						break;
+				      case 3:
+				    	if(parse_ZDA(msg) == 0)
+				    	{
+				    		packet_full |= 0b100;
+				    	}
+				    	break;
+					  default:
+						// invalid case
+						break;
+					}
+					msg = strtok(NULL,"$");
+				}
+			if(__HAL_TIM_GET_IT_SOURCE(&htim2,TIM_IT_CC1))
+			{
+				__HAL_TIM_CLEAR_FLAG(&htim2,TIM_FLAG_CC1);
+				htim2.Instance->CNT = 0;
+			}
+			huart4.hdmarx->DmaBaseAddress->IFCR = 0x3FU << huart4.hdmarx->ChannelIndex; // clear all interrupts
+			huart4.hdmarx->Instance->CMAR = (uint32_t)DMA_RX_Buffer; //reset the pointer
+			huart4.hdmarx->Instance->CNDTR = DMA_RX_BUFFER_SIZE; //set the number of bytes to expect
+			__HAL_UART_CLEAR_IDLEFLAG(&huart4);
+			__HAL_UART_ENABLE_IT(&huart4, UART_IT_IDLE);
+			if(packet_full != 7)
+			{
+				__HAL_DMA_ENABLE(huart4.hdmarx);
+				HAL_UART_DMAResume(&huart4);
+			}
+		}
 
 }
 
@@ -315,7 +369,16 @@ void USART_GPS_IRQHandler(UART_HandleTypeDef *huart)
 		{
 			gnss_length = DMA_RX_BUFFER_SIZE - __HAL_DMA_GET_COUNTER(huart->hdmarx);
 			//Disable DMA and unlink from UART
-			HAL_UART_DMAStop(huart);
+			if(log_gps)
+			{
+				HAL_UART_DMAPause(huart);
+				huart->hdmarx->Instance->CCR &= ~DMA_CCR_EN;
+				__NOP();
+
+			}else
+			{
+				HAL_UART_DMAStop(huart);
+			}
 			//Timeout case: USART has recieved no data, Reciever timeout
 
 			if(gnss_length > 0)
@@ -792,61 +855,36 @@ int main(void)
   /* USER CODE BEGIN 2 */
   if(init_GPS(&huart4,&htim2,&hdma_memtomem_dma1_channel1)== GPS_Init_OK)
   {
-	  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
+	  __HAL_UART_ENABLE_IT(&huart4,UART_IT_IDLE);
+	  __HAL_DMA_ENABLE_IT(huart4.hdmarx, DMA_IT_TC);
+	  if(__HAL_TIM_GET_FLAG(&htim2,TIM_FLAG_CC1) == SET)
+	  {
+	   __HAL_TIM_CLEAR_FLAG(&htim2,TIM_FLAG_CC1);
+	  }
+	  M2M_Txfer_Cplt = 0;
+	  __HAL_TIM_ENABLE_IT(&htim2,TIM_IT_CC1);
+	  HAL_TIM_OC_Start_IT(&htim2, TIM_CHANNEL_1);
+	  HAL_TIM_Base_Start_IT(&htim2);
+	  HAL_UART_Receive_DMA(&huart4,DMA_RX_Buffer,DMA_RX_BUFFER_SIZE);
+	  log_gps = SET;
   }
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  __HAL_UART_ENABLE_IT(&huart4,UART_IT_IDLE);
-  __HAL_DMA_ENABLE_IT(huart4.hdmarx, DMA_IT_TC);
-  if(__HAL_TIM_GET_FLAG(&htim2,TIM_FLAG_CC1) == SET)
-  {
-   __HAL_TIM_CLEAR_FLAG(&htim2,TIM_FLAG_CC1);
-  }
-  M2M_Txfer_Cplt = 0;
-  __HAL_TIM_ENABLE_IT(&htim2,TIM_IT_CC1);
-  HAL_TIM_OC_Start_IT(&htim2, TIM_CHANNEL_1);
-  HAL_TIM_Base_Start_IT(&htim2);
+
   while (1)
   {
     /* USER CODE END WHILE */
 	//sample GPS
-	__HAL_TIM_ENABLE_IT(&htim2,TIM_IT_CC1);
-	HAL_TIM_OC_Start_IT(&htim2, TIM_CHANNEL_1);
-	HAL_TIM_Base_Start_IT(&htim2);
-	HAL_UART_Receive_DMA(&huart4,DMA_RX_Buffer,DMA_RX_BUFFER_SIZE);
-	while(M2M_Txfer_Cplt != SET);
-	M2M_Txfer_Cplt = RESET;
-	char* msg = strtok((char*)GNSS_Buffer, "$");
-	while(msg != NULL)
-	{
-		switch(is_valid(msg))
-		{
-		  case 1:
-			if(Parse_GLL(msg) == 2)
-			{
-				packet_full |= 0b1;
-			}
-			break;
-		  case 2:
-			if(parse_GSA(msg) == 0)
-			{
-				packet_full |= 0b10;
-			}
-			break;
-	      case 3:
-	    	if(parse_ZDA(msg) == 0)
-	    	{
-	    		packet_full |= 0b100;
-	    	}
-	    	break;
-		  default:
-			// invalid case
-			break;
-		}
-		msg = strtok(NULL,"$");
-	}
+	  if(packet_full == 7)
+	  {
+		  log_gps = RESET;
+		  HAL_UART_DMAStop(&huart4);
+		  HAL_TIM_Base_Stop(&htim2);
+		  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
+	  }
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
