@@ -107,7 +107,7 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-  //initialise Peripherals
+  //Initialize Peripherals
 
   /* USER CODE BEGIN 2 */
   if(init_GPS(&huart4,&htim2,&hdma_memtomem_dma1_channel1)== GPS_Init_OK)
