@@ -24,6 +24,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "string.h"
+#include "stdio.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -39,8 +40,20 @@ typedef enum
 	IR_Ack_Error,
 	IR_CFG_Error,
 	IR_MSG_UPLOAD_ERROR,
-	IR_MSG_UPLOAD_OK
+	IR_MSG_UPLOAD_OK,
+	IR_SBDWB_STATUS_ERROR,
+	IR_SBDWB_TIMEOUT,
+	IR_SBDWB_MSGOVERRUN_ERROR,
+	IR_SBDWB_CHECKSUM_ERROR
 } IR_Status_t;
+
+typedef enum
+{
+	NONE,
+	SBDWB,
+	SBDIX
+
+}Session_t;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -65,6 +78,7 @@ DMA_HandleTypeDef hdma_uart5_rx;
 DMA_HandleTypeDef hdma_memtomem_dma1_channel2;
 /* USER CODE BEGIN PV */
 int8_t RX_Flag,TIM_IDLE_Timeout;
+Session_t Session_Flag;
 uint8_t RX_Buffer[RX_BUFFER_SIZE];
 uint8_t TX_Buffer[TX_BUFFER_SIZE];
 uint8_t RM_Buffer[RM_BUFFER_SIZE];
@@ -91,6 +105,94 @@ void  Clear_Buffer(uint8_t *buffer,uint32_t size)
 	memset(buffer,0,size);
 }
 
+uint16_t calculate_checkSum(uint8_t* messagebuff, uint8_t size)
+{
+	uint32_t sum = 0;
+	for (int i = 0; i < size; ++i)
+	{
+		sum+= messagebuff[i];
+	}
+	//return last 16 bits
+	return (uint16_t)(sum & 0xFFFF);
+}
+
+IR_Status_t send_Bin_String(uint8_t* bin_string,uint32_t len)
+{
+
+	  char* msg;
+	  if(send_AT_CMD("AT\r")== IR_OK)
+	  {
+		  msg = strtok((char*)(&RM_Buffer[2]),"\r");
+		  if(strcmp(msg,(char*)"OK") != 0)
+		  {
+		    return IR_Ack_Error;
+		  }
+	  }else
+	  {
+		  return IR_Ack_Error;
+	  }
+	  //analyse message
+	  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+	  if( send_AT_CMD("AT&K0\r") == IR_OK)
+	  {
+			msg = strtok((char*)(&RM_Buffer[2]),"\r");
+			if(strcmp(msg,(char*)"OK") != 0)
+			{
+				return IR_CFG_Error;
+			}
+	  }
+	  else
+	  {
+		return IR_CFG_Error;
+	  }
+	  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+	  //prepare Iridium for binary message reception
+	  sprintf((char*)TX_Buffer,"AT+SBDWB=%lu\r",len);
+	  if(send_AT_CMD((char*)TX_Buffer) == IR_OK)
+	  {
+		  Clear_Buffer(TX_Buffer,TX_BUFFER_SIZE);
+		  msg = strtok((char*)(&RM_Buffer[2]),"\r");
+		  if(strcmp(msg,(char*)"READY") != 0)
+		  {
+		  	return IR_CFG_Error;
+		  }
+	  }
+	  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+	  //create a binary message complete with checksum
+	  memcpy(TX_Buffer,bin_string,len);
+	  uint16_t temp = calculate_checkSum(bin_string,len);
+	  uint8_t check_sum[3]  = {(uint8_t)((temp&0xFF00)>>8),(uint8_t)temp&0xFF,0x0d};
+	  memcpy(&TX_Buffer[len],check_sum,3);
+	  //upload to message buffer
+	  Session_Flag = SBDWB;
+	  send_AT_CMD((char*)TX_Buffer);
+	  Session_Flag = NONE;
+	  msg = strtok((char*)(&RM_Buffer[2]),"\r\n");
+	  int8_t ret_val = *(msg) -48;
+	  msg = strtok(NULL,"\r\n");
+	  if(ret_val < 0 || ret_val > 9)
+	  {
+		  return IR_SBDWB_STATUS_ERROR;
+	  }
+	  if(strcmp(msg,(char*)"OK") == 0)
+	 {
+		  switch(ret_val)
+	  	  {
+	  	  	  case 0:
+	  		  	  return IR_MSG_UPLOAD_OK;
+	  	  	  case 1:
+	  		  	  return IR_SBDWB_TIMEOUT;
+	  	  	  case 2:
+	  		  	  return IR_SBDWB_CHECKSUM_ERROR;
+	  	  	  case 3:
+	  		  	  return IR_SBDWB_MSGOVERRUN_ERROR;
+	  	  }
+	 	 }
+	  //decode return pack
+	  //return status
+
+	  return IR_MSG_UPLOAD_ERROR;
+}
 IR_Status_t send_String(char* string)
 {
 	  uint32_t len = strlen(string);
@@ -220,13 +322,29 @@ void USART_Iridium_IRQHandler(UART_HandleTypeDef *huart)
 			if(gnss_length > 0)
 			{
 				// transfer incomplete, move transfered data to message buffer
-			    uint8_t* ind = (uint8_t*)strchr((char*)RX_Buffer,'\r')+1;
-			    int len = (ind - RX_Buffer) -1; // chope off the \0
-			    msg_len = gnss_length -len-1;
+				uint8_t* ind;
+				int len;
+				if(Session_Flag == SBDWB)
+				{
+					ind = (uint8_t*)strchr((char*)RX_Buffer,'\r');
+					len = strlen((char*)ind);
+				}else
+				{
+					ind = (uint8_t*)strchr((char*)RX_Buffer,'\r')+1;
+					len = (ind - RX_Buffer) -1; // chope off the \0
+					msg_len = gnss_length -len-1;
+				}
+
 			    if(len > 0)
 			    {
 			    	__HAL_DMA_ENABLE_IT(&hdma_memtomem_dma1_channel2,DMA_IT_TC);
-			    	HAL_DMA_Start(&hdma_memtomem_dma1_channel2,(uint32_t)(&RX_Buffer[len+1]),(uint32_t)RM_Buffer,msg_len);
+			    	if(Session_Flag == SBDWB)
+			    	{
+			    		HAL_DMA_Start(&hdma_memtomem_dma1_channel2,(uint32_t)(ind),(uint32_t)RM_Buffer,len);
+			    	}else
+			    	{
+			    		HAL_DMA_Start(&hdma_memtomem_dma1_channel2,(uint32_t)(&RX_Buffer[len+1]),(uint32_t)RM_Buffer,msg_len);
+			    	}
 			    }else
 			    {
 			    	RX_Flag = -1;
@@ -343,13 +461,12 @@ int main(void)
   MX_UART5_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-
-  char* msg_tx ="THIS IS A TEST FROM HAL 123456789@#!5234\r";
-  IR_Status_t flag = send_String(msg_tx);
-  if(flag == IR_MSG_UPLOAD_OK)
+  uint8_t msg[12] = "qerkmv158z[t";
+  if(send_Bin_String(msg,12) == IR_MSG_UPLOAD_OK)
   {
-
+	  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
   }
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
