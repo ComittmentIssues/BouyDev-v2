@@ -20,10 +20,10 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "string.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "string.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -43,6 +43,7 @@ typedef enum
 /* USER CODE BEGIN PD */
 #define TX_BUFFER_SIZE 2046
 #define RX_BUFFER_SIZE 2046
+#define RM_BUFFER_SIZE 500
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -56,10 +57,14 @@ TIM_HandleTypeDef htim2;
 UART_HandleTypeDef huart5;
 DMA_HandleTypeDef hdma_uart5_rx;
 
+DMA_HandleTypeDef hdma_memtomem_dma1_channel2;
 /* USER CODE BEGIN PV */
 int8_t RX_Flag,TIM_IDLE_Timeout;
 uint8_t RX_Buffer[RX_BUFFER_SIZE];
 uint8_t TX_Buffer[TX_BUFFER_SIZE];
+uint8_t RM_Buffer[RM_BUFFER_SIZE];
+uint32_t gnss_length;
+uint32_t msg_len;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -92,11 +97,38 @@ void DMA_Iridium_Periph_IRQHandler(UART_HandleTypeDef *huart)
 	{
 		__HAL_TIM_CLEAR_FLAG(&htim2,TIM_FLAG_CC1);
 	}
+	//begin transfer of collected data to memory
+    uint8_t* ind = (uint8_t*)strchr((char*)RX_Buffer,'\r')+1;
+	int len = (ind - RX_Buffer)+1; // chope off the \0
+	msg_len = gnss_length -len-1;
+	if(len > 0)
+	{
+	   	__HAL_DMA_ENABLE_IT(&hdma_memtomem_dma1_channel2,DMA_IT_TC);
+	   	HAL_DMA_Start(&hdma_memtomem_dma1_channel2,(uint32_t)(&RX_Buffer[len]),(uint32_t)RM_Buffer,msg_len);
+	}
 	TIM_IDLE_Timeout = RESET;
-	RX_Flag = SET;
+
 
 }
+void DMA_Iridium_MEM_IRQHandler(DMA_HandleTypeDef *hdma_mem)
+{
 
+	//check message to see if valid
+	//valid messages follow the format "\r\nMSG_STRING\r\n"
+	if((RM_Buffer[0] == '\r') && (RM_Buffer[1] =='\n') &&(RM_Buffer[msg_len - 2] == '\r') && (RM_Buffer[msg_len -1] == '\n' ))
+	{
+		RX_Flag = SET;
+	}else
+	{
+		//invalid message returned
+		RX_Flag = -1;
+	}
+	__HAL_DMA_CLEAR_FLAG(hdma_mem,DMA_FLAG_TC2);
+	if(__HAL_DMA_GET_FLAG(hdma_mem,DMA_FLAG_HT2))
+	{
+		__HAL_DMA_CLEAR_FLAG(hdma_mem,DMA_FLAG_HT2);
+	}
+}
 void USART_TIM_RTO_Handler(TIM_HandleTypeDef *htim)
 {
 	if(__HAL_TIM_GET_IT_SOURCE(htim,TIM_IT_CC1))
@@ -125,11 +157,23 @@ void USART_Iridium_IRQHandler(UART_HandleTypeDef *huart)
 		{
 			//check data counter
 			HAL_UART_DMAStop(huart);
-			uint32_t gnss_length = (sizeof(RX_Buffer)/sizeof(RX_Buffer[0])) - __HAL_DMA_GET_COUNTER(huart->hdmarx);
+			gnss_length = (sizeof(RX_Buffer)/sizeof(RX_Buffer[0])) - __HAL_DMA_GET_COUNTER(huart->hdmarx);
 			if(gnss_length > 0)
 			{
-				// transfer incomplete
-				RX_Flag = -1;
+				// transfer incomplete, move transfered data to message buffer
+			    uint8_t* ind = (uint8_t*)strchr((char*)RX_Buffer,'\r')+1;
+			    int len = (ind - RX_Buffer) -1; // chope off the \0
+			    msg_len = gnss_length -len-1;
+			    if(len > 0)
+			    {
+			    	__HAL_DMA_ENABLE_IT(&hdma_memtomem_dma1_channel2,DMA_IT_TC);
+			    	HAL_DMA_Start(&hdma_memtomem_dma1_channel2,(uint32_t)(&RX_Buffer[len+1]),(uint32_t)RM_Buffer,msg_len);
+			    }else
+			    {
+			    	RX_Flag = -1;
+			    }
+			    (void)ind;
+
 			}else
 			{
 				//reciever timeout
@@ -177,6 +221,10 @@ IR_Status_t send_AT_CMD(char* cmd)
 		return IR_Tx_Error;
 	}
 	__HAL_DMA_ENABLE_IT(&hdma_uart5_rx,DMA_IT_TC);
+	if(__HAL_UART_GET_FLAG(&huart5,UART_FLAG_IDLE))
+	{
+		__HAL_UART_CLEAR_IDLEFLAG(&huart5);
+	}
 	__HAL_UART_ENABLE_IT(&huart5,UART_IT_IDLE);
 	HAL_UART_Receive_DMA(&huart5,RX_Buffer,RX_BUFFER_SIZE);
 	__HAL_TIM_ENABLE_IT(&htim2,TIM_IT_CC1);
@@ -188,7 +236,7 @@ IR_Status_t send_AT_CMD(char* cmd)
 		return IR_Rx_Timeout;
 	}if(RX_Flag == -1)
 	{
-		return IR_Rx_Incplt;
+		return IR_Rx_Error;
 	}
 	return IR_OK;
 }
@@ -237,12 +285,17 @@ int main(void)
 
 
   IR_Status_t flag = send_AT_CMD("AT\r");
-  if(flag != IR_Rx_Timeout)
+  if(flag == IR_OK)
   {
 	  //analyse message
-	  char* msg = (char*)RX_Buffer;
+	  char* msg = strtok((char*)(&RM_Buffer[2]),"\r");
+	  if(strcmp(msg,(char*)"OK") == 0)
+	  {
+		  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
+	  }
+
   }
-HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -327,7 +380,7 @@ static void MX_TIM2_Init(void)
   TIM_IC_InitTypeDef sConfigIC = {0};
 
   /* USER CODE BEGIN TIM2_Init 1 */
-  __HAL_TIM_CLEAR_IT(&htim2,TIM_IT_UPDATE);
+
   /* USER CODE END TIM2_Init 1 */
   htim2.Instance = TIM2;
   htim2.Init.Prescaler = 0;
@@ -425,15 +478,36 @@ static void MX_UART5_Init(void)
 
 /** 
   * Enable DMA controller clock
+  * Configure DMA for memory to memory transfers
+  *   hdma_memtomem_dma1_channel2
   */
 static void MX_DMA_Init(void) 
 {
 
   /* DMA controller clock enable */
   __HAL_RCC_DMA2_CLK_ENABLE();
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+  /* Configure DMA request hdma_memtomem_dma1_channel2 on DMA1_Channel2 */
+  hdma_memtomem_dma1_channel2.Instance = DMA1_Channel2;
+  hdma_memtomem_dma1_channel2.Init.Request = DMA_REQUEST_0;
+  hdma_memtomem_dma1_channel2.Init.Direction = DMA_MEMORY_TO_MEMORY;
+  hdma_memtomem_dma1_channel2.Init.PeriphInc = DMA_PINC_ENABLE;
+  hdma_memtomem_dma1_channel2.Init.MemInc = DMA_MINC_ENABLE;
+  hdma_memtomem_dma1_channel2.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
+  hdma_memtomem_dma1_channel2.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
+  hdma_memtomem_dma1_channel2.Init.Mode = DMA_NORMAL;
+  hdma_memtomem_dma1_channel2.Init.Priority = DMA_PRIORITY_LOW;
+  if (HAL_DMA_Init(&hdma_memtomem_dma1_channel2) != HAL_OK)
+  {
+    Error_Handler( );
+  }
 
   /* DMA interrupt init */
   HAL_NVIC_ClearPendingIRQ(DMA2_Channel2_IRQn);
+  /* DMA1_Channel2_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel2_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel2_IRQn);
   /* DMA2_Channel2_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA2_Channel2_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA2_Channel2_IRQn);
