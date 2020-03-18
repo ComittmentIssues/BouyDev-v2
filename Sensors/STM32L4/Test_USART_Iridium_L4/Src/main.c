@@ -44,6 +44,7 @@ typedef enum
 #define TX_BUFFER_SIZE 2046
 #define RX_BUFFER_SIZE 2046
 #define RM_BUFFER_SIZE 500
+#define ASCII_MSG_BYTE_LEN 9
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -81,6 +82,10 @@ IR_Status_t send_AT_CMD(char* cmd);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void  Clear_Buffer(uint8_t *buffer,uint32_t size)
+{
+	memset(buffer,0,size);
+}
 
 void DMA_Iridium_Periph_IRQHandler(UART_HandleTypeDef *huart)
 {
@@ -112,7 +117,9 @@ void DMA_Iridium_Periph_IRQHandler(UART_HandleTypeDef *huart)
 }
 void DMA_Iridium_MEM_IRQHandler(DMA_HandleTypeDef *hdma_mem)
 {
-
+	//clear the rx buffer
+	Clear_Buffer(RX_Buffer,RX_BUFFER_SIZE);
+	msg_len = strlen((char*)RM_Buffer);
 	//check message to see if valid
 	//valid messages follow the format "\r\nMSG_STRING\r\n"
 	if((RM_Buffer[0] == '\r') && (RM_Buffer[1] =='\n') &&(RM_Buffer[msg_len - 2] == '\r') && (RM_Buffer[msg_len -1] == '\n' ))
@@ -139,6 +146,9 @@ void USART_TIM_RTO_Handler(TIM_HandleTypeDef *htim)
 		TIM_IDLE_Timeout = 1;
 		//disable timer
 		HAL_TIM_Base_Stop_IT(htim);
+
+		htim->Instance->CR1 &= ~TIM_CR1_CEN;
+		__HAL_TIM_SET_COUNTER(htim,0);
 		USART_Iridium_IRQHandler(&huart5);
 
 
@@ -179,6 +189,7 @@ void USART_Iridium_IRQHandler(UART_HandleTypeDef *huart)
 				//reciever timeout
 				RX_Flag = -2;
 			}
+			TIM_IDLE_Timeout = 0;
 			__HAL_UART_CLEAR_IDLEFLAG(huart);
 			__HAL_UART_DISABLE_IT(huart,UART_IT_IDLE);
 		}
@@ -238,6 +249,7 @@ IR_Status_t send_AT_CMD(char* cmd)
 	{
 		return IR_Rx_Error;
 	}
+	RX_Flag = 0;
 	return IR_OK;
 }
 /* USER CODE END 0 */
@@ -283,7 +295,8 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 
-
+  char* msg_tx ="THIS IS A TEST FROM HAL 123456789@#!5234\r";
+  uint32_t len = strlen(msg_tx);
   IR_Status_t flag = send_AT_CMD("AT\r");
   if(flag == IR_OK)
   {
@@ -291,7 +304,28 @@ int main(void)
 	  char* msg = strtok((char*)(&RM_Buffer[2]),"\r");
 	  if(strcmp(msg,(char*)"OK") == 0)
 	  {
-		  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
+		  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+		  flag = send_AT_CMD("AT&K0\r");
+		  if(flag == IR_OK)
+		  {
+			msg = strtok((char*)(&RM_Buffer[2]),"\r");
+			if(strcmp(msg,(char*)"OK") == 0)
+			{
+				Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+			 memcpy(TX_Buffer,(const char*)"AT+SBDWT=",ASCII_MSG_BYTE_LEN);
+			 memcpy(&TX_Buffer[ASCII_MSG_BYTE_LEN],msg_tx,len);
+			 __HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_1,0xFFFFFFFF);
+			 flag = send_AT_CMD((char*)TX_Buffer);
+			 if(flag == IR_OK)
+			 {
+				 msg = strtok((char*)(&RM_Buffer[2]),"\r");
+				 if(strcmp(msg,(char*)"OK") == 0)
+				{
+					 HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
+				}
+			 }
+			}
+		  }
 	  }
 
   }
