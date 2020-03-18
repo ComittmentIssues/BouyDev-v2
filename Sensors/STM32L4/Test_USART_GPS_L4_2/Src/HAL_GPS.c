@@ -37,7 +37,7 @@ static HAL_StatusTypeDef MX_TIM2_Init(void)
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
   {
-
+	  return HAL_ERROR;
   }
   sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
   if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
@@ -132,7 +132,28 @@ HAL_StatusTypeDef MX_UART4_Init(void)
   */
 static HAL_StatusTypeDef MX_DMA_Init(void)
 {
-
+	/*
+	 * This piece of code is designed to completely reset the peripheral registers
+	 * if an unwanted reset causes the DMA to keep the previous register settings and
+	 * state. This causes unwanted interrupts in the program that are a nightmare to clear
+	 */
+	//for DMA RX channel
+	if(DMA2_Channel5->CCR != 0)
+ 	{
+ 		  //clear channel to reset state
+ 		  hdma_uart4_rx.Instance = DMA2_Channel5;
+ 		  hdma_uart4_rx.DmaBaseAddress->ISR = DMA2->ISR;
+ 		  hdma_uart4_rx.ChannelIndex = 5;
+ 		  HAL_DMA_DeInit(&hdma_uart4_rx);
+ 	  }
+	//for DMA TX channel
+	if(DMA2_Channel3->CCR != 0)
+	{
+		hdma_uart4_tx.Instance = DMA2_Channel3;
+		hdma_uart4_tx.DmaBaseAddress->ISR = DMA2->ISR;
+		hdma_uart4_tx.ChannelIndex = 3;
+		HAL_DMA_DeInit(&hdma_uart4_tx);
+	}
   /* DMA controller clock enable */
   __HAL_RCC_DMA2_CLK_ENABLE();
   __HAL_RCC_DMA1_CLK_ENABLE();
