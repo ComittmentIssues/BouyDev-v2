@@ -35,7 +35,11 @@ typedef enum
 	IR_Tx_Error,
 	IR_Rx_Incplt,
 	IR_Rx_Timeout,
-	IR_Data_Error
+	IR_Data_Error,
+	IR_Ack_Error,
+	IR_CFG_Error,
+	IR_MSG_UPLOAD_ERROR,
+	IR_MSG_UPLOAD_OK
 } IR_Status_t;
 /* USER CODE END PTD */
 
@@ -85,6 +89,51 @@ IR_Status_t send_AT_CMD(char* cmd);
 void  Clear_Buffer(uint8_t *buffer,uint32_t size)
 {
 	memset(buffer,0,size);
+}
+
+IR_Status_t send_String(char* string)
+{
+	  uint32_t len = strlen(string);
+	  char* msg;
+	  if(send_AT_CMD("AT\r")== IR_OK)
+	  {
+		  msg = strtok((char*)(&RM_Buffer[2]),"\r");
+		  if(strcmp(msg,(char*)"OK") != 0)
+		  {
+		    return IR_Ack_Error;
+		  }
+	  }else
+	  {
+		  return IR_Ack_Error;
+	  }
+	  //analyse message
+	  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+	  if( send_AT_CMD("AT&K0\r") == IR_OK)
+	  {
+			msg = strtok((char*)(&RM_Buffer[2]),"\r");
+			if(strcmp(msg,(char*)"OK") != 0)
+			{
+				return IR_CFG_Error;
+			}
+	  }
+	  else
+	  {
+		return IR_CFG_Error;
+	  }
+		Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+		//create string with message
+	    memcpy(TX_Buffer,(const char*)"AT+SBDWT=",ASCII_MSG_BYTE_LEN);
+		memcpy(&TX_Buffer[ASCII_MSG_BYTE_LEN],string,len);
+		__HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_1,0xFFFFFFFF);
+		if(send_AT_CMD((char*)TX_Buffer) == IR_OK)
+		{
+			msg = strtok((char*)(&RM_Buffer[2]),"\r");
+			if(strcmp(msg,(char*)"OK") != 0)
+			{
+				return IR_MSG_UPLOAD_ERROR;
+			}
+	}
+	  return IR_MSG_UPLOAD_OK;
 }
 
 void DMA_Iridium_Periph_IRQHandler(UART_HandleTypeDef *huart)
@@ -296,40 +345,11 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   char* msg_tx ="THIS IS A TEST FROM HAL 123456789@#!5234\r";
-  uint32_t len = strlen(msg_tx);
-  IR_Status_t flag = send_AT_CMD("AT\r");
-  if(flag == IR_OK)
+  IR_Status_t flag = send_String(msg_tx);
+  if(flag == IR_MSG_UPLOAD_OK)
   {
-	  //analyse message
-	  char* msg = strtok((char*)(&RM_Buffer[2]),"\r");
-	  if(strcmp(msg,(char*)"OK") == 0)
-	  {
-		  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
-		  flag = send_AT_CMD("AT&K0\r");
-		  if(flag == IR_OK)
-		  {
-			msg = strtok((char*)(&RM_Buffer[2]),"\r");
-			if(strcmp(msg,(char*)"OK") == 0)
-			{
-				Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
-			 memcpy(TX_Buffer,(const char*)"AT+SBDWT=",ASCII_MSG_BYTE_LEN);
-			 memcpy(&TX_Buffer[ASCII_MSG_BYTE_LEN],msg_tx,len);
-			 __HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_1,0xFFFFFFFF);
-			 flag = send_AT_CMD((char*)TX_Buffer);
-			 if(flag == IR_OK)
-			 {
-				 msg = strtok((char*)(&RM_Buffer[2]),"\r");
-				 if(strcmp(msg,(char*)"OK") == 0)
-				{
-					 HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
-				}
-			 }
-			}
-		  }
-	  }
 
   }
-
   /* USER CODE END 2 */
 
   /* Infinite loop */
