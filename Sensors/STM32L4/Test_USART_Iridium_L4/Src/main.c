@@ -25,6 +25,7 @@
 /* USER CODE BEGIN Includes */
 #include "string.h"
 #include "stdio.h"
+#include "stdlib.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -44,7 +45,8 @@ typedef enum
 	IR_SBDWB_STATUS_ERROR,
 	IR_SBDWB_TIMEOUT,
 	IR_SBDWB_MSGOVERRUN_ERROR,
-	IR_SBDWB_CHECKSUM_ERROR
+	IR_SBDWB_CHECKSUM_ERROR,
+	IR_SBDIX_SESSION_ERROR
 } IR_Status_t;
 
 typedef enum
@@ -54,6 +56,14 @@ typedef enum
 	SBDIX
 
 }Session_t;
+typedef struct
+{
+	uint8_t MO_Status;
+	uint32_t MO_MSN;
+	uint8_t MT_Status;
+	uint32_t MT_MSN,MT_length,MT_Queued;
+
+} SBDX_Status_t;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -116,6 +126,62 @@ uint16_t calculate_checkSum(uint8_t* messagebuff, uint8_t size)
 	return (uint16_t)(sum & 0xFFFF);
 }
 
+IR_Status_t start_SBD_Session(SBDX_Status_t* sbd)
+{
+	//increase prescaler to lengthen timeout
+	htim2.Instance->PSC = 750;
+	Session_Flag = SBDIX;
+	char* cmd = "AT+SBDIX\r";
+	int size = strlen(cmd);
+		memcpy(TX_Buffer,cmd,size);
+		if(HAL_UART_Transmit(&huart5,TX_Buffer,size,100) != HAL_OK)
+		{
+			return IR_Tx_Error;
+		}
+		__HAL_DMA_ENABLE_IT(&hdma_uart5_rx,DMA_IT_TC);
+		if(__HAL_UART_GET_FLAG(&huart5,UART_FLAG_IDLE))
+		{
+			__HAL_UART_CLEAR_IDLEFLAG(&huart5);
+		}
+		__HAL_UART_ENABLE_IT(&huart5,UART_IT_IDLE);
+		HAL_UART_Receive_DMA(&huart5,RX_Buffer,RX_BUFFER_SIZE);
+		__HAL_TIM_DISABLE_IT(&htim2,TIM_IT_CC1);
+		__HAL_TIM_ENABLE_IT(&htim2,TIM_IT_UPDATE);
+		HAL_NVIC_ClearPendingIRQ(TIM2_IRQn);
+		__HAL_TIM_ENABLE(&htim2);
+		while(RX_Flag == RESET);
+		if(RX_Flag == -2)
+		{
+			return IR_Rx_Timeout;
+		}if(RX_Flag == -1)
+		{
+			return IR_Rx_Error;
+		}
+		RX_Flag = RESET;
+		//decode SBD Message
+		char* status = strtok((char*)&RM_Buffer[2],"\r\n");
+		char* msg = strtok(NULL,"\r\n");
+		if(strcmp(msg,"OK") != 0)
+		{
+			return IR_SBDIX_SESSION_ERROR;
+		}
+		char* temp = strtok(&status[7],", ");
+		int temp_sbd[6] = {atoi(temp),0};
+		int count = 0;
+		while(temp != NULL)
+		{
+			temp = strtok(NULL, ", ");
+			temp_sbd[count++] = atoi(temp);
+		}
+		sbd->MO_MSN = temp_sbd[0];
+		sbd->MO_Status = temp_sbd[1];
+		sbd->MT_MSN = temp_sbd[2];
+		sbd->MT_Status = temp_sbd[3];
+		sbd->MT_length = temp_sbd[4];
+		sbd->MT_Queued = temp_sbd[5];
+		return IR_OK;
+
+}
 IR_Status_t send_Bin_String(uint8_t* bin_string,uint32_t len)
 {
 
@@ -292,16 +358,29 @@ void USART_TIM_RTO_Handler(TIM_HandleTypeDef *htim)
 	if(__HAL_TIM_GET_IT_SOURCE(htim,TIM_IT_CC1))
 	{
 		//clear interrupt
+		htim->Instance->CR1 &= ~TIM_CR1_CEN;
 		__HAL_TIM_CLEAR_IT(htim, TIM_IT_CC1|TIM_IT_UPDATE);
 		//set reciever timeout flag
 		TIM_IDLE_Timeout = 1;
 		//disable timer
 		HAL_TIM_Base_Stop_IT(htim);
-
-		htim->Instance->CR1 &= ~TIM_CR1_CEN;
+		HAL_TIM_OC_Stop_IT(&htim2,TIM_CHANNEL_1);
 		__HAL_TIM_SET_COUNTER(htim,0);
 		USART_Iridium_IRQHandler(&huart5);
-
+	}
+	if(__HAL_TIM_GET_IT_SOURCE(htim,TIM_IT_UPDATE))
+	{
+		__HAL_TIM_CLEAR_IT(htim, TIM_IT_CC1|TIM_IT_UPDATE);
+		if(Session_Flag == SBDIX)
+		{
+			Session_Flag = NONE;
+		}else
+		{
+			TIM_IDLE_Timeout = 1;
+			HAL_TIM_Base_Stop_IT(htim);
+			USART_Iridium_IRQHandler(&huart5);
+		}
+		__NOP();
 
 	}
 }
@@ -461,12 +540,27 @@ int main(void)
   MX_UART5_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-  uint8_t msg[12] = "qerkmv158z[t";
-  if(send_Bin_String(msg,12) == IR_MSG_UPLOAD_OK)
+  uint8_t msg[24] = "This is A Test in Binary";
+  if(send_Bin_String(msg,24) == IR_MSG_UPLOAD_OK)
   {
-	  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
-  }
+	  SBDX_Status_t sbd;
+	  while(1)
+	  {
+		  if(start_SBD_Session(&sbd) == IR_OK)
+		 {
+		 		  //check return status
+		 		  if(sbd.MO_Status == 0)
+		 		  {
+		 			  //message sent
+		 			  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
+		 			  break;
+		 		  }
+		 		  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+		 }
+	  }
 
+
+  }
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -554,9 +648,9 @@ static void MX_TIM2_Init(void)
 
   /* USER CODE END TIM2_Init 1 */
   htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 0;
+  htim2.Init.Prescaler = 1;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 65536;
+  htim2.Init.Period = 65535;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
@@ -591,7 +685,7 @@ static void MX_TIM2_Init(void)
     Error_Handler();
   }
   sConfigOC.OCMode = TIM_OCMODE_TIMING;
-  sConfigOC.Pulse = 8000000;
+  sConfigOC.Pulse = 1152000;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_LOW;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
   if (HAL_TIM_OC_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
