@@ -46,14 +46,18 @@ typedef enum
 	IR_SBDWB_TIMEOUT,
 	IR_SBDWB_MSGOVERRUN_ERROR,
 	IR_SBDWB_CHECKSUM_ERROR,
-	IR_SBDIX_SESSION_ERROR
+	IR_SBDIX_SESSION_ERROR,
+	IR_SBDIX_NO_NEW_MESSAGE,
+	IR_SBDIX_MAIL_CHECK_ERROR,
+	IR_SBDRT_Rx_Error
 } IR_Status_t;
 
 typedef enum
 {
 	NONE,
 	SBDWB,
-	SBDIX
+	SBDIX,
+	SBDRT
 
 }Session_t;
 typedef struct
@@ -167,21 +171,24 @@ IR_Status_t start_SBD_Session(SBDX_Status_t* sbd)
 		}
 		char* temp = strtok(&status[7],", ");
 		int temp_sbd[6] = {atoi(temp),0};
-		int count = 0;
+		int count = 1;
 		while(temp != NULL)
 		{
 			temp = strtok(NULL, ", ");
 			temp_sbd[count++] = atoi(temp);
 		}
-		sbd->MO_MSN = temp_sbd[0];
-		sbd->MO_Status = temp_sbd[1];
-		sbd->MT_MSN = temp_sbd[2];
-		sbd->MT_Status = temp_sbd[3];
+		sbd->MO_Status= temp_sbd[0];
+		sbd->MO_MSN = temp_sbd[1];
+		sbd->MT_Status = temp_sbd[2];
+		sbd->MT_MSN = temp_sbd[3];
 		sbd->MT_length = temp_sbd[4];
 		sbd->MT_Queued = temp_sbd[5];
+		//reset prescaler
+		htim2.Instance->PSC = 1;
 		return IR_OK;
 
 }
+
 IR_Status_t send_Bin_String(uint8_t* bin_string,uint32_t len)
 {
 
@@ -259,6 +266,7 @@ IR_Status_t send_Bin_String(uint8_t* bin_string,uint32_t len)
 
 	  return IR_MSG_UPLOAD_ERROR;
 }
+
 IR_Status_t send_String(char* string)
 {
 	  uint32_t len = strlen(string);
@@ -304,6 +312,70 @@ IR_Status_t send_String(char* string)
 	  return IR_MSG_UPLOAD_OK;
 }
 
+IR_Status_t recieve_String(uint8_t* MSG_Buff,uint32_t MSG_BUFF_SIZE, uint16_t *num_messages)
+{
+	  char* msg;
+	  if(send_AT_CMD("AT\r")== IR_OK)
+	  {
+		  msg = strtok((char*)(&RM_Buffer[2]),"\r");
+		  if(strcmp(msg,(char*)"OK") != 0)
+		  {
+		    return IR_Ack_Error;
+		  }
+	  }else
+	  {
+		  return IR_Ack_Error;
+	  }
+	  //analyse message
+	  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+	  if( send_AT_CMD("AT&K0\r") == IR_OK)
+	  {
+			msg = strtok((char*)(&RM_Buffer[2]),"\r");
+			if(strcmp(msg,(char*)"OK") != 0)
+			{
+				return IR_CFG_Error;
+			}
+	  }
+	  else
+	  {
+		return IR_CFG_Error;
+	  }
+	  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+	SBDX_Status_t sbd;
+	IR_Status_t flag = start_SBD_Session(&sbd);
+
+	if(flag != IR_OK)
+	{
+		return flag;
+	}
+	//check SBDIX return status of mobile Terminated buffer
+	switch(sbd.MT_Status)
+	{
+	case 0:
+		return IR_SBDIX_NO_NEW_MESSAGE;
+	case 2:
+		return IR_SBDIX_MAIL_CHECK_ERROR;
+	default:
+		break;
+	}
+	// Download Message to your controller
+	*num_messages = sbd.MT_Queued;
+	Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+	Session_Flag = SBDRT;
+	if(send_AT_CMD("AT+SBDRT\r") != IR_OK)
+	{
+		return IR_SBDRT_Rx_Error;
+	}
+	// SBDRT return type : +SBDRT\r\n<msg>\r\n<return_status>
+	char* temp = strtok((char*)&RM_Buffer[10],"\r\n");
+	msg = strtok(NULL,"\r\n");
+	 if(strcmp(msg,(char*)"OK") != 0)
+	 {
+		return IR_Ack_Error;
+	 }
+	memcpy(MSG_Buff,temp,strlen(temp));
+ 	return IR_OK;
+}
 void DMA_Iridium_Periph_IRQHandler(UART_HandleTypeDef *huart)
 {
 
@@ -332,6 +404,7 @@ void DMA_Iridium_Periph_IRQHandler(UART_HandleTypeDef *huart)
 
 
 }
+
 void DMA_Iridium_MEM_IRQHandler(DMA_HandleTypeDef *hdma_mem)
 {
 	//clear the rx buffer
@@ -353,6 +426,7 @@ void DMA_Iridium_MEM_IRQHandler(DMA_HandleTypeDef *hdma_mem)
 		__HAL_DMA_CLEAR_FLAG(hdma_mem,DMA_FLAG_HT2);
 	}
 }
+
 void USART_TIM_RTO_Handler(TIM_HandleTypeDef *htim)
 {
 	if(__HAL_TIM_GET_IT_SOURCE(htim,TIM_IT_CC1))
@@ -407,17 +481,29 @@ void USART_Iridium_IRQHandler(UART_HandleTypeDef *huart)
 				{
 					ind = (uint8_t*)strchr((char*)RX_Buffer,'\r');
 					len = strlen((char*)ind);
-				}else
+				}else if (Session_Flag == SBDRT)
 				{
-					ind = (uint8_t*)strchr((char*)RX_Buffer,'\r')+1;
-					len = (ind - RX_Buffer) -1; // chope off the \0
-					msg_len = gnss_length -len-1;
+					ind = (uint8_t*)strchr((char*)RX_Buffer,'\r') + 1 ;
+					len = strlen((char*)ind);
+				}
+				else
+				{
+					if(strcmp((char*)RX_Buffer,"AT+SBDIX\r") != 0)
+					{
+						ind = (uint8_t*)strchr((char*)RX_Buffer,'\r')+1;
+						len = (ind - RX_Buffer) -1; // chope off the \0
+						msg_len = gnss_length -len-1;
+					}else
+					{
+						len = 0;
+					}
+
 				}
 
 			    if(len > 0)
 			    {
 			    	__HAL_DMA_ENABLE_IT(&hdma_memtomem_dma1_channel2,DMA_IT_TC);
-			    	if(Session_Flag == SBDWB)
+			    	if(Session_Flag == SBDWB || Session_Flag == SBDRT)
 			    	{
 			    		HAL_DMA_Start(&hdma_memtomem_dma1_channel2,(uint32_t)(ind),(uint32_t)RM_Buffer,len);
 			    	}else
@@ -540,25 +626,32 @@ int main(void)
   MX_UART5_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-  uint8_t msg[24] = "This is A Test in Binary";
-  if(send_Bin_String(msg,24) == IR_MSG_UPLOAD_OK)
-  {
-	  SBDX_Status_t sbd;
-	  while(1)
-	  {
-		  if(start_SBD_Session(&sbd) == IR_OK)
-		 {
-		 		  //check return status
-		 		  if(sbd.MO_Status == 0)
-		 		  {
-		 			  //message sent
-		 			  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
-		 			  break;
-		 		  }
-		 		  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
-		 }
-	  }
+//==================TEST Transmission==========================//
+//  uint8_t msg[24] = "This is A Test in Binary";
+//  if(send_Bin_String(msg,24) == IR_MSG_UPLOAD_OK)
+//  {
+//	  SBDX_Status_t sbd;
+//	  while(1)
+//	  {
+//		  if(start_SBD_Session(&sbd) == IR_OK)
+//		 {
+//		 		  //check return status
+//		 		  if(sbd.MO_Status == 0)
+//		 		  {
+//		 			  //message sent
+//		 			  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
+//		 			  break;
+//		 		  }
+//		 		  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+//		 }
+//	  }
+//  }
+//==================TEST Reception==========================//
 
+  uint8_t msg[50] = {0};
+  uint16_t num_messages;
+  if(recieve_String(msg,50,&num_messages) == IR_OK)
+  {
 
   }
   /* USER CODE END 2 */
