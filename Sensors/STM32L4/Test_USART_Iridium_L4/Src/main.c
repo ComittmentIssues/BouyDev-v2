@@ -76,6 +76,8 @@ typedef struct
 #define RX_BUFFER_SIZE 2046
 #define RM_BUFFER_SIZE 500
 #define ASCII_MSG_BYTE_LEN 9
+
+//control pin definitions
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -376,6 +378,7 @@ IR_Status_t recieve_String(uint8_t* MSG_Buff,uint32_t MSG_BUFF_SIZE, uint16_t *n
 	memcpy(MSG_Buff,temp,strlen(temp));
  	return IR_OK;
 }
+
 void DMA_Iridium_Periph_IRQHandler(UART_HandleTypeDef *huart)
 {
 
@@ -554,6 +557,18 @@ void USART_Iridium_IRQHandler(UART_HandleTypeDef *huart)
 	}
 }
 
+void Iridium_ControlPin_IRQHandler(void)
+{
+	if(__HAL_GPIO_EXTI_GET_IT(IR_RIng_Pin))
+	{
+		__HAL_GPIO_EXTI_CLEAR_IT(IR_RIng_Pin);
+	}
+
+	if(__HAL_GPIO_EXTI_GET_IT(IR_NetAv_Pin))
+	{
+		__HAL_GPIO_EXTI_CLEAR_IT(IR_NetAv_Pin);
+	}
+}
 IR_Status_t send_AT_CMD(char* cmd)
 
 {
@@ -647,13 +662,15 @@ int main(void)
 //	  }
 //  }
 //==================TEST Reception==========================//
+//
+//  uint8_t msg[50] = {0};
+//  uint16_t num_messages;
+//  if(recieve_String(msg,50,&num_messages) == IR_OK)
+//  {
+//
+//  }
+//================Test control pins=======================//
 
-  uint8_t msg[50] = {0};
-  uint16_t num_messages;
-  if(recieve_String(msg,50,&num_messages) == IR_OK)
-  {
-
-  }
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -661,6 +678,8 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
+	  HAL_GPIO_TogglePin(IR_OnOff_GPIO_Port,IR_OnOff_Pin);
+	  HAL_Delay(1000);
 
     /* USER CODE BEGIN 3 */
   }
@@ -741,9 +760,9 @@ static void MX_TIM2_Init(void)
 
   /* USER CODE END TIM2_Init 1 */
   htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 1;
+  htim2.Init.Prescaler = 0;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 65535;
+  htim2.Init.Period = 65536;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
@@ -889,20 +908,24 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, LD2_Pin|IR_OnOff_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : B1_Pin */
-  GPIO_InitStruct.Pin = B1_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : LD2_Pin */
-  GPIO_InitStruct.Pin = LD2_Pin;
+  /*Configure GPIO pins : LD2_Pin IR_OnOff_Pin */
+  GPIO_InitStruct.Pin = LD2_Pin|IR_OnOff_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LD2_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : IR_RIng_Pin IR_NetAv_Pin */
+  GPIO_InitStruct.Pin = IR_RIng_Pin|IR_NetAv_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
 }
 
