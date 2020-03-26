@@ -49,7 +49,8 @@ typedef enum
 	IR_SBDIX_SESSION_ERROR,
 	IR_SBDIX_NO_NEW_MESSAGE,
 	IR_SBDIX_MAIL_CHECK_ERROR,
-	IR_SBDRT_Rx_Error
+	IR_SBDRT_Rx_Error,
+	IR_CSQ_Ack_Error
 } IR_Status_t;
 
 typedef enum
@@ -132,6 +133,75 @@ uint16_t calculate_checkSum(uint8_t* messagebuff, uint8_t size)
 	return (uint16_t)(sum & 0xFFFF);
 }
 
+IR_Status_t IR_Init_Module(void)
+{
+	 MX_GPIO_Init();
+	 MX_DMA_Init();
+	 MX_UART5_Init();
+	 MX_TIM2_Init();
+
+	  //send acknowledgement
+	 char* msg;
+	 if(send_AT_CMD("AT\r")== IR_OK)
+	 {
+	 	msg = strtok((char*)(&RM_Buffer[2]),"\r");
+	 	if(strcmp(msg,(char*)"OK") != 0)
+	 	{
+	 	  return IR_Ack_Error;
+	 	}
+	 }else
+	 {
+	 	  return IR_Ack_Error;
+	 }
+	 	  //analyse message
+	 	  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+	 	  return IR_OK;
+}
+
+IR_Status_t get_Signal_Strength(uint8_t* signal_Strength)
+{
+	  char* msg;
+	  if(send_AT_CMD("AT\r")== IR_OK)
+	  {
+		  msg = strtok((char*)(&RM_Buffer[2]),"\r");
+		  if(strcmp(msg,(char*)"OK") != 0)
+		  {
+		    return IR_Ack_Error;
+		  }
+	  }else
+	  {
+		  return IR_Ack_Error;
+	  }
+	  //analyse message
+	  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+	  if( send_AT_CMD("AT&K0\r") == IR_OK)
+	  {
+			msg = strtok((char*)(&RM_Buffer[2]),"\r");
+			if(strcmp(msg,(char*)"OK") != 0)
+			{
+				return IR_CFG_Error;
+			}
+	  }
+	  else
+	  {
+		return IR_CFG_Error;
+	  }
+	  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+	  Session_Flag = SBDIX;
+	  if(send_AT_CMD("AT+CSQ\r")!= IR_OK)
+	  {
+		  return IR_Data_Error;
+	  }
+	  char* sig = strtok((char*)&RM_Buffer[7],"\r\n");
+	  msg =  strtok(NULL,"\r\n");
+	  if(strcmp(msg,"OK") != 0)
+	  {
+		  return IR_CSQ_Ack_Error;
+	  }
+
+	  *signal_Strength = atoi(sig);
+	  return IR_OK;
+}
 IR_Status_t start_SBD_Session(SBDX_Status_t* sbd)
 {
 	//increase prescaler to lengthen timeout
@@ -562,11 +632,14 @@ void Iridium_ControlPin_IRQHandler(void)
 	if(__HAL_GPIO_EXTI_GET_IT(IR_RIng_Pin))
 	{
 		__HAL_GPIO_EXTI_CLEAR_IT(IR_RIng_Pin);
+		//download messages
+		HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
 	}
 
 	if(__HAL_GPIO_EXTI_GET_IT(IR_NetAv_Pin))
 	{
 		__HAL_GPIO_EXTI_CLEAR_IT(IR_NetAv_Pin);
+
 	}
 }
 IR_Status_t send_AT_CMD(char* cmd)
@@ -625,21 +698,13 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-  	  if(DMA2_Channel2->CCR != 0)
-  	  {
-  		  //clear channel to reset state
-  		  hdma_uart5_rx.Instance = DMA2_Channel2;
-  		  hdma_uart5_rx.DmaBaseAddress->ISR = DMA2->ISR;
-  		  hdma_uart5_rx.ChannelIndex = 2;
-  		  HAL_DMA_DeInit(&hdma_uart5_rx);
-  	  }
+  	  IR_Init_Module();
+  	  uint8_t signal;
+  	  get_Signal_Strength(&signal);
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-  MX_GPIO_Init();
-  MX_DMA_Init();
-  MX_UART5_Init();
-  MX_TIM2_Init();
+
   /* USER CODE BEGIN 2 */
 //==================TEST Transmission==========================//
 //  uint8_t msg[24] = "This is A Test in Binary";
@@ -678,8 +743,6 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  HAL_GPIO_TogglePin(IR_OnOff_GPIO_Port,IR_OnOff_Pin);
-	  HAL_Delay(1000);
 
     /* USER CODE BEGIN 3 */
   }
@@ -860,7 +923,14 @@ static void MX_UART5_Init(void)
   */
 static void MX_DMA_Init(void) 
 {
-
+  if(DMA2_Channel2->CCR != 0)
+  {
+   //clear channel to reset state
+   hdma_uart5_rx.Instance = DMA2_Channel2;
+   hdma_uart5_rx.DmaBaseAddress->ISR = DMA2->ISR;
+   hdma_uart5_rx.ChannelIndex = 2;
+   HAL_DMA_DeInit(&hdma_uart5_rx);
+  }
   /* DMA controller clock enable */
   __HAL_RCC_DMA2_CLK_ENABLE();
   __HAL_RCC_DMA1_CLK_ENABLE();
