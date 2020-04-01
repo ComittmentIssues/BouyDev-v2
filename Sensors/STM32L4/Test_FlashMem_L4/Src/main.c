@@ -20,7 +20,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-
+#include "DATAFLASH.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -42,23 +42,238 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-SPI_HandleTypeDef hspi2;
 
+UART_HandleTypeDef huart4;
+UART_HandleTypeDef huart2;
 /* USER CODE BEGIN PV */
+uint8_t Data_t256 [256];
+uint8_t Data_t264[264];
+uint8_t* Data_p = 0x00;
+uint8_t Data_r[256] = {0x00};
+uint8_t Data_Register[2] = {0x00};
+int FLAG = 0;
+int COMP = 0;
+int EPE = 0;
 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-static void MX_GPIO_Init(void);
-static void MX_SPI2_Init(void);
+//static void MX_GPIO_Init(void);
+//static void MX_SPI2_Init(void);
 /* USER CODE BEGIN PFP */
-
+void FLASH_Get_ID(int ChipNumber,uint8_t* id);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+//Takes pointer returned from READ operations and populates the Data array from DataFlash memory
+void PopulateReadArray(uint8_t* Data_p)
+{
+	for(int i = 0; i<264;i++){
+		Data_r[i] = *(Data_p+i);
+	}
+}
 
+//Takes pointer returned from GetRegister operation and populates the Register array from DataFlash register
+void PopulateRegisterArray(uint8_t* Data_p)
+{
+	for(int i = 0; i<2;i++){
+		Data_Register[i] = *(Data_p+i);
+	}
+}
+
+void TEST1()
+{
+	  //Gets the Status register from chip 2
+	  Data_p = FLASH_GetStatusRegister(2);
+	  PopulateRegisterArray(Data_p);
+}
+
+void TEST2()
+{
+	//CONFIGURE PAGE SIZE
+	FLASH_CONFIG_PageSize(2, 264);
+
+	//POPULATE DATA
+	for(int i = 0; i <264; i++){
+	  Data_t264[i] = 0x0F;
+	}
+
+	//GET STATUS REGISTER
+	Data_p = FLASH_GetStatusRegister(2);
+	PopulateRegisterArray(Data_p);
+
+	//ERASE PAGE, SET EPE AND READ PAGE TO SHOW PROPER ERASE RESULT
+	EPE = FLASH_ERASE_Page(2);
+	Data_p = FLASH_READ_Page(2);
+	PopulateReadArray(Data_p);
+
+	//WRITE PAGE AND SET EPE AND READ PAGE TO SHOW PROPER WRITE RESULT
+	EPE = FLASH_WRITE_Page(2, BUFFER2, Data_t264);
+	Data_p = FLASH_READ_Page(2);
+	PopulateReadArray(Data_p);
+
+	//POPULATE ARBIRTARILY SIZED ARRAY, SET EPE AND PERFORM READ MODIFY WRITE OPERATION
+	uint8_t Data[5] = {0x00,0x01,0x02,0x03,0x04};
+	EPE = FLASH_WRITE_ReadModifyWrite(2, BUFFER2, Data, 5);
+
+	//READ DATA TO SHOWCASE READMODIFY WRITE
+	Data_p = FLASH_READ_Page(2);
+	PopulateReadArray(Data_p);
+
+	//CONFIGURE PAGE SIZE BACK TO 256 FOR REST OF DEMO
+	FLASH_CONFIG_PageSize(2, 256);
+}
+
+void TEST3()
+{
+	  //POPULATE DATA
+	  for(int i = 0; i <256; i++){
+		 Data_t256[i] = 0x0F;
+	  }
+
+	  //SET MAX ADDRESS FLAG, SET ADDRESS TO PAGE BEFORE MAX ADDRESS ADDRESS, WRITE AND READ PAGE
+	  FLAG = FLASH_GetMaxAddressFlag();
+	  FLASH_SetAddress((FLASH_MAX_ADDRESS&BYTE_Mask_MSB)>>16,(FLASH_MAX_ADDRESS&BYTE_Mask_MID)>>8,0x00);
+	  EPE = FLASH_WRITE_Page(2, BUFFER2, Data_t256);
+	  Data_p = FLASH_READ_Page(2);
+	  PopulateReadArray(Data_p);
+
+	  //INCREMENT ADDRESS, GET ADDRESS FLAG, POPULATE ARRAY, RESET FLAG, WRITE AND READ PAGE
+	  FLASH_IncAddress(256);
+	  FLAG = FLASH_GetMaxAddressFlag();
+	  for(int i = 0; i <256; i++){
+	  	  Data_t256[i] = 0x03;
+	  }
+	  FLASH_ResetMaxAddressFlag();
+	  EPE = FLASH_WRITE_Page(2, BUFFER2, Data_t256);
+	  Data_p = FLASH_READ_Page(2);
+	  PopulateReadArray(Data_p);
+
+	  //SET ADDRESS BACK AND READ TO SHOW THAT ADDRESSES HAVE CHANGED
+	  FLASH_SetAddress((FLASH_MAX_ADDRESS&BYTE_Mask_MSB)>>16,(FLASH_MAX_ADDRESS&BYTE_Mask_MID)>>8,0x00);
+	  Data_p = FLASH_READ_Page(2);
+	  PopulateReadArray(Data_p);
+
+}
+
+void TEST4()
+{
+	//RESET ADDRESS AND POPULATE ARBITRARILY SIZED ARRAYS AND WRITE TO BOTH BUFFERS
+	FLASH_SetAddress(0x00, 0x00, 0x00);
+	uint8_t Data[10] = {0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09};
+	EPE = FLASH_WRITE_Buffer(2, BUFFER2, Data, 10);
+	uint8_t Data2[10] = {0x09,0x08,0x07,0x06,0x05,0x04,0x03,0x02,0x01,0x00};
+	EPE = FLASH_WRITE_Buffer(2, BUFFER1, Data2, 10);
+
+	//DEMONSTRATE BUFFER READ AT HF
+	Data_p = FLASH_READ_BufferHF(2, BUFFER1);
+	PopulateReadArray(Data_p);
+
+	//DEMONSTRATE BUFFER READ AT LF
+	Data_p = FLASH_READ_BufferLF(2, BUFFER2);
+	PopulateReadArray(Data_p);
+
+	//DEMOSNTRATE BUFFER TO PAGE
+	EPE = FLASH_WRITE_BufferToPage(2, BUFFER2);
+	Data_p = FLASH_READ_Page(2);
+	PopulateReadArray(Data_p);
+
+}
+
+void TEST5()
+{
+	//DEMONSTRATE READY BIT, DELAY AND ERASE CHIP
+	FLASH_SetAddress(0x00, 0x00, 0x00);
+	EPE = FLASH_ERASE_Chip(2);
+
+	//SHOW READY BIT
+	Data_p = FLASH_GetStatusRegister(2);
+	PopulateRegisterArray(Data_p);
+
+	//SHOW SUCCESSFUL ARRAY
+	Data_p = FLASH_READ_Page(2);
+	PopulateReadArray(Data_p);
+}
+
+void TEST6()
+{
+	//ERASE AND SUSPEND ERASE OPERATION
+	EPE = FLASH_ERASE_Sector(2);
+	FLASH_SUSPEND(2);
+
+	//SHOW ERASE SUSPEND BIT
+	Data_p = FLASH_GetStatusRegister(2);
+	PopulateRegisterArray(Data_p);
+
+	//RESUME ERASE
+	FLASH_RESUME(2);
+
+	//SHOW SUCCESSFUL ERASE
+	Data_p = FLASH_GetStatusRegister(2);
+	PopulateRegisterArray(Data_p);
+}
+
+void TEST7()
+{
+	//POPULATE DATA, WRITE PAGE, REWRITE PAGE
+	for(int i = 0; i <256; i++){
+		Data_t256[i] = 0x0F;
+	}
+	EPE = FLASH_WRITE_Page(2, BUFFER1, Data_t256);
+	FLASH_ADDITIONAL_AutoPageRewrite(2, BUFFER1);
+
+	//SHOW SUCCESSFUL WRITE REWRITE
+	Data_p = FLASH_READ_Page(2);
+	PopulateReadArray(Data_p);
+
+	//COPY PAGE TO BUFFER AND READ BUFFER
+	FLASH_ADDITIONAL_PageToBuffer(2, BUFFER2);
+	Data_p = FLASH_READ_BufferHF(2, BUFFER2);
+	PopulateReadArray(Data_p);
+
+	//SET UP BUFFER PAGE COMPARISON TEST
+	for(int i = 0; i <256; i++){
+		Data_t256[i] = 0x03;
+	}
+	EPE = FLASH_WRITE_Buffer(2, BUFFER1, Data_t256, 256);
+	COMP = FLASH_ADDITIONAL_PageBufferCompare(2, BUFFER1);
+	HAL_Delay(10);
+	Data_p = FLASH_GetStatusRegister(2);
+	PopulateRegisterArray(Data_p);
+
+}
+
+HAL_StatusTypeDef Init_Flash_Chips(void)
+{
+	//control Pin init
+	MX_GPIO_Init();
+	//SPI int
+	if(MX_SPI_Init(SPI2,&hspi2)		!= HAL_OK) return HAL_ERROR;
+	// INIT UART Peripherals for testing
+//	if(MX_UART_Init(UART4,&huart4) 	!= HAL_OK) return HAL_ERROR;
+//	if(MX_UART_Init(USART2,&huart2)	!= HAL_OK) return HAL_ERROR;
+	uint8_t id[5] = {0};
+	FLASH_Get_ID(1,id);
+	FLASH_Get_ID(2,id);
+	FLASH_Get_ID(3,id);
+	FLASH_Get_ID(4,id);
+	return HAL_OK;
+}
+
+void FLASH_Get_ID(int ChipNumber,uint8_t* id)
+{
+	uint8_t temp[5] = {0};
+	uint8_t cmd = 0x9F;
+	FLASH_ChipSelect_setState(ChipNumber,CS_OPEN);
+	HAL_SPI_Transmit(&hspi2,&cmd,1,100);
+	HAL_SPI_Receive(&hspi2,temp,5,100);
+	FLASH_ChipSelect_setState(ChipNumber,CS_CLOSED);
+	__NOP();
+
+
+}
 /* USER CODE END 0 */
 
 /**
@@ -85,20 +300,11 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-
+  Init_Flash_Chips();
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-  MX_GPIO_Init();
-  MX_SPI2_Init();
-  /* USER CODE BEGIN 2 */
-  uint8_t cmd = 0x9F;
-  uint8_t id[5] = {0};
-  HAL_GPIO_WritePin(SPI2_Flash1_CS_GPIO_Port,SPI2_Flash1_CS_Pin,RESET);
-  HAL_SPI_Transmit(&hspi2,&cmd,1,100);
-  HAL_SPI_Receive(&hspi2,id,5,100);
-  HAL_GPIO_WritePin(SPI2_Flash1_CS_GPIO_Port,SPI2_Flash1_CS_Pin,SET);
-  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -162,90 +368,13 @@ void SystemClock_Config(void)
   * @param None
   * @retval None
   */
-static void MX_SPI2_Init(void)
-{
 
-  /* USER CODE BEGIN SPI2_Init 0 */
-
-  /* USER CODE END SPI2_Init 0 */
-
-  /* USER CODE BEGIN SPI2_Init 1 */
-
-  /* USER CODE END SPI2_Init 1 */
-  /* SPI2 parameter configuration*/
-  hspi2.Instance = SPI2;
-  hspi2.Init.Mode = SPI_MODE_MASTER;
-  hspi2.Init.Direction = SPI_DIRECTION_2LINES;
-  hspi2.Init.DataSize = SPI_DATASIZE_8BIT;
-  hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
-  hspi2.Init.CLKPhase = SPI_PHASE_1EDGE;
-  hspi2.Init.NSS = SPI_NSS_SOFT;
-  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_8;
-  hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
-  hspi2.Init.TIMode = SPI_TIMODE_DISABLE;
-  hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
-  hspi2.Init.CRCPolynomial = 7;
-  hspi2.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
-  hspi2.Init.NSSPMode = SPI_NSS_PULSE_ENABLE;
-  if (HAL_SPI_Init(&hspi2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN SPI2_Init 2 */
-
-  /* USER CODE END SPI2_Init 2 */
-
-}
 
 /**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
   */
-static void MX_GPIO_Init(void)
-{
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
-
-  /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOC_CLK_ENABLE();
-  __HAL_RCC_GPIOH_CLK_ENABLE();
-  __HAL_RCC_GPIOA_CLK_ENABLE();
-  __HAL_RCC_GPIOB_CLK_ENABLE();
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB , SPI2_Flash1_CS_Pin, GPIO_PIN_RESET);
-  HAL_GPIO_WritePin(GPIOC , SPI2_Flash1_WP_Pin, GPIO_PIN_RESET);
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin : B1_Pin */
-  GPIO_InitStruct.Pin = B1_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : SPI2_Flash1_CS_Pin */
-  GPIO_InitStruct.Pin = SPI2_Flash1_CS_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-  HAL_GPIO_Init(SPI2_Flash1_CS_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : SPI2_Flash1_WP_Pin */
-  GPIO_InitStruct.Pin = SPI2_Flash1_WP_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(SPI2_Flash1_WP_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : LD2_Pin */
-  GPIO_InitStruct.Pin = LD2_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LD2_GPIO_Port, &GPIO_InitStruct);
-
-}
 
 /* USER CODE BEGIN 4 */
 
