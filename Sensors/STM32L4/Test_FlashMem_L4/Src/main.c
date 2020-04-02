@@ -63,6 +63,7 @@ void SystemClock_Config(void);
 //static void MX_SPI2_Init(void);
 /* USER CODE BEGIN PFP */
 void FLASH_Get_ID(int ChipNumber,uint8_t* id);
+uint8_t FLASH_Is_Online(int ChipNumber);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -254,24 +255,34 @@ HAL_StatusTypeDef Init_Flash_Chips(void)
 	// INIT UART Peripherals for testing
 //	if(MX_UART_Init(UART4,&huart4) 	!= HAL_OK) return HAL_ERROR;
 //	if(MX_UART_Init(USART2,&huart2)	!= HAL_OK) return HAL_ERROR;
-	uint8_t id[5] = {0};
-	FLASH_Get_ID(1,id);
-	FLASH_Get_ID(2,id);
-	FLASH_Get_ID(3,id);
-	FLASH_Get_ID(4,id);
+	//check the status of each chip
+	for (int chipnumber = 1; chipnumber < 5; ++chipnumber)
+	{
+		if(!FLASH_Is_Online(chipnumber))
+		{
+			return HAL_ERROR;
+		}
+	}
 	return HAL_OK;
 }
 
 void FLASH_Get_ID(int ChipNumber,uint8_t* id)
 {
-	uint8_t temp[5] = {0};
+
 	uint8_t cmd = 0x9F;
 	FLASH_ChipSelect_setState(ChipNumber,CS_OPEN);
 	HAL_SPI_Transmit(&hspi2,&cmd,1,100);
-	HAL_SPI_Receive(&hspi2,temp,5,100);
+	HAL_SPI_Receive(&hspi2,id,5,100);
 	FLASH_ChipSelect_setState(ChipNumber,CS_CLOSED);
 	__NOP();
 
+
+}
+uint8_t FLASH_Is_Online(int ChipNumber)
+{
+	uint8_t id[5] = {0};
+	FLASH_Get_ID(ChipNumber,id);
+	return (id[0] == 0x1f)&&(id[1] == 0x28)&&(id[2] == 0)&&(id[3] == 1)&&(id[4] == 0);
 
 }
 /* USER CODE END 0 */

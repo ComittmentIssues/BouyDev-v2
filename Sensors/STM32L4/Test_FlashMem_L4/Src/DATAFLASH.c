@@ -1046,7 +1046,7 @@ void MX_GPIO_Init(void)
 
   /*Configure GPIO pins : PA4 */
   //for Chip 4 CS
-  GPIO_InitStruct.Pin = GPIO_CHIP_2_CS;
+  GPIO_InitStruct.Pin = GPIO_CHIP_4_CS;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
