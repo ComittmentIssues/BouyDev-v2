@@ -218,6 +218,16 @@ typedef enum
 //Last address number on each chip
 #define FLASH_MAX_ADDRESS 0x7FFFFF
 
+//Status Register Macros
+#define STATUS_RDY 0b1<<7
+#define STATUS_BUSY 0
+#define STATUS_PAGE_DATA_BUFFER_MATCH 0b1<<6
+#define STATUS_PAGE_DATA_BUFFER_NO_MATCH 0
+#define STATUS_PROTECT_ENABLED 0b10
+#define STATUS_PROTECT_DISABLED 0
+#define STATUS_PAGE_SIZE_256 1
+#define STATUS_PAGE_SIZE_264 0
+
 /* Private variables ---------------------------------------------------------*/
 SPI_HandleTypeDef hspi2;
 

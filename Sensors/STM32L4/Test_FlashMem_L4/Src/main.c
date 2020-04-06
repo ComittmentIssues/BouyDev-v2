@@ -254,7 +254,7 @@ HAL_StatusTypeDef Init_Flash_Chips(void)
 	if(MX_SPI_Init(SPI2,&hspi2)		!= HAL_OK) return HAL_ERROR;
 	// INIT UART Peripherals for testing
 //	if(MX_UART_Init(UART4,&huart4) 	!= HAL_OK) return HAL_ERROR;
-//	if(MX_UART_Init(USART2,&huart2)	!= HAL_OK) return HAL_ERROR;
+	if(MX_UART_Init(USART2,&huart2)	!= HAL_OK) return HAL_ERROR;
 	//check the status of each chip
 	for (int chipnumber = 1; chipnumber < 5; ++chipnumber)
 	{
@@ -274,9 +274,6 @@ void FLASH_Get_ID(int ChipNumber,uint8_t* id)
 	HAL_SPI_Transmit(&hspi2,&cmd,1,100);
 	HAL_SPI_Receive(&hspi2,id,5,100);
 	FLASH_ChipSelect_setState(ChipNumber,CS_CLOSED);
-	__NOP();
-
-
 }
 uint8_t FLASH_Is_Online(int ChipNumber)
 {
@@ -311,7 +308,17 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-  Init_Flash_Chips();
+   if(Init_Flash_Chips() == HAL_OK)
+   {
+	   HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin,SET);
+	   TEST1();
+	   TEST2();
+	   TEST3();
+	   TEST4();
+	   TEST5();
+	   TEST6();
+	   TEST7();
+   }
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
