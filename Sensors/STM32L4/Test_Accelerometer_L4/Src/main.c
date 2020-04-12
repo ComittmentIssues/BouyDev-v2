@@ -101,19 +101,19 @@ mpu_status_t MPU6050_Get_MST_Status(I2C_HandleTypeDef *hi2c, uint8_t* status_byt
 	 return MPU_OK;
  }
 
- mpu_status_t MPU6050_Get_FactoryTrim_Values(I2C_HandleTypeDef *hi2c,MPU_SelfTest_t mpu)
+ mpu_status_t MPU6050_Get_FactoryTrim_Values(I2C_HandleTypeDef *hi2c,MPU_SelfTest_t *mpu)
  {
 	 uint8_t temp[4]={0};
 	 if(HAL_I2C_Mem_Read(hi2c,I2C_SLAVE_ADDRESS_LOW,SELF_TEST_X,1,temp,4,100)!= HAL_OK)
 	 {
 		 return MPU_I2C_ERROR;
 	 }
-	 mpu.A_x = (temp[0]&0b1110000)>>2 | ((temp[3]&0b00110000)>>4);
-	 mpu.G_x =  temp[0]&0b0001111;
-	 mpu.A_y = (temp[1]&0b1110000)>>2 | ((temp[3]&0b00001100)>>2);
-	 mpu.G_y =  temp[1]&0b0001111;
-	 mpu.A_z = (temp[2]&0b1110000) |	(temp[3]&0b11);
-	 mpu.G_z =  temp[2]&0b0001111;
+	 mpu->A_x = (temp[0]&0b1110000)>>2 | ((temp[3]&0b00110000)>>4);
+	 mpu->G_x =  temp[0]&0b0001111;
+	 mpu->A_y = (temp[1]&0b1110000)>>2 | ((temp[3]&0b00001100)>>2);
+	 mpu->G_y =  temp[1]&0b0001111;
+	 mpu->A_z = (temp[2]&0b1110000) |	(temp[3]&0b11);
+	 mpu->G_z =  temp[2]&0b0001111;
 	 return MPU_OK;
  }
 
@@ -178,6 +178,27 @@ mpu_status_t MPU6050_Set_Sleep_Power_Mode(I2C_HandleTypeDef *hi2c)
 
 	 return MPU_OK;
  }
+
+mpu_status_t MPU6050_Set_Gyro_FSR(I2C_HandleTypeDef *hi2c,uint8_t FSR)
+{
+	uint8_t byte = FSR;
+	 if(HAL_I2C_Mem_Write(hi2c,I2C_SLAVE_ADDRESS_LOW,GYRO_CONFIG,1,&byte,1,100)!= HAL_OK)
+	{
+		return MPU_I2C_ERROR;
+	}
+	 return MPU_OK;
+}
+
+mpu_status_t MPU6050_Set_Acc_FSR(I2C_HandleTypeDef *hi2c,uint8_t FSR)
+{
+	uint8_t byte = FSR &0xFF;
+	if(HAL_I2C_Mem_Write(hi2c,I2C_SLAVE_ADDRESS_LOW,ACCELEROMETER_CONFIG,1,&byte,1,100)!= HAL_OK)
+	{
+		return MPU_I2C_ERROR;
+	}
+	 return MPU_OK;
+}
+//----------------------------- TEST MODULES ----------------------------------//
 void Test_PowerMode(void)
 {
 	  MPU6050_Set_Cycle_Power_Mode(&hi2c1,PWR_MGMT_2_LP_WAKE_CTRL_40HZ);
@@ -190,7 +211,8 @@ void Test_PowerMode(void)
 	  MPU6050_Set_Wake(&hi2c1);
 	  HAL_I2C_Mem_Read(&hi2c1,I2C_SLAVE_ADDRESS_LOW,PWR_MGMT_1,1,byte,2,100);
 }
- void MPU6050_DMA_PeriphIRQHandler(void)
+
+void MPU6050_DMA_PeriphIRQHandler(void)
 {
 	I2C_TX_CPLT = 1;
 }
@@ -239,7 +261,13 @@ int main(void)
 	  MPU6050_Get_MST_Status(&hi2c1,&status);
 	 //read self test variables
 	  MPU_SelfTest_t mpu;
-	  MPU6050_Get_FactoryTrim_Values(&hi2c1,mpu);
+	  MPU6050_Get_FactoryTrim_Values(&hi2c1,&mpu);
+	  MPU6050_Set_Wake(&hi2c1);
+	  MPU6050_Set_Acc_FSR(&hi2c1,ACC_CONFIG_AFSSEL_4G);
+	  HAL_I2C_Mem_Read(&hi2c1,I2C_SLAVE_ADDRESS_LOW,ACCELEROMETER_CONFIG,1,&status,1,100);
+	  __NOP();
+
+
   }
   /* USER CODE END 2 */
 
