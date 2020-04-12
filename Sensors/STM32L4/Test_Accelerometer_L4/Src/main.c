@@ -20,13 +20,21 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "HAL_MPU6050.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "HAL_MPU6050.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+
+/* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
@@ -35,16 +43,18 @@
 
 /* Private variables ---------------------------------------------------------*/
 I2C_HandleTypeDef hi2c1;
+DMA_HandleTypeDef hdma_i2c1_rx;
 
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-
+uint8_t I2C_TX_CPLT;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
@@ -90,6 +100,100 @@ mpu_status_t MPU6050_Get_MST_Status(I2C_HandleTypeDef *hi2c, uint8_t* status_byt
 	 }
 	 return MPU_OK;
  }
+
+ mpu_status_t MPU6050_Get_FactoryTrim_Values(I2C_HandleTypeDef *hi2c,MPU_SelfTest_t mpu)
+ {
+	 uint8_t temp[4]={0};
+	 if(HAL_I2C_Mem_Read(hi2c,I2C_SLAVE_ADDRESS_LOW,SELF_TEST_X,1,temp,4,100)!= HAL_OK)
+	 {
+		 return MPU_I2C_ERROR;
+	 }
+	 mpu.A_x = (temp[0]&0b1110000)>>2 | ((temp[3]&0b00110000)>>4);
+	 mpu.G_x =  temp[0]&0b0001111;
+	 mpu.A_y = (temp[1]&0b1110000)>>2 | ((temp[3]&0b00001100)>>2);
+	 mpu.G_y =  temp[1]&0b0001111;
+	 mpu.A_z = (temp[2]&0b1110000) |	(temp[3]&0b11);
+	 mpu.G_z =  temp[2]&0b0001111;
+	 return MPU_OK;
+ }
+
+mpu_status_t MPU6050_Set_Cycle_Power_Mode(I2C_HandleTypeDef *hi2c,uint8_t Cycles)
+{
+	uint8_t pwr1byte = 0;
+	pwr1byte |= PWR_MGMT_1_CYCLE_EN;
+	//pwr1byte &= ~PWR_MGMT_1_SLEEP_EN;
+	uint8_t pwr2byte = Cycles;
+
+	 if(HAL_I2C_Mem_Write(hi2c,I2C_SLAVE_ADDRESS_LOW,PWR_MGMT_1,1,&pwr1byte,1,100)!= HAL_OK)
+	 {
+			return MPU_I2C_ERROR;
+	 }
+	 if(HAL_I2C_Mem_Write(hi2c,I2C_SLAVE_ADDRESS_LOW,PWR_MGMT_2,1,&pwr2byte,1,100)!= HAL_OK)
+	{
+			return MPU_I2C_ERROR;
+	}
+	return MPU_OK;
+}
+
+mpu_status_t MPU6050_Set_Low_Power_Mode_Acc(I2C_HandleTypeDef *hi2c,uint8_t Cycles)
+{
+	uint8_t byte[2] = {0};
+	byte[0]  = (PWR_MGMT_1_CYCLE_EN | PWR_MGMT_1_TEMP_DIS);
+	byte[1]  = (Cycles | PWR_MGMT_2_STBY_XG|PWR_MGMT_2_STBY_YG|PWR_MGMT_2_STBY_ZG);
+	 if(HAL_I2C_Mem_Write(hi2c,I2C_SLAVE_ADDRESS_LOW,PWR_MGMT_1,1,&byte[0],1,100)!= HAL_OK)
+	 {
+			return MPU_I2C_ERROR;
+	 }
+	 if(HAL_I2C_Mem_Write(hi2c,I2C_SLAVE_ADDRESS_LOW,PWR_MGMT_2,1,&byte[1],1,100)!= HAL_OK)
+	{
+			return MPU_I2C_ERROR;
+	}
+	 return MPU_OK;
+
+}
+
+mpu_status_t MPU6050_Set_Wake(I2C_HandleTypeDef *hi2c)
+ {
+	 uint8_t byte[2] = {0x00,00};
+
+	 if(HAL_I2C_Mem_Write(hi2c,I2C_SLAVE_ADDRESS_LOW,PWR_MGMT_1,1,&byte[0],1,100)!= HAL_OK)
+	{
+		return MPU_I2C_ERROR;
+	}
+	if(HAL_I2C_Mem_Write(hi2c,I2C_SLAVE_ADDRESS_LOW,PWR_MGMT_1,1,&byte[1],1,100)!= HAL_OK)
+	{
+	 	return MPU_I2C_ERROR;
+	}
+	 return MPU_OK;
+ }
+
+mpu_status_t MPU6050_Set_Sleep_Power_Mode(I2C_HandleTypeDef *hi2c)
+ {
+	 uint8_t byte = PWR_MGMT_1_SLEEP_EN;
+
+	 if(HAL_I2C_Mem_Write(hi2c,I2C_SLAVE_ADDRESS_LOW,PWR_MGMT_1,1,&byte,1,100)!= HAL_OK)
+	{
+		return MPU_I2C_ERROR;
+	}
+
+	 return MPU_OK;
+ }
+void Test_PowerMode(void)
+{
+	  MPU6050_Set_Cycle_Power_Mode(&hi2c1,PWR_MGMT_2_LP_WAKE_CTRL_40HZ);
+	  uint8_t byte[2];
+	  HAL_I2C_Mem_Read(&hi2c1,I2C_SLAVE_ADDRESS_LOW,PWR_MGMT_1,1,byte,2,100);
+	  MPU6050_Set_Low_Power_Mode_Acc(&hi2c1,PWR_MGMT_2_LP_WAKE_CTRL_1_25HZ);
+	  HAL_I2C_Mem_Read(&hi2c1,I2C_SLAVE_ADDRESS_LOW,PWR_MGMT_1,1,byte,2,100);
+	  MPU6050_Set_Sleep_Power_Mode(&hi2c1);
+	  HAL_I2C_Mem_Read(&hi2c1,I2C_SLAVE_ADDRESS_LOW,PWR_MGMT_1,1,byte,2,100);
+	  MPU6050_Set_Wake(&hi2c1);
+	  HAL_I2C_Mem_Read(&hi2c1,I2C_SLAVE_ADDRESS_LOW,PWR_MGMT_1,1,byte,2,100);
+}
+ void MPU6050_DMA_PeriphIRQHandler(void)
+{
+	I2C_TX_CPLT = 1;
+}
  /* USER CODE END 0 */
 
 /**
@@ -122,6 +226,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_I2C1_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
@@ -132,8 +237,9 @@ int main(void)
   {
 	 //set mode of the device
 	  MPU6050_Get_MST_Status(&hi2c1,&status);
-	  __NOP();
-
+	 //read self test variables
+	  MPU_SelfTest_t mpu;
+	  MPU6050_Get_FactoryTrim_Values(&hi2c1,mpu);
   }
   /* USER CODE END 2 */
 
@@ -279,6 +385,22 @@ static void MX_USART2_UART_Init(void)
   /* USER CODE BEGIN USART2_Init 2 */
 
   /* USER CODE END USART2_Init 2 */
+
+}
+
+/** 
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void) 
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA1_Channel7_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel7_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel7_IRQn);
 
 }
 

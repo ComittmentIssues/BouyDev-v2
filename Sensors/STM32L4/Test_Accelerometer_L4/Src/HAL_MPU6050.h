@@ -82,6 +82,15 @@ typedef enum
 	MPU_OK
 }mpu_status_t;
 
+typedef enum
+{
+	MPU_RESET,
+	MPU_STANDBY,
+	MPU_SLEEP,
+	MPU_WAKE,
+	MPU_LP,
+	MPU_Cycle
+}MPU_PowerMode;
 //@brief: PASS_THROUGH This bit reflects the status of the FSYNC interrupt from an external device
 //into the MPU-60X0. This is used as a way to pass an external interrupt
 //through the MPU-60X0 to the host application processor. When set to 1, this
@@ -121,6 +130,15 @@ typedef enum
 	I2C_SLV0_NACK		= 0b1<<0,
 }MPU_MST_Status_t;
 
+typedef struct
+{
+	uint8_t A_x;
+	uint8_t A_y;
+	uint8_t A_z;
+	uint8_t G_x;
+	uint8_t G_y;
+	uint8_t G_z;
+}MPU_SelfTest_t;
 /* Private define ------------------------------------------------------------*/
 
 
