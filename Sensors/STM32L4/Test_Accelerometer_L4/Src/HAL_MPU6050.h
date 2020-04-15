@@ -79,7 +79,10 @@ typedef enum
 	MPU_I2C_DEVICE_OFFLINE,
 	MPU_I2C_DEVICE_ONLINE,
 	MPU_I2C_ID_ERROR,
+	MPU_CONFIG_OUT_OF_RANGE,
+	MPU_INIT_CMD_ERROR,
 	MPU_OK
+
 }mpu_status_t;
 
 typedef enum
@@ -130,6 +133,12 @@ typedef enum
 	I2C_SLV0_NACK		= 0b1<<0,
 }MPU_MST_Status_t;
 
+typedef enum
+{
+	FIFO_OVERFLOW,
+	I2C_MST_INT,
+	DATA_READY
+}Interrupt_source_t;
 typedef struct
 {
 	uint8_t A_x;
@@ -311,6 +320,10 @@ typedef struct
 #define INT_ENABLE_I2C_MST_INT_EN 0b1<<3
 #define INT_ENABLE_DATA_RDY_EN 0b1
 
+//INT_STATUS
+#define INT_STATUS_FIFO_OVERFLOW	0b1<<4
+#define INT_STATUS_I2C_MST			0b1<<3
+#define INT_STATUS_DATA_RDY			0b1
 //I2C_MST_DELAY_CTRL
 #define I2C_MST_DELAY_CTRL_DELAY_ES_SHADOW 0b1<<7
 #define I2C_MST_DELAY_CTRL_SLV4_DLY_EN 0b1<<4
@@ -373,7 +386,7 @@ typedef struct
 #define PWR_MGMT_DEVICE_RESET 0b1<<7
 #define PWR_MGMT_1_SLEEP_EN 0b1<<6
 #define PWR_MGMT_1_CYCLE_EN 0b1<<5
-#define PWR_MGMT_1_TEMP_DIS 0b1<<4
+#define PWR_MGMT_1_TEMP_DIS 0b1<<3
 
 //PWR_MGMT_2
 
@@ -415,13 +428,27 @@ typedef struct
 * DATA Transmit or received data
 * P Stop condition: SDA going from low to high while SCL is high
  */
-#define I2C_SLAVE_ADDRESS_LOW 0xD0
+#define AD0
+
+#ifdef AD0 //if ADO is high, replace with AD1
+#define MPU_Device_Address 0xD0
+#endif
+#ifdef AD1
+#define MPU_Device_Address 0xD1
+#endif
+
 #define I2C_SLAVE_ADDRESS_HIGH 0b1101001
 #define I2C_WRITE_BIT 0b1
 #define I2C_READ_BIT  0b0
 #define BASE_REGISTER_RESET_VALUE 0x00
 #define PWR_MGMT_RESET_VALUE 0x40
 #define WHO_AM_I_VALUE  0x68
+
+//Sample Rate Value
+#define SAMPLE_RATE 5 //Hz
+#define GYRO_OUTPUT_RATE_DLPF_EN 1000 //Hz
+#define GYRO_OUTPUT_RATE_DLPF_DIS 8000 //Hz
+
 
 /* USER CODE END PD */
 

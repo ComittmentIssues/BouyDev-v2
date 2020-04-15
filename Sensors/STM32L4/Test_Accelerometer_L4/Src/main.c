@@ -68,10 +68,10 @@ mpu_status_t MPU6050_Get_MST_Status(I2C_HandleTypeDef *hi2c, uint8_t* status_byt
  {
 	  uint8_t whoami = 0;
 	  //check if device is I2C ready
-	  if(HAL_I2C_IsDeviceReady(hi2c,I2C_SLAVE_ADDRESS_LOW,10,100)== HAL_OK)
+	  if(HAL_I2C_IsDeviceReady(hi2c,MPU_Device_Address,10,100)== HAL_OK)
 	  {
 		  	  //read 1 byte of WHO_AM_I register into variable
-			  HAL_StatusTypeDef flag = HAL_I2C_Mem_Read(&hi2c1,I2C_SLAVE_ADDRESS_LOW,WHO_AM_I,1,&whoami,1,100);
+			  HAL_StatusTypeDef flag = HAL_I2C_Mem_Read(&hi2c1,MPU_Device_Address,WHO_AM_I,1,&whoami,1,100);
 			  //verify read was successful
 			  if(flag != HAL_OK)
 			  {
@@ -94,17 +94,17 @@ mpu_status_t MPU6050_Get_MST_Status(I2C_HandleTypeDef *hi2c, uint8_t* status_byt
 
  mpu_status_t MPU6050_Get_MST_Status(I2C_HandleTypeDef *hi2c, uint8_t* status_byte)
  {
-	 if(HAL_I2C_Mem_Read(hi2c,I2C_SLAVE_ADDRESS_LOW,I2C_MST_STATUS,1,status_byte,1,100) != HAL_OK)
+	 if(HAL_I2C_Mem_Read(hi2c,MPU_Device_Address,I2C_MST_STATUS,1,status_byte,1,100) != HAL_OK)
 	 {
 		 return MPU_I2C_ERROR;
 	 }
 	 return MPU_OK;
  }
 
- mpu_status_t MPU6050_Get_FactoryTrim_Values(I2C_HandleTypeDef *hi2c,MPU_SelfTest_t *mpu)
+mpu_status_t MPU6050_Get_FactoryTrim_Values(I2C_HandleTypeDef *hi2c,MPU_SelfTest_t *mpu)
  {
 	 uint8_t temp[4]={0};
-	 if(HAL_I2C_Mem_Read(hi2c,I2C_SLAVE_ADDRESS_LOW,SELF_TEST_X,1,temp,4,100)!= HAL_OK)
+	 if(HAL_I2C_Mem_Read(hi2c,MPU_Device_Address,SELF_TEST_X,1,temp,4,100)!= HAL_OK)
 	 {
 		 return MPU_I2C_ERROR;
 	 }
@@ -124,11 +124,11 @@ mpu_status_t MPU6050_Set_Cycle_Power_Mode(I2C_HandleTypeDef *hi2c,uint8_t Cycles
 	//pwr1byte &= ~PWR_MGMT_1_SLEEP_EN;
 	uint8_t pwr2byte = Cycles;
 
-	 if(HAL_I2C_Mem_Write(hi2c,I2C_SLAVE_ADDRESS_LOW,PWR_MGMT_1,1,&pwr1byte,1,100)!= HAL_OK)
+	 if(HAL_I2C_Mem_Write(hi2c,MPU_Device_Address,PWR_MGMT_1,1,&pwr1byte,1,100)!= HAL_OK)
 	 {
 			return MPU_I2C_ERROR;
 	 }
-	 if(HAL_I2C_Mem_Write(hi2c,I2C_SLAVE_ADDRESS_LOW,PWR_MGMT_2,1,&pwr2byte,1,100)!= HAL_OK)
+	 if(HAL_I2C_Mem_Write(hi2c,MPU_Device_Address,PWR_MGMT_2,1,&pwr2byte,1,100)!= HAL_OK)
 	{
 			return MPU_I2C_ERROR;
 	}
@@ -140,11 +140,11 @@ mpu_status_t MPU6050_Set_Low_Power_Mode_Acc(I2C_HandleTypeDef *hi2c,uint8_t Cycl
 	uint8_t byte[2] = {0};
 	byte[0]  = (PWR_MGMT_1_CYCLE_EN | PWR_MGMT_1_TEMP_DIS);
 	byte[1]  = (Cycles | PWR_MGMT_2_STBY_XG|PWR_MGMT_2_STBY_YG|PWR_MGMT_2_STBY_ZG);
-	 if(HAL_I2C_Mem_Write(hi2c,I2C_SLAVE_ADDRESS_LOW,PWR_MGMT_1,1,&byte[0],1,100)!= HAL_OK)
+	 if(HAL_I2C_Mem_Write(hi2c,MPU_Device_Address,PWR_MGMT_1,1,&byte[0],1,100)!= HAL_OK)
 	 {
 			return MPU_I2C_ERROR;
 	 }
-	 if(HAL_I2C_Mem_Write(hi2c,I2C_SLAVE_ADDRESS_LOW,PWR_MGMT_2,1,&byte[1],1,100)!= HAL_OK)
+	 if(HAL_I2C_Mem_Write(hi2c,MPU_Device_Address,PWR_MGMT_2,1,&byte[1],1,100)!= HAL_OK)
 	{
 			return MPU_I2C_ERROR;
 	}
@@ -156,11 +156,11 @@ mpu_status_t MPU6050_Set_Wake(I2C_HandleTypeDef *hi2c)
  {
 	 uint8_t byte[2] = {0x00,00};
 
-	 if(HAL_I2C_Mem_Write(hi2c,I2C_SLAVE_ADDRESS_LOW,PWR_MGMT_1,1,&byte[0],1,100)!= HAL_OK)
+	 if(HAL_I2C_Mem_Write(hi2c,MPU_Device_Address,PWR_MGMT_1,1,&byte[0],1,100)!= HAL_OK)
 	{
 		return MPU_I2C_ERROR;
 	}
-	if(HAL_I2C_Mem_Write(hi2c,I2C_SLAVE_ADDRESS_LOW,PWR_MGMT_1,1,&byte[1],1,100)!= HAL_OK)
+	if(HAL_I2C_Mem_Write(hi2c,MPU_Device_Address,PWR_MGMT_1,1,&byte[1],1,100)!= HAL_OK)
 	{
 	 	return MPU_I2C_ERROR;
 	}
@@ -171,7 +171,7 @@ mpu_status_t MPU6050_Set_Sleep_Power_Mode(I2C_HandleTypeDef *hi2c)
  {
 	 uint8_t byte = PWR_MGMT_1_SLEEP_EN;
 
-	 if(HAL_I2C_Mem_Write(hi2c,I2C_SLAVE_ADDRESS_LOW,PWR_MGMT_1,1,&byte,1,100)!= HAL_OK)
+	 if(HAL_I2C_Mem_Write(hi2c,MPU_Device_Address,PWR_MGMT_1,1,&byte,1,100)!= HAL_OK)
 	{
 		return MPU_I2C_ERROR;
 	}
@@ -182,7 +182,7 @@ mpu_status_t MPU6050_Set_Sleep_Power_Mode(I2C_HandleTypeDef *hi2c)
 mpu_status_t MPU6050_Set_Gyro_FSR(I2C_HandleTypeDef *hi2c,uint8_t FSR)
 {
 	uint8_t byte = FSR;
-	 if(HAL_I2C_Mem_Write(hi2c,I2C_SLAVE_ADDRESS_LOW,GYRO_CONFIG,1,&byte,1,100)!= HAL_OK)
+	 if(HAL_I2C_Mem_Write(hi2c,MPU_Device_Address,GYRO_CONFIG,1,&byte,1,100)!= HAL_OK)
 	{
 		return MPU_I2C_ERROR;
 	}
@@ -192,24 +192,251 @@ mpu_status_t MPU6050_Set_Gyro_FSR(I2C_HandleTypeDef *hi2c,uint8_t FSR)
 mpu_status_t MPU6050_Set_Acc_FSR(I2C_HandleTypeDef *hi2c,uint8_t FSR)
 {
 	uint8_t byte = FSR &0xFF;
-	if(HAL_I2C_Mem_Write(hi2c,I2C_SLAVE_ADDRESS_LOW,ACCELEROMETER_CONFIG,1,&byte,1,100)!= HAL_OK)
+	if(HAL_I2C_Mem_Write(hi2c,MPU_Device_Address,ACCELEROMETER_CONFIG,1,&byte,1,100)!= HAL_OK)
 	{
 		return MPU_I2C_ERROR;
 	}
 	 return MPU_OK;
+}
+
+mpu_status_t MPU6050_Set_Sample_Rate(I2C_HandleTypeDef *hi2c)
+{
+	//check if DLPF is enabled
+	uint8_t configbyte = 0;
+	uint8_t smplrtdiv= 0;
+	if(HAL_I2C_Mem_Read(hi2c,MPU_Device_Address,CONFIG,1,&configbyte,1,100) != HAL_OK)
+	{
+		return MPU_I2C_ERROR;
+	}
+	//digital low pass value is last 3 bits of CONFIG register
+	if((configbyte &0b111) > 0)
+	{
+		smplrtdiv= (uint8_t)(GYRO_OUTPUT_RATE_DLPF_EN/SAMPLE_RATE - 1);
+	}else
+	{
+		smplrtdiv = (uint8_t)(GYRO_OUTPUT_RATE_DLPF_DIS/SAMPLE_RATE -1);
+	}
+
+	if(HAL_I2C_Mem_Write(hi2c,MPU_Device_Address,SMPLRT_DIV,1,&smplrtdiv,1,100) != HAL_OK)
+	{
+		return MPU_I2C_ERROR;
+	}
+	return HAL_OK;
+}
+
+mpu_status_t MPU6050_Set_FSync(I2C_HandleTypeDef *hi2c, uint8_t Fsync)
+{
+	//get CONFIG Register
+	uint8_t configbyte = 0;
+	if(HAL_I2C_Mem_Read(hi2c,MPU_Device_Address,CONFIG,1,&configbyte,1,100) != HAL_OK)
+	{
+		return MPU_I2C_ERROR;
+	}
+
+	configbyte|= (Fsync&0b111000);
+	if(HAL_I2C_Mem_Write(hi2c,MPU_Device_Address,CONFIG,1,&configbyte,1,100) != HAL_OK)
+	{
+		return MPU_I2C_ERROR;
+	}
+	return MPU_OK;
+}
+
+mpu_status_t MPU6050_Set_DLPF(I2C_HandleTypeDef *hi2c, uint8_t DLPF)
+{
+	//mask unwanted bits
+	uint8_t configbyte = 0;
+	if(HAL_I2C_Mem_Read(hi2c,MPU_Device_Address,CONFIG,1,&configbyte,1,100) != HAL_OK)
+	{
+		return MPU_I2C_ERROR;
+	}
+	configbyte |= (DLPF &0b111);
+	if(HAL_I2C_Mem_Write(hi2c,MPU_Device_Address,CONFIG,1,&configbyte,1,100) != HAL_OK)
+	{
+		return MPU_I2C_ERROR;
+	}
+	return MPU_OK;
+}
+
+mpu_status_t MPU6050_Enable_Interrupt(I2C_HandleTypeDef *hi2c, uint8_t interrupts)
+{
+	uint8_t iconfigbyte = 0;
+	if(HAL_I2C_Mem_Read(hi2c,MPU_Device_Address,INT_ENABLE,1,&iconfigbyte,1,100) != HAL_OK)
+	{
+		return MPU_I2C_ERROR;
+	}
+	//set enable bit
+	iconfigbyte |= interrupts;
+	//write to register
+	if(HAL_I2C_Mem_Write(hi2c,MPU_Device_Address,INT_ENABLE,1,&iconfigbyte,1,100) != HAL_OK)
+	{
+		return MPU_I2C_ERROR;
+	}
+	return MPU_OK;
+}
+
+mpu_status_t MPU6050_Get_Interrupt_Status(I2C_HandleTypeDef *hi2c, Interrupt_source_t interrupt_src,uint8_t* res)
+{
+	uint8_t istatus = 0;
+	if(HAL_I2C_Mem_Read(hi2c,MPU_Device_Address,INT_STATUS,1,&istatus,1,100) != HAL_OK)
+	{
+		return MPU_I2C_ERROR;
+	}
+
+	switch (interrupt_src)
+	{
+		case FIFO_OVERFLOW:
+			*res = (istatus&INT_STATUS_FIFO_OVERFLOW)>>4;
+			break;
+		case I2C_MST_INT:
+			*res = (istatus&INT_STATUS_I2C_MST)>>3;
+		case DATA_READY:
+			*res = (istatus&INT_STATUS_DATA_RDY);
+		default:
+			break;
+
+	}
+
+	return HAL_OK;
+}
+
+mpu_status_t MPU6050_Get_IMU_Data(I2C_HandleTypeDef *hi2c,uint8_t* imu)
+{
+
+	if(HAL_I2C_Mem_Read(hi2c,MPU_Device_Address,ACCEL_XOUT_H,1,imu,14,10) != HAL_OK)
+	{
+		return MPU_I2C_ERROR;
+	}
+
+	return MPU_OK;
+}
+/*
+ * @brief: Enables the IMU FIFO buffer and configures it to recieve
+ * 		   Data from peripherals determined by the fifo_Mask
+ * @param: hi2c - pointer to I2C handle typedef
+ * 		   enable - can either be (ENABLE - enables FIFO Buffer), DISABLE - disables BUFFER, RESET (3)- resets buffer
+ */
+mpu_status_t MPU6050_FIFO_Init(I2C_HandleTypeDef *hi2c, uint8_t enable)
+{
+	//get USER_CTRL register Data
+	uint8_t uc_byte;
+	if(HAL_I2C_Mem_Read(hi2c,MPU_Device_Address,USER_CTRL,1,&uc_byte,1,100) != HAL_OK)
+	{
+		return MPU_I2C_ERROR;
+	}
+	//set relevent bits
+	if(enable == ENABLE)
+	{
+		uc_byte |= USER_CTRL_FIFO_EN;
+	}else if(enable == DISABLE)
+	{
+		uc_byte &= ~USER_CTRL_FIFO_EN;
+	}else if(enable == 3)
+	{
+		uc_byte &= ~USER_CTRL_FIFO_EN;
+		uc_byte |= USER_CTRL_FIFO_RESET;
+	}
+	//write values to data register
+	if(HAL_I2C_Mem_Write(hi2c,MPU_Device_Address,USER_CTRL,1,&uc_byte,1,100) != HAL_OK)
+	{
+		return MPU_I2C_ERROR;
+	}
+	return MPU_OK;
+
+}
+
+mpu_status_t MPU6050_Signal_conditioned_Reset(I2C_HandleTypeDef *hi2c)
+{
+	//write reset condition to USER_CTRL
+	uint8_t byte = USER_CTRL_SIG_COND_RESET;
+	if(HAL_I2C_Mem_Write(hi2c,MPU_Device_Address,USER_CTRL,1,&byte,1,100) != HAL_OK)
+	{
+		return MPU_I2C_ERROR;
+	}
+	(void)byte;
+	//wait for sig cond bit to reset
+	uint8_t sig_reset_complete = 1;
+	while(sig_reset_complete)
+	{
+		if(HAL_I2C_Mem_Read(hi2c,MPU_Device_Address,USER_CTRL,1,&sig_reset_complete,1,100) != HAL_OK)
+		{
+			return MPU_I2C_ERROR;
+		}
+		sig_reset_complete &= 0b1;
+	}
+	return MPU_OK;
+}
+
+mpu_status_t  MPU6050_FIFO_Config(I2C_HandleTypeDef *hi2c, uint8_t fifo_mask )
+{
+	uint8_t fifobyte;
+	if(HAL_I2C_Mem_Read(hi2c,MPU_Device_Address,FIFO_EN,1,&fifobyte,1,100) != HAL_OK)
+	{
+		return MPU_I2C_ERROR;
+	}
+	fifobyte |= fifo_mask;
+	if(HAL_I2C_Mem_Write(hi2c,MPU_Device_Address,FIFO_EN,1,&fifobyte,1,100) != HAL_OK)
+	{
+		return MPU_I2C_ERROR;
+	}
+	return MPU_OK;
+}
+
+mpu_status_t MPU6050_Get_FIFO_Count(I2C_HandleTypeDef *hi2c,uint16_t* count)
+{
+	uint8_t fifo_reg[2] = {0};
+	if(HAL_I2C_Mem_Read(hi2c,MPU_Device_Address,FIFO_COUNTH,2,fifo_reg,2,100) != HAL_OK)
+	{
+		return MPU_I2C_ERROR;
+	}
+
+	*count = ((fifo_reg[0]&0xFF)<<8) | (fifo_reg[1] &0xFF);
+	return MPU_OK;
+
+}
+
+/*
+ * @brief: Function to enable/disable the temperature sensor
+ *
+ * @param: hi2c - pointer to I2C handle
+ * 		   cmd 	- set to ENABLE to enable the reading, DISABLE to disable
+ */
+mpu_status_t MPU6050_init_TempSensor(I2C_HandleTypeDef *hi2c, uint8_t cmd)
+{
+	//get register data
+	uint8_t pwrmgmtbyte = 0;
+	if(HAL_I2C_Mem_Read(hi2c,MPU_Device_Address,PWR_MGMT_1,1,&pwrmgmtbyte,1,100) != HAL_OK)
+	{
+		return MPU_I2C_ERROR;
+	}
+
+	if(cmd == ENABLE)
+	{
+		pwrmgmtbyte &= ~(PWR_MGMT_1_TEMP_DIS);
+	}else if(cmd == DISABLE)
+	{
+		pwrmgmtbyte |= PWR_MGMT_1_TEMP_DIS;
+	}else
+	{
+		return MPU_INIT_CMD_ERROR;
+	}
+	if(HAL_I2C_Mem_Write(hi2c,MPU_Device_Address,PWR_MGMT_1,1,&pwrmgmtbyte,1,100) != HAL_OK)
+	{
+		return MPU_I2C_ERROR;
+	}
+	return MPU_OK;
 }
 //----------------------------- TEST MODULES ----------------------------------//
 void Test_PowerMode(void)
 {
 	  MPU6050_Set_Cycle_Power_Mode(&hi2c1,PWR_MGMT_2_LP_WAKE_CTRL_40HZ);
 	  uint8_t byte[2];
-	  HAL_I2C_Mem_Read(&hi2c1,I2C_SLAVE_ADDRESS_LOW,PWR_MGMT_1,1,byte,2,100);
+	  HAL_I2C_Mem_Read(&hi2c1,MPU_Device_Address,PWR_MGMT_1,1,byte,2,100);
 	  MPU6050_Set_Low_Power_Mode_Acc(&hi2c1,PWR_MGMT_2_LP_WAKE_CTRL_1_25HZ);
-	  HAL_I2C_Mem_Read(&hi2c1,I2C_SLAVE_ADDRESS_LOW,PWR_MGMT_1,1,byte,2,100);
+	  HAL_I2C_Mem_Read(&hi2c1,MPU_Device_Address,PWR_MGMT_1,1,byte,2,100);
 	  MPU6050_Set_Sleep_Power_Mode(&hi2c1);
-	  HAL_I2C_Mem_Read(&hi2c1,I2C_SLAVE_ADDRESS_LOW,PWR_MGMT_1,1,byte,2,100);
+	  HAL_I2C_Mem_Read(&hi2c1,MPU_Device_Address,PWR_MGMT_1,1,byte,2,100);
 	  MPU6050_Set_Wake(&hi2c1);
-	  HAL_I2C_Mem_Read(&hi2c1,I2C_SLAVE_ADDRESS_LOW,PWR_MGMT_1,1,byte,2,100);
+	  HAL_I2C_Mem_Read(&hi2c1,MPU_Device_Address,PWR_MGMT_1,1,byte,2,100);
 }
 
 void MPU6050_DMA_PeriphIRQHandler(void)
@@ -257,26 +484,44 @@ int main(void)
   MPU6050_Get_ID(&hi2c1,&whoami);
   if(whoami == WHO_AM_I_VALUE)
   {
-	 //set mode of the device
-	  MPU6050_Get_MST_Status(&hi2c1,&status);
-	 //read self test variables
 	  MPU_SelfTest_t mpu;
 	  MPU6050_Get_FactoryTrim_Values(&hi2c1,&mpu);
-	  MPU6050_Set_Wake(&hi2c1);
-	  MPU6050_Set_Acc_FSR(&hi2c1,ACC_CONFIG_AFSSEL_4G);
-	  HAL_I2C_Mem_Read(&hi2c1,I2C_SLAVE_ADDRESS_LOW,ACCELEROMETER_CONFIG,1,&status,1,100);
-	  __NOP();
+	 //wake up device
+	 MPU6050_Set_Wake(&hi2c1);
+	 //configure gyroscope settings
+	 //set accel only mode
+	 MPU6050_Set_Low_Power_Mode_Acc(&hi2c1,PWR_MGMT_2_LP_WAKE_CTRL_20HZ);
+	 MPU6050_Set_Gyro_FSR(&hi2c1,GYRO_CONFIG_FSSEL_250DPS);
+	 //configure accelerometer settings
+	 MPU6050_Set_Acc_FSR(&hi2c1,ACC_CONFIG_AFSSEL_4G);
+	 //configure digital lowpass filter
+	// MPU6050_Set_DLPF(&hi2c1,CONFIG_DLFP_3);
+	 //disable temp sensor
+	 MPU6050_init_TempSensor(&hi2c1,DISABLE);
+	 //configure outputrate
+	 MPU6050_Set_Sample_Rate(&hi2c1);
+	 //enable interrupt when data ready
+	 MPU6050_Enable_Interrupt(&hi2c1,INT_ENABLE_DATA_RDY_EN);
+
 
 
   }
   /* USER CODE END 2 */
-
+  	  uint8_t res[14];
+  	  uint8_t interrupt_status = 0;
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
-
+	  //wait untill data ready becomes set
+	  while(!interrupt_status)
+	  {
+		  MPU6050_Get_Interrupt_Status(&hi2c1,DATA_READY,&interrupt_status);
+	  }
+	  interrupt_status = 0;
+	 MPU6050_Get_IMU_Data(&hi2c1,res);
+	 HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
