@@ -81,6 +81,9 @@ typedef enum
 	MPU_I2C_ID_ERROR,
 	MPU_CONFIG_OUT_OF_RANGE,
 	MPU_INIT_CMD_ERROR,
+	MPU_SELF_TEST_PASS,
+	MPU_SELF_TEST_FAIL,
+	MPU_STR_READ_ERROR,
 	MPU_OK
 
 }mpu_status_t;
@@ -148,6 +151,16 @@ typedef struct
 	uint8_t G_y;
 	uint8_t G_z;
 }MPU_SelfTest_t;
+
+typedef struct
+{
+	float A_x;
+	float A_y;
+	float A_z;
+	float G_x;
+	float G_y;
+	float G_z;
+}MPU_FT_t;
 /* Private define ------------------------------------------------------------*/
 
 

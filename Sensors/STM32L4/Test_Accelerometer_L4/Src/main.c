@@ -23,6 +23,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "math.h"
 #include "HAL_MPU6050.h"
 /* USER CODE END Includes */
 
@@ -60,10 +61,14 @@ static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
 mpu_status_t MPU6050_Get_ID(I2C_HandleTypeDef *hi2c,uint8_t* ID);
 mpu_status_t MPU6050_Get_MST_Status(I2C_HandleTypeDef *hi2c, uint8_t* status_byte);
+mpu_status_t MPU6050_Set_Gyro_FSR(I2C_HandleTypeDef *hi2c,uint8_t FSR);
+mpu_status_t MPU6050_Set_Acc_FSR(I2C_HandleTypeDef *hi2c,uint8_t FSR);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+//------------------ Register Configuration functions -------------------------//
  mpu_status_t MPU6050_Get_ID(I2C_HandleTypeDef *hi2c,uint8_t* ID)
  {
 	  uint8_t whoami = 0;
@@ -101,7 +106,7 @@ mpu_status_t MPU6050_Get_MST_Status(I2C_HandleTypeDef *hi2c, uint8_t* status_byt
 	 return MPU_OK;
  }
 
-mpu_status_t MPU6050_Get_FactoryTrim_Values(I2C_HandleTypeDef *hi2c,MPU_SelfTest_t *mpu)
+mpu_status_t MPU6050_Get_SelfTestResponse_Values(I2C_HandleTypeDef *hi2c,MPU_SelfTest_t *mpu)
  {
 	 uint8_t temp[4]={0};
 	 if(HAL_I2C_Mem_Read(hi2c,MPU_Device_Address,SELF_TEST_X,1,temp,4,100)!= HAL_OK)
@@ -425,6 +430,108 @@ mpu_status_t MPU6050_init_TempSensor(I2C_HandleTypeDef *hi2c, uint8_t cmd)
 	}
 	return MPU_OK;
 }
+
+mpu_status_t MPU6050_Set_PLLSrc(I2C_HandleTypeDef *hi2c, uint8_t PLL)
+{
+	//get PWR_MGMT_1 reg data
+	uint8_t pwrmgmtbyte = 0;
+	if(HAL_I2C_Mem_Read(hi2c,MPU_Device_Address,PWR_MGMT_1,1,&pwrmgmtbyte,1,100) != HAL_OK)
+	{
+		return MPU_I2C_ERROR;
+	}
+	//configure PLL source
+	if(PLL == 0)
+	{
+		//clear bits to configure for internal 8MHz
+		pwrmgmtbyte &= ~PWR_MGMT_1_CLK_SEL_7;
+	}else
+	{
+		pwrmgmtbyte |=PLL;
+	}
+	//write byte to register
+	if(HAL_I2C_Mem_Write(hi2c,MPU_Device_Address,PWR_MGMT_1,1,&pwrmgmtbyte,1,100) != HAL_OK)
+	{
+		return MPU_I2C_ERROR;
+	}
+	return MPU_OK;
+}
+//----------------------- Data Processing Functions----------------------------//
+
+/*
+ * @brief:
+ *
+ * This function is used to perform a self test on the device. This function
+ * should be run during a power on/ first time start.
+ *
+ * @description:
+ * Self Test is applied to all 6 axes of imu. Individual axis can be enabled for self test
+ * by setting the nA_ST bit in the Acceleration Config Register (n is the x,y,z axis)
+ *
+ * Once, activated, the sensors are electronically actuated over a set distance simulating an
+ * external force. Once complete, a corresponding output signal is produced which is then
+ * subtracted from the values in the self test register resulting in a self test response.
+ *
+ *@set up:
+ *@set GYRO FSR to 250 dps
+ *@set ACCEL range to 8+-g
+ *@set PLL clock source to x-axis gyro ref
+ *
+ *@param: hi2c - i2c handler
+ *@param: test_res - an array to hold the results of the self test for each axis. Note: must be an array with a length >= 6
+ *
+ *@return mpu_status_t - value to show the status of the function
+ *
+ */
+mpu_status_t MPU6050_SelfTest(I2C_HandleTypeDef *hi2c,float* test_res)
+{
+	// set clock source to PLL gyro x axis
+	MPU6050_Set_PLLSrc(&hi2c1, PWR_MGMT_1_CLK_SEL_1);
+	//set Gyro FSR to 250 dps
+	MPU6050_Set_Gyro_FSR(&hi2c1,GYRO_CONFIG_FSSEL_250DPS);
+	//set Acc FSR to +-8g
+	MPU6050_Set_Acc_FSR(&hi2c1,ACC_CONFIG_AFSSEL_8G);
+	//enable selftest
+	uint8_t stbyte[2];
+	 if(HAL_I2C_Mem_Read(hi2c,MPU_Device_Address,GYRO_CONFIG,1,stbyte,2,100)!= HAL_OK)
+	{
+		return MPU_I2C_ERROR;
+	}
+	stbyte[0] |= GYRO_CONFIG_ST_EN_X | GYRO_CONFIG_ST_EN_Y | GYRO_CONFIG_ST_EN_Z;
+	stbyte[1] |= ACC_CONFIG_ST_EN_X | ACC_CONFIG_ST_EN_Y | ACC_CONFIG_ST_EN_Z;
+	 if(HAL_I2C_Mem_Write(hi2c,MPU_Device_Address,GYRO_CONFIG,1,stbyte,2,100)!= HAL_OK)
+	{
+		return MPU_I2C_ERROR;
+	}
+	HAL_Delay(250); //TODO: Replace with a wait till self test updated function. Value taken from https://github.com/kriswiner/MPU6050/blob/master/MPU6050BasicExample.ino line 662
+
+	//read Self Test register
+	MPU_SelfTest_t mpu_str;
+	MPU_FT_t mpu_ft;
+	if(MPU6050_Get_SelfTestResponse_Values(&hi2c1,&mpu_str) != MPU_OK)
+	{
+		return MPU_STR_READ_ERROR;
+	}
+	//calculate Factory Trim for gyro
+	mpu_ft.G_x = 25*131*pow(1.046,(float)mpu_str.G_x -1);
+	mpu_ft.G_y =-25*131*pow(1.046,(float)mpu_str.G_y -1);
+	mpu_ft.G_z = 25*131*pow(1.046,(float)mpu_str.G_z -1);
+
+	//calculate Factory Trim for Acc
+	mpu_ft.A_x = 4096*0.34*pow(0.92/0.34,(((float)mpu_str.A_x-1)/30.0));
+	mpu_ft.A_y = 4096*0.34*pow(0.92/0.34,(((float)mpu_str.A_y-1)/30.0));
+	mpu_ft.A_z = 4096*0.34*pow(0.92/0.34,(((float)mpu_str.A_z-1)/30.0));
+
+	//calculate factory trim chage
+	test_res[0] = 100+ 100*((float)mpu_str.A_x - mpu_ft.A_x)/mpu_ft.A_x;
+	test_res[1] = 100+ 100*((float)mpu_str.A_y - mpu_ft.A_y)/mpu_ft.A_y;
+	test_res[2] = 100+ 100*((float)mpu_str.A_z - mpu_ft.A_z)/mpu_ft.A_z;
+	test_res[3] = 100+ 100*((float)mpu_str.G_x - mpu_ft.G_x)/mpu_ft.G_x;
+	test_res[4] = 100+ 100*((float)mpu_str.G_y - mpu_ft.G_y)/mpu_ft.G_y;
+	test_res[5] = 100+ 100*((float)mpu_str.G_z - mpu_ft.G_z)/mpu_ft.G_z;
+	return MPU_OK;
+
+
+}
 //----------------------------- TEST MODULES ----------------------------------//
 void Test_PowerMode(void)
 {
@@ -484,11 +591,11 @@ int main(void)
   MPU6050_Get_ID(&hi2c1,&whoami);
   if(whoami == WHO_AM_I_VALUE)
   {
-	  MPU_SelfTest_t mpu;
-	  MPU6050_Get_FactoryTrim_Values(&hi2c1,&mpu);
 	 //wake up device
+	 float test[6];
 	 MPU6050_Set_Wake(&hi2c1);
-	 //configure gyroscope settings
+	 //perform self test
+	 MPU6050_SelfTest(&hi2c1,test);
 	 //set accel only mode
 	 MPU6050_Set_Low_Power_Mode_Acc(&hi2c1,PWR_MGMT_2_LP_WAKE_CTRL_20HZ);
 	 MPU6050_Set_Gyro_FSR(&hi2c1,GYRO_CONFIG_FSSEL_250DPS);
