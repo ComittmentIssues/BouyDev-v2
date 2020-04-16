@@ -306,12 +306,13 @@ mpu_status_t MPU6050_Get_Interrupt_Status(I2C_HandleTypeDef *hi2c, Interrupt_sou
 
 mpu_status_t MPU6050_Get_IMU_Data(I2C_HandleTypeDef *hi2c,uint8_t* imu)
 {
-
-	if(HAL_I2C_Mem_Read(hi2c,MPU_Device_Address,ACCEL_XOUT_H,1,imu,14,10) != HAL_OK)
+	  __HAL_DMA_ENABLE_IT(&hdma_i2c1_rx, DMA_IT_TC);
+	if( HAL_I2C_Mem_Read_DMA(&hi2c1,MPU_Device_Address,ACCEL_XOUT_H,1,imu,14) != HAL_OK)
 	{
 		return MPU_I2C_ERROR;
 	}
-
+	while(!I2C_TX_CPLT);
+	I2C_TX_CPLT = 0;
 	return MPU_OK;
 }
 /*
@@ -551,7 +552,7 @@ void MPU6050_DMA_PeriphIRQHandler(void)
 {
 	I2C_TX_CPLT = 1;
 }
- /* USER CODE END 0 */
+/* USER CODE END 0 */
 
 /**
   * @brief  The application entry point.
@@ -610,32 +611,29 @@ int main(void)
 	 MPU6050_Set_Sample_Rate(&hi2c1);
 	 //enable interrupt when data ready
 	 MPU6050_Enable_Interrupt(&hi2c1,INT_ENABLE_DATA_RDY_EN);
-
-
-
   }
-  /* USER CODE END 2 */
-  	  uint8_t res[14];
-  	  uint8_t interrupt_status = 0;
+	  uint8_t res[14];
+	  uint8_t interrupt_status = 0;
 
-  	  //test DMA
-  	  uint8_t buffer[10];
-  	  __HAL_DMA_ENABLE_IT(&hdma_i2c1_rx, DMA_IT_TC);
-  	  HAL_I2C_Mem_Read_DMA(&hi2c1,MPU_Device_Address,ACCEL_XOUT_H,2,buffer,10);
-  	  while(I2C_TX_CPLT != 1);
+	  //test DMA
+	  uint8_t buffer[10];
+
+  /* USER CODE END 2 */
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  	  //wait untill data ready becomes set
+		  while(!interrupt_status)
+		  {
+			  MPU6050_Get_Interrupt_Status(&hi2c1,DATA_READY,&interrupt_status);
+		  }
+		  interrupt_status = 0;
+		 MPU6050_Get_IMU_Data(&hi2c1,res);
+		 HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
     /* USER CODE END WHILE */
-	  //wait untill data ready becomes set
-	  while(!interrupt_status)
-	  {
-		  MPU6050_Get_Interrupt_Status(&hi2c1,DATA_READY,&interrupt_status);
-	  }
-	  interrupt_status = 0;
-	 MPU6050_Get_IMU_Data(&hi2c1,res);
-	 HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
