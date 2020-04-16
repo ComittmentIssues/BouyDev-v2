@@ -502,6 +502,7 @@ mpu_status_t MPU6050_SelfTest(I2C_HandleTypeDef *hi2c,float* test_res)
 	{
 		return MPU_I2C_ERROR;
 	}
+	 HAL_I2C_Mem_Read(hi2c,MPU_Device_Address,GYRO_CONFIG,1,stbyte,2,100);
 	HAL_Delay(250); //TODO: Replace with a wait till self test updated function. Value taken from https://github.com/kriswiner/MPU6050/blob/master/MPU6050BasicExample.ino line 662
 
 	//read Self Test register
@@ -616,6 +617,12 @@ int main(void)
   /* USER CODE END 2 */
   	  uint8_t res[14];
   	  uint8_t interrupt_status = 0;
+
+  	  //test DMA
+  	  uint8_t buffer[10];
+  	  __HAL_DMA_ENABLE_IT(&hdma_i2c1_rx, DMA_IT_TC);
+  	  HAL_I2C_Mem_Read_DMA(&hi2c1,MPU_Device_Address,ACCEL_XOUT_H,2,buffer,10);
+  	  while(I2C_TX_CPLT != 1);
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
