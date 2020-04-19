@@ -9,7 +9,8 @@
 #define HAL_MPU6050_H_
 
 /* Private typedef -----------------------------------------------------------*/
-typedef enum{
+typedef enum
+{
 	SELF_TEST_X = 0XD,
 	SELF_TEST_Y = 0xE,
 	SELF_TEST_Z = 0xF,
@@ -84,18 +85,22 @@ typedef enum
 	MPU_SELF_TEST_PASS,
 	MPU_SELF_TEST_FAIL,
 	MPU_STR_READ_ERROR,
+	MPU_RESET_FAIL,
+	MPU_RESET_SUCCESS,
+	MPU_FIFO_READ_ERROR,
+	MPU_CAL_SUCCESS,
 	MPU_OK
 
 }mpu_status_t;
 
 typedef enum
 {
-	MPU_RESET,
 	MPU_STANDBY,
 	MPU_SLEEP,
 	MPU_WAKE,
 	MPU_LP,
-	MPU_Cycle
+	MPU_Cycle,
+	MPU_RESET,
 }MPU_PowerMode;
 //@brief: PASS_THROUGH This bit reflects the status of the FSYNC interrupt from an external device
 //into the MPU-60X0. This is used as a way to pass an external interrupt
@@ -142,6 +147,7 @@ typedef enum
 	I2C_MST_INT,
 	DATA_READY
 }Interrupt_source_t;
+
 typedef struct
 {
 	uint8_t A_x;
@@ -228,14 +234,14 @@ typedef struct
 //FIFO EN
 //Data stored inside the sensor data registers (Registers 59 to 96) will be loaded into the FIFO buffer if
 //a sensor’s respective FIFO_EN bit is set to 1 in this register.
-#define FIFO_EN_TEMP
-#define FIFO_EN_XG
-#define FIFO_EN_YG
-#define FIFO_EN_ZG
-#define FIFO_EN_ACC
-#define FIFO_EN_SLV2
-#define FIFO_EN_SLV1
-#define FIFO_EN_SLV0
+#define FIFO_EN_TEMP 0b1<<7
+#define FIFO_EN_XG	 0b1<<6
+#define FIFO_EN_YG	 0b1<<5
+#define FIFO_EN_ZG	 0b1<<4
+#define FIFO_EN_ACC	 0b1<<3
+#define FIFO_EN_SLV2 0b1<<2
+#define FIFO_EN_SLV1 0b1<<1
+#define FIFO_EN_SLV0 0b1
 
 //I2C_MST_CTRL Macros
 /*	Note On I2C MST_CTRL from MPU6050 Register Map:
@@ -396,10 +402,10 @@ typedef struct
 	LP_WAKE_CTRL within the Power Management 2 register (Register 108).
  */
 
-#define PWR_MGMT_DEVICE_RESET 0b1<<7
-#define PWR_MGMT_1_SLEEP_EN 0b1<<6
-#define PWR_MGMT_1_CYCLE_EN 0b1<<5
-#define PWR_MGMT_1_TEMP_DIS 0b1<<3
+#define PWR_MGMT_1_DEVICE_RESET 0b1<<7
+#define PWR_MGMT_1_SLEEP_EN 	0b1<<6
+#define PWR_MGMT_1_CYCLE_EN 	0b1<<5
+#define PWR_MGMT_1_TEMP_DIS 	0b1<<3
 
 //PWR_MGMT_2
 
@@ -458,11 +464,15 @@ typedef struct
 #define WHO_AM_I_VALUE  0x68
 
 //Sample Rate Value
-#define SAMPLE_RATE 5 //Hz
+#define SAMPLE_RATE 100 //Hz
 #define GYRO_OUTPUT_RATE_DLPF_EN 1000 //Hz
 #define GYRO_OUTPUT_RATE_DLPF_DIS 8000 //Hz
 
-
+//ACC ersolution values
+#define ACC_2G_WORD_LENGTH 16384 //LSB/g
+#define ACC_4G_WORD_LENGTH 8192
+#define ACC_8G_WORD_LENGTH 4096
+#define ACC_16G_WORD_LENGTH 2048
 /* USER CODE END PD */
 
 
