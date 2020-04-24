@@ -22,6 +22,9 @@
 #include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
+#include "stdio.h"
+#include "stdlib.h"
+#include "string.h"
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
@@ -188,15 +191,18 @@ typedef struct
 
 /* Private variables ---------------------------------------------------------*/
 SPI_HandleTypeDef hspi1;
-BMP_Handle_Typedef bmp;
-/* USER CODE BEGIN PV */
 
+UART_HandleTypeDef huart2;
+
+/* USER CODE BEGIN PV */
+BMP_Handle_Typedef bmp;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_SPI1_Init(void);
+static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
 BMPStatus_t BMP280_Init(BMP_Init_Typedef * BMP_InitStruct);
 BMPStatus_t BMP280_Write_Register(uint8_t reg,int32_t size, uint8_t* data);
@@ -581,16 +587,17 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_SPI1_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
    BMP_Init_Typedef BMP_InitStruct;
    BMP_InitStruct.BMP_Power_Mode = BMP280_CTRLMEAS_MODE_NORMAL;
    BMP_InitStruct.BMP_Pressure_OverSample = BMP280_CTRLMEAS_OSRSP_OS_2;
    BMP_InitStruct.BMP_Temperature_OverSample = BMP280_CTRLMEAS_OSRST_OS_1;
    BMP_InitStruct.BMP_IIR_FILTER_COEFFICIENTS = BMP280_CONFIG_FILTER_COEFF_4;
+   BMP_InitStruct.BMP_t_Standby = BMP280_CONFIG_tsb_0_5;
    BMP280_Init(&BMP_InitStruct);
- 	uint8_t status = 0;
- 	BMP280_Read_Register(ctrl_meas,1,&status);
- 	BMP280_Read_Register(config,1,&status);
+   uint8_t status = 0;
+
 
   /* USER CODE END 2 */
 
@@ -600,19 +607,27 @@ int main(void)
  	int32_t T ,t_fine;
   while (1)
   {
-    /* USER CODE END WHILE */
-	//wait for conversion to finish
-	BMP280_Get_Status(&bmp);
-	while(bmp.M_Status != BMP_Measurement_Complete)
-	{
-		BMP280_Get_Status(&bmp);
-	}
+	  char buff[100] ="";
+	  //wait for device to finish converting
+	  BMP280_Get_Status(&bmp);
+	  while(bmp.M_Status != BMP_Measurement_Complete)
+	  {
+		  BMP280_Get_Status(&bmp);
+	  }
+	  //read temp
+	  BMP280_Get_Temp(&temp);
+	  BMP280_Get_Pressure(&press);
+	  T = BMP280_Compensate_Temp(temp,&t_fine,bmp.Factory_Trim);
+	  P = BMP280_Compensate_Pressure(press,t_fine,bmp.Factory_Trim)/256;
 
-	BMP280_Get_Temp(&temp);
-	BMP280_Get_Pressure(&press);
-	T = BMP280_Compensate_Temp((int32_t)temp,&t_fine,bmp.Factory_Trim);
-	P = BMP280_Compensate_Pressure((int32_t)press,t_fine,bmp.Factory_Trim)/256;
-	HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
+	  //create a string
+	  sprintf(buff,"Temp\t=\t %ld °C\tPressure\t=\t %lu KPa\r\n",T,P);
+	  if(HAL_UART_Transmit(&huart2,(uint8_t*)buff,strlen((char*)buff),100) == HAL_OK)
+	  {
+		  HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
+	  }
+    /* USER CODE END WHILE */
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -626,6 +641,7 @@ void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
   /** Initializes the CPU, AHB and APB busses clocks 
   */
@@ -652,6 +668,12 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART2;
+  PeriphClkInit.Usart2ClockSelection = RCC_USART2CLKSOURCE_PCLK1;
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
     Error_Handler();
   }
@@ -704,6 +726,41 @@ static void MX_SPI1_Init(void)
 }
 
 /**
+  * @brief USART2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART2_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART2_Init 0 */
+
+  /* USER CODE END USART2_Init 0 */
+
+  /* USER CODE BEGIN USART2_Init 1 */
+
+  /* USER CODE END USART2_Init 1 */
+  huart2.Instance = USART2;
+  huart2.Init.BaudRate = 115200;
+  huart2.Init.WordLength = UART_WORDLENGTH_8B;
+  huart2.Init.StopBits = UART_STOPBITS_1;
+  huart2.Init.Parity = UART_PARITY_NONE;
+  huart2.Init.Mode = UART_MODE_TX_RX;
+  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart2.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart2.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART2_Init 2 */
+
+  /* USER CODE END USART2_Init 2 */
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -729,14 +786,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : USART_TX_Pin USART_RX_Pin */
-  GPIO_InitStruct.Pin = USART_TX_Pin|USART_RX_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-  GPIO_InitStruct.Alternate = GPIO_AF7_USART2;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pin : LD2_Pin */
   GPIO_InitStruct.Pin = LD2_Pin;
