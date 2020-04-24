@@ -69,6 +69,8 @@ typedef enum
 	BMP_RESET_ERROR,
 	BMP_DEVICE_CHECK_ERROR,
 	BMP_Config_Error,
+	BMP_TEMP_READ_ERROR,
+	BMP_PRESS_READ_ERROR,
 	BMP_TIMEOUT,
 	BMP_OK,
 	BMP_ERROR,
@@ -84,6 +86,19 @@ typedef enum
 	HandHeld_Dynamic,
 	Weather_Monitoring
 }BMP_Opp_Mode_t;
+
+typedef enum
+{
+	BMP_Measurement_Busy = 0b1000,
+	BMP_Measurement_Complete = 0
+
+}BMP_Measurement_Status_t;
+typedef enum
+{
+	BMP_Data_Shadowing_Busy = 0b1,
+	BMP_Data_Shadowing_Complete = 0
+
+}BMP_IM_Status_t;
 /*
  * A struct representing the sensor on the microcontroller side.
  * This will contain the settings for configuring the sensor
@@ -101,7 +116,8 @@ typedef struct
 typedef struct
 {
 	BMP_Init_Typedef Init;
-	uint8_t Status;
+	BMP_IM_Status_t IM_Status;
+	BMP_Measurement_Status_t M_Status;
 	BMP280_trim_t Factory_Trim;
 	SPI_HandleTypeDef *bmp_spi;
 }BMP_Handle_Typedef;
@@ -204,12 +220,15 @@ BMPStatus_t BMP280_Reset(void)
 
 	return BMP_OK;
 }
-BMPStatus_t BMP280_Set_PowerMode(SPI_HandleTypeDef *hspi,uint8_t mode)
+BMPStatus_t BMP280_Set_PowerMode(uint8_t mode)
 {
 	uint8_t reg =0;
-	BMP280_Read_Register(ctrl_meas,1,&reg);
+	if(BMP280_Read_Register(ctrl_meas,1,&reg) != BMP_OK)
+	{
+		return BMP_SPI_READ_ERROR;
+	}
 	//clear the old settings
-	reg &= 0b11;
+	reg &= 0b11111100;
 	//configure the new mode
 	reg |= mode;
 	if(BMP280_Write_Register(ctrl_meas,1,&reg) != BMP_OK)
@@ -218,6 +237,74 @@ BMPStatus_t BMP280_Set_PowerMode(SPI_HandleTypeDef *hspi,uint8_t mode)
 	}
 	return BMP_OK;
 }
+
+BMPStatus_t BMP280_Set_Oversample(uint8_t osrs_t, uint8_t osrs_p)
+{
+	uint8_t reg = 0;
+	if(BMP280_Read_Register(ctrl_meas,1,&reg) != BMP_OK)
+	{
+		return BMP_SPI_READ_ERROR;
+	}
+	//clear the old settings
+	reg &= 0b11;
+	//configure the new mode
+	reg |= (osrs_t |osrs_p);
+	if(BMP280_Write_Register(ctrl_meas,1,&reg) != BMP_OK)
+	{
+		return BMP_Config_Error;
+	}
+	return BMP_OK;
+}
+
+BMPStatus_t BMP280_Set_IIR_Filter_Coeff(uint8_t iircoef)
+{
+	uint8_t reg,mask = 0b11100;
+	if(BMP280_Read_Register(config,1,&reg) != BMP_OK)
+	{
+		return BMP_SPI_READ_ERROR;
+	}
+	//clear the old settings
+	reg &= ~mask;
+	//configure the new mode
+	reg |= iircoef;
+	if(BMP280_Write_Register(config,1,&reg) != BMP_OK)
+	{
+		return BMP_Config_Error;
+	}
+	return BMP_OK;
+}
+
+BMPStatus_t BMP280_Set_Standby_Time (uint8_t stdby)
+{
+	uint8_t reg,mask = 0b11100000;
+	if(BMP280_Read_Register(config,1,&reg) != BMP_OK)
+	{
+		return BMP_SPI_READ_ERROR;
+	}
+	//clear the old settings
+	reg &= ~mask;
+	//configure the new mode
+	reg |= stdby;
+	if(BMP280_Write_Register(config,1,&reg) != BMP_OK)
+	{
+		return BMP_Config_Error;
+	}
+	return BMP_OK;
+}
+
+BMPStatus_t BMP280_Get_Status(BMP_Handle_Typedef* bmp)
+{
+	//read contents of register
+	uint8_t statusbyte = 0;
+	if(BMP280_Read_Register(status,1,&statusbyte) != BMP_OK)
+	{
+		return BMP_SPI_READ_ERROR;
+	}
+	bmp->IM_Status = status&0b1;
+	bmp->M_Status = status&0b100;
+	return BMP_OK;
+}
+
 BMPStatus_t BMP280_Write_Register(uint8_t reg,int32_t size, uint8_t* data)
 {
 	uint8_t temp = reg & BMP280_SPI_WRITE;
@@ -234,6 +321,7 @@ BMPStatus_t BMP280_Write_Register(uint8_t reg,int32_t size, uint8_t* data)
 	 __SPI_CS_DISABLE();
 	 return BMP_OK;
 }
+
 BMPStatus_t BMP280_Read_Register(uint8_t reg,int32_t size, uint8_t* data)
 {
 		uint8_t temp = reg | BMP280_SPI_READ;
@@ -282,12 +370,93 @@ BMPStatus_t BMP280_Get_FactoryTrim( BMP280_trim_t *bmpt)
 	return BMP_OK;
 }
 
+BMPStatus_t BMP280_Force_Measure(int32_t* temp,uint32_t* pressure)
+{
+	//write forced mode to register
+	BMP280_Set_PowerMode(BMP280_CTRLMEAS_MODE_FORCED);
+	//wait for control register to finis
+}
+/*
+ * @brief: function to read the 3 temperature registers and combine the data into a 20bit long signed integer.
+ * 		   Temp is stored as 3 unsigned integers 8 bits long in registers 0xFA - 0xFB on the BMP280 Sensor. Data
+ * 		   is Read MSB first. These 3 bytes represent the raw temperature reading and must be compensated using the
+ * 		   algorithm outlined in the data sheet
+ *
+ * @param: adc_temp - pointer to an signed32_t integer to hold the converted value of temperature
+ *
+ * @return: BMPStatus_t status of the conversion for error handling
+ */
+
+BMPStatus_t BMP280_Get_Temp(uint32_t* adc_Temp)
+{
+	uint8_t Ttemp[3] = {0};
+	//read the registers MSB first
+	if(BMP280_Read_Register(temp_msb,3,Ttemp) != BMP_OK)
+	{
+		return BMP_TEMP_READ_ERROR;
+	}
+	*adc_Temp = ((Ttemp[0]&0xFF)<<16)|((Ttemp[1]&0xFF)<<8)|((Ttemp[2]&0xF0));
+	*adc_Temp= *adc_Temp>> 4;
+	return BMP_OK;
+}
+
+int32_t BMP280_Compensate_Temp(int32_t T_val,int32_t* t_fine, BMP280_trim_t bmp_trim)
+{
+
+		//compensate Temperature from datasheet
+		int32_t var1 = (((T_val>>3)- ((int32_t)bmp_trim.dig_T1<<1))*((int32_t)bmp_trim.dig_T2))>>11;
+	    int32_t var2 =  (((((T_val>>4) - ((int32_t)bmp_trim.dig_T1)) * ((T_val>>4) - ((int32_t)bmp_trim.dig_T1))) >> 12)*((int32_t)bmp_trim.dig_T3)) >> 14;
+		int32_t temp = var1+var2; //for storage in global variable
+		*t_fine = temp;
+		return (temp*5 +128)/256;
+}
+/*
+ * @brief: function to read the 3 pressure registers and combine the data into a 20bit long signed integer.
+ * 		   Pressure is also is stored as 3 unsigned integers 8 bits long in registers 0xF7 - 0xF9 on the BMP280 Sensor. Data
+ * 		   is Read MSB first. These 3 bytes represent the raw pressurereading and must be compensated using the
+ * 		   algorithm outlined in the data sheet
+ *
+ * @param: adc_Press - pointer to an signed32_t integer to hold the converted value of pressure
+ *
+ * @return: BMPStatus_t status of the conversion for error handling
+ */
+
+BMPStatus_t BMP280_Get_Pressure(uint32_t* adc_Press)
+{
+	uint8_t Ptemp[3] = {0};
+	//read the registers MSB first
+	if(BMP280_Read_Register(press_msb,3,Ptemp) != BMP_OK)
+	{
+		return BMP_PRESS_READ_ERROR;
+	}
+	uint32_t temp= ((Ptemp[0]&0xFF)<<16)|((Ptemp[1]&0xFF)<<8)|((Ptemp[2]&0xFF))/16;
+	*adc_Press = temp/16;
+	return BMP_OK;
+}
+
+uint32_t BMP280_Compensate_Pressure(uint32_t P_val,int32_t t_fine,BMP280_trim_t bmp_trim)
+{
+	//Compensation formula
+	int32_t var1 = (int64_t)t_fine - 128000;
+	int64_t var2 = var1*var1*((int64_t)(bmp_trim.dig_P6));
+	var2 = var2 + (((int64_t)bmp_trim.dig_P4)<<35);
+	var1 = ((var1 * var1 * (int64_t)bmp_trim.dig_P3)>>8) + ((var1 * (int64_t)bmp_trim.dig_P2)<<12);
+	var1 = (((((int64_t)1)<<47)+var1))*((int64_t)bmp_trim.dig_P1)>>33;
+	//check for divide by 0 error
+	if(var1 == 0)return 0;
+	int64_t P = 1048576 - (int32_t)P_val;
+	P = (((P<<31)-var2)*3125)/var1;
+	var1 = (((int64_t)(bmp_trim.dig_P9)) * (P>>13) * (P>>13)) >> 25;
+	var2 = (((int64_t)(bmp_trim.dig_P8)) * P) >> 19;
+	P = ((P + var1 + var2) >> 8) + (((int64_t)(bmp_trim.dig_P7))<<4);
+	return (uint32_t)P;
+}
 /*
  * @brief: Initialises the sensor handler and performs power on/ begining procedure.
  * 		   After this, the device is configured to user defined settings which are
  * 		   then written to the registers. Note: A BMP_INit_Typedef struct must be initialised
- * 		   and set before this function is called. THis can be done individually or using the BMP280_Init_Mode()
- * 		   function
+ * 		   and set before this function is called. THis can be done individually or by using the functions
+ * 		   BMP280_Init_Preset_Mode(), BMP280_Init_Custom()
  * @param: BMP_InitStruct - struct containing the configuration values for initialising the sensor
  * @return BMPStatus_t - return value showing the status of the function for error handling
  */
@@ -336,14 +505,14 @@ BMPStatus_t BMP280_Init(BMP_Init_Typedef * BMP_InitStruct)
 		return BMP_OK;
 }
 
-void BMP280_Init_Mode(BMP_Opp_Mode_t BMP_MODE, BMP_Init_Typedef* BMP_InitStruct)
+void BMP280_Init_Preset_Mode(BMP_Opp_Mode_t BMP_MODE, BMP_Init_Typedef* BMP_InitStruct)
 {
 	switch(BMP_MODE)
 	{
 		case HandHeld_LP:
 			BMP_InitStruct->BMP_Power_Mode = BMP280_CTRLMEAS_MODE_NORMAL;
 			BMP_InitStruct->BMP_Pressure_OverSample = BMP280_CTRLMEAS_OSRSP_OS_16;
-			BMP_InitStruct->BMP_Temperature_OverSample = BMP280_CTRLMEAS_OSRSP_OS_2;
+			BMP_InitStruct->BMP_Temperature_OverSample = BMP280_CTRLMEAS_OSRST_OS_2;
 			BMP_InitStruct->BMP_IIR_FILTER_COEFFICIENTS = BMP280_CONFIG_FILTER_COEFF_4;
 			BMP_InitStruct->BMP_t_Standby = BMP280_CONFIG_tsb_62_5;
 			break;
@@ -351,20 +520,29 @@ void BMP280_Init_Mode(BMP_Opp_Mode_t BMP_MODE, BMP_Init_Typedef* BMP_InitStruct)
 		case HandHeld_Dynamic:
 			BMP_InitStruct->BMP_Power_Mode = BMP280_CTRLMEAS_MODE_NORMAL;
 			BMP_InitStruct->BMP_Pressure_OverSample = BMP280_CTRLMEAS_OSRSP_OS_4;
-			BMP_InitStruct->BMP_Temperature_OverSample = BMP280_CTRLMEAS_OSRSP_OS_1;
+			BMP_InitStruct->BMP_Temperature_OverSample = BMP280_CTRLMEAS_OSRST_OS_1;
 			BMP_InitStruct->BMP_IIR_FILTER_COEFFICIENTS = BMP280_CONFIG_FILTER_COEFF_16;
 			BMP_InitStruct->BMP_t_Standby = BMP280_CONFIG_tsb_0_5;
 
 		case Weather_Monitoring:
 			BMP_InitStruct->BMP_Power_Mode = BMP280_CTRLMEAS_MODE_FORCED;
 			BMP_InitStruct->BMP_Pressure_OverSample = BMP280_CTRLMEAS_OSRSP_OS_1;
-			BMP_InitStruct->BMP_Temperature_OverSample = BMP280_CTRLMEAS_OSRSP_OS_1;
+			BMP_InitStruct->BMP_Temperature_OverSample = BMP280_CTRLMEAS_OSRST_OS_1;
 			BMP_InitStruct->BMP_IIR_FILTER_COEFFICIENTS = BMP280_CONFIG_FILTER_COEFF_OFF;
 			BMP_InitStruct->BMP_t_Standby = 0;
 			break;
 		default:
 			break;
 	}
+}
+
+void BMP280_Init_Custom(BMP_Opp_Mode_t BMP_MODE, BMP_Init_Typedef* BMP_InitStruct, uint8_t mode, uint8_t osrsp, uint8_t osrst,uint8_t ifcoef, uint8_t t_stdby)
+{
+	BMP_InitStruct->BMP_Power_Mode = mode;
+	BMP_InitStruct->BMP_Pressure_OverSample = osrsp;
+	BMP_InitStruct->BMP_Temperature_OverSample = osrst;
+	BMP_InitStruct->BMP_IIR_FILTER_COEFFICIENTS = ifcoef;
+	BMP_InitStruct->BMP_t_Standby = t_stdby;
 }
 /* USER CODE END PFP */
 
@@ -405,12 +583,11 @@ int main(void)
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
    BMP_Init_Typedef BMP_InitStruct;
-   BMP_InitStruct.BMP_Temperature_OverSample = BMP280_CTRLMEAS_OSRST_OS_2;
-   BMP_InitStruct.BMP_Pressure_OverSample = BMP280_CTRLMEAS_OSRSP_OS_4;
    BMP_InitStruct.BMP_Power_Mode = BMP280_CTRLMEAS_MODE_NORMAL;
-   BMP_InitStruct.BMP_t_Standby = BMP280_CONFIG_tsb_125;
+   BMP_InitStruct.BMP_Pressure_OverSample = BMP280_CTRLMEAS_OSRSP_OS_2;
+   BMP_InitStruct.BMP_Temperature_OverSample = BMP280_CTRLMEAS_OSRST_OS_1;
    BMP_InitStruct.BMP_IIR_FILTER_COEFFICIENTS = BMP280_CONFIG_FILTER_COEFF_4;
- 	BMP280_Init(&BMP_InitStruct);
+   BMP280_Init(&BMP_InitStruct);
  	uint8_t status = 0;
  	BMP280_Read_Register(ctrl_meas,1,&status);
  	BMP280_Read_Register(config,1,&status);
@@ -419,10 +596,23 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+ 	uint32_t temp,press,P;
+ 	int32_t T ,t_fine;
   while (1)
   {
     /* USER CODE END WHILE */
+	//wait for conversion to finish
+	BMP280_Get_Status(&bmp);
+	while(bmp.M_Status != BMP_Measurement_Complete)
+	{
+		BMP280_Get_Status(&bmp);
+	}
 
+	BMP280_Get_Temp(&temp);
+	BMP280_Get_Pressure(&press);
+	T = BMP280_Compensate_Temp((int32_t)temp,&t_fine,bmp.Factory_Trim);
+	P = BMP280_Compensate_Pressure((int32_t)press,t_fine,bmp.Factory_Trim)/256;
+	HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
