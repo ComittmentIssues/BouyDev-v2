@@ -138,19 +138,19 @@ typedef struct
 #define BMP280_I2C_ADDRESS1 0x76
 #define BMP280_I2C_ADDRESS2 0x77
 
-#define BMP280_CTRLMEAS_OSRSP_SKIP  0 << 5
-#define BMP280_CTRLMEAS_OSRSP_OS_1  1 << 5
-#define BMP280_CTRLMEAS_OSRSP_OS_2  2 << 5
-#define BMP280_CTRLMEAS_OSRSP_OS_4  3 << 5
-#define BMP280_CTRLMEAS_OSRSP_OS_8  4 << 5
-#define BMP280_CTRLMEAS_OSRSP_OS_16 5 << 5
+#define BMP280_CTRLMEAS_OSRSP_SKIP  0 << 2
+#define BMP280_CTRLMEAS_OSRSP_OS_1  1 << 2
+#define BMP280_CTRLMEAS_OSRSP_OS_2  2 << 2
+#define BMP280_CTRLMEAS_OSRSP_OS_4  3 << 2
+#define BMP280_CTRLMEAS_OSRSP_OS_8  4 << 2
+#define BMP280_CTRLMEAS_OSRSP_OS_16 5 << 2
 
-#define BMP280_CTRLMEAS_OSRST_SKIP  0 << 2
-#define BMP280_CTRLMEAS_OSRST_OS_1  1 << 2
-#define BMP280_CTRLMEAS_OSRST_OS_2  2 << 2
-#define BMP280_CTRLMEAS_OSRST_OS_4  3 << 2
-#define BMP280_CTRLMEAS_OSRST_OS_8  4 << 2
-#define BMP280_CTRLMEAS_OSRST_OS_16 5 << 2
+#define BMP280_CTRLMEAS_OSRST_SKIP  0 << 5
+#define BMP280_CTRLMEAS_OSRST_OS_1  1 << 5
+#define BMP280_CTRLMEAS_OSRST_OS_2  2 << 5
+#define BMP280_CTRLMEAS_OSRST_OS_4  3 << 5
+#define BMP280_CTRLMEAS_OSRST_OS_8  4 << 5
+#define BMP280_CTRLMEAS_OSRST_OS_16 5 << 5
 
 #define BMP280_CTRLMEAS_MODE_SLEEP  0
 #define BMP280_CTRLMEAS_MODE_FORCED 1
@@ -207,6 +207,7 @@ static void MX_USART2_UART_Init(void);
 BMPStatus_t BMP280_Init(BMP_Init_Typedef * BMP_InitStruct);
 BMPStatus_t BMP280_Write_Register(uint8_t reg,int32_t size, uint8_t* data);
 BMPStatus_t BMP280_Read_Register(uint8_t reg,int32_t size, uint8_t* data);
+BMPStatus_t BMP280_Get_Measurements(uint32_t* adc_Temp,uint32_t* adc_Press);
 /*
  * @brief: Function to Read data from an 8bit register in the BMP280. Setting the size variable to
  * 		   A number > 1 configures the device for burst read.
@@ -306,8 +307,8 @@ BMPStatus_t BMP280_Get_Status(BMP_Handle_Typedef* bmp)
 	{
 		return BMP_SPI_READ_ERROR;
 	}
-	bmp->IM_Status = status&0b1;
-	bmp->M_Status = status&0b100;
+	bmp->IM_Status = statusbyte&0b1;
+	bmp->M_Status = statusbyte&0b100;
 	return BMP_OK;
 }
 
@@ -376,11 +377,32 @@ BMPStatus_t BMP280_Get_FactoryTrim( BMP280_trim_t *bmpt)
 	return BMP_OK;
 }
 
-BMPStatus_t BMP280_Force_Measure(int32_t* temp,uint32_t* pressure)
+BMPStatus_t BMP280_Force_Measure(uint32_t* temp,uint32_t* pressure)
 {
 	//write forced mode to register
 	BMP280_Set_PowerMode(BMP280_CTRLMEAS_MODE_FORCED);
-	//wait for control register to finis
+	//wait for device to finish converting
+	uint8_t status;
+	BMP280_Read_Register(ctrl_meas,1,&status);
+	while((status&0b11) != 0)
+	{
+		BMP280_Read_Register(ctrl_meas,1,&status);
+	}
+	//wait for control register to finish
+	BMP280_Get_Measurements(temp,pressure);
+	return BMP_OK;
+}
+
+BMPStatus_t BMP280_Get_Measurements(uint32_t* adc_Temp,uint32_t* adc_Press)
+{
+	uint8_t data[6] = {0};
+	BMP280_Read_Register(press_msb,6,data);
+	*adc_Temp = ((data[3]&0xFF)<<16)|((data[4]&0xFF)<<8)|((data[5]&0xF0));
+	*adc_Temp= *adc_Temp>> 4;
+	uint32_t temp= ((data[0]&0xFF)<<16)|((data[1]&0xFF)<<8)|((data[2]&0xFF))/16;
+	*adc_Press = temp/16;
+	//convert to 20 bit unsigned integers
+	return BMP_OK;
 }
 /*
  * @brief: function to read the 3 temperature registers and combine the data into a 20bit long signed integer.
@@ -403,6 +425,7 @@ BMPStatus_t BMP280_Get_Temp(uint32_t* adc_Temp)
 	}
 	*adc_Temp = ((Ttemp[0]&0xFF)<<16)|((Ttemp[1]&0xFF)<<8)|((Ttemp[2]&0xF0));
 	*adc_Temp= *adc_Temp>> 4;
+
 	return BMP_OK;
 }
 
@@ -590,11 +613,7 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
    BMP_Init_Typedef BMP_InitStruct;
-   BMP_InitStruct.BMP_Power_Mode = BMP280_CTRLMEAS_MODE_NORMAL;
-   BMP_InitStruct.BMP_Pressure_OverSample = BMP280_CTRLMEAS_OSRSP_OS_2;
-   BMP_InitStruct.BMP_Temperature_OverSample = BMP280_CTRLMEAS_OSRST_OS_1;
-   BMP_InitStruct.BMP_IIR_FILTER_COEFFICIENTS = BMP280_CONFIG_FILTER_COEFF_4;
-   BMP_InitStruct.BMP_t_Standby = BMP280_CONFIG_tsb_0_5;
+   BMP280_Init_Preset_Mode(Weather_Monitoring,&BMP_InitStruct);
    BMP280_Init(&BMP_InitStruct);
    uint8_t status = 0;
 
@@ -609,19 +628,12 @@ int main(void)
   {
 	  char buff[100] ="";
 	  //wait for device to finish converting
-	  BMP280_Get_Status(&bmp);
-	  while(bmp.M_Status != BMP_Measurement_Complete)
-	  {
-		  BMP280_Get_Status(&bmp);
-	  }
-	  //read temp
-	  BMP280_Get_Temp(&temp);
-	  BMP280_Get_Pressure(&press);
+	 BMP280_Force_Measure(&temp,&press);
 	  T = BMP280_Compensate_Temp(temp,&t_fine,bmp.Factory_Trim);
 	  P = BMP280_Compensate_Pressure(press,t_fine,bmp.Factory_Trim)/256;
 
 	  //create a string
-	  sprintf(buff,"Temp\t=\t %ld °C\tPressure\t=\t %lu KPa\r\n",T,P);
+	  sprintf(buff,"Temp = %ld °C\tPressure = %lu KPa\r\n",T,P);
 	  if(HAL_UART_Transmit(&huart2,(uint8_t*)buff,strlen((char*)buff),100) == HAL_OK)
 	  {
 		  HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
