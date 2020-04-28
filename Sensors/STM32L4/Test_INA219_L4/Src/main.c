@@ -28,12 +28,20 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+typedef enum{
+	CONFIG_REG = 0x00,
+	V_SHUNT_REG = 0x01,
+	V_BUS_REG = 0x02,
+	POWER_REG = 0x03,
+	CURRENT_REG = 0x04,
+	CALIBRATION_REG = 0x05
+}INA_Register_t;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define INA219_I2C_Address 0x80
+#define INA219_DEFAULT_CONFIG 0x399F
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -95,8 +103,16 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C2_Init();
   MX_USART2_UART_Init();
+  uint8_t config [2] = {0};
   /* USER CODE BEGIN 2 */
-
+   if(HAL_I2C_IsDeviceReady(&hi2c2,INA219_I2C_Address,10,100) == HAL_OK)
+   {
+	   if(HAL_I2C_Mem_Read(&hi2c2,INA219_I2C_Address,CONFIG_REG,2,config,2,100) == HAL_OK)
+	   {
+		   uint16_t configbyte = (config[0]<<8) |(config[1]);
+		   if(configbyte == INA219_DEFAULT_CONFIG)HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
+	   }
+   }
   /* USER CODE END 2 */
 
   /* Infinite loop */
