@@ -36,6 +36,41 @@ typedef enum{
 	CURRENT_REG = 0x04,
 	CALIBRATION_REG = 0x05
 }INA_Register_t;
+
+typedef enum
+{
+	INA_OK,
+	INA_I2C_READ_ERROR,
+	INA_I2C_WRITE_ERROR,
+	INA_DEVICE_ONLINE,
+	INA_DEVICE_OFFLINE,
+} INA_Status_t;
+
+typedef enum
+{
+ Default,
+ Configured,
+}INA_Config_Status;
+
+typedef struct
+{
+	uint16_t INA_BUS_VOLTAGE_RANGE;
+	uint16_t INA_SHUNT_PGA_RANGE;
+	uint16_t INA_BUS_ADC_RESOLUTION;
+	uint16_t INA_SHUNT_RESOLUTION;
+	uint16_t INA_OPPERATING_MODE;
+}INA219_Init_Typedef;
+
+typedef struct
+{
+	INA219_Init_Typedef Init;
+	uint16_t Config_val;
+	I2C_HandleTypeDef ina_i2c;
+	INA_Config_Status status;
+
+} INA219_Handle_Typedef;
+
+
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -55,7 +90,7 @@ I2C_HandleTypeDef hi2c2;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-
+INA219_Handle_Typedef ina;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -69,7 +104,38 @@ static void MX_USART2_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+/*
+ * INA config register defaults to 0x399F on power up or reset
+ * If the device has been configured, the register will return a different value
+ * in order to determine if the device is functioning, the updated register value must be provided using
+ */
+INA_Status_t INA219_Begin(void)
+{
+	//check if device is online
+	uint8_t temp[2] = {0};
+	if(HAL_I2C_IsDeviceReady(&ina.ina_i2c,INA219_I2C_Address,10,100) != HAL_OK)
+	{
+		return INA_DEVICE_OFFLINE;
+	}
 
+	if(HAL_I2C_Mem_Read(&ina.ina_i2c,INA219_I2C_Address,CONFIG_REG,2,temp,2,100) != HAL_OK)
+	{
+		return INA_I2C_READ_ERROR;
+	}
+	//check for previous configuration
+	uint16_t checkbyte = INA219_DEFAULT_CONFIG;
+	if(ina.status == Configured)
+	{
+		checkbyte = ina.Config_val;
+	}
+	uint16_t configbyte = (temp[0]<<8) | temp[1];
+	if(configbyte == checkbyte)
+	{
+		return INA_DEVICE_ONLINE;
+	}
+
+	return INA_DEVICE_OFFLINE;
+}
 /* USER CODE END 0 */
 
 /**
@@ -103,16 +169,8 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C2_Init();
   MX_USART2_UART_Init();
-  uint8_t config [2] = {0};
   /* USER CODE BEGIN 2 */
-   if(HAL_I2C_IsDeviceReady(&hi2c2,INA219_I2C_Address,10,100) == HAL_OK)
-   {
-	   if(HAL_I2C_Mem_Read(&hi2c2,INA219_I2C_Address,CONFIG_REG,2,config,2,100) == HAL_OK)
-	   {
-		   uint16_t configbyte = (config[0]<<8) |(config[1]);
-		   if(configbyte == INA219_DEFAULT_CONFIG)HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
-	   }
-   }
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -120,7 +178,12 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+	  ina.ina_i2c = hi2c2;
+	  INA_Status_t flag =  INA219_Begin();
+	  if(flag == INA_DEVICE_ONLINE)
+	  {
+		  HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
+	  }
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
