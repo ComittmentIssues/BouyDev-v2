@@ -23,7 +23,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdio.h>
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -395,7 +396,10 @@ int main(void)
 	  INA219_Get_Bus_Voltage(&bus_v);
 	  INA219_Get_Current(&current);
 	  INA219_Get_Power(&power);
-	  float vbus = ((float)bus_v)*0.001;
+	  char buff[1000];
+	  sprintf(buff,"V_shunt: %d.%d mV\tV_bus: %d.%d V\tI: %d.%d mA\tP: %d mW\r\n",shunt_v/100,shunt_v %100,bus_v/1000,bus_v%1000,current/10,current%10,power);
+	  HAL_UART_Transmit(&huart2,(uint8_t*)buff,strlen(buff),100);
+	  HAL_Delay(500);
 	  __NOP();
 
     /* USER CODE BEGIN 3 */
