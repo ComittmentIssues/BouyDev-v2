@@ -68,6 +68,13 @@ typedef struct
 	I2C_HandleTypeDef ina_i2c;
 	INA_Config_Status status;
 
+	float INA219_I_LSB;
+	float INA219_Vshunt_LSB;
+	float INA219_I_Divider;
+	float INA219_V_Divider;
+	float INA219_P_LSB;
+
+
 } INA219_Handle_Typedef;
 
 
@@ -75,7 +82,7 @@ typedef struct
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define USE_I2C_2 //change this to the corresponding I2C handler
 //config register definitions
 #define INA219_CONFIG_RESET 0b1<<15	//setting this bit causes device to reset
 #define INA219_CONFIG_BRNG_32V_EN 0b1<<13
@@ -121,6 +128,7 @@ typedef struct
 
 #define INA219_I2C_Address 0x80
 #define INA219_DEFAULT_CONFIG 0x399F
+#define INA219_R_SHUNT 0.1
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -155,6 +163,17 @@ static void MX_USART2_UART_Init(void);
  */
 INA_Status_t INA219_Begin(void)
 {
+	//attach i2c object to ina object
+#ifdef USE_I2C_1
+	  ina.ina_i2c = hi2c1;
+#endif
+#ifdef USE_I2C_2
+	  ina.ina_i2c = hi2c2;
+#endif
+#ifdef USE_I2C_3
+	  ina.ina_i2c = hi2c3;
+#endif
+
 	//check if device is online
 	uint8_t temp[2] = {0};
 	if(HAL_I2C_IsDeviceReady(&ina.ina_i2c,INA219_I2C_Address,10,100) != HAL_OK)
@@ -179,6 +198,147 @@ INA_Status_t INA219_Begin(void)
 	}
 
 	return INA_DEVICE_OFFLINE;
+}
+
+void INA219_Init(INA219_Handle_Typedef* hina,uint16_t config_reg)
+{
+	hina->Init.INA_BUS_VOLTAGE_RANGE = config_reg & (0b1<<13);
+	hina->Init.INA_SHUNT_PGA_RANGE = config_reg & (0b11<<11);
+	hina->Init.INA_BUS_ADC_RESOLUTION = config_reg & (0b1111<<7);
+	hina->Init.INA_SHUNT_RESOLUTION = config_reg & (0b1111<<3);
+	hina->Init.INA_OPPERATING_MODE = config_reg & 0b111;
+}
+INA_Status_t INA219_Get_Shunt_Voltage(int16_t *Shunt_Voltage)
+{
+	uint8_t temp[2] = {0};
+	if(HAL_I2C_Mem_Read(&ina.ina_i2c,INA219_I2C_Address,V_SHUNT_REG,2,temp,2,100)!= HAL_OK)
+	{
+		return INA_I2C_READ_ERROR;
+	}
+	//convert to signed 16 bit word
+	*Shunt_Voltage = (temp[0]<<8) | temp[1];
+	return INA_OK;
+}
+
+INA_Status_t INA219_Get_Bus_Voltage(int16_t *Bus_Voltage)
+{
+	uint8_t temp[2] = {0};
+	if(HAL_I2C_Mem_Read(&ina.ina_i2c,INA219_I2C_Address,V_BUS_REG,1,temp,2,100)!= HAL_OK)
+	{
+		return INA_I2C_READ_ERROR;
+	}
+	uint16_t u_temp = (temp[0]<<8) | temp[1];
+	*Bus_Voltage = (int16_t)((u_temp >>3)*4); //remove conv and MOF flags
+	return INA_OK;
+}
+
+INA_Status_t INA219_Get_Current(int16_t *current)
+{
+	uint8_t temp[2] = {0};
+	if(HAL_I2C_Mem_Read(&ina.ina_i2c,INA219_I2C_Address,CURRENT_REG,1,temp,2,100)!= HAL_OK)
+	{
+		return INA_I2C_READ_ERROR;
+	}
+	*current = (temp[0]<<8) | temp[1];
+	return INA_OK;
+}
+
+INA_Status_t INA219_Get_Power(int16_t *power)
+{
+	uint8_t temp[2] = {0};
+	if(HAL_I2C_Mem_Read(&ina.ina_i2c,INA219_I2C_Address,POWER_REG,1,temp,2,100)!= HAL_OK)
+	{
+		return INA_I2C_READ_ERROR;
+	}
+	*power = (temp[0]<<8) | temp[1];
+	return INA_OK;
+}
+/*
+ * @brief: The following function writes a 16 bit value to the calibration register whicch
+ * 			is used to adjust the current, bias voltage and power. Here, A LSB value is
+ * 			calculated based on the user requirements and selected from a range. It would
+ * 			be advisable to calculate the value manually and replace it in the funciton below
+ * 			please note: the following funcitons has values calculated manually. THese can be
+ * 			changed based on the configuration settings. For now, assuming default settings,
+ * 			The following is assumed:
+ * 			BRNG: 32V, PG: /8, shunt/bus continuous mode, 12 bit adc, No Overflow
+ *
+ * 			Step 1: Establish following parameters
+ *
+ * 			Vbus_Max = 32V
+ * 			Vshunt_Max = 0.32V
+ * 			Rshunt = 0.1 //Shunt resistor value on sharc buoy pcb
+ *
+ * 			Step 2: Calculate Max Current:
+ *
+ * 			I_Max = Vshunt_Max/Rshunt = 3.2A
+ *
+ * 			Step 3: assume a max expected current
+ *
+ * 			Iexpected_Max = 2A //absolute maximum, will be adjusted after testing
+ *
+ * 			Step 4: Calculate an LSB step size. Do this by computing the max and min values and
+ * 					select a value thats nice between this range
+ * 			Min_LSB  = Iexpected_Max/32767 = 61.62 uA
+ * 			Max_LSB = Iexpected_Max/4096 = 488.23 uA
+ *
+ * 			Choose I_LSB = 100uA
+ *
+ * 			Step 5: compute calibration value
+ *
+ * 			cal = trunc(0.04096/(Current_LSB*Rshunt)
+ *
+ * 			Step 6: calculate the Power LSB
+ * 					= 20*I_LSB
+ *					PWR_LSB = 2 mW
+ *
+ *			Step 7: Max_Current = Current_LSB*32767. Check to see if this value
+ *					is greater than the maximum possible current. IF it is, then
+ *					the max current before overflow is the maximum possible current
+ *
+ *			Step 8: Calculate Max Power
+ *@param I_MBO pointer to float to hold the result of the I_Max before overflow calculation
+ *@param V_MBO pointer to float to hold the result of the V_Max before overflow calculation
+ *@param P_max pointer to float to hold the result of the max power calculation
+ *@
+ *@return INA_Status_t integer to show the status of the function
+ *
+ */
+INA_Status_t INA219_Calibrate_No_Overflow(float *I_MBO, float *V_MBO, float *P_Max)
+{
+	//calculate maximum current
+	float I_LSB = 100.0/1000000.0;
+	uint16_t I_cal_val = (uint16_t)(0.04096/(I_LSB*INA219_R_SHUNT));
+	ina.INA219_P_LSB = 20*I_LSB;
+	//calculate max current and shunt voltage values
+	float I_max = I_LSB*32767;
+	if(I_max  > 3.2) //max possible current
+	{
+		*I_MBO = 3.2;
+	}else
+	{
+		*I_MBO = I_max;
+	}
+	float Vshunt_max = *I_MBO*INA219_R_SHUNT;
+	if(Vshunt_max > 0.32)
+	{
+		*V_MBO = 0.32;
+	}
+	else
+	{
+		*V_MBO = Vshunt_max;
+	}
+	*P_Max = *I_MBO*32;
+
+	//write I_Cal_val to register
+	uint8_t temp[2] = {(I_cal_val&0xFF00)>>8,(I_cal_val&0x00FF)};
+	if(HAL_I2C_Mem_Write(&ina.ina_i2c,INA219_I2C_Address,CALIBRATION_REG,1,temp,2,100) != HAL_OK)
+	{
+		return INA_I2C_WRITE_ERROR;
+	}
+
+	return INA_OK;
+
 }
 /* USER CODE END 0 */
 
@@ -214,20 +374,30 @@ int main(void)
   MX_I2C2_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
+  INA219_Init(&ina,0x399F);
+  INA_Status_t flag =  INA219_Begin();
+  float I,V,P;
+  INA219_Calibrate_No_Overflow(&I,&V,&P);
+  if(flag == INA_DEVICE_ONLINE)
+  {
 
+	  HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
+  }
   /* USER CODE END 2 */
-
+  int16_t shunt_v, bus_v,current,power;
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
-	  ina.ina_i2c = hi2c2;
-	  INA_Status_t flag =  INA219_Begin();
-	  if(flag == INA_DEVICE_ONLINE)
-	  {
-		  HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
-	  }
+	  //read power
+	  INA219_Get_Shunt_Voltage(&shunt_v);
+	  INA219_Get_Bus_Voltage(&bus_v);
+	  INA219_Get_Current(&current);
+	  INA219_Get_Power(&power);
+	  float vbus = ((float)bus_v)*0.001;
+	  __NOP();
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
