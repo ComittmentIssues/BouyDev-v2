@@ -54,7 +54,7 @@ UART_HandleTypeDef huart2;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_I2C2_Init(void);
+static HAL_StatusTypeDef MX_I2C2_Init(void);
 static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
@@ -62,10 +62,32 @@ static void MX_USART2_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 
+INA_Status_t INA219_Init_Sensor(void)
+{
+	  // initialise I2C peripheral
+	  MX_I2C2_Init();
+	  if(INA219_Begin() == INA_DEVICE_READY)
+	  {
+		  float I,V,P;
+		  // perform soft reset of device
+		  INA219_Reset();
+		  //configure the register
+		  INA219_Set_Reg_Config(&ina);
+		  //calibrate current and power reading
+		  INA219_Calibrate_16V_1_2A(&I,&V,&P);
+		  //enable power mode
+		  INA219_Set_Power_Mode(INA219_CONFIG_MODE_ADC_DIS);
+		  return INA_OK;
+	  }
+	  HAL_I2C_DeInit(&ina.ina_i2c);
+	  return INA_INIT_ERROR;
+}
 /* USER CODE END 0 */
 
 /**
-  * @brief  The application entry point.
+  * @brief  Test Application for INA219 Library. Program initialises the sensor using a
+  * preset function and samples the bus voltage, shunt voltage, current and power every 500 ms.
+  * These values are then transmitted to the computer via UASRT 2 through USB cable
   * @retval int
   */
 int main(void)
@@ -93,25 +115,16 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_I2C2_Init();
+
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-
-  float I,V,P;
-
-  if(INA219_Begin() == INA_DEVICE_READY)
+  if(INA219_Init_Sensor() == INA_OK)
   {
-	  INA219_Reset();
-	  //configure the register
-	  INA219_Set_Reg_Config(&ina);
-	  //calibrate current and power reading
-	  INA219_Calibrate_16V_1_2A(&I,&V,&P);
-	  //enable power mode
-	  INA219_Set_Power_Mode(INA219_CONFIG_MODE_ADC_DIS);
-	  uint8_t status[2] = {0};
-
-	  HAL_I2C_Mem_Read(&ina.ina_i2c,INA219_I2C_Address,CONFIG_REG,1,status,2,100);
 	  HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
+  }
+  else
+  {
+	  return 0;
   }
   /* USER CODE END 2 */
   int16_t shunt_v, bus_v,current,power, V_bat;
@@ -201,7 +214,7 @@ void SystemClock_Config(void)
   * @param None
   * @retval None
   */
-static void MX_I2C2_Init(void)
+static HAL_StatusTypeDef MX_I2C2_Init(void)
 {
 
   /* USER CODE BEGIN I2C2_Init 0 */
@@ -222,22 +235,22 @@ static void MX_I2C2_Init(void)
   hi2c2.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
   if (HAL_I2C_Init(&hi2c2) != HAL_OK)
   {
-    Error_Handler();
+    return HAL_ERROR;
   }
   /** Configure Analogue filter 
   */
   if (HAL_I2CEx_ConfigAnalogFilter(&hi2c2, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
   {
-    Error_Handler();
+    return HAL_ERROR;
   }
   /** Configure Digital filter 
   */
   if (HAL_I2CEx_ConfigDigitalFilter(&hi2c2, 0) != HAL_OK)
   {
-    Error_Handler();
+    return HAL_ERROR;
   }
   /* USER CODE BEGIN I2C2_Init 2 */
-
+  return HAL_OK;
   /* USER CODE END I2C2_Init 2 */
 
 }

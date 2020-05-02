@@ -8,19 +8,7 @@
 #include "HAL_INA219.h"
 
 extern I2C_HandleTypeDef hi2c2;
-/* Private function prototypes -----------------------------------------------*/
-INA_Status_t INA219_Begin(void);
-INA_Status_t INA219_Get_Reg_Config(INA219_Handle_Typedef* hina);
-INA_Status_t INA219_Reset(void);
-INA_Status_t INA219_Set_Power_Mode(uint16_t PWR_MODE);
-INA_Status_t INA219_Set_Reg_Config(INA219_Handle_Typedef *hina);
-INA_Status_t INA219_Get_Shunt_Voltage(int16_t *Shunt_Voltage);
-INA_Status_t INA219_Get_Bus_Voltage(int16_t *Bus_Voltage);
-INA_Status_t INA219_Get_Current(int16_t *current);
-INA_Status_t INA219_Get_Power(int16_t *power);
-INA_Status_t INA219_Calibrate_32V_2A(float *I_MBO, float *V_MBO, float *P_Max);
-INA_Status_t INA219_Calibrate_16V_1_2A(float *I_MBO, float *V_MBO, float *P_Max);
-INA_Status_t INA219_Trigger_Conversion(uint8_t val);
+
 
 /* Private user code ---------------------------------------------------------*/
 
