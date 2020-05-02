@@ -43,8 +43,10 @@ typedef enum
 	INA_OK,
 	INA_I2C_READ_ERROR,
 	INA_I2C_WRITE_ERROR,
+	INA_RESET_ERROR,
 	INA_DEVICE_ONLINE,
 	INA_DEVICE_OFFLINE,
+	INA_DEVICE_READY
 } INA_Status_t;
 
 typedef enum
@@ -59,7 +61,6 @@ typedef struct
 	uint16_t INA_SHUNT_PGA_RANGE;
 	uint16_t INA_BUS_ADC_RESOLUTION;
 	uint16_t INA_SHUNT_RESOLUTION;
-	uint16_t INA_OPPERATING_MODE;
 }INA219_Init_Typedef;
 
 typedef struct
@@ -67,15 +68,11 @@ typedef struct
 	INA219_Init_Typedef Init;
 	uint16_t Config_val;
 	I2C_HandleTypeDef ina_i2c;
-	INA_Config_Status status;
+	INA_Config_Status Use_Config;
 
 	float INA219_I_LSB;
 	float INA219_Vshunt_LSB;
-	float INA219_I_Divider;
-	float INA219_V_Divider;
 	float INA219_P_LSB;
-
-
 } INA219_Handle_Typedef;
 
 
@@ -86,10 +83,14 @@ typedef struct
 #define USE_I2C_2 //change this to the corresponding I2C handler
 //config register definitions
 #define INA219_CONFIG_RESET 0b1<<15	//setting this bit causes device to reset
-#define INA219_CONFIG_BRNG_32V_EN 0b1<<13
+#define INA219_CONFIG_BRNG_32V 0b1<<13
+#define INA219_CONFIG_BRNG_16V 0b0<<13
+
+#define INA219_CONFIG_PG_1 0b00<<11
 #define INA219_CONFIG_PG_2 0b01<<11
 #define INA219_CONFIG_PG_4 0b10<<11
 #define INA219_CONFIG_PG_8 0b11<<11
+
 #define INA219_CONFIG_BADC_MODE_SAMPLE_9_BIT    0b0000<<7
 #define INA219_CONFIG_BADC_MODE_SAMPLE_10_BIT   0b0001<<7
 #define INA219_CONFIG_BADC_MODE_SAMPLE_11_BIT   0b0010<<7
@@ -127,6 +128,9 @@ typedef struct
 #define INA219_CONFIG_MODE_BUS_CTS 	 	 			0b110
 #define INA219_CONFIG_MODE_SHUNT_BUS_CTS 			0b111
 
+#define INA219_FLAG_CNVR 0b10
+#define INA219_FLAG_MOF  0b1
+
 #define INA219_I2C_Address 0x80
 #define INA219_DEFAULT_CONFIG 0x399F
 #define INA219_R_SHUNT 0.1
@@ -158,9 +162,18 @@ static void MX_USART2_UART_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 /*
- * INA config register defaults to 0x399F on power up or reset
- * If the device has been configured, the register will return a different value
- * in order to determine if the device is functioning, the updated register value must be provided using
+ * @brief: Function to initialise i2c Communications and begin interfacing with the sensor object
+ *
+ * 		   Function will assign an i2c handler to the ina handler based on the macro USE_I2C_1
+ * 		   It will then check if the sensor is online and read the configuration register.
+ * 		   The INA config register defaults to 0x399F on power up or reset
+ *		   If the device has been configured, the register will return a different value
+ * 		   The USE_Config member of the struct ina will be updated based on whether the
+ * 		   recieved config value matches that of the default config value (note: this should)
+ * 		   only happen if the device has been unconfigured or a power reset has occured
+ * @param none
+ *
+ * @return INA_Status_t value showing the status of the function
  */
 INA_Status_t INA219_Begin(void)
 {
@@ -187,28 +200,98 @@ INA_Status_t INA219_Begin(void)
 		return INA_I2C_READ_ERROR;
 	}
 	//check for previous configuration
-	uint16_t checkbyte = INA219_DEFAULT_CONFIG;
-	if(ina.status == Configured)
-	{
-		checkbyte = ina.Config_val;
-	}
+
 	uint16_t configbyte = (temp[0]<<8) | temp[1];
-	if(configbyte == checkbyte)
+	if(configbyte == INA219_DEFAULT_CONFIG) //this will occure if a reset has occured or if the device has not been configured
 	{
-		return INA_DEVICE_ONLINE;
+		ina.Use_Config = Default;
+	}else
+	{
+		ina.Use_Config = Configured;
 	}
 
-	return INA_DEVICE_OFFLINE;
+	return INA_DEVICE_READY;
 }
 
-void INA219_Init(INA219_Handle_Typedef* hina,uint16_t config_reg)
+INA_Status_t INA219_Get_Reg_Config(INA219_Handle_Typedef* hina)
 {
+	uint8_t temp [2] = {0};
+	if(HAL_I2C_Mem_Read(&ina.ina_i2c,INA219_I2C_Address,CONFIG_REG,1,temp,2,100) != HAL_OK)
+	{
+		return INA_I2C_READ_ERROR;
+	}
+	uint16_t config_reg = temp[0]<<8 |temp[1];
 	hina->Init.INA_BUS_VOLTAGE_RANGE = config_reg & (0b1<<13);
 	hina->Init.INA_SHUNT_PGA_RANGE = config_reg & (0b11<<11);
 	hina->Init.INA_BUS_ADC_RESOLUTION = config_reg & (0b1111<<7);
 	hina->Init.INA_SHUNT_RESOLUTION = config_reg & (0b1111<<3);
-	hina->Init.INA_OPPERATING_MODE = config_reg & 0b111;
+	return HAL_OK;
 }
+INA_Status_t INA219_Reset(void)
+{
+	//write reset bit to register
+	uint8_t temp[2] = {INA219_CONFIG_RESET>>8,0};
+	if(HAL_I2C_Mem_Write(&ina.ina_i2c,INA219_I2C_Address,CONFIG_REG,1,temp,2,100) != HAL_OK)
+	{
+		return INA_I2C_WRITE_ERROR;
+	}
+	//wait for bit to clear
+	while((temp[0]&(INA219_CONFIG_RESET>>8)) != 0 )
+	{
+		if(HAL_I2C_Mem_Read(&ina.ina_i2c,INA219_I2C_Address,CONFIG_REG,1,temp,2,100) != HAL_OK)
+		{
+				return INA_I2C_READ_ERROR;
+		}
+	}
+
+	//check if control reg is default values
+	uint16_t reg = temp[0]<<8 | temp[1];
+	if(reg != INA219_DEFAULT_CONFIG)
+	{
+		return INA_RESET_ERROR;
+	}
+	return HAL_OK;
+}
+INA_Status_t INA219_Set_Power_Mode(uint16_t PWR_MODE)
+{
+	//get power mode
+	uint8_t temp [2] = {0};
+	if(HAL_I2C_Mem_Read(&ina.ina_i2c,INA219_I2C_Address,CONFIG_REG,1,temp,2,100) != HAL_OK)
+	{
+		return INA_I2C_READ_ERROR;
+	}
+	uint16_t config_reg = temp[0]<<8 |temp[1];
+
+	//clear power mode
+	config_reg &= ~(0b11);
+	//set to new value
+	config_reg |= PWR_MODE;
+	//write to reg
+	temp[0] = (config_reg &0xFF00)>>8;
+	temp[1] = config_reg &0xFF;
+	if(HAL_I2C_Mem_Write(&ina.ina_i2c,INA219_I2C_Address,CONFIG_REG,1,temp,2,100) != HAL_OK)
+	{
+		return INA_I2C_WRITE_ERROR;
+	}
+	return INA_OK;
+}
+
+INA_Status_t INA219_Set_Reg_Config(INA219_Handle_Typedef *hina)
+{
+	hina->Init.INA_BUS_VOLTAGE_RANGE = INA219_CONFIG_BRNG_16V;
+	hina->Init.INA_SHUNT_PGA_RANGE = INA219_CONFIG_PG_4;
+	hina->Init.INA_BUS_ADC_RESOLUTION = INA219_CONFIG_BADC_MODE_SAMPLE_12_BIT;
+	hina->Init.INA_SHUNT_RESOLUTION = INA219_CONFIG_SADC_MODE_SAMPLE_12_BIT;
+	hina->Config_val = (hina->Init.INA_BUS_VOLTAGE_RANGE | hina->Init.INA_SHUNT_PGA_RANGE | hina->Init.INA_BUS_ADC_RESOLUTION | hina->Init.INA_SHUNT_RESOLUTION);
+	uint8_t byte[2] = {(hina->Config_val&0xFF00)>>8,hina->Config_val&0x00FF};
+	//write value to register
+	if(HAL_I2C_Mem_Write(&ina.ina_i2c,INA219_I2C_Address,CONFIG_REG,1,byte,2,100) != HAL_OK)
+	{
+		return INA_I2C_WRITE_ERROR;
+	}
+	return INA_OK;
+}
+
 INA_Status_t INA219_Get_Shunt_Voltage(int16_t *Shunt_Voltage)
 {
 	uint8_t temp[2] = {0};
@@ -218,6 +301,21 @@ INA_Status_t INA219_Get_Shunt_Voltage(int16_t *Shunt_Voltage)
 	}
 	//convert to signed 16 bit word
 	*Shunt_Voltage = (temp[0]<<8) | temp[1];
+	//mulitply by PG gain
+	switch(ina.Init.INA_SHUNT_PGA_RANGE)
+	{
+		case INA219_CONFIG_PG_8:
+			*Shunt_Voltage = *Shunt_Voltage*1;
+			break;
+		case INA219_CONFIG_PG_4:
+			*Shunt_Voltage = *Shunt_Voltage*4;
+			break;
+		case INA219_CONFIG_PG_2:
+			*Shunt_Voltage = *Shunt_Voltage*8;
+		case INA219_CONFIG_PG_1:
+			*Shunt_Voltage = *Shunt_Voltage*16;
+			break;
+	}
 	return INA_OK;
 }
 
@@ -254,6 +352,7 @@ INA_Status_t INA219_Get_Power(int16_t *power)
 	*power = (temp[0]<<8) | temp[1];
 	return INA_OK;
 }
+
 /*
  * @brief: The following function writes a 16 bit value to the calibration register whicch
  * 			is used to adjust the current, bias voltage and power. Here, A LSB value is
@@ -305,14 +404,15 @@ INA_Status_t INA219_Get_Power(int16_t *power)
  *@return INA_Status_t integer to show the status of the function
  *
  */
-INA_Status_t INA219_Calibrate_No_Overflow(float *I_MBO, float *V_MBO, float *P_Max)
+
+INA_Status_t INA219_Calibrate_32V_2A(float *I_MBO, float *V_MBO, float *P_Max)
 {
 	//calculate maximum current
-	float I_LSB = 100.0/1000000.0;
-	uint16_t I_cal_val = (uint16_t)(0.04096/(I_LSB*INA219_R_SHUNT));
-	ina.INA219_P_LSB = 20*I_LSB;
+	ina.INA219_I_LSB = 100.0/1000000.0;
+	uint16_t I_cal_val = (uint16_t)(0.04096/(ina.INA219_I_LSB*INA219_R_SHUNT));
+	ina.INA219_P_LSB = 20*ina.INA219_I_LSB;
 	//calculate max current and shunt voltage values
-	float I_max = I_LSB*32767;
+	float I_max = ina.INA219_I_LSB*32767;
 	if(I_max  > 3.2) //max possible current
 	{
 		*I_MBO = 3.2;
@@ -341,6 +441,107 @@ INA_Status_t INA219_Calibrate_No_Overflow(float *I_MBO, float *V_MBO, float *P_M
 	return INA_OK;
 
 }
+
+/*
+ * @brief: The following calibration formula is similar to the above one however,
+ * 			the values are calculated for 16V range witha 2A expected current and
+ * 			a 160mV shunt range
+ *
+ * 	Step 1: V_Bus_Max = 16V
+ * 			V_Shunt_Max = 160mV
+ * 			R_Shunt = 0.1 Ohm
+ *
+ * 	Step 2: Max Possible I = 1.6A
+ *
+ * 	Step 3: Let I Max Expected = 1.2A
+ *
+ * 	Step 4: Min LSB = 36.6 uA/LSB
+ * 			Max LSB = 292.97 uA
+ *
+ * 			Choose LSB = 100 uA
+ * 	Step 5: Set Calibration value = 4096
+ */
+
+INA_Status_t INA219_Calibrate_16V_1_2A(float *I_MBO, float *V_MBO, float *P_Max)
+{
+	//set Current Step Size
+	ina.INA219_I_LSB = 100.0/1000000.0;
+	uint16_t I_cal_val = (uint16_t)(0.04096/(ina.INA219_I_LSB*INA219_R_SHUNT));
+	ina.INA219_P_LSB = 20*ina.INA219_I_LSB;
+	float I_max = ina.INA219_I_LSB*32767;
+	if(I_max  > 1.6) //max possible current
+	{
+		*I_MBO = 1.6;
+	}else
+	{
+		*I_MBO = I_max;
+	}
+	float Vshunt_max = *I_MBO*INA219_R_SHUNT;
+	if(Vshunt_max > 0.16)
+	{
+		*V_MBO = 0.16;
+	}
+	else
+	{
+		*V_MBO = Vshunt_max;
+	}
+	*P_Max = *I_MBO*16;
+
+	//write I_Cal_val to register
+	uint8_t temp[2] = {(I_cal_val&0xFF00)>>8,(I_cal_val&0x00FF)};
+	if(HAL_I2C_Mem_Write(&ina.ina_i2c,INA219_I2C_Address,CALIBRATION_REG,1,temp,2,100) != HAL_OK)
+	{
+		return INA_I2C_WRITE_ERROR;
+	}
+
+	return INA_OK;
+
+}
+
+/*
+ * @brief: Triggers a single shot ADC conversion of voltage values. The conversions
+ * 		   performed depend on the ones specified by the user
+ *
+ * @param: val - a number between 0 and 2 which enables conversions for the device.
+ * 				 0 - Shunt Voltage conversion only
+ * 				 1 - Bus Voltage conversion only
+ * 				 2 - both shunt and bus conversion
+ *
+ * @return: INA_Status_t - retrun value showing the status of the function
+ */
+INA_Status_t INA219_Trigger_Conversion(uint8_t val)
+{
+	//set Power mode
+	uint16_t mode = 0;
+	switch(val){
+	case 0:
+		mode = INA219_CONFIG_MODE_SHUNT_TRIGGERERD;
+		break;
+	case 1:
+		mode = INA219_CONFIG_MODE_BUS_TRIGGERED;
+		break;
+	case 2:
+		mode = INA219_CONFIG_MODE_SHUNT_BUS_TRIGGERED;
+		break;
+	}
+	if(INA219_Set_Power_Mode(mode) != INA_OK)
+	{
+		return INA_I2C_WRITE_ERROR;
+	}
+	//wait for conversion ready to complet
+	uint8_t temp[2];
+	uint16_t u_temp = 0;
+	while(((u_temp&INA219_FLAG_CNVR)>>1) != SET)
+	{
+		if(HAL_I2C_Mem_Read(&ina.ina_i2c,INA219_I2C_Address,V_BUS_REG,1,temp,2,100)!= HAL_OK)
+		{
+			return INA_I2C_READ_ERROR;
+		}
+		u_temp = (temp[0]<<8) | temp[1];
+	}
+	return INA_OK;
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -375,29 +576,44 @@ int main(void)
   MX_I2C2_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  INA219_Init(&ina,0x399F);
-  INA_Status_t flag =  INA219_Begin();
-  float I,V,P;
-  INA219_Calibrate_No_Overflow(&I,&V,&P);
-  if(flag == INA_DEVICE_ONLINE)
-  {
 
+  float I,V,P;
+
+  if(INA219_Begin() == INA_DEVICE_READY)
+  {
+	  INA219_Reset();
+	  //configure the register
+	  INA219_Set_Reg_Config(&ina);
+	  //calibrate current and power reading
+	  INA219_Calibrate_16V_1_2A(&I,&V,&P);
+	  //enable power mode
+	  INA219_Set_Power_Mode(INA219_CONFIG_MODE_ADC_DIS);
+	  uint8_t status[2] = {0};
+
+	  HAL_I2C_Mem_Read(&ina.ina_i2c,INA219_I2C_Address,CONFIG_REG,1,status,2,100);
 	  HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
   }
   /* USER CODE END 2 */
-  int16_t shunt_v, bus_v,current,power;
+  int16_t shunt_v, bus_v,current,power, V_bat;
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
+	  //trigger a conversion
+	  INA219_Trigger_Conversion(2);
 	  //read power
 	  INA219_Get_Shunt_Voltage(&shunt_v);
 	  INA219_Get_Bus_Voltage(&bus_v);
 	  INA219_Get_Current(&current);
 	  INA219_Get_Power(&power);
+	  //convert dec value to power reading by multiplying by LSB
+	  power = (ina.INA219_P_LSB*(float)power)*1000;
+	  V_bat = (shunt_v/100)+bus_v;
 	  char buff[1000];
-	  sprintf(buff,"V_shunt: %d.%d mV\tV_bus: %d.%d V\tI: %d.%d mA\tP: %d mW\r\n",shunt_v/100,shunt_v %100,bus_v/1000,bus_v%1000,current/10,current%10,power);
+	  //note: that the bus voltage measured by the device is different to the battery voltage due to the voltage drop
+	  // accross the shunt resistor. Therefore, the Battery voltage = V_shunt+V_Bus
+	  sprintf(buff,"V_shunt: %d.%d mV\tV_bus: %d.%d V\tV_bat: %d V\tI: %d.%d mA\tP: %d mW\r\n",shunt_v/100,shunt_v %100,bus_v/1000,bus_v%1000,V_bat,current/10,current%10,power);
 	  HAL_UART_Transmit(&huart2,(uint8_t*)buff,strlen(buff),100);
 	  HAL_Delay(500);
 	  __NOP();
