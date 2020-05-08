@@ -23,7 +23,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdio.h>
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -163,14 +164,18 @@ int main(void)
   /* USER CODE BEGIN SysInit */
   //set pin config t Analog mode for low power
   GPIO_Set_Pin_LP();
+  //check wake up source
+
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
   MX_RTC_Init();
   /* USER CODE BEGIN 2 */
   Init_Debug();
-
+  HAL_RTCEx_SetWakeUpTimer(&hrtc,1,RTC_WAKEUPCLOCK_CK_SPRE_16BITS);
   //get RTC values
+
+  //format into string
 
   /* USER CODE END 2 */
 
@@ -178,8 +183,18 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  HAL_RTC_GetDate(&hrtc,&hdate,RTC_FORMAT_BCD);
-	  HAL_RTC_GetTime(&hrtc,&htime,RTC_FORMAT_BIN);
+	  	  //poll wake up timer flag
+	  	  HAL_Delay(1000);
+	    HAL_RTC_GetTime(&hrtc,&htime,RTC_FORMAT_BIN);
+	  	HAL_RTC_GetDate(&hrtc,&hdate,RTC_FORMAT_BCD);
+	    //format into string
+	    char buff[100] = {0};
+	    sprintf(buff,"%02d:%02d:%02d %d-%d-%d\r",htime.Hours,htime.Minutes,htime.Seconds,hdate.Date,hdate.Month,(2000+hdate.Year));
+
+
+	    HAL_UART_Transmit(&huart2,(uint8_t*)buff,strlen(buff),100);
+
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -289,8 +304,8 @@ static void MX_RTC_Init(void)
 
   /** Initialize RTC and set the Time and Date 
   */
-  sTime.Hours = 12;
-  sTime.Minutes = 57;
+  sTime.Hours = 18;
+  sTime.Minutes = 15;
   sTime.Seconds = 0;
   sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
   sTime.StoreOperation = RTC_STOREOPERATION_RESET;
@@ -301,13 +316,14 @@ static void MX_RTC_Init(void)
   sDate.WeekDay = RTC_WEEKDAY_FRIDAY;
   sDate.Month = RTC_MONTH_MAY;
   sDate.Date = 8;
-  sDate.Year = 0;
+  sDate.Year = 8;
 
   if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BIN) != HAL_OK)
   {
     Error_Handler();
   }
   /* USER CODE BEGIN RTC_Init 2 */
+
 
   /* USER CODE END RTC_Init 2 */
 
