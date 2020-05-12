@@ -35,7 +35,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define RTC_WUCK_Period 30 //s
+#define RTC_WUCK_Period 1799 //s
 /*
  * Debug Defines: These macros enable/ disable debuggin functions for the buoy such as testing the clock input
  *
@@ -71,6 +71,7 @@ UART_HandleTypeDef huart2;
 /* USER CODE BEGIN PV */
 RTC_DateTypeDef hdate;
 RTC_TimeTypeDef htime;
+__IO uint8_t in_Shutdown = 0;
 #ifdef DEBUG_USART_ENABLE
 	UART_HandleTypeDef huart2;
 #endif
@@ -152,10 +153,9 @@ static void Enter_Shutdown_Mode(void)
 {
 	//reset wake up pin interrupt
 	__HAL_RCC_PWR_CLK_ENABLE();
-	HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN1);
-	HAL_PWREx_DisableInternalWakeUpLine();
-	/* Clear PWR wake up Flag */
-	__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WU);
+	//write bit to back up registers indicating that the device is entering shutdown mode
+
+	WRITE_REG(RTC->BKP0R,0b1);
 	/* Enable Wake Up timer in interrupt mode */
 	//set alarm
 	 if(HAL_RTCEx_SetWakeUpTimer_IT(&hrtc,RTC_WUCK_Period,RTC_WAKEUPCLOCK_CK_SPRE_16BITS) != HAL_OK)
@@ -163,7 +163,7 @@ static void Enter_Shutdown_Mode(void)
 		  Error_Handler();
 	  }
 	 HAL_PWREx_EnableInternalWakeUpLine();
-	HAL_PWREx_EnterSHUTDOWNMode();
+	 HAL_PWREx_EnterSHUTDOWNMode();
 
 }
 /* USER CODE END 0 */
@@ -189,27 +189,41 @@ int main(void)
 
   /* Configure the system clock */
   SystemClock_Config();
-  Init_Debug();
 
   /* USER CODE BEGIN SysInit */
   //set pin config t Analog mode for low power
   GPIO_Set_Pin_LP();
-
+  Init_Debug();
   //check wake up source
-  //get total time
-  hrtc.Instance = RTC;
-  HAL_RTC_GetTime(&hrtc,&htime,RTC_FORMAT_BIN);
-  HAL_RTC_GetDate(&hrtc,&hdate,RTC_FORMAT_BCD);
-  time = (abs(12-htime.Hours))*3600 + (abs(57-htime.Minutes)) + (abs(htime.Seconds));
-  MX_RTC_Init();
-  char sbuff[60];
-  sprintf(sbuff,"System slept for %lu seconds\r\n",time);
-  HAL_UART_Transmit(&huart2,(uint8_t*)sbuff,strlen(sbuff),100);
+  __HAL_RCC_PWR_CLK_ENABLE();
+
+  if(READ_REG( RTC->BKP0R) == 0b01)
+  {
+	  //system has come from shut down
+	  WRITE_REG(RTC->BKP0R,0);
+	  /*
+	   * On wake up from shut down, RTC is already initialised. Therefore,
+	   * simply attach the instance to the handler and continue
+	   */
+	  hrtc.Instance = RTC;
+	  //calculate how much time was spent in shutdown
+
+	  //clear interrupts and disable line
+	  HAL_PWREx_DisableInternalWakeUpLine();
+	  /* Clear PWR wake up Flag */
+	  __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WU);
+	  __HAL_PWR_CLEAR_FLAG(PWR_FLAG_SB);
+  }
+  else
+  {
+	  //system encountered a power on reset, put peripherals here
+	  MX_RTC_Init();
+	  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
+  }
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-
-   /* USER CODE BEGIN 2 */
+  /* USER CODE BEGIN 2 */
 
 
   //poll wake up timer flag
@@ -339,8 +353,8 @@ static void MX_RTC_Init(void)
 
   /** Initialize RTC and set the Time and Date 
   */
-  sTime.Hours = 12;
-  sTime.Minutes = 57;
+  sTime.Hours = 0;
+  sTime.Minutes = 0;
   sTime.Seconds = 0;
   sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
   sTime.StoreOperation = RTC_STOREOPERATION_RESET;
@@ -350,7 +364,7 @@ static void MX_RTC_Init(void)
   }
   sDate.WeekDay = RTC_WEEKDAY_FRIDAY;
   sDate.Month = RTC_MONTH_MAY;
-  sDate.Date = 8;
+  sDate.Date = 12;
   sDate.Year = 0;
 
   if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BIN) != HAL_OK)
@@ -359,7 +373,10 @@ static void MX_RTC_Init(void)
   }
   /* USER CODE BEGIN RTC_Init 2 */
   //Configure RTC_Wake up time for range 250ms - 36 Hours
-
+  if(__HAL_RTC_WAKEUPTIMER_GET_FLAG(&hrtc,RTC_FLAG_WUTF))
+  {
+	  __HAL_RTC_WAKEUPTIMER_CLEAR_FLAG(&hrtc,RTC_FLAG_WUTF);
+  }
 
   /* USER CODE END RTC_Init 2 */
 
