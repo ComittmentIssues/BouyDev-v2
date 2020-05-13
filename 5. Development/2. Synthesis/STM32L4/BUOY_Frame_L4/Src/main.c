@@ -30,7 +30,10 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+typedef enum{
+	SHUTDOWN,
+	STDBY
+}PWR_MODE_t;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -56,6 +59,12 @@
  * @brief: enables Debug for low power mode allowing the debugger to still work when mcu is in stop, sleep or stdby mode
  */
 #define DEBUG_LP_ENABLE
+
+#define __MINS_TO_SECS(x) (x)*60
+
+#define __HRS_TO_SECS(x) (x)*3600
+
+#define __DAYS_TO_SECS(x) (x)*__HRS_TO_SECS(24)
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -149,7 +158,7 @@ static void Init_Debug(void)
 #endif
 }
 
-static void Enter_Shutdown_Mode(void)
+static void Go_To_Sleep(PWR_MODE_t mode, uint32_t seconds)
 {
 	//reset wake up pin interrupt
 	__HAL_RCC_PWR_CLK_ENABLE();
@@ -158,12 +167,21 @@ static void Enter_Shutdown_Mode(void)
 	WRITE_REG(RTC->BKP0R,0b1);
 	/* Enable Wake Up timer in interrupt mode */
 	//set alarm
-	 if(HAL_RTCEx_SetWakeUpTimer_IT(&hrtc,RTC_WUCK_Period,RTC_WAKEUPCLOCK_CK_SPRE_16BITS) != HAL_OK)
+	 if(HAL_RTCEx_SetWakeUpTimer_IT(&hrtc,(seconds-1),RTC_WAKEUPCLOCK_CK_SPRE_16BITS) != HAL_OK)
 	  {
 		  Error_Handler();
 	  }
 	 HAL_PWREx_EnableInternalWakeUpLine();
-	 HAL_PWREx_EnterSHUTDOWNMode();
+	 //if shutdown mode enabled
+	 if(mode == SHUTDOWN)
+	 {
+		 HAL_PWREx_EnterSHUTDOWNMode();
+	 }
+	 else if(mode == STDBY)
+	 {
+		 HAL_PWR_EnterSTANDBYMode();
+	 }
+
 
 }
 /* USER CODE END 0 */
@@ -240,7 +258,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  Enter_Shutdown_Mode();
+  Go_To_Sleep(STDBY,__MINS_TO_SECS(1));
   while (1)
   {
 
