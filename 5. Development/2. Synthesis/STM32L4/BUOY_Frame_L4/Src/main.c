@@ -59,7 +59,10 @@ typedef enum{
  * @brief: enables Debug for low power mode allowing the debugger to still work when mcu is in stop, sleep or stdby mode
  */
 #define DEBUG_LP_ENABLE
+#define RCC_FLAG_PORRST (0b101<<26)
 
+#define __HAL_RCC_GET_PORRST_FLAG() ((READ_REG(RCC->CSR)&(RCC_FLAG_PORRST))>>26) &&0b111
+//#define __RCC_GET_FLAG_PORRST()
 #define __MINS_TO_SECS(x) (x)*60
 
 #define __HRS_TO_SECS(x) (x)*3600
@@ -103,6 +106,7 @@ static void MX_USART2_UART_Init(void);
  */
 static void Init_Debug(void);
 static void GPIO_Set_Pin_LP(void);
+void POR_Handler(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -184,6 +188,7 @@ static void Go_To_Sleep(PWR_MODE_t mode, uint32_t seconds)
 
 
 }
+
 /* USER CODE END 0 */
 
 /**
@@ -212,6 +217,11 @@ int main(void)
   //set pin config t Analog mode for low power
   GPIO_Set_Pin_LP();
   Init_Debug();
+  uint8_t x = __HAL_RCC_GET_PORRST_FLAG() ;
+  if(x == SET)
+  {
+	  POR_Handler();
+  }
   //check wake up source
   __HAL_RCC_PWR_CLK_ENABLE();
 
@@ -371,8 +381,8 @@ static void MX_RTC_Init(void)
 
   /** Initialize RTC and set the Time and Date 
   */
-  sTime.Hours = 0;
-  sTime.Minutes = 0;
+  sTime.Hours = 12;
+  sTime.Minutes = 57;
   sTime.Seconds = 0;
   sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
   sTime.StoreOperation = RTC_STOREOPERATION_RESET;
@@ -382,7 +392,7 @@ static void MX_RTC_Init(void)
   }
   sDate.WeekDay = RTC_WEEKDAY_FRIDAY;
   sDate.Month = RTC_MONTH_MAY;
-  sDate.Date = 12;
+  sDate.Date = 8;
   sDate.Year = 0;
 
   if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BIN) != HAL_OK)
@@ -503,6 +513,26 @@ static void GPIO_Set_Pin_LP(void)
 	  GPIO_InitStruct.Pull = GPIO_NOPULL;
 	  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
+}
+
+void POR_Handler(void)
+{
+	  //clear flags
+	  __HAL_RCC_CLEAR_RESET_FLAGS();
+	  //clear the back up registers
+	  HAL_PWR_EnableBkUpAccess();
+	  __HAL_RCC_BACKUPRESET_FORCE();
+	  __HAL_RCC_BACKUPRESET_RELEASE();
+	  HAL_PWR_DisableBkUpAccess();
+	  SystemClock_Config();
+	  //deactivate and disable wake up timers
+	  HAL_PWREx_DisableInternalWakeUpLine();
+	  /* Clear PWR wake up Flag */
+	 __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WU);
+	 __HAL_PWR_CLEAR_FLAG(PWR_FLAG_SB);
+
+
+	  //reinitialise the clock
 }
 /* USER CODE END 4 */
 
