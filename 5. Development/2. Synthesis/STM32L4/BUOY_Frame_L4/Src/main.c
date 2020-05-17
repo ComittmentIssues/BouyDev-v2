@@ -61,7 +61,7 @@ typedef enum{
 #define DEBUG_LP_ENABLE
 #define RCC_FLAG_PORRST (0b101<<26)
 
-#define __HAL_RCC_GET_PORRST_FLAG() ((READ_REG(RCC->CSR)&(RCC_FLAG_PORRST))>>26) &&0b111
+#define __HAL_RCC_GET_PORRST_FLAG() ((READ_REG(RCC->CSR)&(RCC_FLAG_PORRST))>>26)&&0b111
 //#define __RCC_GET_FLAG_PORRST()
 #define __MINS_TO_SECS(x) (x)*60
 
@@ -107,6 +107,7 @@ static void MX_USART2_UART_Init(void);
 static void Init_Debug(void);
 static void GPIO_Set_Pin_LP(void);
 void POR_Handler(void);
+void BOR_Handler(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -143,7 +144,6 @@ static void Init_Debug(void)
 	  {
 	    Error_Handler();
 	  }
-	  HAL_UART_Transmit(&huart2,(uint8_t*)"Debug Online!\r\n",15,10);
 #endif
 
 #ifdef DEBUG_LED1_ENABLE
@@ -217,9 +217,15 @@ int main(void)
   //set pin config t Analog mode for low power
   GPIO_Set_Pin_LP();
   Init_Debug();
-  uint8_t x = __HAL_RCC_GET_PORRST_FLAG() ;
-  if(x == SET)
+  if(__HAL_RCC_GET_FLAG(RCC_FLAG_BORRST) == SET)
   {
+	  BOR_Handler();
+  }
+  uint8_t flag = __HAL_RCC_GET_PORRST_FLAG();
+  if(flag  == SET)
+  {
+	  const char*  c = "Software Reset Detected. Initializing main program...\r\n";
+	  HAL_UART_Transmit(&huart2,(uint8_t*)c,strlen(c),100);
 	  POR_Handler();
   }
   //check wake up source
@@ -260,7 +266,7 @@ int main(void)
   HAL_RTC_GetDate(&hrtc,&hdate,RTC_FORMAT_BCD);
   //format into string
   char buff[100] = {0};
-  sprintf(buff,"%02d:%02d:%02d %d-%d-%d\r\n",htime.Hours,htime.Minutes,htime.Seconds,hdate.Date,hdate.Month,(2000+hdate.Year));
+  sprintf(buff,"%02d:%02d:%02d %d-%d-%d\r",htime.Hours,htime.Minutes,htime.Seconds,hdate.Date,hdate.Month,(2000+hdate.Year));
   HAL_UART_Transmit(&huart2,(uint8_t*)buff,strlen(buff),100);
   //format into string
 
@@ -533,6 +539,23 @@ void POR_Handler(void)
 
 
 	  //reinitialise the clock
+}
+
+void BOR_Handler(void)
+{
+	  //clear flags
+	  __HAL_RCC_CLEAR_RESET_FLAGS();
+	  // transmit log to PC
+	  char* msg= "Warning! Device encountered a Brown Out. Exiting Program...\r\n";
+	  HAL_UART_Transmit(&huart2,(uint8_t*)msg,strlen(msg),100);
+	  //perform system reset
+	  POR_Handler();
+	  HAL_NVIC_SystemReset();
+	  while(1)
+	  {
+		  HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
+		  HAL_Delay(500);
+	  }
 }
 /* USER CODE END 4 */
 
