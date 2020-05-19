@@ -38,11 +38,19 @@ typedef enum{
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+//The following lines of code allow for printf statements to output to serial via USART2. Remove code if not neccessary
+#ifdef __GNUC__
+#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+#else
+#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+#endif
+
 #define RTC_WUCK_Period 1799 //s
 /*
  * Debug Defines: These macros enable/ disable debuggin functions for the buoy such as testing the clock input
  *
  */
+
 /*
  * @brief: enables function to map the Master Clock output to Pin PA8
  */
@@ -106,6 +114,7 @@ static void MX_USART2_UART_Init(void);
  */
 static void Init_Debug(void);
 static void GPIO_Set_Pin_LP(void);
+static void USART_Enter_Standby_for_data(UART_HandleTypeDef *huart);
 void POR_Handler(void);
 void BOR_Handler(void);
 /* USER CODE END PFP */
@@ -189,6 +198,36 @@ static void Go_To_Sleep(PWR_MODE_t mode, uint32_t seconds)
 
 }
 
+static void USART_Enter_Standby_for_data(UART_HandleTypeDef *huart)
+{
+	//step 1, wait for ongoing uart transmissions to finish
+	printf("Heading to Sleep\r\n");
+
+	//disable systick timer
+
+	HAL_RCCEx_WakeUpStopCLKConfig(RCC_STOP_WAKEUPCLOCK_HSI);
+	HAL_UARTEx_EnableClockStopMode(huart);
+	while(__HAL_UART_GET_FLAG(&huart2,UART_FLAG_BUSY) == SET);
+	//clear all interrupts
+	while(__HAL_UART_GET_FLAG(huart, USART_ISR_REACK) == RESET);
+	UART_WakeUpTypeDef hwake;
+	//configure wake up to wake up on start bit
+	hwake.WakeUpEvent = UART_WAKEUP_ON_STARTBIT;
+
+	if(HAL_UARTEx_StopModeWakeUpSourceConfig(huart,hwake)!= HAL_OK)
+	{
+		//error setting sleep state
+		Error_Handler();
+	}
+	//set device to generate interrupt on wake up
+	__HAL_UART_ENABLE_IT(huart,UART_IT_RXNE);
+	__HAL_UART_ENABLE_IT(huart,UART_IT_WUF);
+	//configure wake up clock source to MSI and enable
+	//enable stop mode
+	HAL_UARTEx_EnableClockStopMode(huart);
+	HAL_UARTEx_EnableStopMode(huart);
+	HAL_PWREx_EnterSTOP1Mode(PWR_STOPENTRY_WFI);
+}
 /* USER CODE END 0 */
 
 /**
@@ -257,19 +296,21 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
+  MX_RTC_Init();
   /* USER CODE BEGIN 2 */
-
-
-  //poll wake up timer flag
-
-  HAL_RTC_GetTime(&hrtc,&htime,RTC_FORMAT_BIN);
-  HAL_RTC_GetDate(&hrtc,&hdate,RTC_FORMAT_BCD);
-  //format into string
-  char buff[100] = {0};
-  sprintf(buff,"%02d:%02d:%02d %d-%d-%d\r",htime.Hours,htime.Minutes,htime.Seconds,hdate.Date,hdate.Month,(2000+hdate.Year));
-  HAL_UART_Transmit(&huart2,(uint8_t*)buff,strlen(buff),100);
-  //format into string
-
+  //go to sleep until recieved charachter from serial
+	HAL_SuspendTick();
+  	USART_Enter_Standby_for_data(&huart2);
+  	SystemClock_Config();
+  	HAL_ResumeTick();
+  	printf("System Awake\r\n");
+ //System wakes up and resumes
+  	HAL_RTC_GetTime(&hrtc,&htime,RTC_FORMAT_BIN);
+    HAL_RTC_GetDate(&hrtc,&hdate,RTC_FORMAT_BCD);
+    //format into string
+    char buff[100] = {0};
+    sprintf(buff,"%02d:%02d:%02d %d-%d-%d\r",htime.Hours,htime.Minutes,htime.Seconds,hdate.Date,hdate.Month,(2000+hdate.Year));
+    HAL_UART_Transmit(&huart2,(uint8_t*)buff,strlen(buff),100);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -301,8 +342,11 @@ void SystemClock_Config(void)
   __HAL_RCC_LSEDRIVE_CONFIG(RCC_LSEDRIVE_LOW);
   /** Initializes the CPU, AHB and APB busses clocks 
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSE|RCC_OSCILLATORTYPE_MSI;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_LSE
+                              |RCC_OSCILLATORTYPE_MSI;
   RCC_OscInitStruct.LSEState = RCC_LSE_ON;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.MSIState = RCC_MSI_ON;
   RCC_OscInitStruct.MSICalibrationValue = 0;
   RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_6;
@@ -331,7 +375,7 @@ void SystemClock_Config(void)
     Error_Handler();
   }
   PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_RTC|RCC_PERIPHCLK_USART2;
-  PeriphClkInit.Usart2ClockSelection = RCC_USART2CLKSOURCE_PCLK1;
+  PeriphClkInit.Usart2ClockSelection = RCC_USART2CLKSOURCE_HSI;
   PeriphClkInit.RTCClockSelection = RCC_RTCCLKSOURCE_LSE;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
@@ -467,6 +511,12 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+PUTCHAR_PROTOTYPE
+{
+	HAL_UART_Transmit(&huart2,(uint8_t*) &ch,1,0xFFFF);
+	return ch;
+}
 static void GPIO_Set_Pin_LP(void)
 {
 	  GPIO_InitTypeDef GPIO_InitStruct = {0};
