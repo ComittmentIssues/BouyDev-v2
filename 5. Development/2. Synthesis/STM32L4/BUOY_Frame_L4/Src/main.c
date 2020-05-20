@@ -115,6 +115,7 @@ static void MX_USART2_UART_Init(void);
 static void Init_Debug(void);
 static void GPIO_Set_Pin_LP(void);
 static void USART_Enter_Standby_for_data(UART_HandleTypeDef *huart);
+static void set_WUP_Pin(uint32_t Pin);
 void POR_Handler(void);
 void BOR_Handler(void);
 /* USER CODE END PFP */
@@ -175,6 +176,8 @@ static void Go_To_Sleep(PWR_MODE_t mode, uint32_t seconds)
 {
 	//reset wake up pin interrupt
 	__HAL_RCC_PWR_CLK_ENABLE();
+	//enable pin for sleep
+	set_WUP_Pin(PWR_WAKEUP_PIN2);
 	//write bit to back up registers indicating that the device is entering shutdown mode
 
 	WRITE_REG(RTC->BKP0R,0b1);
@@ -227,6 +230,77 @@ static void USART_Enter_Standby_for_data(UART_HandleTypeDef *huart)
 	HAL_UARTEx_EnableClockStopMode(huart);
 	HAL_UARTEx_EnableStopMode(huart);
 	HAL_PWREx_EnterSTOP1Mode(PWR_STOPENTRY_WFI);
+}
+/*
+ * @brief: This function initialises a pin to be used as an interrupt source to wake up the device from sleep mode
+ * 			There are 5 wake up pins on the device. The following table shows the wake up pin mapping to GPIO pin port and
+ * 			the input argument to the function to enable it
+ * 			+------------------------------------------+
+ * 			| Wake Up Pin | GPIO Pin | Argument        |
+ * 			|-------------|----------|-----------------|
+ * 			| WUP PIN 1   | PA0      | PWR_WAKEUP_PIN1 |
+ * 			|-------------|----------|-----------------|
+ * 			| WUP PIN 2   | PC13     | PWR_WAKEUP_PIN2 |
+ * 			|-------------|----------|-----------------|
+ * 			| WUP PIN 3   | PE6      | PWR_WAKEUP_PIN3 |
+ * 			|-------------|----------|-----------------|
+ * 			| WUP PIN 4   | PA2      | PWR_WAKEUP_PIN4 |
+ * 			|-------------|----------|-----------------|
+ * 			| WUP PIN 5   | PC5      | PWR_WAKEUP_PIN5 |
+ * 			+------------------------------------------+
+ */
+static void set_WUP_Pin(uint32_t Pin)
+{
+	GPIO_TypeDef *Pin_Port;
+	IRQn_Type WUP_IRQn;
+	GPIO_InitTypeDef GPIO_InitStruct;
+	switch (Pin) {
+		case PWR_WAKEUP_PIN1:
+			__HAL_RCC_GPIOA_CLK_ENABLE();
+			Pin_Port = GPIOA;
+			GPIO_InitStruct.Pin = GPIO_PIN_0;
+			WUP_IRQn = EXTI0_IRQn;
+			break;
+		case PWR_WAKEUP_PIN2:
+			__HAL_RCC_GPIOC_CLK_ENABLE();
+			Pin_Port = GPIOC;
+			GPIO_InitStruct.Pin = GPIO_PIN_13;
+			WUP_IRQn = EXTI15_10_IRQn;
+			break;
+		case PWR_WAKEUP_PIN3:
+			__HAL_RCC_GPIOE_CLK_ENABLE();
+			Pin_Port = GPIOE;
+			GPIO_InitStruct.Pin = GPIO_PIN_6;
+			WUP_IRQn = EXTI9_5_IRQn;
+			break;
+		case PWR_WAKEUP_PIN4:
+			__HAL_RCC_GPIOA_CLK_ENABLE();
+			GPIO_InitStruct.Pin = GPIO_PIN_2;
+			Pin_Port = GPIOA;
+			WUP_IRQn = EXTI2_IRQn;
+			break;
+		case PWR_WAKEUP_PIN5:
+			__HAL_RCC_GPIOC_CLK_ENABLE();
+			Pin_Port = GPIOC;
+			GPIO_InitStruct.Pin = GPIO_PIN_5;
+			WUP_IRQn = EXTI9_5_IRQn;
+			break;
+		default:
+			break;
+	}
+	//configure pin for exti map
+
+
+	GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+	HAL_GPIO_Init(Pin_Port,&GPIO_InitStruct);
+	//set NVIC interrupt
+    HAL_NVIC_SetPriority(WUP_IRQn, 0x0F, 0);
+    HAL_NVIC_EnableIRQ(WUP_IRQn);
+    HAL_NVIC_ClearPendingIRQ(WUP_IRQn);
+    //enable wup in PWR register
+    HAL_PWR_EnableWakeUpPin(Pin);
 }
 /* USER CODE END 0 */
 
@@ -299,11 +373,11 @@ int main(void)
   MX_RTC_Init();
   /* USER CODE BEGIN 2 */
   //go to sleep until recieved charachter from serial
-	HAL_SuspendTick();
-  	USART_Enter_Standby_for_data(&huart2);
-  	SystemClock_Config();
-  	HAL_ResumeTick();
-  	printf("System Awake\r\n");
+//	HAL_SuspendTick();
+//  	USART_Enter_Standby_for_data(&huart2);
+//  	SystemClock_Config();
+//  	HAL_ResumeTick();
+//  	printf("System Awake\r\n");
  //System wakes up and resumes
   	HAL_RTC_GetTime(&hrtc,&htime,RTC_FORMAT_BIN);
     HAL_RTC_GetDate(&hrtc,&hdate,RTC_FORMAT_BCD);
@@ -505,7 +579,6 @@ static void MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOC_CLK_ENABLE();
-  __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
 }
