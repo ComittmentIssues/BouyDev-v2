@@ -34,6 +34,14 @@ typedef enum{
 	SHUTDOWN,
 	STDBY
 }PWR_MODE_t;
+
+typedef enum
+{
+	STATE_RESET 	= 0b01,
+	STATE_SAMPLE 	= 0b10,
+	STATE_SLEEP 	= 0b11,
+	STATE_TRANSMIT  = 0b110
+}Buoy_State_typedef;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -76,6 +84,19 @@ typedef enum{
 #define __HRS_TO_SECS(x) (x)*3600
 
 #define __DAYS_TO_SECS(x) (x)*__HRS_TO_SECS(24)
+
+
+/*
+ * @brief: state machine Macros
+ */
+//Returns the state the buoy was in prior to state check
+#define __GET_PREV_STATE() (RTC->BKP0R)&0xFF
+
+#define __SET_CURRENT_STATE(state) WRITE_REG(RTC->BKP0R,(RTC->BKP0R &0xFF00)|(state))
+
+#define __GET_SAMPLE_COUNT()  ((RTC->BKP0R)&0xFF00)>>8
+
+#define __SET_SAMPLE_COUNT(count)  WRITE_REG(RTC->BKP0R,(RTC->BKP0R &0xFF)|((count)<<8))
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -97,6 +118,9 @@ __IO uint8_t in_Shutdown = 0;
 #endif
 
 uint32_t time;
+Buoy_State_typedef Current_State;
+uint8_t Sample_On,sample_count;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -177,10 +201,8 @@ static void Go_To_Sleep(PWR_MODE_t mode, uint32_t seconds)
 	//reset wake up pin interrupt
 	__HAL_RCC_PWR_CLK_ENABLE();
 	//enable pin for sleep
-	set_WUP_Pin(PWR_WAKEUP_PIN2);
-	//write bit to back up registers indicating that the device is entering shutdown mode
+	//set_WUP_Pin(PWR_WAKEUP_PIN2);
 
-	WRITE_REG(RTC->BKP0R,0b1);
 	/* Enable Wake Up timer in interrupt mode */
 	//set alarm
 	 if(HAL_RTCEx_SetWakeUpTimer_IT(&hrtc,(seconds-1),RTC_WAKEUPCLOCK_CK_SPRE_16BITS) != HAL_OK)
@@ -231,6 +253,7 @@ static void USART_Enter_Standby_for_data(UART_HandleTypeDef *huart)
 	HAL_UARTEx_EnableStopMode(huart);
 	HAL_PWREx_EnterSTOP1Mode(PWR_STOPENTRY_WFI);
 }
+
 /*
  * @brief: This function initialises a pin to be used as an interrupt source to wake up the device from sleep mode
  * 			There are 5 wake up pins on the device. The following table shows the wake up pin mapping to GPIO pin port and
@@ -249,6 +272,7 @@ static void USART_Enter_Standby_for_data(UART_HandleTypeDef *huart)
  * 			| WUP PIN 5   | PC5      | PWR_WAKEUP_PIN5 |
  * 			+------------------------------------------+
  */
+
 static void set_WUP_Pin(uint32_t Pin)
 {
 	GPIO_TypeDef *Pin_Port;
@@ -302,6 +326,72 @@ static void set_WUP_Pin(uint32_t Pin)
     //enable wup in PWR register
     HAL_PWR_EnableWakeUpPin(Pin);
 }
+
+void Test_BOR_PWR_RTC(void)
+{
+	  if(__HAL_RCC_GET_FLAG(RCC_FLAG_BORRST) == SET)
+	  {
+		  BOR_Handler();
+	  }
+	  uint8_t flag = __HAL_RCC_GET_PORRST_FLAG();
+	  if(flag  == SET)
+	  {
+		  const char*  c = "Software Reset Detected. Initializing main program...\r\n";
+		  HAL_UART_Transmit(&huart2,(uint8_t*)c,strlen(c),100);
+		  POR_Handler();
+	  }
+	  //check wake up source
+	  __HAL_RCC_PWR_CLK_ENABLE();
+
+	  if(READ_REG( RTC->BKP0R) == 0b01)
+	  {
+		  //system has come from shut down
+		  WRITE_REG(RTC->BKP0R,0);
+		  /*
+		   * On wake up from shut down, RTC is already initialised. Therefore,
+		   * simply attach the instance to the handler and continue
+		   */
+		  hrtc.Instance = RTC;
+		  //calculate how much time was spent in shutdown
+
+		  //clear interrupts and disable line
+		  HAL_PWREx_DisableInternalWakeUpLine();
+		  /* Clear PWR wake up Flag */
+		  __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WU);
+		  __HAL_PWR_CLEAR_FLAG(PWR_FLAG_SB);
+	  }
+	  else
+	  {
+		  //system encountered a power on reset, put peripherals here
+		  MX_RTC_Init();
+		  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
+	  }
+	  /* USER CODE END SysInit */
+
+	  /* Initialize all configured peripherals */
+	  MX_RTC_Init();
+	  /* USER CODE BEGIN 2 */
+	  //go to sleep until recieved charachter from serial
+	//	HAL_SuspendTick();
+	//  	USART_Enter_Standby_for_data(&huart2);
+	//  	SystemClock_Config();
+	//  	HAL_ResumeTick();
+	//  	printf("System Awake\r\n");
+	 //System wakes up and resumes
+	  	HAL_RTC_GetTime(&hrtc,&htime,RTC_FORMAT_BIN);
+	    HAL_RTC_GetDate(&hrtc,&hdate,RTC_FORMAT_BCD);
+	    //format into string
+	    char buff[100] = {0};
+	    sprintf(buff,"%02d:%02d:%02d %d-%d-%d\r",htime.Hours,htime.Minutes,htime.Seconds,hdate.Date,hdate.Month,(2000+hdate.Year));
+	    HAL_UART_Transmit(&huart2,(uint8_t*)buff,strlen(buff),100);
+	  /* USER CODE END 2 */
+
+	  /* Infinite loop */
+	  /* USER CODE BEGIN WHILE */
+	  Go_To_Sleep(STDBY,__MINS_TO_SECS(1));
+}
+
+
 /* USER CODE END 0 */
 
 /**
@@ -310,6 +400,9 @@ static void set_WUP_Pin(uint32_t Pin)
   */
 int main(void)
 {
+
+//=============== SYSTEM INIT & CLOCK CONFIG ===============//
+
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -330,6 +423,16 @@ int main(void)
   //set pin config t Analog mode for low power
   GPIO_Set_Pin_LP();
   Init_Debug();
+  /* USER CODE END SysInit */
+
+  /* USER CODE BEGIN 2 */
+  //========================= END =========================//
+
+  //============ POWER AND RESET STATE CHECK ==============//
+  /*
+   * When system powers on, check for any asynchronous resets that
+   * may have occured. Use this area to add in any reset handling
+   */
   if(__HAL_RCC_GET_FLAG(RCC_FLAG_BORRST) == SET)
   {
 	  BOR_Handler();
@@ -337,62 +440,148 @@ int main(void)
   uint8_t flag = __HAL_RCC_GET_PORRST_FLAG();
   if(flag  == SET)
   {
-	  const char*  c = "Software Reset Detected. Initializing main program...\r\n";
-	  HAL_UART_Transmit(&huart2,(uint8_t*)c,strlen(c),100);
+	  printf("Software Reset Detected. Initializing main program...\r\n");
 	  POR_Handler();
   }
-  //check wake up source
-  __HAL_RCC_PWR_CLK_ENABLE();
-
-  if(READ_REG( RTC->BKP0R) == 0b01)
-  {
-	  //system has come from shut down
-	  WRITE_REG(RTC->BKP0R,0);
-	  /*
-	   * On wake up from shut down, RTC is already initialised. Therefore,
-	   * simply attach the instance to the handler and continue
-	   */
-	  hrtc.Instance = RTC;
-	  //calculate how much time was spent in shutdown
-
-	  //clear interrupts and disable line
-	  HAL_PWREx_DisableInternalWakeUpLine();
-	  /* Clear PWR wake up Flag */
-	  __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WU);
-	  __HAL_PWR_CLEAR_FLAG(PWR_FLAG_SB);
-  }
-  else
-  {
-	  //system encountered a power on reset, put peripherals here
-	  MX_RTC_Init();
-	  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
-  }
-  /* USER CODE END SysInit */
-
-  /* Initialize all configured peripherals */
-  MX_RTC_Init();
-  /* USER CODE BEGIN 2 */
-  //go to sleep until recieved charachter from serial
-//	HAL_SuspendTick();
-//  	USART_Enter_Standby_for_data(&huart2);
-//  	SystemClock_Config();
-//  	HAL_ResumeTick();
-//  	printf("System Awake\r\n");
- //System wakes up and resumes
-  	HAL_RTC_GetTime(&hrtc,&htime,RTC_FORMAT_BIN);
-    HAL_RTC_GetDate(&hrtc,&hdate,RTC_FORMAT_BCD);
-    //format into string
-    char buff[100] = {0};
-    sprintf(buff,"%02d:%02d:%02d %d-%d-%d\r",htime.Hours,htime.Minutes,htime.Seconds,hdate.Date,hdate.Month,(2000+hdate.Year));
-    HAL_UART_Transmit(&huart2,(uint8_t*)buff,strlen(buff),100);
-  /* USER CODE END 2 */
-
+  //========================= END =========================//
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  Go_To_Sleep(STDBY,__MINS_TO_SECS(1));
   while (1)
   {
+	  //================= SYSTEM STATE CHECK ==================//
+	  /*
+	   * Main Loop state detection: use this area to implement state
+	   * check.States are positive integers written to Back up Register
+	   * 0. State functions include Reading/ Writing to Back Up register
+	   * determing previous state before sleep and writing state to back up register
+	   * states are defined in the enum Buoy_State_typedef. The state check block performs the following routine
+	   *
+	   */
 
+	  //enable access to back up registers
+	  __HAL_RCC_PWR_CLK_ENABLE();
+	  switch(__GET_PREV_STATE())
+	  {
+	  	 case STATE_RESET:
+	  	 //system encountered a power on reset, put peripherals here
+	  	 Current_State = STATE_SAMPLE;
+	  	 break;
+
+	  	 case STATE_SAMPLE:
+	  	 //check how many samples have been recorded by the Buoy
+	  	 sample_count = __GET_SAMPLE_COUNT();
+	  	 if(sample_count > 3)
+	  	 {
+	  		 //set next Buoy State to Transmit
+	  		 Current_State = STATE_TRANSMIT;
+	  	 }
+	  	 // Set Buoy Next state to Sleep
+	  	 else
+	  	 {
+	  		 Current_State = STATE_SLEEP;
+	  		 __HAL_RCC_PWR_CLK_ENABLE();
+	  		 __SET_CURRENT_STATE(Current_State);
+	  		 __HAL_RCC_PWR_CLK_DISABLE();
+	  	 }
+	  	 break;
+
+	  	 case STATE_SLEEP:
+	  	 //attach RTC instance to handler
+	  	hrtc.Instance = RTC;
+	  	//clear wake up pending interrupt
+	  	HAL_PWREx_DisableInternalWakeUpLine();
+	  	__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WU);
+	  	__HAL_PWR_CLEAR_FLAG(PWR_FLAG_SB);
+	  	//set Current State to Sample
+	  	Current_State = STATE_SAMPLE;
+	  	 break;
+
+	  	 case STATE_TRANSMIT:
+	  	 Current_State = STATE_SLEEP;
+  		 __HAL_RCC_PWR_CLK_ENABLE();
+  		 __SET_CURRENT_STATE(Current_State);
+  		 __HAL_RCC_PWR_CLK_DISABLE();
+	  	 break;
+	  	 //default case: reset state
+	  	 default:
+	  	 Current_State = STATE_RESET;
+
+	  }
+	  __HAL_RCC_PWR_CLK_DISABLE();
+
+
+	  //========================= END =========================//
+
+	  //==================== STATE FUNCTIONS ==================//
+	  /*
+	   * Code that runs dependant on the Current state of the buoy
+	   */
+
+	  /* Initialize all configured peripherals */
+	  if(Current_State == STATE_SLEEP)
+	  {
+
+		  printf("Current State: SLEEP \t Next State: SAMPLE\r\n");
+		  printf("Good Night! \r\n");
+		  Go_To_Sleep(STDBY,10);
+	  }
+	  if(Current_State == STATE_RESET)
+	  {
+		 MX_RTC_Init();
+		 HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
+		 printf("Current State: RESET \t Next State: SAMPLE\r\n");
+	  }
+
+	  if(Current_State == STATE_SAMPLE)
+	  {
+		  sample_count = __GET_SAMPLE_COUNT();
+		  if(sample_count < 3)
+		  {
+			  printf("Current State: SAMPLE \t Next State: SLEEP\r\n");
+		  } else
+		  {
+			  printf("Current State: SAMPLE \t Next State: TRANS\r\n");
+		  }
+
+		  //routine: Flash LED 3 times every 500 ms
+		  for (int var = 0; var < 6; ++var)
+		  {
+			  HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
+			  HAL_Delay(250);
+		  }
+		  //increment sample counter
+	  }
+	  if(Current_State == STATE_TRANSMIT)
+	  {
+		  printf("Current State: TRANS \t Next State: SLEEP\r\n");
+
+		  printf("Transmitting Package...");
+		  for (int var = 0; var < 6; ++var)
+		  {
+			  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
+			  HAL_Delay(500);
+			  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,RESET);
+			  HAL_Delay(250);
+		  }
+		  printf("Done!\r\n");
+		  //reset sample count
+		  __SET_SAMPLE_COUNT(0);
+
+	  }
+	  //========================= END =========================//
+
+	  //================ END OF STATE FUNCTION ================//
+
+	  //save state
+	  __HAL_RCC_PWR_CLK_ENABLE();
+	  if(Current_State == STATE_SAMPLE)
+	  {
+		  sample_count = __GET_SAMPLE_COUNT();
+		  __SET_SAMPLE_COUNT(++sample_count);
+	  }
+	  __SET_CURRENT_STATE(Current_State);
+	  __HAL_RCC_PWR_CLK_DISABLE();
+	  //========================= END =========================//
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
