@@ -41,7 +41,7 @@ typedef enum
 	STATE_SAMPLE 		= 0b10,
 	STATE_SLEEP 		= 0b11,
 	STATE_TRANSMIT  	= 0b110,
-	STATE_IMU_SAMPLE	= 0b111
+	STATE_ASYNCINT		= 0b111
 }Buoy_State_typedef;
 /* USER CODE END PTD */
 
@@ -61,6 +61,8 @@ typedef enum
 #define IRIDIUM_RING_WAKE_FLAG PWR_FLAG_WUF2
 #define IRIDIUM_RING_WAKE_PIN PWR_WAKEUP_PIN2
 
+#define IMU_EVENT_WAKE_FLAG PWR_FLAG_WUF5
+#define IMU_EVENT_WAKE_PIN PWR_WAKEUP_PIN5
 
 #define RTC_WUCK_Period 1799 //s
 /*
@@ -134,9 +136,8 @@ uint8_t Sample_On,sample_count;
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-static void MX_GPIO_Init(void);
 static void MX_RTC_Init(void);
-static void MX_USART2_UART_Init(void);
+
 /* USER CODE BEGIN PFP */
 /*
  * @brief: Function to initialise debugging capabilities based on macro definitions
@@ -209,8 +210,6 @@ static void Go_To_Sleep(PWR_MODE_t mode, uint32_t seconds)
 {
 	//reset wake up pin interrupt
 	__HAL_RCC_PWR_CLK_ENABLE();
-	//enable pin for sleep
-
 	/* Enable Wake Up timer in interrupt mode */
 	//set alarm
 	if(seconds > 0)
@@ -266,7 +265,7 @@ static void USART_Enter_Standby_for_data(UART_HandleTypeDef *huart)
 }
 
 /*
- * @brief: This function initialises a pin to be used as an interrupt source to wake up the device from sleep mode
+ * @brief: This function initializes a pin to be used as an interrupt source to wake up the device from sleep mode
  * 			There are 5 wake up pins on the device. The following table shows the wake up pin mapping to GPIO pin port and
  * 			the input argument to the function to enable it
  * 			+------------------------------------------+
@@ -337,7 +336,12 @@ static void set_WUP_Pin(uint32_t Pin)
     HAL_NVIC_ClearPendingIRQ(WUP_IRQn);
     //enable wup in PWR register
     HAL_PWR_EnableWakeUpPin(Pin);
+    //clear unwanted interrupts
+    __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF1);
     __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF2);
+    __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF3);
+    __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF4);
+    __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF5);
     __HAL_RCC_PWR_CLK_DISABLE();
 }
 
@@ -437,6 +441,8 @@ int main(void)
   //set pin config t Analog mode for low power
   GPIO_Set_Pin_LP();
   Init_Debug();
+  //disable wake up pin sources
+
   /* USER CODE END SysInit */
 
   /* USER CODE BEGIN 2 */
@@ -468,41 +474,59 @@ int main(void)
 	   * flags to determine if this occured
 	   */
 
-	  //check for interrupts from Sensors
+	  //check for interrupts from Iridium
 	  __HAL_RCC_PWR_CLK_ENABLE();
-	  if(__HAL_PWR_GET_FLAG(IRIDIUM_RING_WAKE_FLAG))
+	  if(__HAL_PWR_GET_FLAG(IMU_EVENT_WAKE_FLAG)|| __HAL_PWR_GET_FLAG(IRIDIUM_RING_WAKE_FLAG))
 	  {
-		  //clear pending interrupt
-		  __HAL_PWR_CLEAR_FLAG(IRIDIUM_RING_WAKE_FLAG);
 		  Current_State = __GET_PREV_STATE();
-		  //perform Routine
-		  hrtc.Instance = RTC;
 
-		  printf("IMU Event Detected: Beginning Sampling...");
-		  for (int i = 0; i < 50; ++i)
+	  //=============  ASYNCHRONOUS ROUTINES  ===============//
+
+		  if(__HAL_PWR_GET_FLAG(IMU_EVENT_WAKE_FLAG))
 		  {
-			HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
-			HAL_Delay(100);
+			  __HAL_PWR_CLEAR_FLAG(IMU_EVENT_WAKE_FLAG);
+			  printf("IMU Event Detected: Sampling...");
+			  for (int i = 0; i < 50; ++i)
+			 {
+			 	HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
+			 	HAL_Delay(100);
+			 }
+			 printf("Done\r\n");
+
 		  }
-		  printf("Done\r\n");
+		  if(__HAL_PWR_GET_FLAG(IRIDIUM_RING_WAKE_FLAG))
+		  {
+			__HAL_PWR_CLEAR_FLAG(IRIDIUM_RING_WAKE_FLAG);
+			printf("Incoming Message from Satelite: Recieving...");
+			for (int i = 0; i < 10; ++i)
+			{
+				HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
+				HAL_Delay(500);
+			}
+			printf("Message Recieved!\r\n");
+		  }
+
+	  //========================= END =========================//
+
 		  if(Current_State == STATE_SLEEP)
 		  {
 			  //check how long device was asleep for
 			  printf("System Going Back To Sleep\r\n");
 			  //enable wake up pin
+			  set_WUP_Pin(IMU_EVENT_WAKE_PIN);
 			  set_WUP_Pin(IRIDIUM_RING_WAKE_PIN);
 			  Go_To_Sleep(STDBY,10);
 		  }
 		  	 else
 		  {
 			  //if come from wake mode
-			  __SET_CURRENT_STATE(STATE_IMU_SAMPLE);
+		  	  printf("Going Back to Main Loop:\r\n");
+			  __SET_CURRENT_STATE(STATE_ASYNCINT);
 		  }
-
-		  //check the state
- }
+	  }
 
 	  //========================= END =========================//
+
 	  //================= SYSTEM STATE CHECK ==================//
 	  /*
 	   * Main Loop state detection: use this area to implement state
@@ -516,7 +540,7 @@ int main(void)
 
 	  switch(__GET_PREV_STATE())
 	  {
-	  	 case STATE_IMU_SAMPLE:
+	  	 case STATE_ASYNCINT:
 	  	 case STATE_RESET:
 	  	 //system encountered a power on reset, put peripherals here
 	  	 Current_State = STATE_SAMPLE;
@@ -580,6 +604,7 @@ int main(void)
 		  printf("Current State: SLEEP \t Next State: SAMPLE\r\n");
 		  printf("Good Night! \r\n");
 		  set_WUP_Pin(IRIDIUM_RING_WAKE_PIN);
+		  set_WUP_Pin(IMU_EVENT_WAKE_PIN);
 		  Go_To_Sleep(STDBY,10);
 	  }
 	  if(Current_State == STATE_RESET)
@@ -779,54 +804,6 @@ static void MX_RTC_Init(void)
 
 }
 
-/**
-  * @brief USART2 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_USART2_UART_Init(void)
-{
-
-  /* USER CODE BEGIN USART2_Init 0 */
-
-  /* USER CODE END USART2_Init 0 */
-
-  /* USER CODE BEGIN USART2_Init 1 */
-
-  /* USER CODE END USART2_Init 1 */
-  huart2.Instance = USART2;
-  huart2.Init.BaudRate = 115200;
-  huart2.Init.WordLength = UART_WORDLENGTH_8B;
-  huart2.Init.StopBits = UART_STOPBITS_1;
-  huart2.Init.Parity = UART_PARITY_NONE;
-  huart2.Init.Mode = UART_MODE_TX_RX;
-  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
-  huart2.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
-  huart2.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
-  if (HAL_UART_Init(&huart2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN USART2_Init 2 */
-
-  /* USER CODE END USART2_Init 2 */
-
-}
-
-/**
-  * @brief GPIO Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_GPIO_Init(void)
-{
-
-  /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOC_CLK_ENABLE();
-  __HAL_RCC_GPIOA_CLK_ENABLE();
-
-}
 
 /* USER CODE BEGIN 4 */
 
@@ -835,6 +812,7 @@ PUTCHAR_PROTOTYPE
 	HAL_UART_Transmit(&huart2,(uint8_t*) &ch,1,0xFFFF);
 	return ch;
 }
+
 static void GPIO_Set_Pin_LP(void)
 {
 	  GPIO_InitTypeDef GPIO_InitStruct = {0};
