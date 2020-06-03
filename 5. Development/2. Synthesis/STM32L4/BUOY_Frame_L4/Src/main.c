@@ -37,10 +37,11 @@ typedef enum{
 
 typedef enum
 {
-	STATE_RESET 	= 0b01,
-	STATE_SAMPLE 	= 0b10,
-	STATE_SLEEP 	= 0b11,
-	STATE_TRANSMIT  = 0b110
+	STATE_RESET 		= 0b01,
+	STATE_SAMPLE 		= 0b10,
+	STATE_SLEEP 		= 0b11,
+	STATE_TRANSMIT  	= 0b110,
+	STATE_IMU_SAMPLE	= 0b111
 }Buoy_State_typedef;
 /* USER CODE END PTD */
 
@@ -52,6 +53,14 @@ typedef enum
 #else
 #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
 #endif
+
+
+/*
+ * Wake up pin definitions: change these to the pins you are using
+ */
+#define IRIDIUM_RING_WAKE_FLAG PWR_FLAG_WUF2
+#define IRIDIUM_RING_WAKE_PIN PWR_WAKEUP_PIN2
+
 
 #define RTC_WUCK_Period 1799 //s
 /*
@@ -201,14 +210,16 @@ static void Go_To_Sleep(PWR_MODE_t mode, uint32_t seconds)
 	//reset wake up pin interrupt
 	__HAL_RCC_PWR_CLK_ENABLE();
 	//enable pin for sleep
-	//set_WUP_Pin(PWR_WAKEUP_PIN2);
 
 	/* Enable Wake Up timer in interrupt mode */
 	//set alarm
+	if(seconds > 0)
+	{
 	 if(HAL_RTCEx_SetWakeUpTimer_IT(&hrtc,(seconds-1),RTC_WAKEUPCLOCK_CK_SPRE_16BITS) != HAL_OK)
 	  {
 		  Error_Handler();
 	  }
+	}
 	 HAL_PWREx_EnableInternalWakeUpLine();
 	 //if shutdown mode enabled
 	 if(mode == SHUTDOWN)
@@ -275,6 +286,7 @@ static void USART_Enter_Standby_for_data(UART_HandleTypeDef *huart)
 
 static void set_WUP_Pin(uint32_t Pin)
 {
+	__HAL_RCC_PWR_CLK_ENABLE();
 	GPIO_TypeDef *Pin_Port;
 	IRQn_Type WUP_IRQn;
 	GPIO_InitTypeDef GPIO_InitStruct;
@@ -325,6 +337,8 @@ static void set_WUP_Pin(uint32_t Pin)
     HAL_NVIC_ClearPendingIRQ(WUP_IRQn);
     //enable wup in PWR register
     HAL_PWR_EnableWakeUpPin(Pin);
+    __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF2);
+    __HAL_RCC_PWR_CLK_DISABLE();
 }
 
 void Test_BOR_PWR_RTC(void)
@@ -448,6 +462,47 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  //=============  ASYNCHRONOUS STATE CHECK ===============//
+	  /*
+	   * If an interrupt occured while the device was sleeping, check the
+	   * flags to determine if this occured
+	   */
+
+	  //check for interrupts from Sensors
+	  __HAL_RCC_PWR_CLK_ENABLE();
+	  if(__HAL_PWR_GET_FLAG(IRIDIUM_RING_WAKE_FLAG))
+	  {
+		  //clear pending interrupt
+		  __HAL_PWR_CLEAR_FLAG(IRIDIUM_RING_WAKE_FLAG);
+		  Current_State = __GET_PREV_STATE();
+		  //perform Routine
+		  hrtc.Instance = RTC;
+
+		  printf("IMU Event Detected: Beginning Sampling...");
+		  for (int i = 0; i < 50; ++i)
+		  {
+			HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
+			HAL_Delay(100);
+		  }
+		  printf("Done\r\n");
+		  if(Current_State == STATE_SLEEP)
+		  {
+			  //check how long device was asleep for
+			  printf("System Going Back To Sleep\r\n");
+			  //enable wake up pin
+			  set_WUP_Pin(IRIDIUM_RING_WAKE_PIN);
+			  Go_To_Sleep(STDBY,10);
+		  }
+		  	 else
+		  {
+			  //if come from wake mode
+			  __SET_CURRENT_STATE(STATE_IMU_SAMPLE);
+		  }
+
+		  //check the state
+ }
+
+	  //========================= END =========================//
 	  //================= SYSTEM STATE CHECK ==================//
 	  /*
 	   * Main Loop state detection: use this area to implement state
@@ -457,11 +512,11 @@ int main(void)
 	   * states are defined in the enum Buoy_State_typedef. The state check block performs the following routine
 	   *
 	   */
-
 	  //enable access to back up registers
-	  __HAL_RCC_PWR_CLK_ENABLE();
+
 	  switch(__GET_PREV_STATE())
 	  {
+	  	 case STATE_IMU_SAMPLE:
 	  	 case STATE_RESET:
 	  	 //system encountered a power on reset, put peripherals here
 	  	 Current_State = STATE_SAMPLE;
@@ -502,6 +557,7 @@ int main(void)
   		 __SET_CURRENT_STATE(Current_State);
   		 __HAL_RCC_PWR_CLK_DISABLE();
 	  	 break;
+
 	  	 //default case: reset state
 	  	 default:
 	  	 Current_State = STATE_RESET;
@@ -523,6 +579,7 @@ int main(void)
 
 		  printf("Current State: SLEEP \t Next State: SAMPLE\r\n");
 		  printf("Good Night! \r\n");
+		  set_WUP_Pin(IRIDIUM_RING_WAKE_PIN);
 		  Go_To_Sleep(STDBY,10);
 	  }
 	  if(Current_State == STATE_RESET)
@@ -566,7 +623,6 @@ int main(void)
 		  printf("Done!\r\n");
 		  //reset sample count
 		  __SET_SAMPLE_COUNT(0);
-
 	  }
 	  //========================= END =========================//
 
