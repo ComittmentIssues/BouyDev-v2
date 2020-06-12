@@ -126,22 +126,7 @@ void Test_BOR_PWR_RTC(void)
 	  Go_To_Sleep(STDBY,__MINS_TO_SECS(1));
 }
 
-/*
- * Function Name: void Reinit_WakeUp_Pins(void)
- *
- * @brief: upon transition from Sleep To Active Mode, Disable Wake up pins and reconfigure
- * 		   as GPIO EXTI interrupts with Rising edge trigger
- *
- * @param:  void
- *
- * @return: void
- *
- */
-void Reinit_WakeUp_Pins(void)
-{
 
-
-}
 /* USER CODE END 0 */
 
 /**
@@ -246,8 +231,8 @@ int main(void)
 			  //check how long device was asleep for
 			  printf("System Going Back To Sleep\r\n");
 			  //enable wake up pin
-			  set_WUP_Pin(IMU_EVENT_WAKE_PIN);
-			  set_WUP_Pin(IRIDIUM_RING_WAKE_PIN);
+			  set_WUP_Pin(IMU_EVENT_WAKE_PIN, MODE_WUP);
+			  set_WUP_Pin(IRIDIUM_RING_WAKE_PIN, MODE_WUP);
 			  Go_To_Sleep(STDBY,10);
 		  }
 		  	 else
@@ -339,8 +324,8 @@ int main(void)
 
 		  printf("Current State: SLEEP \t Next State: SAMPLE\r\n");
 		  printf("Good Night! \r\n");
-		  set_WUP_Pin(IRIDIUM_RING_WAKE_PIN);
-		  set_WUP_Pin(IMU_EVENT_WAKE_PIN);
+		  set_WUP_Pin(IRIDIUM_RING_WAKE_PIN,MODE_WUP);
+		  set_WUP_Pin(IMU_EVENT_WAKE_PIN,MODE_WUP);
 		  Go_To_Sleep(STDBY,10);
 	  }
 	  if(Current_State == STATE_RESET)

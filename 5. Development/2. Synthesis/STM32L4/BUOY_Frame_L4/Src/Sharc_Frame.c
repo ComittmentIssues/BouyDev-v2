@@ -188,9 +188,9 @@ HAL_StatusTypeDef USART_Enter_Standby_for_data(UART_HandleTypeDef *huart)
 }
 
 
-void set_WUP_Pin(uint32_t Pin)
+void set_WUP_Pin(uint32_t Pin, PinMode_typedef mode)
 {
-	__HAL_RCC_PWR_CLK_ENABLE();
+
 	GPIO_TypeDef *Pin_Port;
 	IRQn_Type WUP_IRQn;
 	GPIO_InitTypeDef GPIO_InitStruct;
@@ -240,14 +240,18 @@ void set_WUP_Pin(uint32_t Pin)
     HAL_NVIC_EnableIRQ(WUP_IRQn);
     HAL_NVIC_ClearPendingIRQ(WUP_IRQn);
     //enable wup in PWR register
-    HAL_PWR_EnableWakeUpPin(Pin);
-    //clear unwanted interrupts
-    __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF1);
-    __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF2);
-    __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF3);
-    __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF4);
-    __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF5);
-    __HAL_RCC_PWR_CLK_DISABLE();
+    if(mode == MODE_WUP)
+    {
+    	__HAL_RCC_PWR_CLK_ENABLE();
+    	HAL_PWR_EnableWakeUpPin(Pin);
+    	//clear unwanted interrupts
+    	__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF1);
+    	__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF2);
+    	__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF3);
+    	__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF4);
+    	__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF5);
+    	__HAL_RCC_PWR_CLK_DISABLE();
+    }
 }
 
 PUTCHAR_PROTOTYPE

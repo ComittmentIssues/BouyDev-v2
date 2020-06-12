@@ -56,6 +56,21 @@ typedef enum
 	STATE_ASYNCINT		= 0b111
 }Buoy_State_typedef;
 
+/*
+ * @brief: enum structure contains values to be used as input to the function  void set_WUP_Pin(uint32_t Pin,PinMode_typedef mode),
+ * 	 	   Used to set the type interrupt mode for the desired pin. Note: Functionality changes depending on the power mdoe
+ * 	 	   of the buoy. Make sure the wake up pins are reconfigured after each power mode transition
+ *
+ * @param:  MODE_EXTI - Pin will be configured as an external interrupt pin on a rising trigger.
+ *
+ * @param:  MODE_WUP  - Pin will be configured as an external wake up pin
+ */
+
+typedef enum
+{
+   MODE_WUP,
+   MODE_EXTI
+} PinMode_typedef;
 /* Private Macro Functions ------------------------------------------------------------*/
 
 //The following lines of code allow for printf statements to output to serial via USART2. Remove code if not neccessary
@@ -217,7 +232,7 @@ void GPIO_Set_Pin_LP(void);
 HAL_StatusTypeDef USART_Enter_Standby_for_data(UART_HandleTypeDef *huart);
 
 /*
- * Function Name: static void set_WUP_Pin(uint32_t Pin);
+ * Function Name: void set_WUP_Pin(uint32_t Pin,PinMode_typedef mode);
  * @brief: This function initializes a pin to be used as an interrupt source to wake up the device from sleep mode
  * 			There are 5 wake up pins on the device. The following table shows the wake up pin mapping to GPIO pin port and
  * 			the input argument to the function to enable it
@@ -240,7 +255,7 @@ HAL_StatusTypeDef USART_Enter_Standby_for_data(UART_HandleTypeDef *huart);
  * @return: void
  */
 
-void set_WUP_Pin(uint32_t Pin);
+void set_WUP_Pin(uint32_t Pin,PinMode_typedef mode);
 
 /*
  * Function Name: HAL_StatusTypeDef Go_To_Sleep(PWR_MODE_t mode, uint32_t seconds)
@@ -271,7 +286,7 @@ void POR_Handler(void);
  *
  * NB: Device must have Vbrownout threshold set in option bytes
  *
- *  Rotunines that runs when device recovers from a brown out Vbat < Vbrountout
+ *  Routines that runs when device recovers from a brown out Vbat < Vbrountout
  */
 void BOR_Handler(void);
 
