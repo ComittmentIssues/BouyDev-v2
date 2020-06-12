@@ -215,13 +215,13 @@ int main(void)
 		  if(__HAL_PWR_GET_FLAG(IRIDIUM_RING_WAKE_FLAG))
 		  {
 			__HAL_PWR_CLEAR_FLAG(IRIDIUM_RING_WAKE_FLAG);
-			printf("Incoming Message from Satelite: Recieving...");
+			printf("Incoming Message from Satellite: Receiving...");
 			for (int i = 0; i < 10; ++i)
 			{
 				HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
 				HAL_Delay(500);
 			}
-			printf("Message Recieved!\r\n");
+			printf("Message Received!\r\n");
 		  }
 
 	  //========================= END =========================//
@@ -289,9 +289,9 @@ int main(void)
 	  	HAL_PWREx_DisableInternalWakeUpLine();
 	  	__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WU);
 	  	__HAL_PWR_CLEAR_FLAG(PWR_FLAG_SB);
-	  	//disable external wake up pins
-	  	HAL_PWR_DisableWakeUpPin(IRIDIUM_RING_WAKE_PIN);
-	  	HAL_PWR_DisableWakeUpPin(IMU_EVENT_WAKE_PIN);
+	  	//reconfigure wake up pins
+		set_WUP_Pin(IMU_EVENT_WAKE_PIN,MODE_EXTI);
+		set_WUP_Pin(IRIDIUM_RING_WAKE_PIN,MODE_EXTI);
 	  	//set Current State to Sample
 	  	Current_State = STATE_SAMPLE;
 	  	 break;
@@ -328,14 +328,14 @@ int main(void)
 		  set_WUP_Pin(IMU_EVENT_WAKE_PIN,MODE_WUP);
 		  Go_To_Sleep(STDBY,10);
 	  }
-	  if(Current_State == STATE_RESET)
+	  else if(Current_State == STATE_RESET)
 	  {
 		 MX_RTC_Init();
 		 HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
 		 printf("Current State: RESET \t Next State: SAMPLE\r\n");
 	  }
 
-	  if(Current_State == STATE_SAMPLE)
+	  else if(Current_State == STATE_SAMPLE)
 	  {
 		  sample_count = __GET_SAMPLE_COUNT();
 		  if(sample_count < 3)
@@ -354,7 +354,7 @@ int main(void)
 		  }
 		  //increment sample counter
 	  }
-	  if(Current_State == STATE_TRANSMIT)
+	  else if(Current_State == STATE_TRANSMIT)
 	  {
 		  printf("Current State: TRANS \t Next State: SLEEP\r\n");
 

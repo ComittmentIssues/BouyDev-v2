@@ -240,18 +240,23 @@ void set_WUP_Pin(uint32_t Pin, PinMode_typedef mode)
     HAL_NVIC_EnableIRQ(WUP_IRQn);
     HAL_NVIC_ClearPendingIRQ(WUP_IRQn);
     //enable wup in PWR register
+    __HAL_RCC_PWR_CLK_ENABLE();
     if(mode == MODE_WUP)
     {
     	__HAL_RCC_PWR_CLK_ENABLE();
     	HAL_PWR_EnableWakeUpPin(Pin);
-    	//clear unwanted interrupts
-    	__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF1);
-    	__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF2);
-    	__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF3);
-    	__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF4);
-    	__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF5);
-    	__HAL_RCC_PWR_CLK_DISABLE();
+
+    }else if (mode == MODE_EXTI)
+    {
+    	HAL_PWR_DisableWakeUpPin(Pin);
     }
+	//clear unwanted interrupts
+	__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF1);
+	__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF2);
+	__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF3);
+	__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF4);
+	__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF5);
+	__HAL_RCC_PWR_CLK_DISABLE();
 }
 
 PUTCHAR_PROTOTYPE
@@ -328,7 +333,7 @@ void EXTI9_5_IRQHandler(void)
 		//interrupt source from PWR WAKE PIN 2 == IRIDIUM Recieve Event
 
 		//ROUTINE START
-		printf("Incoming Message from Satelite: Recieving...");
+		printf("Incoming Message from Satellite detected while awake: Receiving...");
 		for (int i = 0; i < 10; ++i)
 		{
 			HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
@@ -351,7 +356,7 @@ void EXTI15_10_IRQHandler(void)
 
 		//ROUTINE START
 		__HAL_PWR_CLEAR_FLAG(IMU_EVENT_WAKE_FLAG);
-		 printf("IMU Event Detected: Sampling...");
+		 printf("IMU Event Detected while awake: Sampling...");
 		for (int i = 0; i < 50; ++i)
 		{
 			HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
@@ -380,8 +385,6 @@ void POR_Handler(void)
 	  /* Clear PWR wake up Flag */
 	 __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WU);
 	 __HAL_PWR_CLEAR_FLAG(PWR_FLAG_SB);
-
-
 	  //reinitialise the clock
 }
 /*
@@ -398,7 +401,6 @@ void BOR_Handler(void)
 	  //perform system reset
 	  POR_Handler();
 	  HAL_NVIC_SystemReset();
-
 	  /*
 	   * Failure to perform system reset causes device to enter an infinite loop
 	   */

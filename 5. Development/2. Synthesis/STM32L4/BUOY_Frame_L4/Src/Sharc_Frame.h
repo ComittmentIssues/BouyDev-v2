@@ -27,7 +27,8 @@
  * @param STDBY	   - enter Standby mode (32KB RAM retention, power circuitry enabled)
  */
 
-typedef enum{
+typedef enum
+{
 	SHUTDOWN,
 	STDBY
 }PWR_MODE_t;
@@ -91,6 +92,8 @@ typedef enum
 #define __HRS_TO_SECS(x) (x)*3600   //for Twake > 60 mins
 
 #define __DAYS_TO_SECS(x) (x)*__HRS_TO_SECS(24) //for Twake > 1 day
+
+#define __WEEKS_TO_SECS(x) x*__DAYS_TO_SECS(7)  //for Twake > 6 days
 
 /*
  * @brief: state machine Macros
