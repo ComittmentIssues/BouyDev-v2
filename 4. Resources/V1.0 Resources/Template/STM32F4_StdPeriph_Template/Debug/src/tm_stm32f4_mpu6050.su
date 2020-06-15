@@ -1,0 +1,5 @@
+tm_stm32f4_mpu6050.c:21:21:TM_MPU6050_Init	24	static
+tm_stm32f4_mpu6050.c:92:21:TM_MPU6050_ReadAccelerometer	32	static
+tm_stm32f4_mpu6050.c:107:21:TM_MPU6050_ReadGyroscope	32	static
+tm_stm32f4_mpu6050.c:122:21:TM_MPU6050_ReadTemperature	32	static
+tm_stm32f4_mpu6050.c:137:21:TM_MPU6050_ReadAll	40	static

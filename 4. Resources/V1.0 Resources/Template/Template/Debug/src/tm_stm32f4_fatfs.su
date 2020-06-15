@@ -1,0 +1,8 @@
+tm_stm32f4_fatfs.c:24:9:TM_FATFS_GetDriveSize	40	static
+tm_stm32f4_fatfs.c:43:9:TM_FATFS_DriveSize	32	static
+tm_stm32f4_fatfs.c:62:9:TM_FATFS_USBDriveSize	32	static
+tm_stm32f4_fatfs.c:81:9:TM_FATFS_TruncateBeginning	312	static
+tm_stm32f4_fatfs.c:132:9:TM_FATFS_CheckCardDetectPin	16	static
+tm_stm32f4_fatfs.c:145:9:TM_FATFS_Search	32	static
+tm_stm32f4_fatfs.c:191:16:TM_FATFS_SearchCallback	24	static
+tm_stm32f4_fatfs.c:203:16:scan_files	112	static

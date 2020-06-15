@@ -1,2 +1,0 @@
-SPI.c:12:6:init_SPI	40	static
-SPI.c:73:9:SPI_Transfer	16	static
