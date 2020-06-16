@@ -1,0 +1,9 @@
+main.c:114:5:main	24	static
+main.c:306:13:MX_RTC_Init	32	static
+main.c:373:6:Error_Handler	4	static
+main.c:385:13:Routine_ASYNC_IMU_EVENT	16	static
+main.c:396:13:Routine_ASYNC_IRIDIUM_RX	16	static
+main.c:407:13:Routine_STATE_RESET	8	static
+main.c:420:13:Routine_STATE_SLEEP	8	static
+main.c:429:13:Routine_STATE_SAMPLE	16	static
+main.c:450:13:Routine_STATE_TRANSMIT	16	static
