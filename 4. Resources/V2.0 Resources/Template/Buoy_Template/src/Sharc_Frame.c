@@ -326,7 +326,7 @@ void GPIO_Set_Pin_LP(void)
  * @brief: EXTI IRQ Handler for Wake Up Pin 2 (PC13)
  */
 
-void EXTI9_5_IRQHandler(void)
+void EXTI15_10_IRQHandler(void)
 {
 	if(__HAL_GPIO_EXTI_GET_FLAG(EXTI_IRIDIUM_RING_WAKE_PIN))
 	{
@@ -347,16 +347,16 @@ void EXTI9_5_IRQHandler(void)
 }
 
 /*
- * @brief: EXTI IRQ Handler for Wake Up Pin 5 (PC15)
+ * @brief: EXTI IRQ Handler for Wake Up Pin 5 (PC5)
  */
-void EXTI15_10_IRQHandler(void)
+void EXTI9_5_IRQHandler(void)
 {
-	if(__HAL_GPIO_EXTI_GET_FLAG(EXTI_IRIDIUM_RING_WAKE_PIN))
+	if(__HAL_GPIO_EXTI_GET_FLAG(EXTI_IMU_EVENT_WAKE_PIN))
 	{
-		__HAL_GPIO_EXTI_CLEAR_FLAG(EXTI_IRIDIUM_RING_WAKE_PIN);
+		__HAL_GPIO_EXTI_CLEAR_FLAG(EXTI_IMU_EVENT_WAKE_PIN);
 
 		//ROUTINE START
-		__HAL_PWR_CLEAR_FLAG(IMU_EVENT_WAKE_FLAG);
+
 		 printf("IMU Event Detected while awake: Sampling...");
 		for (int i = 0; i < 50; ++i)
 		{

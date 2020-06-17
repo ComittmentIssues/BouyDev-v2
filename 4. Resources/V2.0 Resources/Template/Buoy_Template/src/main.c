@@ -144,7 +144,8 @@ int main(void)
   /* Infinite loop START */
   while (1)
   {
-	  //========================= 3. ASYNCHRONOUS STATE CHECK ===========================//
+
+//========================= 3. ASYNCHRONOUS STATE CHECK ===========================//
 
 	  /*
 	   * If an interrupt occurred while the device was sleeping, check the
@@ -182,9 +183,9 @@ int main(void)
 			  __SET_CURRENT_STATE(STATE_ASYNCINT);
 		  }
 	  }
-	  //=================================== 3. END ====================================//
+//=================================== 3. END ====================================//
 
-	  //=========================== 4. SYSTEM STATE CHECK =============================//
+//=========================== 4. SYSTEM STATE CHECK =============================//
 	  /*
 	   * Main Loop state detection: use this area to implement state
 	   * check.States are positive integers written to Back up Register
@@ -242,9 +243,9 @@ int main(void)
 	  }
 	  __HAL_RCC_PWR_CLK_DISABLE();
 
-	  //=================================== 4. END ====================================//
+//=================================== 4. END ====================================//
 
-	  //============================== 5. STATE FUNCTIONS =============================//
+//============================== 5. STATE FUNCTIONS =============================//
 
 	  /*
 	   * Place Routine code Here
@@ -271,9 +272,9 @@ int main(void)
 	  }
 	  // ADDITONAL STATE FUNCTIONS HERE:
 
-	  //=================================== 5. END ====================================//
+//=================================== 5. END ====================================//
 
-	  //========================= 6. END OF ROUTINE FUNCTION ==========================//
+//========================= 6. END OF ROUTINE FUNCTION ==========================//
 	  /*
 	   * After each routine has run, save state to the back up registers
 	   */
@@ -286,7 +287,7 @@ int main(void)
 	  __SET_CURRENT_STATE(Current_State);	    //write value to back up register
 	  __HAL_RCC_PWR_CLK_DISABLE();
 
-	  //=================================== 6. END ====================================//
+//=================================== 6. END ====================================//
   }
 	/* Infinite loop END*/
 }
@@ -409,8 +410,8 @@ static void Routine_STATE_RESET(void)
 	 //initialise RTC
 	 MX_RTC_Init();
 
-	 set_WUP_Pin(IRIDIUM_RING_WAKE_PIN,MODE_WUP);
-	 set_WUP_Pin(IMU_EVENT_WAKE_PIN,MODE_WUP);
+	 set_WUP_Pin(IRIDIUM_RING_WAKE_PIN,MODE_EXTI);
+	 set_WUP_Pin(IMU_EVENT_WAKE_PIN,MODE_EXTI);
 	 printf("All Systems Online!\r\n");
 	 printf("Current State: RESET \t Next State: SAMPLE\r\n");
 	 HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
