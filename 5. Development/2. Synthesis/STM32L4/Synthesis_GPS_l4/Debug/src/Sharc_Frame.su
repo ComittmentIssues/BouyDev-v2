@@ -1,0 +1,11 @@
+Sharc_Frame.c:11:19:Init_Debug	32	static
+Sharc_Frame.c:70:19:SystemClock_Config	232	static
+Sharc_Frame.c:133:19:Go_To_Sleep	24	static
+Sharc_Frame.c:159:19:USART_Enter_Standby_for_data	24	static
+Sharc_Frame.c:191:6:set_WUP_Pin	72	static
+Sharc_Frame.c:267:1:__io_putchar	16	static
+Sharc_Frame.c:273:6:GPIO_Set_Pin_LP	48	static
+Sharc_Frame.c:333:6:EXTI15_10_IRQHandler	16	static
+Sharc_Frame.c:356:6:EXTI9_5_IRQHandler	16	static
+Sharc_Frame.c:378:6:POR_Handler	8	static
+Sharc_Frame.c:398:6:BOR_Handler	16	static
