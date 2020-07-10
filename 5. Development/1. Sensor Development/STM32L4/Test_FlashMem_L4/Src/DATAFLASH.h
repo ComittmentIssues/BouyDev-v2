@@ -112,6 +112,8 @@ typedef enum
 	CS_CLOSED = 1
 } CS_State_t;
 
+
+
 //CONFIGURATION DEFINES
 //RCC CLOCK TO PORT ENABLE LINE
 #define RCC_GPIOA_CLK_ENABLE 1	 	//1 = enabled, 0 = disabled
