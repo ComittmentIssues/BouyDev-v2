@@ -43,7 +43,14 @@ static HAL_StatusTypeDef MX_TIM2_Init(void)
 {
 
   /* USER CODE BEGIN TIM2_Init 0 */
-
+	//reset code before init
+	htim2.Instance = TIM2;
+	HAL_TIM_Base_Stop_IT(&htim2);
+	HAL_TIM_IC_Stop_IT(&htim2,TIM_CHANNEL_1);
+	if(HAL_TIM_Base_DeInit(&htim2) != HAL_OK)
+	{
+			return GPS_Init_Periph_Config_Error;
+	}
   /* USER CODE END TIM2_Init 0 */
   TIM_ClockConfigTypeDef sClockSourceConfig = {0};
   TIM_SlaveConfigTypeDef sSlaveConfig = {0};
@@ -697,7 +704,7 @@ GPS_Init_msg_t init_GPS(GPS_Handle_Typedef *hgps)
 		{
 			GPS_Acknowledgement_State = UBX_Send_Ack(hgps);
 		}
-		if(GPS_Acknowledgement_State == UBX_TIMEOUT_Rx)
+		if(GPS_Acknowledgement_State == UBX_TIMEOUT_Rx || GPS_Acknowledgement_State == UBX_ACK_NACK)
 		{
 			return GPS_Init_Ack_Error;
 		}
@@ -964,6 +971,11 @@ void USART_TIM_RTO_Handler(TIM_HandleTypeDef *htim)
 		TIM_IDLE_Timeout = 1;
 		//disable timer
 		HAL_TIM_Base_Stop_IT(htim);
+		if(!log_gps)
+		{
+			UART4->ISR |= USART_ISR_IDLE;
+			USART_GPS_IRQHandler(&hgps);
+		}
 
 	}
 }

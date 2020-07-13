@@ -12,6 +12,7 @@
 
 #include "stm32l476xx.h"
 #include "stm32l4xx_hal.h"
+#include "HAL_GPS.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -42,6 +43,7 @@ typedef enum
  * 		   allowing for 1Kb of data retention in powerdown mode. More information is given
  * 		   in the document  State Machine Design.pdf
  *
+ *@param  STATE_INIT		- Initialisation Mode:		Calibration and initialisation routines for first time start up
  * @param STATE_RESET		- Reset Mode:				system initailisad
  * @param STATE_SAMPLE  	- Data acquisition Mode:	Sensors initialised and sampled
  * @param STATE_SLEEP		- SLEEP MODE:				Buoy is in power saving mode with wake up pins active
@@ -50,6 +52,7 @@ typedef enum
  */
 typedef enum
 {
+	STATE_INIT			= 0b00,
 	STATE_RESET 		= 0b01,
 	STATE_SAMPLE 		= 0b10,
 	STATE_SLEEP 		= 0b11,
@@ -72,6 +75,17 @@ typedef enum
    MODE_WUP,
    MODE_EXTI
 } PinMode_typedef;
+
+/*
+ * @brief: Structure to store data from GPS in an organised format. Note: custom data types from HAL_GPS.h
+ */
+typedef struct
+{
+	uint32_t Etime;			// UTC Epoch representation of time
+	Coord_t  coordinates;	//GPS coordinates
+	Diagnostic_t diag;		//Diagnostic information
+}GPS_Data_t;
+//============
 /* Private Macro Functions ------------------------------------------------------------*/
 
 //The following lines of code allow for printf statements to output to serial via USART2. Remove code if not neccessary
@@ -170,6 +184,9 @@ typedef enum
 //define GPIO Pin for LED
 #define LD2_Pin GPIO_PIN_5
 
+//define Number of onboard FLASH Chips
+
+#define FLASH_CHIPS 4
 /* Private variables ---------------------------------------------------------*/
 
 extern RTC_HandleTypeDef hrtc;
@@ -277,11 +294,90 @@ void set_WUP_Pin(uint32_t Pin,PinMode_typedef mode);
 HAL_StatusTypeDef Go_To_Sleep(PWR_MODE_t mode, uint32_t seconds);
 
 /*
+ * Function Name: void Get_Current_Address_Pointer(uint8_t chip,uint8_t* address_Array);
+ *
+ * @brief: Returns the address of the latest available memory block in a Flash chip. The
+ * 		   Address for each chip is a 3 byte long array stored in Big Endian Format in
+ * 		   the RTC Back up registers. Each reigster is 32 bits long and the register memory
+ * 		   is allocated as follows:
+ * 		   RTC->BKUP_2	FLASH CHIP 1
+ * 		   RTC->BKUP_3	FLASH CHIP 2
+ * 		   RTC->BKUP_4	FLASH CHIP 3
+ *
+ * 		   Note: In order to access the back up registers, RCC must be enabled to the PWR before
+ * 		   any opperation takes place
+ *
+ * @param: chip: Number of the flash chip to get the address for (must be in range 1 - 4)
+ *
+ * @param: address_Array: Pointer to a 3 byte long uint8_t array to hold the address
+ *
+ * @return: uint8_t: status of read function, 1 is success, 0 is fail
+ */
+uint8_t Get_Current_Address_Pointer(uint8_t chip,uint8_t* address_Array);
+
+/*
+ * Function Name: uint8_t Set_Current_Address_Pointer(uint8_t chip,uint8_t* address_Array);
+ *
+ * @brief: Stores the latest Available memory address of a specified flash chip in the RTC Back-Up Register.
+ * 		   The Address for each chip is a 3 byte long array stored in Big Endian Format in
+ * 		   the RTC Back up registers. Each reigster is 32 bits long and the register memory
+ * 		   is allocated as follows:
+ * 		   RTC->BKUP_2	FLASH CHIP 1
+ * 		   RTC->BKUP_3	FLASH CHIP 2
+ * 		   RTC->BKUP_4	FLASH CHIP 3
+ *
+ * @param: chip: Number of the flash chip to get the address for (must be in range 1 - 4)
+ *
+ * @param: address_Array: Pointer to a 3 byte long uint8_t array to hold the address
+ *
+ * @return: uint8_t: status of read function, 1 is success, 0 is fail
+ */
+uint8_t Set_Current_Address_Pointer(uint8_t chip,uint8_t* address_Array);
+/*
  *  POWER ON RESET HANDLER:
  *
  *  Routine that runs when device encounters a Power on Reset Event
  *
  */
+
+/*
+ * Function Name: uint8_t Get_Active_Chip(void);
+ *
+ * @brief: Returns the active chip number from RTC->BKUP1 Register
+ *
+ * @param: void
+ *
+ * @return: uint8_t chip number 1 < 4, Error (0) if number outside this range
+ */
+uint8_t Get_Active_Chip(void);
+
+/*
+ * Function Name: void Set_Active_Chip(uint8_t chipnumber);
+ *
+ * @brief: Stores the number of the active chip in the RTC->BKUP1 Register
+ *
+ * @param: uint8_t chipnumber: integer number of the chip to be used
+ *
+ * @return: void
+ */
+void Set_Active_Chip(uint8_t chipnumber);
+
+uint8_t Get_Next_Active_Chip(void);
+
+void Set_Next_Active_Chip(uint8_t chipnumber);
+/*
+ * Function Name: uint8_t* to_binary_format(GPS_Data_t gps_data ,uint8_t ID);
+ *
+ * @brief: Converts the data in the GPS_Data_t and
+ */
+
+uint8_t* to_binary_format(GPS_Data_t gps_data ,uint8_t ID);
+
+/*
+ * Function Name: uint8_t  get_driftBuffer_Size(void);
+ */
+uint8_t  get_driftBuffer_Size(void);
+
 void POR_Handler(void);
 
 /*

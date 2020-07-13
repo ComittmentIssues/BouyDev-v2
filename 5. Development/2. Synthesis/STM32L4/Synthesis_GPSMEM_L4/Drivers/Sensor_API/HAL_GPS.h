@@ -169,7 +169,7 @@ typedef struct
 
 }GPS_Handle_Typedef;
 
-//======================== 3. Macro Definitions =========================================
+//============ 3. Macro Definitions =========================================
 
 /* TIM Defines */
 #define GPS_TIM_PORT TIM2					//General Purpose Timer
@@ -202,7 +202,7 @@ typedef struct
 
 /* Other Defines*/
 
-#define GPS_INIT_RETRIES 100 		//maximum number of attempts to receive an acknowledgment
+#define GPS_INIT_RETRIES 50 		//maximum number of attempts to receive an acknowledgment
 
 
 //========================== 4. Global Variables ==========================================

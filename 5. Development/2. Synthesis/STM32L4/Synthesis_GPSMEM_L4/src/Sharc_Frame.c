@@ -8,6 +8,10 @@
 #include "Sharc_Frame.h"
 
 
+#define DRIFTBUFFER_SIZE 25
+
+static uint8_t driftbuffer[DRIFTBUFFER_SIZE] = {0};
+
 HAL_StatusTypeDef Init_Debug(void)
 {
 	// set up clock output on GPIO Pin A8 for testing
@@ -324,6 +328,148 @@ void GPIO_Set_Pin_LP(void)
 
 }
 
+/*
+ * @brief: Function code for returning Flash Chip address from storage
+ *
+ */
+uint8_t Get_Current_Address_Pointer(uint8_t chip,uint8_t* address_Array)
+{
+
+
+	if(chip < 4 && chip > 0)
+	{
+		__HAL_RCC_PWR_CLK_ENABLE();
+		//create pointer to register
+		uint32_t* address = (uint32_t*)(&RTC->BKP2R) + (chip -1); //
+		uint32_t temp = *address;
+		//break up 24 bit number into 3 x 8 bit integer array
+		for (int i = 0; i < 3; ++i)
+		{
+			address_Array[i] = (temp>>(i*8))&0xFF;
+		}
+		__HAL_RCC_PWR_CLK_DISABLE();
+		return 1;
+	}
+	//chip value out of range
+	return 0;
+}
+
+/*
+ * @brief: Function code for storing Flash Chip address
+ *
+ */
+uint8_t Set_Current_Address_Pointer(uint8_t chip,uint8_t* address_Array)
+{
+	if(chip <= 4 && chip > 0)
+		{
+			__HAL_RCC_PWR_CLK_ENABLE();
+			//create pointer to register
+			uint32_t* address = (uint32_t*)(&RTC->BKP2R) + (chip -1); //
+			uint32_t temp = 0;
+			//break up 24 bit number into 3 x 8 bit integer array
+			for (int i = 0; i < 3; ++i)
+			{
+				temp |= address_Array[i] <<(8*i);
+			}
+			*address = temp;
+			__HAL_RCC_PWR_CLK_DISABLE();
+			return 1;
+		}
+		//chip value out of range
+		return 0;
+}
+
+/*
+ * @brief: Code for retrieving active chip from back up registers
+ *
+ */
+uint8_t Get_Active_Chip(void)
+{
+	__HAL_RCC_PWR_CLK_ENABLE();
+	uint8_t chip = ((RTC->BKP1R)&0xFF00)>>8;
+	__HAL_RCC_PWR_CLK_DISABLE();
+	return chip;
+}
+
+void Set_Active_Chip(uint8_t chipnumber)
+{
+	__HAL_RCC_PWR_CLK_ENABLE();
+	uint32_t val = (RTC->BKP1R)&0xFFFF00FF;
+	val |= (chipnumber<<8);
+	RTC->BKP1R = val;
+	__HAL_RCC_PWR_CLK_DISABLE();
+}
+
+uint8_t Get_Next_Active_Chip(void)
+{
+	__HAL_RCC_PWR_CLK_ENABLE();
+	uint8_t chip = ((RTC->BKP1R)&0xFF000000)>>24;
+	__HAL_RCC_PWR_CLK_DISABLE();
+	return chip;
+}
+
+void Set_Next_Active_Chip(uint8_t chipnumber)
+{
+	__HAL_RCC_PWR_CLK_ENABLE();
+	uint32_t val = (RTC->BKP1R)&0x00FFFFFF;
+	val |= (chipnumber<<24);
+	RTC->BKP1R = val;
+	__HAL_RCC_PWR_CLK_DISABLE();
+}
+uint8_t* to_binary_format(GPS_Data_t gps_data ,uint8_t ID)
+{
+	//define union to convert 32 bit float to unsigned uint8_t array
+	union
+	{
+		float a;					//for 32 bit floats
+		unsigned char bytes[4];		//for 4 byte long unsigned integer arrays
+		uint32_t num;				//for long numbers
+	} byte_converter;
+
+	/*0. Byte 0: Packet ID*/
+	*driftbuffer = ID;
+	/*1. Bytes 1 - 4:  Epoch Time*/
+	byte_converter.num = gps_data.Etime;
+	memcpy(&driftbuffer[1],(byte_converter).bytes,4);
+
+	/* Add coordinates bytes 1 - 5 = lat, bytes 6 - 10 = long*/
+	byte_converter.a = gps_data.coordinates.lat;
+	memcpy(&driftbuffer[5],byte_converter.bytes,4);
+	byte_converter.a = gps_data.coordinates.longi;
+	memcpy(&driftbuffer[9],byte_converter.bytes,4);
+
+
+	//convert HDOP,VDOP, PDOP to 2 bytes big endian
+	driftbuffer[13] = gps_data.diag.HDOP.digit;
+	driftbuffer[14] = gps_data.diag.HDOP.precision;
+	driftbuffer[15] = gps_data.diag.VDOP.digit;
+	driftbuffer[16] = gps_data.diag.VDOP.precision;
+	driftbuffer[17] = gps_data.diag.PDOP.digit;
+	driftbuffer[18] = gps_data.diag.PDOP.precision;
+	driftbuffer[19] = (gps_data.diag.num_sats);
+	driftbuffer[19] = driftbuffer[19]<<2;
+	driftbuffer[19] |= gps_data.diag.fix_type;
+
+//	//breakdown temperature into 4 unsigned bytes
+//	driftbuffer[20] = (uint8_t)(packet.Temp&0xFF000000)>>24;
+//	driftbuffer[21] = (uint8_t)(packet.Temp&0x00FF0000)>>16;
+//	driftbuffer[22] = (uint8_t)(packet.Temp&0x0000FF00)>>8;
+//	driftbuffer[23] = (uint8_t)(packet.Temp&0x00000000FF);
+//	//break down pressure into 4 unsigned bytes
+//	driftbuffer[24] = (uint8_t)(packet.Temp&0xFF000000)>>24;
+//	driftbuffer[25] = (uint8_t)(packet.Temp&0x00FF0000)>>16;
+//	driftbuffer[26] = (uint8_t)(packet.Temp&0x0000FF00)>>8;
+//	driftbuffer[27] = (uint8_t)(packet.Temp&0x00000000FF);
+	driftbuffer[24] = 0xd; //end of packet character
+
+	//return a pointer the the array driftbuffer;
+	return driftbuffer;
+}
+
+uint8_t  get_driftBuffer_Size(void)
+{
+	return DRIFTBUFFER_SIZE;
+}
 /******************************* HANDLER FUNCTIONS *******************************/
 
 /*

@@ -37,14 +37,10 @@ SOFTWARE.
 
 #include "HAL_GPS.h"		//Ublox Neo GPS Library
 
+#include "DATAFLASH.h"		//Flash Chips
 /* Private defines */
 
-typedef struct
-{
-	uint32_t Etime;			// UTC Epoch representation of time
-	Coord_t  coordinates;	//GPS coordinates
-	Diagnostic_t diag;		//Diagnostic information
-}GPS_Data_t;
+
 
 /* Private macro */
 
@@ -110,7 +106,12 @@ static void Routine_STATE_SAMPLE(void);
  * @retval None
  */
 static void Routine_STATE_TRANSMIT(void);
-
+/*
+ * @brief Code for Init State Routine
+ * @param None
+ * @retval None
+ */
+static void Routine_Init_STATE(void);
 /**
  **===========================================================================
  **
@@ -256,7 +257,7 @@ int main(void)
 
 	  	 //default case: reset state
 	  	 default:
-	  	 Current_State = STATE_RESET;
+	  	 Current_State = STATE_INIT;
 	  }
 	  __HAL_RCC_PWR_CLK_DISABLE();
 
@@ -267,16 +268,23 @@ int main(void)
 	  /*
 	   * Place Routine code Here
 	   */
+	  if(Current_State == STATE_INIT)
+	  {
+		  Routine_Init_STATE();
+		  Current_State = STATE_RESET;
+	  }
+
+	  if(Current_State == STATE_RESET)
+	  {
+	  	Routine_STATE_RESET();
+	  }
 	  // SLEEP STATE
-	  if(Current_State == STATE_SLEEP)
+	  else if(Current_State == STATE_SLEEP)
 	  {
 		  Routine_STATE_SLEEP();
 	  }
 	  //RESET STATE
-	  else if(Current_State == STATE_RESET)
-	  {
-		  Routine_STATE_RESET();
-	  }
+
 	  //SAMPLE STATE
 	  else if(Current_State == STATE_SAMPLE)
 	  {
@@ -301,6 +309,8 @@ int main(void)
 		  sample_count = __GET_SAMPLE_COUNT();
 		  __SET_SAMPLE_COUNT(++sample_count);
 	  }
+
+
 	  __SET_CURRENT_STATE(Current_State);	    //write value to back up register
 	  __HAL_RCC_PWR_CLK_DISABLE();
 
@@ -324,16 +334,8 @@ int main(void)
 static void MX_RTC_Init(void)
 {
 
-  /* USER CODE BEGIN RTC_Init 0 */
-
-  /* USER CODE END RTC_Init 0 */
-
   RTC_TimeTypeDef sTime = {0};
   RTC_DateTypeDef sDate = {0};
-
-  /* USER CODE BEGIN RTC_Init 1 */
-
-  /* USER CODE END RTC_Init 1 */
   /** Initialize RTC Only
   */
   hrtc.Instance = RTC;
@@ -348,10 +350,6 @@ static void MX_RTC_Init(void)
   {
     Error_Handler();
   }
-
-  /* USER CODE BEGIN Check_RTC_BKUP */
-
-  /* USER CODE END Check_RTC_BKUP */
 
   /** Initialize RTC and set the Time and Date
   */
@@ -373,14 +371,13 @@ static void MX_RTC_Init(void)
   {
     Error_Handler();
   }
-  /* USER CODE BEGIN RTC_Init 2 */
-  //Configure RTC_Wake up time for range 250ms - 36 Hours
+  //clear unwanted interrupts
   if(__HAL_RTC_WAKEUPTIMER_GET_FLAG(&hrtc,RTC_FLAG_WUTF))
   {
 	  __HAL_RTC_WAKEUPTIMER_CLEAR_FLAG(&hrtc,RTC_FLAG_WUTF);
   }
 
-  /* USER CODE END RTC_Init 2 */
+
 
 }
 
@@ -448,7 +445,7 @@ static void Routine_STATE_SLEEP(void)
 static void Routine_STATE_SAMPLE(void)
 {
 	  //GPS  Init Routine
-
+	  GPS_Data_t Gdata[5];
 	  sample_count = __GET_SAMPLE_COUNT();
 	  if(sample_count < 3)
 	  {
@@ -457,7 +454,7 @@ static void Routine_STATE_SAMPLE(void)
 	  {
 		  printf("Current State: SAMPLE \t Next State: TRANS\r\n");
 	  }
-	  //TODO: SAMPLE SENSORS:
+
 	  /* Attempt to initialize sensor within a number of retries */
 	  uint8_t retries = 0;
 	  do
@@ -478,7 +475,7 @@ static void Routine_STATE_SAMPLE(void)
 
 	  if(GPS_On)
 	  {
-		  GPS_Data_t Gdata[5];
+
 		  for (uint8_t i = 0; i < 5; ++i)
 		  {
 
@@ -496,28 +493,172 @@ static void Routine_STATE_SAMPLE(void)
 			  printf("HDOP = %d.%d, \t PDOP = %d.%d, VDOP = %d.%d\r\n",  Gdata[i].diag.HDOP.digit, Gdata[i].diag.HDOP.precision,  Gdata[i].diag.PDOP.digit, Gdata[i].diag.PDOP.precision,  Gdata[i].diag.VDOP.digit, Gdata[i].diag.VDOP.precision);
 			  printf("Number of Satellites %d, Fix Type = %d\r\n", Gdata[i].diag.num_sats, Gdata[i].diag.fix_type);
 		  }
+		  deinit_GPS(&hgps);
 	  }else
 	  {
 		  printf("Error GPS Not Found!\r\n");
 	  }
-	  //de-init GPS
-	  deinit_GPS(&hgps);
+
+	  //Init Flash Chips
+
+	  uint8_t statusbyte;
+	  uint8_t* buffer = to_binary_format(Gdata[0],__GET_SAMPLE_COUNT());
+	  if(Init_Flash_Chips(&statusbyte)== HAL_OK)
+	  {
+
+		  uint8_t chipnumber = Get_Active_Chip();
+		  //get current pointer to free memory in chip
+		  uint8_t address[3] = {0};
+		  Get_Current_Address_Pointer(chipnumber,address);
+		  FLASH_SetAddress(address[2],address[1],address[0]);
+		  //check if there is still space
+		  if(!FLASH_Is_Available(chipnumber,get_driftBuffer_Size()))
+		  {
+			  //Routine to select next available chip for memory storage
+			  printf("Warning! chip %d is at maximum capacity\r\n",chipnumber);
+			  //set status to full
+			  FLASH_SetAddress(0x00,0x00,0x00);
+			  uint8_t chipstatus = Full;
+			  FLASH_WRITE_ReadModifyWrite(chipnumber,BUFFER1,&chipstatus,1);
+			  //get next active chip and set as active
+			  chipnumber = Get_Next_Active_Chip();
+			  chipstatus = Active;
+			  FLASH_WRITE_ReadModifyWrite(chipnumber,BUFFER1,&chipstatus,1);
+			  //Set Next Active Chip
+			  Set_Active_Chip(chipnumber);
+			  //Select inactive chip to be next for storage
+			  //cycle through remaining chips
+			  chipnumber = 0;
+			  for (int i = Get_Next_Active_Chip(); i <FLASH_CHIPS; ++i)
+			  {
+				  if((statusbyte& 0b1<<i)? SET: RESET)
+				  {
+					  chipnumber = i+1;
+					  break;
+				  }
+
+			  }
+			  //set the status byte of the chip to next active
+			  Set_Next_Active_Chip(chipnumber);
+			  chipstatus = Next_Active;
+			  FLASH_WRITE_ReadModifyWrite(chipnumber,BUFFER1,&chipstatus,1);
+			  FLASH_IncAddress(1);
+		  }
+		  if(FLASH_WRITE_ReadModifyWrite(Get_Active_Chip(),BUFFER1,buffer,get_driftBuffer_Size()) != 1)
+		 {
+		 	printf("Successfully saved data to chip %d\r\n",Get_Active_Chip());
+		 	//increment pointer to next available memory block
+		 	FLASH_IncAddress(get_driftBuffer_Size());
+		 	//save address to chip
+		 	uint32_t temp = FLASH_GetAddress();
+		 	address[2] = (temp & 0xFF0000)>>16;
+		 	address[1] = (temp & 0xFF00)>>8;
+		 	address[0] = (temp & 0xFF);
+		 	Set_Current_Address_Pointer(chipnumber,address);
+		 }
+		 else
+		 {
+		   printf("Error Saving to Flash Chip\r\n");
+		 }
+
+
+	  }else
+	  {
+		  printf("Error! Memory Full");
+	  }
+
 }
 
 static void Routine_STATE_TRANSMIT(void)
 {
+	//routine for fetching data from memory:
+
+	  //Get active chip
+	  uint8_t chip = Get_Active_Chip();
+	  //get current address pointer
+	  uint8_t Address[3] = {0};
+	  Get_Current_Address_Pointer(chip,Address);
+	  //calculate length of data
+	  uint32_t size = ((Address[2] - 0x00)<<16)|((Address[1] - 0x00)<<8)|(Address[0]-0x01);
+
+	  //read size variables from memory
+	  FLASH_SetAddress(0x00,0x00,0x01);
+	  uint8_t* buffer = FLASH_READ_BufferHF(chip,BUFFER1);
 	  printf("Current State: TRANS \t Next State: SLEEP\r\n");
 	  printf("Transmitting Package...");
-	  for (int var = 0; var < 6; ++var)
+	  for (int var = 1; var < size+1; ++var)
 	  {
-		  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
-		  HAL_Delay(500);
-		  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,RESET);
-		  HAL_Delay(250);
+		 printf("%d ",buffer[var]);
 	  }
 	  printf("Done!\r\n");
 	  //reset sample count
 	  __SET_SAMPLE_COUNT(0);
+	  //erase page and reset counter
+	  FLASH_ERASE_Page(chip);
+	  FLASH_SetAddress(0x00,0x00,0x00);
+	  uint8_t val = Active;
+	  FLASH_WRITE_PageOrByte_NoErase(chip,&val,1);
+	  FLASH_IncAddress(1);
+	  uint32_t temp = FLASH_GetAddress();
+	  Address[0] = temp&0xFF;
+	  Address[1] = (temp&0xFF00)>>8;
+	  Address[2] = (temp&0xFF0000)>>16;
+	  Set_Current_Address_Pointer(chip,Address);
 }
 
+static void Routine_Init_STATE(void)
+{
+	//Initialize and configure the flash chips
+	printf("Setting Up Flash Chips...\r\n");
+	uint8_t status;
+	uint32_t backup_val;
+	Init_Flash_Chips(&status);
+	backup_val = status;
+	//set address to point to statusbyte (memory location 0x00,0x00,0x00)
+
+	//Find the bit set in the lowest bit of the status position
+
+	uint8_t Active_Set = 0;			//flag to keep track of chip statuses
+	printf("Allocating Chip Statuses...\r\n");
+	for (int i = 0; i < 4; ++i)
+	{
+		uint8_t set = (status & 0b1<<i)>>i;
+		if(set)
+		{
+
+			Chip_Status_t flashchips;
+			if(Active_Set == 0)		// no chip set yet
+			{
+				flashchips = Active;
+				backup_val |= ((i+1)<<8);
+				Active_Set++;
+			}else if(Active_Set == 1)//1st chip found
+			{
+				flashchips = Next_Active;
+				backup_val |= (i+1)<<24;
+				Active_Set++;
+			}else
+			{
+				flashchips = Inactive;
+			}
+			FLASH_SetAddress(0x00,0x00,0x00);
+			FLASH_ERASE_Page(i+1);
+			FLASH_WRITE_PageOrByte_NoErase((i+1),&flashchips,1);
+			uint8_t* buff;
+			buff = FLASH_READ_Page(i+1);
+			printf("Chip %d Status: %d\r\n",i+1,*buff);
+			//increment current address for the chip and save to back up registers
+			FLASH_IncAddress(1);
+			uint32_t address = FLASH_GetAddress();
+			Set_Current_Address_Pointer(i+1,(uint8_t*)&address);
+		}else
+		{
+			printf("Chip %d Offline!\r\n",i+1);
+		}
+	}
+	//Store Chip status variable in RTC->BCKUP byte 0 : chip status, byte 1 : active chip, byte 2: back up chip
+	 __HAL_RCC_PWR_CLK_ENABLE();
+	 RTC->BKP1R = backup_val;
+	 __HAL_RCC_PWR_CLK_DISABLE();
+}
 //===================================== 9. END ======================================//
