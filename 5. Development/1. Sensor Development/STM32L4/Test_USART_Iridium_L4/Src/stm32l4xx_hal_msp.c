@@ -24,6 +24,7 @@
 /* USER CODE BEGIN Includes */
 #include "HAL_Iridium.h"
 /* USER CODE END Includes */
+extern DMA_HandleTypeDef hdma_uart5_rx;
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
@@ -76,7 +77,6 @@ void HAL_MspInit(void)
 
   /* USER CODE END MspInit 1 */
 }
-
 
 
 
