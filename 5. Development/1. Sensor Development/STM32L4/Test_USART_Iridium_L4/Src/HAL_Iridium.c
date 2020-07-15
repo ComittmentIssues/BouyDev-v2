@@ -2,7 +2,9 @@
  * HAL_Iridium.c
  *
  *  Created on: Mar 28, 2020
- *      Author: jamie
+ *      Author: Jamie Jacobson
+ *      Student No: JCBJAM007
+ *      For: University of Cape Town
  */
 
 //============================= 1. Includes ==============================================
@@ -12,11 +14,74 @@
 
 //======================= 2. Function Prototypes ==================================
 
+/*
+ * Function Name void  Clear_Buffer(uint8_t *buffer,uint32_t size);
+ *
+ * @brief: deletes all data in a specified array
+ *
+ * @param: buffer - pointer to uint8_t array
+ *
+ * @param: size - size of array
+ *
+ * @return: void
+ */
 void  Clear_Buffer(uint8_t *buffer,uint32_t size);
+
+/*
+ * Function Name uint16_t calculate_checkSum(uint8_t* messagebuff, uint8_t size);
+ *
+ * @brief: calculates a pair of checksum bytes for an SBD Binary Message.
+ *
+ * @param: messagebuff - pointer to data array
+ *
+ * @param: size - number of bytes in message
+ *
+ * @return: uint16_t checksum bytes
+ */
 uint16_t calculate_checkSum(uint8_t* messagebuff, uint8_t size);
+
+/*
+ * Function Name static HAL_StatusTypeDef MX_GPIO_Init(void);
+ *
+ * @brief: Initialize GPIO Control Pins
+ *
+ * @param: void
+ *
+ * @return: HAL_StatusTypeDef - Hal return val showing status of initialization for error handling
+ */
 static HAL_StatusTypeDef MX_GPIO_Init(void);
+
+/*
+ * Function Name static HAL_StatusTypeDef MX_DMA_Init(void);
+ *
+ * @brief: Function to initialize DMA channel for memory to memory data streaming
+ *
+ * @param: void
+ *
+ * @return: HAL_StatusTypeDef - Hal return val showing status of initialization for error handling
+ */
 static HAL_StatusTypeDef MX_DMA_Init(void);
+
+/*
+ * Function Name static HAL_StatusTypeDef MX_UART5_Init(void);
+ *
+ * @brief: Initialize USART Communications on UART5
+ *
+ * @param: void
+ *
+ * @return: HAL_StatusTypeDef - Hal return val showing status of initialization for error handling
+ */
 static HAL_StatusTypeDef MX_UART5_Init(void);
+
+/*
+ * Function Name static HAL_StatusTypeDef MX_TIM3_Init(void);
+ *
+ * @brief: Initialize Slave Reset using External Trigger on TIM3
+ *
+ * @param: void
+ *
+ * @return: HAL_StatusTypeDef - Hal return val showing status of initialization for error handling
+ */
 static HAL_StatusTypeDef MX_TIM3_Init(void);
 
 //======================= 3. Static Function Definition ==================================
@@ -56,111 +121,7 @@ static HAL_StatusTypeDef MX_UART5_Init(void)
   return HAL_OK;
 }
 
-///**
-//* @brief UART MSP Initialization
-//* This function configures the hardware resources used in this example
-//* @param huart: UART handle pointer
-//* @retval None
-//*/
-//void HAL_UART_MspInit(UART_HandleTypeDef* huart)
-//{
-//  GPIO_InitTypeDef GPIO_InitStruct = {0};
-//  if(huart->Instance==UART5)
-//  {
-//  /* USER CODE BEGIN UART5_MspInit 0 */
-//
-//  /* USER CODE END UART5_MspInit 0 */
-//    /* Peripheral clock enable */
-//    __HAL_RCC_UART5_CLK_ENABLE();
-//
-//    __HAL_RCC_GPIOC_CLK_ENABLE();
-//    __HAL_RCC_GPIOD_CLK_ENABLE();
-//    /**UART5 GPIO Configuration
-//    PC12     ------> UART5_TX
-//    PD2     ------> UART5_RX
-//    */
-//    GPIO_InitStruct.Pin = Iridium_TX_Pin;
-//    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-//    GPIO_InitStruct.Pull = GPIO_NOPULL;
-//    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-//    GPIO_InitStruct.Alternate = GPIO_AF8_UART5;
-//    HAL_GPIO_Init(Iridium_TX_GPIO_Port, &GPIO_InitStruct);
-//
-//    GPIO_InitStruct.Pin = Iridium_RX_Pin;
-//    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-//    GPIO_InitStruct.Pull = GPIO_NOPULL;
-//    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-//    GPIO_InitStruct.Alternate = GPIO_AF8_UART5;
-//    HAL_GPIO_Init(Iridium_RX_GPIO_Port, &GPIO_InitStruct);
-//
-//    /* UART5 DMA Init */
-//    /* UART5_RX Init */
-//    hdma_uart5_rx.Instance = DMA2_Channel2;
-//    hdma_uart5_rx.Init.Request = DMA_REQUEST_2;
-//    hdma_uart5_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
-//    hdma_uart5_rx.Init.PeriphInc = DMA_PINC_DISABLE;
-//    hdma_uart5_rx.Init.MemInc = DMA_MINC_ENABLE;
-//    hdma_uart5_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
-//    hdma_uart5_rx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
-//    hdma_uart5_rx.Init.Mode = DMA_NORMAL;
-//    hdma_uart5_rx.Init.Priority = DMA_PRIORITY_LOW;
-//    if (HAL_DMA_Init(&hdma_uart5_rx) != HAL_OK)
-//    {
-//    	HAL_DMA_DeInit(&hdma_uart5_rx);
-//    }else
-//    {
-//    	__HAL_LINKDMA(huart,hdmarx,hdma_uart5_rx);
-//
-//    	    /* UART5 interrupt Init */
-//    	HAL_NVIC_SetPriority(UART5_IRQn, 0, 0);
-//        HAL_NVIC_EnableIRQ(UART5_IRQn);
-//        /* USER CODE BEGIN UART5_MspInit 1 */
-//    	CLEAR_REG(huart->Instance->CR1);
-//   		CLEAR_REG(huart->Instance->CR2);
-//   		CLEAR_REG(huart->Instance->CR3);
-//   	    HAL_NVIC_SetPriority(UART5_IRQn, 0, 0);
-//   	    HAL_NVIC_EnableIRQ(UART5_IRQn);
-//   	    /* USER CODE END UART5_MspInit 1 */
-//    }
-//  }
-//
-//}
-//
-///**
-//* @brief UART MSP De-Initialization
-//* This function freeze the hardware resources used in this example
-//* @param huart: UART handle pointer
-//* @retval None
-//*/
-//void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
-//{
-//  if(huart->Instance==UART5)
-//  {
-//  /* USER CODE BEGIN UART5_MspDeInit 0 */
-//
-//  /* USER CODE END UART5_MspDeInit 0 */
-//    /* Peripheral clock disable */
-//    __HAL_RCC_UART5_CLK_DISABLE();
-//
-//    /**UART5 GPIO Configuration
-//    PC12     ------> UART5_TX
-//    PD2     ------> UART5_RX
-//    */
-//    HAL_GPIO_DeInit(Iridium_TX_GPIO_Port, Iridium_TX_Pin);
-//
-//    HAL_GPIO_DeInit(Iridium_RX_GPIO_Port, Iridium_RX_Pin);
-//
-//    /* UART5 DMA DeInit */
-//    HAL_DMA_DeInit(huart->hdmarx);
-//
-//    /* UART5 interrupt DeInit */
-//    HAL_NVIC_DisableIRQ(UART5_IRQn);
-//  /* USER CODE BEGIN UART5_MspDeInit 1 */
-//
-//  /* USER CODE END UART5_MspDeInit 1 */
-//  }
-//
-//}
+
 /**
   * Enable DMA controller clock
   * Configure DMA for memory to memory transfers
@@ -236,7 +197,7 @@ static HAL_StatusTypeDef MX_GPIO_Init(void)
   HAL_PWREx_DisablePullUpPullDownConfig();
 
   /*Configure GPIO pins : IR_RIng_Pin IR_NetAv_Pin */
-  GPIO_InitStruct.Pin = IR_RIng_Pin|IR_NetAv_Pin;
+  GPIO_InitStruct.Pin = IR_Ring_Pin|IR_NetAv_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -341,17 +302,13 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* htim_base)
 {
   if(htim_base->Instance==TIM3)
   {
-  /* USER CODE BEGIN TIM3_MspInit 0 */
 
-  /* USER CODE END TIM3_MspInit 0 */
     /* Peripheral clock enable */
     __HAL_RCC_TIM3_CLK_ENABLE();
     /* TIM3 interrupt Init */
     HAL_NVIC_SetPriority(TIM3_IRQn, 0, 0);
     HAL_NVIC_EnableIRQ(TIM3_IRQn);
-  /* USER CODE BEGIN TIM3_MspInit 1 */
 
-  /* USER CODE END TIM3_MspInit 1 */
   }
 
 }
@@ -366,17 +323,13 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* htim_base)
 {
   if(htim_base->Instance==TIM3)
   {
-  /* USER CODE BEGIN TIM3_MspDeInit 0 */
 
-  /* USER CODE END TIM3_MspDeInit 0 */
     /* Peripheral clock disable */
     __HAL_RCC_TIM3_CLK_DISABLE();
 
     /* TIM3 interrupt DeInit */
     HAL_NVIC_DisableIRQ(TIM3_IRQn);
-  /* USER CODE BEGIN TIM3_MspDeInit 1 */
 
-  /* USER CODE END TIM3_MspDeInit 1 */
   }
 
 }
@@ -392,9 +345,8 @@ void HAL_UART_MspInit(UART_HandleTypeDef* huart)
   GPIO_InitTypeDef GPIO_InitStruct = {0};
   if(huart->Instance==UART5)
   {
-  /* USER CODE BEGIN UART5_MspInit 0 */
 
-  /* USER CODE END UART5_MspInit 0 */
+
     /* Peripheral clock enable */
     __HAL_RCC_UART5_CLK_ENABLE();
 
@@ -431,7 +383,7 @@ void HAL_UART_MspInit(UART_HandleTypeDef* huart)
     hdma_uart5_rx.Init.Priority = DMA_PRIORITY_LOW;
     if (HAL_DMA_Init(&hdma_uart5_rx) != HAL_OK)
     {
-      Error_Handler();
+
     }
 
     __HAL_LINKDMA(huart,hdmarx,hdma_uart5_rx);
@@ -439,9 +391,7 @@ void HAL_UART_MspInit(UART_HandleTypeDef* huart)
     /* UART5 interrupt Init */
     HAL_NVIC_SetPriority(UART5_IRQn, 0, 0);
     HAL_NVIC_EnableIRQ(UART5_IRQn);
-  /* USER CODE BEGIN UART5_MspInit 1 */
 
-  /* USER CODE END UART5_MspInit 1 */
   }
 
 }
@@ -456,9 +406,7 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
 {
   if(huart->Instance==UART5)
   {
-  /* USER CODE BEGIN UART5_MspDeInit 0 */
 
-  /* USER CODE END UART5_MspDeInit 0 */
     /* Peripheral clock disable */
     __HAL_RCC_UART5_CLK_DISABLE();
 
@@ -475,16 +423,12 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
 
     /* UART5 interrupt DeInit */
     HAL_NVIC_DisableIRQ(UART5_IRQn);
-  /* USER CODE BEGIN UART5_MspDeInit 1 */
 
-  /* USER CODE END UART5_MspDeInit 1 */
   }
 
 }
 
-//------------------------------------------------------------------
-//					Utility Functions
-//------------------------------------------------------------------
+//======================= 5. Utility Function Definition ==================================
 
 void  Clear_Buffer(uint8_t *buffer,uint32_t size)
 {
@@ -502,10 +446,7 @@ uint16_t calculate_checkSum(uint8_t* messagebuff, uint8_t size)
 	return (uint16_t)(sum & 0xFFFF);
 }
 
-//------------------------------------------------------------------
-//					Command Functions
-//------------------------------------------------------------------
-
+//======================= 6. Iridium Module Function Definition ==================================
 IR_Status_t IR_Init_Module(void)
 {
 	 if(MX_GPIO_Init() != HAL_OK){return IR_Pin_CFG_Error;}
@@ -624,6 +565,39 @@ IR_Status_t get_Signal_Strength(uint8_t* signal_Strength)
 	  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
 	  return IR_OK;
 }
+
+IR_Status_t send_AT_CMD(char* cmd)
+
+{
+	int size = strlen(cmd);
+	memcpy(TX_Buffer,cmd,size);
+	if(HAL_UART_Transmit(&huart5,TX_Buffer,size,100) != HAL_OK)
+	{
+		return IR_Tx_Error;
+	}
+	__HAL_DMA_ENABLE_IT(&hdma_uart5_rx,DMA_IT_TC);
+	if(__HAL_UART_GET_FLAG(&huart5,UART_FLAG_IDLE))
+	{
+		__HAL_UART_CLEAR_IDLEFLAG(&huart5);
+	}
+	__HAL_UART_ENABLE_IT(&huart5,UART_IT_IDLE);
+	HAL_UART_Receive_DMA(&huart5,RX_Buffer,RX_BUFFER_SIZE);
+	__HAL_TIM_ENABLE_IT(&htim3,TIM_IT_CC1);
+	HAL_TIM_OC_Start_IT(&htim3, TIM_CHANNEL_1);
+	HAL_TIM_Base_Start_IT(&htim3);
+	while(RX_Flag == RESET);
+	if(RX_Flag == -2)
+	{
+		return IR_Rx_Timeout;
+	}if(RX_Flag == -1)
+	{
+		return IR_Rx_Error;
+	}
+	RX_Flag = 0;
+	return IR_OK;
+}
+
+//======================= 7. Transmit/Recieve Function Definition ==================================
 
 IR_Status_t start_SBD_Session(SBDX_Status_t* sbd)
 {
@@ -872,6 +846,8 @@ IR_Status_t recieve_String(uint8_t* MSG_Buff,uint32_t MSG_BUFF_SIZE, uint16_t *n
  	return IR_OK;
 }
 
+//======================= 8. Handler Function Definition ==================================
+
 void DMA_Iridium_Periph_IRQHandler(UART_HandleTypeDef *huart)
 {
 
@@ -1053,9 +1029,9 @@ void USART_Iridium_IRQHandler(UART_HandleTypeDef *huart)
 
 void Iridium_ControlPin_IRQHandler(void)
 {
-	if(__HAL_GPIO_EXTI_GET_IT(IR_RIng_Pin))
+	if(__HAL_GPIO_EXTI_GET_IT(IR_Ring_Pin))
 	{
-		__HAL_GPIO_EXTI_CLEAR_IT(IR_RIng_Pin);
+		__HAL_GPIO_EXTI_CLEAR_IT(IR_Ring_Pin);
 		//download messages
 	}
 
@@ -1066,36 +1042,6 @@ void Iridium_ControlPin_IRQHandler(void)
 	}
 }
 
-IR_Status_t send_AT_CMD(char* cmd)
-
-{
-	int size = strlen(cmd);
-	memcpy(TX_Buffer,cmd,size);
-	if(HAL_UART_Transmit(&huart5,TX_Buffer,size,100) != HAL_OK)
-	{
-		return IR_Tx_Error;
-	}
-	__HAL_DMA_ENABLE_IT(&hdma_uart5_rx,DMA_IT_TC);
-	if(__HAL_UART_GET_FLAG(&huart5,UART_FLAG_IDLE))
-	{
-		__HAL_UART_CLEAR_IDLEFLAG(&huart5);
-	}
-	__HAL_UART_ENABLE_IT(&huart5,UART_IT_IDLE);
-	HAL_UART_Receive_DMA(&huart5,RX_Buffer,RX_BUFFER_SIZE);
-	__HAL_TIM_ENABLE_IT(&htim3,TIM_IT_CC1);
-	HAL_TIM_OC_Start_IT(&htim3, TIM_CHANNEL_1);
-	HAL_TIM_Base_Start_IT(&htim3);
-	while(RX_Flag == RESET);
-	if(RX_Flag == -2)
-	{
-		return IR_Rx_Timeout;
-	}if(RX_Flag == -1)
-	{
-		return IR_Rx_Error;
-	}
-	RX_Flag = 0;
-	return IR_OK;
-}
 
 //------------------------------ MOVE TO stn32l4xx_it.c --------------------------------//
 
@@ -1117,15 +1063,11 @@ IR_Status_t send_AT_CMD(char* cmd)
 ///**
 //  * @brief This function handles TIM2 global interrupt.
 //  */
-//void TIM2_IRQHandler(void)
+//void TIM3_IRQHandler(void)
 //{
 //  /* USER CODE BEGIN TIM2_IRQn 0 */
 //	USART_RTO_IRQHandler(&htim3);
-//  /* USER CODE END TIM2_IRQn 0 */
-//  HAL_TIM_IRQHandler(&htim2);
-//  /* USER CODE BEGIN TIM2_IRQn 1 */
-//
-//  /* USER CODE END TIM2_IRQn 1 */
+//  HAL_TIM_IRQHandler(&htim3);
 //}
 //
 ///**
@@ -1133,13 +1075,9 @@ IR_Status_t send_AT_CMD(char* cmd)
 //  */
 //void EXTI15_10_IRQHandler(void)
 //{
-//  /* USER CODE BEGIN EXTI15_10_IRQn 0 */
-//
-//  /* USER CODE END EXTI15_10_IRQn 0 */
+
 //  Iridium_ControlPin_IRQHandler();
-//  /* USER CODE BEGIN EXTI15_10_IRQn 1 */
-//
-//  /* USER CODE END EXTI15_10_IRQn 1 */
+
 //}
 //
 ///**
@@ -1149,10 +1087,6 @@ IR_Status_t send_AT_CMD(char* cmd)
 //{
 //  /* USER CODE BEGIN UART5_IRQn 0 */
 //  USART_Iridium_IRQHandler(&huart5);
-//  /* USER CODE END UART5_IRQn 0 */
-//  /* USER CODE BEGIN UART5_IRQn 1 */
-//
-//  /* USER CODE END UART5_IRQn 1 */
 //}
 //
 ///**
