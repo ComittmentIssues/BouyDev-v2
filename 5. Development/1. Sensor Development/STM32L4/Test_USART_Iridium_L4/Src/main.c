@@ -107,11 +107,11 @@ int main(void)
 		  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
 	  }
   uint8_t msg[24] = "This is A Test in Binary";
-  if(send_Bin_String(msg,24) == IR_MSG_UPLOAD_OK)
+  if(IR_send_Bin_String(msg,24) == IR_MSG_UPLOAD_OK)
   {
 	  SBDX_Status_t sbd;
 
-		  if(start_SBD_Session(&sbd) == IR_OK)
+		  if(IR_start_SBD_Session(&sbd) == IR_OK)
 		 {
 		 		  //check return status
 		 		  if(sbd.MO_Status == 0)
@@ -119,7 +119,7 @@ int main(void)
 		 			  //message sent
 		 			  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
 		 		  }
-		 		  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+
 		 }
   }
 
@@ -133,7 +133,7 @@ int main(void)
 //  }
 //================Test Signal Acquisition =======================//
   uint8_t strength;
-  if(get_Signal_Strength(&strength) == IR_OK)
+  if(IR_get_Signal_Strength(&strength) == IR_OK)
   {
 	  __NOP();
   }

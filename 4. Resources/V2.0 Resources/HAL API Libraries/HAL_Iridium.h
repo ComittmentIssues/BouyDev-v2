@@ -85,7 +85,8 @@
 #include "string.h"				//String Handling Functions
 
 #include "stdio.h"				//Standard C Functions
-#include "stdlib.h"
+
+#include "stdlib.h"				//additional memset
 
 typedef enum
 {
@@ -184,13 +185,14 @@ typedef struct
 #define TX_BUFFER_SIZE 2046						//SIZE OF USART TX BUFFER
 #define RX_BUFFER_SIZE 2046						//SIZE OF USART RX BUFFER
 #define RM_BUFFER_SIZE 500						//SIZE OF MESSAGE RECIEVE BUFFER
-#define ASCII_MSG_BYTE_LEN 9
+#define ASCII_MSG_BYTE_LEN 9					//Number of Bytes in  the string "AT+SBDWT="
 
 //========================== 4. Global Variables ==========================================
-int8_t RX_Flag,TIM_IDLE_Timeout;
-Session_t Session_Flag;
-uint32_t gnss_length;
-uint32_t msg_len;
+int8_t IR_RX_Flag;				//Flag showing status of USART DMA Recieve
+int8_t IR_TIM_IDLE_Timeout;		//Flag showing status of Reciever Timout
+Session_t Session_Flag;			//Flag showing if the AT command is a special command
+uint32_t IR_length;			//Recieved USART data length
+uint32_t msg_len;				//AT return message length
 
 //============================= 5. Handlers =============================================
 TIM_HandleTypeDef htim3;
@@ -203,8 +205,8 @@ DMA_HandleTypeDef hdma_memtomem_dma1_channel2;
 
 //============================ 6. Data Buffers ==========================================
 
-uint8_t RX_Buffer[RX_BUFFER_SIZE];
-uint8_t TX_Buffer[TX_BUFFER_SIZE];
+uint8_t IR_RX_Buffer[RX_BUFFER_SIZE];
+uint8_t IR_TX_Buffer[TX_BUFFER_SIZE];
 uint8_t RM_Buffer[RM_BUFFER_SIZE];
 
 //======================== 7. Functions Prototypes =======================================
@@ -255,7 +257,7 @@ IR_Status_t IR_DeInit_Module(void);
  *
  * @return: IR_Status_t return status of the function
  */
-IR_Status_t send_AT_CMD(char* cmd);
+IR_Status_t IR_send_AT_CMD(char* cmd);
 
 
 /*
@@ -269,7 +271,7 @@ IR_Status_t send_AT_CMD(char* cmd);
  *
  * @return: IR_Status_t return status of the function
  */
-IR_Status_t get_Signal_Strength(uint8_t* signal_Strength);
+IR_Status_t IR_get_Signal_Strength(uint8_t* signal_Strength);
 
 /*
  * Function Name: IR_Status_t start_SBD_Session(SBDX_Status_t* sbd);
@@ -303,7 +305,7 @@ IR_Status_t get_Signal_Strength(uint8_t* signal_Strength);
  *
  * @return:	IR_Status_t - status of the function
  */
-IR_Status_t start_SBD_Session(SBDX_Status_t* sbd);
+IR_Status_t IR_start_SBD_Session(SBDX_Status_t* sbd);
 
 /*
  * Function Name IR_Status_t send_Bin_String(uint8_t* bin_string,uint32_t len);
@@ -324,7 +326,7 @@ IR_Status_t start_SBD_Session(SBDX_Status_t* sbd);
  *
  * @return: IR_Status_t  - status of the function
  */
-IR_Status_t send_Bin_String(uint8_t* bin_string,uint32_t len);
+IR_Status_t IR_send_Bin_String(uint8_t* bin_string,uint32_t len);
 
 /*
  * Function Name IR_Status_t send_String(char* string);
@@ -337,7 +339,7 @@ IR_Status_t send_Bin_String(uint8_t* bin_string,uint32_t len);
  *
  * @return: IR_Status_t - status of the function
  */
-IR_Status_t send_String(char* string);
+IR_Status_t IR_send_String(char* string);
 
 /*
  * Function Name
@@ -356,7 +358,7 @@ IR_Status_t send_String(char* string);
  *
  * @return: IR_Status_t - status of the function
  */
-IR_Status_t recieve_String(uint8_t* MSG_Buff,uint32_t MSG_BUFF_SIZE, uint16_t *num_messages);
+IR_Status_t IR_recieve_String(uint8_t* MSG_Buff,uint32_t MSG_BUFF_SIZE, uint16_t *num_messages);
 
 //================ 8. IRQ Handler Functions Prototypes ==================================
 

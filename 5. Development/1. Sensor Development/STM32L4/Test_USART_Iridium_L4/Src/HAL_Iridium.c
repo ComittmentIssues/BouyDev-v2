@@ -25,7 +25,7 @@
  *
  * @return: void
  */
-void  Clear_Buffer(uint8_t *buffer,uint32_t size);
+void  IR_Clear_Buffer(uint8_t *buffer,uint32_t size);
 
 /*
  * Function Name uint16_t calculate_checkSum(uint8_t* messagebuff, uint8_t size);
@@ -38,7 +38,7 @@ void  Clear_Buffer(uint8_t *buffer,uint32_t size);
  *
  * @return: uint16_t checksum bytes
  */
-uint16_t calculate_checkSum(uint8_t* messagebuff, uint8_t size);
+uint16_t IR_Calculate_Checksum(uint8_t* messagebuff, uint8_t size);
 
 /*
  * Function Name static HAL_StatusTypeDef MX_GPIO_Init(void);
@@ -94,13 +94,6 @@ static HAL_StatusTypeDef MX_TIM3_Init(void);
 static HAL_StatusTypeDef MX_UART5_Init(void)
 {
 
-  /* USER CODE BEGIN UART5_Init 0 */
-
-  /* USER CODE END UART5_Init 0 */
-
-  /* USER CODE BEGIN UART5_Init 1 */
-
-  /* USER CODE END UART5_Init 1 */
   huart5.Instance = UART5;
   huart5.Init.BaudRate = 19200;
   huart5.Init.WordLength = UART_WORDLENGTH_8B;
@@ -115,9 +108,7 @@ static HAL_StatusTypeDef MX_UART5_Init(void)
   {
     return HAL_ERROR;
   }
-  /* USER CODE BEGIN UART5_Init 2 */
 
-  /* USER CODE END UART5_Init 2 */
   return HAL_OK;
 }
 
@@ -430,12 +421,12 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
 
 //======================= 5. Utility Function Definition ==================================
 
-void  Clear_Buffer(uint8_t *buffer,uint32_t size)
+void  IR_Clear_Buffer(uint8_t *buffer,uint32_t size)
 {
 	memset(buffer,0,size);
 }
 
-uint16_t calculate_checkSum(uint8_t* messagebuff, uint8_t size)
+uint16_t IR_Calculate_Checksum(uint8_t* messagebuff, uint8_t size)
 {
 	uint32_t sum = 0;
 	for (int i = 0; i < size; ++i)
@@ -447,6 +438,14 @@ uint16_t calculate_checkSum(uint8_t* messagebuff, uint8_t size)
 }
 
 //======================= 6. Iridium Module Function Definition ==================================
+
+/*
+ * @brief: Intialize device and send acknowledgment
+ *
+ * @param: none
+ *
+ * @retval: IR_Status_t
+ */
 IR_Status_t IR_Init_Module(void)
 {
 	 if(MX_GPIO_Init() != HAL_OK){return IR_Pin_CFG_Error;}
@@ -456,7 +455,7 @@ IR_Status_t IR_Init_Module(void)
 
 	  //send acknowledgement
 	 char* msg;
-	 if(send_AT_CMD("AT\r")== IR_OK)
+	 if(IR_send_AT_CMD("AT\r")== IR_OK)
 	 {
 	 	msg = strtok((char*)(&RM_Buffer[2]),"\r");
 	 	if(strcmp(msg,(char*)"OK") != 0)
@@ -468,14 +467,14 @@ IR_Status_t IR_Init_Module(void)
 	 	  return IR_Ack_Error;
 	 }
 	 	  //analyse message
-	 	  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+	 	  IR_Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
 	 	  return IR_OK;
 }
 
 /*
  * @brief: Deinitializes Peripherals and puts the modem to sleep
  * @param: none
- * @retval: none
+ * @retval: IR_Status_t
  *
  * NB: Ensure that HAL_TIM_BASE_DeInit calls the user defined MSP DeInit otherwise the peripheral will not
  * 	   be cleared
@@ -519,10 +518,10 @@ IR_Status_t IR_DeInit_Module(void)
 	return IR_OK;
 }
 
-IR_Status_t get_Signal_Strength(uint8_t* signal_Strength)
+IR_Status_t IR_get_Signal_Strength(uint8_t* signal_Strength)
 {
 	  char* msg;
-	  if(send_AT_CMD("AT\r")== IR_OK)
+	  if(IR_send_AT_CMD("AT\r")== IR_OK)
 	  {
 		  msg = strtok((char*)(&RM_Buffer[2]),"\r");
 		  if(strcmp(msg,(char*)"OK") != 0)
@@ -534,8 +533,8 @@ IR_Status_t get_Signal_Strength(uint8_t* signal_Strength)
 		  return IR_Ack_Error;
 	  }
 	  //analyse message
-	  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
-	  if( send_AT_CMD("AT&K0\r") == IR_OK)
+	  IR_Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+	  if( IR_send_AT_CMD("AT&K0\r") == IR_OK)
 	  {
 			msg = strtok((char*)(&RM_Buffer[2]),"\r");
 			if(strcmp(msg,(char*)"OK") != 0)
@@ -547,10 +546,10 @@ IR_Status_t get_Signal_Strength(uint8_t* signal_Strength)
 	  {
 		return IR_CFG_Error;
 	  }
-	  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+	  IR_Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
 	  Session_Flag = CSQ;
 	  __HAL_TIM_ENABLE_IT(&htim3,TIM_IT_UPDATE);
-	  if(send_AT_CMD("AT+CSQ\r")!= IR_OK)
+	  if(IR_send_AT_CMD("AT+CSQ\r")!= IR_OK)
 	  {
 		  return IR_Data_Error;
 	  }
@@ -562,16 +561,16 @@ IR_Status_t get_Signal_Strength(uint8_t* signal_Strength)
 	  }
 
 	  *signal_Strength = atoi(sig);
-	  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+	  IR_Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
 	  return IR_OK;
 }
 
-IR_Status_t send_AT_CMD(char* cmd)
+IR_Status_t IR_send_AT_CMD(char* cmd)
 
 {
 	int size = strlen(cmd);
-	memcpy(TX_Buffer,cmd,size);
-	if(HAL_UART_Transmit(&huart5,TX_Buffer,size,100) != HAL_OK)
+	memcpy(IR_TX_Buffer,cmd,size);
+	if(HAL_UART_Transmit(&huart5,IR_TX_Buffer,size,100) != HAL_OK)
 	{
 		return IR_Tx_Error;
 	}
@@ -581,33 +580,33 @@ IR_Status_t send_AT_CMD(char* cmd)
 		__HAL_UART_CLEAR_IDLEFLAG(&huart5);
 	}
 	__HAL_UART_ENABLE_IT(&huart5,UART_IT_IDLE);
-	HAL_UART_Receive_DMA(&huart5,RX_Buffer,RX_BUFFER_SIZE);
+	HAL_UART_Receive_DMA(&huart5,IR_RX_Buffer,RX_BUFFER_SIZE);
 	__HAL_TIM_ENABLE_IT(&htim3,TIM_IT_CC1);
 	HAL_TIM_OC_Start_IT(&htim3, TIM_CHANNEL_1);
 	HAL_TIM_Base_Start_IT(&htim3);
-	while(RX_Flag == RESET);
-	if(RX_Flag == -2)
+	while(IR_RX_Flag == RESET);
+	if(IR_RX_Flag == -2)
 	{
 		return IR_Rx_Timeout;
-	}if(RX_Flag == -1)
+	}if(IR_RX_Flag == -1)
 	{
 		return IR_Rx_Error;
 	}
-	RX_Flag = 0;
+	IR_RX_Flag = 0;
 	return IR_OK;
 }
 
 //======================= 7. Transmit/Recieve Function Definition ==================================
 
-IR_Status_t start_SBD_Session(SBDX_Status_t* sbd)
+IR_Status_t IR_start_SBD_Session(SBDX_Status_t* sbd)
 {
 	//increase prescaler to lengthen timeout
 	htim3.Instance->PSC = 5;
 	Session_Flag = SBDIX;
 	char* cmd = "AT+SBDIX\r";
 	int size = strlen(cmd);
-		memcpy(TX_Buffer,cmd,size);
-		if(HAL_UART_Transmit(&huart5,TX_Buffer,size,100) != HAL_OK)
+		memcpy(IR_TX_Buffer,cmd,size);
+		if(HAL_UART_Transmit(&huart5,IR_TX_Buffer,size,100) != HAL_OK)
 		{
 			return IR_Tx_Error;
 		}
@@ -617,25 +616,28 @@ IR_Status_t start_SBD_Session(SBDX_Status_t* sbd)
 			__HAL_UART_CLEAR_IDLEFLAG(&huart5);
 		}
 		__HAL_UART_ENABLE_IT(&huart5,UART_IT_IDLE);
-		HAL_UART_Receive_DMA(&huart5,RX_Buffer,RX_BUFFER_SIZE);
+		HAL_UART_Receive_DMA(&huart5,IR_RX_Buffer,RX_BUFFER_SIZE);
 		__HAL_TIM_DISABLE_IT(&htim3,TIM_IT_CC1);
 		__HAL_TIM_ENABLE_IT(&htim3,TIM_IT_UPDATE);
 		HAL_NVIC_ClearPendingIRQ(TIM3_IRQn);
 		__HAL_TIM_ENABLE(&htim3);
-		while(RX_Flag == RESET);
-		if(RX_Flag == -2)
+		while(IR_RX_Flag == RESET);
+		if(IR_RX_Flag == -2)
 		{
+			IR_Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
 			return IR_Rx_Timeout;
-		}if(RX_Flag == -1)
+		}if(IR_RX_Flag == -1)
 		{
+			IR_Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
 			return IR_Rx_Error;
 		}
-		RX_Flag = RESET;
+		IR_RX_Flag = RESET;
 		//decode SBD Message
 		char* status = strtok((char*)&RM_Buffer[2],"\r\n");
 		char* msg = strtok(NULL,"\r\n");
 		if(strcmp(msg,"OK") != 0)
 		{
+			IR_Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
 			return IR_SBDIX_SESSION_ERROR;
 		}
 		char* temp = strtok(&status[7],", ");
@@ -654,15 +656,16 @@ IR_Status_t start_SBD_Session(SBDX_Status_t* sbd)
 		sbd->MT_Queued = temp_sbd[5];
 		//reset prescaler
 		htim3.Instance->PSC = 0;
+		IR_Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
 		return IR_OK;
 
 }
 
-IR_Status_t send_Bin_String(uint8_t* bin_string,uint32_t len)
+IR_Status_t IR_send_Bin_String(uint8_t* bin_string,uint32_t len)
 {
 
 	  char* msg;
-	  if(send_AT_CMD("AT\r")== IR_OK)
+	  if(IR_send_AT_CMD("AT\r")== IR_OK)
 	  {
 		  msg = strtok((char*)(&RM_Buffer[2]),"\r");
 		  if(strcmp(msg,(char*)"OK") != 0)
@@ -674,8 +677,8 @@ IR_Status_t send_Bin_String(uint8_t* bin_string,uint32_t len)
 		  return IR_Ack_Error;
 	  }
 	  //analyse message
-	  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
-	  if( send_AT_CMD("AT&K0\r") == IR_OK)
+	  IR_Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+	  if( IR_send_AT_CMD("AT&K0\r") == IR_OK)
 	  {
 			msg = strtok((char*)(&RM_Buffer[2]),"\r");
 			if(strcmp(msg,(char*)"OK") != 0)
@@ -687,27 +690,27 @@ IR_Status_t send_Bin_String(uint8_t* bin_string,uint32_t len)
 	  {
 		return IR_CFG_Error;
 	  }
-	  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+	  IR_Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
 	  //prepare Iridium for binary message reception
-	  sprintf((char*)TX_Buffer,"AT+SBDWB=%lu\r",len);
-	  if(send_AT_CMD((char*)TX_Buffer) == IR_OK)
+	  sprintf((char*)IR_TX_Buffer,"AT+SBDWB=%lu\r",len);
+	  if(IR_send_AT_CMD((char*)IR_TX_Buffer) == IR_OK)
 	  {
-		  Clear_Buffer(TX_Buffer,TX_BUFFER_SIZE);
+		  IR_Clear_Buffer(IR_TX_Buffer,TX_BUFFER_SIZE);
 		  msg = strtok((char*)(&RM_Buffer[2]),"\r");
 		  if(strcmp(msg,(char*)"READY") != 0)
 		  {
 		  	return IR_CFG_Error;
 		  }
 	  }
-	  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+	  IR_Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
 	  //create a binary message complete with checksum
-	  memcpy(TX_Buffer,bin_string,len);
-	  uint16_t temp = calculate_checkSum(bin_string,len);
+	  memcpy(IR_TX_Buffer,bin_string,len);
+	  uint16_t temp = IR_Calculate_Checksum(bin_string,len);
 	  uint8_t check_sum[3]  = {(uint8_t)((temp&0xFF00)>>8),(uint8_t)temp&0xFF,0x0d};
-	  memcpy(&TX_Buffer[len],check_sum,3);
+	  memcpy(&IR_TX_Buffer[len],check_sum,3);
 	  //upload to message buffer
 	  Session_Flag = SBDWB;
-	  send_AT_CMD((char*)TX_Buffer);
+	  IR_send_AT_CMD((char*)IR_TX_Buffer);
 	  Session_Flag = NONE;
 	  msg = strtok((char*)(&RM_Buffer[2]),"\r\n");
 	  int8_t ret_val = *(msg) -48;
@@ -736,11 +739,11 @@ IR_Status_t send_Bin_String(uint8_t* bin_string,uint32_t len)
 	  return IR_MSG_UPLOAD_ERROR;
 }
 
-IR_Status_t send_String(char* string)
+IR_Status_t IR_send_String(char* string)
 {
 	  uint32_t len = strlen(string);
 	  char* msg;
-	  if(send_AT_CMD("AT\r")== IR_OK)
+	  if(IR_send_AT_CMD("AT\r")== IR_OK)
 	  {
 		  msg = strtok((char*)(&RM_Buffer[2]),"\r");
 		  if(strcmp(msg,(char*)"OK") != 0)
@@ -752,8 +755,8 @@ IR_Status_t send_String(char* string)
 		  return IR_Ack_Error;
 	  }
 	  //analyse message
-	  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
-	  if( send_AT_CMD("AT&K0\r") == IR_OK)
+	  IR_Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+	  if( IR_send_AT_CMD("AT&K0\r") == IR_OK)
 	  {
 			msg = strtok((char*)(&RM_Buffer[2]),"\r");
 			if(strcmp(msg,(char*)"OK") != 0)
@@ -765,12 +768,12 @@ IR_Status_t send_String(char* string)
 	  {
 		return IR_CFG_Error;
 	  }
-		Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+		IR_Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
 		//create string with message
-	    memcpy(TX_Buffer,(const char*)"AT+SBDWT=",ASCII_MSG_BYTE_LEN);
-		memcpy(&TX_Buffer[ASCII_MSG_BYTE_LEN],string,len);
+	    memcpy(IR_TX_Buffer,(const char*)"AT+SBDWT=",ASCII_MSG_BYTE_LEN);
+		memcpy(&IR_TX_Buffer[ASCII_MSG_BYTE_LEN],string,len);
 		__HAL_TIM_SET_COMPARE(&htim3,TIM_CHANNEL_1,0xFFFFFFFF);
-		if(send_AT_CMD((char*)TX_Buffer) == IR_OK)
+		if(IR_send_AT_CMD((char*)IR_TX_Buffer) == IR_OK)
 		{
 			msg = strtok((char*)(&RM_Buffer[2]),"\r");
 			if(strcmp(msg,(char*)"OK") != 0)
@@ -781,10 +784,10 @@ IR_Status_t send_String(char* string)
 	  return IR_MSG_UPLOAD_OK;
 }
 
-IR_Status_t recieve_String(uint8_t* MSG_Buff,uint32_t MSG_BUFF_SIZE, uint16_t *num_messages)
+IR_Status_t IR_recieve_String(uint8_t* MSG_Buff,uint32_t MSG_BUFF_SIZE, uint16_t *num_messages)
 {
 	  char* msg;
-	  if(send_AT_CMD("AT\r")== IR_OK)
+	  if(IR_send_AT_CMD("AT\r")== IR_OK)
 	  {
 		  msg = strtok((char*)(&RM_Buffer[2]),"\r");
 		  if(strcmp(msg,(char*)"OK") != 0)
@@ -796,8 +799,8 @@ IR_Status_t recieve_String(uint8_t* MSG_Buff,uint32_t MSG_BUFF_SIZE, uint16_t *n
 		  return IR_Ack_Error;
 	  }
 	  //analyse message
-	  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
-	  if( send_AT_CMD("AT&K0\r") == IR_OK)
+	  IR_Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+	  if( IR_send_AT_CMD("AT&K0\r") == IR_OK)
 	  {
 			msg = strtok((char*)(&RM_Buffer[2]),"\r");
 			if(strcmp(msg,(char*)"OK") != 0)
@@ -809,9 +812,9 @@ IR_Status_t recieve_String(uint8_t* MSG_Buff,uint32_t MSG_BUFF_SIZE, uint16_t *n
 	  {
 		return IR_CFG_Error;
 	  }
-	  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+	  IR_Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
 	SBDX_Status_t sbd;
-	IR_Status_t flag = start_SBD_Session(&sbd);
+	IR_Status_t flag = IR_start_SBD_Session(&sbd);
 
 	if(flag != IR_OK)
 	{
@@ -829,9 +832,9 @@ IR_Status_t recieve_String(uint8_t* MSG_Buff,uint32_t MSG_BUFF_SIZE, uint16_t *n
 	}
 	// Download Message to your controller
 	*num_messages = sbd.MT_Queued;
-	Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
+	IR_Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
 	Session_Flag = SBDRT;
-	if(send_AT_CMD("AT+SBDRT\r") != IR_OK)
+	if(IR_send_AT_CMD("AT+SBDRT\r") != IR_OK)
 	{
 		return IR_SBDRT_Rx_Error;
 	}
@@ -864,31 +867,31 @@ void DMA_Iridium_Periph_IRQHandler(UART_HandleTypeDef *huart)
 		__HAL_TIM_CLEAR_FLAG(&htim3,TIM_FLAG_CC1);
 	}
 	//begin transfer of collected data to memory
-    uint8_t* ind = (uint8_t*)strchr((char*)RX_Buffer,'\r')+1;
-	int len = (ind - RX_Buffer)+1; // chope off the \0
-	msg_len = gnss_length -len-1;
+    uint8_t* ind = (uint8_t*)strchr((char*)IR_RX_Buffer,'\r')+1;
+	int len = (ind - IR_RX_Buffer)+1; // chope off the \0
+	msg_len = IR_length -len-1;
 	if(len > 0)
 	{
 	   	__HAL_DMA_ENABLE_IT(&hdma_memtomem_dma1_channel2,DMA_IT_TC);
-	   	HAL_DMA_Start(&hdma_memtomem_dma1_channel2,(uint32_t)(&RX_Buffer[len]),(uint32_t)RM_Buffer,msg_len);
+	   	HAL_DMA_Start(&hdma_memtomem_dma1_channel2,(uint32_t)(&IR_RX_Buffer[len]),(uint32_t)RM_Buffer,msg_len);
 	}
-	TIM_IDLE_Timeout = RESET;
+	IR_TIM_IDLE_Timeout = RESET;
 }
 
 void DMA_Iridium_MEM_IRQHandler(DMA_HandleTypeDef *hdma_mem)
 {
 	//clear the rx buffer
-	Clear_Buffer(RX_Buffer,RX_BUFFER_SIZE);
+	IR_Clear_Buffer(IR_RX_Buffer,RX_BUFFER_SIZE);
 	msg_len = strlen((char*)RM_Buffer);
 	//check message to see if valid
 	//valid messages follow the format "\r\nMSG_STRING\r\n"
 	if((RM_Buffer[0] == '\r') && (RM_Buffer[1] =='\n') &&(RM_Buffer[msg_len - 2] == '\r') && (RM_Buffer[msg_len -1] == '\n' ))
 	{
-		RX_Flag = SET;
+		IR_RX_Flag = SET;
 	}else
 	{
 		//invalid message returned
-		RX_Flag = -1;
+		IR_RX_Flag = -1;
 	}
 	__HAL_DMA_CLEAR_FLAG(hdma_mem,DMA_FLAG_TC2);
 	if(__HAL_DMA_GET_FLAG(hdma_mem,DMA_FLAG_HT2))
@@ -908,7 +911,7 @@ void USART_RTO_IRQHandler(TIM_HandleTypeDef *htim)
 		htim->Instance->CR1 &= ~TIM_CR1_CEN;
 
 			//set reciever timeout flag
-			TIM_IDLE_Timeout = 1;
+			IR_TIM_IDLE_Timeout = 1;
 			//disable timer
 			HAL_TIM_Base_Stop_IT(htim);
 			HAL_TIM_OC_Stop_IT(&htim3,TIM_CHANNEL_1);
@@ -924,7 +927,7 @@ void USART_RTO_IRQHandler(TIM_HandleTypeDef *htim)
 			Session_Flag = NONE;
 		}else
 		{
-			TIM_IDLE_Timeout = 1;
+			IR_TIM_IDLE_Timeout = 1;
 			HAL_TIM_Base_Stop_IT(htim);
 		}
 		__NOP();
@@ -940,32 +943,32 @@ void USART_Iridium_IRQHandler(UART_HandleTypeDef *huart)
 		temp = huart->Instance->RDR;
 		(void)temp;
 		//check for reciever timeout
-		if(TIM_IDLE_Timeout)
+		if(IR_TIM_IDLE_Timeout)
 		{
 			//check data counter
 			HAL_UART_DMAStop(huart);
-			gnss_length = (sizeof(RX_Buffer)/sizeof(RX_Buffer[0])) - __HAL_DMA_GET_COUNTER(huart->hdmarx);
-			if(gnss_length > 0)
+			IR_length = (sizeof(IR_RX_Buffer)/sizeof(IR_RX_Buffer[0])) - __HAL_DMA_GET_COUNTER(huart->hdmarx);
+			if(IR_length > 0)
 			{
 				// transfer incomplete, move transfered data to message buffer
 				uint8_t* ind;
 				int len;
 				if(Session_Flag == SBDWB)
 				{
-					ind = (uint8_t*)strchr((char*)RX_Buffer,'\r');
+					ind = (uint8_t*)strchr((char*)IR_RX_Buffer,'\r');
 					len = strlen((char*)ind);
 				}else if (Session_Flag == SBDRT)
 				{
-					ind = (uint8_t*)strchr((char*)RX_Buffer,'\r') + 1 ;
+					ind = (uint8_t*)strchr((char*)IR_RX_Buffer,'\r') + 1 ;
 					len = strlen((char*)ind);
 				}
 				else
 				{
-					if(strcmp((char*)RX_Buffer,"AT+SBDIX\r") != 0)
+					if(strcmp((char*)IR_RX_Buffer,"AT+SBDIX\r") != 0)
 					{
-						ind = (uint8_t*)strchr((char*)RX_Buffer,'\r')+1;
-						len = (ind - RX_Buffer) -1; // chope off the \0
-						msg_len = gnss_length -len-1;
+						ind = (uint8_t*)strchr((char*)IR_RX_Buffer,'\r')+1;
+						len = (ind - IR_RX_Buffer) -1; // chope off the \0
+						msg_len = IR_length -len-1;
 					}else
 					{
 						len = 0;
@@ -981,20 +984,20 @@ void USART_Iridium_IRQHandler(UART_HandleTypeDef *huart)
 			    		HAL_DMA_Start(&hdma_memtomem_dma1_channel2,(uint32_t)(ind),(uint32_t)RM_Buffer,len);
 			    	}else
 			    	{
-			    		HAL_DMA_Start(&hdma_memtomem_dma1_channel2,(uint32_t)(&RX_Buffer[len+1]),(uint32_t)RM_Buffer,msg_len);
+			    		HAL_DMA_Start(&hdma_memtomem_dma1_channel2,(uint32_t)(&IR_RX_Buffer[len+1]),(uint32_t)RM_Buffer,msg_len);
 			    	}
 			    }else
 			    {
-			    	RX_Flag = -1;
+			    	IR_RX_Flag = -1;
 			    }
 			    (void)ind;
 
 			}else
 			{
 				//reciever timeout
-				RX_Flag = -2;
+				IR_RX_Flag = -2;
 			}
-			TIM_IDLE_Timeout = 0;
+			IR_TIM_IDLE_Timeout = 0;
 			__HAL_UART_CLEAR_IDLEFLAG(huart);
 
 		}
