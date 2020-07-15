@@ -2,164 +2,89 @@
  * HAL_Iridium.c
  *
  *  Created on: Mar 28, 2020
- *      Author: jamie
+ *      Author: Jamie Jacobson
+ *      Student No: JCBJAM007
+ *      For: University of Cape Town
  */
+
+//============================= 1. Includes ==============================================
 
 #include "HAL_Iridium.h"
 
+
+//======================= 2. Function Prototypes ==================================
+
+/*
+ * Function Name void  Clear_Buffer(uint8_t *buffer,uint32_t size);
+ *
+ * @brief: deletes all data in a specified array
+ *
+ * @param: buffer - pointer to uint8_t array
+ *
+ * @param: size - size of array
+ *
+ * @return: void
+ */
+void  Clear_Buffer(uint8_t *buffer,uint32_t size);
+
+/*
+ * Function Name uint16_t calculate_checkSum(uint8_t* messagebuff, uint8_t size);
+ *
+ * @brief: calculates a pair of checksum bytes for an SBD Binary Message.
+ *
+ * @param: messagebuff - pointer to data array
+ *
+ * @param: size - number of bytes in message
+ *
+ * @return: uint16_t checksum bytes
+ */
+uint16_t calculate_checkSum(uint8_t* messagebuff, uint8_t size);
+
+/*
+ * Function Name static HAL_StatusTypeDef MX_GPIO_Init(void);
+ *
+ * @brief: Initialize GPIO Control Pins
+ *
+ * @param: void
+ *
+ * @return: HAL_StatusTypeDef - Hal return val showing status of initialization for error handling
+ */
 static HAL_StatusTypeDef MX_GPIO_Init(void);
+
+/*
+ * Function Name static HAL_StatusTypeDef MX_DMA_Init(void);
+ *
+ * @brief: Function to initialize DMA channel for memory to memory data streaming
+ *
+ * @param: void
+ *
+ * @return: HAL_StatusTypeDef - Hal return val showing status of initialization for error handling
+ */
 static HAL_StatusTypeDef MX_DMA_Init(void);
+
+/*
+ * Function Name static HAL_StatusTypeDef MX_UART5_Init(void);
+ *
+ * @brief: Initialize USART Communications on UART5
+ *
+ * @param: void
+ *
+ * @return: HAL_StatusTypeDef - Hal return val showing status of initialization for error handling
+ */
 static HAL_StatusTypeDef MX_UART5_Init(void);
-static HAL_StatusTypeDef MX_TIM2_Init(void);
 
-//------------------------------------------------------------------
-//					Peripheral Init Functions
-//------------------------------------------------------------------
+/*
+ * Function Name static HAL_StatusTypeDef MX_TIM3_Init(void);
+ *
+ * @brief: Initialize Slave Reset using External Trigger on TIM3
+ *
+ * @param: void
+ *
+ * @return: HAL_StatusTypeDef - Hal return val showing status of initialization for error handling
+ */
+static HAL_StatusTypeDef MX_TIM3_Init(void);
 
-static HAL_StatusTypeDef MX_TIM2_Init(void)
-{
-
-  /* USER CODE BEGIN TIM2_Init 0 */
-
-  /* USER CODE END TIM2_Init 0 */
-
-  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
-  TIM_SlaveConfigTypeDef sSlaveConfig = {0};
-  TIM_MasterConfigTypeDef sMasterConfig = {0};
-  TIM_OC_InitTypeDef sConfigOC = {0};
-  TIM_IC_InitTypeDef sConfigIC = {0};
-
-  /* USER CODE BEGIN TIM2_Init 1 */
-
-  /* USER CODE END TIM2_Init 1 */
-  htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 0;
-  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 65536;
-  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
-  {
-    return HAL_ERROR;
-  }
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
-  {
-	  return HAL_ERROR;
-  }
-  if (HAL_TIM_OC_Init(&htim2) != HAL_OK)
-  {
-	  return HAL_ERROR;
-  }
-  if (HAL_TIM_IC_Init(&htim2) != HAL_OK)
-  {
-	  return HAL_ERROR;
-  }
-  sSlaveConfig.SlaveMode = TIM_SLAVEMODE_RESET;
-  sSlaveConfig.InputTrigger = TIM_TS_TI2FP2;
-  sSlaveConfig.TriggerPolarity = TIM_INPUTCHANNELPOLARITY_RISING;
-  sSlaveConfig.TriggerFilter = 0;
-  if (HAL_TIM_SlaveConfigSynchronization(&htim2, &sSlaveConfig) != HAL_OK)
-  {
-	  return HAL_ERROR;
-  }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
-  {
-	  return HAL_ERROR;
-  }
-  sConfigOC.OCMode = TIM_OCMODE_TIMING;
-  sConfigOC.Pulse = 1152000;
-  sConfigOC.OCPolarity = TIM_OCPOLARITY_LOW;
-  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
-  if (HAL_TIM_OC_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
-  {
-	  return HAL_ERROR;
-  }
-  sConfigIC.ICPolarity = TIM_INPUTCHANNELPOLARITY_RISING;
-  sConfigIC.ICSelection = TIM_ICSELECTION_DIRECTTI;
-  sConfigIC.ICPrescaler = TIM_ICPSC_DIV1;
-  sConfigIC.ICFilter = 0;
-  if (HAL_TIM_IC_ConfigChannel(&htim2, &sConfigIC, TIM_CHANNEL_2) != HAL_OK)
-  {
-	  return HAL_ERROR;
-  }
-  /* USER CODE BEGIN TIM2_Init 2 */
-  __HAL_TIM_CLEAR_IT(&htim2,TIM_IT_UPDATE);
-  /* USER CODE END TIM2_Init 2 */
-  return HAL_OK;
-
-}
-
-/**
-* @brief TIM_Base MSP Initialization
-* This function configures the hardware resources used in this example
-* @param htim_base: TIM_Base handle pointer
-* @retval None
-*/
-void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* htim_base)
-{
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
-  if(htim_base->Instance==TIM2)
-  {
-  /* USER CODE BEGIN TIM2_MspInit 0 */
-
-  /* USER CODE END TIM2_MspInit 0 */
-    /* Peripheral clock enable */
-    __HAL_RCC_TIM2_CLK_ENABLE();
-
-    __HAL_RCC_GPIOA_CLK_ENABLE();
-    /**TIM2 GPIO Configuration
-    PA1     ------> TIM2_CH2
-    */
-    GPIO_InitStruct.Pin = GPIO_PIN_1;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-    GPIO_InitStruct.Alternate = GPIO_AF1_TIM2;
-    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-    /* TIM2 interrupt Init */
-    HAL_NVIC_SetPriority(TIM2_IRQn, 0, 0);
-    HAL_NVIC_EnableIRQ(TIM2_IRQn);
-  /* USER CODE BEGIN TIM2_MspInit 1 */
-
-  /* USER CODE END TIM2_MspInit 1 */
-  }
-
-}
-
-/**
-* @brief TIM_Base MSP De-Initialization
-* This function freeze the hardware resources used in this example
-* @param htim_base: TIM_Base handle pointer
-* @retval None
-*/
-
-void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* htim_base)
-{
-  if(htim_base->Instance==TIM2)
-  {
-  /* USER CODE BEGIN TIM2_MspDeInit 0 */
-
-  /* USER CODE END TIM2_MspDeInit 0 */
-    /* Peripheral clock disable */
-    __HAL_RCC_TIM2_CLK_DISABLE();
-
-    /**TIM2 GPIO Configuration
-    PA1     ------> TIM2_CH2
-    */
-    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_1);
-
-    /* TIM2 interrupt DeInit */
-    HAL_NVIC_DisableIRQ(TIM2_IRQn);
-  /* USER CODE BEGIN TIM2_MspDeInit 1 */
-
-  /* USER CODE END TIM2_MspDeInit 1 */
-  }
-
-}
+//======================= 3. Static Function Definition ==================================
 
 /**
   * @brief UART5 Initialization Function
@@ -196,111 +121,7 @@ static HAL_StatusTypeDef MX_UART5_Init(void)
   return HAL_OK;
 }
 
-/**
-* @brief UART MSP Initialization
-* This function configures the hardware resources used in this example
-* @param huart: UART handle pointer
-* @retval None
-*/
-void HAL_UART_MspInit(UART_HandleTypeDef* huart)
-{
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
-  if(huart->Instance==UART5)
-  {
-  /* USER CODE BEGIN UART5_MspInit 0 */
 
-  /* USER CODE END UART5_MspInit 0 */
-    /* Peripheral clock enable */
-    __HAL_RCC_UART5_CLK_ENABLE();
-
-    __HAL_RCC_GPIOC_CLK_ENABLE();
-    __HAL_RCC_GPIOD_CLK_ENABLE();
-    /**UART5 GPIO Configuration
-    PC12     ------> UART5_TX
-    PD2     ------> UART5_RX
-    */
-    GPIO_InitStruct.Pin = Iridium_TX_Pin;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-    GPIO_InitStruct.Alternate = GPIO_AF8_UART5;
-    HAL_GPIO_Init(Iridium_TX_GPIO_Port, &GPIO_InitStruct);
-
-    GPIO_InitStruct.Pin = Iridium_RX_Pin;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-    GPIO_InitStruct.Alternate = GPIO_AF8_UART5;
-    HAL_GPIO_Init(Iridium_RX_GPIO_Port, &GPIO_InitStruct);
-
-    /* UART5 DMA Init */
-    /* UART5_RX Init */
-    hdma_uart5_rx.Instance = DMA2_Channel2;
-    hdma_uart5_rx.Init.Request = DMA_REQUEST_2;
-    hdma_uart5_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
-    hdma_uart5_rx.Init.PeriphInc = DMA_PINC_DISABLE;
-    hdma_uart5_rx.Init.MemInc = DMA_MINC_ENABLE;
-    hdma_uart5_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
-    hdma_uart5_rx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
-    hdma_uart5_rx.Init.Mode = DMA_NORMAL;
-    hdma_uart5_rx.Init.Priority = DMA_PRIORITY_LOW;
-    if (HAL_DMA_Init(&hdma_uart5_rx) != HAL_OK)
-    {
-    	HAL_DMA_DeInit(&hdma_uart5_rx);
-    }else
-    {
-    	__HAL_LINKDMA(huart,hdmarx,hdma_uart5_rx);
-
-    	    /* UART5 interrupt Init */
-    	HAL_NVIC_SetPriority(UART5_IRQn, 0, 0);
-        HAL_NVIC_EnableIRQ(UART5_IRQn);
-        /* USER CODE BEGIN UART5_MspInit 1 */
-    	CLEAR_REG(huart->Instance->CR1);
-   		CLEAR_REG(huart->Instance->CR2);
-   		CLEAR_REG(huart->Instance->CR3);
-   	    HAL_NVIC_SetPriority(UART5_IRQn, 0, 0);
-   	    HAL_NVIC_EnableIRQ(UART5_IRQn);
-   	    /* USER CODE END UART5_MspInit 1 */
-    }
-  }
-
-}
-
-/**
-* @brief UART MSP De-Initialization
-* This function freeze the hardware resources used in this example
-* @param huart: UART handle pointer
-* @retval None
-*/
-void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
-{
-  if(huart->Instance==UART5)
-  {
-  /* USER CODE BEGIN UART5_MspDeInit 0 */
-
-  /* USER CODE END UART5_MspDeInit 0 */
-    /* Peripheral clock disable */
-    __HAL_RCC_UART5_CLK_DISABLE();
-
-    /**UART5 GPIO Configuration
-    PC12     ------> UART5_TX
-    PD2     ------> UART5_RX
-    */
-    HAL_GPIO_DeInit(Iridium_TX_GPIO_Port, Iridium_TX_Pin);
-
-    HAL_GPIO_DeInit(Iridium_RX_GPIO_Port, Iridium_RX_Pin);
-
-    /* UART5 DMA DeInit */
-    HAL_DMA_DeInit(huart->hdmarx);
-
-    /* UART5 interrupt DeInit */
-    HAL_NVIC_DisableIRQ(UART5_IRQn);
-  /* USER CODE BEGIN UART5_MspDeInit 1 */
-
-  /* USER CODE END UART5_MspDeInit 1 */
-  }
-
-}
 /**
   * Enable DMA controller clock
   * Configure DMA for memory to memory transfers
@@ -363,7 +184,7 @@ static HAL_StatusTypeDef MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA,IR_OnOff_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA,IR_OnOff_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pins : LD2_Pin IR_OnOff_Pin */
   GPIO_InitStruct.Pin =  IR_OnOff_Pin;
@@ -371,9 +192,12 @@ static HAL_StatusTypeDef MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  /* Disable Internal Pull Down Resistor*/
+  HAL_PWREx_DisableGPIOPullDown(IR_OnOff_PWR_GPIO_Port,IR_OnOff_Pin);
+  HAL_PWREx_DisablePullUpPullDownConfig();
 
   /*Configure GPIO pins : IR_RIng_Pin IR_NetAv_Pin */
-  GPIO_InitStruct.Pin = IR_RIng_Pin|IR_NetAv_Pin;
+  GPIO_InitStruct.Pin = IR_Ring_Pin|IR_NetAv_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -386,9 +210,225 @@ static HAL_StatusTypeDef MX_GPIO_Init(void)
 
 }
 
-//------------------------------------------------------------------
-//					Utility Functions
-//------------------------------------------------------------------
+/**
+  * @brief TIM3 Initialization Function
+  * @param None
+  * @retval None
+  */
+static HAL_StatusTypeDef MX_TIM3_Init(void)
+{
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_SlaveConfigTypeDef sSlaveConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+  TIM_OC_InitTypeDef sConfigOC = {0};
+
+  htim3.Instance = TIM3;
+  htim3.Init.Prescaler = 0;
+  htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim3.Init.Period = 65535;
+  htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
+  {
+    return HAL_ERROR;
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
+  {
+    return HAL_ERROR;
+  }
+  if (HAL_TIM_OC_Init(&htim3) != HAL_OK)
+  {
+    return HAL_ERROR;
+  }
+  sSlaveConfig.SlaveMode = TIM_SLAVEMODE_RESET;
+  sSlaveConfig.InputTrigger = TIM_TS_ETRF;
+  sSlaveConfig.TriggerPolarity = TIM_TRIGGERPOLARITY_NONINVERTED;
+  sSlaveConfig.TriggerPrescaler = TIM_TRIGGERPRESCALER_DIV1;
+  sSlaveConfig.TriggerFilter = 0;
+  if (HAL_TIM_SlaveConfigSynchro(&htim3, &sSlaveConfig) != HAL_OK)
+  {
+    return HAL_ERROR;
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+  {
+    return HAL_ERROR;
+  }
+  if (HAL_TIMEx_RemapConfig(&htim3, TIM_TIM3_ETR_COMP1) != HAL_OK)
+  {
+    return HAL_ERROR;
+  }
+  sConfigOC.OCMode = TIM_OCMODE_TIMING;
+  sConfigOC.Pulse = 11520;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_LOW;
+  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  if (HAL_TIM_OC_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+  {
+    return HAL_ERROR;
+  }
+  return HAL_OK;
+}
+
+//======================= 4. MSP Function Definition ==================================
+
+/* MSP FUNCTIONS:
+ *
+ *  Functions designed to replace the _weak MSP peripheral initialization
+ *  function definitions in the HAL Library files.
+ *
+ *  NB!!!! before running the code do the following:
+ *
+ *  1. Uncomment the desired MSP Function
+ *
+ *  2. Cut the function and paste it in the stm32l4xx_hal_msp.c file
+ *
+ *  3. In the stm32l4xx_hal_msp.c file, include the header "HAL_Iridium.h"
+ *
+ *  If an MSP function already exists, then instead of copying over the function
+ *  Select the if statement with the desired instance and copy that accross to
+ *  inside the Pre existing MSP function
+ */
+
+/**
+* @brief TIM_Base MSP Initialization
+* This function configures the hardware resources used in this example
+* @param htim_base: TIM_Base handle pointer
+* @retval None
+*/
+void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* htim_base)
+{
+  if(htim_base->Instance==TIM3)
+  {
+
+    /* Peripheral clock enable */
+    __HAL_RCC_TIM3_CLK_ENABLE();
+    /* TIM3 interrupt Init */
+    HAL_NVIC_SetPriority(TIM3_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(TIM3_IRQn);
+
+  }
+
+}
+
+/**
+* @brief TIM_Base MSP De-Initialization
+* This function freeze the hardware resources used in this example
+* @param htim_base: TIM_Base handle pointer
+* @retval None
+*/
+void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* htim_base)
+{
+  if(htim_base->Instance==TIM3)
+  {
+
+    /* Peripheral clock disable */
+    __HAL_RCC_TIM3_CLK_DISABLE();
+
+    /* TIM3 interrupt DeInit */
+    HAL_NVIC_DisableIRQ(TIM3_IRQn);
+
+  }
+
+}
+
+/**
+* @brief UART MSP Initialization
+* This function configures the hardware resources used in this example
+* @param huart: UART handle pointer
+* @retval None
+*/
+void HAL_UART_MspInit(UART_HandleTypeDef* huart)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+  if(huart->Instance==UART5)
+  {
+
+
+    /* Peripheral clock enable */
+    __HAL_RCC_UART5_CLK_ENABLE();
+
+    __HAL_RCC_GPIOC_CLK_ENABLE();
+    __HAL_RCC_GPIOD_CLK_ENABLE();
+    /**UART5 GPIO Configuration
+    PC12     ------> UART5_TX
+    PD2     ------> UART5_RX
+    */
+    GPIO_InitStruct.Pin = IR_TX_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+    GPIO_InitStruct.Alternate = GPIO_AF8_UART5;
+    HAL_GPIO_Init(IR_TX_GPIO_Port, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = IR_RX_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+    GPIO_InitStruct.Alternate = GPIO_AF8_UART5;
+    HAL_GPIO_Init(IR_RX_GPIO_Port, &GPIO_InitStruct);
+
+    /* UART5 DMA Init */
+    /* UART5_RX Init */
+    hdma_uart5_rx.Instance = DMA2_Channel2;
+    hdma_uart5_rx.Init.Request = DMA_REQUEST_2;
+    hdma_uart5_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
+    hdma_uart5_rx.Init.PeriphInc = DMA_PINC_DISABLE;
+    hdma_uart5_rx.Init.MemInc = DMA_MINC_ENABLE;
+    hdma_uart5_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
+    hdma_uart5_rx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
+    hdma_uart5_rx.Init.Mode = DMA_NORMAL;
+    hdma_uart5_rx.Init.Priority = DMA_PRIORITY_LOW;
+    if (HAL_DMA_Init(&hdma_uart5_rx) != HAL_OK)
+    {
+
+    }
+
+    __HAL_LINKDMA(huart,hdmarx,hdma_uart5_rx);
+
+    /* UART5 interrupt Init */
+    HAL_NVIC_SetPriority(UART5_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(UART5_IRQn);
+
+  }
+
+}
+
+/**
+* @brief UART MSP De-Initialization
+* This function freeze the hardware resources used in this example
+* @param huart: UART handle pointer
+* @retval None
+*/
+void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
+{
+  if(huart->Instance==UART5)
+  {
+
+    /* Peripheral clock disable */
+    __HAL_RCC_UART5_CLK_DISABLE();
+
+    /**UART5 GPIO Configuration
+    PC12     ------> UART5_TX
+    PD2     ------> UART5_RX
+    */
+    HAL_GPIO_DeInit(IR_TX_GPIO_Port, IR_TX_Pin);
+
+    HAL_GPIO_DeInit(IR_RX_GPIO_Port, IR_RX_Pin);
+
+    /* UART5 DMA DeInit */
+    HAL_DMA_DeInit(huart->hdmarx);
+
+    /* UART5 interrupt DeInit */
+    HAL_NVIC_DisableIRQ(UART5_IRQn);
+
+  }
+
+}
+
+//======================= 5. Utility Function Definition ==================================
 
 void  Clear_Buffer(uint8_t *buffer,uint32_t size)
 {
@@ -406,16 +446,13 @@ uint16_t calculate_checkSum(uint8_t* messagebuff, uint8_t size)
 	return (uint16_t)(sum & 0xFFFF);
 }
 
-//------------------------------------------------------------------
-//					Command Functions
-//------------------------------------------------------------------
-
+//======================= 6. Iridium Module Function Definition ==================================
 IR_Status_t IR_Init_Module(void)
 {
 	 if(MX_GPIO_Init() != HAL_OK){return IR_Pin_CFG_Error;}
 	 if(MX_DMA_Init()  != HAL_OK){return IR_Pin_CFG_Error;}
 	 if(MX_UART5_Init()!= HAL_OK){return IR_Pin_CFG_Error;}
-	 if(MX_TIM2_Init()!= HAL_OK){return IR_Pin_CFG_Error;}
+	 if(MX_TIM3_Init()!= HAL_OK){return IR_Pin_CFG_Error;}
 
 	  //send acknowledgement
 	 char* msg;
@@ -433,6 +470,53 @@ IR_Status_t IR_Init_Module(void)
 	 	  //analyse message
 	 	  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
 	 	  return IR_OK;
+}
+
+/*
+ * @brief: Deinitializes Peripherals and puts the modem to sleep
+ * @param: none
+ * @retval: none
+ *
+ * NB: Ensure that HAL_TIM_BASE_DeInit calls the user defined MSP DeInit otherwise the peripheral will not
+ * 	   be cleared
+ */
+IR_Status_t IR_DeInit_Module(void)
+{
+	/* Deinitialize TIMx Peripheral*/
+	if(htim3.Instance != IR_TIM_PORT)
+	{
+		htim3.Instance = IR_TIM_PORT;
+	}
+	HAL_TIM_Base_Stop_IT(&htim3);
+	if(HAL_TIM_Base_DeInit(&htim3) != HAL_OK)
+	{
+		return IR_CFG_Error;
+	}
+	/* Deinitialize UARTx Peripheral*/
+	if(huart5.Instance != UART5)
+	{
+		huart5.Instance = IR_USART_PORT;
+	}
+	if(HAL_UART_DeInit(&huart5) != HAL_OK)
+	{
+		return IR_CFG_Error;
+	}
+
+	/* Deinitialize DMA MEM Channel*/
+	if(hdma_memtomem_dma1_channel2.Instance != DMA1_Channel2)
+	{
+		hdma_memtomem_dma1_channel2.Instance = DMA1_Channel2;
+	}
+	if(HAL_DMA_DeInit(&hdma_memtomem_dma1_channel2) != HAL_OK)
+	{
+		return IR_CFG_Error;
+	}
+	//set On/Off Pin to low and enable pull down resistor
+	HAL_GPIO_WritePin(IR_OnOff_GPIO_Port,IR_OnOff_Pin,RESET);
+	HAL_PWREx_EnableGPIOPullDown(IR_OnOff_PWR_GPIO_Port,IR_OnOff_Pin);
+	HAL_PWREx_EnablePullUpPullDownConfig();
+
+	return IR_OK;
 }
 
 IR_Status_t get_Signal_Strength(uint8_t* signal_Strength)
@@ -464,7 +548,8 @@ IR_Status_t get_Signal_Strength(uint8_t* signal_Strength)
 		return IR_CFG_Error;
 	  }
 	  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
-	  Session_Flag = SBDIX;
+	  Session_Flag = CSQ;
+	  __HAL_TIM_ENABLE_IT(&htim3,TIM_IT_UPDATE);
 	  if(send_AT_CMD("AT+CSQ\r")!= IR_OK)
 	  {
 		  return IR_Data_Error;
@@ -477,13 +562,47 @@ IR_Status_t get_Signal_Strength(uint8_t* signal_Strength)
 	  }
 
 	  *signal_Strength = atoi(sig);
+	  Clear_Buffer(RM_Buffer,RM_BUFFER_SIZE);
 	  return IR_OK;
 }
+
+IR_Status_t send_AT_CMD(char* cmd)
+
+{
+	int size = strlen(cmd);
+	memcpy(TX_Buffer,cmd,size);
+	if(HAL_UART_Transmit(&huart5,TX_Buffer,size,100) != HAL_OK)
+	{
+		return IR_Tx_Error;
+	}
+	__HAL_DMA_ENABLE_IT(&hdma_uart5_rx,DMA_IT_TC);
+	if(__HAL_UART_GET_FLAG(&huart5,UART_FLAG_IDLE))
+	{
+		__HAL_UART_CLEAR_IDLEFLAG(&huart5);
+	}
+	__HAL_UART_ENABLE_IT(&huart5,UART_IT_IDLE);
+	HAL_UART_Receive_DMA(&huart5,RX_Buffer,RX_BUFFER_SIZE);
+	__HAL_TIM_ENABLE_IT(&htim3,TIM_IT_CC1);
+	HAL_TIM_OC_Start_IT(&htim3, TIM_CHANNEL_1);
+	HAL_TIM_Base_Start_IT(&htim3);
+	while(RX_Flag == RESET);
+	if(RX_Flag == -2)
+	{
+		return IR_Rx_Timeout;
+	}if(RX_Flag == -1)
+	{
+		return IR_Rx_Error;
+	}
+	RX_Flag = 0;
+	return IR_OK;
+}
+
+//======================= 7. Transmit/Recieve Function Definition ==================================
 
 IR_Status_t start_SBD_Session(SBDX_Status_t* sbd)
 {
 	//increase prescaler to lengthen timeout
-	htim2.Instance->PSC = 750;
+	htim3.Instance->PSC = 5;
 	Session_Flag = SBDIX;
 	char* cmd = "AT+SBDIX\r";
 	int size = strlen(cmd);
@@ -499,10 +618,10 @@ IR_Status_t start_SBD_Session(SBDX_Status_t* sbd)
 		}
 		__HAL_UART_ENABLE_IT(&huart5,UART_IT_IDLE);
 		HAL_UART_Receive_DMA(&huart5,RX_Buffer,RX_BUFFER_SIZE);
-		__HAL_TIM_DISABLE_IT(&htim2,TIM_IT_CC1);
-		__HAL_TIM_ENABLE_IT(&htim2,TIM_IT_UPDATE);
-		HAL_NVIC_ClearPendingIRQ(TIM2_IRQn);
-		__HAL_TIM_ENABLE(&htim2);
+		__HAL_TIM_DISABLE_IT(&htim3,TIM_IT_CC1);
+		__HAL_TIM_ENABLE_IT(&htim3,TIM_IT_UPDATE);
+		HAL_NVIC_ClearPendingIRQ(TIM3_IRQn);
+		__HAL_TIM_ENABLE(&htim3);
 		while(RX_Flag == RESET);
 		if(RX_Flag == -2)
 		{
@@ -534,7 +653,7 @@ IR_Status_t start_SBD_Session(SBDX_Status_t* sbd)
 		sbd->MT_length = temp_sbd[4];
 		sbd->MT_Queued = temp_sbd[5];
 		//reset prescaler
-		htim2.Instance->PSC = 1;
+		htim3.Instance->PSC = 0;
 		return IR_OK;
 
 }
@@ -650,7 +769,7 @@ IR_Status_t send_String(char* string)
 		//create string with message
 	    memcpy(TX_Buffer,(const char*)"AT+SBDWT=",ASCII_MSG_BYTE_LEN);
 		memcpy(&TX_Buffer[ASCII_MSG_BYTE_LEN],string,len);
-		__HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_1,0xFFFFFFFF);
+		__HAL_TIM_SET_COMPARE(&htim3,TIM_CHANNEL_1,0xFFFFFFFF);
 		if(send_AT_CMD((char*)TX_Buffer) == IR_OK)
 		{
 			msg = strtok((char*)(&RM_Buffer[2]),"\r");
@@ -727,20 +846,22 @@ IR_Status_t recieve_String(uint8_t* MSG_Buff,uint32_t MSG_BUFF_SIZE, uint16_t *n
  	return IR_OK;
 }
 
+//======================= 8. Handler Function Definition ==================================
+
 void DMA_Iridium_Periph_IRQHandler(UART_HandleTypeDef *huart)
 {
 
 	huart->hdmarx->DmaBaseAddress->IFCR |= (DMA_IFCR_CTCIF2|DMA_IFCR_CGIF2);
-	HAL_TIM_Base_Stop_IT(&htim2);
-	__HAL_TIM_CLEAR_IT(&htim2, TIM_IT_CC1|TIM_IT_UPDATE);
+	HAL_TIM_Base_Stop_IT(&htim3);
+	__HAL_TIM_CLEAR_IT(&htim3, TIM_IT_CC1|TIM_IT_UPDATE);
 
 	__HAL_UART_CLEAR_IDLEFLAG(&huart5);
 	__HAL_UART_DISABLE_IT(&huart5,UART_IT_IDLE);
-	__HAL_TIM_DISABLE_IT(&htim2,TIM_IT_CC1);
+	__HAL_TIM_DISABLE_IT(&htim3,TIM_IT_CC1);
 
-	if(__HAL_TIM_GET_FLAG(&htim2,TIM_FLAG_CC1))
+	if(__HAL_TIM_GET_FLAG(&htim3,TIM_FLAG_CC1))
 	{
-		__HAL_TIM_CLEAR_FLAG(&htim2,TIM_FLAG_CC1);
+		__HAL_TIM_CLEAR_FLAG(&htim3,TIM_FLAG_CC1);
 	}
 	//begin transfer of collected data to memory
     uint8_t* ind = (uint8_t*)strchr((char*)RX_Buffer,'\r')+1;
@@ -781,27 +902,30 @@ void USART_RTO_IRQHandler(TIM_HandleTypeDef *htim)
 	if(__HAL_TIM_GET_IT_SOURCE(htim,TIM_IT_CC1))
 	{
 		//clear interrupt
-		htim->Instance->CR1 &= ~TIM_CR1_CEN;
 		__HAL_TIM_CLEAR_IT(htim, TIM_IT_CC1|TIM_IT_UPDATE);
-		//set reciever timeout flag
-		TIM_IDLE_Timeout = 1;
-		//disable timer
-		HAL_TIM_Base_Stop_IT(htim);
-		HAL_TIM_OC_Stop_IT(&htim2,TIM_CHANNEL_1);
-		__HAL_TIM_SET_COUNTER(htim,0);
-		USART_Iridium_IRQHandler(&huart5);
+		if(Session_Flag != CSQ)
+		{
+		htim->Instance->CR1 &= ~TIM_CR1_CEN;
+
+			//set reciever timeout flag
+			TIM_IDLE_Timeout = 1;
+			//disable timer
+			HAL_TIM_Base_Stop_IT(htim);
+			HAL_TIM_OC_Stop_IT(&htim3,TIM_CHANNEL_1);
+			__HAL_TIM_SET_COUNTER(htim,0);
+		}
+
 	}
 	if(__HAL_TIM_GET_IT_SOURCE(htim,TIM_IT_UPDATE))
 	{
 		__HAL_TIM_CLEAR_IT(htim, TIM_IT_CC1|TIM_IT_UPDATE);
-		if(Session_Flag == SBDIX)
+		if(Session_Flag == SBDIX || Session_Flag ==CSQ)
 		{
 			Session_Flag = NONE;
 		}else
 		{
 			TIM_IDLE_Timeout = 1;
 			HAL_TIM_Base_Stop_IT(htim);
-			USART_Iridium_IRQHandler(&huart5);
 		}
 		__NOP();
 
@@ -872,7 +996,7 @@ void USART_Iridium_IRQHandler(UART_HandleTypeDef *huart)
 			}
 			TIM_IDLE_Timeout = 0;
 			__HAL_UART_CLEAR_IDLEFLAG(huart);
-			__HAL_UART_DISABLE_IT(huart,UART_IT_IDLE);
+
 		}
 		__HAL_UART_CLEAR_IDLEFLAG(huart);
 	}
@@ -905,9 +1029,9 @@ void USART_Iridium_IRQHandler(UART_HandleTypeDef *huart)
 
 void Iridium_ControlPin_IRQHandler(void)
 {
-	if(__HAL_GPIO_EXTI_GET_IT(IR_RIng_Pin))
+	if(__HAL_GPIO_EXTI_GET_IT(IR_Ring_Pin))
 	{
-		__HAL_GPIO_EXTI_CLEAR_IT(IR_RIng_Pin);
+		__HAL_GPIO_EXTI_CLEAR_IT(IR_Ring_Pin);
 		//download messages
 	}
 
@@ -918,36 +1042,6 @@ void Iridium_ControlPin_IRQHandler(void)
 	}
 }
 
-IR_Status_t send_AT_CMD(char* cmd)
-
-{
-	int size = strlen(cmd);
-	memcpy(TX_Buffer,cmd,size);
-	if(HAL_UART_Transmit(&huart5,TX_Buffer,size,100) != HAL_OK)
-	{
-		return IR_Tx_Error;
-	}
-	__HAL_DMA_ENABLE_IT(&hdma_uart5_rx,DMA_IT_TC);
-	if(__HAL_UART_GET_FLAG(&huart5,UART_FLAG_IDLE))
-	{
-		__HAL_UART_CLEAR_IDLEFLAG(&huart5);
-	}
-	__HAL_UART_ENABLE_IT(&huart5,UART_IT_IDLE);
-	HAL_UART_Receive_DMA(&huart5,RX_Buffer,RX_BUFFER_SIZE);
-	__HAL_TIM_ENABLE_IT(&htim2,TIM_IT_CC1);
-	HAL_TIM_OC_Start_IT(&htim2, TIM_CHANNEL_1);
-	HAL_TIM_Base_Start_IT(&htim2);
-	while(RX_Flag == RESET);
-	if(RX_Flag == -2)
-	{
-		return IR_Rx_Timeout;
-	}if(RX_Flag == -1)
-	{
-		return IR_Rx_Error;
-	}
-	RX_Flag = 0;
-	return IR_OK;
-}
 
 //------------------------------ MOVE TO stn32l4xx_it.c --------------------------------//
 
@@ -969,15 +1063,11 @@ IR_Status_t send_AT_CMD(char* cmd)
 ///**
 //  * @brief This function handles TIM2 global interrupt.
 //  */
-//void TIM2_IRQHandler(void)
+//void TIM3_IRQHandler(void)
 //{
 //  /* USER CODE BEGIN TIM2_IRQn 0 */
-//	USART_RTO_IRQHandler(&htim2);
-//  /* USER CODE END TIM2_IRQn 0 */
-//  HAL_TIM_IRQHandler(&htim2);
-//  /* USER CODE BEGIN TIM2_IRQn 1 */
-//
-//  /* USER CODE END TIM2_IRQn 1 */
+//	USART_RTO_IRQHandler(&htim3);
+//  HAL_TIM_IRQHandler(&htim3);
 //}
 //
 ///**
@@ -985,13 +1075,9 @@ IR_Status_t send_AT_CMD(char* cmd)
 //  */
 //void EXTI15_10_IRQHandler(void)
 //{
-//  /* USER CODE BEGIN EXTI15_10_IRQn 0 */
-//
-//  /* USER CODE END EXTI15_10_IRQn 0 */
+
 //  Iridium_ControlPin_IRQHandler();
-//  /* USER CODE BEGIN EXTI15_10_IRQn 1 */
-//
-//  /* USER CODE END EXTI15_10_IRQn 1 */
+
 //}
 //
 ///**
@@ -1001,10 +1087,6 @@ IR_Status_t send_AT_CMD(char* cmd)
 //{
 //  /* USER CODE BEGIN UART5_IRQn 0 */
 //  USART_Iridium_IRQHandler(&huart5);
-//  /* USER CODE END UART5_IRQn 0 */
-//  /* USER CODE BEGIN UART5_IRQn 1 */
-//
-//  /* USER CODE END UART5_IRQn 1 */
 //}
 //
 ///**
