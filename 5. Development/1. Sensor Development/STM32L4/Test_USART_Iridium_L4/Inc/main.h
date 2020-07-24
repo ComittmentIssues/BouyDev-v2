@@ -60,22 +60,12 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define LD2_Pin GPIO_PIN_5
 #define LD2_GPIO_Port GPIOA
-#define IR_OnOff_Pin GPIO_PIN_10
-#define IR_OnOff_GPIO_Port GPIOA
-#define IR_RIng_Pin GPIO_PIN_11
-#define IR_RIng_GPIO_Port GPIOA
-#define IR_RIng_EXTI_IRQn EXTI15_10_IRQn
-#define IR_NetAv_Pin GPIO_PIN_12
-#define IR_NetAv_GPIO_Port GPIOA
-#define IR_NetAv_EXTI_IRQn EXTI15_10_IRQn
+
 #define TMS_Pin GPIO_PIN_13
 #define TMS_GPIO_Port GPIOA
 #define TCK_Pin GPIO_PIN_14
 #define TCK_GPIO_Port GPIOA
-#define Iridium_TX_Pin GPIO_PIN_12
-#define Iridium_TX_GPIO_Port GPIOC
-#define Iridium_RX_Pin GPIO_PIN_2
-#define Iridium_RX_GPIO_Port GPIOD
+
 #define SWO_Pin GPIO_PIN_3
 #define SWO_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */

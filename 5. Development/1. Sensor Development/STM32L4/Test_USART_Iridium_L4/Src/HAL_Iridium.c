@@ -172,30 +172,33 @@ static HAL_StatusTypeDef MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
 
+  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
-
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA,IR_OnOff_Pin, GPIO_PIN_SET);
 
-  /*Configure GPIO pins : LD2_Pin IR_OnOff_Pin */
+
+  /*Configure GPIO pins : IR_OnOff_Pin */
   GPIO_InitStruct.Pin =  IR_OnOff_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  HAL_GPIO_Init(IR_OnOff_GPIO_Port, &GPIO_InitStruct);
   /* Disable Internal Pull Down Resistor*/
-  HAL_PWREx_DisableGPIOPullDown(IR_OnOff_PWR_GPIO_Port,IR_OnOff_Pin);
-  HAL_PWREx_DisablePullUpPullDownConfig();
+
 
   /*Configure GPIO pins : IR_RIng_Pin IR_NetAv_Pin */
-  GPIO_InitStruct.Pin = IR_Ring_Pin|IR_NetAv_Pin;
+  GPIO_InitStruct.Pin = IR_Ring_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  HAL_GPIO_Init(IR_Ring_GPIO_Port, &GPIO_InitStruct);
+  GPIO_InitStruct.Pin = IR_NetAv_Pin;
+  HAL_GPIO_Init(IR_NetAv_GPIO_Port, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
-  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+
+  HAL_NVIC_SetPriority(IR_NetAv_EXTI_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(IR_NetAv_EXTI_IRQn);
+
 
   return HAL_OK;
 
@@ -449,6 +452,7 @@ uint16_t IR_Calculate_Checksum(uint8_t* messagebuff, uint8_t size)
 IR_Status_t IR_Init_Module(void)
 {
 	 if(MX_GPIO_Init() != HAL_OK){return IR_Pin_CFG_Error;}
+	 HAL_GPIO_WritePin(IR_OnOff_GPIO_Port,IR_OnOff_Pin,SET);
 	 if(MX_DMA_Init()  != HAL_OK){return IR_Pin_CFG_Error;}
 	 if(MX_UART5_Init()!= HAL_OK){return IR_Pin_CFG_Error;}
 	 if(MX_TIM3_Init()!= HAL_OK){return IR_Pin_CFG_Error;}
