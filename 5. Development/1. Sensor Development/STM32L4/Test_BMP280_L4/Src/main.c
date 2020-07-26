@@ -47,6 +47,7 @@ UART_HandleTypeDef huart2;
 
 static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
+void SystemClock_Config(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -101,8 +102,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
  	uint32_t temp,press,P;
  	int32_t T ,t_fine;
-  while (1)
-  {
+
 	  char buff[100] ="";
 	  //wait for device to finish converting
 	  BMP280_Get_Status(&bmp);
@@ -125,10 +125,16 @@ int main(void)
 	  {
 		  HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
 	  }
+	  // DeInit
+	  if(BMP280_DeInit() == BMP_OK)
+	  {
+		  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
+	  }
     /* USER CODE END WHILE */
-
+	  while (1)
+	  {
     /* USER CODE BEGIN 3 */
-  }
+	  }
   /* USER CODE END 3 */
 }
 

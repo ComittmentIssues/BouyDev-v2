@@ -14,15 +14,8 @@ static void Init_Control_Pins(void);
 static HAL_StatusTypeDef MX_SPI1_Init(void)
 {
 
-  /* USER CODE BEGIN SPI1_Init 0 */
-
-  /* USER CODE END SPI1_Init 0 */
-
-  /* USER CODE BEGIN SPI1_Init 1 */
-
-  /* USER CODE END SPI1_Init 1 */
   /* SPI1 parameter configuration*/
-  hspi1.Instance = SPI1;
+  hspi1.Instance = BMP_SPI_PORT;
   hspi1.Init.Mode = SPI_MODE_MASTER;
   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
   hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
@@ -46,6 +39,58 @@ static HAL_StatusTypeDef MX_SPI1_Init(void)
   return HAL_OK;
 }
 
+/**
+* @brief SPI MSP Initialization
+* This function configures the hardware resources used in this example
+* @param hspi: SPI handle pointer
+* @retval None
+*/
+void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+  if(hspi->Instance==SPI1)
+  {
+    /* Peripheral clock enable */
+    __HAL_RCC_SPI1_CLK_ENABLE();
+    __HAL_RCC_GPIOB_CLK_ENABLE();
+    /**SPI1 GPIO Configuration
+    PB3 (JTDO-TRACESWO)     ------> SPI1_SCK
+    PB4 (NJTRST)     ------> SPI1_MISO
+    PB5     ------> SPI1_MOSI
+    */
+    GPIO_InitStruct.Pin = BMP_SPI_SCLK_PIN|BMP_SPI_MISO_PIN| BMP_SPI_MOSI_PIN;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+    GPIO_InitStruct.Alternate = GPIO_AF5_SPI1;
+    HAL_GPIO_Init(BMP_SPI_GPIO_PORT, &GPIO_InitStruct);
+  }
+
+}
+
+/**
+* @brief SPI MSP De-Initialization
+* This function freeze the hardware resources used in this example
+* @param hspi: SPI handle pointer
+* @retval None
+*/
+void HAL_SPI_MspDeInit(SPI_HandleTypeDef* hspi)
+{
+  if(hspi->Instance==SPI1)
+  {
+    /* Peripheral clock disable */
+    __HAL_RCC_SPI1_CLK_DISABLE();
+
+    /**SPI1 GPIO Configuration
+    PB3 (JTDO-TRACESWO)     ------> SPI1_SCK
+    PB4 (NJTRST)     ------> SPI1_MISO
+    PB5     ------> SPI1_MOSI
+    */
+    HAL_GPIO_DeInit(BMP_SPI_GPIO_PORT,BMP_SPI_SCLK_PIN|BMP_SPI_MISO_PIN| BMP_SPI_MOSI_PIN);
+
+  }
+
+}
 
 /**
   * @brief GPIO Initialization Function
@@ -71,15 +116,6 @@ static void Init_Control_Pins(void)
   HAL_GPIO_Init(SPI_CS_GPIO_Port, &GPIO_InitStruct);
 
 }
-
-/* USER CODE BEGIN 4 */
-
-/* USER CODE END 4 */
-
-/**
-  * @brief  This function is executed in case of error occurrence.
-  * @retval None
-  */
 
 /*
  * @brief: Function to Read data from an 8bit register in the BMP280. Setting the size variable to
@@ -225,7 +261,7 @@ BMPStatus_t BMP280_Read_Register(uint8_t reg,int32_t size, uint8_t* data)
 	  return BMP_OK;
 }
 
-BMPStatus_t BMP280_Get_ID(SPI_HandleTypeDef *hspi, uint8_t* dev_id)
+BMPStatus_t BMP280_Get_ID(uint8_t* dev_id)
 {
 	 return BMP280_Read_Register(id,1,dev_id);
 
@@ -278,6 +314,7 @@ BMPStatus_t BMP280_Get_Measurements(uint32_t* adc_Temp,uint32_t* adc_Press)
 	//convert to 20 bit unsigned integers
 	return BMP_OK;
 }
+
 /*
  * @brief: function to read the 3 temperature registers and combine the data into a 20bit long signed integer.
  * 		   Temp is stored as 3 unsigned integers 8 bits long in registers 0xFA - 0xFB on the BMP280 Sensor. Data
@@ -354,10 +391,11 @@ uint32_t BMP280_Compensate_Pressure(uint32_t P_val,int32_t t_fine,BMP280_trim_t 
 	P = ((P + var1 + var2) >> 8) + (((int64_t)(bmp_trim.dig_P7))<<4);
 	return (uint32_t)P;
 }
+
 /*
  * @brief: Initialises the sensor handler and performs power on/ begining procedure.
  * 		   After this, the device is configured to user defined settings which are
- * 		   then written to the registers. Note: A BMP_INit_Typedef struct must be initialised
+ * 		   then written to the registers. Note: A BMP_Init_Typedef struct must be initialised
  * 		   and set before this function is called. THis can be done individually or by using the functions
  * 		   BMP280_Init_Preset_Mode(), BMP280_Init_Custom()
  * @param: BMP_InitStruct - struct containing the configuration values for initialising the sensor
@@ -379,7 +417,7 @@ BMPStatus_t BMP280_Init(BMP_Init_Typedef * BMP_InitStruct)
 #endif
 	//read device id to ensure device is online and functioning
 		uint8_t dev_id = 0;
-		uint8_t flag = BMP280_Get_ID(bmp.bmp_spi,&dev_id);
+		uint8_t flag = BMP280_Get_ID(&dev_id);
 		if( flag!= BMP_OK)
 		{
 			return flag;
@@ -421,6 +459,31 @@ BMPStatus_t BMP280_Init(BMP_Init_Typedef * BMP_InitStruct)
 		return BMP_OK;
 }
 
+BMPStatus_t BMP280_DeInit(void)
+{
+	//set device to sleep
+	if(BMP280_Set_PowerMode(BMP280_CTRLMEAS_MODE_SLEEP) != BMP_OK)
+	{
+		return BMP_POWER_CONFIG_ERROR;
+	}
+
+	//de init SPI peripheral
+	if(HAL_SPI_DeInit(bmp.bmp_spi) != HAL_OK)
+	{
+		return BMP_Config_Error;
+	}
+	//detach instance
+	bmp.bmp_spi = NULL;
+
+	//set control pin to low power mode (analog, no pull)
+	GPIO_InitTypeDef GPIO_Initstruct;
+	GPIO_Initstruct.Pin = SPI_CS_Pin;
+	GPIO_Initstruct.Mode = GPIO_MODE_ANALOG;
+	GPIO_Initstruct.Pull = GPIO_NOPULL;
+	HAL_GPIO_Init(SPI_CS_GPIO_Port,&GPIO_Initstruct);
+
+	return BMP_OK;
+}
 void BMP280_Init_Preset_Mode(BMP_Opp_Mode_t BMP_MODE, BMP_Init_Typedef* BMP_InitStruct)
 {
 	switch(BMP_MODE)
@@ -452,7 +515,7 @@ void BMP280_Init_Preset_Mode(BMP_Opp_Mode_t BMP_MODE, BMP_Init_Typedef* BMP_Init
 	}
 }
 
-void BMP280_Init_Custom(BMP_Opp_Mode_t BMP_MODE, BMP_Init_Typedef* BMP_InitStruct, uint8_t mode, uint8_t osrsp, uint8_t osrst,uint8_t ifcoef, uint8_t t_stdby)
+void BMP280_Init_Custom(BMP_Init_Typedef* BMP_InitStruct, uint8_t mode, uint8_t osrsp, uint8_t osrst,uint8_t ifcoef, uint8_t t_stdby)
 {
 	BMP_InitStruct->BMP_Power_Mode = mode;
 	BMP_InitStruct->BMP_Pressure_OverSample = osrsp;
