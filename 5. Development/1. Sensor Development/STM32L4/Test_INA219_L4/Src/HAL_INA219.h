@@ -256,17 +256,184 @@ typedef struct
 
 INA219_Handle_Typedef ina;		//instance of INA219_Handle Typedef
 
-/* Private function prototypes -----------------------------------------------*/
+//=================== 5. Init Function Prototypes =======================================
+
+/*
+ * Function Name INA_Status_t INA219_Init_Sensor(void);
+ *
+ * @brief: Preset Initialization function - initialises I2C communications on
+ * 		   I2C2 and configures the device with the following parameters:
+ *
+ * 		   Bus Voltage Range: 16V
+ * 		   PGA /4
+ * 		   ADC Resolution 12-bit
+ * 		   Power Mode: Bus and Shunt Trigger Mode
+ *
+ * @param none
+ *
+ * @return INA_Status_t - return status of function
+ */
+INA_Status_t INA219_Init_Sensor(void);
+
+/*
+ * Function Name INA_Status_t INA219_Begin(void);
+ *
+ * @brief: Function to initialize i2c Communications and begin interfacing with the sensor object
+ *
+ * 		   Function will assign an i2c handler to the ina handler based on the macro USE_I2C_1
+ * 		   It will then check if the sensor is online and read the configuration register.
+ * 		   The INA config register defaults to 0x399F on power up or reset
+ *		   If the device has been configured, the register will return a different value
+ * 		   The USE_Config member of the struct INA will be updated based on whether the
+ * 		   Received config value matches that of the default config value (note: this should)
+ * 		   only happen if the device has been unconfigured or a power reset has occurred
+ * @param none
+ *
+ * @return INA_Status_t value showing the status of the function
+ */
 INA_Status_t INA219_Begin(void);
-INA_Status_t INA219_Get_Reg_Config(INA219_Handle_Typedef* hina);
-INA_Status_t INA219_Reset(void);
-INA_Status_t INA219_Set_Power_Mode(uint16_t PWR_MODE);
-INA_Status_t INA219_Set_Reg_Config(INA219_Handle_Typedef *hina);
-INA_Status_t INA219_Get_Shunt_Voltage(int16_t *Shunt_Voltage);
-INA_Status_t INA219_Get_Bus_Voltage(int16_t *Bus_Voltage);
-INA_Status_t INA219_Get_Current(int16_t *current);
-INA_Status_t INA219_Get_Power(int16_t *power);
+
+//=================== 6. Calib Function Prototypes =======================================
+
+/*
+ * Function Name INA_Status_t INA219_Calibrate_32V_2A(float *I_MBO, float *V_MBO, float *P_Max);
+ *
+ * @brief: Calibrates device for 32V 2A max operation
+ *
+ * @param I_MBO pointer to float to hold the result of the I_Max before overflow calculation
+ * @param V_MBO pointer to float to hold the result of the V_Max before overflow calculation
+ * @param P_max pointer to float to hold the result of the max power calculation
+ *
+ * @return INA_Status_t value showing the status of the function
+ */
 INA_Status_t INA219_Calibrate_32V_2A(float *I_MBO, float *V_MBO, float *P_Max);
+
+/*
+ * Function Name INA_Status_t INA219_Calibrate_32V_2A(float *I_MBO, float *V_MBO, float *P_Max);
+ *
+ * @brief: Calibrates device for 16V 1 - 2A max operation
+ *
+ * @param I_MBO pointer to float to hold the result of the I_Max before overflow calculation
+ * @param V_MBO pointer to float to hold the result of the V_Max before overflow calculation
+ * @param P_max pointer to float to hold the result of the max power calculation
+ *
+ * @return INA_Status_t value showing the status of the function
+ */
 INA_Status_t INA219_Calibrate_16V_1_2A(float *I_MBO, float *V_MBO, float *P_Max);
+
+//================= 7. Register Function Prototypes ======================================
+
+/*
+ * Function Name INA_Status_t INA219_Reset(void);
+ *
+ * @brief: Performs a software reset on the sensor
+ *
+ * @param none
+ *
+ * @return INA_Status_t value showing the status of the function
+ */
+INA_Status_t INA219_Reset(void);
+
+/*
+ * Function Name INA_Status_t INA219_Get_Reg_Config(INA219_Handle_Typedef* hina);
+ *
+ * @brief: Reads the value in the 16-bit config register
+ *
+ * @param hina - pointer to INA219_Handle_Typedef instance
+ *
+ * @return INA_Status_t value showing the status of the function
+ */
+INA_Status_t INA219_Get_Reg_Config(INA219_Handle_Typedef* hina);
+
+/*
+ * Function Name INA_Status_t INA219_Set_Power_Mode(uint16_t PWR_MODE);
+ *
+ * @brief: Sets the power mode in the Config Register
+ *
+ * @param PWR_MODE - desired opperational mode (as defined in the macros above)
+ *
+ * @return INA_Status_t value showing the status of the function
+ */
+INA_Status_t INA219_Set_Power_Mode(uint16_t PWR_MODE);
+
+/*
+ * Function Name INA_Status_t INA219_Set_Reg_Config(INA219_Handle_Typedef *hina);
+ *
+ * @brief: Writes a 16 bit integer representing the desired configuration settings
+ * 		   to the INA config register
+ *
+ * @param: hina - pointer to INA219_Handle_Typedef instance
+ *
+ * @return INA_Status_t value showing the status of the function
+ */
+INA_Status_t INA219_Set_Reg_Config(INA219_Handle_Typedef *hina);
+
+//================ 8. Measurement Function Prototypes ====================================
+
+/*
+ * @brief: Triggers a single shot ADC conversion of voltage values. The conversions
+ * 		   performed depend on the ones specified by the user
+ *
+ * @param: val - a number between 0 and 2 which enables conversions for the device.
+ * 				 0 - Shunt Voltage conversion only
+ * 				 1 - Bus Voltage conversion only
+ * 				 2 - both shunt and bus conversion
+ *
+ * @return: INA_Status_t - return value showing the status of the function
+ */
 INA_Status_t INA219_Trigger_Conversion(uint8_t val);
+
+/*
+ * Function Name INA_Status_t INA219_Get_Shunt_Voltage(int16_t *Shunt_Voltage);
+ *
+ * @brief: Reads the ADC value from the Shunt Register and converts it into a
+ * 		   shunt voltage based on the PGA setting
+ *
+ * @Param: Shunt_Voltage - pointer to int16_t variable to hold the value
+ *
+ * @return: INA_Status_t - return value showing the status of the function
+ *
+ */
+INA_Status_t INA219_Get_Shunt_Voltage(int16_t *Shunt_Voltage);
+
+/*
+ * Function Name INA_Status_t INA219_Get_Bus_Voltage(int16_t *Bus_Voltage);
+ *
+ * @brief: Reads the ADC value from the Bus Register and converts it into a
+ * 		   bus voltage.
+ *
+ * @Param: Bus_Voltage - pointer to int16_t variable to hold the value
+ *
+ * @return: INA_Status_t - return value showing the status of the function
+ *
+ */
+INA_Status_t INA219_Get_Bus_Voltage(int16_t *Bus_Voltage);
+
+/*
+ * Function Name INA_Status_t INA219_Get_Current(int16_t *current);
+ *
+ * @brief: Reads the ADC value from the Current Register and converts it into a
+ * 		   current value.
+ *
+ * @Param: current - pointer to int16_t variable to hold the value
+ *
+ * @return: INA_Status_t - return value showing the status of the function
+ *
+ */
+INA_Status_t INA219_Get_Current(int16_t *current);
+
+/*
+ * Function Name INA_Status_t INA219_Get_Power(int16_t *power);
+ *
+ * @brief: Reads the ADC value from the Power Register and converts it into a
+ * 		   Power value in Watts
+ *
+ * @Param: power - pointer to int16_t variable to hold the value
+ *
+ * @return: INA_Status_t - return value showing the status of the function
+ *
+ */
+INA_Status_t INA219_Get_Power(int16_t *power);
+
+
 #endif /* HAL_INA219_H_ */

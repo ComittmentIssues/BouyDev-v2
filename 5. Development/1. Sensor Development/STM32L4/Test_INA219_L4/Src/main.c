@@ -54,7 +54,7 @@ UART_HandleTypeDef huart2;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static HAL_StatusTypeDef MX_I2C2_Init(void);
+
 static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
@@ -62,26 +62,7 @@ static void MX_USART2_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 
-INA_Status_t INA219_Init_Sensor(void)
-{
-	  // initialise I2C peripheral
-	  MX_I2C2_Init();
-	  if(INA219_Begin() == INA_DEVICE_READY)
-	  {
-		  float I,V,P;
-		  // perform soft reset of device
-		  INA219_Reset();
-		  //configure the register
-		  INA219_Set_Reg_Config(&ina);
-		  //calibrate current and power reading
-		  INA219_Calibrate_16V_1_2A(&I,&V,&P);
-		  //enable power mode
-		  INA219_Set_Power_Mode(INA219_CONFIG_MODE_ADC_DIS);
-		  return INA_OK;
-	  }
-	  HAL_I2C_DeInit(&ina.ina_i2c);
-	  return INA_INIT_ERROR;
-}
+
 /* USER CODE END 0 */
 
 /**
@@ -209,51 +190,7 @@ void SystemClock_Config(void)
   }
 }
 
-/**
-  * @brief I2C2 Initialization Function
-  * @param None
-  * @retval None
-  */
-static HAL_StatusTypeDef MX_I2C2_Init(void)
-{
 
-  /* USER CODE BEGIN I2C2_Init 0 */
-
-  /* USER CODE END I2C2_Init 0 */
-
-  /* USER CODE BEGIN I2C2_Init 1 */
-
-  /* USER CODE END I2C2_Init 1 */
-  hi2c2.Instance = INA_I2C_Perpheral;
-  hi2c2.Init.Timing = 0x00200C28;
-  hi2c2.Init.OwnAddress1 = 0;
-  hi2c2.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
-  hi2c2.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
-  hi2c2.Init.OwnAddress2 = 0;
-  hi2c2.Init.OwnAddress2Masks = I2C_OA2_NOMASK;
-  hi2c2.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
-  hi2c2.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
-  if (HAL_I2C_Init(&hi2c2) != HAL_OK)
-  {
-    return HAL_ERROR;
-  }
-  /** Configure Analogue filter 
-  */
-  if (HAL_I2CEx_ConfigAnalogFilter(&hi2c2, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
-  {
-    return HAL_ERROR;
-  }
-  /** Configure Digital filter 
-  */
-  if (HAL_I2CEx_ConfigDigitalFilter(&hi2c2, 0) != HAL_OK)
-  {
-    return HAL_ERROR;
-  }
-  /* USER CODE BEGIN I2C2_Init 2 */
-  return HAL_OK;
-  /* USER CODE END I2C2_Init 2 */
-
-}
 
 /**
   * @brief USART2 Initialization Function
