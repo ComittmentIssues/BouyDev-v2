@@ -119,20 +119,7 @@ typedef enum
 
 } BMPRegisterMap_t;
 
-/*
- * BMP_Opp_Mode_t
- *
- * Enumeration of preset modes described in Table 15. Page 19 of the reference manual. By using one of these
- * values in the function BMP280_Init_Preset_Mode(BMP_Opp_Mode_t BMP_MODE, BMP_Init_Typedef* BMP_InitStruct).
- * Settting the value of BMP_MODE automatically configures BMP_InitStruct with the settings that allow the device
- * to opperate in that mode
- *
- * 	MODE NAME:...................MODE:............Standby Time:......OSRSP:......OSRST:.......IIRC:
- * 	HandHeld_LP..................NORMAL...........62.5ms.............16..........2............4
- * 	HandHeld_Dynamic.............NORMAL...........0.5ms..............4...........1............16
- * 	WEATHER_Monitoring...........FORCED...........X..................1...........1............OFF
- *
- */
+
 
 typedef enum
 {
@@ -153,6 +140,20 @@ typedef enum
 
 }BMPStatus_t;
 
+/*
+ * BMP_Opp_Mode_t
+ *
+ * Enumeration of preset modes described in Table 15. Page 19 of the reference manual. By using one of these
+ * values in the function BMP280_Init_Preset_Mode(BMP_Opp_Mode_t BMP_MODE, BMP_Init_Typedef* BMP_InitStruct).
+ * Settting the value of BMP_MODE automatically configures BMP_InitStruct with the settings that allow the device
+ * to opperate in that mode
+ *
+ * 	MODE NAME:...................MODE:............Standby Time:......OSRSP:......OSRST:.......IIRC:
+ * 	HandHeld_LP..................NORMAL...........62.5ms.............16..........2............4
+ * 	HandHeld_Dynamic.............NORMAL...........0.5ms..............4...........1............16
+ * 	WEATHER_Monitoring...........FORCED...........X..................1...........1............OFF
+ *
+ */
 typedef enum
 {
 	HandHeld_LP,

@@ -2,7 +2,38 @@
  * HAL_INA219.h
  *
  *  Created on: May 2, 2020
- *      Author: jamie
+ *      Author: Jamie Nicholas Jacobson
+ *      Student Number: JCBJAM007
+ *      For: The University of Cape Town
+ *========================================================================================================
+ *
+ * All functions and definitions in this library have been programmed in accordance with the
+ * INA219 datasheet here: https://www.ti.com/lit/ds/symlink/ina219.pdf?ts=1595920418905&ref_url=https%253A%252F%252Fwww.google.com%252F
+ *
+ * This Library is designed to interface with the Texas Instruments INA219 I2C Digital Power Monitor
+ * using the STM HAL Libraries. This library was originally written using HAL version 1.14
+ * and has been modified for use with HAL version 1.15.1 as of 24/07/2020.
+ *
+ * An important part of the SHARC Buoy deployment scheme is battery monitoring. It is important that
+ * the device be able to run off of a limited power supply for a long period of time. In order to gauge
+ * the performance of the buoy, the battery voltage and input current variation over time must be recorded
+ *
+ * The INA 219 Is an extremely low power, High precision power monitor that can withstand temperatures up to
+ * -40 degrees C. The input voltage to the sensor can vary from 0V - 16V with an extremely small supply current.
+ * The device uses I2C to communicate with a host device. Power measurements occur through a shunt voltage channel
+ * and a bus voltage channel. These signals pass through an ADC and are stored in a 16-bit wide register. A full
+ * register map is given in the INA_Register_t enum. The shunt resistor must be of a known value and is provided
+ * by the user
+ *
+ * Before the chip can be used, a calibration procedure must be performed in accordance with section
+ * 8.5 of the reference manual (pages 12 - 13). This procedure determines the correct current resolution
+ * allowing for Current and Power measurements to be calculated by the device.
+ *
+ * This Library contains the following:
+ *
+ * 1.
+ *
+ *========================================================================================================
  */
 
 #ifndef HAL_INA219_H_
@@ -11,8 +42,7 @@
 /* Private Includes -----------------------------------------------------------*/
 
 #include "stm32l4xx_hal.h"
-#include "stm32l4xx_hal_i2c.h"
-#include "stm32l4xx_hal_gpio.h"
+
 
 /* Private typedef -----------------------------------------------------------*/
 typedef enum{
