@@ -1,0 +1,9 @@
+main.c:131:5:main	24	static
+main.c:333:13:MX_RTC_Init	32	static
+main.c:387:6:Error_Handler	4	static
+main.c:399:13:Routine_ASYNC_IMU_EVENT	16	static
+main.c:412:13:Routine_STATE_RESET	8	static
+main.c:426:13:Routine_STATE_SLEEP	8	static
+main.c:435:13:Routine_STATE_SAMPLE	144	static
+main.c:583:13:Routine_STATE_TRANSMIT	104	dynamic
+main.c:648:13:Routine_Init_STATE	48	static
