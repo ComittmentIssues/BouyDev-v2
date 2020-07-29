@@ -1,0 +1,14 @@
+HAL_INA219.c:34:26:MX_I2C2_Init	8	static
+HAL_INA219.c:87:14:INA219_Init_Sensor	24	static
+HAL_INA219.c:108:14:INA219_Begin	32	static
+HAL_INA219.c:201:14:INA219_Calibrate_32V_2A	64	static
+HAL_INA219.c:259:14:INA219_Calibrate_16V_1_2A	64	static
+HAL_INA219.c:296:14:INA219_Get_Reg_Config	40	static
+HAL_INA219.c:311:14:INA219_Reset	32	static
+HAL_INA219.c:337:14:INA219_Set_Power_Mode	40	static
+HAL_INA219.c:361:14:INA219_Set_Reg_Config	40	static
+HAL_INA219.c:391:14:INA219_Trigger_Conversion	40	static
+HAL_INA219.c:424:14:INA219_Get_Shunt_Voltage	40	static
+HAL_INA219.c:451:14:INA219_Get_Bus_Voltage	40	static
+HAL_INA219.c:463:14:INA219_Get_Current	40	static
+HAL_INA219.c:474:14:INA219_Get_Power	40	static
