@@ -13,8 +13,10 @@ fn = f_sample/2; %Nyquist Frequency
 [t,data] = generate_WaveData(T_sample,f_sample,f_w,A_max);
 spec = fft(data)/N;
 
+df1 = f_sample/N;
+f1 = 0:df1:f_sample-df1;
 d_bins = reshape(data,20,300)';
-t_bins = reshape(t,20,300)';
+t_bins = t(1:300)';
 %% Double Integration For Displacement Data
 y1 = cumtrapz(t_bins,d_bins);
 
@@ -22,8 +24,8 @@ y1 = detrend(y1,4);
 
 %% Significant wave height calculation
 
-PSD_EST = fft(y1)/N;
-df = f_sample/N;
+PSD_EST = fft(y1)/300;
+
 f = 0:df:f_sample-df;
 R_w  = generate_Window(0.02,f_sample/2,f)';
 PSD_FILT = R_w.*PSD_EST; 

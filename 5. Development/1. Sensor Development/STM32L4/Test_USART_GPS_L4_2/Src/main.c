@@ -110,21 +110,7 @@ int main(void)
   //Initialize Peripherals
 
   /* USER CODE BEGIN 2 */
-  if(init_GPS(&huart4,&htim2,&hdma_memtomem_dma1_channel1)== GPS_Init_OK)
-  {
-	  __HAL_UART_ENABLE_IT(&huart4,UART_IT_IDLE);
-	  __HAL_DMA_ENABLE_IT(huart4.hdmarx, DMA_IT_TC);
-	  if(__HAL_TIM_GET_FLAG(&htim2,TIM_FLAG_CC1) == SET)
-	  {
-	   __HAL_TIM_CLEAR_FLAG(&htim2,TIM_FLAG_CC1);
-	  }
-	  M2M_Txfer_Cplt = 0;
-	  __HAL_TIM_ENABLE_IT(&htim2,TIM_IT_CC1);
-	  HAL_TIM_OC_Start_IT(&htim2, TIM_CHANNEL_1);
-	  HAL_TIM_Base_Start_IT(&htim2);
-	  HAL_UART_Receive_DMA(&huart4,DMA_RX_Buffer,DMA_RX_BUFFER_SIZE);
-	  log_gps = SET;
-  }
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -134,13 +120,6 @@ int main(void)
   {
     /* USER CODE END WHILE */
 	//sample GPS
-	  if(packet_full == 7)
-	  {
-		  log_gps = RESET;
-		  HAL_UART_DMAStop(&huart4);
-		  HAL_TIM_Base_Stop(&htim2);
-		  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
-	  }
 
     /* USER CODE BEGIN 3 */
   }
