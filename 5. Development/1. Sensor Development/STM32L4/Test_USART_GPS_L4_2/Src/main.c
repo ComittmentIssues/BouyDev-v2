@@ -87,14 +87,19 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+   GPIO_InitTypeDef led_struct;
+   led_struct.Mode = GPIO_MODE_OUTPUT_PP;
+   led_struct.Pin = GPIO_PIN_5;
+   HAL_GPIO_Init(GPIOA, &led_struct);
   /* USER CODE END SysInit */
 
-  /* Initialize all configured peripherals */
-  //Initialize Peripherals
+  /* Initialize all onfigured peripherals */
+
 
   /* USER CODE BEGIN 2 */
-
+  	  GPS_Init_msg_t init_flag = 0;  //flag to check if gps was initialised
+  	  init_flag = init_GPS(&hgps); //init routine - get return status from init function
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -103,7 +108,48 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	//sample GPS
+	switch(init_flag)
+	{
+	case GPS_Init_OK:
+		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_5,SET);
+		while(packet_full != 7)
+		{
+			GPS_Log_Begin();
+		}
+		GPS_Log_Stop();
+		break;
+	case GPS_Init_Periph_Config_Error:
+		while(1)
+		{
+			//blink at 500ms
+			HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_5);
+			HAL_Delay(500);
+		}
+	case GPS_Init_Offline_Error:
+		while(1)
+		{
+			HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_5);
+			HAL_Delay(100);
+		}
+
+	case GPS_Init_Ack_Error:
+		while(1)
+		{
+			HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_5);
+			HAL_Delay(500);
+			HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_5);
+			HAL_Delay(250);
+		}
+	case GPS_Init_MSG_Config_Error:
+		while(1)
+		{
+			//machine gun
+			HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_5);
+			HAL_Delay(50);
+		}
+	default:
+		break;
+	}
 
     /* USER CODE BEGIN 3 */
   }
