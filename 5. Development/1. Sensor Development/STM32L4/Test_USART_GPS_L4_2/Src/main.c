@@ -117,6 +117,7 @@ int main(void)
 			GPS_Log_Begin();
 		}
 		GPS_Log_Stop();
+
 		break;
 	case GPS_Init_Periph_Config_Error:
 		while(1)
