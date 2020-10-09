@@ -42,12 +42,7 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-TIM_HandleTypeDef htim2;
 
-UART_HandleTypeDef huart4;
-DMA_HandleTypeDef hdma_uart4_rx;
-DMA_HandleTypeDef hdma_uart4_tx;
-DMA_HandleTypeDef hdma_memtomem_dma1_channel1;
 
 /* USER CODE BEGIN PV */
 
@@ -66,17 +61,6 @@ void SystemClock_Config(void);
 /* USER CODE BEGIN 0 */
 
 
-void DMA_Test_Mem2MeM(void)
-{
-	  int i;
-	  for (i = 0; i < 10; ++i)
-	  {
-		DMA_RX_Buffer[i] = i;
-	  }
-	  __HAL_DMA_ENABLE_IT(&hdma_memtomem_dma1_channel1,DMA_IT_TC);
-	  HAL_DMA_Start(&hdma_memtomem_dma1_channel1,(uint32_t)DMA_RX_Buffer,(uint32_t)GNSS_Buffer,i);
-	  while(M2M_Txfer_Cplt != SET);
-}
 /* USER CODE END 0 */
 
 /**
