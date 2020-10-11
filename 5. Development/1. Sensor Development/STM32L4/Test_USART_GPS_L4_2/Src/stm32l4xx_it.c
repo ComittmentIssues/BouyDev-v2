@@ -57,11 +57,7 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
-extern DMA_HandleTypeDef hdma_memtomem_dma1_channel1;
-extern TIM_HandleTypeDef htim2;
-extern DMA_HandleTypeDef hdma_uart4_rx;
-extern DMA_HandleTypeDef hdma_uart4_tx;
-extern UART_HandleTypeDef huart4;
+extern GPS_Handle_Typedef hgps;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -204,9 +200,8 @@ void SysTick_Handler(void)
 void TIM2_IRQHandler(void)
 {
   /* USER CODE TIM2_IRQn 0 */
-  USART_TIM_RTO_Handler(&htim2); //custom call back function
-
-  HAL_TIM_IRQHandler(&htim2);	 //HAL default handler
+	 USART_TIM_RTO_Handler(hgps.gps_htim); //custom call back function
+	 HAL_TIM_IRQHandler(hgps.gps_htim);	 //HAL default handler
 
 }
 

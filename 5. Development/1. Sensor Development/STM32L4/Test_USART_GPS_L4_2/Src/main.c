@@ -98,8 +98,18 @@ int main(void)
 
 
   /* USER CODE BEGIN 2 */
-  	  GPS_Init_msg_t init_flag = 0;  //flag to check if gps was initialised
-  	  init_flag = init_GPS(&hgps); //init routine - get return status from init function
+   	 GPS_Init_msg_t init_flag;
+  	 int retries = GPS_INIT_RETRIES;  //flag to check if gps was initialised
+  	 while(retries--)
+  	 {
+  	  	 init_flag = init_GPS(&hgps); //init routine - get return status from init function
+  	  	  if(init_flag == GPS_Init_OK)
+  	  	  {
+  	  		  break;
+  	  	  }
+  	  	deinit_GPS(&hgps);
+  	 }
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -112,6 +122,8 @@ int main(void)
 	{
 	case GPS_Init_OK:
 		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_5,SET);
+
+
 		while(packet_full != 7)
 		{
 			GPS_Log_Begin();
