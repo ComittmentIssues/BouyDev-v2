@@ -15906,7 +15906,7 @@ HAL_StatusTypeDef MX_UART4_Init(void)
  8006070:	601a      	str	r2, [r3, #0]
   huart4.Init.BaudRate = UART_BAUD_INIT;
  8006072:	4b13      	ldr	r3, [pc, #76]	; (80060c0 <MX_UART4_Init+0x58>)
- 8006074:	f44f 5216 	mov.w	r2, #9600	; 0x2580
+ 8006074:	f44f 4216 	mov.w	r2, #38400	; 0x9600
  8006078:	605a      	str	r2, [r3, #4]
   huart4.Init.WordLength = UART_WORDLENGTH_8B;
  800607a:	4b11      	ldr	r3, [pc, #68]	; (80060c0 <MX_UART4_Init+0x58>)

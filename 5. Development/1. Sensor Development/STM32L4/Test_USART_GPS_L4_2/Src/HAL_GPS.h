@@ -174,7 +174,7 @@ typedef struct
 /*
  * GPS versions are monitered through UBLOX_NEOx. This library has support for Neo-6m,7m and M9N
  */
-#define UBLOX_NEO7
+#define UBLOX_NEO9
 
 /* TIM Defines */
 #define GPS_TIM_PORT TIM2					//General Purpose Timer
