@@ -137,11 +137,11 @@ int main(void)
   char res_buff[500]= {0};
   if (result == PASS)
   {
-	  sprintf(res_buff,"AT001: Pass \t TEST STATUS %s",(char*)x);
+	  sprintf(res_buff,"AT001: Pass \t TEST STATUS %s\r\n",(char*)x);
 
   }else
   {
-	  sprintf(res_buff,"AT001: Fail \t TEST STATUS %s",(char*)x);
+	  sprintf(res_buff,"AT001: Fail \t TEST STATUS %s\r\n",(char*)x);
   }
   HAL_UART_Transmit(&huart2,(uint8_t*)res_buff,strlen(res_buff),100);
   /* USER CODE END 2 */

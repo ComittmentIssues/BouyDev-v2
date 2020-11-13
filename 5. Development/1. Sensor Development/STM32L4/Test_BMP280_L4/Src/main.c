@@ -22,15 +22,21 @@
 #include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
 #include "HAL_BMP280.h"
 #include "stdio.h"
 #include "stdlib.h"
 #include "string.h"
-/* USER CODE BEGIN Includes */
-
 /* USER CODE END Includes */
 
-
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+typedef enum
+{
+	PASS,
+	FAIL
+}UT_Result_t;
+/* USER CODE END PD */
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
 
@@ -48,11 +54,40 @@ UART_HandleTypeDef huart2;
 static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
 void SystemClock_Config(void);
+
+/* USER CODE BEGIN PFP */
+
+UT_Result_t AT001_Connection_Test(char * fail_cond);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+UT_Result_t AT001_Connection_Test(char * fail_cond)
+{
+	   BMP_Init_Typedef BMP_InitStruct;
+	   BMP280_Init_Preset_Mode(Weather_Monitoring,&BMP_InitStruct);
+	   BMPStatus_t flag = BMP280_Init(&BMP_InitStruct);
+		switch (flag)
+		{
+			case BMP_OK:
+				memcpy(fail_cond,(char*)"None", strlen("None"));
+				return PASS;
+			case BMP_SPI_READ_ERROR:
+				memcpy(fail_cond,(char*)"SPI Read Error", strlen("SPI Read Error"));
+				return FAIL;
+			case BMP_SPI_WRITE_ERROR:
+				memcpy(fail_cond,(char*)"SPI Write Error", strlen("SPI Write Error"));
+				return FAIL;
+			case BMP_DEVICE_CHECK_ERROR:
+				memcpy(fail_cond,(char*)"Incorrect ID", strlen("Incorrect ID"));
+				return FAIL;
+			default:
+				memcpy(fail_cond,(char*)"Undefined Behaviour", strlen("Undefined Behaviour"));
+				return FAIL;
+		}
+		memcpy(fail_cond,(char*)"Undefined Behaviour", strlen("Undefined Behaviour"));
+		return FAIL;
+}
 /* USER CODE END 0 */
 
 /**
@@ -86,25 +121,22 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-   BMP_Init_Typedef BMP_InitStruct;
-   BMP_InitStruct.BMP_Pressure_OverSample = BMP280_CTRLMEAS_OSRSP_OS_16;
-   BMP_InitStruct.BMP_Temperature_OverSample = BMP280_CTRLMEAS_OSRST_OS_2;
-   BMP_InitStruct.BMP_Power_Mode = BMP280_CTRLMEAS_MODE_NORMAL;
-   BMP_InitStruct.BMP_t_Standby = BMP280_CONFIG_tsb_4000;
-  // BMP280_Init_Preset_Mode(HandHeld_Dynamic,&BMP_InitStruct);
-   if (BMP280_Init(&BMP_InitStruct) != BMP_OK)
-   {
-	   while(1)
-	   {
-		   HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
-		   HAL_Delay(500);
-	   }
-   }
 
-
+  char fail_cond[100] = {0};
+  UT_Result_t result = AT001_Connection_Test(fail_cond);
+  char res_buff[500] = {0};
+  if(result == PASS)
+  {
+	  sprintf(res_buff," AT001 Test Status: Pass \t INFO: %s \r\n",res_buff);
+  }else
+  {
+	  sprintf(res_buff," AT001 Test Status: Fail \t INFO: %s \r\n",res_buff);
+  }
+  HAL_UART_Transmit(&huart2,(uint8_t*)res_buff,strlen(res_buff),100);
   /* USER CODE END 2 */
-	  while (1)
-	  {
+
+  while (1)
+{
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
  	uint32_t temp,press,P;
@@ -113,16 +145,7 @@ int main(void)
 	  char buff[100] ="";
 	  //wait for device to finish converting
 	  BMP280_Get_Status(&bmp);
-	 while(bmp.M_Status == BMP_Measurement_Complete)
-	  {
-		 BMP280_Get_Status(&bmp);
-
-	  }
-	  while(bmp.M_Status != BMP_Measurement_Complete)
-	  {
-		  BMP280_Get_Status(&bmp);
-	  }
-	  BMP280_Get_Measurements(&temp,&press);
+	  BMP280_Force_Measure(&temp,&press);
 	  T = BMP280_Compensate_Temp(temp,&t_fine,bmp.Factory_Trim);
 	  P = BMP280_Compensate_Pressure(press,t_fine,bmp.Factory_Trim)/256;
 
