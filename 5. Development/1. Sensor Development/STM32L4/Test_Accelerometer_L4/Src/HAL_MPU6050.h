@@ -102,6 +102,7 @@ typedef enum
 	MPU_Cycle,
 	MPU_RESET,
 }MPU_PowerMode;
+
 //@brief: PASS_THROUGH This bit reflects the status of the FSYNC interrupt from an external device
 //into the MPU-60X0. This is used as a way to pass an external interrupt
 //through the MPU-60X0 to the host application processor. When set to 1, this
@@ -129,6 +130,7 @@ typedef enum
 //I2C_SLV0_NACK This bit automatically sets to 1 when the I2C Master receives a NACK in a
 //transaction with Slave 0. This triggers an interrupt if the I2C_MST_INT_EN
 //bit in the INT_ENABLE register (Register 56) is asserted.
+
 typedef enum
 {
 	PASS_THROUGH_INT_SET = 0b1<<7,

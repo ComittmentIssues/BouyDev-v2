@@ -247,6 +247,7 @@ SPI_HandleTypeDef hspi2;
 
 /* Private function prototypes -----------------------------------------------*/
 //Peripheral Init Functions
+ HAL_StatusTypeDef Init_Flash_Chips(void);
 void FLASH_Get_ID(int ChipNumber,uint8_t* id);
 uint8_t FLASH_Is_Online(int ChipNumber);
 

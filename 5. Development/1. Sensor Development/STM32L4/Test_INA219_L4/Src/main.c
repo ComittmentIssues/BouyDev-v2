@@ -27,7 +27,11 @@
 #include <stdio.h>
 #include <string.h>
 /* USER CODE END Includes */
-
+typedef enum
+{
+	PASS,
+	FAIL
+}UT_Result_t;
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 
@@ -58,11 +62,40 @@ static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
+/*
+ * Unit Test 001: Test the connection between Microcontroller and sensor
+ *
+ * PASS - Peripherals initalises, recieves acknowledgement
+ *
+ * FAIL - Device does not acknoweledge the I2C request and does
+ * 		  not retrn the correct vale
+ */
+UT_Result_t AT001_TestConnection(char* fail_cond);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 
-
+/* USER CODE BEGIN 0 */
+UT_Result_t AT001_TestConnection(char* fail_cond)
+{
+	  INA_Status_t status = INA219_Init_Sensor();
+	  switch (status)
+	{
+		case INA_OK:
+			memcpy(fail_cond,(char*)"None",5);
+			return PASS;
+		case INA_I2C_WRITE_ERROR:
+			memcpy(fail_cond,(char*)"I2C Write Fail",strlen("I2C Write Fail"));
+			return FAIL;
+		case INA_I2C_READ_ERROR:
+			memcpy(fail_cond,(char*)"I2C Read Fail",strlen("I2C Read Fail"));
+			return FAIL;
+		case INA_DEVICE_OFFLINE:
+			memcpy(fail_cond,(char*)"Device Offline!",strlen("Device Offline!"));
+			return FAIL;
+	}
+	  return FAIL;
+}
 /* USER CODE END 0 */
 
 /**
@@ -99,14 +132,18 @@ int main(void)
 
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  if(INA219_Init_Sensor() == INA_OK)
+  char x[100] = {0};
+  UT_Result_t result = AT001_TestConnection(x);
+  char res_buff[500]= {0};
+  if (result == PASS)
   {
-	  HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
-  }
-  else
+	  sprintf(res_buff,"AT001: Pass \t TEST STATUS %s",(char*)x);
+
+  }else
   {
-	  return 0;
+	  sprintf(res_buff,"AT001: Fail \t TEST STATUS %s",(char*)x);
   }
+  HAL_UART_Transmit(&huart2,(uint8_t*)res_buff,strlen(res_buff),100);
   /* USER CODE END 2 */
   int16_t shunt_v, bus_v,current,power, V_bat;
   /* Infinite loop */

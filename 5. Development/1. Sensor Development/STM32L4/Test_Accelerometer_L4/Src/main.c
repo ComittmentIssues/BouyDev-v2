@@ -295,6 +295,7 @@ mpu_status_t MPU6050_Disable_Interrupt(I2C_HandleTypeDef *hi2c, uint8_t interrup
 	}
 	return MPU_OK;
 }
+
 mpu_status_t MPU6050_Get_Interrupt_Status(I2C_HandleTypeDef *hi2c, Interrupt_source_t interrupt_src,uint8_t* res)
 {
 	uint8_t istatus = 0;
@@ -721,7 +722,6 @@ int main(void)
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
-  
 
   /* MCU Configuration--------------------------------------------------------*/
 
@@ -747,14 +747,33 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   uint8_t whoami = 0;
-  uint8_t status = 0;
-  MPU6050_Get_ID(&hi2c1,&whoami);
-  if(whoami == WHO_AM_I_VALUE)
+
+  if(MPU6050_Get_ID(&hi2c1,&whoami) == MPU_OK)
   {
-	  float acc_bias[3] = {0};
-	  MPU6050_Calibrate_Acc(&hi2c1,acc_bias);
-	  __NOP();
+	  if(whoami == WHO_AM_I_VALUE)
+	   {
+	 	  float acc_bias[3] = {0};
+	 	  MPU6050_Calibrate_Acc(&hi2c1,acc_bias);
+
+	   }else
+	   {
+		   while(1)
+		  	  {
+		  		  HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
+		  		  HAL_Delay(1000);
+		  		  HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
+		  		  HAL_Delay(500);
+		  	  }
+	   }
+  }else
+  {
+	  while(1)
+	  {
+		  HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
+		  HAL_Delay(200);
+	  }
   }
+
 
   /* USER CODE END 2 */
 
@@ -762,29 +781,6 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  //Fifo function
-
-	  uint16_t count =0;
-	  MPU6050_Get_FIFO_Count(&hi2c1,&count);
-	  if(count > 0 )
-	  {
-		  //create a buffer with count number of variables
-		  uint8_t data[count];
-		  for (int i = 0; i < count; ++i)
-		  {
-			HAL_I2C_Mem_Read(&hi2c1,MPU_Device_Address,FIFO_R_W,1,&data[i],1,100);
-		  }
-		  __NOP();
-	  }
-
-	  	  //wait untill data ready becomes set
-//		  while(!interrupt_status)
-//		  {
-//			  MPU6050_Get_Interrupt_Status(&hi2c1,DATA_READY,&interrupt_status);
-//		  }
-//		  interrupt_status = 0;
-//		 MPU6050_Get_IMU_Data(&hi2c1,res);
-//		 HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -802,14 +798,21 @@ void SystemClock_Config(void)
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
   RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
+  /** Configure LSE Drive Capability 
+  */
+  HAL_PWR_EnableBkUpAccess();
+  __HAL_RCC_LSEDRIVE_CONFIG(RCC_LSEDRIVE_LOW);
   /** Initializes the CPU, AHB and APB busses clocks 
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
-  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSE|RCC_OSCILLATORTYPE_MSI;
+  RCC_OscInitStruct.LSEState = RCC_LSE_ON;
+  RCC_OscInitStruct.MSIState = RCC_MSI_ON;
+  RCC_OscInitStruct.MSICalibrationValue = 0;
+  RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_6;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_MSI;
   RCC_OscInitStruct.PLL.PLLM = 1;
-  RCC_OscInitStruct.PLL.PLLN = 12;
+  RCC_OscInitStruct.PLL.PLLN = 24;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV7;
   RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
   RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
@@ -843,6 +846,9 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+  /** Enable MSI Auto calibration 
+  */
+  HAL_RCCEx_EnableMSIPLLMode();
 }
 
 /**
@@ -999,7 +1005,7 @@ void Error_Handler(void)
   * @param  line: assert_param error line source number
   * @retval None
   */
-void assert_failed(char *file, uint32_t line)
+void assert_failed(uint8_t *file, uint32_t line)
 { 
   /* USER CODE BEGIN 6 */
   /* User can add his own implementation to report the file name and line number,

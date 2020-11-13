@@ -92,12 +92,19 @@ int main(void)
    BMP_InitStruct.BMP_Power_Mode = BMP280_CTRLMEAS_MODE_NORMAL;
    BMP_InitStruct.BMP_t_Standby = BMP280_CONFIG_tsb_4000;
   // BMP280_Init_Preset_Mode(HandHeld_Dynamic,&BMP_InitStruct);
-   BMP280_Init(&BMP_InitStruct);
-   uint8_t status = 0;
+   if (BMP280_Init(&BMP_InitStruct) != BMP_OK)
+   {
+	   while(1)
+	   {
+		   HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
+		   HAL_Delay(500);
+	   }
+   }
 
 
   /* USER CODE END 2 */
-
+	  while (1)
+	  {
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
  	uint32_t temp,press,P;
@@ -125,14 +132,9 @@ int main(void)
 	  {
 		  HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
 	  }
-	  // DeInit
-	  if(BMP280_DeInit() == BMP_OK)
-	  {
-		  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
-	  }
+
     /* USER CODE END WHILE */
-	  while (1)
-	  {
+
     /* USER CODE BEGIN 3 */
 	  }
   /* USER CODE END 3 */
