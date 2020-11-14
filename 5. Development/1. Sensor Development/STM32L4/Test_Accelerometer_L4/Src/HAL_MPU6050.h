@@ -8,6 +8,8 @@
 #ifndef HAL_MPU6050_H_
 #define HAL_MPU6050_H_
 
+#include "stm32l4xx_hal.h"
+#include "math.h"
 /* Private typedef -----------------------------------------------------------*/
 typedef enum
 {
@@ -169,6 +171,13 @@ typedef struct
 	float G_y;
 	float G_z;
 }MPU_FT_t;
+
+typedef struct
+{
+	uint16_t Accel[3];
+	uint16_t Gyro[3];
+	uint16_t Temp;
+}mpu_data_t;
 /* Private define ------------------------------------------------------------*/
 
 
@@ -195,39 +204,43 @@ typedef struct
 //6 5 19.0 5 18.6 1
 //7 RESERVED RESERVED 8
 
-#define CONFIG_DLFP_0 0
+#define CONFIG_DLFP_MSK 0b111
+#define CONFIG_DLFP_0 ~CONFIG_DLFP_MSK
 #define CONFIG_DLFP_1 1
 #define CONFIG_DLFP_2 2
 #define CONFIG_DLFP_3 3
 #define CONFIG_DLFP_4 4
 #define CONFIG_DLFP_5 5
 #define CONFIG_DLFP_6 6
-#define CONFIG_DLFP_7 7
+#define CONFIG_DLFP_7 CONFIG_DLFP_MSK
 
-#define CONFIG_EXT_SYNC_DISABLE 0
+#define CONFIG_EXT_SYNC_MSK 0b111
+#define CONFIG_EXT_SYNC_DISABLE ~(CONFIG_EXT_SYNC_MSK<<3)
 #define CONFIG_EXT_SYNC_TEMP 	1<<3
 #define CONFIG_EXT_SYNC_GYRO_X 	2<<3
 #define CONFIG_EXT_SYNC_GYRO_Y 	3<<3
 #define CONFIG_EXT_SYNC_GYRO_Z 	4<<3
 #define CONFIG_EXT_SYNC_ACC_X 	5<<3
 #define CONFIG_EXT_SYNC_ACC_Y 	6<<3
-#define CONFIG_EXT_SYNC_ACC_Z 	7<<3
+#define CONFIG_EXT_SYNC_ACC_Z 	CONFIG_EXT_SYNC_MSK<<3
 
 //GYRO_CONFIG Macros
-#define GYRO_CONFIG_FSSEL_250DPS	0<<3
+#define GYRO_CONFIG_FSSEL_MSK		0b11
+#define GYRO_CONFIG_FSSEL_250DPS	~(GYRO_CONFIG_FSSEL_MSK<<3)
 #define GYRO_CONFIG_FSSEL_500DPS	1<<3
 #define GYRO_CONFIG_FSSEL_1000DPS	2<<3
-#define GYRO_CONFIG_FSSEL_2000DPS	3<<3
+#define GYRO_CONFIG_FSSEL_2000DPS	GYRO_CONFIG_FSSEL_MSK<<3
 
 #define GYRO_CONFIG_ST_EN_X	0b1<<7
 #define GYRO_CONFIG_ST_EN_Y	0b1<<6
 #define GYRO_CONFIG_ST_EN_Z	0b1<<5
 
 //ACC_CONFIG Macros
-#define ACC_CONFIG_AFSSEL_2G	0<<3
+#define ACC_CONFIG_AFSSEL_MSK 0b11
+#define ACC_CONFIG_AFSSEL_2G	~(ACC_CONFIG_AFSSEL_MSK<<3)
 #define ACC_CONFIG_AFSSEL_4G	1<<3
 #define ACC_CONFIG_AFSSEL_8G	2<<3
-#define ACC_CONFIG_AFSSEL_16G	3<<3
+#define ACC_CONFIG_AFSSEL_16G	ACC_CONFIG_AFSSEL_MSK<<3
 
 #define ACC_CONFIG_ST_EN_X	0b1<<7
 #define ACC_CONFIG_ST_EN_Y	0b1<<6
@@ -387,14 +400,15 @@ typedef struct
 
  */
 
-#define PWR_MGMT_1_CLK_SEL_0 0
-#define PWR_MGMT_1_CLK_SEL_1 1
-#define PWR_MGMT_1_CLK_SEL_2 2
-#define PWR_MGMT_1_CLK_SEL_3 3
-#define PWR_MGMT_1_CLK_SEL_4 4
-#define PWR_MGMT_1_CLK_SEL_5 5
-#define PWR_MGMT_1_CLK_SEL_6 6
-#define PWR_MGMT_1_CLK_SEL_7 7
+#define PWR_MGMT_1_CLK_SEL_MSK  0b111
+#define PWR_MGMT_1_CLK_SEL_0 	~PWR_MGMT_1_CLK_SEL_MSK
+#define PWR_MGMT_1_CLK_SEL_1 	1
+#define PWR_MGMT_1_CLK_SEL_2 	2
+#define PWR_MGMT_1_CLK_SEL_3 	3
+#define PWR_MGMT_1_CLK_SEL_4 	4
+#define PWR_MGMT_1_CLK_SEL_5 	5
+#define PWR_MGMT_1_CLK_SEL_6 	6
+#define PWR_MGMT_1_CLK_SEL_7 	PWR_MGMT_1_CLK_SEL_MSK
 
 /*
 	By setting SLEEP to 1, the MPU-60X0 can be put into low power sleep mode. When CYCLE is set to
@@ -425,10 +439,11 @@ typedef struct
 //the accelerometer at fixed intervals to take a single measurement. The frequency of wake-ups can
 //be configured with LP_WAKE_CTRL as shown below.
 
-#define PWR_MGMT_2_LP_WAKE_CTRL_1_25HZ	0b00111111
+#define PWR_MGMT_2_LP_WAKE_CTRL_MSK 0b11
+#define PWR_MGMT_2_LP_WAKE_CTRL_1_25HZ	~(PWR_MGMT_2_LP_WAKE_CTRL_MSK<<6)
 #define PWR_MGMT_2_LP_WAKE_CTRL_5HZ		0b01 <<6
 #define PWR_MGMT_2_LP_WAKE_CTRL_20HZ	0b10 <<6
-#define PWR_MGMT_2_LP_WAKE_CTRL_40HZ	0b11 <<6
+#define PWR_MGMT_2_LP_WAKE_CTRL_40HZ	PWR_MGMT_2_LP_WAKE_CTRL_MSK<<6
 #define PWR_MGMT_2_STBY_XA				0b1<<5
 #define PWR_MGMT_2_STBY_YA				0b1<<4
 #define PWR_MGMT_2_STBY_ZA				0b1<<3
@@ -466,17 +481,41 @@ typedef struct
 #define WHO_AM_I_VALUE  0x68
 
 //Sample Rate Value
-#define SAMPLE_RATE 100 //Hz
+#define SAMPLE_RATE 5//Hz
 #define GYRO_OUTPUT_RATE_DLPF_EN 1000 //Hz
 #define GYRO_OUTPUT_RATE_DLPF_DIS 8000 //Hz
 
-//ACC ersolution values
+//ACC ressolution values
 #define ACC_2G_WORD_LENGTH 16384 //LSB/g
 #define ACC_4G_WORD_LENGTH 8192
 #define ACC_8G_WORD_LENGTH 4096
 #define ACC_16G_WORD_LENGTH 2048
 /* USER CODE END PD */
 
+I2C_HandleTypeDef hi2c1;
+DMA_HandleTypeDef hdma_i2c1_rx;
 
-
+mpu_status_t MPU6050_Get_ID(I2C_HandleTypeDef *hi2c,uint8_t* ID);
+mpu_status_t MPU6050_Get_MST_Status(I2C_HandleTypeDef *hi2c, uint8_t* status_byte);
+mpu_status_t MPU6050_Set_Gyro_FSR(I2C_HandleTypeDef *hi2c,uint8_t FSR);
+mpu_status_t MPU6050_Set_Acc_FSR(I2C_HandleTypeDef *hi2c,uint8_t FSR);
+mpu_status_t MPU6050_Get_SelfTestResponse_Values(I2C_HandleTypeDef *hi2c,MPU_SelfTest_t *mpu);
+mpu_status_t MPU6050_Set_Cycle_Power_Mode(I2C_HandleTypeDef *hi2c,uint8_t Cycles);
+mpu_status_t MPU6050_Set_Low_Power_Mode_Acc(I2C_HandleTypeDef *hi2c,uint8_t Cycles);
+mpu_status_t MPU6050_Set_Wake(I2C_HandleTypeDef *hi2c);
+mpu_status_t MPU6050_Init(uint8_t g_fsr,uint8_t a_fsr, uint8_t dlpf_coeff);
+mpu_status_t MPU6050_Set_Sleep_Power_Mode(I2C_HandleTypeDef *hi2c);
+mpu_status_t MPU6050_Set_Sample_Rate(I2C_HandleTypeDef *hi2c);
+mpu_status_t MPU6050_Set_FSync(I2C_HandleTypeDef *hi2c, uint8_t Fsync);
+mpu_status_t MPU6050_Set_DLPF(I2C_HandleTypeDef *hi2c, uint8_t DLPF);
+mpu_status_t MPU6050_Enable_Interrupt(I2C_HandleTypeDef *hi2c, uint8_t interrupts);
+mpu_status_t MPU6050_Disable_Interrupt(I2C_HandleTypeDef *hi2c, uint8_t interrupts);
+mpu_status_t MPU6050_Get_Interrupt_Status(I2C_HandleTypeDef *hi2c, Interrupt_source_t interrupt_src,uint8_t* res);
+mpu_status_t MPU6050_Get_IMU_RawData(I2C_HandleTypeDef *hi2c,uint8_t* imu);
+mpu_status_t MPU6050_FIFO_Init(I2C_HandleTypeDef *hi2c, uint8_t enable);
+mpu_status_t MPU6050_Signal_conditioned_Reset(I2C_HandleTypeDef *hi2c);
+mpu_status_t  MPU6050_FIFO_Config(I2C_HandleTypeDef *hi2c, uint8_t fifo_mask, uint8_t cmd);
+mpu_status_t MPU6050_Get_FIFO_Count(I2C_HandleTypeDef *hi2c,uint16_t* count);
+mpu_status_t MPU6050_FIFO_CMD(I2C_HandleTypeDef *hi2c,uint8_t cmd);
+mpu_status_t MPU6050_init_TempSensor(I2C_HandleTypeDef *hi2c, uint8_t cmd);
 #endif /* HAL_MPU6050_H_ */
