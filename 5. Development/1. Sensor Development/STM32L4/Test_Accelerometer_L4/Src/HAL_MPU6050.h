@@ -2,17 +2,50 @@
  * HAL_MPU6050.h
  *
  *  Created on: Apr 9, 2020
- *      Author: jamie
+ *      Author: Jamie Jacobson
+ *      Student No: JCBJAM007
+ *      For: The University of Cape Town
+ *
+ *  This Library is designed to be used with the STM32 HAL Driver files version 1.15.1
+ *  Version 1.14.x is also supported
+ *
+ *  This library is designed to interface with the MPU6050 Inertial Measurement Unit (IMU). This
+ *  device is a 6 degree of Freedom MEMs-based IMU that communicates via I2C. The device measures
+ *  3-axis acceleration, 3-axis rotation and contains an on-board temperature sensor. In addition,
+ *  The chip contains a digital motion processor that fuses accelerometer and gyroscope readings to
+ *  get roll,pitch,heave measurements.
+ *
+ *  This library contains all the functions and definitions to interface with and configure the sensor.
+ *  This includes functions that
+ *
+ *  1. Set the ACC and GYRO Full Scale Resolution
+ *  2. Set the Power Mode
+ *  3. Set The Sampling Rate
+ *  4. Configure the Digital Low Pass Filter
+ *  5. Enable/Disable and Configure Interrupts
+ *  6. Initialise a FIFO buffer.
+ *  7. Read from and write to the on-board register
+ *
+ *
  */
 
 #ifndef HAL_MPU6050_H_
 #define HAL_MPU6050_H_
 
-#include "stm32l4xx_hal.h"
-#include "math.h"
-#include "stdint.h"
-#include "string.h"
-/* Private typedef -----------------------------------------------------------*/
+//============================= 1. Includes ==============================================
+
+#include "stm32l4xx_hal.h"	//HAL library includes
+#include "math.h"			//Math Functions
+#include "stdint.h"			//integers
+#include "string.h"			//Mem functions
+
+//========================== 2. Structs & Enums ===========================================
+
+/*
+ * MPU_6050_Register_t
+ *
+ * Complete 8-bit Register Map of the MPU6050 chip.
+ */
 typedef enum
 {
 	SELF_TEST_X = 0XD,
@@ -76,9 +109,17 @@ typedef enum
 	WHO_AM_I = 0x75
 }MPU_6050_Register_t;
 
+/*
+ * MPU_Status_t
+ *
+ * @brief:	Used to represent numeric statuses returned as a result of
+ * 		    running Sensor-register level functions e.g. using i2c to write
+ * 		    a value for Power mode. Successful return
+ */
 typedef enum
 {
 	MPU_I2C_ERROR,
+	MPU_PERIPHERAL_INIT_ERROR,
 	MPU_I2C_DEVICE_BUSY,
 	MPU_I2C_ACK_NACK,
 	MPU_CONFIG_ERROR,
@@ -98,6 +139,11 @@ typedef enum
 
 }mpu_status_t;
 
+/*
+ * MPU_PowerMode
+ *
+ * @brief: Represents the possible operrating modes the sensor can be placed in
+ */
 typedef enum
 {
 	MPU_STANDBY,
@@ -108,33 +154,34 @@ typedef enum
 	MPU_RESET,
 }MPU_PowerMode;
 
-//@brief: PASS_THROUGH This bit reflects the status of the FSYNC interrupt from an external device
-//into the MPU-60X0. This is used as a way to pass an external interrupt
-//through the MPU-60X0 to the host application processor. When set to 1, this
-//bit will cause an interrupt if FSYNC_INT_EN is asserted in INT_PIN_CFG
-//(Register 55).
-//I2C_SLV4_DONE Automatically sets to 1 when a Slave 4 transaction has completed. This
-//triggers an interrupt if the I2C_MST_INT_EN bit in the INT_ENABLE register
-//(Register 56) is asserted and if the SLV_4_DONE_INT bit is asserted in the
-//I2C_SLV4_CTRL register (Register 52).
-//I2C_LOST_ARB This bit automatically sets to 1 when the I2C Master has lost arbitration of the
-//auxiliary I2C bus (an error condition). This triggers an interrupt if the
-//I2C_MST_INT_EN bit in the INT_ENABLE register (Register 56) is asserted.
-//I2C_SLV4_NACK This bit automatically sets to 1 when the I2C Master receives a NACK in a
-//transaction with Slave 4. This triggers an interrupt if the I2C_MST_INT_EN
-//bit in the INT_ENABLE register (Register 56) is asserted.
-//I2C_SLV3_NACK This bit automatically sets to 1 when the I2C Master receives a NACK in a
-//transaction with Slave 3. This triggers an interrupt if the I2C_MST_INT_EN
-//bit in the INT_ENABLE register (Register 56) is asserted.
-//I2C_SLV2_NACK This bit automatically sets to 1 when the I2C Master receives a NACK in a
-//transaction with Slave 2. This triggers an interrupt if the I2C_MST_INT_EN
-//bit in the INT_ENABLE register (Register 56) is asserted.
-//I2C_SLV1_NACK This bit automatically sets to 1 when the I2C Master receives a NACK in a
-//transaction with Slave 1. This triggers an interrupt if the I2C_MST_INT_EN
-//bit in the INT_ENABLE register (Register 56) is asserted.
-//I2C_SLV0_NACK This bit automatically sets to 1 when the I2C Master receives a NACK in a
-//transaction with Slave 0. This triggers an interrupt if the I2C_MST_INT_EN
-//bit in the INT_ENABLE register (Register 56) is asserted.
+/*@brief:	PASS_THROUGH This bit reflects the status of the FSYNC interrupt from an external device
+ * 		  	into the MPU-60X0. This is used as a way to pass an external interrupt
+ * 			through the MPU-60X0 to the host application processor. When set to 1, this
+ * 			bit will cause an interrupt if FSYNC_INT_EN is asserted in INT_PIN_CFG
+ * 			(Register 55).
+ * 			I2C_SLV4_DONE Automatically sets to 1 when a Slave 4 transaction has completed. This
+ * 			triggers an interrupt if the I2C_MST_INT_EN bit in the INT_ENABLE register
+ * 			(Register 56) is asserted and if the SLV_4_DONE_INT bit is asserted in the
+ * 			I2C_SLV4_CTRL register (Register 52).
+ * 			I2C_LOST_ARB This bit automatically sets to 1 when the I2C Master has lost arbitration of the
+ * 			auxiliary I2C bus (an error condition). This triggers an interrupt if the
+ * 			I2C_MST_INT_EN bit in the INT_ENABLE register (Register 56) is asserted.
+ * 			I2C_SLV4_NACK This bit automatically sets to 1 when the I2C Master receives a NACK in a
+ * 			transaction with Slave 4. This triggers an interrupt if the I2C_MST_INT_EN
+ * 			bit in the INT_ENABLE register (Register 56) is asserted.
+ * 			I2C_SLV3_NACK This bit automatically sets to 1 when the I2C Master receives a NACK in a
+ * 			transaction with Slave 3. This triggers an interrupt if the I2C_MST_INT_EN
+ * 			bit in the INT_ENABLE register (Register 56) is asserted.
+ * 			I2C_SLV2_NACK This bit automatically sets to 1 when the I2C Master receives a NACK in a
+ * 			transaction with Slave 2. This triggers an interrupt if the I2C_MST_INT_EN
+ *			bit in the INT_ENABLE register (Register 56) is asserted.
+ * 			I2C_SLV1_NACK This bit automatically sets to 1 when the I2C Master receives a NACK in a
+ * 			transaction with Slave 1. This triggers an interrupt if the I2C_MST_INT_EN
+ * 			bit in the INT_ENABLE register (Register 56) is asserted.
+ * 			I2C_SLV0_NACK This bit automatically sets to 1 when the I2C Master receives a NACK in a
+ * 			transaction with Slave 0. This triggers an interrupt if the I2C_MST_INT_EN
+ * 			bit in the INT_ENABLE register (Register 56) is asserted.
+ */
 
 typedef enum
 {
@@ -148,6 +195,11 @@ typedef enum
 	I2C_SLV0_NACK		= 0b1<<0,
 }MPU_MST_Status_t;
 
+/*
+ * Interrupt_source_t
+ *
+ * Representation of the interrupt sources available on the chip
+ */
 typedef enum
 {
 	FIFO_OVERFLOW,
@@ -155,6 +207,11 @@ typedef enum
 	DATA_READY
 }Interrupt_source_t;
 
+/*
+ * MPU_SelfTest_t
+ *
+ * Struct to store the values located in the self-test register
+ */
 typedef struct
 {
 	uint8_t A_x;
@@ -165,6 +222,11 @@ typedef struct
 	uint8_t G_z;
 }MPU_SelfTest_t;
 
+/*
+ * MPU_FT_t
+ *
+ * struct to store IMU data as a float representation
+ */
 typedef struct
 {
 	float A_x;
@@ -175,37 +237,42 @@ typedef struct
 	float G_z;
 }MPU_FT_t;
 
+/*
+ * Stores Raw IMU data as an unsigned 16-bit integer
+ */
 typedef struct
 {
 	uint16_t Accel[3];
 	uint16_t Gyro[3];
 	uint16_t Temp;
 }mpu_data_t;
-/* Private define ------------------------------------------------------------*/
 
 
-//The DLPF is configured by DLPF_CFG. The accelerometer and gyroscope are filtered according to
-//the value of DLPF_CFG as shown in the table below.
-//DLPF_CFG Accelerometer
-//(Fs = 1kHz)
-//Gyroscope
-//Bandwidth
-//(Hz)
-//Delay
-//(ms)
-//Bandwidth
-//(Hz)
-//Delay
-//(ms)
-//Fs (kHz)
-//0 260 0 256 0.98 8
-//1 184 2.0 188 1.9 1
-//2 94 3.0 98 2.8 1
-//3 44 4.9 42 4.8 1
-//4 21 8.5 20 8.3 1
-//5 10 13.8 10 13.4 1
-//6 5 19.0 5 18.6 1
-//7 RESERVED RESERVED 8
+//======================== 3. Macro Definitions =========================================
+
+/*The DLPF is configured by DLPF_CFG. The accelerometer and gyroscope are filtered according to
+ * the value of DLPF_CFG as shown in the table below.
+ * DLPF_CFG Accelerometer
+ * (Fs = 1kHz)
+ * Gyroscope
+ * Bandwidth
+ * (Hz)
+ * Delay
+ * (ms)
+ * Bandwidth
+ * (Hz)
+ * Delay
+ * (ms)
+ * Fs (kHz)
+ * 0 260 0 256 0.98 8
+ * 1 184 2.0 188 1.9 1
+ * 2 94 3.0 98 2.8 1
+ * 3 44 4.9 42 4.8 1
+ * 4 21 8.5 20 8.3 1
+ * 5 10 13.8 10 13.4 1
+ * 6 5 19.0 5 18.6 1
+ * 7 RESERVED RESERVED 8
+ */
 
 #define CONFIG_DLFP_MSK 0b111
 #define CONFIG_DLFP_0 ~CONFIG_DLFP_MSK
@@ -428,20 +495,20 @@ typedef struct
 
 //PWR_MGMT_2
 
-//Description:
-//This register allows the user to configure the frequency of wake-ups in Accelerometer Only Low
-//Power Mode. This register also allows the user to put individual axes of the accelerometer and
-//gyroscope into standby mode.
-//The MPU-60X0 can be put into Accelerometer Only Low Power Mode using the following steps:
-//(i) Set CYCLE bit to 1
-//(ii) Set SLEEP bit to 0
-//(iii) Set TEMP_DIS bit to 1
-//(iv) Set STBY_XG, STBY_YG, STBY_ZG bits to 1
-//All of the above bits can be found in Power Management 1 register (Register 107).
-//In this mode, the device will power off all devices except for the primary I2C interface, waking only
-//the accelerometer at fixed intervals to take a single measurement. The frequency of wake-ups can
-//be configured with LP_WAKE_CTRL as shown below.
-
+/* Description:
+ * This register allows the user to configure the frequency of wake-ups in Accelerometer Only Low
+ * Power Mode. This register also allows the user to put individual axes of the accelerometer and
+ * gyroscope into standby mode.
+ * The MPU-60X0 can be put into Accelerometer Only Low Power Mode using the following steps:
+ * (i) Set CYCLE bit to 1
+ * (ii) Set SLEEP bit to 0
+ * (iii) Set TEMP_DIS bit to 1
+ * (iv) Set STBY_XG, STBY_YG, STBY_ZG bits to 1
+ * All of the above bits can be found in Power Management 1 register (Register 107).
+ * In this mode, the device will power off all devices except for the primary I2C interface, waking only
+ * the accelerometer at fixed intervals to take a single measurement. The frequency of wake-ups can
+ * be configured with LP_WAKE_CTRL as shown below.
+*/
 #define PWR_MGMT_2_LP_WAKE_CTRL_MSK 0b11
 #define PWR_MGMT_2_LP_WAKE_CTRL_1_25HZ	~(PWR_MGMT_2_LP_WAKE_CTRL_MSK<<6)
 #define PWR_MGMT_2_LP_WAKE_CTRL_5HZ		0b01 <<6
@@ -455,19 +522,19 @@ typedef struct
 #define PWR_MGMT_2_STBY_ZG				0b1
 
 
-/*
+/* I2C Definitions:
  * S Start Condition: SDA goes from high to low while SCL is high
-* AD Slave I2C address
-* W Write bit (0)
-* R Read bit (1)
-* ACK Acknowledge: SDA line is low while the SCL line is high at the
-* 9th clock cycle
-* NACK Not-Acknowledge: SDA line stays high at the 9th clock cycle
-* RA MPU-60X0 internal register address
-* DATA Transmit or received data
-* P Stop condition: SDA going from low to high while SCL is high
+ * AD Slave I2C address
+ * W Write bit (0)
+ * R Read bit (1)
+ * ACK Acknowledge: SDA line is low while the SCL line is high at the
+ * 9th clock cycle
+ * NACK Not-Acknowledge: SDA line stays high at the 9th clock cycle
+ * RA MPU-60X0 internal register address
+ * DATA Transmit or received data
+ * P Stop condition: SDA going from low to high while SCL is high
  */
-#define AD0
+#define AD0	//Used to indicate whether the pin AD0 is pulled high (AD1) or low (AD0)
 
 #ifdef AD0 //if ADO is high, replace with AD1
 #define MPU_Device_Address 0xD0
@@ -498,40 +565,97 @@ typedef struct
 #define N_Samples 28
 #define IMU_BUFFER_SIZE N_Samples*12
 
-//private variables
-I2C_HandleTypeDef hi2c1;
-DMA_HandleTypeDef hdma_i2c1_rx;
 
-uint16_t sample_count;
-//private buffers
-uint8_t IMU_Buffer[IMU_BUFFER_SIZE];
+//I2C Peripheral Defines
 
-//function prototypes
-mpu_status_t MPU6050_Get_ID(I2C_HandleTypeDef *hi2c,uint8_t* ID);
-mpu_status_t MPU6050_Get_MST_Status(I2C_HandleTypeDef *hi2c, uint8_t* status_byte);
+#define IMU_I2C I2C1					//I2C Port chosen for the IMU
+#define IMU_SCL_PIN GPIO_PIN_8			// SCL Pin
+#define IMU_SDA_PIN GPIO_PIN_9			//SDA Pin
+#define IMU_SCL_PORT GPIOB				//SCL Pin Port
+#define IMU_SDA_PORT GPIOB				//SDA Pin Port
+#define IMU_I2C_AF	GPIO_AF4_I2C1		//AF Mapping for I2C peripheral
+#define IMU_INT_Pin GPIO_PIN_5			//Interrupt GPIO Pin
+#define IMU_INT_GPIO_Port GPIOC			//Interrupt GPIO Port
+#define IMU_INT_EXTI_IRQn EXTI9_5_IRQn	//IRQn for the NVIC
+
+//========================== 4. Global Variables ==========================================
+
+uint16_t sample_count;   //Keeps track of the number of samples from the IMU
+
+//============================= 5. Handlers ===============================================
+
+I2C_HandleTypeDef hi2c1;				//handler for I2C Communication
+
+DMA_HandleTypeDef hdma_i2c1_rx;			//handler for I2C Peripheral to Memory DMA transfers
+
+
+//============================ 6. Data Buffers ============================================
+
+uint8_t IMU_Buffer[IMU_BUFFER_SIZE];	//Buffer to store data from the IMU
+
+
+
+//======================== 8. Sensor Configuration Functions =========================================
+
 mpu_status_t MPU6050_Set_Gyro_FSR(I2C_HandleTypeDef *hi2c,uint8_t FSR);
 mpu_status_t MPU6050_Set_Acc_FSR(I2C_HandleTypeDef *hi2c,uint8_t FSR);
-mpu_status_t MPU6050_Get_SelfTestResponse_Values(I2C_HandleTypeDef *hi2c,MPU_SelfTest_t *mpu);
-mpu_status_t MPU6050_Set_Cycle_Power_Mode(I2C_HandleTypeDef *hi2c,uint8_t Cycles);
-mpu_status_t MPU6050_Set_Low_Power_Mode_Acc(I2C_HandleTypeDef *hi2c,uint8_t Cycles);
-mpu_status_t MPU6050_Set_Wake(I2C_HandleTypeDef *hi2c);
-mpu_status_t MPU6050_Init(uint8_t g_fsr,uint8_t a_fsr, uint8_t dlpf_coeff);
-mpu_status_t MPU6050_Deinit(void);
-mpu_status_t MPU6050_Set_Sleep_Power_Mode(I2C_HandleTypeDef *hi2c);
-mpu_status_t MPU6050_Set_Sample_Rate(I2C_HandleTypeDef *hi2c);
 mpu_status_t MPU6050_Set_FSync(I2C_HandleTypeDef *hi2c, uint8_t Fsync);
 mpu_status_t MPU6050_Set_DLPF(I2C_HandleTypeDef *hi2c, uint8_t DLPF);
+mpu_status_t MPU6050_Set_Sample_Rate(I2C_HandleTypeDef *hi2c);
+mpu_status_t MPU6050_Set_PLLSrc(I2C_HandleTypeDef *hi2c, uint8_t PLL);
+mpu_status_t MPU6050_Config_FIFO(I2C_HandleTypeDef *hi2c, uint8_t fifo_mask, uint8_t cmd);
+mpu_status_t MPU6050_Config_Interrupt_Pin(Interrupt_source_t interrupt, uint8_t level, uint8_t latch);
+mpu_status_t MPU6050_FIFO_CMD(I2C_HandleTypeDef *hi2c,uint8_t cmd);
+
+
+//======================= 9. Initializaiton Function Prototypes ========================================
+
+/*Function Name mpu_status_t MPU6050_Init_MPU(uint8_t g_fsr,uint8_t a_fsr, uint8_t dlpf_coeff)
+ *
+ * @brief: Initialise I2C and DMA Microcontroller Peripherals. Wake Up sensor and configure
+ *
+ */
+
+mpu_status_t MPU6050_Init_MPU(uint8_t g_fsr,uint8_t a_fsr, uint8_t dlpf_coeff);
+mpu_status_t MPU6050_Deinit_MPU(void);
 mpu_status_t MPU6050_Enable_Interrupt(I2C_HandleTypeDef *hi2c, uint8_t interrupts);
 mpu_status_t MPU6050_Disable_Interrupt(I2C_HandleTypeDef *hi2c, uint8_t interrupts);
-mpu_status_t MPU6050_Get_Interrupt_Status(I2C_HandleTypeDef *hi2c, Interrupt_source_t interrupt_src,uint8_t* res);
-mpu_status_t MPU6050_Get_IMU_RawData(I2C_HandleTypeDef *hi2c,uint8_t* imu);
-mpu_status_t MPU6050_FIFO_Init(I2C_HandleTypeDef *hi2c, uint8_t enable);
-mpu_status_t MPU6050_Signal_conditioned_Reset(I2C_HandleTypeDef *hi2c);
-mpu_status_t  MPU6050_FIFO_Config(I2C_HandleTypeDef *hi2c, uint8_t fifo_mask, uint8_t cmd);
+
+/* Function Name mpu_status_t MPU6050_Init_FIFO(I2C_HandleTypeDef *hi2c, uint8_t enable)
+ *
+ * @brief: Enables the IMU FIFO buffer and configures it to recieve
+ * 		   Data from peripherals determined by the fifo_Mask
+ * @param: hi2c - pointer to I2C handle typedef
+ * 		   enable - can either be (ENABLE - enables FIFO Buffer), DISABLE - disables BUFFER, RESET (3)- resets buffer
+ */
+mpu_status_t MPU6050_Init_FIFO(I2C_HandleTypeDef *hi2c, uint8_t enable);
+
+/* Function Name mpu_status_t MPU6050_Init_TempSensor(I2C_HandleTypeDef *hi2c, uint8_t cmd);
+ *
+ * @brief: Function to enable/disable the temperature sensor
+ *
+ * @param: hi2c - pointer to I2C handle
+ * 		   cmd 	- set to ENABLE to enable the reading, DISABLE to disable
+ */
+mpu_status_t MPU6050_Init_TempSensor(I2C_HandleTypeDef *hi2c, uint8_t cmd);
+
+//======================= 10. Sensor Read Functions ====================================================
+
+mpu_status_t MPU6050_Get_SelfTestResponse_Values(I2C_HandleTypeDef *hi2c,MPU_SelfTest_t *mpu);
+mpu_status_t MPU6050_Get_ID(I2C_HandleTypeDef *hi2c,uint8_t* ID);
+mpu_status_t MPU6050_Get_MST_Status(I2C_HandleTypeDef *hi2c, uint8_t* status_byte);
 mpu_status_t MPU6050_Get_FIFO_Count(I2C_HandleTypeDef *hi2c,uint16_t* count);
-mpu_status_t MPU6050_FIFO_CMD(I2C_HandleTypeDef *hi2c,uint8_t cmd);
-mpu_status_t MPU6050_init_TempSensor(I2C_HandleTypeDef *hi2c, uint8_t cmd);
-mpu_status_t MPU6050_Configure_Interrupt_Pin(Interrupt_source_t interrupt, uint8_t level, uint8_t latch);
+
+//======================= 11. Power Mode Config Function ===============================================
+
+mpu_status_t MPU6050_Set_Wake(I2C_HandleTypeDef *hi2c);
+mpu_status_t MPU6050_Set_Cycle_Power_Mode(I2C_HandleTypeDef *hi2c,uint8_t Cycles);
+mpu_status_t MPU6050_Set_Low_Power_Mode_Acc(I2C_HandleTypeDef *hi2c,uint8_t Cycles);
+mpu_status_t MPU6050_Set_Sleep_Power_Mode(I2C_HandleTypeDef *hi2c);
+mpu_status_t MPU6050_Get_Interrupt_Status(I2C_HandleTypeDef *hi2c, Interrupt_source_t interrupt_src,uint8_t* res);
+mpu_status_t MPU6050_Signal_conditioned_Reset(I2C_HandleTypeDef *hi2c);
+mpu_status_t MPU6050_Get_IMU_RawData(I2C_HandleTypeDef *hi2c,uint8_t* imu);
 mpu_status_t MPU6050_reset(I2C_HandleTypeDef *hi2c);
+
 void MPU6050_DMA_PeriphIRQHandler(void);
 #endif /* HAL_MPU6050_H_ */
