@@ -10,6 +10,7 @@
 
 #include "stm32l4xx_hal.h"
 #include "math.h"
+#include "stdint.h"
 /* Private typedef -----------------------------------------------------------*/
 typedef enum
 {
@@ -339,15 +340,15 @@ typedef struct
 //INT_PIN_CFG
 
 #define INT_PIN_CFG_LEVEL_LOW 0b1<<7 //active logic level for pin
-#define INT_PIN_CFG_LEVEL_HIGH ~INT_PIN_CFG_LEVEL_LOW
+#define INT_PIN_CFG_LEVEL_HIGH (uint8_t)(~INT_PIN_CFG_LEVEL_LOW)
 #define INT_PIN_CFG_PIN_OPEN_DRAIN 0b1<<6
-#define INT_PIN_CFG_PIN_PUSH_PULL ~INT_PIN_CFG_PIN_OPEN_DRAIN
-#define INT_PIN_LATCH_INT_EN 0b1<<5 //pin held high untill interrupt is cleared (if set to 0, pin emits a 50 us pulse)
-#define INT_PIN_INT_RD_CLEAR 0b1<<4
-#define INT_PIN_FSYNC_INT_LEVEL_LOW 0b1<<3
-#define INT_PIN_FSYNC_INT_LEVEL_HIGH ~INT_PIN_FSYNC_INT_LEVEL_LOW
-#define INT_PIN_FSYNC_INT_EN 0b1<<2
-#define INT_PIN_I2C_BYPASS_EN 0b1<<1
+#define INT_PIN_CFG_PIN_PUSH_PULL  0b0<<6
+#define INT_PIN_CFG_LATCH_INT_EN 0b1<<5 //pin held high untill interrupt is cleared (if set to 0, pin emits a 50 us pulse)
+#define INT_PIN_CFG_INT_RD_CLEAR 0b1<<4
+#define INT_PIN_CFG_FSYNC_INT_LEVEL_LOW 0b1<<3
+#define INT_PIN_CFG_FSYNC_INT_LEVEL_HIGH ~INT_PIN_FSYNC_INT_LEVEL_LOW
+#define INT_PIN_CFG_FSYNC_INT_EN 0b1<<2
+#define INT_PIN_CFG_I2C_BYPASS_EN 0b1<<1
 
 //INT_ENABLE
 #define INT_ENABLE_FIFO_OFLOW_EN 0b1<<4
@@ -490,10 +491,16 @@ typedef struct
 #define ACC_4G_WORD_LENGTH 8192
 #define ACC_8G_WORD_LENGTH 4096
 #define ACC_16G_WORD_LENGTH 2048
+
+#define N_Samples 56
 /* USER CODE END PD */
 
 I2C_HandleTypeDef hi2c1;
 DMA_HandleTypeDef hdma_i2c1_rx;
+
+//private buffers
+
+uint8_t IMU_DATA_BUFFER[N_Samples*sizeof(uint16_t)];
 
 mpu_status_t MPU6050_Get_ID(I2C_HandleTypeDef *hi2c,uint8_t* ID);
 mpu_status_t MPU6050_Get_MST_Status(I2C_HandleTypeDef *hi2c, uint8_t* status_byte);
@@ -518,4 +525,6 @@ mpu_status_t  MPU6050_FIFO_Config(I2C_HandleTypeDef *hi2c, uint8_t fifo_mask, ui
 mpu_status_t MPU6050_Get_FIFO_Count(I2C_HandleTypeDef *hi2c,uint16_t* count);
 mpu_status_t MPU6050_FIFO_CMD(I2C_HandleTypeDef *hi2c,uint8_t cmd);
 mpu_status_t MPU6050_init_TempSensor(I2C_HandleTypeDef *hi2c, uint8_t cmd);
+mpu_status_t MPU6050_Configure_Interrupt_Pin(Interrupt_source_t interrupt, uint8_t level, uint8_t latch);
+void MPU6050_DMA_PeriphIRQHandler(void);
 #endif /* HAL_MPU6050_H_ */

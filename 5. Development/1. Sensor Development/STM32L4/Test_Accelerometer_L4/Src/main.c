@@ -32,7 +32,11 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+typedef enum
+{
+	PASS,
+	FAIL
+} UT_result_t;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -46,6 +50,8 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+I2C_HandleTypeDef hi2c1;
+DMA_HandleTypeDef hdma_i2c1_rx;
 
 UART_HandleTypeDef huart2;
 
@@ -65,9 +71,17 @@ static void MX_USART2_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
-
 //----------------------------- TEST MODULES ----------------------------------//
+UT_result_t AT001_Test_Connectivity(void)
+{
+	 mpu_status_t flag = MPU6050_Init(GYRO_CONFIG_FSSEL_500DPS,ACC_CONFIG_AFSSEL_2G,CONFIG_DLFP_1);
+
+	  if(flag == MPU_OK)
+	  {
+		  return PASS;
+	  }
+		 return FAIL;
+}
 void AT002_Test_PowerMode(void)
 {
 	  MPU6050_Set_Cycle_Power_Mode(&hi2c1,PWR_MGMT_2_LP_WAKE_CTRL_40HZ);
@@ -81,6 +95,32 @@ void AT002_Test_PowerMode(void)
 	  HAL_I2C_Mem_Read(&hi2c1,MPU_Device_Address,PWR_MGMT_1,1,byte,2,100);
 }
 
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+  /* Prevent unused argument(s) compilation warning */
+  uint8_t data[14] = {0};
+  mpu_data_t imu;
+  HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
+  uint8_t data_ready;
+  MPU6050_Get_IMU_RawData(&hi2c1,data);
+  imu.Accel[0] = data[1]<<8 | data[0];
+  imu.Accel[1] = data[3]<<8 | data[2];
+  imu.Accel[2] = data[5]<<8 | data[4];
+  imu.Gyro[0]  = data[7]<<8 | data[6];
+  imu.Gyro[1]  = data[9]<<8 | data[8];
+  imu.Gyro[2]  = data[11]<<8 | data[10];
+  imu.Temp = data[13]<<8 | data[12];
+  MPU6050_Get_Interrupt_Status(&hi2c1,DATA_READY,&data_ready);
+  /* NOTE: This function should not be modified, when the callback is needed,
+           the HAL_GPIO_EXTI_Callback could be implemented in the user file
+   */
+}
+/* USER CODE END 0 */
+
+/**
+  * @brief  The application entry point.
+  * @retval int
+  */
 int main(void)
 {
   /* USER CODE BEGIN 1 */
@@ -106,9 +146,9 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_USART2_UART_Init();
   MX_DMA_Init();
   MX_I2C1_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   mpu_status_t flag = MPU6050_Init(GYRO_CONFIG_FSSEL_500DPS,ACC_CONFIG_AFSSEL_2G,CONFIG_DLFP_1);
 
@@ -128,27 +168,14 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-  uint8_t data[14] = {0};
-  mpu_data_t imu;
+
   while (1)
   {
-    /* USER CODE END WHILE */
-	 //wait for data ready
-	  uint8_t data_ready = 0;
-	  while(!data_ready)
-	  {
-		MPU6050_Get_Interrupt_Status(&hi2c1,DATA_READY,&data_ready);
-	  }
+
 	  //read IMU data
-	  MPU6050_Get_IMU_RawData(&hi2c1,data);
-	  imu.Accel[0] = data[1]<<8 | data[0];
-	  imu.Accel[1] = data[3]<<8 | data[2];
-	  imu.Accel[2] = data[5]<<8 | data[4];
-	  imu.Gyro[0]  = data[7]<<8 | data[6];
-	  imu.Gyro[1]  = data[9]<<8 | data[8];
-	  imu.Gyro[2]  = data[11]<<8 | data[10];
-	  imu.Temp = data[13]<<8 | data[12];
-	  HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
+
+
+    /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
   }
@@ -345,6 +372,16 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LD2_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : IMU_INT_Pin */
+  GPIO_InitStruct.Pin = IMU_INT_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(IMU_INT_GPIO_Port, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 
 }
 
