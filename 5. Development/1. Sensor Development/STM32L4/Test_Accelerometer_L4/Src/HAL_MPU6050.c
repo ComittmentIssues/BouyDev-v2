@@ -463,14 +463,8 @@ mpu_status_t MPU6050_Set_PLLSrc(I2C_HandleTypeDef *hi2c, uint8_t PLL)
 		return MPU_I2C_ERROR;
 	}
 	//configure PLL source
-	if(PLL == 0)
-	{
-		//clear bits to configure for internal 8MHz
-		pwrmgmtbyte &= ~PWR_MGMT_1_CLK_SEL_7;
-	}else
-	{
-		pwrmgmtbyte |=PLL;
-	}
+	pwrmgmtbyte = (pwrmgmtbyte &0b11111000)| PLL;
+
 	//write byte to register
 	if(HAL_I2C_Mem_Write(hi2c,MPU_Device_Address,PWR_MGMT_1,1,&pwrmgmtbyte,1,100) != HAL_OK)
 	{
@@ -673,12 +667,11 @@ void MPU6050_DMA_PeriphIRQHandler(void)
  */
 mpu_status_t MPU6050_Init(uint8_t g_fsr,uint8_t a_fsr, uint8_t dlpf_coeff)
 {
-	//step 1: Initalise peripherals
-
-
-	//TODO: Initialise Interrupt Pin
 
 	//step 2: Request acknowledgement
+	//initialise buffers
+	sample_count = 0;
+	memset(IMU_Buffer,0,IMU_BUFFER_SIZE);
 	uint8_t whoami = 0;
 	if(MPU6050_Get_ID(&hi2c1,&whoami) != MPU_OK)
 	{
@@ -690,24 +683,43 @@ mpu_status_t MPU6050_Init(uint8_t g_fsr,uint8_t a_fsr, uint8_t dlpf_coeff)
 		return MPU_I2C_ID_ERROR;
 	}
 	//Initialise registers
+	uint8_t byte[2];
 	MPU6050_reset(&hi2c1);
+	HAL_Delay(100);
 	MPU6050_Set_Wake(&hi2c1); //wake up device
-	MPU6050_Set_PLLSrc(&hi2c1, PWR_MGMT_1_CLK_SEL_1); // set clock source to PLL gyro x axis
-
+	MPU6050_Set_PLLSrc(&hi2c1, PWR_MGMT_1_CLK_SEL_3); // set clock source to PLL gyro x axis
 	//Configure sensor settings
 	MPU6050_Set_Acc_FSR(&hi2c1,a_fsr);
 	MPU6050_Set_Gyro_FSR(&hi2c1,g_fsr);
 	MPU6050_Set_DLPF(&hi2c1,dlpf_coeff);
 	MPU6050_Set_Sample_Rate(&hi2c1);
-
 	//configure interrupt pin
-
 	MPU6050_Configure_Interrupt_Pin(INT_PIN_CFG_LEVEL_HIGH, INT_PIN_CFG_PIN_PUSH_PULL,INT_PIN_CFG_LATCH_INT_EN);
 	MPU6050_Enable_Interrupt(&hi2c1,INT_ENABLE_DATA_RDY_EN);
+	MPU6050_Get_Interrupt_Status(&hi2c1,DATA_READY,(uint8_t*)0xFF);
 
-	//initialise buffers
+
+	return MPU_OK;
+}
+
+mpu_status_t MPU6050_Deinit(void)
+{
+	 MPU6050_Disable_Interrupt(&hi2c1,DATA_READY);
+	 MPU6050_Get_Interrupt_Status(&hi2c1,DATA_READY,(uint8_t*)0xFF);
+	//reset Device and place in sleep mode
+	MPU6050_Set_PLLSrc(&hi2c1, PWR_MGMT_1_CLK_SEL_0);
+	MPU6050_reset(&hi2c1);
+	HAL_Delay(100);
+	//Deinit I2C peripheral
+	if(HAL_I2C_DeInit(&hi2c1) != HAL_OK)
+	{
+	  return MPU_CONFIG_ERROR;
+	}
+	if(HAL_DMA_DeInit(&hdma_i2c1_rx) != HAL_OK)
+	{
+		MPU_CONFIG_ERROR;
+	}
 	sample_count = 0;
 	memset(IMU_Buffer,0,IMU_BUFFER_SIZE);
 	return MPU_OK;
 }
-

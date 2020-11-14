@@ -113,9 +113,6 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
   	  imu.Temp = IMU_Buffer[13]<<8 | IMU_Buffer[12];
   	  MPU6050_Get_Interrupt_Status(&hi2c1,DATA_READY,&data_ready);
   	  sample_count++;
-  }else
-  {
-	  __NOP();
   }
 }
 /* USER CODE END 0 */
@@ -176,8 +173,13 @@ int main(void)
   {
 
 	  //read IMU data
+	  if(sample_count == N_Samples)
+	  {
+		  //reset signal path
+		  MPU6050_Deinit();
 
 
+	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

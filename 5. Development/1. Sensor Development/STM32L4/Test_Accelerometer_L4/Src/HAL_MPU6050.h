@@ -81,6 +81,7 @@ typedef enum
 	MPU_I2C_ERROR,
 	MPU_I2C_DEVICE_BUSY,
 	MPU_I2C_ACK_NACK,
+	MPU_CONFIG_ERROR,
 	MPU_I2C_DEVICE_OFFLINE,
 	MPU_I2C_DEVICE_ONLINE,
 	MPU_I2C_ID_ERROR,
@@ -515,6 +516,7 @@ mpu_status_t MPU6050_Set_Cycle_Power_Mode(I2C_HandleTypeDef *hi2c,uint8_t Cycles
 mpu_status_t MPU6050_Set_Low_Power_Mode_Acc(I2C_HandleTypeDef *hi2c,uint8_t Cycles);
 mpu_status_t MPU6050_Set_Wake(I2C_HandleTypeDef *hi2c);
 mpu_status_t MPU6050_Init(uint8_t g_fsr,uint8_t a_fsr, uint8_t dlpf_coeff);
+mpu_status_t MPU6050_Deinit(void);
 mpu_status_t MPU6050_Set_Sleep_Power_Mode(I2C_HandleTypeDef *hi2c);
 mpu_status_t MPU6050_Set_Sample_Rate(I2C_HandleTypeDef *hi2c);
 mpu_status_t MPU6050_Set_FSync(I2C_HandleTypeDef *hi2c, uint8_t Fsync);
@@ -530,5 +532,6 @@ mpu_status_t MPU6050_Get_FIFO_Count(I2C_HandleTypeDef *hi2c,uint16_t* count);
 mpu_status_t MPU6050_FIFO_CMD(I2C_HandleTypeDef *hi2c,uint8_t cmd);
 mpu_status_t MPU6050_init_TempSensor(I2C_HandleTypeDef *hi2c, uint8_t cmd);
 mpu_status_t MPU6050_Configure_Interrupt_Pin(Interrupt_source_t interrupt, uint8_t level, uint8_t latch);
+mpu_status_t MPU6050_reset(I2C_HandleTypeDef *hi2c);
 void MPU6050_DMA_PeriphIRQHandler(void);
 #endif /* HAL_MPU6050_H_ */
