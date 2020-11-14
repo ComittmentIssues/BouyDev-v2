@@ -98,22 +98,25 @@ void AT002_Test_PowerMode(void)
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
   /* Prevent unused argument(s) compilation warning */
-  uint8_t data[14] = {0};
-  mpu_data_t imu;
-  HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
-  uint8_t data_ready;
-  MPU6050_Get_IMU_RawData(&hi2c1,data);
-  imu.Accel[0] = data[1]<<8 | data[0];
-  imu.Accel[1] = data[3]<<8 | data[2];
-  imu.Accel[2] = data[5]<<8 | data[4];
-  imu.Gyro[0]  = data[7]<<8 | data[6];
-  imu.Gyro[1]  = data[9]<<8 | data[8];
-  imu.Gyro[2]  = data[11]<<8 | data[10];
-  imu.Temp = data[13]<<8 | data[12];
-  MPU6050_Get_Interrupt_Status(&hi2c1,DATA_READY,&data_ready);
-  /* NOTE: This function should not be modified, when the callback is needed,
-           the HAL_GPIO_EXTI_Callback could be implemented in the user file
-   */
+  if(sample_count < N_Samples)
+  {
+	  mpu_data_t imu;
+  	  HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
+  	  uint8_t data_ready;
+  	  MPU6050_Get_IMU_RawData(&hi2c1,&IMU_Buffer[sample_count*12]);
+  	  imu.Accel[0] = IMU_Buffer[1]<<8 | IMU_Buffer[0];
+  	  imu.Accel[1] = IMU_Buffer[3]<<8 | IMU_Buffer[2];
+  	  imu.Accel[2] = IMU_Buffer[5]<<8 | IMU_Buffer[4];
+  	  imu.Gyro[0]  = IMU_Buffer[7]<<8 | IMU_Buffer[6];
+  	  imu.Gyro[1]  = IMU_Buffer[9]<<8 | IMU_Buffer[8];
+  	  imu.Gyro[2]  = IMU_Buffer[11]<<8 | IMU_Buffer[10];
+  	  imu.Temp = IMU_Buffer[13]<<8 | IMU_Buffer[12];
+  	  MPU6050_Get_Interrupt_Status(&hi2c1,DATA_READY,&data_ready);
+  	  sample_count++;
+  }else
+  {
+	  __NOP();
+  }
 }
 /* USER CODE END 0 */
 

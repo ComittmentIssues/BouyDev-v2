@@ -11,6 +11,7 @@
 #include "stm32l4xx_hal.h"
 #include "math.h"
 #include "stdint.h"
+#include "string.h"
 /* Private typedef -----------------------------------------------------------*/
 typedef enum
 {
@@ -227,7 +228,7 @@ typedef struct
 
 //GYRO_CONFIG Macros
 #define GYRO_CONFIG_FSSEL_MSK		0b11
-#define GYRO_CONFIG_FSSEL_250DPS	~(GYRO_CONFIG_FSSEL_MSK<<3)
+#define GYRO_CONFIG_FSSEL_250DPS	0<<3
 #define GYRO_CONFIG_FSSEL_500DPS	1<<3
 #define GYRO_CONFIG_FSSEL_1000DPS	2<<3
 #define GYRO_CONFIG_FSSEL_2000DPS	GYRO_CONFIG_FSSEL_MSK<<3
@@ -238,7 +239,7 @@ typedef struct
 
 //ACC_CONFIG Macros
 #define ACC_CONFIG_AFSSEL_MSK 0b11
-#define ACC_CONFIG_AFSSEL_2G	~(ACC_CONFIG_AFSSEL_MSK<<3)
+#define ACC_CONFIG_AFSSEL_2G	0<<3
 #define ACC_CONFIG_AFSSEL_4G	1<<3
 #define ACC_CONFIG_AFSSEL_8G	2<<3
 #define ACC_CONFIG_AFSSEL_16G	ACC_CONFIG_AFSSEL_MSK<<3
@@ -492,16 +493,19 @@ typedef struct
 #define ACC_8G_WORD_LENGTH 4096
 #define ACC_16G_WORD_LENGTH 2048
 
-#define N_Samples 56
-/* USER CODE END PD */
+//Data Defines
+#define N_Samples 28
+#define IMU_BUFFER_SIZE N_Samples*12
 
+//private variables
 I2C_HandleTypeDef hi2c1;
 DMA_HandleTypeDef hdma_i2c1_rx;
 
+uint16_t sample_count;
 //private buffers
+uint8_t IMU_Buffer[IMU_BUFFER_SIZE];
 
-uint8_t IMU_DATA_BUFFER[N_Samples*sizeof(uint16_t)];
-
+//function prototypes
 mpu_status_t MPU6050_Get_ID(I2C_HandleTypeDef *hi2c,uint8_t* ID);
 mpu_status_t MPU6050_Get_MST_Status(I2C_HandleTypeDef *hi2c, uint8_t* status_byte);
 mpu_status_t MPU6050_Set_Gyro_FSR(I2C_HandleTypeDef *hi2c,uint8_t FSR);

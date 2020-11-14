@@ -141,7 +141,7 @@ mpu_status_t MPU6050_Set_Gyro_FSR(I2C_HandleTypeDef *hi2c,uint8_t FSR)
 mpu_status_t MPU6050_Set_Acc_FSR(I2C_HandleTypeDef *hi2c,uint8_t FSR)
 {
 	uint8_t byte = 0;
-	byte |= FSR &0xFF;
+	byte = FSR ;
 	if(HAL_I2C_Mem_Write(hi2c,MPU_Device_Address,ACCELEROMETER_CONFIG,1,&byte,1,100)!= HAL_OK)
 	{
 		return MPU_I2C_ERROR;
@@ -287,7 +287,7 @@ mpu_status_t MPU6050_Get_Interrupt_Status(I2C_HandleTypeDef *hi2c, Interrupt_sou
 mpu_status_t MPU6050_Get_IMU_RawData(I2C_HandleTypeDef *hi2c,uint8_t* imu)
 {
 	  __HAL_DMA_ENABLE_IT(&hdma_i2c1_rx, DMA_IT_TC);
-	if( HAL_I2C_Mem_Read(&hi2c1,MPU_Device_Address,ACCEL_XOUT_H,1,imu,14,100) != HAL_OK)
+	if( HAL_I2C_Mem_Read(&hi2c1,MPU_Device_Address,ACCEL_XOUT_H,1,imu,12,100) != HAL_OK)
 	{
 		return MPU_I2C_ERROR;
 	}
@@ -631,7 +631,7 @@ mpu_status_t MPU6050_Calibrate_Acc(I2C_HandleTypeDef *hi2c,float* accel_bias)
 	//Processing algorythm:
 	int32_t n_s = count/6; //3 axes, 2 bytes per axis
 	int32_t imu_bias[3] = {0};	//data array for storing the
-	int16_t acc_temp[3] ={0}, gyro_temp[3] = {0};
+	int16_t acc_temp[3] ={0};// gyro_temp[3] = {0};
 	for (int i = 0; i < n_s; ++i)
 	{
 		//get set of imu data
@@ -704,6 +704,10 @@ mpu_status_t MPU6050_Init(uint8_t g_fsr,uint8_t a_fsr, uint8_t dlpf_coeff)
 
 	MPU6050_Configure_Interrupt_Pin(INT_PIN_CFG_LEVEL_HIGH, INT_PIN_CFG_PIN_PUSH_PULL,INT_PIN_CFG_LATCH_INT_EN);
 	MPU6050_Enable_Interrupt(&hi2c1,INT_ENABLE_DATA_RDY_EN);
+
+	//initialise buffers
+	sample_count = 0;
+	memset(IMU_Buffer,0,IMU_BUFFER_SIZE);
 	return MPU_OK;
 }
 
