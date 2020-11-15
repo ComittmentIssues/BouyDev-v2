@@ -82,6 +82,7 @@ UT_result_t AT001_Test_Connectivity(void)
 	  }
 		 return FAIL;
 }
+
 void AT002_Test_PowerMode(void)
 {
 	  MPU6050_Set_Cycle_Power_Mode(&hi2c1,PWR_MGMT_2_LP_WAKE_CTRL_40HZ);

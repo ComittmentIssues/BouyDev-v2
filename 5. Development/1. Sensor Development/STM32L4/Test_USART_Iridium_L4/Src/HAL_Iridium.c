@@ -921,6 +921,10 @@ void USART_RTO_IRQHandler(TIM_HandleTypeDef *htim)
 			HAL_TIM_OC_Stop_IT(&htim3,TIM_CHANNEL_1);
 			__HAL_TIM_SET_COUNTER(htim,0);
 		}
+		else
+		{
+			__NOP();
+		}
 
 	}
 	if(__HAL_TIM_GET_IT_SOURCE(htim,TIM_IT_UPDATE))

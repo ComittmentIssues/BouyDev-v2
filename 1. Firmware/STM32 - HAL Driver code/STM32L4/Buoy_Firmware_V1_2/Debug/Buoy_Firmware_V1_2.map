@@ -5228,7 +5228,7 @@ LOAD c:/program files (x86)/atollic/truestudio for stm32 9.0.0/armtools/bin/../l
                 0x0000174a       0x1e c:/program files (x86)/atollic/truestudio for stm32 9.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/crtn.o
 OUTPUT(Buoy_Firmware_V1_2.elf elf32-littlearm)
 
-.debug_info     0x00000000    0x260f3
+.debug_info     0x00000000    0x2610c
  .debug_info    0x00000000      0xcec Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal.o
  .debug_info    0x00000cec      0xf33 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_cortex.o
  .debug_info    0x00001c1f      0x8bd Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_dma.o
@@ -5248,18 +5248,18 @@ OUTPUT(Buoy_Firmware_V1_2.elf elf32-littlearm)
  .debug_info    0x00011672      0xa03 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_uart_ex.o
  .debug_info    0x00012075     0x1c32 Drivers\Sensor_API\DATAFLASH.o
  .debug_info    0x00013ca7     0x1388 Drivers\Sensor_API\HAL_BMP280.o
- .debug_info    0x0001502f     0x23d3 Drivers\Sensor_API\HAL_GPS.o
- .debug_info    0x00017402      0xd0d Drivers\Sensor_API\HAL_INA219.o
- .debug_info    0x0001810f     0x21cf Drivers\Sensor_API\HAL_Iridium.o
- .debug_info    0x0001a2de     0x2f3e src\Sharc_Frame.o
- .debug_info    0x0001d21c     0x2f34 src\main.o
- .debug_info    0x00020150       0xb8 src\startup_stm32l476xx.o
- .debug_info    0x00020208     0x2bde src\stm32l4xx_hal_msp.o
- .debug_info    0x00022de6     0x1e28 src\stm32l4xx_it.o
- .debug_info    0x00024c0e      0xf2f src\syscalls.o
- .debug_info    0x00025b3d      0x5b6 src\system_stm32l4xx.o
+ .debug_info    0x0001502f     0x23d8 Drivers\Sensor_API\HAL_GPS.o
+ .debug_info    0x00017407      0xd0d Drivers\Sensor_API\HAL_INA219.o
+ .debug_info    0x00018114     0x21cf Drivers\Sensor_API\HAL_Iridium.o
+ .debug_info    0x0001a2e3     0x2f43 src\Sharc_Frame.o
+ .debug_info    0x0001d226     0x2f39 src\main.o
+ .debug_info    0x0002015f       0xb8 src\startup_stm32l476xx.o
+ .debug_info    0x00020217     0x2be3 src\stm32l4xx_hal_msp.o
+ .debug_info    0x00022dfa     0x1e2d src\stm32l4xx_it.o
+ .debug_info    0x00024c27      0xf2f src\syscalls.o
+ .debug_info    0x00025b56      0x5b6 src\system_stm32l4xx.o
 
-.debug_abbrev   0x00000000     0x3ddc
+.debug_abbrev   0x00000000     0x3e0f
  .debug_abbrev  0x00000000      0x1f6 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal.o
  .debug_abbrev  0x000001f6      0x2da Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_cortex.o
  .debug_abbrev  0x000004d0      0x1d4 Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_dma.o
@@ -5279,16 +5279,16 @@ OUTPUT(Buoy_Firmware_V1_2.elf elf32-littlearm)
  .debug_abbrev  0x00002044      0x1dd Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_uart_ex.o
  .debug_abbrev  0x00002221      0x2dd Drivers\Sensor_API\DATAFLASH.o
  .debug_abbrev  0x000024fe      0x269 Drivers\Sensor_API\HAL_BMP280.o
- .debug_abbrev  0x00002767      0x2d0 Drivers\Sensor_API\HAL_GPS.o
- .debug_abbrev  0x00002a37      0x20c Drivers\Sensor_API\HAL_INA219.o
- .debug_abbrev  0x00002c43      0x2f3 Drivers\Sensor_API\HAL_Iridium.o
- .debug_abbrev  0x00002f36      0x363 src\Sharc_Frame.o
- .debug_abbrev  0x00003299      0x2b1 src\main.o
- .debug_abbrev  0x0000354a       0x12 src\startup_stm32l476xx.o
- .debug_abbrev  0x0000355c      0x2c7 src\stm32l4xx_hal_msp.o
- .debug_abbrev  0x00003823      0x219 src\stm32l4xx_it.o
- .debug_abbrev  0x00003a3c      0x271 src\syscalls.o
- .debug_abbrev  0x00003cad      0x12f src\system_stm32l4xx.o
+ .debug_abbrev  0x00002767      0x2e1 Drivers\Sensor_API\HAL_GPS.o
+ .debug_abbrev  0x00002a48      0x20c Drivers\Sensor_API\HAL_INA219.o
+ .debug_abbrev  0x00002c54      0x2f3 Drivers\Sensor_API\HAL_Iridium.o
+ .debug_abbrev  0x00002f47      0x374 src\Sharc_Frame.o
+ .debug_abbrev  0x000032bb      0x2b1 src\main.o
+ .debug_abbrev  0x0000356c       0x12 src\startup_stm32l476xx.o
+ .debug_abbrev  0x0000357e      0x2c7 src\stm32l4xx_hal_msp.o
+ .debug_abbrev  0x00003845      0x22a src\stm32l4xx_it.o
+ .debug_abbrev  0x00003a6f      0x271 src\syscalls.o
+ .debug_abbrev  0x00003ce0      0x12f src\system_stm32l4xx.o
 
 .debug_aranges  0x00000000     0x1c20
  .debug_aranges

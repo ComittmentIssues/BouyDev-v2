@@ -43,7 +43,7 @@ static HAL_StatusTypeDef MX_TIM2_Init(void)
 {
 
   /* USER CODE BEGIN TIM2_Init 0 */
-
+	//check instance first
   /* USER CODE END TIM2_Init 0 */
   TIM_ClockConfigTypeDef sClockSourceConfig = {0};
   TIM_SlaveConfigTypeDef sSlaveConfig = {0};
@@ -475,7 +475,6 @@ diag.VDOP = dop[2];
 
 GPS_Init_msg_t init_GPS(GPS_Handle_Typedef *hgps)
 {
-
 	if(MX_DMA_Init() != HAL_OK)  return GPS_Init_Periph_Config_Error;
 	if(MX_UART4_Init() != HAL_OK) return GPS_Init_Periph_Config_Error;
 	if(MX_TIM2_Init() != HAL_OK) return GPS_Init_Periph_Config_Error;
@@ -517,18 +516,15 @@ GPS_Init_msg_t init_GPS(GPS_Handle_Typedef *hgps)
 		{
 			GPS_Acknowledgement_State = UBX_Send_Ack(hgps);
 		}
-		if(GPS_Acknowledgement_State == UBX_TIMEOUT_Rx)
+		if(GPS_Acknowledgement_State != UBX_ACK_ACK)
 		{
 			return GPS_Init_Ack_Error;
 		}
 
 
-	}else if(GPS_Acknowledgement_State == UBX_TIMEOUT_Tx)
+	}else if(GPS_Acknowledgement_State == UBX_TIMEOUT_Tx || GPS_Acknowledgement_State == UBX_ERROR)
 	{
 		return GPS_Init_Ack_Tx_Error;
-	}else if (GPS_Acknowledgement_State == UBX_ACK_NACK)
-	{
-		return GPS_Init_Ack_Error;
 	}
 	//configure message buffer
 	if( UBX_Configure_Messages(hgps) != UBX_OK )
