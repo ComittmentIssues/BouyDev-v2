@@ -169,7 +169,7 @@ typedef struct
 
 }GPS_Handle_Typedef;
 
-//============ 3. Macro Definitions =========================================
+//======================== 3. Macro Definitions =========================================
 
 /*
  * GPS versions are monitered through UBLOX_NEOx. This library has support for Neo-6m,7m and M9N
@@ -218,7 +218,7 @@ typedef struct
 
 /* Other Defines*/
 
-#define GPS_INIT_RETRIES 50 		//maximum number of attempts to receive an acknowledgment
+#define GPS_INIT_RETRIES 100 		//maximum number of attempts to receive an acknowledgment
 
 
 //========================== 4. Global Variables ==========================================
@@ -392,7 +392,7 @@ UBX_MSG_t UBX_Configure_Messages(GPS_Handle_Typedef *hgps);
  *
  * @return: void
  */
-void GPS_Log_Begin(GPS_Handle_Typedef* hgps);
+void GPS_Log_Begin(void);
 
 /*
  * Function Name: void GPS_Log_Stop(void);
@@ -403,7 +403,7 @@ void GPS_Log_Begin(GPS_Handle_Typedef* hgps);
  *
  * @return: void
  */
-void GPS_Log_Stop(GPS_Handle_Typedef* hgps);
+void GPS_Log_Stop(void);
 
 /*
  * Function Name: void  Clear_Buffer(uint8_t *buffer,uint32_t size);

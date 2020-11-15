@@ -171,6 +171,11 @@ typedef struct
 
 //======================== 3. Macro Definitions =========================================
 
+/*
+ * GPS versions are monitered through UBLOX_NEOx. This library has support for Neo-6m,7m and M9N
+ */
+#define UBLOX_NEO9
+
 /* TIM Defines */
 #define GPS_TIM_PORT TIM2					//General Purpose Timer
 
@@ -190,6 +195,17 @@ typedef struct
 #define GPS_RX_Pin GPIO_PIN_11				//USART Rx GPIO Pin
 
 #define GPS_RX_GPIO_Port GPIOC				//USART Rx GPIO Port
+
+
+#ifdef UBLOX_NEO9							//power-on init baud rate definition
+#define UART_BAUD_INIT 38400
+#endif
+#ifdef UBLOX_NEO7
+#define UART_BAUD_INIT 9600
+#endif
+#ifdef UBLOX_NEO6
+#define UART_BAUD_INIT 9600
+#endif
 
 /* Note: Some USART peripherals are mapped to pins on different io ports. These are available in the AF table in the reference manual */
 

@@ -1,4 +1,4 @@
- /*
+/*
  * HAL_GPS.c
  *
  *  Created on: Mar 11, 2020
@@ -43,14 +43,7 @@ static HAL_StatusTypeDef MX_TIM2_Init(void)
 {
 
   /* USER CODE BEGIN TIM2_Init 0 */
-	//reset code before init
-	htim2.Instance = TIM2;
-	HAL_TIM_Base_Stop_IT(&htim2);
-	HAL_TIM_IC_Stop_IT(&htim2,TIM_CHANNEL_1);
-	if(HAL_TIM_Base_DeInit(&htim2) != HAL_OK)
-	{
-			return GPS_Init_Periph_Config_Error;
-	}
+	//check instance first
   /* USER CODE END TIM2_Init 0 */
   TIM_ClockConfigTypeDef sClockSourceConfig = {0};
   TIM_SlaveConfigTypeDef sSlaveConfig = {0};
@@ -130,7 +123,7 @@ HAL_StatusTypeDef MX_UART4_Init(void)
 {
 
   huart4.Instance = UART4;
-  huart4.Init.BaudRate = 9600;
+  huart4.Init.BaudRate = UART_BAUD_INIT;
   huart4.Init.WordLength = UART_WORDLENGTH_8B;
   huart4.Init.StopBits = UART_STOPBITS_1;
   huart4.Init.Parity = UART_PARITY_NONE;
@@ -238,216 +231,36 @@ static HAL_StatusTypeDef MX_DMA_Init(void)
 * @param huart: UART handle pointer
 * @retval None
 */
-//void HAL_UART_MspInit(UART_HandleTypeDef* huart)
-//{
-//  GPIO_InitTypeDef GPIO_InitStruct = {0};
-//  //GPS UART Init
-//  if(huart->Instance==UART4)
-//  {
-//
-//    /* Peripheral clock enable */
-//    __HAL_RCC_UART4_CLK_ENABLE();
-//
-//    __HAL_RCC_GPIOC_CLK_ENABLE();
-//    /**UART4 GPIO Configuration
-//    PC10     ------> UART4_TX
-//    PC11     ------> UART4_RX
-//    */
-//    GPIO_InitStruct.Pin = GPS_TX_Pin|GPS_RX_Pin;
-//    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-//    GPIO_InitStruct.Pull = GPIO_NOPULL;
-//    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-//    GPIO_InitStruct.Alternate = GPIO_AF8_UART4;
-//    HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
-//
-//    /* UART4 DMA Init */
-//    /* UART4_RX Init */
-//    hdma_uart4_rx.Instance = DMA2_Channel5;
-//    hdma_uart4_rx.Init.Request = DMA_REQUEST_2;
-//    hdma_uart4_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
-//    hdma_uart4_rx.Init.PeriphInc = DMA_PINC_DISABLE;
-//    hdma_uart4_rx.Init.MemInc = DMA_MINC_ENABLE;
-//    hdma_uart4_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
-//    hdma_uart4_rx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
-//    hdma_uart4_rx.Init.Mode = DMA_NORMAL;
-//    hdma_uart4_rx.Init.Priority = DMA_PRIORITY_LOW;
-//    if (HAL_DMA_Init(&hdma_uart4_rx) != HAL_OK)
-//    {
-//      __NOP();
-//    }
-//
-//    __HAL_LINKDMA(huart,hdmarx,hdma_uart4_rx);
-//
-//    /* UART4_TX Init */
-//    hdma_uart4_tx.Instance = DMA2_Channel3;
-//    hdma_uart4_tx.Init.Request = DMA_REQUEST_2;
-//    hdma_uart4_tx.Init.Direction = DMA_MEMORY_TO_PERIPH;
-//    hdma_uart4_tx.Init.PeriphInc = DMA_PINC_DISABLE;
-//    hdma_uart4_tx.Init.MemInc = DMA_MINC_ENABLE;
-//    hdma_uart4_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
-//    hdma_uart4_tx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
-//    hdma_uart4_tx.Init.Mode = DMA_NORMAL;
-//    hdma_uart4_tx.Init.Priority = DMA_PRIORITY_LOW;
-//    if (HAL_DMA_Init(&hdma_uart4_tx) != HAL_OK)
-//    {
-//      __NOP();
-//    }
-//
-//    __HAL_LINKDMA(huart,hdmatx,hdma_uart4_tx);
-//
-//    /* UART4 interrupt Init */
-//
-//	CLEAR_REG(huart->Instance->CR1);
-//	CLEAR_REG(huart->Instance->CR2);
-//	CLEAR_REG(huart->Instance->CR3);
-//
-//    HAL_NVIC_SetPriority(UART4_IRQn, 0, 0);
-//    HAL_NVIC_EnableIRQ(UART4_IRQn);
-//  }
-//}
-//
-///**
-//* @brief UART MSP De-Initialization
-//* This function freeze the hardware resources used in this example
-//* @param huart: UART handle pointer
-//* @retval None
-//*/
-//void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
-//{
-//
-//  //GPS UART Deinit
-//  if(huart->Instance==UART4)
-//  {
-//
-//    /* Peripheral clock disable */
-//    __HAL_RCC_UART4_CLK_DISABLE();
-//
-//    /**UART4 GPIO Configuration
-//    PC10     ------> UART4_TX
-//    PC11     ------> UART4_RX
-//    */
-//    HAL_GPIO_DeInit(GPIOC, GPS_TX_Pin|GPS_RX_Pin);
-//
-//    /* UART4 DMA DeInit */
-//    HAL_DMA_DeInit(huart->hdmarx);
-//    HAL_DMA_DeInit(huart->hdmatx);
-//
-//    /* UART4 interrupt DeInit */
-//    HAL_NVIC_DisableIRQ(UART4_IRQn);
-//
-//  }
-//
-//}
-//
-//
-///**
-//* @brief TIM_Base MSP Initialization
-//* This function configures the hardware resources used in this example
-//* @param htim_base: TIM_Base handle pointer
-//* @retval None
-//*/
-//
-//void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* htim_base)
-//{
-//  GPIO_InitTypeDef GPIO_InitStruct = {0};
-//  if(htim_base->Instance==TIM2)
-//  {
-//  /* USER CODE BEGIN TIM2_MspInit 0 */
-//
-//  /* USER CODE END TIM2_MspInit 0 */
-//    /* Peripheral clock enable */
-//    __HAL_RCC_TIM2_CLK_ENABLE();
-//
-//    __HAL_RCC_GPIOA_CLK_ENABLE();
-//    /**TIM2 GPIO Configuration
-//    PA1     ------> TIM2_CH2
-//    */
-//    GPIO_InitStruct.Pin = GPIO_PIN_1;
-//    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-//    GPIO_InitStruct.Pull = GPIO_NOPULL;
-//    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-//    GPIO_InitStruct.Alternate = GPIO_AF1_TIM2;
-//    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-//
-//    /* TIM2 interrupt Init */
-//    HAL_NVIC_SetPriority(TIM2_IRQn, 0, 0);
-//    HAL_NVIC_EnableIRQ(TIM2_IRQn);
-//  /* USER CODE BEGIN TIM2_MspInit 1 */
-//
-//  /* USER CODE END TIM2_MspInit 1 */
-//  }
-//
-//}
-//
-//
-///**
-//* @brief TIM_Base MSP De-Initialization
-//* This function freeze the hardware resources used in this example
-//* @param htim_base: TIM_Base handle pointer
-//* @retval None
-//*/
-//
-//void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* htim_base)
-//{
-//  if(htim_base->Instance==TIM2)
-//  {
-//  /* USER CODE BEGIN TIM2_MspDeInit 0 */
-//
-//  /* USER CODE END TIM2_MspDeInit 0 */
-//    /* Peripheral clock disable */
-//    __HAL_RCC_TIM2_CLK_DISABLE();
-//
-//    /**TIM2 GPIO Configuration
-//    PA1     ------> TIM2_CH2
-//    */
-//    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_1);
-//
-//    /* TIM2 interrupt DeInit */
-//    HAL_NVIC_DisableIRQ(TIM2_IRQn);
-//  /* USER CODE BEGIN TIM2_MspDeInit 1 */
-//
-//  /* USER CODE END TIM2_MspDeInit 1 */
-//  }
-//
-//}
+
 
 //======================= 5. Utility Function Definitions ===============================
 
-void GPS_Log_Begin(GPS_Handle_Typedef* hgps)
+void GPS_Log_Begin(void)
 {
-		log_gps = SET;
-	  __HAL_UART_ENABLE_IT(hgps->gps_huart,UART_IT_IDLE);
-	  __HAL_DMA_ENABLE_IT(hgps->gps_huart->hdmarx, DMA_IT_TC);
-	  if(__HAL_TIM_GET_FLAG(hgps->gps_htim,TIM_FLAG_CC1) == SET)
+	//stop and clear any counter thats still running
+	htim2.Instance->CR1 &= ~TIM_CR1_CEN;
+	htim2.Instance->CNT = 0;
+	  __HAL_UART_ENABLE_IT(&huart4,UART_IT_IDLE);
+	  __HAL_DMA_ENABLE_IT(huart4.hdmarx, DMA_IT_TC);
+	  if(__HAL_TIM_GET_FLAG(&htim2,TIM_FLAG_CC1) == SET)
 	  {
-	   __HAL_TIM_CLEAR_FLAG(hgps->gps_htim,TIM_FLAG_CC1);
+	   __HAL_TIM_CLEAR_FLAG(&htim2,TIM_FLAG_CC1);
 	  }
 	  M2M_Txfer_Cplt = 0;
-	  __HAL_TIM_ENABLE_IT(hgps->gps_htim,TIM_IT_CC1);
-	  HAL_TIM_OC_Start_IT(hgps->gps_htim, TIM_CHANNEL_1);
-	  HAL_TIM_Base_Start_IT(hgps->gps_htim);
-	  HAL_UART_Receive_DMA(hgps->gps_huart,DMA_RX_Buffer,DMA_RX_BUFFER_SIZE);
-
+	  __HAL_TIM_ENABLE_IT(&htim2,TIM_IT_CC1);
+	  HAL_TIM_OC_Start_IT(&htim2, TIM_CHANNEL_1);
+	  HAL_TIM_Base_Start_IT(&htim2);
+	  HAL_UART_Receive_DMA(&huart4,DMA_RX_Buffer,DMA_RX_BUFFER_SIZE);
+	  log_gps = SET;
 }
 
-void GPS_Log_Stop(GPS_Handle_Typedef* hgps)
+void GPS_Log_Stop(void)
 {
 	  log_gps = RESET;
 	  packet_full = 0;
+	  HAL_UART_DMAStop(&huart4);
+	  HAL_TIM_Base_Stop(&htim2);
 
-	  HAL_UART_DMAStop(hgps->gps_huart);
-	  __HAL_UART_DISABLE_IT(hgps->gps_huart,UART_IT_IDLE);
-	  __HAL_DMA_DISABLE_IT(hgps->gps_huart->hdmarx, DMA_IT_TC);
-
-	  HAL_TIM_Base_Stop_IT(hgps->gps_htim);
-	  HAL_TIM_OC_Stop_IT(hgps->gps_htim, TIM_CHANNEL_1);
-	  if(__HAL_TIM_GET_FLAG(hgps->gps_htim,TIM_FLAG_CC1) == SET)
-	  {
-	   __HAL_TIM_CLEAR_FLAG(hgps->gps_htim,TIM_FLAG_CC1);
-
-	  }
-	  hgps->gps_htim->Instance->CNT = 0;
-	  __NOP();
 }
 
 void  Clear_Buffer(uint8_t *buffer,uint32_t size)
@@ -662,7 +475,6 @@ diag.VDOP = dop[2];
 
 GPS_Init_msg_t init_GPS(GPS_Handle_Typedef *hgps)
 {
-
 	if(MX_DMA_Init() != HAL_OK)  return GPS_Init_Periph_Config_Error;
 	if(MX_UART4_Init() != HAL_OK) return GPS_Init_Periph_Config_Error;
 	if(MX_TIM2_Init() != HAL_OK) return GPS_Init_Periph_Config_Error;
@@ -737,7 +549,6 @@ GPS_Init_msg_t deinit_GPS(GPS_Handle_Typedef* hgps)
 	}
 	//detach instance
 	hgps->gps_htim = NULL;
-
 	/* De init UART*/
 	if(hgps->gps_huart->Instance != GPS_UART_PORT)
 	{
@@ -748,7 +559,6 @@ GPS_Init_msg_t deinit_GPS(GPS_Handle_Typedef* hgps)
 		return GPS_Init_Periph_Config_Error;
 	}
 	hgps->gps_huart = NULL;
-
 	/* De init DMA Memory Stream*/
 	if(hgps->gps_hdmamem->Instance != DMA1_Channel1)
 	{
@@ -808,7 +618,7 @@ HAL_StatusTypeDef USART_Set_Baudrate(GPS_Handle_Typedef* hgps,uint32_t baud)
 	  	__HAL_UART_CLEAR_IDLEFLAG(hgps->gps_huart);
      }
 	 //increase Timeout value to allow for longer waits
-	 __HAL_TIM_SET_COMPARE(hgps->gps_htim,TIM_CHANNEL_1,1152000);
+	 __HAL_TIM_SET_COMPARE(hgps->gps_htim,TIM_CHANNEL_1,576000);
 	 return HAL_OK;
 }
 
@@ -967,18 +777,11 @@ void USART_TIM_RTO_Handler(TIM_HandleTypeDef *htim)
 	{
 
 		//clear interrupt
-		__HAL_TIM_CLEAR_IT(htim, TIM_IT_CC1);
-		__HAL_TIM_CLEAR_IT(htim,TIM_IT_UPDATE);
+		__HAL_TIM_CLEAR_IT(htim, TIM_IT_CC1|TIM_IT_UPDATE);
 		//set reciever timeout flag
 		TIM_IDLE_Timeout = 1;
 		//disable timer
 		HAL_TIM_Base_Stop_IT(htim);
-		if(!log_gps)
-		{
-			UART4->ISR |= USART_ISR_IDLE;
-			USART_GPS_IRQHandler(&hgps);
-		}
-
 	}
 }
 
@@ -1031,11 +834,10 @@ void DMA_GNSS_MEM_IRQHandler(GPS_Handle_Typedef *hgps)
 			hgps->gps_huart->hdmarx->DmaBaseAddress->IFCR = 0x3FU << hgps->gps_huart->hdmarx->ChannelIndex; // clear all interrupts
 			hgps->gps_huart->hdmarx->Instance->CMAR = (uint32_t)hgps->GPS_Rx_Buffer; //reset the pointer
 			hgps->gps_huart->hdmarx->Instance->CNDTR = DMA_RX_BUFFER_SIZE; //set the number of bytes to expect
-			__HAL_UART_CLEAR_IDLEFLAG(hgps->gps_huart);
 			__HAL_UART_ENABLE_IT(hgps->gps_huart, UART_IT_IDLE);
+			__HAL_UART_CLEAR_IDLEFLAG(hgps->gps_huart);
 			if(packet_full != 7)
 			{
-
 				__HAL_TIM_ENABLE_IT(hgps->gps_htim,TIM_IT_CC1);
 				HAL_TIM_OC_Start_IT(hgps->gps_htim, TIM_CHANNEL_1);
 				HAL_TIM_Base_Start_IT(hgps->gps_htim);
@@ -1043,6 +845,7 @@ void DMA_GNSS_MEM_IRQHandler(GPS_Handle_Typedef *hgps)
 				HAL_UART_DMAResume(hgps->gps_huart);
 				log_gps = SET;
 			}
+
 		}
 
 }
@@ -1119,12 +922,6 @@ void USART_GPS_IRQHandler(GPS_Handle_Typedef *hgps)
 
 			}else
 			{
-				if(log_gps)
-				{
-					HAL_UART_DMAResume(hgps->gps_huart);
-					hgps->gps_huart->hdmarx->Instance->CCR |= DMA_CCR_EN;
-					__NOP();
-				}
 			/*
 			 * Case 2: gnss_length == 0;
 			 *
@@ -1188,54 +985,4 @@ void USART_GPS_IRQHandler(GPS_Handle_Typedef *hgps)
   * @brief This function handles TIM2 global interrupt.
   */
 
-//void TIM2_IRQHandler(void)
-//{
-//  /* USER CODE TIM2_IRQn 0 */
-//  USART_TIM_RTO_Handler(&htim2); //custom call back function
-//
-//  HAL_TIM_IRQHandler(&htim2);	 //HAL default handler
-//
-//}
-//
-///**
-//  * @brief This function handles UART4 global interrupt.
-//  */
-//void UART4_IRQHandler(void)
-//{
-//  /* USER CODE UART4_IRQn 0 */
-//	USART_GPS_IRQHandler(&hgps); //custom user Call Back function
-//
-//}
-//
-///**
-//  * @brief This function handles DMA2 channel3 global interrupt.
-//  */
-//void DMA2_Channel3_IRQHandler(void)
-//{
-//  /* USER CODE BEGIN DMA2_Channel3_IRQn 0 */
-//  HAL_DMA_IRQHandler(&hdma_uart4_tx);
-//
-//}
-//
-///**
-//  * @brief This function handles DMA2 channel5 global interrupt.
-//  */
-//void DMA2_Channel5_IRQHandler(void)
-//{
-//  /* USER CODE DMA2_Channel5_IRQn 0 */
-//  DMA_GNSS_Periph_IRQHandler(&hgps);
-//
-//}
-//
-//
-///**
-//  * @brief This function handles DMA1 channel1 global interrupt.
-//  */
-//void DMA1_Channel1_IRQHandler(void)
-//{
-//  /* USER CODE DMA1_Channel1_IRQn 0 */
-//
-//  HAL_DMA_IRQHandler(&hdma_memtomem_dma1_channel1);
-//  DMA_GNSS_MEM_IRQHandler(&hgps);
-//
-//}
+

@@ -466,15 +466,19 @@ static void Routine_STATE_SAMPLE(void)
 
 	  if(GPS_On)
 	  {
-
-		  for (uint8_t i = 0; i < 5; ++i)
-		  {
-
+		  	  int x = HAL_GetTick();
 			  while(packet_full != 7)
 			  {
-				  GPS_Log_Begin(&hgps);
+				  GPS_Log_Begin();
+				  int y = HAL_GetTick()- x;
+				  if(y >  30000)
+				  {
+					  printf("Failed to Acquire Signal\r\n");
+					  break;
+				  }
+
 			  }
-			  GPS_Log_Stop(&hgps);
+			  GPS_Log_Stop();
 			  printf("Logging Data...\r\n");
 			  HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
 			  Gdata.coordinates = GPS_coord;
@@ -483,7 +487,7 @@ static void Routine_STATE_SAMPLE(void)
 			  printf("local time: %lu, position: %f Lat, %f long\r\n", Gdata.Etime, Gdata.coordinates.lat, Gdata.coordinates.longi);
 			  printf("HDOP = %d.%d, \t PDOP = %d.%d, VDOP = %d.%d\r\n",  Gdata.diag.HDOP.digit, Gdata.diag.HDOP.precision,  Gdata.diag.PDOP.digit, Gdata.diag.PDOP.precision,  Gdata.diag.VDOP.digit, Gdata.diag.VDOP.precision);
 			  printf("Number of Satellites %d, Fix Type = %d\r\n", Gdata.diag.num_sats, Gdata.diag.fix_type);
-		  }
+
 		  deinit_GPS(&hgps);
 	  }else
 	  {
