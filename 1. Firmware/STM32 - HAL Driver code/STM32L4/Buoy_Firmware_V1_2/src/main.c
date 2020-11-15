@@ -191,8 +191,7 @@ int main(void)
 
 			  printf("System Going Back To Sleep\r\n"); 	//check how long device was asleep for
 			  set_WUP_Pin(IMU_EVENT_WAKE_PIN, MODE_WUP);	//reenable wake up pins
-			  set_WUP_Pin(IRIDIUM_RING_WAKE_PIN, MODE_WUP);
-			  Go_To_Sleep(STDBY,10);						//return to sleep
+			  Go_To_Sleep(STDBY,T_SLEEP);						//return to sleep
 		  }
 		  	 else
 		  {
@@ -246,7 +245,6 @@ int main(void)
 	  	__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WU);					//clear pending interrupt from ext wake up pins
 	  	__HAL_PWR_CLEAR_FLAG(PWR_FLAG_SB);
 		set_WUP_Pin(IMU_EVENT_WAKE_PIN,MODE_EXTI); 	  		//reconfigure wake up pins
-		set_WUP_Pin(IRIDIUM_RING_WAKE_PIN,MODE_EXTI);  	  	//set Current State to Sample
 	  	Current_State = STATE_SAMPLE;
 	  	 break;
 
@@ -415,9 +413,8 @@ static void Routine_STATE_RESET(void)
 	 //initialise RTC
 	 MX_RTC_Init();
 	 //Enable Interrupt pins as EXTI Outputs
-	 set_WUP_Pin(IRIDIUM_RING_WAKE_PIN,MODE_EXTI);
 	 set_WUP_Pin(IMU_EVENT_WAKE_PIN,MODE_EXTI);
-	 printf("All Systems Online!\r\n");
+	 printf("Device Online!\r\n");
 	 printf("Current State: RESET \t Next State: SAMPLE\r\n");
 	 HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
 
@@ -428,9 +425,8 @@ static void Routine_STATE_SLEEP(void)
 {
 	  printf("Current State: SLEEP \t Next State: SAMPLE\r\n");
 	  printf("Good Night! \r\n");
-	  set_WUP_Pin(IRIDIUM_RING_WAKE_PIN,MODE_WUP);
 	  set_WUP_Pin(IMU_EVENT_WAKE_PIN,MODE_WUP);
-	  Go_To_Sleep(STDBY,10);
+	  Go_To_Sleep(STDBY,T_SLEEP);
 }
 
 static void Routine_STATE_SAMPLE(void)
@@ -471,7 +467,7 @@ static void Routine_STATE_SAMPLE(void)
 			  {
 				  GPS_Log_Begin();
 				  int y = HAL_GetTick()- x;
-				  if(y >  30000)
+				  if(y >  3000)
 				  {
 					  printf("Failed to Acquire Signal\r\n");
 					  break;

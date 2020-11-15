@@ -19,10 +19,10 @@
  * 					   1.................RXD..................PD2..................Data Output from RockBlock
  * 					   2.................CTS..................N/C..................Flow Control Clear to send (output from Modem)
  * 					   3.................RTS..................N/C..................Flow Control Request to send (input to modem)
- * 					   4.................NetAv................PC13.................Network Available (Indicates when signal is strong enough to transmit a message) (1 - Network available, 0 - No Network)
- * 					   5.................RingIndicator........PC14.................Ring Indicator for incoming messages
+ * 					   4.................NetAv................PA11.................Network Available (Indicates when signal is strong enough to transmit a message) (1 - Network available, 0 - No Network)
+ * 					   5.................RingIndicator........PC13.................Ring Indicator for incoming messages
  * 					   6.................TXD..................PC12.................Data Input to RockBlock
- * 					   7.................OnOff................PC15.................Digital Control Pin to put modem to sleep/ wake up
+ * 					   7.................OnOff................PC7..................Digital Control Pin to put modem to sleep/ wake up
  * 					   8.................5V...................N/C..................5V power (note, Iridium pins dont have enough current to power the device)
  * 					   9.................LiOn.................N/C..................3.7V Lithium Ion battery power
  * 					   10................GND..................GND..................Ground
@@ -155,21 +155,21 @@ typedef struct
 //======================== 3. Macro Definitions =========================================
 
 //GPIO Pins
-#define IR_OnOff_Pin GPIO_PIN_10				//ONOFF Control pin
-#define IR_Ring_Pin GPIO_PIN_11					//Ring Indicator Pin
-#define IR_NetAv_Pin GPIO_PIN_12				//Network Available Pin
+#define IR_OnOff_Pin GPIO_PIN_7				//ONOFF Control pin
+#define IR_Ring_Pin GPIO_PIN_13				//Ring Indicator Pin
+#define IR_NetAv_Pin GPIO_PIN_11				//Network Available Pin
 
 //GPIO Ports
-#define IR_OnOff_GPIO_Port GPIOA				//ONOFF GPIO PORT
-#define IR_RIng_GPIO_Port GPIOA					//RING INDICATOR GPIO PORT
+#define IR_OnOff_GPIO_Port GPIOC				//ONOFF GPIO PORT
+#define IR_Ring_GPIO_Port GPIOC				//RING INDICATOR GPIO PORT
 #define IR_NetAv_GPIO_Port GPIOA				//NETWORK AVAILABILITY GPIO PORT
 
 
-#define IR_OnOff_PWR_GPIO_Port PWR_GPIO_A		//ONOFF PWR Port
+#define IR_OnOff_PWR_GPIO_Port PWR_GPIO_C		//ONOFF PWR Port
 
 //IRQn Definitions
 #define IR_Ring_EXTI_IRQn EXTI15_10_IRQn		//RING INDICATOR IRQn Line
-#define IR_NetAv_EXTI_IRQn EXTI15_10_IRQn		//NETWORK AVAILABILTY IRQN LINE
+#define IR_NetAv_EXTI_IRQn  EXTI9_5_IRQn		//NETWORK AVAILABILTY IRQN LINE
 
 //USART Definitions
 #define IR_USART_PORT UART5						//IRIDIUM USART PERIPHERAL

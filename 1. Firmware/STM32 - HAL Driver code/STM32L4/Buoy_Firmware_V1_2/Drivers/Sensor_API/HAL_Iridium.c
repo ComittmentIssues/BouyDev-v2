@@ -12,10 +12,7 @@
 #include "HAL_Iridium.h"
 
 
-//======================= 2. Private Variables ==================================
-
-int IR_Bin_Message_Length;		//length of binary messages
-//======================= 3. Function Prototypes ==================================
+//======================= 2. Function Prototypes ==================================
 
 /*
  * Function Name void  Clear_Buffer(uint8_t *buffer,uint32_t size);
@@ -96,6 +93,7 @@ static HAL_StatusTypeDef MX_TIM3_Init(void);
   */
 static HAL_StatusTypeDef MX_UART5_Init(void)
 {
+
   huart5.Instance = UART5;
   huart5.Init.BaudRate = 19200;
   huart5.Init.WordLength = UART_WORDLENGTH_8B;
@@ -175,28 +173,32 @@ static HAL_StatusTypeDef MX_GPIO_Init(void)
   /* GPIO Ports Clock Enable */
 
   __HAL_RCC_GPIOC_CLK_ENABLE();
-
+  __HAL_RCC_GPIOA_CLK_ENABLE();
   /*Configure GPIO pin Output Level */
 
-  /*Configure GPIO pins : LD2_Pin IR_OnOff_Pin */
+
+  /*Configure GPIO pins : IR_OnOff_Pin */
   GPIO_InitStruct.Pin =  IR_OnOff_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+  HAL_GPIO_Init(IR_OnOff_GPIO_Port, &GPIO_InitStruct);
   /* Disable Internal Pull Down Resistor*/
-  HAL_PWREx_DisableGPIOPullDown(IR_OnOff_PWR_GPIO_Port,IR_OnOff_Pin);
-  HAL_PWREx_DisablePullUpPullDownConfig();
+
 
   /*Configure GPIO pins : IR_RIng_Pin IR_NetAv_Pin */
-  GPIO_InitStruct.Pin = IR_Ring_Pin|IR_NetAv_Pin;
+  GPIO_InitStruct.Pin = IR_Ring_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+  HAL_GPIO_Init(IR_Ring_GPIO_Port, &GPIO_InitStruct);
+  GPIO_InitStruct.Pin = IR_NetAv_Pin;
+  HAL_GPIO_Init(IR_NetAv_GPIO_Port, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
-  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+
+  HAL_NVIC_SetPriority(IR_NetAv_EXTI_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(IR_NetAv_EXTI_IRQn);
+
 
   return HAL_OK;
 
@@ -284,6 +286,8 @@ static HAL_StatusTypeDef MX_TIM3_Init(void)
  *  inside the Pre existing MSP function
  */
 
+
+
 //======================= 5. Utility Function Definition ==================================
 
 void  IR_Clear_Buffer(uint8_t *buffer,uint32_t size)
@@ -314,10 +318,11 @@ uint16_t IR_Calculate_Checksum(uint8_t* messagebuff, uint8_t size)
 IR_Status_t IR_Init_Module(void)
 {
 	 if(MX_GPIO_Init() != HAL_OK){return IR_Pin_CFG_Error;}
+	 HAL_GPIO_WritePin(IR_OnOff_GPIO_Port,IR_OnOff_Pin,SET);
 	 if(MX_DMA_Init()  != HAL_OK){return IR_Pin_CFG_Error;}
 	 if(MX_UART5_Init()!= HAL_OK){return IR_Pin_CFG_Error;}
 	 if(MX_TIM3_Init()!= HAL_OK){return IR_Pin_CFG_Error;}
-	 IR_OnOff_GPIO_Port->ODR |= 0b1<<15;
+
 	  //send acknowledgement
 	 char* msg;
 	 if(IR_send_AT_CMD("AT\r")== IR_OK)
@@ -433,12 +438,7 @@ IR_Status_t IR_get_Signal_Strength(uint8_t* signal_Strength)
 IR_Status_t IR_send_AT_CMD(char* cmd)
 
 {
-
 	int size = strlen(cmd);
-	if(Session_Flag == SBDWB)
-	{
-		size = IR_Bin_Message_Length;
-	}
 	memcpy(IR_TX_Buffer,cmd,size);
 	if(HAL_UART_Transmit(&huart5,IR_TX_Buffer,size,100) != HAL_OK)
 	{
@@ -455,7 +455,6 @@ IR_Status_t IR_send_AT_CMD(char* cmd)
 	HAL_TIM_OC_Start_IT(&htim3, TIM_CHANNEL_1);
 	HAL_TIM_Base_Start_IT(&htim3);
 	while(IR_RX_Flag == RESET);
-
 	if(IR_RX_Flag == -2)
 	{
 		return IR_Rx_Timeout;
@@ -467,6 +466,34 @@ IR_Status_t IR_send_AT_CMD(char* cmd)
 	return IR_OK;
 }
 
+IR_Status_t IR_send_AT_CMD_Bin(uint8_t* cmd,size_t len)
+{
+	memcpy(IR_TX_Buffer,cmd,len);
+	if(HAL_UART_Transmit(&huart5,IR_TX_Buffer,len,100) != HAL_OK)
+	{
+		return IR_Tx_Error;
+	}
+	__HAL_DMA_ENABLE_IT(&hdma_uart5_rx,DMA_IT_TC);
+	if(__HAL_UART_GET_FLAG(&huart5,UART_FLAG_IDLE))
+	{
+		__HAL_UART_CLEAR_IDLEFLAG(&huart5);
+	}
+	__HAL_UART_ENABLE_IT(&huart5,UART_IT_IDLE);
+	HAL_UART_Receive_DMA(&huart5,IR_RX_Buffer,RX_BUFFER_SIZE);
+	__HAL_TIM_ENABLE_IT(&htim3,TIM_IT_CC1);
+	HAL_TIM_OC_Start_IT(&htim3, TIM_CHANNEL_1);
+	HAL_TIM_Base_Start_IT(&htim3);
+	while(IR_RX_Flag == RESET);
+	if(IR_RX_Flag == -2)
+	{
+		return IR_Rx_Timeout;
+	}if(IR_RX_Flag == -1)
+	{
+		return IR_Rx_Error;
+	}
+	IR_RX_Flag = 0;
+	return IR_OK;
+}
 //======================= 7. Transmit/Recieve Function Definition ==================================
 
 IR_Status_t IR_start_SBD_Session(SBDX_Status_t* sbd)
@@ -581,8 +608,7 @@ IR_Status_t IR_send_Bin_String(uint8_t* bin_string,uint32_t len)
 	  memcpy(&IR_TX_Buffer[len],check_sum,3);
 	  //upload to message buffer
 	  Session_Flag = SBDWB;
-	  IR_Bin_Message_Length = len+3;
-	  IR_send_AT_CMD((char*)IR_TX_Buffer);
+	  IR_send_AT_CMD_Bin(IR_TX_Buffer,len+3);
 	  Session_Flag = NONE;
 	  msg = strtok((char*)(&RM_Buffer[2]),"\r\n");
 	  int8_t ret_val = *(msg) -48;
@@ -789,6 +815,10 @@ void USART_RTO_IRQHandler(TIM_HandleTypeDef *htim)
 			HAL_TIM_OC_Stop_IT(&htim3,TIM_CHANNEL_1);
 			__HAL_TIM_SET_COUNTER(htim,0);
 		}
+		else
+		{
+			__NOP();
+		}
 
 	}
 	if(__HAL_TIM_GET_IT_SOURCE(htim,TIM_IT_UPDATE))
@@ -800,7 +830,6 @@ void USART_RTO_IRQHandler(TIM_HandleTypeDef *htim)
 		}else
 		{
 			IR_TIM_IDLE_Timeout = 1;
-			IR_RX_Flag = -2;
 			HAL_TIM_Base_Stop_IT(htim);
 		}
 		__NOP();
@@ -919,12 +948,62 @@ void Iridium_ControlPin_IRQHandler(void)
 }
 
 
-//------------------------------ MOVE TO stm32l4xx_it.c --------------------------------//
+//------------------------------ MOVE TO stn32l4xx_it.c --------------------------------//
 
 
+/**
+  * @brief This function handles DMA1 channel2 global interrupt.
+  */
+//void DMA1_Channel2_IRQHandler(void)
+//{
+//  /* USER CODE BEGIN DMA1_Channel2_IRQn 0 */
+//
+//  /* USER CODE END DMA1_Channel2_IRQn 0 */
+//  HAL_DMA_IRQHandler(&hdma_memtomem_dma1_channel2);
+//  /* USER CODE BEGIN DMA1_Channel2_IRQn 1 */
+//  DMA_Iridium_MEM_IRQHandler(&hdma_memtomem_dma1_channel2);
+//  /* USER CODE END DMA1_Channel2_IRQn 1 */
+//}
+//
+///**
+//  * @brief This function handles TIM2 global interrupt.
+//  */
+//void TIM3_IRQHandler(void)
+//{
+//  /* USER CODE BEGIN TIM2_IRQn 0 */
+//	USART_RTO_IRQHandler(&htim3);
+//  HAL_TIM_IRQHandler(&htim3);
+//}
+//
+///**
+//  * @brief This function handles EXTI line[15:10] interrupts.
+//  */
+//void EXTI15_10_IRQHandler(void)
+//{
 
+//  Iridium_ControlPin_IRQHandler();
 
-
-
-
-
+//}
+//
+///**
+//  * @brief This function handles UART5 global interrupt.
+//  */
+//void UART5_IRQHandler(void)
+//{
+//  /* USER CODE BEGIN UART5_IRQn 0 */
+//  USART_Iridium_IRQHandler(&huart5);
+//}
+//
+///**
+//  * @brief This function handles DMA2 channel2 global interrupt.
+//  */
+//void DMA2_Channel2_IRQHandler(void)
+//{
+//  /* USER CODE BEGIN DMA2_Channel2_IRQn 0 */
+//
+//  /* USER CODE END DMA2_Channel2_IRQn 0 */
+//  HAL_DMA_IRQHandler(&hdma_uart5_rx);
+//  /* USER CODE BEGIN DMA2_Channel2_IRQn 1 */
+//  DMA_Iridium_Periph_IRQHandler(&huart5);
+//  /* USER CODE END DMA2_Channel2_IRQn 1 */
+//}

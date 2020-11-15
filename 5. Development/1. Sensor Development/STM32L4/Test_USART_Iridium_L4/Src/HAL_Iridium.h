@@ -259,6 +259,20 @@ IR_Status_t IR_DeInit_Module(void);
  */
 IR_Status_t IR_send_AT_CMD(char* cmd);
 
+/*
+ * Function Name IR_Status_t send_AT_CMD_Bin(uint8_t* cmd,size_t len);
+ *
+ * @brief: Sends an AT Command in Binary Representation to the Iridium Modem over USART. The device then recieves the return message
+ * 		   based on the command. If the return message is valid, the message will be stored in the RM_Buffer. This
+ * 		   function uses the USART DMA in a circular buffer with Slave reset to allow for variable data to be sent
+ * 		   through the DMA
+ *
+ * @param: cmd - AT binary sequence. Must contain a 0x0D terminator
+ * @param: len - number of bytes in the message sequence
+ *
+ * @return: IR_Status_t return status of the function
+ */
+IR_Status_t IR_send_AT_CMD_Bin(uint8_t* cmd,size_t len);
 
 /*
  * Function Name IR_Status_t get_Signal_Strength(uint8_t* signal_Strength);

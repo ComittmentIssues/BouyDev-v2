@@ -123,6 +123,7 @@ typedef struct
 
 #define __WEEKS_TO_SECS(x) x*__DAYS_TO_SECS(7)  //for Twake > 6 days
 
+#define T_SLEEP 10		//set the sleep period
 /*
  * @brief: state machine Macros
  */
