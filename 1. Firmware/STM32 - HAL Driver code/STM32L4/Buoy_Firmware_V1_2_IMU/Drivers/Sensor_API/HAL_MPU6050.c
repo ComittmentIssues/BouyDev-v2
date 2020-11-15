@@ -103,6 +103,8 @@ mpu_status_t MPU6050_Init_MPU(uint8_t g_fsr,uint8_t a_fsr, uint8_t dlpf_coeff)
 	//reset buffers and flags
 	mpu_sample_count = 0;
 	I2C_TX_CPLT = 0;
+	IMU_Log_On = 0;
+	IMU_Log_On = 1;
 	memset(IMU_Buffer,0,IMU_BUFFER_SIZE);
 	//get ID
 	uint8_t whoami = 0;
@@ -800,7 +802,7 @@ void MPU6050_DMA_PeriphIRQHandler(void)
 	I2C_TX_CPLT = 1;
 }
 
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+void MPU6050_IntPin_IRQ(void)
 {
   /* Prevent unused argument(s) compilation warning */
   if(mpu_sample_count < N_Samples)

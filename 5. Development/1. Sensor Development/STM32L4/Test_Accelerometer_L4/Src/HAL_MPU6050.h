@@ -582,6 +582,7 @@ typedef struct
 
 uint16_t sample_count;   //Keeps track of the number of samples from the IMU
 
+uint8_t IMU_Log_On;
 //============================= 5. Handlers ===============================================
 
 I2C_HandleTypeDef hi2c1;				//handler for I2C Communication

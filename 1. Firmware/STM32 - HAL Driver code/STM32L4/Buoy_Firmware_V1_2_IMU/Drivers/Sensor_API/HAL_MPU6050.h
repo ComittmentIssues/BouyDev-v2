@@ -582,6 +582,7 @@ typedef struct
 
 uint16_t mpu_sample_count;   //Keeps track of the number of samples from the IMU
 
+uint8_t IMU_Log_On;			 //used in EXTI IRQ to determine what routine to run
 //============================= 5. Handlers ===============================================
 
 I2C_HandleTypeDef hi2c1;				//handler for I2C Communication
@@ -658,4 +659,5 @@ mpu_status_t MPU6050_Get_IMU_RawData(I2C_HandleTypeDef *hi2c,uint8_t* imu);
 mpu_status_t MPU6050_reset(I2C_HandleTypeDef *hi2c);
 
 void MPU6050_DMA_PeriphIRQHandler(void);
+void MPU6050_IntPin_IRQ(void);
 #endif /* HAL_MPU6050_H_ */

@@ -529,6 +529,26 @@ static void Routine_STATE_SAMPLE(void)
 		  Gdata.power = (ina.INA219_P_LSB*(float)p_temp)*1000;
 		  printf("V_Shunt %d mV V_Bus %d mV Current %d mA Power %d mW",Gdata.shunt_v,Gdata.bus_v, Gdata.current,Gdata.power);
 	  }
+
+	  /* after the final sample period, sample IMU for 340 points */
+
+	  if(MPU6050_Init_MPU(GYRO_CONFIG_FSSEL_2000DPS,ACC_CONFIG_AFSSEL_2G,CONFIG_DLFP_2) == MPU_OK)
+	  {
+		  printf("IMU Logging data...");
+		  IMU_Log_On = 1;
+		  while(1)
+		  {
+			  if(mpu_sample_count == N_Samples)
+			  {
+				 printf("done!\r\n");
+				 break;
+			  }
+		  }
+	  }else
+	  {
+		  printf("IMU Offline!\r\n");
+	  }
+	  MPU6050_Deinit_MPU();
 	  //Init Flash Chips
 	  uint8_t statusbyte = 0;
 	  uint8_t* buffer = to_binary_format(Gdata,__GET_SAMPLE_COUNT());

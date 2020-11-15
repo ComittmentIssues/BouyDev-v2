@@ -25,6 +25,7 @@
 #include "HAL_GPS.h"
 #include "HAL_Iridium.h"
 #include "Sharc_Frame.h"
+#include "HAL_MPU6050.h"
 /* Private typedef -----------------------------------------------------------*/
 
 /* Private define ------------------------------------------------------------*/
@@ -299,10 +300,16 @@ void EXTI9_5_IRQHandler(void)
 	if(__HAL_GPIO_EXTI_GET_FLAG(EXTI_IMU_EVENT_WAKE_PIN))
 	{
 		__HAL_GPIO_EXTI_CLEAR_FLAG(EXTI_IMU_EVENT_WAKE_PIN);
-
-		//ROUTINE START
-		Routine_Async_IMUevent_Sample();
+		//ROUTINE STARTING
+		if(IMU_Log_On)
+		{
+			MPU6050_IntPin_IRQ();
+		}else
+		{
+			Routine_Async_IMUevent_Sample();
+		}
 	}
+
 
 }
 
