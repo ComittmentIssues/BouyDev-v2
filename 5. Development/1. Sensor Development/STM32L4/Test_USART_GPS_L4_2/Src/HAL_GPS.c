@@ -526,6 +526,10 @@ GPS_Init_msg_t init_GPS(GPS_Handle_Typedef *hgps)
 	{
 		return GPS_Init_Ack_Tx_Error;
 	}
+	if(GPS_Acknowledgement_State == UBX_ACK_NACK)
+	{
+		return GPS_Init_Ack_Error;
+	}
 	//configure message buffer
 	if( UBX_Configure_Messages(hgps) != UBX_OK )
 	{

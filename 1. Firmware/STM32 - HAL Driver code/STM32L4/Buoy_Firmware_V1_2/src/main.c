@@ -467,7 +467,7 @@ static void Routine_STATE_SAMPLE(void)
 			  {
 				  GPS_Log_Begin();
 				  int y = HAL_GetTick()- x;
-				  if(y >  3000)
+				  if(y >  30000) //30s to acquire signal
 				  {
 					  printf("Failed to Acquire Signal\r\n");
 					  break;
