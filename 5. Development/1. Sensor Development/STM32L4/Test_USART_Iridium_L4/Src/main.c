@@ -57,11 +57,20 @@ static void MX_UART5_Init(void);
 
 /* USER CODE BEGIN PFP */
 static void MX_LED_Init(void);
+static void Test_On_Off(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+static void Test_On_Off(void)
+{
 
+		//turn off
+		IR_OnOff_GPIO_Port->ODR &= ~GPIO_ODR_OD7;
+
+		//turn on
+		IR_OnOff_GPIO_Port->ODR |= GPIO_ODR_OD7;
+}
 /* USER CODE END 0 */
 
 /**
@@ -97,8 +106,10 @@ int main(void)
 
 	  if(IR_Init_Module() == IR_OK)
 	  {
+		  Test_On_Off();
 		 HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
 	  }
+
 	  IR_DeInit_Module();
 //==================TEST Transmission==========================//
 	  if(IR_Init_Module() == IR_OK)

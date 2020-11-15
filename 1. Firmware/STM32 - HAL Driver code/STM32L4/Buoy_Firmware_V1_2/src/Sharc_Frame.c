@@ -138,6 +138,9 @@ HAL_StatusTypeDef Go_To_Sleep(PWR_MODE_t mode, uint32_t seconds)
 	//reset wake up pin interrupt
 	__HAL_RCC_PWR_CLK_ENABLE();
 	/* Enable Wake Up timer in interrupt mode */
+	HAL_PWREx_EnableGPIOPullDown(PWR_GPIO_C, GPIO_PIN_7);
+
+	HAL_PWREx_EnablePullUpPullDownConfig();
 	//set alarm
 	if(seconds > 0)
 	{

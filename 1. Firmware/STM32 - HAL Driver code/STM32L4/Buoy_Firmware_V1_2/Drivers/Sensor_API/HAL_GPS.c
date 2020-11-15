@@ -661,6 +661,7 @@ UBX_MSG_t UBX_Send_Ack(GPS_Handle_Typedef *hgps)
 	 HAL_TIM_OC_Start_IT(hgps->gps_htim, TIM_CHANNEL_1);
 	 HAL_TIM_Base_Start_IT(hgps->gps_htim);
 	 }
+	 uint16_t time_1 = HAL_GetTick();
 	  while(M2M_Txfer_Cplt != SET)
 	  {
 		  //TODO: SET DEVICE TO LOW POWER MODE WHILE DMA TRASNFER OCCURS
@@ -670,6 +671,16 @@ UBX_MSG_t UBX_Send_Ack(GPS_Handle_Typedef *hgps)
 			  TIM_IDLE_Timeout = RESET;
 			  M2M_Txfer_Cplt = RESET;
 			  return UBX_TIMEOUT_Rx;
+		  }
+		  if(TIM_IDLE_Timeout)
+		  {
+			  uint16_t timeout = HAL_GetTick() - time_1;
+			  if(timeout > 300)
+			  {
+				  TIM_IDLE_Timeout = RESET;
+				  M2M_Txfer_Cplt = RESET;
+				  return UBX_TIMEOUT_Rx;
+			  }
 		  }
 	  }
 	  M2M_Txfer_Cplt = RESET;

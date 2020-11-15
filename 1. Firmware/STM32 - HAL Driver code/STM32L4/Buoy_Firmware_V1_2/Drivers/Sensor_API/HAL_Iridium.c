@@ -454,7 +454,15 @@ IR_Status_t IR_send_AT_CMD(char* cmd)
 	__HAL_TIM_ENABLE_IT(&htim3,TIM_IT_CC1);
 	HAL_TIM_OC_Start_IT(&htim3, TIM_CHANNEL_1);
 	HAL_TIM_Base_Start_IT(&htim3);
-	while(IR_RX_Flag == RESET);
+	uint16_t temp = HAL_GetTick();
+	while(IR_RX_Flag == RESET)
+	{
+		uint16_t timeout = HAL_GetTick()-temp;
+		if(timeout > 3000)
+		{
+			IR_RX_Flag = -2;
+		}
+	}
 	if(IR_RX_Flag == -2)
 	{
 		return IR_Rx_Timeout;

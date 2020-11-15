@@ -528,9 +528,11 @@ static void Routine_STATE_SAMPLE(void)
 		  printf("V_Shunt %d mV V_Bus %d mV Current %d mA Power %d mW",Gdata.shunt_v,Gdata.bus_v, Gdata.current,Gdata.power);
 	  }
 	  //Init Flash Chips
-	  uint8_t statusbyte;
+	  uint8_t statusbyte = 0;
 	  uint8_t* buffer = to_binary_format(Gdata,__GET_SAMPLE_COUNT());
-	  if(Init_Flash_Chips(&statusbyte)== HAL_OK)
+
+	  HAL_StatusTypeDef flash_flag = Init_Flash_Chips(&statusbyte);
+	  if((flash_flag == HAL_OK)&&(statusbyte > 0))
 	  {
 
 		  uint8_t chipnumber = Get_Active_Chip();
@@ -756,5 +758,6 @@ static void Routine_Init_STATE(void)
 	 {
 		 printf("Current Monitor Offline!\r\n");
 	 }
+
 }
 //===================================== 9. END ======================================//
