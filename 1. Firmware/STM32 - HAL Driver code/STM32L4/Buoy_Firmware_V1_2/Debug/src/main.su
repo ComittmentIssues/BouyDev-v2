@@ -5,5 +5,5 @@ main.c:398:13:Routine_ASYNC_IMU_EVENT	16	static
 main.c:411:13:Routine_STATE_RESET	8	static
 main.c:424:13:Routine_STATE_SLEEP	8	static
 main.c:432:13:Routine_STATE_SAMPLE	176	static
-main.c:601:13:Routine_STATE_TRANSMIT	104	dynamic
-main.c:666:13:Routine_Init_STATE	48	static
+main.c:601:13:Routine_STATE_TRANSMIT	112	dynamic
+main.c:679:13:Routine_Init_STATE	48	static

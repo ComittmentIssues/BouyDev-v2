@@ -319,6 +319,7 @@ IR_Status_t IR_Init_Module(void)
 {
 	 if(MX_GPIO_Init() != HAL_OK){return IR_Pin_CFG_Error;}
 	 HAL_GPIO_WritePin(IR_OnOff_GPIO_Port,IR_OnOff_Pin,SET);
+	 HAL_Delay(1000);
 	 if(MX_DMA_Init()  != HAL_OK){return IR_Pin_CFG_Error;}
 	 if(MX_UART5_Init()!= HAL_OK){return IR_Pin_CFG_Error;}
 	 if(MX_TIM3_Init()!= HAL_OK){return IR_Pin_CFG_Error;}

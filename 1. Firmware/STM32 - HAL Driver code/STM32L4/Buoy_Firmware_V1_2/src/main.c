@@ -606,7 +606,20 @@ static void Routine_STATE_TRANSMIT(void)
 	  uint8_t chip = Get_Active_Chip();		 	 											//Get active chip
 	  uint8_t Address[3] = {0};					 											//get current address pointer
 	  Get_Current_Address_Pointer(chip,Address);
-	  if(IR_Init_Module() == IR_OK)
+	  IR_On = 1;
+	  uint8_t retry = 0;
+	  while (IR_Init_Module() != IR_OK)
+	  {
+		IR_DeInit_Module();
+	    if(retry == 20)
+	 	{
+	  	  IR_On = 0;
+	  	  break;
+	  	}
+	  	retry++;
+
+  	  }
+	  if(IR_On)
 	  {
 		  uint32_t size = ((Address[2] - 0x00)<<16)|((Address[1] - 0x00)<<8)|(Address[0]-0x01); //calculate length of data
 		  int num_pages = size/FLASH_GetPageSize() +1;											//calculate number of pages to be read
