@@ -274,14 +274,34 @@ int main(void)
   /* USER CODE BEGIN SysInit */
    if(Init_Flash_Chips() == HAL_OK)
    {
-	   HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin,SET);
-	   TEST1();
-	   TEST2();
-	   TEST3();
-	   TEST4();
-	   TEST5();
-	   TEST6();
-	   TEST7();
+	   FLASH_ERASE_Sector(1);
+	   uint8_t buffer[50] = {0};
+	   for (int var = 0; var < 50; ++var)
+	   {
+		   buffer[var] = var;
+	   }
+	   for (int i = 0; i < 7; ++i)
+	   {
+		  FLASH_WRITE_Buffer(1,BUFFER1,buffer,50);
+		  FLASH_WRITE_BufferToPage(1,BUFFER1);
+		  while(FLASH_get)
+		  FLASH_IncAddress(50);
+	   }
+
+	  FLASH_SetAddress(0x00,0x00,0x00);
+
+	  FLASH_READ_Page(1);
+
+	  FLASH_IncAddress(50);
+	  FLASH_READ_Page(1);
+
+	   //TEST1();
+	   //TEST2();
+	   //TEST3();
+	   //TEST4();
+	   //TEST5();
+	   //TEST6();
+	   //TEST7();
    }
   /* USER CODE END SysInit */
 

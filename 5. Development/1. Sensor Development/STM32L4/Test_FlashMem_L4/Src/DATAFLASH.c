@@ -357,7 +357,7 @@ uint8_t* FLASH_READ_Page(int ChipNumber)
 	HAL_SPI_Transmit(&hspi2, command, 8, 800);
 
 	//Update Read Buffer
-	HAL_SPI_Receive(&hspi2, Data_rx(), _264or256, HAL_MAX_DELAY);
+	HAL_SPI_Receive(&hspi2, Data_rx(), _264or256, 5000);
 
 	//Close line to slave
 	FLASH_ChipSelect_setState(ChipNumber,CS_CLOSED);

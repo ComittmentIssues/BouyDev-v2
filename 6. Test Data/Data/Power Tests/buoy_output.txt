@@ -1,0 +1,86 @@
+"11/19/2020 2:02:57 PM",Software Reset Detected. Initializing main program...
+"11/19/2020 2:02:57 PM",Setting Up Flash Chips...
+"11/19/2020 2:02:57 PM",Allocating Chip Statuses...
+"11/19/2020 2:02:58 PM",Chip 1 Status: 1
+"11/19/2020 2:02:58 PM",Chip 2 Status: 2
+"11/19/2020 2:02:58 PM",Chip 3 Status: 3
+"11/19/2020 2:02:58 PM",Chip 4 Status: 3
+"11/19/2020 2:02:59 PM",Iridium Module online!
+"11/19/2020 2:02:59 PM",Environmental Sensor Online!
+"11/19/2020 2:02:59 PM",Current Monitor Offline!
+"11/19/2020 2:02:59 PM",IMU Online
+"11/19/2020 2:02:59 PM",Device Online!
+"11/19/2020 2:02:59 PM",Current State: RESET 	 Next State: SAMPLE
+"11/19/2020 2:02:59 PM",Current State: SAMPLE 	 Next State: SLEEP
+"11/19/2020 2:02:59 PM",GPS Online! Acquiring Signal...
+"11/19/2020 2:03:07 PM",Logging Data...
+"11/19/2020 2:03:07 PM",local time: 1605794519, position: -3357.748291 Lat, 1822.455811 long
+"11/19/2020 2:03:07 PM",HDOP = 2.51, 	 PDOP = 2.30, VDOP = 1.160
+"11/19/2020 2:03:07 PM",Number of Satellites 3, Fix Type = 2
+"11/19/2020 2:03:07 PM",Environmental Sensor Online!
+"11/19/2020 2:03:07 PM",Temp = 2334°C 	 Pressure = 101702 Pa 
+"11/19/2020 2:03:07 PM",Successfully saved drift data to chip 1
+"11/19/2020 2:03:07 PM",Current State: SLEEP 	 Next State: SAMPLE
+"11/19/2020 2:03:07 PM",Good Night! 
+"11/19/2020 2:33:07 PM",Current State: SAMPLE 	 Next State: SLEEP
+"11/19/2020 2:33:07 PM",GPS Online! Acquiring Signal...
+"11/19/2020 2:33:37 PM",Failed to Acquire Signal
+"11/19/2020 2:33:37 PM",Logging Data...
+"11/19/2020 2:33:37 PM",local time: 1605796335, position: 0.000000 Lat, 0.000000 long
+"11/19/2020 2:33:37 PM",HDOP = 99.99, 	 PDOP = 99.99, VDOP = 99.160
+"11/19/2020 2:33:37 PM",Number of Satellites 0, Fix Type = 1
+"11/19/2020 2:33:37 PM",Environmental Sensor Online!
+"11/19/2020 2:33:37 PM",Temp = 2370°C 	 Pressure = 101603 Pa 
+"11/19/2020 2:33:37 PM",Successfully saved drift data to chip 1
+"11/19/2020 2:33:37 PM",Current State: SLEEP 	 Next State: SAMPLE
+"11/19/2020 2:33:37 PM",Good Night! 
+"11/19/2020 3:03:37 PM",Current State: SAMPLE 	 Next State: SLEEP
+"11/19/2020 3:03:37 PM",GPS Online! Acquiring Signal...
+"11/19/2020 3:04:07 PM",Failed to Acquire Signal
+"11/19/2020 3:04:07 PM",Logging Data...
+"11/19/2020 3:04:07 PM",local time: 1605798175, position: 0.000000 Lat, 0.000000 long
+"11/19/2020 3:04:07 PM",HDOP = 99.99, 	 PDOP = 99.99, VDOP = 99.160
+"11/19/2020 3:04:07 PM",Number of Satellites 0, Fix Type = 1
+"11/19/2020 3:04:07 PM",Environmental Sensor Online!
+"11/19/2020 3:04:07 PM",Temp = 2397°C 	 Pressure = 101538 Pa 
+"11/19/2020 3:04:07 PM",Successfully saved drift data to chip 1
+"11/19/2020 3:04:07 PM",Current State: SLEEP 	 Next State: SAMPLE
+"11/19/2020 3:04:07 PM",Good Night! 
+"11/19/2020 3:34:07 PM",Current State: SAMPLE 	 Next State: TRANS
+"11/19/2020 3:34:07 PM",GPS Online! Acquiring Signal...
+"11/19/2020 3:34:37 PM",Failed to Acquire Signal
+"11/19/2020 3:34:37 PM",Logging Data...
+"11/19/2020 3:34:37 PM",local time: 1605799995, position: 0.000000 Lat, 0.000000 long
+"11/19/2020 3:34:37 PM",HDOP = 99.99, 	 PDOP = 99.99, VDOP = 99.160
+"11/19/2020 3:34:37 PM",Number of Satellites 0, Fix Type = 1
+"11/19/2020 3:34:37 PM",Environmental Sensor Online!
+"11/19/2020 3:34:37 PM",Temp = 2413°C 	 Pressure = 101468 Pa 
+"11/19/2020 3:34:37 PM",IMU Logging data...done!
+"11/19/2020 3:34:43 PM",Successfully saved drift data to chip 1
+"11/19/2020 3:34:43 PM",Current State: TRANS 	 Next State: SLEEP
+"11/19/2020 3:34:44 PM",Preparing To Transmit...Message Uploaded!
+"11/19/2020 3:34:44 PM",Transmitting...Failed!
+"11/19/2020 3:35:01 PM",Failed!
+"11/19/2020 3:35:10 PM",Failed!
+"11/19/2020 3:35:19 PM",Failed!
+"11/19/2020 3:35:28 PM",Failed!
+"11/19/2020 3:35:30 PM",Message Uploaded!
+"11/19/2020 3:35:30 PM",Transmitting...Failed!
+"11/19/2020 3:35:46 PM",Failed!
+"11/19/2020 3:35:55 PM",Failed!
+"11/19/2020 3:36:04 PM",Failed!
+"11/19/2020 3:36:13 PM",Failed!
+"11/19/2020 3:36:14 PM",Current State: SLEEP 	 Next State: SAMPLE
+"11/19/2020 3:36:14 PM",Good Night! 
+"11/19/2020 4:06:14 PM",Current State: SAMPLE 	 Next State: SLEEP
+"11/19/2020 4:06:14 PM",GPS Online! Acquiring Signal...
+"11/19/2020 4:06:44 PM",Failed to Acquire Signal
+"11/19/2020 4:06:44 PM",Logging Data...
+"11/19/2020 4:06:44 PM",local time: 1605801932, position: 0.000000 Lat, 0.000000 long
+"11/19/2020 4:06:44 PM",HDOP = 99.99, 	 PDOP = 99.99, VDOP = 99.160
+"11/19/2020 4:06:44 PM",Number of Satellites 0, Fix Type = 1
+"11/19/2020 4:06:44 PM",Environmental Sensor Online!
+"11/19/2020 4:06:44 PM",Temp = 2437°C 	 Pressure = 101404 Pa 
+"11/19/2020 4:06:44 PM",Successfully saved drift data to chip 1
+"11/19/2020 4:06:44 PM",Current State: SLEEP 	 Next State: SAMPLE
+"11/19/2020 4:06:44 PM",Good Night! 

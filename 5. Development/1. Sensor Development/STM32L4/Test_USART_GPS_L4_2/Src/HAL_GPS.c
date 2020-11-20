@@ -131,13 +131,21 @@ HAL_StatusTypeDef MX_UART4_Init(void)
   huart4.Init.HwFlowCtl = UART_HWCONTROL_NONE;
   huart4.Init.OverSampling = UART_OVERSAMPLING_16;
   huart4.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+#ifdef UBLOX_NEO6
+  huart4.AdvancedInit.Swap = UART_ADVFEATURE_SWAP_ENABLE;
+  huart4.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_SWAP_INIT;
 
+
+#else
   huart4.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+#endif
   if (HAL_UART_Init(&huart4) != HAL_OK)
   {
    return HAL_ERROR;
   }
-
+#ifdef UBLOX_NEO6
+  UART_AdvFeatureConfig(&huart4);
+#endif
   return HAL_OK;
 }
 

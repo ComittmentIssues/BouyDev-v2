@@ -1,0 +1,17 @@
+Sharc_Frame.c:14:19:Init_Debug	32	static
+Sharc_Frame.c:73:19:SystemClock_Config	232	static
+Sharc_Frame.c:136:19:Go_To_Sleep	24	static
+Sharc_Frame.c:165:19:USART_Enter_Standby_for_data	24	static
+Sharc_Frame.c:197:6:set_WUP_Pin	72	static
+Sharc_Frame.c:273:1:__io_putchar	16	static
+Sharc_Frame.c:279:6:GPIO_Set_Pin_LP	48	static
+Sharc_Frame.c:337:9:Get_Current_Address_Pointer	32	static
+Sharc_Frame.c:363:9:Set_Current_Address_Pointer	32	static
+Sharc_Frame.c:388:9:Get_Active_Chip	16	static
+Sharc_Frame.c:396:6:Set_Active_Chip	24	static
+Sharc_Frame.c:405:9:Get_Next_Active_Chip	16	static
+Sharc_Frame.c:413:6:Set_Next_Active_Chip	24	static
+Sharc_Frame.c:424:10:get_driftBuffer_Size	4	static
+Sharc_Frame.c:434:6:Routine_Async_IMUevent_Sample	8	static
+Sharc_Frame.c:445:6:POR_Handler	8	static
+Sharc_Frame.c:465:6:BOR_Handler	16	static

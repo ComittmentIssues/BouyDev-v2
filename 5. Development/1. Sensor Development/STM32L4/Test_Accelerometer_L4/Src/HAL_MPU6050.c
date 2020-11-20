@@ -894,7 +894,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
   	  MPU6050_Get_Interrupt_Status(&hi2c1,DATA_READY,&data_ready);
   	  sample_count++;
   }
-}
+}///.
 
  /*
  * NB!!! In order to use the functions, you need to call them in the respective IRQ Handlers as per the vector table
@@ -915,3 +915,4 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 //  MPU6050_DMA_PeriphIRQHandler();
 //
 //}
+
