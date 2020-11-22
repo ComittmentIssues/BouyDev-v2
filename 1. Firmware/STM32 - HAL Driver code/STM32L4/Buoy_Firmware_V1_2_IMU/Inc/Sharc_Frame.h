@@ -123,7 +123,7 @@ typedef struct
 
 #define __WEEKS_TO_SECS(x) x*__DAYS_TO_SECS(7)  //for Twake > 6 days
 
-#define T_SLEEP 10	//set the sleep period in seconds
+#define T_SLEEP __MINS_TO_SECS(30)	//set the sleep period in seconds
 /*
  * @brief: state machine Macros
  */
@@ -202,9 +202,10 @@ typedef struct
 //define Number of onboard FLASH Chips
 #define FLASH_CHIPS 4
 
-//define Size of Drift data payload
+//define Size of Drift and Wave data payload
 #define DRIFTBUFFER_SIZE 38
 
+#define WAVEBUFFER_SIZE 338
 /* Private variables ---------------------------------------------------------*/
 
 extern RTC_HandleTypeDef hrtc;
@@ -217,8 +218,7 @@ UART_HandleTypeDef huart2;
 
 //uint32_t time;
 Buoy_State_typedef Current_State;
-uint8_t Sample_On,sample_count;
-
+uint8_t Sample_On,sample_count,IMU_On;
 /* Private function prototypes -----------------------------------------------*/
 
 /*
@@ -321,7 +321,7 @@ HAL_StatusTypeDef Go_To_Sleep(PWR_MODE_t mode, uint32_t seconds);
  * 		   RTC->BKUP_2	FLASH CHIP 1
  * 		   RTC->BKUP_3	FLASH CHIP 2
  * 		   RTC->BKUP_4	FLASH CHIP 3
- *
+ *		   RTC->BKUP_5	FLASH CHIP 4
  * 		   Note: In order to access the back up registers, RCC must be enabled to the PWR before
  * 		   any opperation takes place
  *
@@ -343,7 +343,7 @@ uint8_t Get_Current_Address_Pointer(uint8_t chip,uint8_t* address_Array);
  * 		   RTC->BKUP_2	FLASH CHIP 1
  * 		   RTC->BKUP_3	FLASH CHIP 2
  * 		   RTC->BKUP_4	FLASH CHIP 3
- *
+ *		   RTC->BKUP_5	FLASH CHIP 4
  * @param: chip: Number of the flash chip to get the address for (must be in range 1 - 4)
  *
  * @param: address_Array: Pointer to a 3 byte long uint8_t array to hold the address
@@ -351,6 +351,31 @@ uint8_t Get_Current_Address_Pointer(uint8_t chip,uint8_t* address_Array);
  * @return: uint8_t: status of read function, 1 is success, 0 is fail
  */
 uint8_t Set_Current_Address_Pointer(uint8_t chip,uint8_t* address_Array);
+
+/*
+ * Function Name: uint8_t Set_IMUdata_Start_Address(uint8_t* address_Array);
+ *
+ * @brief: Stores the Starting address of the latest packet of IMU sampled data.
+ * 		   The Address for each chip is a 3 byte long array stored in Big Endian Format in
+ * 		   RTC Back_Up Register 6
+ *
+ * @param: address_Array: Pointer to a 3 byte long uint8_t array to hold the address
+ *
+ * @return: void
+ */
+void Set_IMUdata_Start_Address(uint8_t* address_Array);
+
+/*
+ * Function Name: void Get_IMUData_Start_Address(uint8_t* address_Array);
+ *
+ * @brief: Returns the address of the start of the IMU Data packet in the Flash chips
+ * 		   From RTC Back Up Register 6
+ *
+ * @param: address_Array: Pointer to a 3 byte long uint8_t array to hold the address
+ *
+ * @return: void
+ */
+void Get_IMUData_Start_Address(uint8_t* address_Array);
 /*
  *  POWER ON RESET HANDLER:
  *
@@ -383,6 +408,9 @@ void Set_Active_Chip(uint8_t chipnumber);
 uint8_t Get_Next_Active_Chip(void);
 
 void Set_Next_Active_Chip(uint8_t chipnumber);
+
+
+
 /*
  * Function Name: uint8_t* to_binary_format(GPS_Data_t gps_data ,uint8_t ID);
  *

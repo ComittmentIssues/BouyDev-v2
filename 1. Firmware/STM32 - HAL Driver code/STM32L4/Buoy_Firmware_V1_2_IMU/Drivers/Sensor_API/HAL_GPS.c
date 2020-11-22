@@ -475,14 +475,15 @@ diag.VDOP = dop[2];
 
 GPS_Init_msg_t init_GPS(GPS_Handle_Typedef *hgps)
 {
-	if(MX_DMA_Init() != HAL_OK)  return GPS_Init_Periph_Config_Error;
-	if(MX_UART4_Init() != HAL_OK) return GPS_Init_Periph_Config_Error;
-	if(MX_TIM2_Init() != HAL_OK) return GPS_Init_Periph_Config_Error;
 
 	/* attach handlers to gps instances*/
 	hgps->gps_huart = &huart4;
 	hgps->gps_htim  = &htim2;
 	hgps->gps_hdmamem = &hdma_memtomem_dma1_channel1;
+
+	if(MX_DMA_Init() != HAL_OK)  return GPS_Init_Periph_Config_Error;
+	if(MX_UART4_Init() != HAL_OK) return GPS_Init_Periph_Config_Error;
+	if(MX_TIM2_Init() != HAL_OK) return GPS_Init_Periph_Config_Error;
 
 	/* Attach pointers to data buffer */
 	hgps->GPS_Tx_Buffer = DMA_TX_Buffer;

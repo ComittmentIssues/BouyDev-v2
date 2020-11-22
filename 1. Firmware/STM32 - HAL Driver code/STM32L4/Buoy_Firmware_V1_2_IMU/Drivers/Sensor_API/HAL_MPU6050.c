@@ -156,7 +156,7 @@ mpu_status_t MPU6050_Deinit_MPU(void)
 		return MPU_CONFIG_ERROR;
 	}
 	mpu_sample_count = 0;
-	memset(IMU_Buffer,0,IMU_BUFFER_SIZE);
+	//memset(IMU_Buffer,0,IMU_BUFFER_SIZE);
 	return MPU_OK;
 }
 

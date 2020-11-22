@@ -58,6 +58,8 @@ RTC_HandleTypeDef hrtc; //RTC Handler Instance
 uint8_t GPS_On = 0; //flag to show if sensor is online
 
 uint8_t IR_On = 0; //flag to show if Iridium is online
+
+uint8_t wavebuffer[WAVEBUFFER_SIZE];
 /* Private function prototypes */
 /**
   * @brief RTC Initialization Function
@@ -230,10 +232,12 @@ int main(void)
 	  	 {
 	  		 //set next Buoy State to Transmit
 	  		 Current_State = STATE_TRANSMIT;
+	  		 IMU_On = 1;
 	  	 }
 	  	 // Set Buoy Next state to Sleep
 	  	 else
 	  	 {
+	  		 IMU_On = 0;
 	  		 Current_State = STATE_SLEEP;
 	  		 __HAL_RCC_PWR_CLK_ENABLE();
 	  		 __SET_CURRENT_STATE(Current_State);
@@ -442,6 +446,7 @@ static void Routine_STATE_SAMPLE(void)
 	  } else
 	  {
 		  printf("Current State: SAMPLE \t Next State: TRANS\r\n");
+		  IMU_On = 1;
 	  }
 
 	  /* Attempt to initialize sensor within a number of retries */
@@ -527,32 +532,40 @@ static void Routine_STATE_SAMPLE(void)
 		  INA219_Get_Current(&Gdata.current);
 		  INA219_Get_Power(&p_temp);
 		  Gdata.power = (ina.INA219_P_LSB*(float)p_temp)*1000;
-		  printf("V_Shunt %d mV V_Bus %d mV Current %d mA Power %d mW",Gdata.shunt_v,Gdata.bus_v, Gdata.current,Gdata.power);
+		  printf("V_Shunt %d mV V_Bus %d mV Current %d mA Power %d mW\r\n",Gdata.shunt_v,Gdata.bus_v, Gdata.current,Gdata.power);
 	  }
 
 	  /* after the final sample period, sample IMU for 340 points */
+	  if(IMU_On)
+	  {
+		  if(MPU6050_Init_MPU(GYRO_CONFIG_FSSEL_500DPS,ACC_CONFIG_AFSSEL_2G,CONFIG_DLFP_2) == MPU_OK)
+		  	  {
+		  		  printf("IMU Logging data...");
+		  		  IMU_Log_On = 1;
+		  		  while(1)
+		  		  {
+		  			  if(mpu_sample_count == N_Samples)
+		  			  {
+		  				 printf("done!\r\n");
+		  				 break;
+		  			  }
+		  		  }
+		  	  }else
+		  	  {
+		  		  printf("IMU Offline!\r\n");
+		  	  }
+		  MPU6050_Deinit_MPU();
+		  //Create buffer for IMU Data
+		  wavebuffer[0] = 'W';
+		  memcpy(&wavebuffer[1],IMU_Buffer,IMU_BUFFER_SIZE);
+		  wavebuffer[WAVEBUFFER_SIZE-1] = '\r';
 
-	  if(MPU6050_Init_MPU(GYRO_CONFIG_FSSEL_2000DPS,ACC_CONFIG_AFSSEL_2G,CONFIG_DLFP_2) == MPU_OK)
-	  {
-		  printf("IMU Logging data...");
-		  IMU_Log_On = 1;
-		  while(1)
-		  {
-			  if(mpu_sample_count == N_Samples)
-			  {
-				 printf("done!\r\n");
-				 break;
-			  }
-		  }
-	  }else
-	  {
-		  printf("IMU Offline!\r\n");
 	  }
-	  MPU6050_Deinit_MPU();
+
+
 	  //Init Flash Chips
 	  uint8_t statusbyte = 0;
 	  uint8_t* buffer = to_binary_format(Gdata,__GET_SAMPLE_COUNT());
-
 	  HAL_StatusTypeDef flash_flag = Init_Flash_Chips(&statusbyte);
 	  if((flash_flag == HAL_OK)&&(statusbyte > 0))
 	  {
@@ -563,7 +576,17 @@ static void Routine_STATE_SAMPLE(void)
 		  Get_Current_Address_Pointer(chipnumber,address);
 		  FLASH_SetAddress(address[2],address[1],address[0]);
 		  //check if there is still space
-		  if(!FLASH_Is_Available(chipnumber,get_driftBuffer_Size()))
+		  uint16_t length =  get_driftBuffer_Size();
+
+		  //disable pwr pull up/down config
+		 	//reconfigure pin to pull up in low power mode
+		  HAL_PWREx_DisableGPIOPullUp(PWR_GPIO_C,GPIO_CHIP_1_CS);
+		  HAL_PWREx_DisableGPIOPullUp(PWR_GPIO_C,GPIO_CHIP_2_CS);
+		  HAL_PWREx_DisableGPIOPullUp(PWR_GPIO_B,GPIO_CHIP_3_CS);
+		  HAL_PWREx_DisableGPIOPullUp(PWR_GPIO_A,GPIO_CHIP_4_CS);
+		  HAL_PWREx_DisablePullUpPullDownConfig();
+
+		  if(!FLASH_Is_Available(chipnumber,length))
 		  {
 			  //Routine to select next available chip for memory storage
 			  printf("Warning! chip %d is at maximum capacity\r\n",chipnumber);
@@ -595,11 +618,14 @@ static void Routine_STATE_SAMPLE(void)
 			  FLASH_WRITE_ReadModifyWrite(chipnumber,BUFFER1,&chipstatus,1);
 			  FLASH_IncAddress(1);
 		  }
+		  //write drift buffer to memory
 		  if(FLASH_WRITE_ReadModifyWrite(Get_Active_Chip(),BUFFER1,buffer,get_driftBuffer_Size()) != 1)
 		 {
-		 	printf("Successfully saved data to chip %d\r\n",Get_Active_Chip());
+			  FLASH_WRITE_BufferToPage(Get_Active_Chip(),BUFFER1);
+		 	printf("Successfully saved drift data to chip %d\r\n",Get_Active_Chip());
 		 	//increment pointer to next available memory block
 		 	FLASH_IncAddress(get_driftBuffer_Size());
+
 		 	//save address to chip
 		 	uint32_t temp = FLASH_GetAddress();
 		 	address[2] = (temp & 0xFF0000)>>16;
@@ -609,66 +635,94 @@ static void Routine_STATE_SAMPLE(void)
 		 }
 		 else
 		 {
-		   printf("Error Saving to Flash Chip\r\n");
+		   printf("Error Saving drift data to Flash Chip\r\n");
 		 }
-
-
 	  }else
 	  {
-		  printf("Error! Memory Full");
+		  printf("Error! Memory Full\r\n");
 	  }
+	 	//reconfigure pin to pull up in low power mode
+	  HAL_PWREx_EnableGPIOPullUp(PWR_GPIO_C,GPIO_CHIP_1_CS);
+	  HAL_PWREx_EnableGPIOPullUp(PWR_GPIO_C,GPIO_CHIP_2_CS);
+	  HAL_PWREx_EnableGPIOPullUp(PWR_GPIO_B,GPIO_CHIP_3_CS);
+	  HAL_PWREx_EnableGPIOPullUp(PWR_GPIO_A,GPIO_CHIP_4_CS);
+	  HAL_PWREx_EnablePullUpPullDownConfig();
 
 }
 
 static void Routine_STATE_TRANSMIT(void)
 {
 	  printf("Current State: TRANS \t Next State: SLEEP\r\n");
-
+	  //disable low power mode for chips
+	  HAL_PWREx_DisableGPIOPullUp(PWR_GPIO_C,GPIO_CHIP_1_CS);
+	  HAL_PWREx_DisableGPIOPullUp(PWR_GPIO_C,GPIO_CHIP_2_CS);
+	  HAL_PWREx_DisableGPIOPullUp(PWR_GPIO_B,GPIO_CHIP_3_CS);
+	  HAL_PWREx_DisableGPIOPullUp(PWR_GPIO_A,GPIO_CHIP_4_CS);
+	  HAL_PWREx_DisablePullUpPullDownConfig();
 	  /* 1. Initialize Iridium Modem */
 	  uint8_t chip = Get_Active_Chip();		 	 											//Get active chip
 	  uint8_t Address[3] = {0};					 											//get current address pointer
-	  Get_Current_Address_Pointer(chip,Address);
-	  if(IR_Init_Module() == IR_OK)
+	  uint8_t retry = 0;
+	  IR_On = 1;
+	  while (IR_Init_Module() != IR_OK)
 	  {
-		  uint32_t size = ((Address[2] - 0x00)<<16)|((Address[1] - 0x00)<<8)|(Address[0]-0x01); //calculate length of data
-		  int num_pages = size/FLASH_GetPageSize() +1;											//calculate number of pages to be read
-		  /* Load Data */
-		  printf("Preparing To Transmit...");
-		  /* 2. LOOP THROUGH NUMBER OF PAGES WITH DATA */
-		  int payload_size = DRIFTBUFFER_SIZE*(__GET_SAMPLE_COUNT());
-		  uint8_t packet [payload_size];
-
-		  for (int i = 0; i < num_pages; ++i)
+		  IR_DeInit_Module();
+		  if(retry == 20)
 		  {
-			  FLASH_SetAddress(0x00,0x00,0x01);														//read size variables from memory
-			  uint8_t* buffer = FLASH_READ_BufferHF(chip,BUFFER1);
-			  memcpy(packet,&buffer[1],payload_size);
-			  IR_Status_t flag = IR_send_Bin_String(packet,payload_size);
-		  	  if(flag == IR_MSG_UPLOAD_OK)
-		  	  {
-			  	  printf("Message Uploaded!\r\nTransmitting...");
-			  	  //create SBD Session
-			  	  SBDX_Status_t sbd;
-			  	  if(IR_start_SBD_Session(&sbd)== IR_OK)
-			  	  {
-
-		 		  	  //check return status
-		 		  	  if(sbd.MO_Status < 2)
-		 		  	  {
-		 			  	  //message sent
-		 			  	  printf("Success!\r\n");
-		 		  	  }else
-		 		  	  {
-		 		  		  printf("Failed!\r\n");
-		 		  	  }
-			  	  }
-
-		  	  }
+			  IR_On = 0;
+			  break;
 		  }
+		retry++;
 
 	  }
-	  IR_DeInit_Module();
+	  if(IR_On)
+	  {
 
+		  printf("Preparing To Transmit...");
+		  //getlength of data
+
+		  uint8_t trans_Buffer[256];
+
+		  /* Load data Frome Memory*/
+		  FLASH_SetAddress(0x00,0x00,0x01);
+		 memcpy(trans_Buffer,FLASH_READ_BufferHF(chip,BUFFER1),256);
+
+		  /* 3. Upload Drift Data */
+		  IR_Status_t flag;
+		 for (int i = 0; i < 2; ++i)
+		 {
+			 flag = (i<1)? IR_send_Bin_String(trans_Buffer,(4*DRIFTBUFFER_SIZE)):IR_send_Bin_String(wavebuffer,WAVEBUFFER_SIZE);
+
+	  	  if(flag == IR_MSG_UPLOAD_OK)
+	  	  {
+		  	  printf("Message Uploaded!\r\nTransmitting...");
+		  	  //create SBD Session
+		  	  SBDX_Status_t sbd;
+		  	  for (int i = 0; i < 5; ++i)
+		  	  {
+		  		  if(IR_start_SBD_Session(&sbd)== IR_OK)
+		  		  {
+		  			 		  	  //check return status
+		  	  		  if(sbd.MO_Status < 2)
+		  	  		  {
+		  			  	  //message sent
+		  	  			  IR_send_AT_CMD("AT+SBDD0\r");
+		  			  	  printf("Success!\r\n");
+		  			  	  break;
+		  		  	  }else
+		  		  	  {
+		  		  		  printf("Failed!\r\n");
+
+		  		  	  }
+		 	  	  }
+		  		  HAL_Delay(1000);
+		  	  }
+	  		  IR_send_AT_CMD("AT+SBDD0\r");
+	  	  }
+
+		 }
+	  }
+	  IR_DeInit_Module();
 /* Reset Memory pointer*/
   //reset sample count
   __SET_SAMPLE_COUNT(0);
@@ -683,6 +737,12 @@ static void Routine_STATE_TRANSMIT(void)
   Address[1] = (temp&0xFF00)>>8;
   Address[2] = (temp&0xFF0000)>>16;
   Set_Current_Address_Pointer(chip,Address);
+	//reconfigure pin to pull up in low power mode
+HAL_PWREx_EnableGPIOPullUp(PWR_GPIO_C,GPIO_CHIP_1_CS);
+HAL_PWREx_EnableGPIOPullUp(PWR_GPIO_C,GPIO_CHIP_2_CS);
+HAL_PWREx_EnableGPIOPullUp(PWR_GPIO_B,GPIO_CHIP_3_CS);
+HAL_PWREx_EnableGPIOPullUp(PWR_GPIO_A,GPIO_CHIP_4_CS);
+HAL_PWREx_EnablePullUpPullDownConfig();
 }
 
 static void Routine_Init_STATE(void)
@@ -775,7 +835,7 @@ static void Routine_Init_STATE(void)
 	 /* Test INA 219 Sensor */
 	 if(INA219_Init_Sensor() == INA_OK)
 	 {
-		 printf("Current Monitor Online!");
+		 printf("Current Monitor Online!\r\n");
 	 } else
 	 {
 		 printf("Current Monitor Offline!\r\n");
@@ -783,13 +843,12 @@ static void Routine_Init_STATE(void)
 
 	 /* Test MPU6050 Sensor */
 
-	 if(MPU6050_Init_MPU(GYRO_CONFIG_FSSEL_2000DPS,ACC_CONFIG_AFSSEL_2G,CONFIG_DLFP_2) == MPU_OK)
+	 if(MPU6050_Init_MPU(GYRO_CONFIG_FSSEL_500DPS,ACC_CONFIG_AFSSEL_2G,CONFIG_DLFP_2) == MPU_OK)
 	 {
 		 printf("IMU Online\r\n");
 		 //perform self-test
 		 float test_results[6];
 		 MPU6050_SelfTest(&hi2c1,test_results);
-		 __NOP();
 	 }else
 	 {
 		 printf("IMU Offline\r\n");

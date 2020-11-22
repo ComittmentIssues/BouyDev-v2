@@ -11,6 +11,7 @@
 
 static uint8_t driftbuffer[DRIFTBUFFER_SIZE] = {0};
 
+
 HAL_StatusTypeDef Init_Debug(void)
 {
 	// set up clock output on GPIO Pin A8 for testing
@@ -381,6 +382,39 @@ uint8_t Set_Current_Address_Pointer(uint8_t chip,uint8_t* address_Array)
 		return 0;
 }
 
+/*
+ * @brief: code to store the start address of the latest IMU data packet in Active chip
+ */
+void Set_IMUdata_Start_Address(uint8_t* address_Array)
+{
+	__HAL_RCC_PWR_CLK_ENABLE();
+	//create pointer to register
+	uint32_t temp = 0;
+	//break up 24 bit number into 3 x 8 bit integer array
+	for (int i = 0; i < 3; ++i)
+	{
+		temp |= address_Array[i] <<(8*i);
+	}
+	RTC->BKP6R = temp;
+	__HAL_RCC_PWR_CLK_DISABLE();
+
+}
+
+/*
+ * @brief: code to retrieve the start address of the latest IMU data packet in Active chip
+ */
+void Get_IMUData_Start_Address(uint8_t* address_Array)
+{
+	__HAL_RCC_PWR_CLK_ENABLE();
+	//create pointer to register
+	uint32_t temp = RTC->BKP6R; //
+	//break up 24 bit number into 3 x 8 bit integer array
+	for (int i = 0; i < 3; ++i)
+	{
+		address_Array[i] = (temp>>(i*8))&0xFF;
+	}
+	__HAL_RCC_PWR_CLK_DISABLE();
+}
 /*
  * @brief: Code for retrieving active chip from back up registers
  *

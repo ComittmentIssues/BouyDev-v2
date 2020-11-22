@@ -27,7 +27,7 @@ void setup()
   Serial.begin(115200); 
   Serial.println("Power and Current Test");
   ina219.begin();
-  ina219.setCalibration_16V_400mA();
+  ina219.setCalibration_32V_1A();
   pinMode(LED_BUILTIN, OUTPUT);
   Serial.println("Bus Voltage (V),Shunt Voltage (mV),Load Voltage (V),Current (mA),Power (mW)");
 }

@@ -38,7 +38,7 @@ void  IR_Clear_Buffer(uint8_t *buffer,uint32_t size);
  *
  * @return: uint16_t checksum bytes
  */
-uint16_t IR_Calculate_Checksum(uint8_t* messagebuff, uint8_t size);
+uint16_t IR_Calculate_Checksum(uint8_t* messagebuff, uint32_t size);
 
 /*
  * Function Name static HAL_StatusTypeDef MX_GPIO_Init(void);
@@ -295,7 +295,7 @@ void  IR_Clear_Buffer(uint8_t *buffer,uint32_t size)
 	memset(buffer,0,size);
 }
 
-uint16_t IR_Calculate_Checksum(uint8_t* messagebuff, uint8_t size)
+uint16_t IR_Calculate_Checksum(uint8_t* messagebuff, uint32_t size)
 {
 	uint32_t sum = 0;
 	for (int i = 0; i < size; ++i)
@@ -317,8 +317,11 @@ uint16_t IR_Calculate_Checksum(uint8_t* messagebuff, uint8_t size)
  */
 IR_Status_t IR_Init_Module(void)
 {
+	 HAL_PWREx_DisableGPIOPullDown(IR_OnOff_PWR_GPIO_Port,IR_OnOff_Pin);
+	 HAL_PWREx_DisablePullUpPullDownConfig();
 	 if(MX_GPIO_Init() != HAL_OK){return IR_Pin_CFG_Error;}
 	 HAL_GPIO_WritePin(IR_OnOff_GPIO_Port,IR_OnOff_Pin,SET);
+	 HAL_Delay(5000); //time for the module to wake up
 	 if(MX_DMA_Init()  != HAL_OK){return IR_Pin_CFG_Error;}
 	 if(MX_UART5_Init()!= HAL_OK){return IR_Pin_CFG_Error;}
 	 if(MX_TIM3_Init()!= HAL_OK){return IR_Pin_CFG_Error;}
@@ -477,7 +480,7 @@ IR_Status_t IR_send_AT_CMD(char* cmd)
 IR_Status_t IR_send_AT_CMD_Bin(uint8_t* cmd,size_t len)
 {
 	memcpy(IR_TX_Buffer,cmd,len);
-	if(HAL_UART_Transmit(&huart5,IR_TX_Buffer,len,100) != HAL_OK)
+	if(HAL_UART_Transmit(&huart5,IR_TX_Buffer,len,200) != HAL_OK)
 	{
 		return IR_Tx_Error;
 	}
@@ -617,6 +620,7 @@ IR_Status_t IR_send_Bin_String(uint8_t* bin_string,uint32_t len)
 	  //upload to message buffer
 	  Session_Flag = SBDWB;
 	  IR_send_AT_CMD_Bin(IR_TX_Buffer,len+3);
+	  IR_Clear_Buffer(IR_TX_Buffer,TX_BUFFER_SIZE);
 	  Session_Flag = NONE;
 	  msg = strtok((char*)(&RM_Buffer[2]),"\r\n");
 	  int8_t ret_val = *(msg) -48;

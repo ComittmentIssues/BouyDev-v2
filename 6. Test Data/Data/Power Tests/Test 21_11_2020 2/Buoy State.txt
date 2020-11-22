@@ -1,0 +1,10 @@
+"11/21/2020 7:47:40 PM",Initialisation State
+"11/21/2020 7:48:02 PM",1st Sample State
+"11/21/2020 7:48:49 PM",Sleep State
+"11/21/2020 8:18:48 PM",2nd Sample State
+"11/21/2020 8:18:58 PM",Sleep State
+"11/21/2020 8:48:57 PM",3rd Sample State
+"11/21/2020 8:49:06 PM",Sleep State
+"11/21/2020 9:19:05 PM",4th Sample State
+"11/21/2020 9:19:19 PM",Transmit State
+"11/21/2020 9:21:36 PM",End

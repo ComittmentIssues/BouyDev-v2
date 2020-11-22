@@ -1,0 +1,73 @@
+"11/21/2020 7:47:40 PM",Warning! Device encountered a Brown Out. Exiting Program...
+"11/21/2020 7:47:40 PM",Software Reset Detected. Initializing main program...
+"11/21/2020 7:47:40 PM",Setting Up Flash Chips...
+"11/21/2020 7:47:40 PM",Allocating Chip Statuses...
+"11/21/2020 7:47:40 PM",Chip 1 Status: 1
+"11/21/2020 7:47:40 PM",Chip 2 Status: 2
+"11/21/2020 7:47:40 PM",Chip 3 Status: 3
+"11/21/2020 7:47:40 PM",Chip 4 Status: 3
+"11/21/2020 7:48:02 PM",Error Connecting To Modem
+"11/21/2020 7:48:02 PM",Environmental Sensor Online!
+"11/21/2020 7:48:02 PM",Current Monitor Offline!
+"11/21/2020 7:48:02 PM",IMU Online
+"11/21/2020 7:48:02 PM",Device Online!
+"11/21/2020 7:48:02 PM",Current State: RESET 	 Next State: SAMPLE
+"11/21/2020 7:48:02 PM",Current State: SAMPLE 	 Next State: SLEEP
+"11/21/2020 7:48:19 PM",GPS Online! Acquiring Signal...
+"11/21/2020 7:48:49 PM",Failed to Acquire Signal
+"11/21/2020 7:48:49 PM",Logging Data...
+"11/21/2020 7:48:49 PM",local time: 1605988066, position: 0.000000 Lat, 0.000000 long
+"11/21/2020 7:48:49 PM",HDOP = 99.99, 	 PDOP = 99.99, VDOP = 99.160
+"11/21/2020 7:48:49 PM",Number of Satellites 0, Fix Type = 1
+"11/21/2020 7:48:49 PM",Environmental Sensor Online!
+"11/21/2020 7:48:49 PM",Temp = 2346°C 	 Pressure = 101285 Pa 
+"11/21/2020 7:48:49 PM",Successfully saved drift data to chip 1
+"11/21/2020 7:48:49 PM",Current State: SLEEP 	 Next State: SAMPLE
+"11/21/2020 7:48:49 PM",Good Night! 
+"11/21/2020 8:18:48 PM",Current State: SAMPLE 	 Next State: SLEEP
+"11/21/2020 8:18:50 PM",GPS Online! Acquiring Signal...
+"11/21/2020 8:18:58 PM",Logging Data...
+"11/21/2020 8:18:58 PM",local time: 1605989870, position: -3357.781250 Lat, 1822.458984 long
+"11/21/2020 8:18:58 PM",HDOP = 7.50, 	 PDOP = 1.86, VDOP = 7.160
+"11/21/2020 8:18:58 PM",Number of Satellites 4, Fix Type = 3
+"11/21/2020 8:18:58 PM",Environmental Sensor Online!
+"11/21/2020 8:18:58 PM",Temp = 2391°C 	 Pressure = 101215 Pa 
+"11/21/2020 8:18:58 PM",Successfully saved drift data to chip 1
+"11/21/2020 8:18:58 PM",Current State: SLEEP 	 Next State: SAMPLE
+"11/21/2020 8:18:58 PM",Good Night! 
+"11/21/2020 8:48:57 PM",Current State: SAMPLE 	 Next State: SLEEP
+"11/21/2020 8:48:58 PM",GPS Online! Acquiring Signal...
+"11/21/2020 8:49:06 PM",Logging Data...
+"11/21/2020 8:49:06 PM",local time: 1605991678, position: -3357.777344 Lat, 1822.460571 long
+"11/21/2020 8:49:06 PM",HDOP = 5.2, 	 PDOP = 1.71, VDOP = 4.160
+"11/21/2020 8:49:06 PM",Number of Satellites 5, Fix Type = 3
+"11/21/2020 8:49:06 PM",Environmental Sensor Online!
+"11/21/2020 8:49:06 PM",Temp = 2425°C 	 Pressure = 101136 Pa 
+"11/21/2020 8:49:06 PM",Successfully saved drift data to chip 1
+"11/21/2020 8:49:06 PM",Current State: SLEEP 	 Next State: SAMPLE
+"11/21/2020 8:49:06 PM",Good Night! 
+"11/21/2020 9:19:05 PM",Current State: SAMPLE 	 Next State: TRANS
+"11/21/2020 9:19:06 PM",GPS Online! Acquiring Signal...
+"11/21/2020 9:19:13 PM",Logging Data...
+"11/21/2020 9:19:13 PM",local time: 1605993486, position: -3357.785889 Lat, 1822.462036 long
+"11/21/2020 9:19:13 PM",HDOP = 1.75, 	 PDOP = 1.13, VDOP = 1.160
+"11/21/2020 9:19:13 PM",Number of Satellites 8, Fix Type = 3
+"11/21/2020 9:19:13 PM",Environmental Sensor Online!
+"11/21/2020 9:19:13 PM",Temp = 2401°C 	 Pressure = 101191 Pa 
+"11/21/2020 9:19:13 PM",IMU Logging data...done!
+"11/21/2020 9:19:19 PM",Successfully saved drift data to chip 1
+"11/21/2020 9:19:19 PM",Current State: TRANS 	 Next State: SLEEP
+"11/21/2020 9:19:20 PM",Preparing To Transmit...Message Uploaded!
+"11/21/2020 9:19:20 PM",Transmitting...Failed!
+"11/21/2020 9:19:39 PM",Failed!
+"11/21/2020 9:19:51 PM",Failed!
+"11/21/2020 9:20:00 PM",Failed!
+"11/21/2020 9:20:17 PM",Failed!
+"11/21/2020 9:20:18 PM",Message Uploaded!
+"11/21/2020 9:20:18 PM",Transmitting...Failed!
+"11/21/2020 9:20:49 PM",Failed!
+"11/21/2020 9:20:57 PM",Failed!
+"11/21/2020 9:21:21 PM",Failed!
+"11/21/2020 9:21:35 PM",Failed!
+"11/21/2020 9:21:36 PM",Current State: SLEEP 	 Next State: SAMPLE
+"11/21/2020 9:21:36 PM",Good Night! 
