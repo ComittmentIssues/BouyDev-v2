@@ -1,0 +1,54 @@
+%****************************************************
+%	CHAPTER 6 - Recommendation
+%****************************************************
+
+\chapter{Recommendations}
+\label{ch:recommendations}
+\section{Improvements to Power Supply}
+
+As discussed in Section \ref{subsection:PWR}, The power system requires significant revision to improve the operational time time of the buoy. Using batteries with a higher specific energy can be a viable solution. Additionally, the power system can be revised to include a boost converter thereby allowing more batteries to be placed in parallel increasing the capacity of the power supply. An investigation needs to be conducted into the use of energy harvesters or renewable sources to compliment the power the power source. This can significantly improve the buoy's life cycle.
+
+\section{Improvements to Hardware}
+
+The current PCB stack configuration provides too many points of failures. It is recommended to design a single, horizontally mounted PCB with all the sensors and micro-controller. Additionally, Low-powered LED arrays can be implemented to provide visual feedback on the status of the buoy.\par 
+
+The device Enclosure should be redesigned to allow for a larger power supply. In addition, the enclosure should include a mechanism for de-humidifying the internal electronics. 
+
+Finally, a dedicated power board and communication module board should be designed to replace the breakout boards that the GNSS and Iridium Modem modules arive on. This will greatly reduce the form factor and reduce the reliance on connectors that can act as points of failiure
+\section{Improvements to Communication Modules}
+
+The gain of the GNSS antenna should be increased to provide a higher positional accuracy and shorter acquisition time.
+
+The Rockblock 9603 module should be replaced with either a sim-card based modem or a modem with a larger data buffer.
+\section{Firmware Improvements}
+
+The firmware of the system was designed as a state machine. This technique is somewhat primitive since states are executed sequentially. This results in time delays as shown in Table \ref{tab:test_powtest_data}. This can be revised by implementing a Real Time Operating System (RTOS) for critical time optimisation. \par 
+
+Additionally, the firmware power optimisation strategy needs to be expended to configure the GNSS for power saving modes. This will significantly reduce the current consumption of the overall system.\par 
+
+In this version of the firmware, a simple set of unit tests were implemented to verify the connectivity of the subsystems. It is recommended for future versions to include more extensive calibration tests for each subsystem built into the firmware or run through its own routine \par 
+
+Due to time constraints, a fully realisable wave data algorithm could not be implemented. This can be expended on in a future project conducting an investigation into the most suitable wave-measurement algorithm and can include full IMU calibration techniques, evaluation of the current IMU as well as open-ocean and open-ocean with rigid platform tests. \par 
+
+The latest hardware platform allows for critical components such as the IMU to connect an interrupt pin to an internal wake up line on the microcontroller. This feature can be expended in the future to allow for interrupts to be generated when a specific event is detected. These features can be expanded based on the following devices
+
+\paragraph{GPS}
+
+The device can be put to sleep and woken up when a GPS signal is acquired. Thereby reducing the reliance on polling for signal acquisition
+
+\paragraph{IMU}
+The interrupt pin can be configured to detect motion of a specified magnitude and frequency which can allow for more precise detection and measurement of significant wave height and dominant wave frequency. This feature can also be expanded to detect Ice Collisions.
+
+\paragraph{Iridium}
+
+The Rock block 9603 has a ring indicator pin which produces a logic high when a message is incoming to the modem. This feature can allow for ad-hoc programming of the device as well as asynchronous data retrieval thereby allowing for more precise monitoring of the device. 
+
+The move to a fully interrupt-based system will significantly improve power performance as well as reduce the reliance on timed-sequences.
+
+\section{Expansion of Nodes into a Network}
+
+This project resulted in the design and procurement of a single sensing node. To increase the sensing capability, the devices can be expended to form a network with an additional communication protocol (such as LORA) can provide inter-buoy communication. Future projects can include an investigation into optimal buoy topologies or designing firmware to facilitate inter-buoy communication.
+
+\section{Future Deployments}
+
+Following the completion of the new design, arrangements are being made to test and deploy the device through other groups. Contacts have been made with Alfred-Wegener Institute to deploy the device from the Polarstern Research Vessel. An additional prototype has been taken onboard the SA Aghulas II transporting researches to the SANAE IV base where the device will be tested on the continent before being deployed on sea ice.

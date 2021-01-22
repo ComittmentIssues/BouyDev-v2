@@ -9,20 +9,20 @@ color1 =[0.8500 0.3250 0.0980];
 figure(1)
 plot(T,CurrentmA) 
 for k= 1:length(T_State)
-     xl = xline(T_State(k),'-',State_Name(k),'LineWidth',0.5,'LabelOrientation','horizontal')
+     xl = xline(T_State(k),'-',State_Name(k),'LineWidth',0.5,'LabelOrientation','horizontal');
      if State_Name(k) == 'Sleep State'
-        xl.Color = 'r'
+        xl.Color = 'r';
 
      elseif State_Name(k) == 'Transmit State'
-             xl.Color = [0,0.3,0]
+             xl.Color = [0,0.3,0];
              xl.LabelVerticalAlignment = 'middle';
              xl.LabelHorizontalAlignment = 'right';
      elseif State_Name(k) == 'Initialisation State'
-         xl.Color = 'c'
+         xl.Color = 'c';
          xl.LabelVerticalAlignment = 'top';
          xl.LabelHorizontalAlignment = 'left';
      else
-         xl.Color = 'k'
+         xl.Color = 'k';
          xl.LabelVerticalAlignment = 'middle';
          xl.LabelHorizontalAlignment = 'left';
      end
@@ -34,13 +34,15 @@ xlim([-minutes(15) hours(2)])
 %calculate average current over a cycle
 figure(2)
 I_int = cumtrapz(seconds(T),CurrentmA);
-I_avg = (max(I_int)-min(I_int))/(max(seconds(T))-min(seconds(T)))
-I_avg_state = [];
-I_state_duration = [];
+I_avg = (max(I_int)-min(I_int))/(max(seconds(T))-min(seconds(T)));
+T_cycle = max(seconds(T))-min(seconds(T));
+I_avg_state = zeros(1,9);
+
+I_state_duration = zeros(1,9);
 for k = 2:10
-index = find((T> T_State(k-1))&(T < T_State(k)))
+index = find((T> T_State(k-1))&(T < T_State(k)));
 I_state_duration(k-1) = (max(seconds(T(index)))-min(seconds(T(index))));
-I_avg_state(k-1) = (max(I_int(index))-min(I_int(index)))/I_avg_duration(k-1);
+I_avg_state(k-1) = (max(I_int(index))-min(I_int(index)))/I_state_duration(k-1);
 end
 
 bar(I_avg_state);

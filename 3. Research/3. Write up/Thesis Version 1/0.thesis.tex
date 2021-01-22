@@ -1,0 +1,524 @@
+%=====================================================================
+%	UCT MECHATRONICS GROUP LaTeX THESIS/DISSERTATION TEMPLATE
+%---------------------------------------------------------------------
+%	Created by:		R.A. Verrinder
+%	Date Modified:	Jan 2016
+%---------------------------------------------------------------------
+%	Compile with:	arara 
+%=====================================================================
+%	Document properties:
+%---------------------------------------------------------------------
+%	Paper size:			A4
+%	Margins:			1 inch margins (top,bottom,left,right)
+%	Printing:			Double sided
+%	Base font size:		11pt
+%	Line spacing:		
+%	Paragraph spacing:	10pt
+%	Paragraph indent:	0pt
+%=====================================================================
+
+\documentclass[a4paper, 12pt, oneside, openright, parskip=full]{book}
+
+%---------------------------------------------------------------------
+%	PACKAGES
+%---------------------------------------------------------------------
+\usepackage[margin = 1in]{geometry}		
+\usepackage{lscape}
+\usepackage{rotating}
+\usepackage{hyphenat}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{lastpage}
+\usepackage{fancyref}
+\usepackage{fancyvrb}
+\graphicspath{{figs/}}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{graphicx}					% Can include graphics
+\usepackage{float}						% Can place figures at exact places in text
+\usepackage{wrapfig}					% Can wrap text around figures
+\usepackage{import}
+\usepackage{longtable}
+\usepackage{array}						% Can set column widths in tables
+\usepackage{mdframed}					% Can draw boxes around text etc.
+\usepackage{subcaption}					% Can place figures side by side
+\usepackage{tikz}
+\usetikzlibrary{positioning}		
+\usetikzlibrary{shapes.geometric, arrows} % For block diagrams
+\usetikzlibrary{circuits.logic.US} 
+\usetikzlibrary{calc}
+\usepackage{tikz-timing}				% Can draw timing diagrams
+\usepackage{enumerate}
+\usepackage{xcolor,colortbl}
+\usepackage{xspace}						% For box spaces
+\usepackage{caption}					% Captions and subcaptions
+\usepackage{subcaption}
+\usepackage{fix-cm}						% Can set font size
+\usepackage{color}						% Can change font color
+\usepackage{footnote}
+\usepackage[scaled=0.9]{helvet}			% Helvetica font scaled \phv
+\usepackage{courier}					% Courier font \pcr
+%\usepackage{mathptmx}					% Times New Roman font
+%\usepackage{cmbright}					% Sans serif font (COMMENT OUT IF YOU WANT TO USE A SERIF FONT
+\normalfont 							% in case the EC fonts aren't available
+\usepackage[T1]{fontenc}				% Used to switch to type 1 font encoding
+\usepackage{array,ragged2e,booktabs}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{datetime}					% Can use dates and times
+\usepackage{textcomp,gensymb}				
+\usepackage{url}
+\usepackage{pdfpages}
+\usepackage{subcaption}
+\usepackage[final]{listings}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage[sorting=nyt,style=apa]{biblatex}
+\addbibresource{thesis.bib}% Syntax for version >= 1.2
+\let\cite\parencite
+%---------------------------------------------------------------------
+% 	Colours
+%---------------------------------------------------------------------
+\definecolor{micro}{HTML}{DAE8FC}
+\definecolor{sensor}{HTML}{E1D5E7}
+\definecolor{conditional}{HTML}{FFF2CC}
+\definecolor{wrong}{HTML}{F8CECC}
+\definecolor{succ}{HTML}{D5E8D4}
+
+
+%---------------------------------------------------------------------
+% 	Code
+%---------------------------------------------------------------------
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  emph={int,char,double,float,unsigned,uint8_t, uint16_t,uint32_t,int8_t,int16_t,int32_t,BMP280_trim_t},
+  emphstyle={\color{blue}},
+  directivestyle =\color{black},
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\newcommand{\degr}{^\circ}
+%---------------------------------------------------------------------
+% 	for that annoying figure
+%---------------------------------------------------------------------
+
+%---------------------------------------------------------------------
+% 	PAGE FORMATTING
+%---------------------------------------------------------------------
+% Include page formatting here. 
+%---------------------------------------------------------------------
+\parskip	= 10pt						% Paragraph spacing
+\parindent 	= 0pt						% No para. indent
+
+% Caption margins 80% of text
+\captionsetup{width=0.8\textwidth,font=small,labelfont=bf}		
+
+%---------------------------------------------------------------------
+%	DOCUMENT PROPERTIES
+%---------------------------------------------------------------------
+% Fill in your details here. These macro commands can the be used 
+% throughout the document. Comment out what is unnecessary.
+%---------------------------------------------------------------------
+\newcommand{\auth}{Jamie Nicholas Jacobson}								% Author
+\newcommand{\titl}{SHARC Buoy}						% Thesis title
+\newcommand{\subtitle}{Robust firmware design for a novel, low-cost autonomous platform for the Antarctic Marginal Ice Zone in the Southern Ocean}% Thesis subtitle
+\newcommand{\dept}{Department of Electrical Engineering}% Department 
+\newcommand{\uni}{University of Cape Town}				% University
+\newcommand{\city}{Rondebosch, Cape Town}				% City
+\newcommand{\country}{South Africa}						% Country
+\newcommand{\degre}{MSc. in Electrical Engineering}		% Degree (Doctor of                                                           % Philosophy 
+                                                        % or Master of                         % Science)
+\newcommand{\degreeabv}{MSc.(Eng.)}						% Degree abbreviation (PhD or MSc.)			
+\newcommand{\aemail}{JCBJAM007@myuct.ac.za}			    % Author email address
+\newcommand{\supervisor}{R.A. Verrinder}				% Supervisor
+\newcommand{\hod}{A/Prof. F.C. Nicolls}					% Head of Department
+
+\newcommand{\logo}										% UCT Logo
+{	
+	\includegraphics[scale = 0.3]{figs/uctLogo}
+}
+
+\newdateformat{mydate}{\monthname[\THEMONTH] \THEYEAR} % Month Year date
+\newcommand{\key}{IoT; Firmware; Southern Ocean; Sea Ice; Remote Sensing; Autonomous; Platform}					   % Keywords (add logical keywords)
+
+%---------------------------------------------------------------------
+%	MACROS
+%---------------------------------------------------------------------
+% Signature box
+%---------------------------------------------------------------------
+\newcommand*{\signature}[1]
+{
+	\par\noindent\makebox [5cm]{\hrulefill}
+	\par\noindent\makebox [5cm][1]{#1}
+}
+%---------------------------------------------------------------------
+% Macro to select font style
+% phv = helvetica (sans serif)
+% pcr = courier	  (typewritter font)
+%---------------------------------------------------------------------
+\def\nfont#1#2
+{
+	{\fontfamily{#1}\selectfont #2}
+}					
+%---------------------------------------------------------------------
+% NRF statement for those funded by the NRF - comment out if unnecessary
+%---------------------------------------------------------------------
+\newcommand{\nrf}									   
+{	
+The financial assistance of the National Research Foundation (NRF) towards this research is hereby acknowledged. Opinions expressed and conclusions arrived at, are those of the author and are not necessarily to be attributed to the NRF.
+}
+%---------------------------------------------------------------------
+% Creates an block for a block diagram
+%---------------------------------------------------------------------
+\tikzstyle{arrow}=[->,shorten <=1pt,>=stealth',semithick]
+%---------------------------------------------------------------------
+% Multiplexer
+%---------------------------------------------------------------------
+\newcommand{\mux}									
+{
+	\begin{tikzpicture}
+		\draw 	(0,0)coordinate  		(O)--++
+		 	 	(30:1.5)coordinate 		(A)--++
+		  		(90:1.5)coordinate 		(B)--++
+		  		(150:1.5)coordinate		(C)--cycle;
+		\draw ($(A)!0.5!(B)$)--++(0:1)node[right]{$O$};
+		\draw ($(O)!0.5!(A)$)--++(-90:1)--++(180:1.3)node[left]{$S0$};
+		\foreach \y/\t in {0.3/0,0.6/1} {
+			\draw ($(C)! \y*1 !(O)$)--++(180:1.5) node[left] {$I \t$};}
+			\draw (0,1.5) node[right]{$MUX$};
+	\end{tikzpicture}
+}
+%---------------------------------------------------------------------
+%block 1
+%---------------------------------------------------------------------
+\tikzstyle{block}=[rectangle,
+				   draw=black,
+				   fill=gray!10,
+				   thick, 
+				   minimum height = 2cm, 
+				   text width=0.15*\columnwidth,]
+\tikzstyle{input}  		= [coordinate]
+\tikzstyle{output} 		= [coordinate]
+\tikzstyle{pinstyle} 	= [pin edge={to-,thin,black}]
+\tikzstyle{sum} 		= [draw, fill=blue!20, circle, node distance=1cm]
+%---------------------------------------------------------------------
+%block 2
+%---------------------------------------------------------------------
+\tikzstyle{block2}=[rectangle,
+				   draw=black,
+				   fill=gray!10,
+				   thick, 
+				   minimum height = 1.8cm, 
+				   text width=0.1*\columnwidth,]
+\tikzstyle{input}  		= [coordinate]
+\tikzstyle{output} 		= [coordinate]
+\tikzstyle{pinstyle} 	= [pin edge={to-,thin,black}]
+\tikzstyle{sum} 		= [draw, fill=blue!20, circle, node distance=1cm]
+%---------------------------------------------------------------------
+%flow charts
+%---------------------------------------------------------------------
+\tikzstyle{state}     = 	[rectangle, 
+							 text width=0.15*\columnwidth=2cm, 
+							 minimum  height=1.5cm, 
+							 text centered, 
+							 draw=black]
+							 
+\tikzstyle{statement}  = 	[rectangle, 
+							 text width=0.15*\columnwidth=2cm, 
+							 minimum  height=0.5cm, 
+							 text centered, 
+							 draw=black]							 
+							 
+\tikzstyle{condition}  = 	[rectangle, 
+							 text width=0.15*\columnwidth=2cm, 
+							 minimum  height=1cm, 
+							 rounded corners =10pt,
+							 text centered, 
+							 draw=black]
+\tikzstyle{decision}  = 	[diamond, 
+			                 minimum width=2cm, 
+			                 minimum height=1cm, 
+			                 text centered, 
+			                 draw=black]
+\tikzstyle{line} = [draw, -latex']
+
+%=====================================================================
+%	Start of the document
+%---------------------------------------------------------------------
+\begin{document}
+
+%=====================================================================
+%	TITLE PAGE
+%=====================================================================
+\begin{titlepage}
+	\centering
+	\vspace*{1cm}
+
+%---------------------------------------------------------------------
+% Title
+%---------------------------------------------------------------------	
+	\begin{Huge}					
+		\bfseries\titl\par
+		\vskip 5mm
+		%\hrule
+		%\vskip 1.2cm
+	\end{Huge}
+%---------------------------------------------------------------------
+% Subtitle	(optional)
+%---------------------------------------------------------------------
+	\begin{Large}					
+		\subtitle\\*
+		\vskip 3cm
+	\end{Large}
+%---------------------------------------------------------------------
+% UCT logo
+%---------------------------------------------------------------------	
+	\logo							
+	\vskip 1.5cm	
+%---------------------------------------------------------------------
+% Author	
+%---------------------------------------------------------------------	
+	\begin{Large}					
+		\bfseries\auth\\
+	\end{Large}
+%---------------------------------------------------------------------
+% Author's address	
+%---------------------------------------------------------------------		
+	\begin{normalsize}				
+		\vskip 2mm	
+		\dept\\*
+		\uni\\*
+		\city\\*
+		\country\\*
+		
+		\vskip 10mm	
+	\end{normalsize}
+%---------------------------------------------------------------------
+% Supervisor (optional)	
+%---------------------------------------------------------------------		
+%	\begin{large}					
+%		{\itshape Supervisor: \\*}
+%		\supervisor\\
+%		\vskip 5mm
+%	\end{large}
+%---------------------------------------------------------------------
+% Date	
+%---------------------------------------------------------------------
+	\begin{Large}					
+		{\bfseries \mydate\today}
+		\vskip 10mm	
+	\end{Large}
+%---------------------------------------------------------------------
+% Degree	
+%---------------------------------------------------------------------		
+		\degreeabv\ thesis submitted in partial fulfilment of the requirements for the degree of \degre\ in the \dept\ at the \uni
+		
+		\vskip 7mm	
+%---------------------------------------------------------------------
+% Keywords	
+%---------------------------------------------------------------------		
+	\begin{normalsize}			
+		{\itshape Keywords:}
+		\key			
+	\end{normalsize}	
+\end{titlepage}
+
+%=====================================================================
+%	FRONT MATTER
+%=====================================================================
+\frontmatter
+%---------------------------------------------------------------------
+%	Declaration
+%---------------------------------------------------------------------
+\chapter{Declaration}				
+\label{ch:decl}
+% Change name
+I, \auth,  hereby:
+
+\begin{enumerate}
+	\item		grant the \uni\  free licence to reproduce the above thesis in whole or in part, for the purpose of research;
+	\item		declare that:
+	
+	\begin{enumerate}
+		\item		this thesis is my own unaided work, both in concept and execution, and apart from the normal guidance from my supervisors, I have received no assistance except as stated in my bibliography and acknowledgements.
+
+				% Note any exceptions
+		\item		neither the substance nor any part of the above thesis has been submitted in the past, or is being, or is to be submitted for a degree at this University or at any other university.
+				% Note any exceptions
+	\end{enumerate}	
+\end{enumerate}
+
+\begin{flushright}	% Signature field
+	\vskip 6cm
+	\noindent \signature{x}
+	\noindent \auth \\*
+	\vskip 2mm
+	\noindent \dept \\*
+	\noindent \uni \\*
+	\vskip 2mm
+	\noindent \today
+\end{flushright}
+
+%---------------------------------------------------------------------
+%	Abstract
+%---------------------------------------------------------------------
+\chapter{Abstract}				
+\label{ch:abs}
+%---------------------------------------------------------------------
+% TAKEN FROM UCT WEBSITE
+% The Doctoral Degrees Board recommends that candidates include an abstract 
+% that fits onto one page, and which includes the author's full name, thesis 
+% title and date. The text should not exceed 350 words. Candidates may also 
+% include a more substantial summary of their work, in addition to the abstract.
+% Follow the same format for an MSc. abstract.
+
+% The abstract should stand on its own. It should answer the following questions:
+%	1.	What did the author do? What ideas, notions, hypotheses, 
+%		concepts, theories or thoughts were investigated?
+%	2.	How did the author do the work? What data were generated and used? 
+%		What was the origin of the data? How were data gathered? 
+%		What tests, scales, indices, or summary measures were used? 
+%		In other words, how was the analysis and/or synthesis done?
+%	3.	What were the conclusions and what were the significant findings?
+%
+% Some studies cannot readily be summarised in this way and require more 
+% descriptive abstracts. Do not use telegraphic phrases. Do not repeat 
+% information given in the title. Do not use abbreviations. The purpose of 
+% an abstract is to enable a researcher/examiner to understand the essential 
+% hypothesis, method and findings of the research.
+%---------------------------------------------------------------------
+\begin{center}
+	\textbf{\Large \titl}\\
+			\vskip 0.2cm
+			\auth\\
+			\vskip 0.2cm
+	\textit{\footnotesize\today}
+			\vskip 1cm
+\end{center}
+%---------------------------------------------------------------------
+% Write abstract here [350 words]
+
+Sea ice in the Antarctic Marginal Ice Zone plays a pivotal role in regulating heat and energy exchange between oceanic and atmospheric systems which drive the global climate. Current understanding of Southern Ocean sea ice dynamics ice is poor with temporal and spatial gaps in critical seasonal data-sets. The lack of in situ environmental data and wave measurement data from the MIZ in the Antarctic region drove the development of UCT’s first generation of in-situ ice-tethered measurement platform as part of a larger UCT project on realistic modeling of the Marginal Ice Zone in the changing Southern Ocean (MISO). This thesis focuses on the firmware development for the device and the design process taken to obtain key measurements for understanding sea ice dynamics and increase sensing capabilities in the Southern Ocean.\par 
+
+The buoy was required to survive the Antarctic climate and contained a Global Positioning System to record global coordinates, a temperature sensor, digital barometer and Inertial Measurement Unit to measure waves in ice. Power was supplied to the device by a power supply unit consisting of commercial-grade batteries in series with a temperature-resistant Low Dropout Regulator, and a power sensor to monitor the module. A satellite modem transmitted data through the Iridium satellite network. Finally, flash chips provided permanent storage for the data. The firmware and peripheral driver files were written in C for the STM32L4 ARM-based microcontroller.To optimize the firmware for low power consumption, inactive sensors were placed in power-saving mode and the processor was put to sleep. \par 
+
+The first deployment took place during the SCALE winter expedition in July 2019. Two devices were deployed on ice floes to test their performance in remote conditions. However, due to deployment errors, the device failed. A third device was placed on the ship and successfully survived for one week while continuously transmitting GPS coordinates and ambient temperature. The second generation featured subsequent improvements to the mechanical robustness and sensing capabilities of the device, however, Due to the COVID 19 pandemic, subsequent Antarctic expeditions were canceled resulting in the final platform evaluation taking place on land. The device demonstrates a proof of concept for a low-cost, ice-tethered autonomous sensing device however, additional improvements are required to overcome severe bandwidth and power constraints.
+%---------------------------------------------------------------------
+%	Acknowledgements
+%---------------------------------------------------------------------
+\chapter{Acknowledgements}		
+\label{ch:ack}
+
+%---------------------------------------------------------------------
+% Acknowledge all people who have helped you complete this work including.
+% Comment out /nrf macro if unneeded.
+%---------------------------------------------------------------------
+
+The creation of  this work would not be possible without the contributions of the following people:
+
+Keith Machuchon for designing the buoy stand and for offering insight into past deployments with the trident buoy.
+
+Yusuf Heylen for contributing towards development and integration of the IMU.
+
+Nicholas Bowden for creating the C library for the Flash chips.
+
+Anran Chen for his contribution towards developing a compression algorythm for raw intertial timeseries data.
+
+James Irvine and XXX for their contribution towards testing the current monitor and flash chips.
+
+Michael Noyce for his work on developing an integrated PCB for future versions of the project.
+
+Mrs Robyn Verrinder and Mr. Justin Pead for designing the prototype circuit boards for the first version of the device.
+
+Thank you to my supervisors Robyn Verrinder, Amit Mishra and Marcello Vichi whose insight and wisdom help guide this project to fruition.
+
+To Jarryd Son and Nadir Vorajee who initated the project and helped guide me through the initial phases. 
+ 
+Thank you to the UCT-UDE sea ice team for teaching me about the importance of sea ice in an ever changing climate. Also special mention to Ehlke Hepworth and Ashley Womack for their role in deploying the buoys. Also to Sebastian Skatulla for leading the sea ice team and helping coordinate the SHARC Buoy activities. I'd also like to thank Marc de Vos from the SAWS for his insight and input that guided the project.
+
+Thank you to the UCT mechnatronics lab for giving me the support, assistance and friendships that got me through the long development process. 
+
+To Sasha Gold for always supporting me and helping me when I need it.
+
+To my family for giving me the strength to undertake this project.
+
+Finally, a project would not be complete without coffee and people to drink it with. For that I'd like to thank Charlie Lin for sharing in this journey from start to finish.
+
+\nrf
+%---------------------------------------------------------------------
+%	Dedication (optional)
+%---------------------------------------------------------------------
+\begin{flushright}
+	\centering
+	\vspace*{10cm}
+	{\itshape Dedicated to the captain and crew of the SA Aghulas II whose bravery and wit helped bring science to the edge of the earth and back.\\}
+\end{flushright}
+%---------------------------------------------------------------------
+%	Table of Contents
+%---------------------------------------------------------------------
+\tableofcontents
+
+%---------------------------------------------------------------------
+%	List of Figures
+%---------------------------------------------------------------------
+\listoffigures
+
+%---------------------------------------------------------------------
+%	List of Tables
+%---------------------------------------------------------------------
+\listoftables
+
+%---------------------------------------------------------------------
+%	List of Symbols/Document conventions (optional)
+%---------------------------------------------------------------------
+
+%---------------------------------------------------------------------
+%	Glossary (optional)
+%---------------------------------------------------------------------
+
+%=====================================================================
+%	MAIN MATTER
+%=====================================================================
+% Create a separate file for each chapter. You may chose to rename these
+% chapters as needed.
+%---------------------------------------------------------------------
+\mainmatter
+
+\include{ch1}
+\include{ch2}
+\include{ch3}
+\include{ch4}
+\include{ch5}
+\include{ch6}
+\include{appendix}
+
+%=====================================================================
+%	BACK MATTER
+%=====================================================================
+
+\backmatter
+
+%---------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%---------------------------------------------------------------------
+
+\printbibliography
+
+%---------------------------------------------------------------------
+\end{document}
+%---------------------------------------------------------------------
+%	End of the document
+%=====================================================================

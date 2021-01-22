@@ -1,0 +1,4350 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{ackley_2020_seaice}{article}{}
+      \name{author}{11}{}{%
+        {{un=0,uniquepart=base,hash=fa4ce5c78a2c23ba8f719bd651d9afa4}{%
+           family={Ackley},
+           familyi={A\bibinitperiod},
+           given={S.\bibnamedelimi F.},
+           giveni={S\bibinitperiod\bibinitdelim F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bb98c612dde8ef1d2ea045c1968db512}{%
+           family={Stammerjohn},
+           familyi={S\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=60c61b26f73b965a45f7b0d35423f3c8}{%
+           family={Maksym},
+           familyi={M\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e44f09a2d84db823a77079697cf1a851}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=050a29d3d12c258f3a4f00ad11386fad}{%
+           family={Cassano},
+           familyi={C\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=09af95d6659ae5d44d52ea049bbb5db1}{%
+           family={Guest},
+           familyi={G\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d1c15b77f8dcaabccfceeea3c36d80d6}{%
+           family={Tison},
+           familyi={T\bibinitperiod},
+           given={J.-L.},
+           giveni={J\bibinithyphendelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=23dddcf8818f5e4c1090261c0d833f91}{%
+           family={Delille},
+           familyi={D\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=270f2125debc2b2abae29cabfc1fc316}{%
+           family={Loose},
+           familyi={L\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=11b21604cedc9279ecac0a9a7bce1f91}{%
+           family={Sedwick},
+           familyi={S\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=38026ba4ee6b102b47bf3ffb41325c8f}{%
+           family={al.},
+           familyi={a\bibinitperiod},
+           prefix={et},
+           prefixi={e\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{1560a7cc8ae16644fc7f4712e4ca5ab2}
+      \strng{fullhash}{ff834f90d315ab6123fc591b1622dd25}
+      \strng{bibnamehash}{ff834f90d315ab6123fc591b1622dd25}
+      \strng{authorbibnamehash}{ff834f90d315ab6123fc591b1622dd25}
+      \strng{authornamehash}{1560a7cc8ae16644fc7f4712e4ca5ab2}
+      \strng{authorfullhash}{ff834f90d315ab6123fc591b1622dd25}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annals of Glaciology}
+      \field{number}{82}
+      \field{title}{Sea-ice production and air/ice/ocean/biogeochemistry interactions in the Ross Sea during the PIPERS 2017 autumn field campaign}
+      \field{volume}{61}
+      \field{year}{2020}
+      \field{pages}{181\bibrangedash 195}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1017/aog.2020.31
+      \endverb
+    \endentry
+    \entry{alberello2019drift}{article}{}
+      \name{author}{8}{ul=2}{%
+        {{un=0,uniquepart=base,hash=1f41128a44870dcaeeca940433b42242}{%
+           family={Alberello},
+           familyi={A\bibinitperiod},
+           given={Alberto},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1c95e1d235b74cac279f73f562925dc5}{%
+           family={Bennetts},
+           familyi={B\bibinitperiod},
+           given={Luke},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2c120a86b83aa0a5b08e1dffd95d26d7}{%
+           family={Heil},
+           familyi={H\bibinitperiod},
+           given={Petra},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f215ec29de971cdb397e736c4428ebfd}{%
+           family={Eayrs},
+           familyi={E\bibinitperiod},
+           given={Clare},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=89fba3e6e5969e08f095c08eed06948e}{%
+           family={Vichi},
+           familyi={V\bibinitperiod},
+           given={Marcello},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a4d83fa2974ca27268d2f25c0cfadc18}{%
+           family={MacHutchon},
+           familyi={M\bibinitperiod},
+           given={Keith},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bb58da8275193ce8f4e08d9bfe86ab1d}{%
+           family={Onorato},
+           familyi={O\bibinitperiod},
+           given={Miguel},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=101bef366904fae9e18a4a5532356f13}{%
+           family={Toffoli},
+           familyi={T\bibinitperiod},
+           given={Alessandro},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{0c4a8eee9d303279ad6854546b74b2d1}
+      \strng{fullhash}{03d9e90e5f888d88d85acece96f742bd}
+      \strng{bibnamehash}{03d9e90e5f888d88d85acece96f742bd}
+      \strng{authorbibnamehash}{03d9e90e5f888d88d85acece96f742bd}
+      \strng{authornamehash}{0c4a8eee9d303279ad6854546b74b2d1}
+      \strng{authorfullhash}{03d9e90e5f888d88d85acece96f742bd}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1906.10839}
+      \field{title}{Drift of pancake ice floes in the winter Antarctic marginal ice zone during polar cyclones}
+      \field{year}{2019}
+    \endentry
+    \entry{albarello2020drift}{article}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=1f41128a44870dcaeeca940433b42242}{%
+           family={Alberello},
+           familyi={A\bibinitperiod},
+           given={Alberto},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1c95e1d235b74cac279f73f562925dc5}{%
+           family={Bennetts},
+           familyi={B\bibinitperiod},
+           given={Luke},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2c120a86b83aa0a5b08e1dffd95d26d7}{%
+           family={Heil},
+           familyi={H\bibinitperiod},
+           given={Petra},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f215ec29de971cdb397e736c4428ebfd}{%
+           family={Eayrs},
+           familyi={E\bibinitperiod},
+           given={Clare},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=89fba3e6e5969e08f095c08eed06948e}{%
+           family={Vichi},
+           familyi={V\bibinitperiod},
+           given={Marcello},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a4d83fa2974ca27268d2f25c0cfadc18}{%
+           family={MacHutchon},
+           familyi={M\bibinitperiod},
+           given={Keith},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bb58da8275193ce8f4e08d9bfe86ab1d}{%
+           family={Onorato},
+           familyi={O\bibinitperiod},
+           given={Miguel},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=101bef366904fae9e18a4a5532356f13}{%
+           family={Toffoli},
+           familyi={T\bibinitperiod},
+           given={Alessandro},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{7f80649007241781f0a461df13c7732f}
+      \strng{fullhash}{03d9e90e5f888d88d85acece96f742bd}
+      \strng{bibnamehash}{03d9e90e5f888d88d85acece96f742bd}
+      \strng{authorbibnamehash}{03d9e90e5f888d88d85acece96f742bd}
+      \strng{authornamehash}{7f80649007241781f0a461df13c7732f}
+      \strng{authorfullhash}{03d9e90e5f888d88d85acece96f742bd}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Geophysical Research: Oceans}
+      \field{note}{e2019JC015418 10.1029/2019JC015418}
+      \field{number}{3}
+      \field{title}{Drift of Pancake Ice Floes in the Winter Antarctic Marginal Ice Zone During Polar Cyclones}
+      \field{volume}{125}
+      \field{year}{2020}
+      \field{pages}{e2019JC015418}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb https://doi.org/10.1029/2019JC015418
+      \endverb
+      \verb{eprint}
+      \verb https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/2019JC015418
+      \endverb
+      \verb{urlraw}
+      \verb https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2019JC015418
+      \endverb
+      \verb{url}
+      \verb https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2019JC015418
+      \endverb
+      \keyw{sea ice,marginal ice zone,drift,pancake ice,Antarctic,buoy}
+    \endentry
+    \entry{alberello2019brief}{article}{}
+      \name{author}{7}{ul=2}{%
+        {{un=0,uniquepart=base,hash=1f41128a44870dcaeeca940433b42242}{%
+           family={Alberello},
+           familyi={A\bibinitperiod},
+           given={Alberto},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bb58da8275193ce8f4e08d9bfe86ab1d}{%
+           family={Onorato},
+           familyi={O\bibinitperiod},
+           given={Miguel},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1c95e1d235b74cac279f73f562925dc5}{%
+           family={Bennetts},
+           familyi={B\bibinitperiod},
+           given={Luke},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=89fba3e6e5969e08f095c08eed06948e}{%
+           family={Vichi},
+           familyi={V\bibinitperiod},
+           given={Marcello},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f215ec29de971cdb397e736c4428ebfd}{%
+           family={Eayrs},
+           familyi={E\bibinitperiod},
+           given={Clare},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a4d83fa2974ca27268d2f25c0cfadc18}{%
+           family={MacHutchon},
+           familyi={M\bibinitperiod},
+           given={Keith},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=101bef366904fae9e18a4a5532356f13}{%
+           family={Toffoli},
+           familyi={T\bibinitperiod},
+           given={Alessandro},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{de3438c8f082ab2e268af9647dfa20a7}
+      \strng{fullhash}{2240cc381281fbdfe44c3c4e7614af5c}
+      \strng{bibnamehash}{2240cc381281fbdfe44c3c4e7614af5c}
+      \strng{authorbibnamehash}{2240cc381281fbdfe44c3c4e7614af5c}
+      \strng{authornamehash}{de3438c8f082ab2e268af9647dfa20a7}
+      \strng{authorfullhash}{2240cc381281fbdfe44c3c4e7614af5c}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Cryosphere}
+      \field{number}{1}
+      \field{title}{Brief communication: Pancake ice floe size distribution during the winter expansion of the Antarctic marginal ice zone.}
+      \field{volume}{13}
+      \field{year}{2019}
+    \endentry
+    \entry{arrigo2004large}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=969422640966fe8954cd9b4a9f386885}{%
+           family={Arrigo},
+           familyi={A\bibinitperiod},
+           given={Kevin\bibnamedelima R},
+           giveni={K\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=98e3ec897ddcc16df4fd9ad7cfeea0fa}{%
+           family={Thomas},
+           familyi={T\bibinitperiod},
+           given={David\bibnamedelima N},
+           giveni={D\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{e4134a86438231a8a6d5e517be70ba8a}
+      \strng{fullhash}{e4134a86438231a8a6d5e517be70ba8a}
+      \strng{bibnamehash}{e4134a86438231a8a6d5e517be70ba8a}
+      \strng{authorbibnamehash}{e4134a86438231a8a6d5e517be70ba8a}
+      \strng{authornamehash}{e4134a86438231a8a6d5e517be70ba8a}
+      \strng{authorfullhash}{e4134a86438231a8a6d5e517be70ba8a}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Antarctic Science}
+      \field{number}{4}
+      \field{title}{Large scale importance of sea ice biology in the Southern Ocean}
+      \field{volume}{16}
+      \field{year}{2004}
+      \field{pages}{471}
+      \range{pages}{1}
+    \endentry
+    \entry{awtrey2002environmental}{misc}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=3103d247044ecaed8f626f09600ade9d}{%
+           family={Awtrey},
+           familyi={A\bibinitperiod},
+           given={James\bibnamedelima D},
+           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d141c76b70a05606cf6fe10d08d78c76}{%
+           family={Kurkowski},
+           familyi={K\bibinitperiod},
+           given={Hal},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=307eb33aadb703fe8706df9a9ca9c2a0}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Robert\bibnamedelima D},
+           giveni={R\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Google Patents}%
+      }
+      \strng{namehash}{dc45779c15bf0e9926d65a1d84208158}
+      \strng{fullhash}{f97b4fd7ea6cd27a5a9b2422db643a68}
+      \strng{bibnamehash}{f97b4fd7ea6cd27a5a9b2422db643a68}
+      \strng{authorbibnamehash}{f97b4fd7ea6cd27a5a9b2422db643a68}
+      \strng{authornamehash}{dc45779c15bf0e9926d65a1d84208158}
+      \strng{authorfullhash}{f97b4fd7ea6cd27a5a9b2422db643a68}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{08}
+      \field{note}{US Patent 6,438,502}
+      \field{title}{Environmental condition sensor device and method}
+      \field{year}{2002}
+    \endentry
+    \entry{barber2005microwave}{article}{}
+      \name{author}{1}{}{%
+        {{un=1,uniquepart=given,hash=c566ba753cb6fa95269c3ad119891690}{%
+           family={Barber},
+           familyi={B\bibinitperiod},
+           given={David\bibnamedelima G},
+           giveni={D\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=1}}%
+      }
+      \strng{namehash}{c566ba753cb6fa95269c3ad119891690}
+      \strng{fullhash}{c566ba753cb6fa95269c3ad119891690}
+      \strng{bibnamehash}{c566ba753cb6fa95269c3ad119891690}
+      \strng{authorbibnamehash}{c566ba753cb6fa95269c3ad119891690}
+      \strng{authornamehash}{c566ba753cb6fa95269c3ad119891690}
+      \strng{authorfullhash}{c566ba753cb6fa95269c3ad119891690}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Phys. Can}
+      \field{title}{Microwave remote sensing, sea ice and Arctic climate}
+      \field{volume}{61}
+      \field{year}{2005}
+      \field{pages}{105\bibrangedash 111}
+      \range{pages}{7}
+    \endentry
+    \entry{barber1948generation}{article}{}
+      \name{author}{2}{}{%
+        {{un=1,uniquepart=given,hash=4b92f7479fe1b81eba4965ede69e9a83}{%
+           family={Barber},
+           familyi={B\bibinitperiod},
+           given={Norman\bibnamedelima Frederick},
+           giveni={N\bibinitperiod\bibinitdelim F\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=904b38d4b72f672e261db40801b86453}{%
+           family={Ursell},
+           familyi={U\bibinitperiod},
+           given={Fritz},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {The Royal Society London}%
+      }
+      \strng{namehash}{dd79f2073ae4a9d8e395bf93d8060cc5}
+      \strng{fullhash}{dd79f2073ae4a9d8e395bf93d8060cc5}
+      \strng{bibnamehash}{dd79f2073ae4a9d8e395bf93d8060cc5}
+      \strng{authorbibnamehash}{dd79f2073ae4a9d8e395bf93d8060cc5}
+      \strng{authornamehash}{dd79f2073ae4a9d8e395bf93d8060cc5}
+      \strng{authorfullhash}{dd79f2073ae4a9d8e395bf93d8060cc5}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Philosophical Transactions of the Royal Society of London. Series A, Mathematical and Physical Sciences}
+      \field{number}{824}
+      \field{title}{The generation and propagation of ocean waves and swell. I. Wave periods and velocities}
+      \field{volume}{240}
+      \field{year}{1948}
+      \field{pages}{527\bibrangedash 560}
+      \range{pages}{34}
+    \endentry
+    \entry{bonvoisin2017source}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=76e37f6bec4591572395f11c276f30c4}{%
+           family={Bonvoisin},
+           familyi={B\bibinitperiod},
+           given={Jérémy},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1de77e262e82a58b1f6969b1f81b3c68}{%
+           family={Mies},
+           familyi={M\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a33056ca5d0eeb73920f191c50522b15}{%
+           family={Boujut},
+           familyi={B\bibinitperiod},
+           given={Jean-François},
+           giveni={J\bibinithyphendelim F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bf61f6313828950394e1f55900234929}{%
+           family={Stark},
+           familyi={S\bibinitperiod},
+           given={Rainer},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{69b15f97a625a29755d903b22fac328d}
+      \strng{fullhash}{0ea65012d9539810c5d95f74cfff5456}
+      \strng{bibnamehash}{0ea65012d9539810c5d95f74cfff5456}
+      \strng{authorbibnamehash}{0ea65012d9539810c5d95f74cfff5456}
+      \strng{authornamehash}{69b15f97a625a29755d903b22fac328d}
+      \strng{authorfullhash}{0ea65012d9539810c5d95f74cfff5456}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Open Hardware}
+      \field{title}{What is the “source” of open source hardware?}
+      \field{volume}{1}
+      \field{year}{2017}
+    \endentry
+    \entry{trident}{misc}{}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labeldatesource}{nodate}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Trident Sensors Limited produce state-of-the-art satellite communications and data systems. Our systems are used by researchers, government agencies, maritime and fisheries sectors, sporting organisations and armed forces around the world for all kinds of applications.}
+      \field{title}{Buoy {Tracking} {Systems} (2)}
+      \field{urlday}{17}
+      \field{urlmonth}{1}
+      \field{urlyear}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.tridentsensors.com/products/19-buoy-tracking-systems/21-buoy-tracking-2
+      \endverb
+      \verb{url}
+      \verb https://www.tridentsensors.com/products/19-buoy-tracking-systems/21-buoy-tracking-2
+      \endverb
+    \endentry
+    \entry{icedefinition1992}{inbook}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=12810b7399ab4139f78a99c11537c9f9}{%
+           family={Carsey},
+           familyi={C\bibinitperiod},
+           given={Frank\bibnamedelima D.},
+           giveni={F\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {American Geophysical Union (AGU)}%
+      }
+      \strng{namehash}{12810b7399ab4139f78a99c11537c9f9}
+      \strng{fullhash}{12810b7399ab4139f78a99c11537c9f9}
+      \strng{bibnamehash}{12810b7399ab4139f78a99c11537c9f9}
+      \strng{authorbibnamehash}{12810b7399ab4139f78a99c11537c9f9}
+      \strng{authornamehash}{12810b7399ab4139f78a99c11537c9f9}
+      \strng{authorfullhash}{12810b7399ab4139f78a99c11537c9f9}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Microwave Remote Sensing of Sea Ice}
+      \field{isbn}{9781118663950}
+      \field{title}{Glossary of Ice Terminology}
+      \field{year}{1992}
+      \field{pages}{447\bibrangedash 450}
+      \range{pages}{4}
+      \verb{doi}
+      \verb https://doi.org/10.1002/9781118663950.app1
+      \endverb
+      \verb{eprint}
+      \verb https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1002/9781118663950.app1
+      \endverb
+      \verb{urlraw}
+      \verb https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1002/9781118663950.app1
+      \endverb
+      \verb{url}
+      \verb https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1002/9781118663950.app1
+      \endverb
+    \endentry
+    \entry{chen2009accelerated}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=b21ee74c41e529d98dd0cedf2ccd1d68}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={JL},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f0f66252ab9b9d3e2633c5f9fb1d521b}{%
+           family={Wilson},
+           familyi={W\bibinitperiod},
+           given={Clark\bibnamedelima R},
+           giveni={C\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c5c7ff03d830cc8af285b942382a3936}{%
+           family={Blankenship},
+           familyi={B\bibinitperiod},
+           given={D},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d2322cd60717b84a9b357c3478d16037}{%
+           family={Tapley},
+           familyi={T\bibinitperiod},
+           given={Byron\bibnamedelima D},
+           giveni={B\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group}%
+      }
+      \strng{namehash}{841c5b4c13f22c1151373a8e309f778f}
+      \strng{fullhash}{b11f0fa2f06421f137c6bc068f6d79c1}
+      \strng{bibnamehash}{b11f0fa2f06421f137c6bc068f6d79c1}
+      \strng{authorbibnamehash}{b11f0fa2f06421f137c6bc068f6d79c1}
+      \strng{authornamehash}{841c5b4c13f22c1151373a8e309f778f}
+      \strng{authorfullhash}{b11f0fa2f06421f137c6bc068f6d79c1}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature Geoscience}
+      \field{number}{12}
+      \field{title}{Accelerated Antarctic ice loss from satellite gravity measurements}
+      \field{volume}{2}
+      \field{year}{2009}
+      \field{pages}{859\bibrangedash 862}
+      \range{pages}{4}
+    \endentry
+    \entry{childs2000review}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=fb89329327e4e16892362f353b15f134}{%
+           family={Childs},
+           familyi={C\bibinitperiod},
+           given={Peter\bibnamedelima RN},
+           giveni={P\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f1e6af4d58051d8180437bbf5c80b422}{%
+           family={Greenwood},
+           familyi={G\bibinitperiod},
+           given={JR},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=923013037f4182be9d9538649776750c}{%
+           family={Long},
+           familyi={L\bibinitperiod},
+           given={CA},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {AIP}%
+      }
+      \strng{namehash}{3a08f9878ed4b30ff485a72f5801b01b}
+      \strng{fullhash}{ddc9d96c8b30c351f896b3862dd88610}
+      \strng{bibnamehash}{ddc9d96c8b30c351f896b3862dd88610}
+      \strng{authorbibnamehash}{ddc9d96c8b30c351f896b3862dd88610}
+      \strng{authornamehash}{3a08f9878ed4b30ff485a72f5801b01b}
+      \strng{authorfullhash}{ddc9d96c8b30c351f896b3862dd88610}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Review of scientific instruments}
+      \field{number}{8}
+      \field{title}{Review of temperature measurement}
+      \field{volume}{71}
+      \field{year}{2000}
+      \field{pages}{2959\bibrangedash 2978}
+      \range{pages}{20}
+    \endentry
+    \entry{coon2007arctic}{article}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=e94ba30c6f59b95c414b4069182e79ee}{%
+           family={Coon},
+           familyi={C\bibinitperiod},
+           given={Max},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=820a841eae0d1e589f93c1989d622f1d}{%
+           family={Kwok},
+           familyi={K\bibinitperiod},
+           given={Ron},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c7dc132770ce70c40b2c06d2c7a83282}{%
+           family={Levy},
+           familyi={L\bibinitperiod},
+           given={Gad},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ee21a1990a9ed2fdc96ccb9180a0195c}{%
+           family={Pruis},
+           familyi={P\bibinitperiod},
+           given={Matthew},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=99f0892a9dd6ab2ae14f1f368815f4b8}{%
+           family={Schreyer},
+           familyi={S\bibinitperiod},
+           given={Howard},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=628e44a1246865c07665096b8d061018}{%
+           family={Sulsky},
+           familyi={S\bibinitperiod},
+           given={Deborah},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{87882027a34f72ea8706bda6b801553c}
+      \strng{fullhash}{0bb514516f8ea328987b61fb4aface82}
+      \strng{bibnamehash}{0bb514516f8ea328987b61fb4aface82}
+      \strng{authorbibnamehash}{0bb514516f8ea328987b61fb4aface82}
+      \strng{authornamehash}{87882027a34f72ea8706bda6b801553c}
+      \strng{authorfullhash}{0bb514516f8ea328987b61fb4aface82}
+      \field{extraname}{1}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Geophysical Research: Oceans}
+      \field{number}{C11}
+      \field{title}{Arctic Ice Dynamics Joint Experiment (AIDJEX) assumptions revisited and found inadequate}
+      \field{volume}{112}
+      \field{year}{2007}
+    \endentry
+    \entry{coon1974modeling}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=79a4f45e018fb44114e9504e228e6421}{%
+           family={Coon},
+           familyi={C\bibinitperiod},
+           given={MD},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=83bc30702420dbf6202832b7c3791a32}{%
+           family={Maykut},
+           familyi={M\bibinitperiod},
+           given={GA},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e615d9af5070849fc0f8b9c187d2552f}{%
+           family={Pritchard},
+           familyi={P\bibinitperiod},
+           given={RS},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{fdbc6644c2a4da83e25f2011553ddce2}
+      \strng{fullhash}{8d3f07eb965b8a963fe4bd508bf45b75}
+      \strng{bibnamehash}{8d3f07eb965b8a963fe4bd508bf45b75}
+      \strng{authorbibnamehash}{8d3f07eb965b8a963fe4bd508bf45b75}
+      \strng{authornamehash}{fdbc6644c2a4da83e25f2011553ddce2}
+      \strng{authorfullhash}{8d3f07eb965b8a963fe4bd508bf45b75}
+      \field{extraname}{2}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Numerical Modeling Report}
+      \field{title}{Modeling the pack ice as an elastic-plastic material}
+      \field{year}{1974}
+    \endentry
+    \entry{DeSanti2018OceanWave}{article}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=5ca870c3409eae2b07f6504a78ae497d}{%
+           family={De\bibnamedelima Santi},
+           familyi={D\bibinitperiod\bibinitdelim S\bibinitperiod},
+           given={Francesca},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f641a424a4c0c1cb2b299b73251f078b}{%
+           family={De\bibnamedelima Carolis},
+           familyi={D\bibinitperiod\bibinitdelim C\bibinitperiod},
+           given={Giacomo},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fcb375520f12875137934f1596db6f59}{%
+           family={Olla},
+           familyi={O\bibinitperiod},
+           given={Piero},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d11ea6706a1c8f641f15ee6440de5e30}{%
+           family={Doble},
+           familyi={D\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=93c9ed9a8e6398130521b40389871ee1}{%
+           family={Cheng},
+           familyi={C\bibinitperiod},
+           given={Sukun},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b3fe7a24db0e244a881e73b8c85ebd26}{%
+           family={Shen},
+           familyi={S\bibinitperiod},
+           given={Hayley\bibnamedelima H.},
+           giveni={H\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=41c2a21337a6a6c59c1f5f57e471c2e9}{%
+           family={Wadhams},
+           familyi={W\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a72b9b84115dc7135f1fdb325c6e3cf8}{%
+           family={Thomson},
+           familyi={T\bibinitperiod},
+           given={Jim},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{061394bd4bb8cc2a5064a656fd4b101e}
+      \strng{fullhash}{8f807c866a3695da21e45e82f4d706d0}
+      \strng{bibnamehash}{8f807c866a3695da21e45e82f4d706d0}
+      \strng{authorbibnamehash}{8f807c866a3695da21e45e82f4d706d0}
+      \strng{authornamehash}{061394bd4bb8cc2a5064a656fd4b101e}
+      \strng{authorfullhash}{8f807c866a3695da21e45e82f4d706d0}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Abstract The ability of viscous layer models to describe the attenuation of waves propagating in grease-pancake ice covered ocean is investigated. In particular, the Keller's model (Keller, ; https://doi.org/10.1029/97JC02966), the two-layer viscous model (De Carolis \& Desiderio, ; https://doi.org/10.1016/S0375-9601(02)01503-7) and the close-packing model (De Santi \& Olla, ; arXiv:1512.05631) are extensively validated by using wave attenuation data collected during two different field campaigns (Weddell Sea, Antarctica, April 2000; western Arctic Ocean, autumn 2015). We use these data to inspect the performance of the three models by minimizing the differences between the measured and model wave attenuation; the retrieved ice thickness is then compared with measured data. The three models allow to fit the observation data but with important differences in the three cases. The close-packing model shows good agreement with the data for values of the ice viscosity comparable to those of grease ice in laboratory experiments. For thin ice, the Keller's model performance is similar to that of the close-packing model, while for thick ice much larger values of the ice viscosity are required, which reflects the different ability of the two models to take into account the effect of pancakes. The improvement of performance over the Keller's model achieved by the two-layer viscous model is minimal, which reflects the marginal role in the dynamics of a finite eddy viscosity in the ice-free layer. A good ice thickness retrieval can be obtained by considering the ice layer as the only source in the wave dynamics, so that the wind input can be disregarded.}
+      \field{journaltitle}{Journal of Geophysical Research: Oceans}
+      \field{number}{8}
+      \field{title}{On the Ocean Wave Attenuation Rate in Grease-Pancake Ice, a Comparison of Viscous Layer Propagation Models With Field Data}
+      \field{volume}{123}
+      \field{year}{2018}
+      \field{pages}{5933\bibrangedash 5948}
+      \range{pages}{16}
+      \verb{doi}
+      \verb https://doi.org/10.1029/2018JC013865
+      \endverb
+      \verb{eprint}
+      \verb https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/2018JC013865
+      \endverb
+      \verb{urlraw}
+      \verb https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2018JC013865
+      \endverb
+      \verb{url}
+      \verb https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2018JC013865
+      \endverb
+      \keyw{pancake ice,gravity waves,viscous layer model,wave's attenuation buoy data}
+    \endentry
+    \entry{deconto2003rapid}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=1582dcfa3ff34a48f0df27e9aaacef81}{%
+           family={DeConto},
+           familyi={D\bibinitperiod},
+           given={Robert\bibnamedelima M},
+           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=eeca5ef1bad0358c9a2c5521967fce47}{%
+           family={Pollard},
+           familyi={P\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group}%
+      }
+      \strng{namehash}{a723710ef2c3b69f6bc9b764f679fdae}
+      \strng{fullhash}{a723710ef2c3b69f6bc9b764f679fdae}
+      \strng{bibnamehash}{a723710ef2c3b69f6bc9b764f679fdae}
+      \strng{authorbibnamehash}{a723710ef2c3b69f6bc9b764f679fdae}
+      \strng{authornamehash}{a723710ef2c3b69f6bc9b764f679fdae}
+      \strng{authorfullhash}{a723710ef2c3b69f6bc9b764f679fdae}
+      \field{extraname}{1}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature}
+      \field{number}{6920}
+      \field{title}{Rapid Cenozoic glaciation of Antarctica induced by declining atmospheric CO 2}
+      \field{volume}{421}
+      \field{year}{2003}
+      \field{pages}{245}
+      \range{pages}{1}
+    \endentry
+    \entry{deconto2016contribution}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=1582dcfa3ff34a48f0df27e9aaacef81}{%
+           family={DeConto},
+           familyi={D\bibinitperiod},
+           given={Robert\bibnamedelima M},
+           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=eeca5ef1bad0358c9a2c5521967fce47}{%
+           family={Pollard},
+           familyi={P\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group}%
+      }
+      \strng{namehash}{a723710ef2c3b69f6bc9b764f679fdae}
+      \strng{fullhash}{a723710ef2c3b69f6bc9b764f679fdae}
+      \strng{bibnamehash}{a723710ef2c3b69f6bc9b764f679fdae}
+      \strng{authorbibnamehash}{a723710ef2c3b69f6bc9b764f679fdae}
+      \strng{authornamehash}{a723710ef2c3b69f6bc9b764f679fdae}
+      \strng{authorfullhash}{a723710ef2c3b69f6bc9b764f679fdae}
+      \field{extraname}{2}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature}
+      \field{number}{7596}
+      \field{title}{Contribution of Antarctica to past and future sea-level rise}
+      \field{volume}{531}
+      \field{year}{2016}
+      \field{pages}{591}
+      \range{pages}{1}
+    \endentry
+    \entry{doble2013wave}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=5d82aee6671e52da3a45b432baecd23a}{%
+           family={Doble},
+           familyi={D\bibinitperiod},
+           given={Martin\bibnamedelima J},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e4610b163d4d1e32aae5c0555cc3c99b}{%
+           family={Bidlot},
+           familyi={B\bibinitperiod},
+           given={Jean-Raymond},
+           giveni={J\bibinithyphendelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{41dcc776fc542901d15a4bcf376fcbc0}
+      \strng{fullhash}{41dcc776fc542901d15a4bcf376fcbc0}
+      \strng{bibnamehash}{41dcc776fc542901d15a4bcf376fcbc0}
+      \strng{authorbibnamehash}{41dcc776fc542901d15a4bcf376fcbc0}
+      \strng{authornamehash}{41dcc776fc542901d15a4bcf376fcbc0}
+      \strng{authorfullhash}{41dcc776fc542901d15a4bcf376fcbc0}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Ocean Modelling}
+      \field{title}{Wave buoy measurements at the Antarctic sea ice edge compared with an enhanced ECMWF WAM: Progress towards global waves-in-ice modelling}
+      \field{volume}{70}
+      \field{year}{2013}
+      \field{pages}{166\bibrangedash 173}
+      \range{pages}{8}
+    \endentry
+    \entry{doble2017robust}{article}{}
+      \name{author}{10}{}{%
+        {{un=0,uniquepart=base,hash=5d82aee6671e52da3a45b432baecd23a}{%
+           family={Doble},
+           familyi={D\bibinitperiod},
+           given={Martin\bibnamedelima J},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=66d0e293c82f7414846a43e6dfa7f9f0}{%
+           family={Wilkinson},
+           familyi={W\bibinitperiod},
+           given={Jeremy\bibnamedelima P},
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=881bf8a60c5f68b35068c34b00dc163b}{%
+           family={Valcic},
+           familyi={V\bibinitperiod},
+           given={Lovro},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4c4e540f6f1d616aae54cc3cfd2dbc18}{%
+           family={Robst},
+           familyi={R\bibinitperiod},
+           given={Jeremy},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b9c8a9293e3c918e06bcab58c4abc6bb}{%
+           family={Tait},
+           familyi={T\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b53b079e1677461ebd64d7d8e9f3e1bd}{%
+           family={Preston},
+           familyi={P\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e4610b163d4d1e32aae5c0555cc3c99b}{%
+           family={Bidlot},
+           familyi={B\bibinitperiod},
+           given={Jean-Raymond},
+           giveni={J\bibinithyphendelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7599c9e3a5d9c718d463277a7c59598c}{%
+           family={Hwang},
+           familyi={H\bibinitperiod},
+           given={Byongjun},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=26ac0bb063492a58d69bd38d3517ad46}{%
+           family={Maksym},
+           familyi={M\bibinitperiod},
+           given={Ted},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=41c2a21337a6a6c59c1f5f57e471c2e9}{%
+           family={Wadhams},
+           familyi={W\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {University of California Press}%
+      }
+      \strng{namehash}{dadf7f3e9790556271949dd86cbee21d}
+      \strng{fullhash}{8bc171fa401d3f4d0664820a479f7f4c}
+      \strng{bibnamehash}{8bc171fa401d3f4d0664820a479f7f4c}
+      \strng{authorbibnamehash}{8bc171fa401d3f4d0664820a479f7f4c}
+      \strng{authornamehash}{dadf7f3e9790556271949dd86cbee21d}
+      \strng{authorfullhash}{8bc171fa401d3f4d0664820a479f7f4c}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Elementa: Science of the Anthropocene}
+      \field{title}{Robust wavebuoys for the marginal ice zone: Experiences from a large persistent array in the Beaufort Sea}
+      \field{volume}{5}
+      \field{year}{2017}
+    \endentry
+    \entry{earle1996nondirectional}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2277d44d8bca6a1fc1c1190d0dfb8293}{%
+           family={Earle},
+           familyi={E\bibinitperiod},
+           given={Marshall\bibnamedelima D},
+           giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{2277d44d8bca6a1fc1c1190d0dfb8293}
+      \strng{fullhash}{2277d44d8bca6a1fc1c1190d0dfb8293}
+      \strng{bibnamehash}{2277d44d8bca6a1fc1c1190d0dfb8293}
+      \strng{authorbibnamehash}{2277d44d8bca6a1fc1c1190d0dfb8293}
+      \strng{authornamehash}{2277d44d8bca6a1fc1c1190d0dfb8293}
+      \strng{authorfullhash}{2277d44d8bca6a1fc1c1190d0dfb8293}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{NDBC Tech. Doc}
+      \field{number}{002}
+      \field{title}{Nondirectional and directional wave data analysis procedures}
+      \field{volume}{96}
+      \field{year}{1996}
+    \endentry
+    \entry{eaton1997micromachined}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=a9c9e41c7388220f37efa4459c743f8d}{%
+           family={Eaton},
+           familyi={E\bibinitperiod},
+           given={William\bibnamedelima P},
+           giveni={W\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=43bbdbf0c4bd164dacbb96ac81370465}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={James\bibnamedelima H},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {IOP Publishing}%
+      }
+      \strng{namehash}{c6ba0539f39117de111be6f401da725e}
+      \strng{fullhash}{c6ba0539f39117de111be6f401da725e}
+      \strng{bibnamehash}{c6ba0539f39117de111be6f401da725e}
+      \strng{authorbibnamehash}{c6ba0539f39117de111be6f401da725e}
+      \strng{authornamehash}{c6ba0539f39117de111be6f401da725e}
+      \strng{authorfullhash}{c6ba0539f39117de111be6f401da725e}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Smart Materials and Structures}
+      \field{number}{5}
+      \field{title}{Micromachined pressure sensors: review and recent developments}
+      \field{volume}{6}
+      \field{year}{1997}
+      \field{pages}{530}
+      \range{pages}{1}
+    \endentry
+    \entry{emery1997satellite}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=d07754a3d5d85b00fee0f6cea709cee5}{%
+           family={Emery},
+           familyi={E\bibinitperiod},
+           given={WJ},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6e8663ee4ba505a134fe9976e882d663}{%
+           family={Fowler},
+           familyi={F\bibinitperiod},
+           given={C\bibnamedelima Wo},
+           giveni={C\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7141a320a17056a51c28951ecdd156b3}{%
+           family={Maslanik},
+           familyi={M\bibinitperiod},
+           given={JA},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{d4e9fbfdb13317175f4d11ad18388075}
+      \strng{fullhash}{7dd3d66334aa32829f6b2dc5c706068f}
+      \strng{bibnamehash}{7dd3d66334aa32829f6b2dc5c706068f}
+      \strng{authorbibnamehash}{7dd3d66334aa32829f6b2dc5c706068f}
+      \strng{authornamehash}{d4e9fbfdb13317175f4d11ad18388075}
+      \strng{authorfullhash}{7dd3d66334aa32829f6b2dc5c706068f}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Geophysical Research Letters}
+      \field{number}{8}
+      \field{title}{Satellite-derived maps of Arctic and Antarctic sea ice motion: 1988 to 1994}
+      \field{volume}{24}
+      \field{year}{1997}
+      \field{pages}{897\bibrangedash 900}
+      \range{pages}{4}
+    \endentry
+    \entry{galin2011validation}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=8bda8bda0f853936633f16860d56b7e4}{%
+           family={Galin},
+           familyi={G\bibinitperiod},
+           given={Natalia},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=83c146f4815b1c13d7f2b69b39948137}{%
+           family={Worby},
+           familyi={W\bibinitperiod},
+           given={Anthony},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9193741d954b0c20a5612838561b4067}{%
+           family={Markus},
+           familyi={M\bibinitperiod},
+           given={Thorsten},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4873b018c6562a68ddcd9a2d7d7480fd}{%
+           family={Leuschen},
+           familyi={L\bibinitperiod},
+           given={Carl},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8495010013dc63a6b7d35f3e97d3e4e4}{%
+           family={Gogineni},
+           familyi={G\bibinitperiod},
+           given={Prasad},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{03aab21f2f2d98dfb771f19572cc33e5}
+      \strng{fullhash}{c5da61941107a36c94555322619b93e7}
+      \strng{bibnamehash}{c5da61941107a36c94555322619b93e7}
+      \strng{authorbibnamehash}{c5da61941107a36c94555322619b93e7}
+      \strng{authornamehash}{03aab21f2f2d98dfb771f19572cc33e5}
+      \strng{authorfullhash}{c5da61941107a36c94555322619b93e7}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE transactions on geoscience and remote sensing}
+      \field{number}{1}
+      \field{title}{Validation of airborne FMCW radar measurements of snow thickness over sea ice in Antarctica}
+      \field{volume}{50}
+      \field{year}{2011}
+      \field{pages}{3\bibrangedash 12}
+      \range{pages}{10}
+    \endentry
+    \entry{galin2012measuring}{thesis}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c0f4e47af18b54162ca9935b3e3f1461}{%
+           family={Galin},
+           familyi={G\bibinitperiod},
+           given={Natalie},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {University of Tasmania}%
+      }
+      \strng{namehash}{c0f4e47af18b54162ca9935b3e3f1461}
+      \strng{fullhash}{c0f4e47af18b54162ca9935b3e3f1461}
+      \strng{bibnamehash}{c0f4e47af18b54162ca9935b3e3f1461}
+      \strng{authorbibnamehash}{c0f4e47af18b54162ca9935b3e3f1461}
+      \strng{authornamehash}{c0f4e47af18b54162ca9935b3e3f1461}
+      \strng{authorfullhash}{c0f4e47af18b54162ca9935b3e3f1461}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Measuring snow thickness over Antarctic sea ice with a helicopter-borne 2-8 GHz FMCW radar}
+      \field{type}{phdthesis}
+      \field{year}{2012}
+    \endentry
+    \entry{IEE_STD_SOFTCYCLE}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=db652eb2155a527b33978761a919688c}{%
+           family={Group},
+           familyi={G\bibinitperiod},
+           given={IEEE\bibnamedelima Working},
+           giveni={I\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{db652eb2155a527b33978761a919688c}
+      \strng{fullhash}{db652eb2155a527b33978761a919688c}
+      \strng{bibnamehash}{db652eb2155a527b33978761a919688c}
+      \strng{authorbibnamehash}{db652eb2155a527b33978761a919688c}
+      \strng{authornamehash}{db652eb2155a527b33978761a919688c}
+      \strng{authorfullhash}{db652eb2155a527b33978761a919688c}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE/EIA 12207.1-1997}
+      \field{title}{IEEE/EIA Guide - Industry Implementation of International Standard ISO/IEC 12207 : 1995 (ISO/IEC 12207) - Software Life Cycle Processes - Life Cycle Data}
+      \field{year}{1998}
+      \field{pages}{1\bibrangedash 38}
+      \range{pages}{38}
+      \verb{doi}
+      \verb 10.1109/IEEESTD.1998.86377
+      \endverb
+    \endentry
+    \entry{guimaraes2018surface}{article}{}
+      \name{author}{9}{}{%
+        {{un=0,uniquepart=base,hash=c60d685d66a0702948b7ceee5cd5d84d}{%
+           family={Guimarães},
+           familyi={G\bibinitperiod},
+           given={Pedro\bibnamedelima Veras},
+           giveni={P\bibinitperiod\bibinitdelim V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a271c9e5fc161c3bd1b14bd75eb848df}{%
+           family={Ardhuin},
+           familyi={A\bibinitperiod},
+           given={Fabrice},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=19d7df1fb93fb36727a88eb47c7919c6}{%
+           family={Sutherland},
+           familyi={S\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ddbb2d9cd93d15bd68da9d27ede514de}{%
+           family={Accensi},
+           familyi={A\bibinitperiod},
+           given={Mickael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cffa4c8ceb75f02c5d8916781f5e14b9}{%
+           family={Hamon},
+           familyi={H\bibinitperiod},
+           given={Michel},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=084e576c62cc7928680b1b6037178361}{%
+           family={Pérignon},
+           familyi={P\bibinitperiod},
+           given={Yves},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a72b9b84115dc7135f1fdb325c6e3cf8}{%
+           family={Thomson},
+           familyi={T\bibinitperiod},
+           given={Jim},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=34cb94660da6d03b611966e836a303c3}{%
+           family={Benetazzo},
+           familyi={B\bibinitperiod},
+           given={Alvise},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6199f5e8559c25d526cd0400fd012100}{%
+           family={Ferrant},
+           familyi={F\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Copernicus GmbH}%
+      }
+      \strng{namehash}{295b65631569d9284b812623f762b333}
+      \strng{fullhash}{7a5c82d2c3736f0ec3d8ff3d40988420}
+      \strng{bibnamehash}{7a5c82d2c3736f0ec3d8ff3d40988420}
+      \strng{authorbibnamehash}{7a5c82d2c3736f0ec3d8ff3d40988420}
+      \strng{authornamehash}{295b65631569d9284b812623f762b333}
+      \strng{authorfullhash}{7a5c82d2c3736f0ec3d8ff3d40988420}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Ocean Science}
+      \field{number}{6}
+      \field{title}{A surface kinematics buoy (SKIB) for wave--current interaction studies}
+      \field{volume}{14}
+      \field{year}{2018}
+      \field{pages}{1449\bibrangedash 1460}
+      \range{pages}{12}
+    \endentry
+    \entry{hibler1979dynamic}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8ab7b42c3b42ba9a5a7c795649614921}{%
+           family={Hibler\bibnamedelima III},
+           familyi={H\bibinitperiod\bibinitdelim I\bibinitperiod},
+           given={WD},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{8ab7b42c3b42ba9a5a7c795649614921}
+      \strng{fullhash}{8ab7b42c3b42ba9a5a7c795649614921}
+      \strng{bibnamehash}{8ab7b42c3b42ba9a5a7c795649614921}
+      \strng{authorbibnamehash}{8ab7b42c3b42ba9a5a7c795649614921}
+      \strng{authornamehash}{8ab7b42c3b42ba9a5a7c795649614921}
+      \strng{authorfullhash}{8ab7b42c3b42ba9a5a7c795649614921}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of physical oceanography}
+      \field{number}{4}
+      \field{title}{A dynamic thermodynamic sea ice model}
+      \field{volume}{9}
+      \field{year}{1979}
+      \field{pages}{815\bibrangedash 846}
+      \range{pages}{32}
+    \endentry
+    \entry{hoppmann2015fmot}{misc}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=bdeba5d7a6e5c81cc9e3909e40e35018}{%
+           family={{Hoppmann}},
+           familyi={H\bibinitperiod},
+           given={Mario},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3ad02719d659cb912727abe41425dc95}{%
+           family={{Nicolaus}},
+           familyi={N\bibinitperiod},
+           given={Marcel},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1e061cbd2eed7bf530b01fa1cbdb5e29}{%
+           family={{Hunkeler}},
+           familyi={H\bibinitperiod},
+           given={Priska\bibnamedelima A},
+           giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d7aa546445f2ccdd0860496c1562c176}{%
+           family={{König-Langlo}},
+           familyi={K\bibinitperiod},
+           given={Gert},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {PANGAEA}%
+      }
+      \strng{namehash}{74e066ad8efb07e43c62a43a2d2a6e4b}
+      \strng{fullhash}{beb7ea2bcca8855d6ab60896d2f5d602}
+      \strng{bibnamehash}{beb7ea2bcca8855d6ab60896d2f5d602}
+      \strng{authorbibnamehash}{beb7ea2bcca8855d6ab60896d2f5d602}
+      \strng{authornamehash}{74e066ad8efb07e43c62a43a2d2a6e4b}
+      \strng{authorfullhash}{beb7ea2bcca8855d6ab60896d2f5d602}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Supplement to: Hoppmann, Mario; Nicolaus, Marcel; Hunkeler, Priska A; Heil, Petra; Behrens, Lisa K; König-Langlo, Gert; Gerdes, Rüdiger (2015): Seasonal evolution of an ice-shelf influenced fast-ice regime, derived from an autonomous thermistor chain. Journal of Geophysical Research: Oceans, 120(3), 1703-1724, https://doi.org/10.1002/2014JC010327}
+      \field{title}{{Field measurements of the atmosphere, ocean, sea ice and sub-ice platelet layer at Atka Bay in 2013}}
+      \field{type}{data set}
+      \field{year}{2015}
+      \verb{doi}
+      \verb 10.1594/PANGAEA.833978
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1594/PANGAEA.833978
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1594/PANGAEA.833978
+      \endverb
+    \endentry
+    \entry{hosekova2020Attenuation}{article}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=24289f3c1ab347881ab7cc1004f62d27}{%
+           family={Hošeková},
+           familyi={H\bibinitperiod},
+           given={Lucia},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e77da2caf56656ff4a2917cf6c60c608}{%
+           family={Malila},
+           familyi={M\bibinitperiod},
+           given={Mika\bibnamedelima P.},
+           giveni={M\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=64ecc74e357aa9ec5eea1765838f7c93}{%
+           family={Rogers},
+           familyi={R\bibinitperiod},
+           given={W.\bibnamedelimi Erick},
+           giveni={W\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1be0acb5969ffe61b3d07fef2b703f7d}{%
+           family={Roach},
+           familyi={R\bibinitperiod},
+           given={Lettie\bibnamedelima A.},
+           giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2a6f26f456648a2e3bd4eb8338d6866d}{%
+           family={Eidam},
+           familyi={E\bibinitperiod},
+           given={Emily},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=752cd2e2b2a613ae124ac0d2876a2b5c}{%
+           family={Rainville},
+           familyi={R\bibinitperiod},
+           given={Luc},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c2ac949891b5ea995c684d327aedf600}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Nirnimesh},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a72b9b84115dc7135f1fdb325c6e3cf8}{%
+           family={Thomson},
+           familyi={T\bibinitperiod},
+           given={Jim},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{503fe515614bb43120309fbc07bf7de1}
+      \strng{fullhash}{fc4d651b0cb25242cde91d543c0f6e3d}
+      \strng{bibnamehash}{fc4d651b0cb25242cde91d543c0f6e3d}
+      \strng{authorbibnamehash}{fc4d651b0cb25242cde91d543c0f6e3d}
+      \strng{authornamehash}{503fe515614bb43120309fbc07bf7de1}
+      \strng{authorfullhash}{fc4d651b0cb25242cde91d543c0f6e3d}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Geophysical Research: Oceans}
+      \field{number}{12}
+      \field{title}{Attenuation of Ocean Surface Waves in Pancake and Frazil Sea Ice Along the Coast of the Chukchi Sea}
+      \field{volume}{125}
+      \field{year}{2020}
+      \field{pages}{e2020JC016746}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb https://doi.org/10.1029/2020JC016746
+      \endverb
+      \verb{eprint}
+      \verb https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/2020JC016746
+      \endverb
+      \verb{urlraw}
+      \verb https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2020JC016746
+      \endverb
+      \verb{url}
+      \verb https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2020JC016746
+      \endverb
+      \keyw{Arctic,coastal,ocean waves,sea ice}
+    \endentry
+    \entry{simbpic}{misc}{}
+      \list{language}{1}{%
+        {en-US}%
+      }
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{labeldatesource}{nodate}
+      \field{labeltitlesource}{title}
+      \field{title}{Ice {Mass} {Balance} {Buoys} {|} {The} {Great} {White} {Con}}
+      \field{urlday}{17}
+      \field{urlmonth}{1}
+      \field{urlyear}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://greatwhitecon.info/resources/ice-mass-balance-buoys/
+      \endverb
+      \verb{url}
+      \verb https://greatwhitecon.info/resources/ice-mass-balance-buoys/
+      \endverb
+    \endentry
+    \entry{IEEE_STDVV}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=472abfae8142fdb6f39d081303e8af85}{%
+           family={IEEE},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{472abfae8142fdb6f39d081303e8af85}
+      \strng{fullhash}{472abfae8142fdb6f39d081303e8af85}
+      \strng{bibnamehash}{472abfae8142fdb6f39d081303e8af85}
+      \strng{authorbibnamehash}{472abfae8142fdb6f39d081303e8af85}
+      \strng{authornamehash}{472abfae8142fdb6f39d081303e8af85}
+      \strng{authorfullhash}{472abfae8142fdb6f39d081303e8af85}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Std 1012-2016 (Revision of IEEE Std 1012-2012/ Incorporates IEEE Std 1012-2016/Cor1-2017)}
+      \field{title}{IEEE Standard for System, Software, and Hardware Verification and Validation}
+      \field{year}{2017}
+      \field{pages}{1\bibrangedash 260}
+      \range{pages}{260}
+      \verb{doi}
+      \verb 10.1109/IEEESTD.2017.8055462
+      \endverb
+    \endentry
+    \entry{iridium_mobile}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=603b50bf5216929f5d77e2fbfcdd1cf1}{%
+           family={Iridium},
+           familyi={I\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Iridium}%
+      }
+      \strng{namehash}{603b50bf5216929f5d77e2fbfcdd1cf1}
+      \strng{fullhash}{603b50bf5216929f5d77e2fbfcdd1cf1}
+      \strng{bibnamehash}{603b50bf5216929f5d77e2fbfcdd1cf1}
+      \strng{authorbibnamehash}{603b50bf5216929f5d77e2fbfcdd1cf1}
+      \strng{authornamehash}{603b50bf5216929f5d77e2fbfcdd1cf1}
+      \strng{authorfullhash}{603b50bf5216929f5d77e2fbfcdd1cf1}
+      \field{extraname}{1}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{journaltitle}{Iridium® Mobile Satellite Services}
+      \field{year}{2016}
+    \endentry
+    \entry{iridium_product}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=603b50bf5216929f5d77e2fbfcdd1cf1}{%
+           family={Iridium},
+           familyi={I\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Iridium}%
+      }
+      \strng{namehash}{603b50bf5216929f5d77e2fbfcdd1cf1}
+      \strng{fullhash}{603b50bf5216929f5d77e2fbfcdd1cf1}
+      \strng{bibnamehash}{603b50bf5216929f5d77e2fbfcdd1cf1}
+      \strng{authorbibnamehash}{603b50bf5216929f5d77e2fbfcdd1cf1}
+      \strng{authornamehash}{603b50bf5216929f5d77e2fbfcdd1cf1}
+      \strng{authorfullhash}{603b50bf5216929f5d77e2fbfcdd1cf1}
+      \field{extraname}{2}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{journaltitle}{Iridium® IoT Product Comparison}
+      \field{year}{2017}
+    \endentry
+    \entry{iridium_eol}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=603b50bf5216929f5d77e2fbfcdd1cf1}{%
+           family={Iridium},
+           familyi={I\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Iridium}%
+      }
+      \strng{namehash}{603b50bf5216929f5d77e2fbfcdd1cf1}
+      \strng{fullhash}{603b50bf5216929f5d77e2fbfcdd1cf1}
+      \strng{bibnamehash}{603b50bf5216929f5d77e2fbfcdd1cf1}
+      \strng{authorbibnamehash}{603b50bf5216929f5d77e2fbfcdd1cf1}
+      \strng{authornamehash}{603b50bf5216929f5d77e2fbfcdd1cf1}
+      \strng{authorfullhash}{603b50bf5216929f5d77e2fbfcdd1cf1}
+      \field{extraname}{3}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{journaltitle}{Product Availability Notification End of Life and Last Time Buy Opportunity Iridium 9522B}
+      \field{year}{2019}
+    \endentry
+    \entry{9522B}{misc}{}
+      \list{publisher}{1}{%
+        {Iridium}%
+      }
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Iridium Satellite Communications}
+      \field{month}{08}
+      \field{title}{Iridium 9522B (End of Life - NOV19)}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://www.iridium.com/products/iridium-9522b/
+      \endverb
+      \verb{url}
+      \verb https://www.iridium.com/products/iridium-9522b/
+      \endverb
+    \endentry
+    \entry{9602}{misc}{}
+      \list{publisher}{1}{%
+        {Iridium}%
+      }
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Iridium Satellite Communications}
+      \field{month}{01}
+      \field{title}{Iridium 9602}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://www.iridium.com/products/iridium-9602/
+      \endverb
+      \verb{url}
+      \verb https://www.iridium.com/products/iridium-9602/
+      \endverb
+    \endentry
+    \entry{9603}{misc}{}
+      \list{publisher}{1}{%
+        {Iridium}%
+      }
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Iridium Satellite Communications}
+      \field{month}{12}
+      \field{title}{Iridium 9603}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://www.iridium.com/products/iridium-9603/
+      \endverb
+      \verb{url}
+      \verb https://www.iridium.com/products/iridium-9603/
+      \endverb
+    \endentry
+    \entry{jim_swift_2012}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6bfe198cec93d954785945277747d9e8}{%
+           family={Jim},
+           familyi={J\bibinitperiod},
+           given={Thomson},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {English}%
+      }
+      \strng{namehash}{6bfe198cec93d954785945277747d9e8}
+      \strng{fullhash}{6bfe198cec93d954785945277747d9e8}
+      \strng{bibnamehash}{6bfe198cec93d954785945277747d9e8}
+      \strng{authorbibnamehash}{6bfe198cec93d954785945277747d9e8}
+      \strng{authornamehash}{6bfe198cec93d954785945277747d9e8}
+      \strng{authorfullhash}{6bfe198cec93d954785945277747d9e8}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Surface Wave Instrument Float with Tracking}
+      \field{month}{12}
+      \field{note}{publisher: University of Washington APL}
+      \field{title}{{SWIFT}}
+      \field{year}{2012}
+      \verb{urlraw}
+      \verb https://apl.uw.edu/project/project.php?id=swift
+      \endverb
+      \verb{url}
+      \verb https://apl.uw.edu/project/project.php?id=swift
+      \endverb
+    \endentry
+    \entry{jwo2001efficient}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3623615d4042d2769a29ed77ba7c8e1c}{%
+           family={Jwo},
+           familyi={J\bibinitperiod},
+           given={Dah-Jing},
+           giveni={D\bibinithyphendelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{3623615d4042d2769a29ed77ba7c8e1c}
+      \strng{fullhash}{3623615d4042d2769a29ed77ba7c8e1c}
+      \strng{bibnamehash}{3623615d4042d2769a29ed77ba7c8e1c}
+      \strng{authorbibnamehash}{3623615d4042d2769a29ed77ba7c8e1c}
+      \strng{authornamehash}{3623615d4042d2769a29ed77ba7c8e1c}
+      \strng{authorfullhash}{3623615d4042d2769a29ed77ba7c8e1c}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Journal of Navigation}
+      \field{number}{2}
+      \field{title}{Efficient DOP calculation for GPS with and without altimeter aiding}
+      \field{volume}{54}
+      \field{year}{2001}
+      \field{pages}{269\bibrangedash 279}
+      \range{pages}{11}
+    \endentry
+    \entry{kennicutt2014polar}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{10}{}{%
+        {{un=0,uniquepart=base,hash=8016c5e8f7e806587d42a9c8f1c68918}{%
+           family={Kennicutt},
+           familyi={K\bibinitperiod},
+           given={Mahlon\bibnamedelima C},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=07b9bd261b2dd57e93d1c363a9dde5c2}{%
+           family={Chown},
+           familyi={C\bibinitperiod},
+           given={Steven\bibnamedelima L},
+           giveni={S\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=14d67654e6d7dc6e5b7f18c3c66f55fa}{%
+           family={Cassano},
+           familyi={C\bibinitperiod},
+           given={John\bibnamedelima J},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8774323f769617ea7a3f62dee24ba609}{%
+           family={Liggett},
+           familyi={L\bibinitperiod},
+           given={Daniela},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=1,uniquepart=given,hash=098febb2a3236c9c519920dd9a7f51fe}{%
+           family={Massom},
+           familyi={M\bibinitperiod},
+           given={Rob},
+           giveni={R\bibinitperiod},
+           givenun=1}}%
+        {{un=1,uniquepart=given,hash=6898801ef6c134b0eab552f662334dd5}{%
+           family={Peck},
+           familyi={P\bibinitperiod},
+           given={Lloyd\bibnamedelima S},
+           giveni={L\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=6f4d0c4d867349d5008436527c360a95}{%
+           family={Rintoul},
+           familyi={R\bibinitperiod},
+           given={Steve\bibnamedelima R},
+           giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=32bd175762ca069e4e6f9a0eb60f9ab9}{%
+           family={Storey},
+           familyi={S\bibinitperiod},
+           given={John\bibnamedelima WV},
+           giveni={J\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=eebe1a6cd344bf1d275105bbb03a1e7f}{%
+           family={Vaughan},
+           familyi={V\bibinitperiod},
+           given={David\bibnamedelima G},
+           giveni={D\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6cf2bd20ffc10232df4f864d0686bec4}{%
+           family={Wilson},
+           familyi={W\bibinitperiod},
+           given={Terry\bibnamedelima J},
+           giveni={T\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{09986c12c4a916a54fcbc265e07a7903}
+      \strng{fullhash}{58a3ac04ff4ecc903568fb6f43fb07bb}
+      \strng{bibnamehash}{58a3ac04ff4ecc903568fb6f43fb07bb}
+      \strng{authorbibnamehash}{58a3ac04ff4ecc903568fb6f43fb07bb}
+      \strng{authornamehash}{09986c12c4a916a54fcbc265e07a7903}
+      \strng{authorfullhash}{58a3ac04ff4ecc903568fb6f43fb07bb}
+      \field{extraname}{1}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature News}
+      \field{number}{7512}
+      \field{title}{Polar research: six priorities for Antarctic science}
+      \field{volume}{512}
+      \field{year}{2014}
+      \field{pages}{23}
+      \range{pages}{1}
+    \endentry
+    \entry{kennicutt2016delivering}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{10}{}{%
+        {{un=0,uniquepart=base,hash=8016c5e8f7e806587d42a9c8f1c68918}{%
+           family={Kennicutt},
+           familyi={K\bibinitperiod},
+           given={Mahlon\bibnamedelima C},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a9eea89db5440bf04af890df3201489d}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Yeadong\bibnamedelima D},
+           giveni={Y\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b3e400347576cdccaab640f72712bd37}{%
+           family={Rogan-Finnemore},
+           familyi={R\bibinithyphendelim F\bibinitperiod},
+           given={Michelle},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f1311dabbc3541658b08543478f6f94e}{%
+           family={Anandakrishnan},
+           familyi={A\bibinitperiod},
+           given={Sridhar},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ed78e4d35960a55573fe47f08dad4e1f}{%
+           family={Chown},
+           familyi={C\bibinitperiod},
+           given={STEVEN\bibnamedelima L},
+           giveni={S\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2556a64ef46483ae7af2714d91229fa5}{%
+           family={Colwell},
+           familyi={C\bibinitperiod},
+           given={STEVEN},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b566401a5332f9cc0f9eca5980cafedd}{%
+           family={Cowan},
+           familyi={C\bibinitperiod},
+           given={D},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=11d7ffae3525c501ba48b4ebf0ad6877}{%
+           family={Escutia},
+           familyi={E\bibinitperiod},
+           given={C},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c952263551873c6927cc6e819f0a5b08}{%
+           family={Frenot},
+           familyi={F\bibinitperiod},
+           given={Y},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c90885d8fbb509d706191ecfed90e34c}{%
+           family={Hall},
+           familyi={H\bibinitperiod},
+           given={J},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{09986c12c4a916a54fcbc265e07a7903}
+      \strng{fullhash}{e8e3a57b101b9bf0f3a69f0a0c282843}
+      \strng{bibnamehash}{e8e3a57b101b9bf0f3a69f0a0c282843}
+      \strng{authorbibnamehash}{e8e3a57b101b9bf0f3a69f0a0c282843}
+      \strng{authornamehash}{09986c12c4a916a54fcbc265e07a7903}
+      \strng{authorfullhash}{e8e3a57b101b9bf0f3a69f0a0c282843}
+      \field{extraname}{2}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Antarctic Science}
+      \field{number}{6}
+      \field{title}{Delivering 21st century antarctic and southern ocean science}
+      \field{volume}{28}
+      \field{year}{2016}
+      \field{pages}{407\bibrangedash 423}
+      \range{pages}{17}
+    \endentry
+    \entry{kennicutt2019sustained}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{10}{}{%
+        {{un=0,uniquepart=base,hash=f54f5e48e7dd4477671c7564ce6a0648}{%
+           family={Kennicutt\bibnamedelima II},
+           familyi={K\bibinitperiod\bibinitdelim I\bibinitperiod},
+           given={Mahlon\bibnamedelima C},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c03ce0227cecee645e777fa8562fd890}{%
+           family={Bromwich},
+           familyi={B\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8774323f769617ea7a3f62dee24ba609}{%
+           family={Liggett},
+           familyi={L\bibinitperiod},
+           given={Daniela},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=466233e5b7416ee9e5793170dce1fcfb}{%
+           family={Nj{å}stad},
+           familyi={N\bibinitperiod},
+           given={Birgit},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=1,uniquepart=given,hash=4319149802a7bd989140429cb05d7c30}{%
+           family={Peck},
+           familyi={P\bibinitperiod},
+           given={Lloyd},
+           giveni={L\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=5e6fccdde92ff909bc5514997b0197bf}{%
+           family={Rintoul},
+           familyi={R\bibinitperiod},
+           given={Stephen\bibnamedelima R},
+           giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=019bef21888e830072f3bf29d9399bb9}{%
+           family={Ritz},
+           familyi={R\bibinitperiod},
+           given={Catherine},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d66346ea2885a4f34710b7b0710d1075}{%
+           family={Siegert},
+           familyi={S\bibinitperiod},
+           given={Martin\bibnamedelima J},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=19793661597f60c400894d79a01570f2}{%
+           family={Aitken},
+           familyi={A\bibinitperiod},
+           given={Alan},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a5b7d502811928431410859c99e1c0c7}{%
+           family={Brooks},
+           familyi={B\bibinitperiod},
+           given={Cassandra\bibnamedelima M},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{1fdeb6ad70aca9e31962e82b9faa87db}
+      \strng{fullhash}{b1a611758f13e7b43e1404a532ec1982}
+      \strng{bibnamehash}{b1a611758f13e7b43e1404a532ec1982}
+      \strng{authorbibnamehash}{b1a611758f13e7b43e1404a532ec1982}
+      \strng{authornamehash}{1fdeb6ad70aca9e31962e82b9faa87db}
+      \strng{authorfullhash}{b1a611758f13e7b43e1404a532ec1982}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{One Earth}
+      \field{number}{1}
+      \field{title}{Sustained Antarctic Research: A 21st Century Imperative}
+      \field{volume}{1}
+      \field{year}{2019}
+      \field{pages}{95\bibrangedash 113}
+      \range{pages}{19}
+    \endentry
+    \entry{kohout2014storm}{article}{}
+      \name{author}{4}{}{%
+        {{un=1,uniquepart=given,hash=354cb530c2213c1b876b7ceffadfc253}{%
+           family={Kohout},
+           familyi={K\bibinitperiod},
+           given={AL},
+           giveni={A\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=9971382c828cab3253971218880a230a}{%
+           family={Williams},
+           familyi={W\bibinitperiod},
+           given={MJM},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=aa0f9f62dd8044324eab368ac66eeac8}{%
+           family={Dean},
+           familyi={D\bibinitperiod},
+           given={SM},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8cfe69cb3b81f4d7943868f0d31dcd99}{%
+           family={Meylan},
+           familyi={M\bibinitperiod},
+           given={MH},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group}%
+      }
+      \strng{namehash}{3bd33e374f7251d5b2fc94683526fe99}
+      \strng{fullhash}{5846a638867cdc62ce09ab8b33133a6b}
+      \strng{bibnamehash}{5846a638867cdc62ce09ab8b33133a6b}
+      \strng{authorbibnamehash}{5846a638867cdc62ce09ab8b33133a6b}
+      \strng{authornamehash}{3bd33e374f7251d5b2fc94683526fe99}
+      \strng{authorfullhash}{5846a638867cdc62ce09ab8b33133a6b}
+      \field{extraname}{1}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature}
+      \field{number}{7502}
+      \field{title}{Storm-induced sea-ice breakup and the implications for ice extent}
+      \field{volume}{509}
+      \field{year}{2014}
+      \field{pages}{604\bibrangedash 607}
+      \range{pages}{4}
+    \endentry
+    \entry{kohout2020observation}{article}{}
+      \name{author}{6}{}{%
+        {{un=1,uniquepart=given,hash=106a3772cd8150914de444a43b6177e0}{%
+           family={Kohout},
+           familyi={K\bibinitperiod},
+           given={Alison},
+           giveni={A\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=aca5a3d1f54fbee679067732d2d8642c}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={Madison},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1b6d8e806e4493b109e5e1a1b97dbe72}{%
+           family={Roach},
+           familyi={R\bibinitperiod},
+           given={Lettie},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3474440ceba4bbf34ed683745416d316}{%
+           family={Williams},
+           familyi={W\bibinitperiod},
+           given={Guy},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a57d42153d0db2b0856cca94397eb0af}{%
+           family={Montiel},
+           familyi={M\bibinitperiod},
+           given={Fabien},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d377302743e0ca21850cb290b55f165c}{%
+           family={Williams},
+           familyi={W\bibinitperiod},
+           given={Mike},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{910026cbd8cb9e139b538b6a213849bd}
+      \strng{fullhash}{adaf6e132162a2ec2f67483964c01428}
+      \strng{bibnamehash}{adaf6e132162a2ec2f67483964c01428}
+      \strng{authorbibnamehash}{adaf6e132162a2ec2f67483964c01428}
+      \strng{authornamehash}{910026cbd8cb9e139b538b6a213849bd}
+      \strng{authorfullhash}{adaf6e132162a2ec2f67483964c01428}
+      \field{extraname}{2}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annals of Glaciology}
+      \field{month}{06}
+      \field{title}{Observations of exponential wave attenuation in Antarctic sea ice during the PIPERS campaign}
+      \field{volume}{61}
+      \field{year}{2020}
+      \field{pages}{1\bibrangedash 14}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1017/aog.2020.36
+      \endverb
+    \endentry
+    \entry{kohout2015device}{article}{}
+      \name{author}{4}{}{%
+        {{un=1,uniquepart=given,hash=dfd7ece8006a05a5231b8adcaf0707c6}{%
+           family={Kohout},
+           familyi={K\bibinitperiod},
+           given={Alison\bibnamedelima L},
+           giveni={A\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=5c71b595463b4770aef7764925e0bdbe}{%
+           family={Penrose},
+           familyi={P\bibinitperiod},
+           given={Bill},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1bb19ce973c497f29b9cc4200f50c7e0}{%
+           family={Penrose},
+           familyi={P\bibinitperiod},
+           given={Scott},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=64c85435c7466149c3d1dd4018baa771}{%
+           family={Williams},
+           familyi={W\bibinitperiod},
+           given={Michael\bibnamedelima JM},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{156c234886655e352c0d7484cdae5747}
+      \strng{fullhash}{719f44cc6c4e0c06df82b4f69a406410}
+      \strng{bibnamehash}{719f44cc6c4e0c06df82b4f69a406410}
+      \strng{authorbibnamehash}{719f44cc6c4e0c06df82b4f69a406410}
+      \strng{authornamehash}{156c234886655e352c0d7484cdae5747}
+      \strng{authorfullhash}{719f44cc6c4e0c06df82b4f69a406410}
+      \field{extraname}{1}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annals of Glaciology}
+      \field{number}{69}
+      \field{title}{A device for measuring wave-induced motion of ice floes in the Antarctic marginal ice zone}
+      \field{volume}{56}
+      \field{year}{2015}
+      \field{pages}{415\bibrangedash 424}
+      \range{pages}{10}
+    \endentry
+    \entry{kohout_smith_roach_williams_montiel_williams_2020}{article}{}
+      \name{author}{6}{}{%
+        {{un=1,uniquepart=given,hash=dfd7ece8006a05a5231b8adcaf0707c6}{%
+           family={Kohout},
+           familyi={K\bibinitperiod},
+           given={Alison\bibnamedelima L.},
+           giveni={A\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=aca5a3d1f54fbee679067732d2d8642c}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={Madison},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1be0acb5969ffe61b3d07fef2b703f7d}{%
+           family={Roach},
+           familyi={R\bibinitperiod},
+           given={Lettie\bibnamedelima A.},
+           giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3474440ceba4bbf34ed683745416d316}{%
+           family={Williams},
+           familyi={W\bibinitperiod},
+           given={Guy},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a57d42153d0db2b0856cca94397eb0af}{%
+           family={Montiel},
+           familyi={M\bibinitperiod},
+           given={Fabien},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=64c85435c7466149c3d1dd4018baa771}{%
+           family={Williams},
+           familyi={W\bibinitperiod},
+           given={Michael\bibnamedelimb J.\bibnamedelimi M.},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{156c234886655e352c0d7484cdae5747}
+      \strng{fullhash}{c32762d80791bcc051cdfa102eff1980}
+      \strng{bibnamehash}{c32762d80791bcc051cdfa102eff1980}
+      \strng{authorbibnamehash}{c32762d80791bcc051cdfa102eff1980}
+      \strng{authornamehash}{156c234886655e352c0d7484cdae5747}
+      \strng{authorfullhash}{c32762d80791bcc051cdfa102eff1980}
+      \field{extraname}{2}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annals of Glaciology}
+      \field{number}{82}
+      \field{title}{Observations of exponential wave attenuation in Antarctic sea ice during the PIPERS campaign}
+      \field{volume}{61}
+      \field{year}{2020}
+      \field{pages}{196\bibrangedash 209}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1017/aog.2020.36
+      \endverb
+    \endentry
+    \entry{kuik1988method}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=19095546fcc94e1516946993e999883a}{%
+           family={Kuik},
+           familyi={K\bibinitperiod},
+           given={AJ},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c68362a934d72b3a07c13cabc61ce569}{%
+           family={Van\bibnamedelima Vledder},
+           familyi={V\bibinitperiod\bibinitdelim V\bibinitperiod},
+           given={G\bibnamedelima Ph},
+           giveni={G\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ac7a2677f720d3a2c8cbfcba2ba980f6}{%
+           family={Holthuijsen},
+           familyi={H\bibinitperiod},
+           given={LH},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{111fb2449711edff038918098d7dfeb8}
+      \strng{fullhash}{b814b7cf130884662fd0656e1aef0135}
+      \strng{bibnamehash}{b814b7cf130884662fd0656e1aef0135}
+      \strng{authorbibnamehash}{b814b7cf130884662fd0656e1aef0135}
+      \strng{authornamehash}{111fb2449711edff038918098d7dfeb8}
+      \strng{authorfullhash}{b814b7cf130884662fd0656e1aef0135}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of physical oceanography}
+      \field{number}{7}
+      \field{title}{A method for the routine analysis of pitch-and-roll buoy wave data}
+      \field{volume}{18}
+      \field{year}{1988}
+      \field{pages}{1020\bibrangedash 1034}
+      \range{pages}{15}
+    \endentry
+    \entry{lei2018seasonal}{article}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=ab421a6f0aadfe857514bc16ee3bc9fa}{%
+           family={Lei},
+           familyi={L\bibinitperiod},
+           given={Ruibo},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b9359e37b98db04db8950022034eccdd}{%
+           family={Cheng},
+           familyi={C\bibinitperiod},
+           given={Bin},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2c120a86b83aa0a5b08e1dffd95d26d7}{%
+           family={Heil},
+           familyi={H\bibinitperiod},
+           given={Petra},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3c8b1329f1568408cf5cdf0616a47b3e}{%
+           family={Vihma},
+           familyi={V\bibinitperiod},
+           given={Timo},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e453927e646e355f3edb61c5518de1d1}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Jia},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fb40e867d3a2488db378395f665b5af7}{%
+           family={Ji},
+           familyi={J\bibinitperiod},
+           given={Qing},
+           giveni={Q\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=41a66b6fed74ad96d6a5fc65e957b528}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Zhanhai},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{4d90157d0fcf3808e4d819364fcd46f3}
+      \strng{fullhash}{48dbd566b2f3966c4ca1d587c1ac4f90}
+      \strng{bibnamehash}{48dbd566b2f3966c4ca1d587c1ac4f90}
+      \strng{authorbibnamehash}{48dbd566b2f3966c4ca1d587c1ac4f90}
+      \strng{authornamehash}{4d90157d0fcf3808e4d819364fcd46f3}
+      \strng{authorfullhash}{48dbd566b2f3966c4ca1d587c1ac4f90}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Geophysical Research: Oceans}
+      \field{number}{4}
+      \field{title}{Seasonal and interannual variations of sea ice mass balance from the Central Arctic to the Greenland Sea}
+      \field{volume}{123}
+      \field{year}{2018}
+      \field{pages}{2422\bibrangedash 2439}
+      \range{pages}{18}
+    \endentry
+    \entry{lepparanta2001sea}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=80231b468c034547560fc6e9f770a694}{%
+           family={Leppäranta},
+           familyi={L\bibinitperiod},
+           given={Matti},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0e2863fa3235fbc27b9a7edc93f8f48e}{%
+           family={Zhanhai},
+           familyi={Z\bibinitperiod},
+           given={Zhang},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7b6fe779bca50f1a3b56b7d2f9ef2954}{%
+           family={Haapala},
+           familyi={H\bibinitperiod},
+           given={Jari},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f220a1d8652aee4722fc84e8deb74c8d}{%
+           family={Stipa},
+           familyi={S\bibinitperiod},
+           given={Tapani},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{34abeb2a487321378cc588279bade112}
+      \strng{fullhash}{10df9058445f632c1972057f9845affa}
+      \strng{bibnamehash}{10df9058445f632c1972057f9845affa}
+      \strng{authorbibnamehash}{10df9058445f632c1972057f9845affa}
+      \strng{authornamehash}{34abeb2a487321378cc588279bade112}
+      \strng{authorfullhash}{10df9058445f632c1972057f9845affa}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annals of Glaciology}
+      \field{title}{Sea-ice kinematics measured with GPS drifters}
+      \field{volume}{33}
+      \field{year}{2001}
+      \field{pages}{151\bibrangedash 156}
+      \range{pages}{6}
+    \endentry
+    \entry{ludecke2010second}{inbook}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=fbe2f4b43696205f5151708a1e2cea8e}{%
+           family={Lüdecke},
+           familyi={L\bibinitperiod},
+           given={Cornelia},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e598fddcfdc026cb698e9a20004ea9fe}{%
+           family={Lajus},
+           familyi={L\bibinitperiod},
+           given={Julia},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{5e2b0b72ba75307c3ef2b82357974cd0}
+      \strng{fullhash}{5e2b0b72ba75307c3ef2b82357974cd0}
+      \strng{bibnamehash}{5e2b0b72ba75307c3ef2b82357974cd0}
+      \strng{authorbibnamehash}{5e2b0b72ba75307c3ef2b82357974cd0}
+      \strng{authornamehash}{5e2b0b72ba75307c3ef2b82357974cd0}
+      \strng{authorfullhash}{5e2b0b72ba75307c3ef2b82357974cd0}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{The History of the International Polar Years (IPYs)}
+      \field{title}{The Second International Polar Year 1932--1933}
+      \field{year}{2010}
+      \field{pages}{135\bibrangedash 173}
+      \range{pages}{39}
+    \endentry
+    \entry{lund2018Arctic}{article}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=6136c01271c7db680287e363b8b0054e}{%
+           family={Lund},
+           familyi={L\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dd83bafc046b365f8a9829e98892a8cc}{%
+           family={Graber},
+           familyi={G\bibinitperiod},
+           given={H.\bibnamedelimi C.},
+           giveni={H\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=49e97eb26752ff747959f4a8f1dadcd5}{%
+           family={Persson},
+           familyi={P\bibinitperiod},
+           given={P.\bibnamedelimi O.\bibnamedelimi G.},
+           giveni={P\bibinitperiod\bibinitdelim O\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e44f09a2d84db823a77079697cf1a851}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=385fc9bfd97dbd1b35aa9cc6faa941f7}{%
+           family={Doble},
+           familyi={D\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e19f01cb995272f1dbe1838020306acc}{%
+           family={Thomson},
+           familyi={T\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ec1025f67d2e0859fdf9b0182e2241c7}{%
+           family={Wadhams},
+           familyi={W\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{a083f327e28327d32511038b51672afd}
+      \strng{fullhash}{e83c1865ae2a05288d95179e76520b5a}
+      \strng{bibnamehash}{e83c1865ae2a05288d95179e76520b5a}
+      \strng{authorbibnamehash}{e83c1865ae2a05288d95179e76520b5a}
+      \strng{authornamehash}{a083f327e28327d32511038b51672afd}
+      \strng{authorfullhash}{e83c1865ae2a05288d95179e76520b5a}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Geophysical Research: Oceans}
+      \field{number}{6}
+      \field{title}{Arctic Sea Ice Drift Measured by Shipboard Marine Radar}
+      \field{volume}{123}
+      \field{year}{2018}
+      \field{pages}{4298\bibrangedash 4321}
+      \range{pages}{24}
+      \verb{doi}
+      \verb https://doi.org/10.1029/2018JC013769
+      \endverb
+      \verb{eprint}
+      \verb https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/2018JC013769
+      \endverb
+      \verb{urlraw}
+      \verb https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2018JC013769
+      \endverb
+      \verb{url}
+      \verb https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2018JC013769
+      \endverb
+      \keyw{Sea ice,Dynamics,Remote sensing,Ice mechanics,air/sea/ice exchange processes,Instruments and techniques}
+    \endentry
+    \entry{MAKSYM2012seaiceextent}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=26ac0bb063492a58d69bd38d3517ad46}{%
+           family={Maksym},
+           familyi={M\bibinitperiod},
+           given={Ted},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e80a136bf343fa3871e0e45ca6ff033f}{%
+           family={Stammerjohn},
+           familyi={S\bibinitperiod},
+           given={Sharon\bibnamedelima E.},
+           giveni={S\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=31809620b7a8b2558af82a59d0e9304c}{%
+           family={Ackly},
+           familyi={A\bibinitperiod},
+           given={Stephen},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=098febb2a3236c9c519920dd9a7f51fe}{%
+           family={Massom},
+           familyi={M\bibinitperiod},
+           given={Rob},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Oceanography Society}%
+      }
+      \strng{namehash}{5aba3d9b4f9a53035b0bf085debae90b}
+      \strng{fullhash}{93449cc8def1294ab4807a29d8cafbeb}
+      \strng{bibnamehash}{93449cc8def1294ab4807a29d8cafbeb}
+      \strng{authorbibnamehash}{93449cc8def1294ab4807a29d8cafbeb}
+      \strng{authornamehash}{5aba3d9b4f9a53035b0bf085debae90b}
+      \strng{authorfullhash}{93449cc8def1294ab4807a29d8cafbeb}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{10428275, 2377617X}
+      \field{journaltitle}{Oceanography}
+      \field{number}{3}
+      \field{title}{Antarctic Sea Ice—: A Polar Opposite?}
+      \field{volume}{25}
+      \field{year}{2012}
+      \field{pages}{140\bibrangedash 151}
+      \range{pages}{12}
+      \verb{urlraw}
+      \verb http://www.jstor.org/stable/24861407
+      \endverb
+      \verb{url}
+      \verb http://www.jstor.org/stable/24861407
+      \endverb
+    \endentry
+    \entry{mansoor2015silicon}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=31393c2f7b9e2a64ca8a8bcaa5c0f9f5}{%
+           family={Mansoor},
+           familyi={M\bibinitperiod},
+           given={Mohtashim},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f7ba52aba3a71f6d9a885bacfbee4c0b}{%
+           family={Haneef},
+           familyi={H\bibinitperiod},
+           given={Ibraheem},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4ea3646d3f57afd940e99cc61d2b3584}{%
+           family={Akhtar},
+           familyi={A\bibinitperiod},
+           given={Suhail},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=aaa81d54c868c60b1ab5f746ba0ad56c}{%
+           family={De\bibnamedelima Luca},
+           familyi={D\bibinitperiod\bibinitdelim L\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=08aed20c7c746c156ad1e4865680b7b9}{%
+           family={Udrea},
+           familyi={U\bibinitperiod},
+           given={Florin},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{1d7f5037905b5971ed28d1905ea4d46d}
+      \strng{fullhash}{577a33d8c18be6de5c08f3a19b1cd96a}
+      \strng{bibnamehash}{577a33d8c18be6de5c08f3a19b1cd96a}
+      \strng{authorbibnamehash}{577a33d8c18be6de5c08f3a19b1cd96a}
+      \strng{authornamehash}{1d7f5037905b5971ed28d1905ea4d46d}
+      \strng{authorfullhash}{577a33d8c18be6de5c08f3a19b1cd96a}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Sensors and Actuators A: Physical}
+      \field{title}{Silicon diode temperature sensors—A review of applications}
+      \field{volume}{232}
+      \field{year}{2015}
+      \field{pages}{63\bibrangedash 74}
+      \range{pages}{12}
+    \endentry
+    \entry{Rutgher2019SmallScale}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=f334e2ed9da48a771192db7eeb9c93a6}{%
+           family={Marquart},
+           familyi={M\bibinitperiod},
+           given={R},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=96f00c9d5787d239aafb2455d2aac2bc}{%
+           family={MacHutchon},
+           familyi={M\bibinitperiod},
+           given={K},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bdedc10becd9cccaef66c1f63aba71bc}{%
+           family={Skatulla},
+           familyi={S\bibinitperiod},
+           given={S},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2e27358c42310902278aa7ae5fecbbf6}{%
+           family={Vichi},
+           familyi={V\bibinitperiod},
+           given={M},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d223d6ad30118e4865ce2a7a407ed0dd}{%
+           family={Bogaers},
+           familyi={B\bibinitperiod},
+           given={A},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{96343fd11935a9d5055d628ffe6da003}
+      \strng{fullhash}{7c25bae76eb7bbb215b89e9a00d07329}
+      \strng{bibnamehash}{7c25bae76eb7bbb215b89e9a00d07329}
+      \strng{authorbibnamehash}{7c25bae76eb7bbb215b89e9a00d07329}
+      \strng{authornamehash}{96343fd11935a9d5055d628ffe6da003}
+      \strng{authorfullhash}{7c25bae76eb7bbb215b89e9a00d07329}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Port and Ocean Engineering under Arctic Conditions}
+      \field{title}{Modelling the dynamics of ice in the Antarctic marginal ice zone}
+      \field{year}{2019}
+    \endentry
+    \entry{MASSOM2010149}{article}{}
+      \name{author}{2}{}{%
+        {{un=1,uniquepart=given,hash=66cae99183a02433e08da0255367dab2}{%
+           family={Massom},
+           familyi={M\bibinitperiod},
+           given={Robert\bibnamedelima A.},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=e80a136bf343fa3871e0e45ca6ff033f}{%
+           family={Stammerjohn},
+           familyi={S\bibinitperiod},
+           given={Sharon\bibnamedelima E.},
+           giveni={S\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ffdb3450817d7046914f339c4a1ffa82}
+      \strng{fullhash}{ffdb3450817d7046914f339c4a1ffa82}
+      \strng{bibnamehash}{ffdb3450817d7046914f339c4a1ffa82}
+      \strng{authorbibnamehash}{ffdb3450817d7046914f339c4a1ffa82}
+      \strng{authornamehash}{ffdb3450817d7046914f339c4a1ffa82}
+      \strng{authorfullhash}{ffdb3450817d7046914f339c4a1ffa82}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1873-9652}
+      \field{journaltitle}{Polar Science}
+      \field{note}{Antarctic Biology in the 21st Century - Advances in and beyond IPY}
+      \field{number}{2}
+      \field{title}{Antarctic sea ice change and variability – Physical and ecological implications}
+      \field{volume}{4}
+      \field{year}{2010}
+      \field{pages}{149\bibrangedash 186}
+      \range{pages}{38}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.polar.2010.05.001
+      \endverb
+      \verb{urlraw}
+      \verb http://www.sciencedirect.com/science/article/pii/S1873965210000411
+      \endverb
+      \verb{url}
+      \verb http://www.sciencedirect.com/science/article/pii/S1873965210000411
+      \endverb
+      \keyw{Antarctic sea ice,Climate change,Ecological impacts,Icebergs,Ice sheet,Ocean}
+    \endentry
+    \entry{meylan2014situ}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=a1a8c3721095338b63f242afc0850498}{%
+           family={Meylan},
+           familyi={M\bibinitperiod},
+           given={Michael\bibnamedelima H},
+           giveni={M\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8f651bf1e45dea10a2d3b1e478e8d13e}{%
+           family={Bennetts},
+           familyi={B\bibinitperiod},
+           given={Luke\bibnamedelima G},
+           giveni={L\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dfd7ece8006a05a5231b8adcaf0707c6}{%
+           family={Kohout},
+           familyi={K\bibinitperiod},
+           given={Alison\bibnamedelima L},
+           giveni={A\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{39b6bed01a9037adbcf870789495e0fe}
+      \strng{fullhash}{e4ef46b3965daf974df09822fb8723e2}
+      \strng{bibnamehash}{e4ef46b3965daf974df09822fb8723e2}
+      \strng{authorbibnamehash}{e4ef46b3965daf974df09822fb8723e2}
+      \strng{authornamehash}{39b6bed01a9037adbcf870789495e0fe}
+      \strng{authorfullhash}{e4ef46b3965daf974df09822fb8723e2}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Geophysical Research Letters}
+      \field{number}{14}
+      \field{title}{In situ measurements and analysis of ocean waves in the Antarctic marginal ice zone}
+      \field{volume}{41}
+      \field{year}{2014}
+      \field{pages}{5046\bibrangedash 5051}
+      \range{pages}{6}
+    \endentry
+    \entry{usdcoversion}{online}{}
+      \name{editor}{1}{}{%
+        {{un=0,uniquepart=base,hash=b0a36dfd7777fe62021179878dfc64eb}{%
+           family={OANDA},
+           familyi={O\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {OANDA}%
+      }
+      \strng{namehash}{b0a36dfd7777fe62021179878dfc64eb}
+      \strng{fullhash}{b0a36dfd7777fe62021179878dfc64eb}
+      \strng{bibnamehash}{b0a36dfd7777fe62021179878dfc64eb}
+      \strng{editorbibnamehash}{b0a36dfd7777fe62021179878dfc64eb}
+      \strng{editornamehash}{b0a36dfd7777fe62021179878dfc64eb}
+      \strng{editorfullhash}{b0a36dfd7777fe62021179878dfc64eb}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{title}
+      \field{title}{Currency Converter}
+      \verb{urlraw}
+      \verb https://www1.oanda.com/currency/converter/
+      \endverb
+      \verb{url}
+      \verb https://www1.oanda.com/currency/converter/
+      \endverb
+      \warn{\item Entry 'usdcoversion' (thesis.bib): Invalid format '22 January 2021' of date field 'date' - ignoring}
+    \endentry
+    \entry{worldmeteorologicalorganization_2010}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=fca72ffe5788381ee702164cf47f0a98}{%
+           family={Organization},
+           familyi={O\bibinitperiod},
+           given={World\bibnamedelima Meteorological},
+           giveni={W\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {World Meteorological Organization}%
+      }
+      \strng{namehash}{fca72ffe5788381ee702164cf47f0a98}
+      \strng{fullhash}{fca72ffe5788381ee702164cf47f0a98}
+      \strng{bibnamehash}{fca72ffe5788381ee702164cf47f0a98}
+      \strng{authorbibnamehash}{fca72ffe5788381ee702164cf47f0a98}
+      \strng{authornamehash}{fca72ffe5788381ee702164cf47f0a98}
+      \strng{authorfullhash}{fca72ffe5788381ee702164cf47f0a98}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2010}
+      \field{title}{Manual on the Global Data-processing and Forecasting System}
+      \field{volume}{1}
+      \field{year}{2010}
+    \endentry
+    \entry{parkinson2004southern}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b2e8aee542c7ef7e089fa56a4d13d5f3}{%
+           family={Parkinson},
+           familyi={P\bibinitperiod},
+           given={Claire\bibnamedelima L},
+           giveni={C\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Citeseer}%
+      }
+      \strng{namehash}{b2e8aee542c7ef7e089fa56a4d13d5f3}
+      \strng{fullhash}{b2e8aee542c7ef7e089fa56a4d13d5f3}
+      \strng{bibnamehash}{b2e8aee542c7ef7e089fa56a4d13d5f3}
+      \strng{authorbibnamehash}{b2e8aee542c7ef7e089fa56a4d13d5f3}
+      \strng{authornamehash}{b2e8aee542c7ef7e089fa56a4d13d5f3}
+      \strng{authorfullhash}{b2e8aee542c7ef7e089fa56a4d13d5f3}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Antarctic Science}
+      \field{number}{4}
+      \field{title}{Southern Ocean sea ice and its wider linkages: insights revealed from models and observations}
+      \field{volume}{16}
+      \field{year}{2004}
+      \field{pages}{387}
+      \range{pages}{1}
+    \endentry
+    \entry{PLANCK2019102792}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=797fc954cd6ad2984f17e3e8bff9af1e}{%
+           family={Planck},
+           familyi={P\bibinitperiod},
+           given={Cameron\bibnamedelima J.},
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ef8362184b6d13af069bb11ed2aeecc9}{%
+           family={Whitlock},
+           familyi={W\bibinitperiod},
+           given={James},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ac32b51970d1db7b341d5bc0d6df4f24}{%
+           family={Polashenski},
+           familyi={P\bibinitperiod},
+           given={Chris},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3337f2019800cebcb771c11330088203}{%
+           family={Perovich},
+           familyi={P\bibinitperiod},
+           given={Donald},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c7dd85ff24bb57503080ae0fd891a516}
+      \strng{fullhash}{a23dd0d2b6994e71828d78dc47a272bc}
+      \strng{bibnamehash}{a23dd0d2b6994e71828d78dc47a272bc}
+      \strng{authorbibnamehash}{a23dd0d2b6994e71828d78dc47a272bc}
+      \strng{authornamehash}{c7dd85ff24bb57503080ae0fd891a516}
+      \strng{authorfullhash}{a23dd0d2b6994e71828d78dc47a272bc}
+      \field{extraname}{1}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0165-232X}
+      \field{journaltitle}{Cold Regions Science and Technology}
+      \field{title}{The evolution of the seasonal ice mass balance buoy}
+      \field{volume}{165}
+      \field{year}{2019}
+      \field{pages}{102792}
+      \range{pages}{1}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.coldregions.2019.102792
+      \endverb
+      \verb{urlraw}
+      \verb http://www.sciencedirect.com/science/article/pii/S0165232X19300758
+      \endverb
+      \verb{url}
+      \verb http://www.sciencedirect.com/science/article/pii/S0165232X19300758
+      \endverb
+      \keyw{Arctic sea ice,Mass balance,Buoy,IMB,SIMB,SIMB-3,Autonomous instruments}
+    \endentry
+    \entry{planck2019evolution}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=797fc954cd6ad2984f17e3e8bff9af1e}{%
+           family={Planck},
+           familyi={P\bibinitperiod},
+           given={Cameron\bibnamedelima J},
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ef8362184b6d13af069bb11ed2aeecc9}{%
+           family={Whitlock},
+           familyi={W\bibinitperiod},
+           given={James},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ac32b51970d1db7b341d5bc0d6df4f24}{%
+           family={Polashenski},
+           familyi={P\bibinitperiod},
+           given={Chris},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3337f2019800cebcb771c11330088203}{%
+           family={Perovich},
+           familyi={P\bibinitperiod},
+           given={Donald},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{c7dd85ff24bb57503080ae0fd891a516}
+      \strng{fullhash}{a23dd0d2b6994e71828d78dc47a272bc}
+      \strng{bibnamehash}{a23dd0d2b6994e71828d78dc47a272bc}
+      \strng{authorbibnamehash}{a23dd0d2b6994e71828d78dc47a272bc}
+      \strng{authornamehash}{c7dd85ff24bb57503080ae0fd891a516}
+      \strng{authorfullhash}{a23dd0d2b6994e71828d78dc47a272bc}
+      \field{extraname}{2}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Cold Regions Science and Technology}
+      \field{title}{The evolution of the seasonal ice mass balance buoy}
+      \field{volume}{165}
+      \field{year}{2019}
+      \field{pages}{102792}
+      \range{pages}{1}
+    \endentry
+    \entry{polashenski2011seasonal}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=ac32b51970d1db7b341d5bc0d6df4f24}{%
+           family={Polashenski},
+           familyi={P\bibinitperiod},
+           given={Chris},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4a466e391ff0dcf514b8373bfd0afb1b}{%
+           family={Perovich},
+           familyi={P\bibinitperiod},
+           given={Don},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f9e4ea1de5ec8798ffe0cee0fd70e619}{%
+           family={Richter-Menge},
+           familyi={R\bibinithyphendelim M\bibinitperiod},
+           given={Jackie},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=58ea1fe46b2471ba64a08874220adb79}{%
+           family={Elder},
+           familyi={E\bibinitperiod},
+           given={Bruce},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{b648cf3f3e392ec89e5a6cae87546842}
+      \strng{fullhash}{20ad8a093486421913de6614f3b2cb50}
+      \strng{bibnamehash}{20ad8a093486421913de6614f3b2cb50}
+      \strng{authorbibnamehash}{20ad8a093486421913de6614f3b2cb50}
+      \strng{authornamehash}{b648cf3f3e392ec89e5a6cae87546842}
+      \strng{authorfullhash}{20ad8a093486421913de6614f3b2cb50}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annals of Glaciology}
+      \field{number}{57}
+      \field{title}{Seasonal ice mass-balance buoys: Adapting tools to the changing Arctic}
+      \field{volume}{52}
+      \field{year}{2011}
+      \field{pages}{18\bibrangedash 26}
+      \range{pages}{9}
+    \endentry
+    \entry{pollock2017thermocouples}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=19948062693a8da4c1766345b6c9df59}{%
+           family={Pollock},
+           familyi={P\bibinitperiod},
+           given={DanielD},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Routledge}%
+      }
+      \strng{namehash}{19948062693a8da4c1766345b6c9df59}
+      \strng{fullhash}{19948062693a8da4c1766345b6c9df59}
+      \strng{bibnamehash}{19948062693a8da4c1766345b6c9df59}
+      \strng{authorbibnamehash}{19948062693a8da4c1766345b6c9df59}
+      \strng{authornamehash}{19948062693a8da4c1766345b6c9df59}
+      \strng{authorfullhash}{19948062693a8da4c1766345b6c9df59}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Thermocouples: theory and properties}
+      \field{year}{2017}
+    \endentry
+    \entry{Scale2019Cruise}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1e54f6fac689a5d9a1e1c9bd0ab98813}{%
+           family={Program},
+           familyi={P\bibinitperiod},
+           given={South\bibnamedelimb African\bibnamedelimb National\bibnamedelima Antarctic},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim N\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {SANAP}%
+      }
+      \strng{namehash}{1e54f6fac689a5d9a1e1c9bd0ab98813}
+      \strng{fullhash}{1e54f6fac689a5d9a1e1c9bd0ab98813}
+      \strng{bibnamehash}{1e54f6fac689a5d9a1e1c9bd0ab98813}
+      \strng{authorbibnamehash}{1e54f6fac689a5d9a1e1c9bd0ab98813}
+      \strng{authornamehash}{1e54f6fac689a5d9a1e1c9bd0ab98813}
+      \strng{authorfullhash}{1e54f6fac689a5d9a1e1c9bd0ab98813}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Cruise Date: 18 July 2019 until 12 August 2019}
+      \field{month}{07}
+      \field{title}{Cruise Date: 18 July 2019 until 12 August 2019}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://www.sanap.ac.za/current-event-scale-winter-cruise-2019
+      \endverb
+      \verb{url}
+      \verb https://www.sanap.ac.za/current-event-scale-winter-cruise-2019
+      \endverb
+    \endentry
+    \entry{rabault2017measurements}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=6a5e764ed0ccb9c472d1b065942f2766}{%
+           family={Rabault},
+           familyi={R\bibinitperiod},
+           given={Jean},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ffa285e0d57c2a321f4bbf120fab6c2d}{%
+           family={Sutherland},
+           familyi={S\bibinitperiod},
+           given={Graig},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d6bfe1d91e7bd1e218c169ae186d9578}{%
+           family={Gundersen},
+           familyi={G\bibinitperiod},
+           given={Olav},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3e6bc6c46d3fc9d46d46e4c6b71026ae}{%
+           family={Jensen},
+           familyi={J\bibinitperiod},
+           given={Atle},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{e2e9366dfd6a5ac7aef5242e396bc608}
+      \strng{fullhash}{fb402148f2fa1a6ddced6e3575b65a45}
+      \strng{bibnamehash}{fb402148f2fa1a6ddced6e3575b65a45}
+      \strng{authorbibnamehash}{fb402148f2fa1a6ddced6e3575b65a45}
+      \strng{authornamehash}{e2e9366dfd6a5ac7aef5242e396bc608}
+      \strng{authorfullhash}{fb402148f2fa1a6ddced6e3575b65a45}
+      \field{extraname}{1}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Glaciology}
+      \field{number}{238}
+      \field{title}{Measurements of wave damping by a grease ice slick in Svalbard using off-the-shelf sensors and open-source electronics}
+      \field{volume}{63}
+      \field{year}{2017}
+      \field{pages}{372\bibrangedash 381}
+      \range{pages}{10}
+    \endentry
+    \entry{rabault2019open}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=6a5e764ed0ccb9c472d1b065942f2766}{%
+           family={Rabault},
+           familyi={R\bibinitperiod},
+           given={Jean},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ffa285e0d57c2a321f4bbf120fab6c2d}{%
+           family={Sutherland},
+           familyi={S\bibinitperiod},
+           given={Graig},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d6bfe1d91e7bd1e218c169ae186d9578}{%
+           family={Gundersen},
+           familyi={G\bibinitperiod},
+           given={Olav},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3e6bc6c46d3fc9d46d46e4c6b71026ae}{%
+           family={Jensen},
+           familyi={J\bibinitperiod},
+           given={Atle},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{e2e9366dfd6a5ac7aef5242e396bc608}
+      \strng{fullhash}{fb402148f2fa1a6ddced6e3575b65a45}
+      \strng{bibnamehash}{fb402148f2fa1a6ddced6e3575b65a45}
+      \strng{authorbibnamehash}{fb402148f2fa1a6ddced6e3575b65a45}
+      \strng{authornamehash}{e2e9366dfd6a5ac7aef5242e396bc608}
+      \strng{authorfullhash}{fb402148f2fa1a6ddced6e3575b65a45}
+      \field{extraname}{2}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1901.02410}
+      \field{title}{An Open Source, Versatile, Affordable Waves in Ice Instrument for Remote Sensing in the Polar Regions}
+      \field{year}{2019}
+    \endentry
+    \entry{roach2020antarctic}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{10}{}{%
+        {{un=0,uniquepart=base,hash=1be0acb5969ffe61b3d07fef2b703f7d}{%
+           family={Roach},
+           familyi={R\bibinitperiod},
+           given={Lettie\bibnamedelima A},
+           giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0dc4750f5b08da2c6455ae5c8e7132b0}{%
+           family={Dörr},
+           familyi={D\bibinitperiod},
+           given={Jakob},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6d36ec713c94f6a9ea883350712ccb24}{%
+           family={Holmes},
+           familyi={H\bibinitperiod},
+           given={Caroline\bibnamedelima R},
+           giveni={C\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4de4e6ab1715cab9a62999a28c89e33c}{%
+           family={Massonnet},
+           familyi={M\bibinitperiod},
+           given={François},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cfa945177bdd3b16774c95d374a7e323}{%
+           family={Blockley},
+           familyi={B\bibinitperiod},
+           given={Edward\bibnamedelima W},
+           giveni={E\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a9706e1f00c12bb71c087278d3eaa003}{%
+           family={Notz},
+           familyi={N\bibinitperiod},
+           given={Dirk},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d0927cd70836aa798cd7015666e394bf}{%
+           family={Rackow},
+           familyi={R\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a6c2fc7b4ad2eab83d6b5e4c10a13c59}{%
+           family={Raphael},
+           familyi={R\bibinitperiod},
+           given={Marilyn\bibnamedelima N},
+           giveni={M\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bd61a4896f26b1fced9061e972bc497a}{%
+           family={O'Farrell},
+           familyi={O\bibinitperiod},
+           given={Siobhan\bibnamedelima P},
+           giveni={S\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9ff82a60fd047f519a2c60fb08e4ea95}{%
+           family={Bailey},
+           familyi={B\bibinitperiod},
+           given={David\bibnamedelima A},
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{59bdb0802b8853fb033d3cbab9d0b935}
+      \strng{fullhash}{1d570e15f3585956d983325518c27520}
+      \strng{bibnamehash}{1d570e15f3585956d983325518c27520}
+      \strng{authorbibnamehash}{1d570e15f3585956d983325518c27520}
+      \strng{authornamehash}{59bdb0802b8853fb033d3cbab9d0b935}
+      \strng{authorfullhash}{1d570e15f3585956d983325518c27520}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Geophysical Research Letters}
+      \field{number}{9}
+      \field{title}{Antarctic sea ice area in CMIP6}
+      \field{volume}{47}
+      \field{year}{2020}
+      \field{pages}{e2019GL086729}
+      \range{pages}{-1}
+    \endentry
+    \entry{samaun1971ic}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=389c987bd9db5c1ac3be808e06859b7d}{%
+           family={Samaun},
+           familyi={S\bibinitperiod},
+           given={S},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=16778b7f496d9649bdc0df54e81742f2}{%
+           family={Wise},
+           familyi={W\bibinitperiod},
+           given={K},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4d02926e630b490dba2867118a13bf68}{%
+           family={Nielsen},
+           familyi={N\bibinitperiod},
+           given={E},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=572aeb04c524efa7bed050bfaac3fa24}{%
+           family={Angell},
+           familyi={A\bibinitperiod},
+           given={J},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{d18d1441c5fe4d0b6589df81c5830924}
+      \strng{fullhash}{dc67e2b2ae2db04c6cfcb3ba9ddba4d6}
+      \strng{bibnamehash}{dc67e2b2ae2db04c6cfcb3ba9ddba4d6}
+      \strng{authorbibnamehash}{dc67e2b2ae2db04c6cfcb3ba9ddba4d6}
+      \strng{authornamehash}{d18d1441c5fe4d0b6589df81c5830924}
+      \strng{authorfullhash}{dc67e2b2ae2db04c6cfcb3ba9ddba4d6}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{1971 IEEE International Solid-State Circuits Conference. Digest of Technical Papers}
+      \field{title}{An IC piezoresistive pressure sensor for biomedical instrumentation}
+      \field{volume}{14}
+      \field{year}{1971}
+      \field{pages}{104\bibrangedash 105}
+      \range{pages}{2}
+    \endentry
+    \entry{BMP280_Datasheet}{manual}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=4db271d8a2a60d8c408423f38e60b5bc}{%
+           family={Sensortech},
+           familyi={S\bibinitperiod},
+           given={Bosch},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{4db271d8a2a60d8c408423f38e60b5bc}
+      \strng{fullhash}{4db271d8a2a60d8c408423f38e60b5bc}
+      \strng{bibnamehash}{4db271d8a2a60d8c408423f38e60b5bc}
+      \strng{authorbibnamehash}{4db271d8a2a60d8c408423f38e60b5bc}
+      \strng{authornamehash}{4db271d8a2a60d8c408423f38e60b5bc}
+      \strng{authorfullhash}{4db271d8a2a60d8c408423f38e60b5bc}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Rev. 1.19}
+      \field{number}{BST-BMP280-DS001-19}
+      \field{title}{BMP280 - Digital Pressure Sensor}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmp280-ds001.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmp280-ds001.pdf
+      \endverb
+    \endentry
+    \entry{massom2001snow}{article}{}
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Reviews of Geophysics}
+      \field{number}{3}
+      \field{title}{Snow on Antarctic sea ice}
+      \field{volume}{39}
+      \field{year}{2001}
+      \field{pages}{413\bibrangedash 445}
+      \range{pages}{33}
+    \endentry
+    \entry{IEEE_STD_UREQ}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d7e516380100beea42ad1ab83a405b1e}{%
+           family={Society},
+           familyi={S\bibinitperiod},
+           given={IEEE\bibnamedelima Computer},
+           giveni={I\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d7e516380100beea42ad1ab83a405b1e}
+      \strng{fullhash}{d7e516380100beea42ad1ab83a405b1e}
+      \strng{bibnamehash}{d7e516380100beea42ad1ab83a405b1e}
+      \strng{authorbibnamehash}{d7e516380100beea42ad1ab83a405b1e}
+      \strng{authornamehash}{d7e516380100beea42ad1ab83a405b1e}
+      \strng{authorfullhash}{d7e516380100beea42ad1ab83a405b1e}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Std 1233-1996}
+      \field{title}{IEEE Guide for Developing System Requirements Specifications}
+      \field{year}{1996}
+      \field{pages}{1\bibrangedash 30}
+      \range{pages}{30}
+      \verb{doi}
+      \verb 10.1109/IEEESTD.1996.81000
+      \endverb
+    \endentry
+    \entry{spilker1996global}{book}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=631f9822f8f357e2858847db88a69080}{%
+           family={Spilker\bibnamedelima Jr},
+           familyi={S\bibinitperiod\bibinitdelim J\bibinitperiod},
+           given={James\bibnamedelima J},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dd5a46e0bb1d1546d81f459e87a76191}{%
+           family={Axelrad},
+           familyi={A\bibinitperiod},
+           given={Penina},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3937c00c0e09ee35964adfa80051463d}{%
+           family={Parkinson},
+           familyi={P\bibinitperiod},
+           given={Bradford\bibnamedelima W},
+           giveni={B\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d1f03e41902631e4ef274a6a749fca7e}{%
+           family={Enge},
+           familyi={E\bibinitperiod},
+           given={Per},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{2}{%
+        {American Institute of Aeronautics}%
+        {Astronautics}%
+      }
+      \strng{namehash}{be3fa4ca70df82c12f9e44965c7f1c27}
+      \strng{fullhash}{799743a61b76884e9e0850861c8f3b4f}
+      \strng{bibnamehash}{799743a61b76884e9e0850861c8f3b4f}
+      \strng{authorbibnamehash}{799743a61b76884e9e0850861c8f3b4f}
+      \strng{authornamehash}{be3fa4ca70df82c12f9e44965c7f1c27}
+      \strng{authorfullhash}{799743a61b76884e9e0850861c8f3b4f}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Global Positioning System: Theory and Applications, Volume I}
+      \field{year}{1996}
+    \endentry
+    \entry{Antseaice}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2ea86e0cbd79b92b87173e392f10ec78}{%
+           family={Steer},
+           familyi={S\bibinitperiod},
+           given={Adam},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{2ea86e0cbd79b92b87173e392f10ec78}
+      \strng{fullhash}{2ea86e0cbd79b92b87173e392f10ec78}
+      \strng{bibnamehash}{2ea86e0cbd79b92b87173e392f10ec78}
+      \strng{authorbibnamehash}{2ea86e0cbd79b92b87173e392f10ec78}
+      \strng{authornamehash}{2ea86e0cbd79b92b87173e392f10ec78}
+      \strng{authorfullhash}{2ea86e0cbd79b92b87173e392f10ec78}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{12}
+      \field{note}{[Online; accessed December 16, 2020]}
+      \field{title}{Sea Ice Earth Systems}
+      \field{year}{2016}
+      \verb{urlraw}
+      \verb https://github.com/adamsteer/adamsteer.github.io/blob/master/talks/phd.wrapup/images/seaice.earthsystem.png
+      \endverb
+      \verb{url}
+      \verb https://github.com/adamsteer/adamsteer.github.io/blob/master/talks/phd.wrapup/images/seaice.earthsystem.png
+      \endverb
+    \endentry
+    \entry{STEER2008933}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=2ea86e0cbd79b92b87173e392f10ec78}{%
+           family={Steer},
+           familyi={S\bibinitperiod},
+           given={Adam},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=83c146f4815b1c13d7f2b69b39948137}{%
+           family={Worby},
+           familyi={W\bibinitperiod},
+           given={Anthony},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2c120a86b83aa0a5b08e1dffd95d26d7}{%
+           family={Heil},
+           familyi={H\bibinitperiod},
+           given={Petra},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ab4f44bc05bd2a18ba0cfaeb215dad1b}
+      \strng{fullhash}{5d6ff79bd606316365897d67cb972161}
+      \strng{bibnamehash}{5d6ff79bd606316365897d67cb972161}
+      \strng{authorbibnamehash}{5d6ff79bd606316365897d67cb972161}
+      \strng{authornamehash}{ab4f44bc05bd2a18ba0cfaeb215dad1b}
+      \strng{authorfullhash}{5d6ff79bd606316365897d67cb972161}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0967-0645}
+      \field{journaltitle}{Deep Sea Research Part II: Topical Studies in Oceanography}
+      \field{note}{Ice Station POlarstern (ISPOL): Results of interdisciplinary studies on a drifting ice floe in the western Weddell Sea}
+      \field{number}{8}
+      \field{title}{Observed changes in sea-ice floe size distribution during early summer in the western Weddell Sea}
+      \field{volume}{55}
+      \field{year}{2008}
+      \field{pages}{933\bibrangedash 942}
+      \range{pages}{10}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.dsr2.2007.12.016
+      \endverb
+      \verb{urlraw}
+      \verb http://www.sciencedirect.com/science/article/pii/S0967064508000362
+      \endverb
+      \verb{url}
+      \verb http://www.sciencedirect.com/science/article/pii/S0967064508000362
+      \endverb
+      \keyw{Ice-floe size distribution,Digital aerial photography,Western Weddell sea,Sea-ice dynamics}
+    \endentry
+    \entry{sturm2009snow}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=dbb64595fe850757a81c35eec0d9983c}{%
+           family={Sturm},
+           familyi={S\bibinitperiod},
+           given={Matthew},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=1,uniquepart=given,hash=66cae99183a02433e08da0255367dab2}{%
+           family={Massom},
+           familyi={M\bibinitperiod},
+           given={Robert\bibnamedelima A},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=1}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley-Blackwell}%
+      }
+      \strng{namehash}{52a589af06f8ac0d16a2af1e2b954730}
+      \strng{fullhash}{52a589af06f8ac0d16a2af1e2b954730}
+      \strng{bibnamehash}{52a589af06f8ac0d16a2af1e2b954730}
+      \strng{authorbibnamehash}{52a589af06f8ac0d16a2af1e2b954730}
+      \strng{authornamehash}{52a589af06f8ac0d16a2af1e2b954730}
+      \strng{authorfullhash}{52a589af06f8ac0d16a2af1e2b954730}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Sea ice}
+      \field{title}{Snow and sea ice}
+      \field{volume}{2}
+      \field{year}{2009}
+      \field{pages}{153\bibrangedash 204}
+      \range{pages}{52}
+    \endentry
+    \entry{swart2015seasonal}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=f1214cfe848273a9e30a38c6a89f7244}{%
+           family={Swart},
+           familyi={S\bibinitperiod},
+           given={S},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e433e140e4d9f7a9094c93bbfd526b36}{%
+           family={Thomalla},
+           familyi={T\bibinitperiod},
+           given={Sandy\bibnamedelima J},
+           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=226bee44b273c3e35c6e424c5d02d380}{%
+           family={Monteiro},
+           familyi={M\bibinitperiod},
+           given={PMS},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{15ae6f22326336f353831d732389d8d1}
+      \strng{fullhash}{9d17f178a1a46729f015eda8b32a0f32}
+      \strng{bibnamehash}{9d17f178a1a46729f015eda8b32a0f32}
+      \strng{authorbibnamehash}{9d17f178a1a46729f015eda8b32a0f32}
+      \strng{authornamehash}{15ae6f22326336f353831d732389d8d1}
+      \strng{authorfullhash}{9d17f178a1a46729f015eda8b32a0f32}
+      \field{extraname}{1}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Marine Systems}
+      \field{title}{The seasonal cycle of mixed layer dynamics and phytoplankton biomass in the Sub-Antarctic Zone: A high-resolution glider experiment}
+      \field{volume}{147}
+      \field{year}{2015}
+      \field{pages}{103\bibrangedash 115}
+      \range{pages}{13}
+    \endentry
+    \entry{swart2020submesoscale}{article}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=8cb43de80b64a091b8dad95b60079b00}{%
+           family={Swart},
+           familyi={S\bibinitperiod},
+           given={Sebastiaan},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=733f694da2d619aeb26dd1513014a975}{%
+           family={Plessis},
+           familyi={P\bibinitperiod},
+           given={Marcel\bibnamedelima D},
+           giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0,
+           prefix={du},
+           prefixi={d\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=0b056e590d105ab8f7b11512ac37c255}{%
+           family={Thompson},
+           familyi={T\bibinitperiod},
+           given={Andrew\bibnamedelima F},
+           giveni={A\bibinitperiod\bibinitdelim F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=00440e7a9af29dc3758c7082e4fb3034}{%
+           family={Biddle},
+           familyi={B\bibinitperiod},
+           given={Louise\bibnamedelima C},
+           giveni={L\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0a45b5de38c3e68f01738b132b7051b4}{%
+           family={Giddy},
+           familyi={G\bibinitperiod},
+           given={Isabelle},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=480c95913b81dc9c0122f1852a0ce0a7}{%
+           family={Linders},
+           familyi={L\bibinitperiod},
+           given={Torsten},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ca5739386aa4989a7b19210e4dae84ca}{%
+           family={Mohrmann},
+           familyi={M\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=19824a7d7a629535893488406ef0ae24}{%
+           family={Nicholson},
+           familyi={N\bibinitperiod},
+           given={Sarah-Anne},
+           giveni={S\bibinithyphendelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{cb474a51001bf991e117c43714245bc4}
+      \strng{fullhash}{aeecf421da5fdf66a3367900b0ef2a3b}
+      \strng{bibnamehash}{aeecf421da5fdf66a3367900b0ef2a3b}
+      \strng{authorbibnamehash}{aeecf421da5fdf66a3367900b0ef2a3b}
+      \strng{authornamehash}{cb474a51001bf991e117c43714245bc4}
+      \strng{authorfullhash}{aeecf421da5fdf66a3367900b0ef2a3b}
+      \field{extraname}{2}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Geophysical Research Letters}
+      \field{number}{6}
+      \field{title}{Submesoscale fronts in the Antarctic marginal ice zone and their response to wind forcing}
+      \field{volume}{47}
+      \field{year}{2020}
+      \field{pages}{e2019GL086649}
+      \range{pages}{-1}
+    \endentry
+    \entry{swift}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6a057610781388923bebe37a329c92c9}{%
+           family={SWIFT},
+           familyi={S\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Applied Physics Laboratory}%
+      }
+      \list{publisher}{1}{%
+        {University of Washington APL}%
+      }
+      \strng{namehash}{6a057610781388923bebe37a329c92c9}
+      \strng{fullhash}{6a057610781388923bebe37a329c92c9}
+      \strng{bibnamehash}{6a057610781388923bebe37a329c92c9}
+      \strng{authorbibnamehash}{6a057610781388923bebe37a329c92c9}
+      \strng{authornamehash}{6a057610781388923bebe37a329c92c9}
+      \strng{authorfullhash}{6a057610781388923bebe37a329c92c9}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{journaltitle}{Apl.uw.edu}
+      \field{note}{n.d. [Online; accessed December 16, 2020]}
+      \verb{urlraw}
+      \verb https://apl.uw.edu/project/project.php?id=swift
+      \endverb
+      \verb{url}
+      \verb https://apl.uw.edu/project/project.php?id=swift
+      \endverb
+    \endentry
+    \entry{tammiksaar2010international}{inbook}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=4b8737de889458ff9e63ad65eff85122}{%
+           family={Tammiksaar},
+           familyi={T\bibinitperiod},
+           given={Erki},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e90018677c09ae50163a38fddcd778fb}{%
+           family={Sukhova},
+           familyi={S\bibinitperiod},
+           given={Natal’ya\bibnamedelima Georgievna},
+           giveni={N\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fbe2f4b43696205f5151708a1e2cea8e}{%
+           family={Lüdecke},
+           familyi={L\bibinitperiod},
+           given={Cornelia},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{aca258417e33b8f00d4d2f43c8a89e52}
+      \strng{fullhash}{b0b38b69f97dd74f6706bfaa12a6e12e}
+      \strng{bibnamehash}{b0b38b69f97dd74f6706bfaa12a6e12e}
+      \strng{authorbibnamehash}{b0b38b69f97dd74f6706bfaa12a6e12e}
+      \strng{authornamehash}{aca258417e33b8f00d4d2f43c8a89e52}
+      \strng{authorfullhash}{b0b38b69f97dd74f6706bfaa12a6e12e}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{The History of the International Polar Years (IPYs)}
+      \field{title}{The International Polar Year 1882--1883}
+      \field{year}{2010}
+      \field{pages}{7\bibrangedash 33}
+      \range{pages}{27}
+    \endentry
+    \entry{taylor1981first}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=fb879ffaa0dbbb5ec0d1fe828bd92c62}{%
+           family={Taylor},
+           familyi={T\bibinitperiod},
+           given={CJ},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {JSTOR}%
+      }
+      \strng{namehash}{fb879ffaa0dbbb5ec0d1fe828bd92c62}
+      \strng{fullhash}{fb879ffaa0dbbb5ec0d1fe828bd92c62}
+      \strng{bibnamehash}{fb879ffaa0dbbb5ec0d1fe828bd92c62}
+      \strng{authorbibnamehash}{fb879ffaa0dbbb5ec0d1fe828bd92c62}
+      \strng{authornamehash}{fb879ffaa0dbbb5ec0d1fe828bd92c62}
+      \strng{authorfullhash}{fb879ffaa0dbbb5ec0d1fe828bd92c62}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Arctic}
+      \field{title}{First International Polar Year, 1882-83}
+      \field{year}{1981}
+      \field{pages}{370\bibrangedash 376}
+      \range{pages}{7}
+    \endentry
+    \entry{thomson2012wave}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a72b9b84115dc7135f1fdb325c6e3cf8}{%
+           family={Thomson},
+           familyi={T\bibinitperiod},
+           given={Jim},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{a72b9b84115dc7135f1fdb325c6e3cf8}
+      \strng{fullhash}{a72b9b84115dc7135f1fdb325c6e3cf8}
+      \strng{bibnamehash}{a72b9b84115dc7135f1fdb325c6e3cf8}
+      \strng{authorbibnamehash}{a72b9b84115dc7135f1fdb325c6e3cf8}
+      \strng{authornamehash}{a72b9b84115dc7135f1fdb325c6e3cf8}
+      \strng{authorfullhash}{a72b9b84115dc7135f1fdb325c6e3cf8}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Atmospheric and Oceanic Technology}
+      \field{number}{12}
+      \field{title}{Wave breaking dissipation observed with “SWIFT” drifters}
+      \field{volume}{29}
+      \field{year}{2012}
+      \field{pages}{1866\bibrangedash 1882}
+      \range{pages}{17}
+    \endentry
+    \entry{tong2001improving}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c962e0e98f4bf4dc2dec24d1afc73055}{%
+           family={Tong},
+           familyi={T\bibinitperiod},
+           given={Alan},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MCB UP Ltd}%
+      }
+      \strng{namehash}{c962e0e98f4bf4dc2dec24d1afc73055}
+      \strng{fullhash}{c962e0e98f4bf4dc2dec24d1afc73055}
+      \strng{bibnamehash}{c962e0e98f4bf4dc2dec24d1afc73055}
+      \strng{authorbibnamehash}{c962e0e98f4bf4dc2dec24d1afc73055}
+      \strng{authornamehash}{c962e0e98f4bf4dc2dec24d1afc73055}
+      \strng{authorfullhash}{c962e0e98f4bf4dc2dec24d1afc73055}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Sensor Review}
+      \field{number}{3}
+      \field{title}{Improving the accuracy of temperature measurements}
+      \field{volume}{21}
+      \field{year}{2001}
+      \field{pages}{193\bibrangedash 198}
+      \range{pages}{6}
+    \endentry
+    \entry{turner2017unprecedented}{article}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=6e889d94c59bbc4801a9b06bcbf95ab1}{%
+           family={Turner},
+           familyi={T\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=802ab5ffa7f8e817077745b0c24e8c2f}{%
+           family={Phillips},
+           familyi={P\bibinitperiod},
+           given={Tony},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d03df46bd09fc89d11e4fbbb5b561465}{%
+           family={Marshall},
+           familyi={M\bibinitperiod},
+           given={Gareth\bibnamedelima J},
+           giveni={G\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1dbc9272dd93e561c504d8e16585cb58}{%
+           family={Hosking},
+           familyi={H\bibinitperiod},
+           given={J\bibnamedelima Scott},
+           giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b37ecc50872455f312fb3cd1c2495175}{%
+           family={Pope},
+           familyi={P\bibinitperiod},
+           given={James\bibnamedelima O},
+           giveni={J\bibinitperiod\bibinitdelim O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1f801f8bc1799f0034653bde7655c460}{%
+           family={Bracegirdle},
+           familyi={B\bibinitperiod},
+           given={Thomas\bibnamedelima J},
+           giveni={T\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8f556f88ba4b3934db0aa340e12ba71f}{%
+           family={Deb},
+           familyi={D\bibinitperiod},
+           given={Pranab},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{500ed6d3318eb93390ee5987e615d15f}
+      \strng{fullhash}{b72c497fbc73274b1ed265ab58474e8f}
+      \strng{bibnamehash}{b72c497fbc73274b1ed265ab58474e8f}
+      \strng{authorbibnamehash}{b72c497fbc73274b1ed265ab58474e8f}
+      \strng{authornamehash}{500ed6d3318eb93390ee5987e615d15f}
+      \strng{authorfullhash}{b72c497fbc73274b1ed265ab58474e8f}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Geophysical Research Letters}
+      \field{number}{13}
+      \field{title}{Unprecedented springtime retreat of Antarctic sea ice in 2016}
+      \field{volume}{44}
+      \field{year}{2017}
+      \field{pages}{6868\bibrangedash 6875}
+      \range{pages}{8}
+    \endentry
+    \entry{UBLOX_M9N_INTERFACE}{manual}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e793a6d14967c3cbaa58d7485e48be84}{%
+           family={U-Blox},
+           familyi={U\bibinithyphendelim B\bibinitperiod}}}%
+      }
+      \strng{namehash}{e793a6d14967c3cbaa58d7485e48be84}
+      \strng{fullhash}{e793a6d14967c3cbaa58d7485e48be84}
+      \strng{bibnamehash}{e793a6d14967c3cbaa58d7485e48be84}
+      \strng{authorbibnamehash}{e793a6d14967c3cbaa58d7485e48be84}
+      \strng{authornamehash}{e793a6d14967c3cbaa58d7485e48be84}
+      \strng{authorfullhash}{e793a6d14967c3cbaa58d7485e48be84}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Rev. R03}
+      \field{number}{UBX-19035940}
+      \field{title}{u-blox M9N standard precision module Interface Description}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://www.u-blox.com/sites/default/files/NEO-M9N_Interfacedescription_\%28UBX-19035940\%29.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.u-blox.com/sites/default/files/NEO-M9N_Interfacedescription_%5C%28UBX-19035940%5C%29.pdf
+      \endverb
+    \endentry
+    \entry{uptempo}{misc}{}
+      \list{language}{1}{%
+        {en-US}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{labeldatesource}{nodate}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The MetOcean Telematics Inductive Modem UpTempO buoy is an Iridium® reporting data collection and processing system, designed for oceanographic and polar applications.}
+      \field{title}{{UpTempO} {Iridium} {Data} {Collection}}
+      \field{urlday}{17}
+      \field{urlmonth}{1}
+      \field{urlyear}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.metocean.com/product/uptempo/
+      \endverb
+      \verb{url}
+      \verb https://www.metocean.com/product/uptempo/
+      \endverb
+    \endentry
+    \entry{simbfact}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=bc9ee3e9d726962297716c9c79d77331}{%
+           family={USACE},
+           familyi={U\bibinitperiod}}}%
+      }
+      \strng{namehash}{bc9ee3e9d726962297716c9c79d77331}
+      \strng{fullhash}{bc9ee3e9d726962297716c9c79d77331}
+      \strng{bibnamehash}{bc9ee3e9d726962297716c9c79d77331}
+      \strng{authorbibnamehash}{bc9ee3e9d726962297716c9c79d77331}
+      \strng{authornamehash}{bc9ee3e9d726962297716c9c79d77331}
+      \strng{authorfullhash}{bc9ee3e9d726962297716c9c79d77331}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{month}{11}
+      \field{note}{[Online; accessed December 16, 2020]}
+      \field{year}{2014}
+      \verb{urlraw}
+      \verb https://www.erdc.usace.army.mil/Media/Fact-Sheets/Fact-Sheet-Article-View/Article/553850/crrel-ice-mass-balance-imb-buoy-program/
+      \endverb
+      \verb{url}
+      \verb https://www.erdc.usace.army.mil/Media/Fact-Sheets/Fact-Sheet-Article-View/Article/553850/crrel-ice-mass-balance-imb-buoy-program/
+      \endverb
+    \endentry
+    \entry{varvasovszky2000stakeholder}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=eff8dd0e4e6fbe27294786c4e4674b5e}{%
+           family={Varvasovszky},
+           familyi={V\bibinitperiod},
+           given={Zsuzsa},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=02c8f99532a310aece187bdbd5c5bc54}{%
+           family={Brugha},
+           familyi={B\bibinitperiod},
+           given={Ruairı́},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{e5028657614dca2335fe1434ce6728c0}
+      \strng{fullhash}{e5028657614dca2335fe1434ce6728c0}
+      \strng{bibnamehash}{e5028657614dca2335fe1434ce6728c0}
+      \strng{authorbibnamehash}{e5028657614dca2335fe1434ce6728c0}
+      \strng{authornamehash}{e5028657614dca2335fe1434ce6728c0}
+      \strng{authorfullhash}{e5028657614dca2335fe1434ce6728c0}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Health policy and planning}
+      \field{number}{3}
+      \field{title}{A stakeholder analysis}
+      \field{volume}{15}
+      \field{year}{2000}
+      \field{pages}{338\bibrangedash 345}
+      \range{pages}{8}
+    \endentry
+    \entry{vichi2019effects}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{10}{}{%
+        {{un=0,uniquepart=base,hash=89fba3e6e5969e08f095c08eed06948e}{%
+           family={Vichi},
+           familyi={V\bibinitperiod},
+           given={Marcello},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f215ec29de971cdb397e736c4428ebfd}{%
+           family={Eayrs},
+           familyi={E\bibinitperiod},
+           given={Clare},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1f41128a44870dcaeeca940433b42242}{%
+           family={Alberello},
+           familyi={A\bibinitperiod},
+           given={Alberto},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=98746fc9b77b98cb4258daa7485ed7f9}{%
+           family={Bekker},
+           familyi={B\bibinitperiod},
+           given={Anriëtte},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1c95e1d235b74cac279f73f562925dc5}{%
+           family={Bennetts},
+           familyi={B\bibinitperiod},
+           given={Luke},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e4127fc4261b28ec7ed5975ece15d81a}{%
+           family={Holland},
+           familyi={H\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d0d4903b42bc9f110104da59fbf947c5}{%
+           family={Jong},
+           familyi={J\bibinitperiod},
+           given={Ehlke},
+           giveni={E\bibinitperiod},
+           givenun=0,
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=c7084a49a7e1b8cf6be3dd4731119b13}{%
+           family={Joubert},
+           familyi={J\bibinitperiod},
+           given={Warren},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a4d83fa2974ca27268d2f25c0cfadc18}{%
+           family={MacHutchon},
+           familyi={M\bibinitperiod},
+           given={Keith},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f700a832b740186994e4531c6a35ed2a}{%
+           family={Messori},
+           familyi={M\bibinitperiod},
+           given={Gabriele},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{a117b4cac6ec250d80a3bc3c4a70a4c8}
+      \strng{fullhash}{0ab4f270cd4a4cf219adbfdb2716f775}
+      \strng{bibnamehash}{0ab4f270cd4a4cf219adbfdb2716f775}
+      \strng{authorbibnamehash}{0ab4f270cd4a4cf219adbfdb2716f775}
+      \strng{authornamehash}{a117b4cac6ec250d80a3bc3c4a70a4c8}
+      \strng{authorfullhash}{0ab4f270cd4a4cf219adbfdb2716f775}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Geophysical Research Letters}
+      \field{title}{Effects of an explosive polar cyclone crossing the Antarctic marginal ice zone}
+      \field{year}{2019}
+    \endentry
+    \entry{doble_wave_2015}{misc}{}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Open Ocean and In-ice Waves Measurement with AHRS}
+      \field{month}{7}
+      \field{note}{publisher: SBG Systems}
+      \field{title}{Wave {Buoys} in the {Arctic} {Sea} {Ice}}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb sbg-systems.com/news/wave-buoys-arctic-sea-ice/
+      \endverb
+      \verb{url}
+      \verb sbg-systems.com/news/wave-buoys-arctic-sea-ice/
+      \endverb
+    \endentry
+    \entry{welch1967use}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=576f8524fc13840ed07f2aa33fe35170}{%
+           family={Welch},
+           familyi={W\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{576f8524fc13840ed07f2aa33fe35170}
+      \strng{fullhash}{576f8524fc13840ed07f2aa33fe35170}
+      \strng{bibnamehash}{576f8524fc13840ed07f2aa33fe35170}
+      \strng{authorbibnamehash}{576f8524fc13840ed07f2aa33fe35170}
+      \strng{authornamehash}{576f8524fc13840ed07f2aa33fe35170}
+      \strng{authorfullhash}{576f8524fc13840ed07f2aa33fe35170}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on audio and electroacoustics}
+      \field{number}{2}
+      \field{title}{The use of fast Fourier transform for the estimation of power spectra: a method based on time averaging over short, modified periodograms}
+      \field{volume}{15}
+      \field{year}{1967}
+      \field{pages}{70\bibrangedash 73}
+      \range{pages}{4}
+    \endentry
+    \entry{williams2013wave}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=f1054430ee0df9a51bddaa26aaa02fe7}{%
+           family={Williams},
+           familyi={W\bibinitperiod},
+           given={Timothy\bibnamedelima D},
+           giveni={T\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8f651bf1e45dea10a2d3b1e478e8d13e}{%
+           family={Bennetts},
+           familyi={B\bibinitperiod},
+           given={Luke\bibnamedelima G},
+           giveni={L\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=90c9971b2160576314b2530bef37eaf7}{%
+           family={Squire},
+           familyi={S\bibinitperiod},
+           given={Vernon\bibnamedelima A},
+           giveni={V\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=74356f1dfcf85edf541630d9d6b45f75}{%
+           family={Dumont},
+           familyi={D\bibinitperiod},
+           given={Dany},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b3931638a115a2ed94c6596d34e9bfed}{%
+           family={Bertino},
+           familyi={B\bibinitperiod},
+           given={Laurent},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{c004c1d6347a845c418257be30933af7}
+      \strng{fullhash}{208e150dfc20a201244351cc50bc38c8}
+      \strng{bibnamehash}{208e150dfc20a201244351cc50bc38c8}
+      \strng{authorbibnamehash}{208e150dfc20a201244351cc50bc38c8}
+      \strng{authornamehash}{c004c1d6347a845c418257be30933af7}
+      \strng{authorfullhash}{208e150dfc20a201244351cc50bc38c8}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Ocean Modelling}
+      \field{title}{Wave--ice interactions in the marginal ice zone. Part 1: Theoretical foundations}
+      \field{volume}{71}
+      \field{year}{2013}
+      \field{pages}{81\bibrangedash 91}
+      \range{pages}{11}
+    \endentry
+    \entry{womack_2020}{thesis}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f5ee73adc338c0a7f9f8e53bb58be703}{%
+           family={Womack},
+           familyi={W\bibinitperiod},
+           given={Ashleigh\bibnamedelimb Catherine\bibnamedelima Stevenson},
+           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {University of Cape Town}%
+      }
+      \strng{namehash}{f5ee73adc338c0a7f9f8e53bb58be703}
+      \strng{fullhash}{f5ee73adc338c0a7f9f8e53bb58be703}
+      \strng{bibnamehash}{f5ee73adc338c0a7f9f8e53bb58be703}
+      \strng{authorbibnamehash}{f5ee73adc338c0a7f9f8e53bb58be703}
+      \strng{authornamehash}{f5ee73adc338c0a7f9f8e53bb58be703}
+      \strng{authorfullhash}{f5ee73adc338c0a7f9f8e53bb58be703}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Atmospheric Drivers Of Ice Drift In The Antarctic Marginal Ice Zone}
+      \field{type}{mathesis}
+      \field{year}{2020}
+      \field{pages}{1\bibrangedash 12}
+      \range{pages}{12}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

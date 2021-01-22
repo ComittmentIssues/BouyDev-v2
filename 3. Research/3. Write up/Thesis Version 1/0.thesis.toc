@@ -1,0 +1,269 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Declaration}{i}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Abstract}{ii}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Acknowledgements}{iii}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{1}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.1}Background to Investigation}{1}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.2}Problem Statement}{8}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.2.1}Project Initiation}{9}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Concept phase}{9}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Procurement phase}{10}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Handover phase}{10}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.2.2}Scope}{10}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.2.3}Limitations and Constraints}{11}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.2.4}Assumptions}{11}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.3}Plan of Development}{12}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.4}Report Structure}{13}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {2}Literature Review}{15}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.1}Background to polar sea ice research}{15}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1.1}Life cycle of sea ice}{20}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1.2}Effects of snow on sea ice formation}{23}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1.3}Numerical modeling of polar stochastic processes}{24}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Numerical Modeling of Sea Ice}{24}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Numerical Modeling of Ocean Waves}{25}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.2}In-situ climate sensing technologies}{27}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2.1}Remote Communication}{28}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2.2}Power Supply}{29}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2.3}Electronics subsystems}{29}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2.4}Polar Performance}{30}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Ice Buoy Performance}{31}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Reasons for Failure}{33}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.3}Measurement of External Forces and Effects on Numerical Models}{35}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.1}Measurement of Wave data using Accelerometers}{35}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Kuik Method}{35}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Welch-Earle Method}{36}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Implementation}{37}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Software processing}{37}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.2}Measurement of Ice drift using GPS}{38}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Overview of GPS}{39}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{GPS Error Modeling}{40}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.3}Temperature Sensing and Measurement}{43}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Thermocouples}{43}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Resistive Temperature Detector}{44}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Thermistors}{45}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Silicon Temperature Devices}{45}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.4}Atmospheric Pressure Sensing and Sensors}{46}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Diaphragm Based Sensors}{46}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Piezoresistive Sensors}{47}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{capacitive sensors}{47}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {3}Design Methodology}{48}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.1}Design Overview}{48}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.2}User Requirements}{48}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.1}Analysis of UR001}{49}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.2}Analysis of UR002}{50}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.3}Analysis of UR003}{50}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.4}Analysis of UR004}{51}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.5}Analysis of UR005}{52}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.6}Analysis of UR006}{53}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.7}Analysis of UR007}{53}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.3}Functional Requirements}{54}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3.1}Operational Requirements }{54}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3.2}Electronic Requirements}{55}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3.3}Software Requirements}{55}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3.4}Other Requirements}{56}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.4} System Overview}{56}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.4.1}Technical Specs}{58}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.4.2}Acceptance Test Protocols}{59}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {4}Platform design}{68}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.1}Mechanical Features}{68}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.2}Electronics}{70}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.1}GPS}{71}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.2}Iridium}{71}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.3}Sensors}{73}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.4}Inertial Measurement Unit}{74}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.5}Memory}{75}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.6}Processor}{76}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.7}Power Electronics}{77}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.3}Final Assembly}{79}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {5}Software Design}{84}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.1}Software Architecture}{84}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.2}Project Structure}{85}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2.1}Power Mode Selection}{86}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2.2}Clock Selection}{88}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.3}Firmware Overview}{89}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.3.1}Execution}{89}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.3.2}Asynchronous Behaviours}{92}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.3.3}Subsystem Execution}{96}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.4}Data Management}{97}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.4.1}Drift Data Acquisition}{98}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.4.2}Wave Measurement Data}{102}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.5}Data Flow}{103}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {6}Testing}{107}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.1}System Tests}{108}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.1.1}Power Test}{109}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.2}Remote Deployment}{109}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Deployment procedure}{110}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Results}{111}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.3}Final Evaluation}{111}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.3.1}System Validation}{112}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.4}Discussion}{114}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.4.1}Power Requirements}{114}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.4.2}System Performance}{114}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.4.3}Mechanical Features}{115}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.4.4}Power System}{115}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.4.5}Future work on wave measurements}{116}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.4.6}Short-burst Data Modems vs Telephone modems}{116}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.4.7}Evaluation against the State of the Art}{117}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {7}Conclusion}{118}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.1}Acceptance Test validation}{118}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.2}User Requirement Verification}{119}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.3}Full System Testing}{119}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.4}Verification's against State of the Art}{119}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.5}Final Remarks}{120}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {8}Recommendations}{121}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8.1}Improvements to Power Supply}{121}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8.2}Improvements to Hardware}{121}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8.3}Improvements to Communication Modules}{121}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8.4}Firmware Improvements}{122}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{GPS}{122}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{IMU}{122}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Iridium}{122}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8.5}Expansion of Nodes into a Network}{123}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8.6}Future Deployments}{123}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {A}Mechanical Schematics and Renders}{124}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {B}Event and Interrupt Handling protocols}{127}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {C}Software Figures}{129}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {C.1}Initialization Routines}{129}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {C.2}Code}{133}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {C.2.1}BMP280 Temperature compensation formula}{133}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {C.2.2}INA219 Calibration Algorithm}{134}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {C.2.3}Data Structs}{136}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {D}Supplementary Tables}{138}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {E}Test Protocols}{147}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {E.1}Unit Tests}{147}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {E.2}System Tests}{153}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {F}Test results}{154}{}%

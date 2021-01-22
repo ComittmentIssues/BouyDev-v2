@@ -281,101 +281,7 @@ uint8_t is_valid(char* nmeamsg)
 	uint8_t flag = 0;
 
 	char msg[4] = {0};
-	for (int i = 0; i < 3; ++i)
-	{
-		msg[i] = *(nmeamsg+2+i);
-	}
-	if((strcmp((char*)msg,"GLL") != 0))
-	{
-
-		if (strcmp((char*)msg,"ZDA") != 0)
-		{
-			if(strcmp((char*)msg,"GSA") != 0)
-			{
-				return -1;
-			}
-			else
-			{
-				flag = 2;
-			}
-		}else
-		{
-			flag = 3;
-		}
-
-	}
-	else
-	{
-		flag = 1;
-	}
-	/* check sum */
-	uint16_t checksum = 0;
-	while(*nmeamsg != '*')
-	{
-		checksum^= *nmeamsg;
-		nmeamsg++;
-	}
-	uint8_t h = char_to_hex(*(++nmeamsg))*16;
-	uint8_t l = char_to_hex(*(++nmeamsg));
-	uint16_t checkbyte= h+l;
-
-	if(!(checksum == checkbyte))
-	{
-		return -1;
-	}
-
-	return flag;
-}
-
-/*
- * Flag keeps track of successful coordinate retrievals
- */
-
-uint8_t char_to_hex(char c)
-{
-	if(c == '\0')
-	{
-		return 0;
-	}
-	if ((c >='0') &&(c <='9'))
-	{
-		return (uint8_t)c - 48;
-	}
-	if((c >='a') &&(c <='f'))
-	{
-		return (uint8_t)c - 87;
-	}
-	if((c >='A') &&(c <='F'))
-	{
-		return (uint8_t)c - 55;
-	}
-	return -1; //invalid charachter
-}
-
-/*
- * Parser Functions:
- * Extract key data from NMEA message strings.
- */
-
-uint8_t parse_ZDA(char* ZDAstring)
-{
-	time_t t;
-	struct tm *timepointer;
-
-	t = time(NULL);
-	timepointer = localtime(&t);
-	/* Get UTC time*/
-	while(*ZDAstring++ != ',');
-	char* temp = ZDAstring++;
-	for (int i = 0; i < strlen(ZDAstring); ++i)
-	{
-		if ((ZDAstring[i]==',')&&(ZDAstring[i+1] == ','))
-		{
-			/* Data is invalid*/
-			return -1;
-		}
-	}
-	timepointer->tm_hour = (temp[0]-48)*10+ (temp[1]-48)+2;
+	for (int i = 0; i ='0') &&(c ='a') &&(c ='A') &&(c tm_hour = (temp[0]-48)*10+ (temp[1]-48)+2;
 	timepointer->tm_min = (temp[2]-48)*10+ (temp[3]-48)-1;
 	timepointer->tm_sec = (temp[4]-48)*10+ (temp[5]-48) -1 ;
 	while(*ZDAstring++ != ',');
@@ -435,20 +341,7 @@ uint8_t parse_GSA(char* GSA_string)
 	/* Isolate Dilation of Precisions*/
 	uint8_t count = 0;
 	char* t = GSA_string;
-	while(count < 2)
-	{
-		if(*t++==',')count++;
-	}
-	diag.fix_type = (*t++-48);
-
-	//field 3 - 15 indicate satelites
-	uint8_t numsats = 0;
-	uint8_t numfields = 0;
-	while(numfields < 12)
-	{
-		uint8_t count = 0;
-		while(*++t !=',')count++;
-		if(count > 0)
+	while(count  0)
 		{
 			numsats++;
 		}
@@ -457,38 +350,7 @@ uint8_t parse_GSA(char* GSA_string)
 	}
 	diag.num_sats = numsats;
 	DOP_t dop[3] = {0};
-	for (int i = 0; i < 3; ++i)
-	{
-		//get digit
-		while(*++t != '.')
-		{
-			dop[i].digit = dop[i].digit*10 +(*t-48);
-		}
-		while(*++t != ',')
-		{
-			dop[i].precision = dop[i].precision*10+(*t-48);
-		}
-	}
-	/*
-	 * If successful, add to diagnostic struct
-	 *
-	 */
-diag.HDOP = dop[0];
-diag.PDOP = dop[1];
-diag.VDOP = dop[2];
-	return 0;
-}
-
-//================== 5. Peripheral Function Definitions ===============================
-
-GPS_Init_msg_t init_GPS(GPS_Handle_Typedef *hgps)
-{
-	if(MX_DMA_Init() != HAL_OK)  return GPS_Init_Periph_Config_Error;
-	if(MX_UART4_Init() != HAL_OK) return GPS_Init_Periph_Config_Error;
-	if(MX_TIM2_Init() != HAL_OK) return GPS_Init_Periph_Config_Error;
-
-	/* attach handlers to gps instances*/
-	hgps->gps_huart = &huart4;
+	for (int i = 0; i gps_huart = &huart4;
 	hgps->gps_htim  = &htim2;
 	hgps->gps_hdmamem = &hdma_memtomem_dma1_channel1;
 
@@ -641,9 +503,7 @@ UBX_MSG_t UBX_Send_Ack(GPS_Handle_Typedef *hgps)
 
 	 uint8_t ubx_ack_string[] = {0xB5 ,0x62 ,0x06 ,0x09 ,0x0D ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0xFF ,0xFF ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x00 ,0x17 ,0x31 ,0xBF };
 	 int size = (sizeof(ubx_ack_string)/sizeof(*ubx_ack_string));
-	 for (int i = 0; i < size ; ++i)
-	 {
-	  	hgps->GPS_Tx_Buffer[i] = ubx_ack_string[i];
+	 for (int i = 0; i GPS_Tx_Buffer[i] = ubx_ack_string[i];
 	 }
 	 TX_Cplt = 0;
 	 if(__HAL_UART_GET_FLAG(hgps->gps_huart,UART_FLAG_TC))
@@ -684,54 +544,14 @@ UBX_MSG_t UBX_Send_Ack(GPS_Handle_Typedef *hgps)
 	  char val = (char) 0xB5;
 	  int index = (int)(strchr((char*)GNSS_Buffer,val))-(int)GNSS_Buffer;
 	  UBX_MSG_t GPS_Acknowledgement_State;
-	  if((index < 0) || (index >GNSS_BUFFER_SIZE))
+	  if((index GNSS_BUFFER_SIZE))
 	  {
 
 	  }else{
 	  uint8_t msg[10] = {0};
 	  memcpy(msg,&hgps->GPS_Mem_Buffer[index],10);
 
-	  uint16_t header = ((uint16_t)msg[0]<<8) | ((uint16_t)msg[1]);
-	  if(header == 0xb562)
-	  {
-	 	 uint8_t ck_A =0, ck_B =0;
-	 	 for (int i = 2; i < 8; ++i)
-	 	 {
-	 	 	ck_A += (uint8_t)msg[i];
-	 	 	ck_B += ck_A;
-	 	 }
-	 	 if((ck_A == msg[8])&& (ck_B == msg[9]))
-	 	 {
-	 	 	//acknowledgement
-	 	 	if(msg[2] == 0x05)
-	 	 	{
-	 		 	switch (msg[3])
-	 		 	{
-	 		 		case 0:
-	 		 			GPS_Acknowledgement_State = UBX_ACK_NACK;
-	 		 			break;
-	 		 		case 1:
-	 		 			GPS_Acknowledgement_State = UBX_ACK_ACK;
-	 		 			break;
-	 		 		}
-	 		 	}
-	 		 }
-	 		 else
-	 		 {
-	 		 	GPS_Acknowledgement_State = UBX_ERROR;
-	 		 }
-	 	 }
-	  }
-	  return GPS_Acknowledgement_State;
-}
-
-UBX_MSG_t UBX_Configure_Baudrate(GPS_Handle_Typedef* hgps)
-{
-
-	//GPS is configured for 9600, change baud to 115200
-	uint8_t ubx_baude_rate_config[] = {0xB5,0x62,0x06,0x00,0x14,0x00,0x01,0x00,0x00,0x00,0xD0,0x08,0x00,0x00,0x00,0xC2,0x01,0x00,0x07,0x00,0x03,0x00,0x00,0x00,0x00,0x00,0xC0,0x7E};
-	uint32_t size =  sizeof(ubx_baude_rate_config)/sizeof(ubx_baude_rate_config[0]);
-	memcpy(hgps->GPS_Tx_Buffer,ubx_baude_rate_config,size);
+	  uint16_t header = ((uint16_t)msg[0]GPS_Tx_Buffer,ubx_baude_rate_config,size);
 	if(HAL_UART_Transmit_DMA(hgps->gps_huart,hgps->GPS_Tx_Buffer,size) == HAL_OK)
 	{
 		 while(TX_Cplt != SET);
@@ -843,7 +663,7 @@ void DMA_GNSS_MEM_IRQHandler(GPS_Handle_Typedef *hgps)
 				__HAL_TIM_CLEAR_FLAG(hgps->gps_htim,TIM_FLAG_CC1);
 				hgps->gps_htim->Instance->CNT = 0;
 			}
-			hgps->gps_huart->hdmarx->DmaBaseAddress->IFCR = 0x3FU << hgps->gps_huart->hdmarx->ChannelIndex; // clear all interrupts
+			hgps->gps_huart->hdmarx->DmaBaseAddress->IFCR = 0x3FU gps_huart->hdmarx->ChannelIndex; // clear all interrupts
 			hgps->gps_huart->hdmarx->Instance->CMAR = (uint32_t)hgps->GPS_Rx_Buffer; //reset the pointer
 			hgps->gps_huart->hdmarx->Instance->CNDTR = DMA_RX_BUFFER_SIZE; //set the number of bytes to expect
 			__HAL_UART_ENABLE_IT(hgps->gps_huart, UART_IT_IDLE);
@@ -904,15 +724,7 @@ void USART_GPS_IRQHandler(GPS_Handle_Typedef *hgps)
 		uint32_t temp = hgps->gps_huart->Instance->ISR;
 		temp = hgps->gps_huart->Instance->RDR;
 		(void)temp;
-		/* Case 1: gnss_length < DMA_RX BUFFER SIZE
-		 * 		   disable Periph-Mem stream and
-		 * 		   begin Mem - Mem transfer of known data
-		 *
-		 */
-		//check flag in TIM2
-		if(TIM_IDLE_Timeout == SET)
-		{
-			gnss_length = DMA_RX_BUFFER_SIZE - __HAL_DMA_GET_COUNTER(hgps->gps_huart->hdmarx);
+		/* Case 1: gnss_length gps_huart->hdmarx);
 			//Disable DMA and unlink from UART
 			if(log_gps)
 			{
