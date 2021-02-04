@@ -71,7 +71,7 @@
 \usepackage[final]{listings}
 \usepackage{multirow}
 \usepackage{hhline}
-\usepackage[sorting=nyt,style=apa]{biblatex}
+\usepackage[sorting=nyt,style=apa,uniquename = false,uniquelist = false]{biblatex}
 \addbibresource{thesis.bib}% Syntax for version >= 1.2
 \let\cite\parencite
 %---------------------------------------------------------------------
@@ -319,14 +319,14 @@ The financial assistance of the National Research Foundation (NRF) towards this 
 %---------------------------------------------------------------------
 	\begin{Large}					
 		{\bfseries \mydate\today}
-		\vskip 10mm	
+		\vskip 7mm	
 	\end{Large}
 %---------------------------------------------------------------------
 % Degree	
 %---------------------------------------------------------------------		
 		\degreeabv\ thesis submitted in partial fulfilment of the requirements for the degree of \degre\ in the \dept\ at the \uni
 		
-		\vskip 7mm	
+		\vskip 5mm	
 %---------------------------------------------------------------------
 % Keywords	
 %---------------------------------------------------------------------		
@@ -411,11 +411,11 @@ I, \auth,  hereby:
 %---------------------------------------------------------------------
 % Write abstract here [350 words]
 
-Sea ice in the Antarctic Marginal Ice Zone plays a pivotal role in regulating heat and energy exchange between oceanic and atmospheric systems which drive the global climate. Current understanding of Southern Ocean sea ice dynamics ice is poor with temporal and spatial gaps in critical seasonal data-sets. The lack of in situ environmental data and wave measurement data from the MIZ in the Antarctic region drove the development of UCT’s first generation of in-situ ice-tethered measurement platform as part of a larger UCT project on realistic modeling of the Marginal Ice Zone in the changing Southern Ocean (MISO). This thesis focuses on the firmware development for the device and the design process taken to obtain key measurements for understanding sea ice dynamics and increase sensing capabilities in the Southern Ocean.\par 
+Sea ice in the Antarctic Marginal Ice Zone (MIZ) plays a pivotal role in regulating heat and energy exchange between oceanic and atmospheric systems, which drive global climate. Current understanding of Southern Ocean sea ice dynamics is poor with temporal and spatial gaps in critical seasonal data-sets. The lack of in situ environmental and wave data from the MIZ in the Antarctic region drove the development of UCT’s first generation of in situ ice-tethered measurement platform as part of a larger UCT and NRF SANAP project on realistic modeling of the Marginal Ice Zone in the changing Southern Ocean (MISO). This thesis focuses on the firmware development for the device and the design process taken to obtain key measurements for understanding sea ice dynamics and increasing sensing capabilities in the Southern Ocean.\par 
 
-The buoy was required to survive the Antarctic climate and contained a Global Positioning System to record global coordinates, a temperature sensor, digital barometer and Inertial Measurement Unit to measure waves in ice. Power was supplied to the device by a power supply unit consisting of commercial-grade batteries in series with a temperature-resistant Low Dropout Regulator, and a power sensor to monitor the module. A satellite modem transmitted data through the Iridium satellite network. Finally, flash chips provided permanent storage for the data. The firmware and peripheral driver files were written in C for the STM32L4 ARM-based microcontroller.To optimize the firmware for low power consumption, inactive sensors were placed in power-saving mode and the processor was put to sleep. \par 
+The buoy was required to survive the Antarctic climate and contained a global positioning system, a temperature sensor,a digital barometer and an inertial measurement unit to measure waves in ice. Power was supplied to the device by a power supply unit consisting of commercial-grade batteries in series with a temperature-resistant low dropout regulator, and a power sensor to monitor the module. A satellite modem transmitted data through the Iridium satellite network. Finally, flash chips provided permanent storage for the data. The firmware and peripheral driver files were written in C for an STM32L4 ARM-based microcontroller. To optimise the firmware for low power consumption, inactive sensors were placed in power-saving mode and the processor was put to sleep during periods of no activity. \par 
 
-The first deployment took place during the SCALE winter expedition in July 2019. Two devices were deployed on ice floes to test their performance in remote conditions. However, due to deployment errors, the device failed. A third device was placed on the ship and successfully survived for one week while continuously transmitting GPS coordinates and ambient temperature. The second generation featured subsequent improvements to the mechanical robustness and sensing capabilities of the device, however, Due to the COVID 19 pandemic, subsequent Antarctic expeditions were canceled resulting in the final platform evaluation taking place on land. The device demonstrates a proof of concept for a low-cost, ice-tethered autonomous sensing device however, additional improvements are required to overcome severe bandwidth and power constraints.
+The first device deployment took place during the SCALE winter expedition in July 2019. Two devices were deployed on ice floes to test their performance in remote conditions. However, due to deployment errors, the device failed. A third device was placed on the SA Aghulas ship and successfully survived for one week while continuously transmitting GPS coordinates and ambient temperature. The second generation featured subsequent improvements to the mechanical robustness and sensing capabilities of the device, however, due to the 2020 COVID 19 pandemic, subsequent Antarctic expeditions were canceled resulting in the final platform evaluation taking place on land. The device demonstrates a proof of concept for a low-cost, ice-tethered autonomous sensing device however, additional improvements are required to overcome severe bandwidth and power constraints.
 %---------------------------------------------------------------------
 %	Acknowledgements
 %---------------------------------------------------------------------
@@ -427,21 +427,27 @@ The first deployment took place during the SCALE winter expedition in July 2019.
 % Comment out /nrf macro if unneeded.
 %---------------------------------------------------------------------
 
-The creation of  this work would not be possible without the contributions of the following people:
+The creation of this work would not be possible without the contributions of the following people:
 
 Keith Machuchon for designing the buoy stand and for offering insight into past deployments with the trident buoy.
 
+Do Yeou Ku for developing the circular buffer algorithm and for all her advice which helped guide the development of the firmware into its current form.  Additionally, thank you to Tilen Majarle of \url{https://stm32f4-discovery.net/} whose tutorials and guides helped with the initial stages of firmware development. I would also like to acknowledge the driver code for the MPU6050 IMU written by Adafruit in C++ for the Arduino which provided the basis for the STM32l4 driver code in C.
+ 
 Yusuf Heylen for contributing towards development and integration of the IMU.
 
 Nicholas Bowden for creating the C library for the Flash chips.
 
-Anran Chen for his contribution towards developing a compression algorythm for raw intertial timeseries data.
+Jason Cloete for developing the circuit board for the first prototype of the device.
 
-James Irvine and XXX for their contribution towards testing the current monitor and flash chips.
+Ben Adey for his work on developing a power budget for the system. 
+
+Anran Chen for his contribution towards developing a compression algorithm for raw inertial time-series data.
+
+James Irvine and Hannah Harrison-Saayman for their contribution towards testing the current monitor and flash chips.
 
 Michael Noyce for his work on developing an integrated PCB for future versions of the project.
 
-Mrs Robyn Verrinder and Mr. Justin Pead for designing the prototype circuit boards for the first version of the device.
+Robyn Verrinder and Justin Pead for designing the prototype circuit boards for the first version of the device.
 
 Thank you to my supervisors Robyn Verrinder, Amit Mishra and Marcello Vichi whose insight and wisdom help guide this project to fruition.
 
@@ -451,9 +457,9 @@ Thank you to the UCT-UDE sea ice team for teaching me about the importance of se
 
 Thank you to the UCT mechnatronics lab for giving me the support, assistance and friendships that got me through the long development process. 
 
-To Sasha Gold for always supporting me and helping me when I need it.
+To Sasha Gold for always supporting me and helping me when I need it. To Joseph Miller; your friendship helped lift me up when I was down.
 
-To my family for giving me the strength to undertake this project.
+To my family for supporting me and putting up with rooms and tables filled with cluttered hardware. You all gave me the strength to undertake this project.
 
 Finally, a project would not be complete without coffee and people to drink it with. For that I'd like to thank Charlie Lin for sharing in this journey from start to finish.
 

@@ -170,11 +170,11 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>uniquelist</bcf:key>
-      <bcf:value>minyear</bcf:value>
+      <bcf:value>false</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>uniquename</bcf:key>
-      <bcf:value>init</bcf:value>
+      <bcf:value>false</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>uniqueprimaryauthor</bcf:key>
@@ -399,11 +399,11 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>uniquelist</bcf:key>
-      <bcf:value>minyear</bcf:value>
+      <bcf:value>false</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>uniquename</bcf:key>
-      <bcf:value>init</bcf:value>
+      <bcf:value>false</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>uniqueprimaryauthor</bcf:key>
@@ -624,11 +624,11 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>uniquelist</bcf:key>
-      <bcf:value>minyear</bcf:value>
+      <bcf:value>false</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>uniquename</bcf:key>
-      <bcf:value>init</bcf:value>
+      <bcf:value>false</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>uniqueprimaryauthor</bcf:key>
@@ -2811,11 +2811,11 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">thesis.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="40">parkinson2004southern</bcf:citekey>
     <bcf:citekey order="41">parkinson2004southern</bcf:citekey>
-    <bcf:citekey order="42">deconto2003rapid</bcf:citekey>
-    <bcf:citekey order="43">arrigo2004large</bcf:citekey>
-    <bcf:citekey order="44">parkinson2004southern</bcf:citekey>
+    <bcf:citekey order="42">parkinson2004southern</bcf:citekey>
+    <bcf:citekey order="43">deconto2003rapid</bcf:citekey>
+    <bcf:citekey order="44">arrigo2004large</bcf:citekey>
+    <bcf:citekey order="45">parkinson2004southern</bcf:citekey>
     <bcf:citekey order="45">roach2020antarctic</bcf:citekey>
     <bcf:citekey order="46">vichi2019effects</bcf:citekey>
     <bcf:citekey order="47">vichi2019effects</bcf:citekey>
@@ -2830,76 +2830,80 @@
     <bcf:citekey order="56">barber2005microwave</bcf:citekey>
     <bcf:citekey order="57">Antseaice</bcf:citekey>
     <bcf:citekey order="58">Antseaice</bcf:citekey>
-    <bcf:citekey order="59">barber2005microwave</bcf:citekey>
-    <bcf:citekey order="60">barber2005microwave</bcf:citekey>
+    <bcf:citekey order="59">Antseaice</bcf:citekey>
+    <bcf:citekey order="60">Antseaice</bcf:citekey>
     <bcf:citekey order="61">barber2005microwave</bcf:citekey>
-    <bcf:citekey order="62">MAKSYM2012seaiceextent</bcf:citekey>
-    <bcf:citekey order="63">arrigo2004large</bcf:citekey>
-    <bcf:citekey order="64">alberello2019drift</bcf:citekey>
-    <bcf:citekey order="65">alberello2019drift</bcf:citekey>
+    <bcf:citekey order="62">barber2005microwave</bcf:citekey>
+    <bcf:citekey order="63">barber2005microwave</bcf:citekey>
+    <bcf:citekey order="64">MAKSYM2012seaiceextent</bcf:citekey>
+    <bcf:citekey order="65">arrigo2004large</bcf:citekey>
     <bcf:citekey order="66">alberello2019drift</bcf:citekey>
-    <bcf:citekey order="67">kennicutt2016delivering</bcf:citekey>
-    <bcf:citekey order="68">kennicutt2016delivering</bcf:citekey>
+    <bcf:citekey order="67">alberello2019drift</bcf:citekey>
+    <bcf:citekey order="68">alberello2019drift</bcf:citekey>
     <bcf:citekey order="69">kennicutt2016delivering</bcf:citekey>
-    <bcf:citekey order="70">vichi2019effects</bcf:citekey>
-    <bcf:citekey order="71">vichi2019effects</bcf:citekey>
-    <bcf:citekey order="72">kennicutt2016delivering</bcf:citekey>
-    <bcf:citekey order="73">MAKSYM2012seaiceextent</bcf:citekey>
-    <bcf:citekey order="74">kohout2014storm</bcf:citekey>
-    <bcf:citekey order="75">vichi2019effects</bcf:citekey>
-    <bcf:citekey order="76">turner2017unprecedented</bcf:citekey>
+    <bcf:citekey order="70">kennicutt2016delivering</bcf:citekey>
+    <bcf:citekey order="71">kennicutt2016delivering</bcf:citekey>
+    <bcf:citekey order="72">vichi2019effects</bcf:citekey>
+    <bcf:citekey order="73">vichi2019effects</bcf:citekey>
+    <bcf:citekey order="74">kennicutt2016delivering</bcf:citekey>
+    <bcf:citekey order="75">MAKSYM2012seaiceextent</bcf:citekey>
+    <bcf:citekey order="76">kohout2014storm</bcf:citekey>
     <bcf:citekey order="77">vichi2019effects</bcf:citekey>
-    <bcf:citekey order="78">vichi2019effects</bcf:citekey>
+    <bcf:citekey order="78">turner2017unprecedented</bcf:citekey>
     <bcf:citekey order="79">vichi2019effects</bcf:citekey>
-    <bcf:citekey order="80">kennicutt2019sustained</bcf:citekey>
-    <bcf:citekey order="81">kennicutt2016delivering</bcf:citekey>
-    <bcf:citekey order="82">kennicutt2016delivering</bcf:citekey>
+    <bcf:citekey order="80">vichi2019effects</bcf:citekey>
+    <bcf:citekey order="81">vichi2019effects</bcf:citekey>
+    <bcf:citekey order="82">kennicutt2019sustained</bcf:citekey>
     <bcf:citekey order="83">kennicutt2016delivering</bcf:citekey>
     <bcf:citekey order="84">kennicutt2016delivering</bcf:citekey>
     <bcf:citekey order="85">kennicutt2016delivering</bcf:citekey>
-    <bcf:citekey order="86">kennicutt2019sustained</bcf:citekey>
+    <bcf:citekey order="86">kennicutt2016delivering</bcf:citekey>
     <bcf:citekey order="87">kennicutt2019sustained</bcf:citekey>
-    <bcf:citekey order="88">kennicutt2016delivering</bcf:citekey>
-    <bcf:citekey order="89">turner2017unprecedented</bcf:citekey>
+    <bcf:citekey order="88">kennicutt2019sustained</bcf:citekey>
+    <bcf:citekey order="89">kennicutt2016delivering</bcf:citekey>
+    <bcf:citekey order="90">turner2017unprecedented</bcf:citekey>
     <bcf:citekey order="90">galin2011validation</bcf:citekey>
-    <bcf:citekey order="91">alberello2019drift</bcf:citekey>
-    <bcf:citekey order="92">galin2011validation</bcf:citekey>
-    <bcf:citekey order="93">turner2017unprecedented</bcf:citekey>
-    <bcf:citekey order="94">emery1997satellite</bcf:citekey>
+    <bcf:citekey order="90">alberello2019drift</bcf:citekey>
+    <bcf:citekey order="91">galin2011validation</bcf:citekey>
+    <bcf:citekey order="92">turner2017unprecedented</bcf:citekey>
+    <bcf:citekey order="93">emery1997satellite</bcf:citekey>
+    <bcf:citekey order="94">galin2011validation</bcf:citekey>
     <bcf:citekey order="95">galin2011validation</bcf:citekey>
-    <bcf:citekey order="96">galin2011validation</bcf:citekey>
-    <bcf:citekey order="97">emery1997satellite</bcf:citekey>
-    <bcf:citekey order="98">thomson2012wave</bcf:citekey>
-    <bcf:citekey order="99">swift</bcf:citekey>
-    <bcf:citekey order="100">PLANCK2019102792</bcf:citekey>
-    <bcf:citekey order="101">simbfact</bcf:citekey>
-    <bcf:citekey order="102">thomson2012wave</bcf:citekey>
-    <bcf:citekey order="103">swift</bcf:citekey>
-    <bcf:citekey order="104">PLANCK2019102792</bcf:citekey>
-    <bcf:citekey order="105">simbfact</bcf:citekey>
+    <bcf:citekey order="95">emery1997satellite</bcf:citekey>
+    <bcf:citekey order="96">thomson2012wave</bcf:citekey>
+    <bcf:citekey order="97">swift</bcf:citekey>
+    <bcf:citekey order="98">PLANCK2019102792</bcf:citekey>
+    <bcf:citekey order="99">simbfact</bcf:citekey>
+    <bcf:citekey order="100">thomson2012wave</bcf:citekey>
+    <bcf:citekey order="101">swift</bcf:citekey>
+    <bcf:citekey order="102">PLANCK2019102792</bcf:citekey>
+    <bcf:citekey order="103">simbfact</bcf:citekey>
+    <bcf:citekey order="104">kennicutt2016delivering</bcf:citekey>
+    <bcf:citekey order="105">doble2013wave</bcf:citekey>
     <bcf:citekey order="106">kennicutt2016delivering</bcf:citekey>
-    <bcf:citekey order="107">doble2013wave</bcf:citekey>
-    <bcf:citekey order="108">kennicutt2016delivering</bcf:citekey>
-    <bcf:citekey order="109">kennicutt2016delivering</bcf:citekey>
-    <bcf:citekey order="110">swart2015seasonal</bcf:citekey>
-    <bcf:citekey order="111">swart2020submesoscale</bcf:citekey>
-    <bcf:citekey order="112">alberello2019brief</bcf:citekey>
-    <bcf:citekey order="113">rabault2017measurements</bcf:citekey>
+    <bcf:citekey order="107">kennicutt2016delivering</bcf:citekey>
+    <bcf:citekey order="108">liquidrobot2016wave</bcf:citekey>
+    <bcf:citekey order="108">swart2020submesoscale</bcf:citekey>
+    <bcf:citekey order="109">alberello2019brief</bcf:citekey>
+    <bcf:citekey order="110">rabault2017measurements</bcf:citekey>
+    <bcf:citekey order="111">rabault2019open</bcf:citekey>
+    <bcf:citekey order="112">rabault2019open</bcf:citekey>
+    <bcf:citekey order="113">rabault2019open</bcf:citekey>
     <bcf:citekey order="114">rabault2019open</bcf:citekey>
     <bcf:citekey order="115">rabault2019open</bcf:citekey>
     <bcf:citekey order="116">rabault2019open</bcf:citekey>
     <bcf:citekey order="117">rabault2019open</bcf:citekey>
     <bcf:citekey order="118">rabault2019open</bcf:citekey>
-    <bcf:citekey order="119">rabault2019open</bcf:citekey>
-    <bcf:citekey order="120">rabault2019open</bcf:citekey>
-    <bcf:citekey order="121">rabault2019open</bcf:citekey>
+    <bcf:citekey order="119">kohout2015device</bcf:citekey>
+    <bcf:citekey order="120">kohout2015device</bcf:citekey>
+    <bcf:citekey order="121">kohout2015device</bcf:citekey>
     <bcf:citekey order="122">kohout2015device</bcf:citekey>
     <bcf:citekey order="123">kohout2015device</bcf:citekey>
-    <bcf:citekey order="124">kohout2015device</bcf:citekey>
-    <bcf:citekey order="125">kohout2015device</bcf:citekey>
-    <bcf:citekey order="126">kohout2015device</bcf:citekey>
-    <bcf:citekey order="127">rabault2019open</bcf:citekey>
-    <bcf:citekey order="128">rabault2019open</bcf:citekey>
+    <bcf:citekey order="124">rabault2019open</bcf:citekey>
+    <bcf:citekey order="125">rabault2019open</bcf:citekey>
+    <bcf:citekey order="126">uptempo</bcf:citekey>
+    <bcf:citekey order="127">thomson2012wave</bcf:citekey>
+    <bcf:citekey order="128">trident</bcf:citekey>
     <bcf:citekey order="129">kennicutt2014polar</bcf:citekey>
     <bcf:citekey order="130">kennicutt2016delivering</bcf:citekey>
     <bcf:citekey order="131">kennicutt2016delivering</bcf:citekey>

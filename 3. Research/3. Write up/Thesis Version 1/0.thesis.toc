@@ -8,9 +8,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Introduction}{1}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.1}Background to Investigation}{1}{}%
+\contentsline {section}{\numberline {1.1}Background to investigation}{1}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.2}Problem Statement}{8}{}%
+\contentsline {section}{\numberline {1.2}Problem statement}{8}{}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.2.1}Project Initiation}{9}{}%
 \defcounter {refsection}{0}\relax 
@@ -22,13 +22,13 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.2.2}Scope}{10}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.2.3}Limitations and Constraints}{11}{}%
+\contentsline {subsection}{\numberline {1.2.3}Limitations and constraints}{10}{}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.2.4}Assumptions}{11}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.3}Plan of Development}{12}{}%
+\contentsline {section}{\numberline {1.3}Plan of development}{12}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.4}Report Structure}{13}{}%
+\contentsline {section}{\numberline {1.4}Report structure}{13}{}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {2}Literature Review}{15}{}%
 \defcounter {refsection}{0}\relax 

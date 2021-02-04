@@ -21,67 +21,57 @@
   \datalist[entry]{nyt/global//global/global}
     \entry{ackley_2020_seaice}{article}{}
       \name{author}{11}{}{%
-        {{un=0,uniquepart=base,hash=fa4ce5c78a2c23ba8f719bd651d9afa4}{%
+        {{hash=fa4ce5c78a2c23ba8f719bd651d9afa4}{%
            family={Ackley},
            familyi={A\bibinitperiod},
            given={S.\bibnamedelimi F.},
-           giveni={S\bibinitperiod\bibinitdelim F\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=bb98c612dde8ef1d2ea045c1968db512}{%
+           giveni={S\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=bb98c612dde8ef1d2ea045c1968db512}{%
            family={Stammerjohn},
            familyi={S\bibinitperiod},
            given={S.},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=60c61b26f73b965a45f7b0d35423f3c8}{%
+           giveni={S\bibinitperiod}}}%
+        {{hash=60c61b26f73b965a45f7b0d35423f3c8}{%
            family={Maksym},
            familyi={M\bibinitperiod},
            given={T.},
-           giveni={T\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e44f09a2d84db823a77079697cf1a851}{%
+           giveni={T\bibinitperiod}}}%
+        {{hash=e44f09a2d84db823a77079697cf1a851}{%
            family={Smith},
            familyi={S\bibinitperiod},
            given={M.},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=050a29d3d12c258f3a4f00ad11386fad}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=050a29d3d12c258f3a4f00ad11386fad}{%
            family={Cassano},
            familyi={C\bibinitperiod},
            given={J.},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=09af95d6659ae5d44d52ea049bbb5db1}{%
+           giveni={J\bibinitperiod}}}%
+        {{hash=09af95d6659ae5d44d52ea049bbb5db1}{%
            family={Guest},
            familyi={G\bibinitperiod},
            given={P.},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d1c15b77f8dcaabccfceeea3c36d80d6}{%
+           giveni={P\bibinitperiod}}}%
+        {{hash=d1c15b77f8dcaabccfceeea3c36d80d6}{%
            family={Tison},
            familyi={T\bibinitperiod},
            given={J.-L.},
-           giveni={J\bibinithyphendelim L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=23dddcf8818f5e4c1090261c0d833f91}{%
+           giveni={J\bibinithyphendelim L\bibinitperiod}}}%
+        {{hash=23dddcf8818f5e4c1090261c0d833f91}{%
            family={Delille},
            familyi={D\bibinitperiod},
            given={B.},
-           giveni={B\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=270f2125debc2b2abae29cabfc1fc316}{%
+           giveni={B\bibinitperiod}}}%
+        {{hash=270f2125debc2b2abae29cabfc1fc316}{%
            family={Loose},
            familyi={L\bibinitperiod},
            given={B.},
-           giveni={B\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=11b21604cedc9279ecac0a9a7bce1f91}{%
+           giveni={B\bibinitperiod}}}%
+        {{hash=11b21604cedc9279ecac0a9a7bce1f91}{%
            family={Sedwick},
            familyi={S\bibinitperiod},
            given={P.},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=38026ba4ee6b102b47bf3ffb41325c8f}{%
+           giveni={P\bibinitperiod}}}%
+        {{hash=38026ba4ee6b102b47bf3ffb41325c8f}{%
            family={al.},
            familyi={a\bibinitperiod},
            prefix={et},
@@ -115,64 +105,58 @@
       \endverb
     \endentry
     \entry{alberello2019drift}{article}{}
-      \name{author}{8}{ul=2}{%
-        {{un=0,uniquepart=base,hash=1f41128a44870dcaeeca940433b42242}{%
+      \name{author}{8}{}{%
+        {{hash=1f41128a44870dcaeeca940433b42242}{%
            family={Alberello},
            familyi={A\bibinitperiod},
            given={Alberto},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=1c95e1d235b74cac279f73f562925dc5}{%
+           giveni={A\bibinitperiod}}}%
+        {{hash=1c95e1d235b74cac279f73f562925dc5}{%
            family={Bennetts},
            familyi={B\bibinitperiod},
            given={Luke},
-           giveni={L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=2c120a86b83aa0a5b08e1dffd95d26d7}{%
+           giveni={L\bibinitperiod}}}%
+        {{hash=2c120a86b83aa0a5b08e1dffd95d26d7}{%
            family={Heil},
            familyi={H\bibinitperiod},
            given={Petra},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=f215ec29de971cdb397e736c4428ebfd}{%
+           giveni={P\bibinitperiod}}}%
+        {{hash=f215ec29de971cdb397e736c4428ebfd}{%
            family={Eayrs},
            familyi={E\bibinitperiod},
            given={Clare},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=89fba3e6e5969e08f095c08eed06948e}{%
+           giveni={C\bibinitperiod}}}%
+        {{hash=89fba3e6e5969e08f095c08eed06948e}{%
            family={Vichi},
            familyi={V\bibinitperiod},
            given={Marcello},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a4d83fa2974ca27268d2f25c0cfadc18}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=a4d83fa2974ca27268d2f25c0cfadc18}{%
            family={MacHutchon},
            familyi={M\bibinitperiod},
            given={Keith},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=bb58da8275193ce8f4e08d9bfe86ab1d}{%
+           giveni={K\bibinitperiod}}}%
+        {{hash=bb58da8275193ce8f4e08d9bfe86ab1d}{%
            family={Onorato},
            familyi={O\bibinitperiod},
            given={Miguel},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=101bef366904fae9e18a4a5532356f13}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=101bef366904fae9e18a4a5532356f13}{%
            family={Toffoli},
            familyi={T\bibinitperiod},
            given={Alessandro},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
+           giveni={A\bibinitperiod}}}%
       }
-      \strng{namehash}{0c4a8eee9d303279ad6854546b74b2d1}
+      \strng{namehash}{7f80649007241781f0a461df13c7732f}
       \strng{fullhash}{03d9e90e5f888d88d85acece96f742bd}
       \strng{bibnamehash}{03d9e90e5f888d88d85acece96f742bd}
       \strng{authorbibnamehash}{03d9e90e5f888d88d85acece96f742bd}
-      \strng{authornamehash}{0c4a8eee9d303279ad6854546b74b2d1}
+      \strng{authornamehash}{7f80649007241781f0a461df13c7732f}
       \strng{authorfullhash}{03d9e90e5f888d88d85acece96f742bd}
+      \field{extraname}{1}
       \field{sortinit}{A}
       \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradate}{1}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \true{uniqueprimaryauthor}
@@ -184,54 +168,46 @@
     \endentry
     \entry{albarello2020drift}{article}{}
       \name{author}{8}{}{%
-        {{un=0,uniquepart=base,hash=1f41128a44870dcaeeca940433b42242}{%
+        {{hash=1f41128a44870dcaeeca940433b42242}{%
            family={Alberello},
            familyi={A\bibinitperiod},
            given={Alberto},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=1c95e1d235b74cac279f73f562925dc5}{%
+           giveni={A\bibinitperiod}}}%
+        {{hash=1c95e1d235b74cac279f73f562925dc5}{%
            family={Bennetts},
            familyi={B\bibinitperiod},
            given={Luke},
-           giveni={L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=2c120a86b83aa0a5b08e1dffd95d26d7}{%
+           giveni={L\bibinitperiod}}}%
+        {{hash=2c120a86b83aa0a5b08e1dffd95d26d7}{%
            family={Heil},
            familyi={H\bibinitperiod},
            given={Petra},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=f215ec29de971cdb397e736c4428ebfd}{%
+           giveni={P\bibinitperiod}}}%
+        {{hash=f215ec29de971cdb397e736c4428ebfd}{%
            family={Eayrs},
            familyi={E\bibinitperiod},
            given={Clare},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=89fba3e6e5969e08f095c08eed06948e}{%
+           giveni={C\bibinitperiod}}}%
+        {{hash=89fba3e6e5969e08f095c08eed06948e}{%
            family={Vichi},
            familyi={V\bibinitperiod},
            given={Marcello},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a4d83fa2974ca27268d2f25c0cfadc18}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=a4d83fa2974ca27268d2f25c0cfadc18}{%
            family={MacHutchon},
            familyi={M\bibinitperiod},
            given={Keith},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=bb58da8275193ce8f4e08d9bfe86ab1d}{%
+           giveni={K\bibinitperiod}}}%
+        {{hash=bb58da8275193ce8f4e08d9bfe86ab1d}{%
            family={Onorato},
            familyi={O\bibinitperiod},
            given={Miguel},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=101bef366904fae9e18a4a5532356f13}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=101bef366904fae9e18a4a5532356f13}{%
            family={Toffoli},
            familyi={T\bibinitperiod},
            given={Alessandro},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
+           giveni={A\bibinitperiod}}}%
       }
       \strng{namehash}{7f80649007241781f0a461df13c7732f}
       \strng{fullhash}{03d9e90e5f888d88d85acece96f742bd}
@@ -239,6 +215,7 @@
       \strng{authorbibnamehash}{03d9e90e5f888d88d85acece96f742bd}
       \strng{authornamehash}{7f80649007241781f0a461df13c7732f}
       \strng{authorfullhash}{03d9e90e5f888d88d85acece96f742bd}
+      \field{extraname}{2}
       \field{sortinit}{A}
       \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
       \field{extradatescope}{labelyear}
@@ -269,58 +246,53 @@
       \keyw{sea ice,marginal ice zone,drift,pancake ice,Antarctic,buoy}
     \endentry
     \entry{alberello2019brief}{article}{}
-      \name{author}{7}{ul=2}{%
-        {{un=0,uniquepart=base,hash=1f41128a44870dcaeeca940433b42242}{%
+      \name{author}{7}{}{%
+        {{hash=1f41128a44870dcaeeca940433b42242}{%
            family={Alberello},
            familyi={A\bibinitperiod},
            given={Alberto},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=bb58da8275193ce8f4e08d9bfe86ab1d}{%
+           giveni={A\bibinitperiod}}}%
+        {{hash=bb58da8275193ce8f4e08d9bfe86ab1d}{%
            family={Onorato},
            familyi={O\bibinitperiod},
            given={Miguel},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=1c95e1d235b74cac279f73f562925dc5}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=1c95e1d235b74cac279f73f562925dc5}{%
            family={Bennetts},
            familyi={B\bibinitperiod},
            given={Luke},
-           giveni={L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=89fba3e6e5969e08f095c08eed06948e}{%
+           giveni={L\bibinitperiod}}}%
+        {{hash=89fba3e6e5969e08f095c08eed06948e}{%
            family={Vichi},
            familyi={V\bibinitperiod},
            given={Marcello},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=f215ec29de971cdb397e736c4428ebfd}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=f215ec29de971cdb397e736c4428ebfd}{%
            family={Eayrs},
            familyi={E\bibinitperiod},
            given={Clare},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a4d83fa2974ca27268d2f25c0cfadc18}{%
+           giveni={C\bibinitperiod}}}%
+        {{hash=a4d83fa2974ca27268d2f25c0cfadc18}{%
            family={MacHutchon},
            familyi={M\bibinitperiod},
            given={Keith},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=101bef366904fae9e18a4a5532356f13}{%
+           giveni={K\bibinitperiod}}}%
+        {{hash=101bef366904fae9e18a4a5532356f13}{%
            family={Toffoli},
            familyi={T\bibinitperiod},
            given={Alessandro},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
+           giveni={A\bibinitperiod}}}%
       }
-      \strng{namehash}{de3438c8f082ab2e268af9647dfa20a7}
+      \strng{namehash}{7f80649007241781f0a461df13c7732f}
       \strng{fullhash}{2240cc381281fbdfe44c3c4e7614af5c}
       \strng{bibnamehash}{2240cc381281fbdfe44c3c4e7614af5c}
       \strng{authorbibnamehash}{2240cc381281fbdfe44c3c4e7614af5c}
-      \strng{authornamehash}{de3438c8f082ab2e268af9647dfa20a7}
+      \strng{authornamehash}{7f80649007241781f0a461df13c7732f}
       \strng{authorfullhash}{2240cc381281fbdfe44c3c4e7614af5c}
+      \field{extraname}{3}
       \field{sortinit}{A}
       \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradate}{2}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \true{uniqueprimaryauthor}
@@ -334,18 +306,16 @@
     \endentry
     \entry{arrigo2004large}{article}{}
       \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=969422640966fe8954cd9b4a9f386885}{%
+        {{hash=969422640966fe8954cd9b4a9f386885}{%
            family={Arrigo},
            familyi={A\bibinitperiod},
            given={Kevin\bibnamedelima R},
-           giveni={K\bibinitperiod\bibinitdelim R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=98e3ec897ddcc16df4fd9ad7cfeea0fa}{%
+           giveni={K\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=98e3ec897ddcc16df4fd9ad7cfeea0fa}{%
            family={Thomas},
            familyi={T\bibinitperiod},
            given={David\bibnamedelima N},
-           giveni={D\bibinitperiod\bibinitdelim N\bibinitperiod},
-           givenun=0}}%
+           giveni={D\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Cambridge University Press}%
@@ -373,24 +343,21 @@
     \endentry
     \entry{awtrey2002environmental}{misc}{}
       \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=3103d247044ecaed8f626f09600ade9d}{%
+        {{hash=3103d247044ecaed8f626f09600ade9d}{%
            family={Awtrey},
            familyi={A\bibinitperiod},
            given={James\bibnamedelima D},
-           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d141c76b70a05606cf6fe10d08d78c76}{%
+           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=d141c76b70a05606cf6fe10d08d78c76}{%
            family={Kurkowski},
            familyi={K\bibinitperiod},
            given={Hal},
-           giveni={H\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=307eb33aadb703fe8706df9a9ca9c2a0}{%
+           giveni={H\bibinitperiod}}}%
+        {{hash=307eb33aadb703fe8706df9a9ca9c2a0}{%
            family={Lee},
            familyi={L\bibinitperiod},
            given={Robert\bibnamedelima D},
-           giveni={R\bibinitperiod\bibinitdelim D\bibinitperiod},
-           givenun=0}}%
+           giveni={R\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Google Patents}%
@@ -415,12 +382,11 @@
     \endentry
     \entry{barber2005microwave}{article}{}
       \name{author}{1}{}{%
-        {{un=1,uniquepart=given,hash=c566ba753cb6fa95269c3ad119891690}{%
+        {{hash=c566ba753cb6fa95269c3ad119891690}{%
            family={Barber},
            familyi={B\bibinitperiod},
            given={David\bibnamedelima G},
-           giveni={D\bibinitperiod\bibinitdelim G\bibinitperiod},
-           givenun=1}}%
+           giveni={D\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
       }
       \strng{namehash}{c566ba753cb6fa95269c3ad119891690}
       \strng{fullhash}{c566ba753cb6fa95269c3ad119891690}
@@ -443,18 +409,16 @@
     \endentry
     \entry{barber1948generation}{article}{}
       \name{author}{2}{}{%
-        {{un=1,uniquepart=given,hash=4b92f7479fe1b81eba4965ede69e9a83}{%
+        {{hash=4b92f7479fe1b81eba4965ede69e9a83}{%
            family={Barber},
            familyi={B\bibinitperiod},
            given={Norman\bibnamedelima Frederick},
-           giveni={N\bibinitperiod\bibinitdelim F\bibinitperiod},
-           givenun=1}}%
-        {{un=0,uniquepart=base,hash=904b38d4b72f672e261db40801b86453}{%
+           giveni={N\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=904b38d4b72f672e261db40801b86453}{%
            family={Ursell},
            familyi={U\bibinitperiod},
            given={Fritz},
-           giveni={F\bibinitperiod},
-           givenun=0}}%
+           giveni={F\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {The Royal Society London}%
@@ -481,30 +445,26 @@
     \endentry
     \entry{bonvoisin2017source}{article}{}
       \name{author}{4}{}{%
-        {{un=0,uniquepart=base,hash=76e37f6bec4591572395f11c276f30c4}{%
+        {{hash=76e37f6bec4591572395f11c276f30c4}{%
            family={Bonvoisin},
            familyi={B\bibinitperiod},
            given={Jérémy},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=1de77e262e82a58b1f6969b1f81b3c68}{%
+           giveni={J\bibinitperiod}}}%
+        {{hash=1de77e262e82a58b1f6969b1f81b3c68}{%
            family={Mies},
            familyi={M\bibinitperiod},
            given={Robert},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a33056ca5d0eeb73920f191c50522b15}{%
+           giveni={R\bibinitperiod}}}%
+        {{hash=a33056ca5d0eeb73920f191c50522b15}{%
            family={Boujut},
            familyi={B\bibinitperiod},
            given={Jean-François},
-           giveni={J\bibinithyphendelim F\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=bf61f6313828950394e1f55900234929}{%
+           giveni={J\bibinithyphendelim F\bibinitperiod}}}%
+        {{hash=bf61f6313828950394e1f55900234929}{%
            family={Stark},
            familyi={S\bibinitperiod},
            given={Rainer},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
+           giveni={R\bibinitperiod}}}%
       }
       \strng{namehash}{69b15f97a625a29755d903b22fac328d}
       \strng{fullhash}{0ea65012d9539810c5d95f74cfff5456}
@@ -544,12 +504,11 @@
     \endentry
     \entry{icedefinition1992}{inbook}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=12810b7399ab4139f78a99c11537c9f9}{%
+        {{hash=12810b7399ab4139f78a99c11537c9f9}{%
            family={Carsey},
            familyi={C\bibinitperiod},
            given={Frank\bibnamedelima D.},
-           giveni={F\bibinitperiod\bibinitdelim D\bibinitperiod},
-           givenun=0}}%
+           giveni={F\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {American Geophysical Union (AGU)}%
@@ -588,30 +547,26 @@
     \endentry
     \entry{chen2009accelerated}{article}{}
       \name{author}{4}{}{%
-        {{un=0,uniquepart=base,hash=b21ee74c41e529d98dd0cedf2ccd1d68}{%
+        {{hash=b21ee74c41e529d98dd0cedf2ccd1d68}{%
            family={Chen},
            familyi={C\bibinitperiod},
            given={JL},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=f0f66252ab9b9d3e2633c5f9fb1d521b}{%
+           giveni={J\bibinitperiod}}}%
+        {{hash=f0f66252ab9b9d3e2633c5f9fb1d521b}{%
            family={Wilson},
            familyi={W\bibinitperiod},
            given={Clark\bibnamedelima R},
-           giveni={C\bibinitperiod\bibinitdelim R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=c5c7ff03d830cc8af285b942382a3936}{%
+           giveni={C\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=c5c7ff03d830cc8af285b942382a3936}{%
            family={Blankenship},
            familyi={B\bibinitperiod},
            given={D},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d2322cd60717b84a9b357c3478d16037}{%
+           giveni={D\bibinitperiod}}}%
+        {{hash=d2322cd60717b84a9b357c3478d16037}{%
            family={Tapley},
            familyi={T\bibinitperiod},
            given={Byron\bibnamedelima D},
-           giveni={B\bibinitperiod\bibinitdelim D\bibinitperiod},
-           givenun=0}}%
+           giveni={B\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Nature Publishing Group}%
@@ -639,24 +594,21 @@
     \endentry
     \entry{childs2000review}{article}{}
       \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=fb89329327e4e16892362f353b15f134}{%
+        {{hash=fb89329327e4e16892362f353b15f134}{%
            family={Childs},
            familyi={C\bibinitperiod},
            given={Peter\bibnamedelima RN},
-           giveni={P\bibinitperiod\bibinitdelim R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=f1e6af4d58051d8180437bbf5c80b422}{%
+           giveni={P\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=f1e6af4d58051d8180437bbf5c80b422}{%
            family={Greenwood},
            familyi={G\bibinitperiod},
            given={JR},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=923013037f4182be9d9538649776750c}{%
+           giveni={J\bibinitperiod}}}%
+        {{hash=923013037f4182be9d9538649776750c}{%
            family={Long},
            familyi={L\bibinitperiod},
            given={CA},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
+           giveni={C\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {AIP}%
@@ -684,42 +636,36 @@
     \endentry
     \entry{coon2007arctic}{article}{}
       \name{author}{6}{}{%
-        {{un=0,uniquepart=base,hash=e94ba30c6f59b95c414b4069182e79ee}{%
+        {{hash=e94ba30c6f59b95c414b4069182e79ee}{%
            family={Coon},
            familyi={C\bibinitperiod},
            given={Max},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=820a841eae0d1e589f93c1989d622f1d}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=820a841eae0d1e589f93c1989d622f1d}{%
            family={Kwok},
            familyi={K\bibinitperiod},
            given={Ron},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=c7dc132770ce70c40b2c06d2c7a83282}{%
+           giveni={R\bibinitperiod}}}%
+        {{hash=c7dc132770ce70c40b2c06d2c7a83282}{%
            family={Levy},
            familyi={L\bibinitperiod},
            given={Gad},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=ee21a1990a9ed2fdc96ccb9180a0195c}{%
+           giveni={G\bibinitperiod}}}%
+        {{hash=ee21a1990a9ed2fdc96ccb9180a0195c}{%
            family={Pruis},
            familyi={P\bibinitperiod},
            given={Matthew},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=99f0892a9dd6ab2ae14f1f368815f4b8}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=99f0892a9dd6ab2ae14f1f368815f4b8}{%
            family={Schreyer},
            familyi={S\bibinitperiod},
            given={Howard},
-           giveni={H\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=628e44a1246865c07665096b8d061018}{%
+           giveni={H\bibinitperiod}}}%
+        {{hash=628e44a1246865c07665096b8d061018}{%
            family={Sulsky},
            familyi={S\bibinitperiod},
            given={Deborah},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
+           giveni={D\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Wiley Online Library}%
@@ -745,24 +691,21 @@
     \endentry
     \entry{coon1974modeling}{article}{}
       \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=79a4f45e018fb44114e9504e228e6421}{%
+        {{hash=79a4f45e018fb44114e9504e228e6421}{%
            family={Coon},
            familyi={C\bibinitperiod},
            given={MD},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=83bc30702420dbf6202832b7c3791a32}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=83bc30702420dbf6202832b7c3791a32}{%
            family={Maykut},
            familyi={M\bibinitperiod},
            given={GA},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e615d9af5070849fc0f8b9c187d2552f}{%
+           giveni={G\bibinitperiod}}}%
+        {{hash=e615d9af5070849fc0f8b9c187d2552f}{%
            family={Pritchard},
            familyi={P\bibinitperiod},
            given={RS},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
+           giveni={R\bibinitperiod}}}%
       }
       \strng{namehash}{fdbc6644c2a4da83e25f2011553ddce2}
       \strng{fullhash}{8d3f07eb965b8a963fe4bd508bf45b75}
@@ -783,54 +726,46 @@
     \endentry
     \entry{DeSanti2018OceanWave}{article}{}
       \name{author}{8}{}{%
-        {{un=0,uniquepart=base,hash=5ca870c3409eae2b07f6504a78ae497d}{%
+        {{hash=5ca870c3409eae2b07f6504a78ae497d}{%
            family={De\bibnamedelima Santi},
            familyi={D\bibinitperiod\bibinitdelim S\bibinitperiod},
            given={Francesca},
-           giveni={F\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=f641a424a4c0c1cb2b299b73251f078b}{%
+           giveni={F\bibinitperiod}}}%
+        {{hash=f641a424a4c0c1cb2b299b73251f078b}{%
            family={De\bibnamedelima Carolis},
            familyi={D\bibinitperiod\bibinitdelim C\bibinitperiod},
            given={Giacomo},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=fcb375520f12875137934f1596db6f59}{%
+           giveni={G\bibinitperiod}}}%
+        {{hash=fcb375520f12875137934f1596db6f59}{%
            family={Olla},
            familyi={O\bibinitperiod},
            given={Piero},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d11ea6706a1c8f641f15ee6440de5e30}{%
+           giveni={P\bibinitperiod}}}%
+        {{hash=d11ea6706a1c8f641f15ee6440de5e30}{%
            family={Doble},
            familyi={D\bibinitperiod},
            given={Martin},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=93c9ed9a8e6398130521b40389871ee1}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=93c9ed9a8e6398130521b40389871ee1}{%
            family={Cheng},
            familyi={C\bibinitperiod},
            given={Sukun},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=b3fe7a24db0e244a881e73b8c85ebd26}{%
+           giveni={S\bibinitperiod}}}%
+        {{hash=b3fe7a24db0e244a881e73b8c85ebd26}{%
            family={Shen},
            familyi={S\bibinitperiod},
            given={Hayley\bibnamedelima H.},
-           giveni={H\bibinitperiod\bibinitdelim H\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=41c2a21337a6a6c59c1f5f57e471c2e9}{%
+           giveni={H\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=41c2a21337a6a6c59c1f5f57e471c2e9}{%
            family={Wadhams},
            familyi={W\bibinitperiod},
            given={Peter},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a72b9b84115dc7135f1fdb325c6e3cf8}{%
+           giveni={P\bibinitperiod}}}%
+        {{hash=a72b9b84115dc7135f1fdb325c6e3cf8}{%
            family={Thomson},
            familyi={T\bibinitperiod},
            given={Jim},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
+           giveni={J\bibinitperiod}}}%
       }
       \strng{namehash}{061394bd4bb8cc2a5064a656fd4b101e}
       \strng{fullhash}{8f807c866a3695da21e45e82f4d706d0}
@@ -869,18 +804,16 @@
     \endentry
     \entry{deconto2003rapid}{article}{}
       \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=1582dcfa3ff34a48f0df27e9aaacef81}{%
+        {{hash=1582dcfa3ff34a48f0df27e9aaacef81}{%
            family={DeConto},
            familyi={D\bibinitperiod},
            given={Robert\bibnamedelima M},
-           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=eeca5ef1bad0358c9a2c5521967fce47}{%
+           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=eeca5ef1bad0358c9a2c5521967fce47}{%
            family={Pollard},
            familyi={P\bibinitperiod},
            given={David},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
+           giveni={D\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Nature Publishing Group}%
@@ -909,18 +842,16 @@
     \endentry
     \entry{deconto2016contribution}{article}{}
       \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=1582dcfa3ff34a48f0df27e9aaacef81}{%
+        {{hash=1582dcfa3ff34a48f0df27e9aaacef81}{%
            family={DeConto},
            familyi={D\bibinitperiod},
            given={Robert\bibnamedelima M},
-           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=eeca5ef1bad0358c9a2c5521967fce47}{%
+           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=eeca5ef1bad0358c9a2c5521967fce47}{%
            family={Pollard},
            familyi={P\bibinitperiod},
            given={David},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
+           giveni={D\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Nature Publishing Group}%
@@ -949,18 +880,16 @@
     \endentry
     \entry{doble2013wave}{article}{}
       \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=5d82aee6671e52da3a45b432baecd23a}{%
+        {{hash=5d82aee6671e52da3a45b432baecd23a}{%
            family={Doble},
            familyi={D\bibinitperiod},
            given={Martin\bibnamedelima J},
-           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e4610b163d4d1e32aae5c0555cc3c99b}{%
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=e4610b163d4d1e32aae5c0555cc3c99b}{%
            family={Bidlot},
            familyi={B\bibinitperiod},
            given={Jean-Raymond},
-           giveni={J\bibinithyphendelim R\bibinitperiod},
-           givenun=0}}%
+           giveni={J\bibinithyphendelim R\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Elsevier}%
@@ -987,66 +916,56 @@
     \endentry
     \entry{doble2017robust}{article}{}
       \name{author}{10}{}{%
-        {{un=0,uniquepart=base,hash=5d82aee6671e52da3a45b432baecd23a}{%
+        {{hash=5d82aee6671e52da3a45b432baecd23a}{%
            family={Doble},
            familyi={D\bibinitperiod},
            given={Martin\bibnamedelima J},
-           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=66d0e293c82f7414846a43e6dfa7f9f0}{%
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=66d0e293c82f7414846a43e6dfa7f9f0}{%
            family={Wilkinson},
            familyi={W\bibinitperiod},
            given={Jeremy\bibnamedelima P},
-           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=881bf8a60c5f68b35068c34b00dc163b}{%
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=881bf8a60c5f68b35068c34b00dc163b}{%
            family={Valcic},
            familyi={V\bibinitperiod},
            given={Lovro},
-           giveni={L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=4c4e540f6f1d616aae54cc3cfd2dbc18}{%
+           giveni={L\bibinitperiod}}}%
+        {{hash=4c4e540f6f1d616aae54cc3cfd2dbc18}{%
            family={Robst},
            familyi={R\bibinitperiod},
            given={Jeremy},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=b9c8a9293e3c918e06bcab58c4abc6bb}{%
+           giveni={J\bibinitperiod}}}%
+        {{hash=b9c8a9293e3c918e06bcab58c4abc6bb}{%
            family={Tait},
            familyi={T\bibinitperiod},
            given={Andrew},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=b53b079e1677461ebd64d7d8e9f3e1bd}{%
+           giveni={A\bibinitperiod}}}%
+        {{hash=b53b079e1677461ebd64d7d8e9f3e1bd}{%
            family={Preston},
            familyi={P\bibinitperiod},
            given={Mark},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e4610b163d4d1e32aae5c0555cc3c99b}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=e4610b163d4d1e32aae5c0555cc3c99b}{%
            family={Bidlot},
            familyi={B\bibinitperiod},
            given={Jean-Raymond},
-           giveni={J\bibinithyphendelim R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=7599c9e3a5d9c718d463277a7c59598c}{%
+           giveni={J\bibinithyphendelim R\bibinitperiod}}}%
+        {{hash=7599c9e3a5d9c718d463277a7c59598c}{%
            family={Hwang},
            familyi={H\bibinitperiod},
            given={Byongjun},
-           giveni={B\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=26ac0bb063492a58d69bd38d3517ad46}{%
+           giveni={B\bibinitperiod}}}%
+        {{hash=26ac0bb063492a58d69bd38d3517ad46}{%
            family={Maksym},
            familyi={M\bibinitperiod},
            given={Ted},
-           giveni={T\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=41c2a21337a6a6c59c1f5f57e471c2e9}{%
+           giveni={T\bibinitperiod}}}%
+        {{hash=41c2a21337a6a6c59c1f5f57e471c2e9}{%
            family={Wadhams},
            familyi={W\bibinitperiod},
            given={Peter},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
+           giveni={P\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {University of California Press}%
@@ -1071,12 +990,11 @@
     \endentry
     \entry{earle1996nondirectional}{article}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=2277d44d8bca6a1fc1c1190d0dfb8293}{%
+        {{hash=2277d44d8bca6a1fc1c1190d0dfb8293}{%
            family={Earle},
            familyi={E\bibinitperiod},
            given={Marshall\bibnamedelima D},
-           giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod},
-           givenun=0}}%
+           giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
       }
       \strng{namehash}{2277d44d8bca6a1fc1c1190d0dfb8293}
       \strng{fullhash}{2277d44d8bca6a1fc1c1190d0dfb8293}
@@ -1099,18 +1017,16 @@
     \endentry
     \entry{eaton1997micromachined}{article}{}
       \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=a9c9e41c7388220f37efa4459c743f8d}{%
+        {{hash=a9c9e41c7388220f37efa4459c743f8d}{%
            family={Eaton},
            familyi={E\bibinitperiod},
            given={William\bibnamedelima P},
-           giveni={W\bibinitperiod\bibinitdelim P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=43bbdbf0c4bd164dacbb96ac81370465}{%
+           giveni={W\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=43bbdbf0c4bd164dacbb96ac81370465}{%
            family={Smith},
            familyi={S\bibinitperiod},
            given={James\bibnamedelima H},
-           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
-           givenun=0}}%
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {IOP Publishing}%
@@ -1138,24 +1054,21 @@
     \endentry
     \entry{emery1997satellite}{article}{}
       \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=d07754a3d5d85b00fee0f6cea709cee5}{%
+        {{hash=d07754a3d5d85b00fee0f6cea709cee5}{%
            family={Emery},
            familyi={E\bibinitperiod},
            given={WJ},
-           giveni={W\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=6e8663ee4ba505a134fe9976e882d663}{%
+           giveni={W\bibinitperiod}}}%
+        {{hash=6e8663ee4ba505a134fe9976e882d663}{%
            family={Fowler},
            familyi={F\bibinitperiod},
            given={C\bibnamedelima Wo},
-           giveni={C\bibinitperiod\bibinitdelim W\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=7141a320a17056a51c28951ecdd156b3}{%
+           giveni={C\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=7141a320a17056a51c28951ecdd156b3}{%
            family={Maslanik},
            familyi={M\bibinitperiod},
            given={JA},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
+           giveni={J\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Wiley Online Library}%
@@ -1183,36 +1096,31 @@
     \endentry
     \entry{galin2011validation}{article}{}
       \name{author}{5}{}{%
-        {{un=0,uniquepart=base,hash=8bda8bda0f853936633f16860d56b7e4}{%
+        {{hash=8bda8bda0f853936633f16860d56b7e4}{%
            family={Galin},
            familyi={G\bibinitperiod},
            given={Natalia},
-           giveni={N\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=83c146f4815b1c13d7f2b69b39948137}{%
+           giveni={N\bibinitperiod}}}%
+        {{hash=83c146f4815b1c13d7f2b69b39948137}{%
            family={Worby},
            familyi={W\bibinitperiod},
            given={Anthony},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=9193741d954b0c20a5612838561b4067}{%
+           giveni={A\bibinitperiod}}}%
+        {{hash=9193741d954b0c20a5612838561b4067}{%
            family={Markus},
            familyi={M\bibinitperiod},
            given={Thorsten},
-           giveni={T\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=4873b018c6562a68ddcd9a2d7d7480fd}{%
+           giveni={T\bibinitperiod}}}%
+        {{hash=4873b018c6562a68ddcd9a2d7d7480fd}{%
            family={Leuschen},
            familyi={L\bibinitperiod},
            given={Carl},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=8495010013dc63a6b7d35f3e97d3e4e4}{%
+           giveni={C\bibinitperiod}}}%
+        {{hash=8495010013dc63a6b7d35f3e97d3e4e4}{%
            family={Gogineni},
            familyi={G\bibinitperiod},
            given={Prasad},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
+           giveni={P\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {IEEE}%
@@ -1239,12 +1147,11 @@
     \endentry
     \entry{galin2012measuring}{thesis}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=c0f4e47af18b54162ca9935b3e3f1461}{%
+        {{hash=c0f4e47af18b54162ca9935b3e3f1461}{%
            family={Galin},
            familyi={G\bibinitperiod},
            given={Natalie},
-           giveni={N\bibinitperiod},
-           givenun=0}}%
+           giveni={N\bibinitperiod}}}%
       }
       \list{institution}{1}{%
         {University of Tasmania}%
@@ -1267,12 +1174,11 @@
     \endentry
     \entry{IEE_STD_SOFTCYCLE}{article}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=db652eb2155a527b33978761a919688c}{%
+        {{hash=db652eb2155a527b33978761a919688c}{%
            family={Group},
            familyi={G\bibinitperiod},
            given={IEEE\bibnamedelima Working},
-           giveni={I\bibinitperiod\bibinitdelim W\bibinitperiod},
-           givenun=0}}%
+           giveni={I\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
       }
       \strng{namehash}{db652eb2155a527b33978761a919688c}
       \strng{fullhash}{db652eb2155a527b33978761a919688c}
@@ -1298,60 +1204,51 @@
     \endentry
     \entry{guimaraes2018surface}{article}{}
       \name{author}{9}{}{%
-        {{un=0,uniquepart=base,hash=c60d685d66a0702948b7ceee5cd5d84d}{%
+        {{hash=c60d685d66a0702948b7ceee5cd5d84d}{%
            family={Guimarães},
            familyi={G\bibinitperiod},
            given={Pedro\bibnamedelima Veras},
-           giveni={P\bibinitperiod\bibinitdelim V\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a271c9e5fc161c3bd1b14bd75eb848df}{%
+           giveni={P\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=a271c9e5fc161c3bd1b14bd75eb848df}{%
            family={Ardhuin},
            familyi={A\bibinitperiod},
            given={Fabrice},
-           giveni={F\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=19d7df1fb93fb36727a88eb47c7919c6}{%
+           giveni={F\bibinitperiod}}}%
+        {{hash=19d7df1fb93fb36727a88eb47c7919c6}{%
            family={Sutherland},
            familyi={S\bibinitperiod},
            given={Peter},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=ddbb2d9cd93d15bd68da9d27ede514de}{%
+           giveni={P\bibinitperiod}}}%
+        {{hash=ddbb2d9cd93d15bd68da9d27ede514de}{%
            family={Accensi},
            familyi={A\bibinitperiod},
            given={Mickael},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=cffa4c8ceb75f02c5d8916781f5e14b9}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=cffa4c8ceb75f02c5d8916781f5e14b9}{%
            family={Hamon},
            familyi={H\bibinitperiod},
            given={Michel},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=084e576c62cc7928680b1b6037178361}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=084e576c62cc7928680b1b6037178361}{%
            family={Pérignon},
            familyi={P\bibinitperiod},
            given={Yves},
-           giveni={Y\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a72b9b84115dc7135f1fdb325c6e3cf8}{%
+           giveni={Y\bibinitperiod}}}%
+        {{hash=a72b9b84115dc7135f1fdb325c6e3cf8}{%
            family={Thomson},
            familyi={T\bibinitperiod},
            given={Jim},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=34cb94660da6d03b611966e836a303c3}{%
+           giveni={J\bibinitperiod}}}%
+        {{hash=34cb94660da6d03b611966e836a303c3}{%
            family={Benetazzo},
            familyi={B\bibinitperiod},
            given={Alvise},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=6199f5e8559c25d526cd0400fd012100}{%
+           giveni={A\bibinitperiod}}}%
+        {{hash=6199f5e8559c25d526cd0400fd012100}{%
            family={Ferrant},
            familyi={F\bibinitperiod},
            given={Pierre},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
+           giveni={P\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Copernicus GmbH}%
@@ -1379,12 +1276,11 @@
     \endentry
     \entry{hibler1979dynamic}{article}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=8ab7b42c3b42ba9a5a7c795649614921}{%
+        {{hash=8ab7b42c3b42ba9a5a7c795649614921}{%
            family={Hibler\bibnamedelima III},
            familyi={H\bibinitperiod\bibinitdelim I\bibinitperiod},
            given={WD},
-           giveni={W\bibinitperiod},
-           givenun=0}}%
+           giveni={W\bibinitperiod}}}%
       }
       \strng{namehash}{8ab7b42c3b42ba9a5a7c795649614921}
       \strng{fullhash}{8ab7b42c3b42ba9a5a7c795649614921}
@@ -1409,30 +1305,26 @@
     \endentry
     \entry{hoppmann2015fmot}{misc}{}
       \name{author}{4}{}{%
-        {{un=0,uniquepart=base,hash=bdeba5d7a6e5c81cc9e3909e40e35018}{%
+        {{hash=bdeba5d7a6e5c81cc9e3909e40e35018}{%
            family={{Hoppmann}},
            familyi={H\bibinitperiod},
            given={Mario},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=3ad02719d659cb912727abe41425dc95}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=3ad02719d659cb912727abe41425dc95}{%
            family={{Nicolaus}},
            familyi={N\bibinitperiod},
            given={Marcel},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=1e061cbd2eed7bf530b01fa1cbdb5e29}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=1e061cbd2eed7bf530b01fa1cbdb5e29}{%
            family={{Hunkeler}},
            familyi={H\bibinitperiod},
            given={Priska\bibnamedelima A},
-           giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d7aa546445f2ccdd0860496c1562c176}{%
+           giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=d7aa546445f2ccdd0860496c1562c176}{%
            family={{König-Langlo}},
            familyi={K\bibinitperiod},
            given={Gert},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
+           giveni={G\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {PANGAEA}%
@@ -1466,54 +1358,46 @@
     \endentry
     \entry{hosekova2020Attenuation}{article}{}
       \name{author}{8}{}{%
-        {{un=0,uniquepart=base,hash=24289f3c1ab347881ab7cc1004f62d27}{%
+        {{hash=24289f3c1ab347881ab7cc1004f62d27}{%
            family={Hošeková},
            familyi={H\bibinitperiod},
            given={Lucia},
-           giveni={L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e77da2caf56656ff4a2917cf6c60c608}{%
+           giveni={L\bibinitperiod}}}%
+        {{hash=e77da2caf56656ff4a2917cf6c60c608}{%
            family={Malila},
            familyi={M\bibinitperiod},
            given={Mika\bibnamedelima P.},
-           giveni={M\bibinitperiod\bibinitdelim P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=64ecc74e357aa9ec5eea1765838f7c93}{%
+           giveni={M\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=64ecc74e357aa9ec5eea1765838f7c93}{%
            family={Rogers},
            familyi={R\bibinitperiod},
            given={W.\bibnamedelimi Erick},
-           giveni={W\bibinitperiod\bibinitdelim E\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=1be0acb5969ffe61b3d07fef2b703f7d}{%
+           giveni={W\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=1be0acb5969ffe61b3d07fef2b703f7d}{%
            family={Roach},
            familyi={R\bibinitperiod},
            given={Lettie\bibnamedelima A.},
-           giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=2a6f26f456648a2e3bd4eb8338d6866d}{%
+           giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=2a6f26f456648a2e3bd4eb8338d6866d}{%
            family={Eidam},
            familyi={E\bibinitperiod},
            given={Emily},
-           giveni={E\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=752cd2e2b2a613ae124ac0d2876a2b5c}{%
+           giveni={E\bibinitperiod}}}%
+        {{hash=752cd2e2b2a613ae124ac0d2876a2b5c}{%
            family={Rainville},
            familyi={R\bibinitperiod},
            given={Luc},
-           giveni={L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=c2ac949891b5ea995c684d327aedf600}{%
+           giveni={L\bibinitperiod}}}%
+        {{hash=c2ac949891b5ea995c684d327aedf600}{%
            family={Kumar},
            familyi={K\bibinitperiod},
            given={Nirnimesh},
-           giveni={N\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a72b9b84115dc7135f1fdb325c6e3cf8}{%
+           giveni={N\bibinitperiod}}}%
+        {{hash=a72b9b84115dc7135f1fdb325c6e3cf8}{%
            family={Thomson},
            familyi={T\bibinitperiod},
            given={Jim},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
+           giveni={J\bibinitperiod}}}%
       }
       \strng{namehash}{503fe515614bb43120309fbc07bf7de1}
       \strng{fullhash}{fc4d651b0cb25242cde91d543c0f6e3d}
@@ -1571,7 +1455,7 @@
     \endentry
     \entry{IEEE_STDVV}{article}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=472abfae8142fdb6f39d081303e8af85}{%
+        {{hash=472abfae8142fdb6f39d081303e8af85}{%
            family={IEEE},
            familyi={I\bibinitperiod}}}%
       }
@@ -1599,7 +1483,7 @@
     \endentry
     \entry{iridium_mobile}{misc}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=603b50bf5216929f5d77e2fbfcdd1cf1}{%
+        {{hash=603b50bf5216929f5d77e2fbfcdd1cf1}{%
            family={Iridium},
            familyi={I\bibinitperiod}}}%
       }
@@ -1624,7 +1508,7 @@
     \endentry
     \entry{iridium_product}{misc}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=603b50bf5216929f5d77e2fbfcdd1cf1}{%
+        {{hash=603b50bf5216929f5d77e2fbfcdd1cf1}{%
            family={Iridium},
            familyi={I\bibinitperiod}}}%
       }
@@ -1649,7 +1533,7 @@
     \endentry
     \entry{iridium_eol}{misc}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=603b50bf5216929f5d77e2fbfcdd1cf1}{%
+        {{hash=603b50bf5216929f5d77e2fbfcdd1cf1}{%
            family={Iridium},
            familyi={I\bibinitperiod}}}%
       }
@@ -1734,12 +1618,11 @@
     \endentry
     \entry{jim_swift_2012}{misc}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=6bfe198cec93d954785945277747d9e8}{%
+        {{hash=6bfe198cec93d954785945277747d9e8}{%
            family={Jim},
            familyi={J\bibinitperiod},
            given={Thomson},
-           giveni={T\bibinitperiod},
-           givenun=0}}%
+           giveni={T\bibinitperiod}}}%
       }
       \list{language}{1}{%
         {English}%
@@ -1771,12 +1654,11 @@
     \endentry
     \entry{jwo2001efficient}{article}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=3623615d4042d2769a29ed77ba7c8e1c}{%
+        {{hash=3623615d4042d2769a29ed77ba7c8e1c}{%
            family={Jwo},
            familyi={J\bibinitperiod},
            given={Dah-Jing},
-           giveni={D\bibinithyphendelim J\bibinitperiod},
-           givenun=0}}%
+           giveni={D\bibinithyphendelim J\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Cambridge University Press}%
@@ -1802,70 +1684,140 @@
       \field{pages}{269\bibrangedash 279}
       \range{pages}{11}
     \endentry
+    \entry{kennicutt2019sustained}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{10}{}{%
+        {{hash=8016c5e8f7e806587d42a9c8f1c68918}{%
+           family={Kennicutt},
+           familyi={K\bibinitperiod},
+           given={Mahlon\bibnamedelima C},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=c03ce0227cecee645e777fa8562fd890}{%
+           family={Bromwich},
+           familyi={B\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=8774323f769617ea7a3f62dee24ba609}{%
+           family={Liggett},
+           familyi={L\bibinitperiod},
+           given={Daniela},
+           giveni={D\bibinitperiod}}}%
+        {{hash=466233e5b7416ee9e5793170dce1fcfb}{%
+           family={Nj{å}stad},
+           familyi={N\bibinitperiod},
+           given={Birgit},
+           giveni={B\bibinitperiod}}}%
+        {{hash=4319149802a7bd989140429cb05d7c30}{%
+           family={Peck},
+           familyi={P\bibinitperiod},
+           given={Lloyd},
+           giveni={L\bibinitperiod}}}%
+        {{hash=5e6fccdde92ff909bc5514997b0197bf}{%
+           family={Rintoul},
+           familyi={R\bibinitperiod},
+           given={Stephen\bibnamedelima R},
+           giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=019bef21888e830072f3bf29d9399bb9}{%
+           family={Ritz},
+           familyi={R\bibinitperiod},
+           given={Catherine},
+           giveni={C\bibinitperiod}}}%
+        {{hash=d66346ea2885a4f34710b7b0710d1075}{%
+           family={Siegert},
+           familyi={S\bibinitperiod},
+           given={Martin\bibnamedelima J},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=19793661597f60c400894d79a01570f2}{%
+           family={Aitken},
+           familyi={A\bibinitperiod},
+           given={Alan},
+           giveni={A\bibinitperiod}}}%
+        {{hash=a5b7d502811928431410859c99e1c0c7}{%
+           family={Brooks},
+           familyi={B\bibinitperiod},
+           given={Cassandra\bibnamedelima M},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{09986c12c4a916a54fcbc265e07a7903}
+      \strng{fullhash}{5fc617c6c812fa98800868ac568f344e}
+      \strng{bibnamehash}{5fc617c6c812fa98800868ac568f344e}
+      \strng{authorbibnamehash}{5fc617c6c812fa98800868ac568f344e}
+      \strng{authornamehash}{09986c12c4a916a54fcbc265e07a7903}
+      \strng{authorfullhash}{5fc617c6c812fa98800868ac568f344e}
+      \field{extraname}{1}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{One Earth}
+      \field{number}{1}
+      \field{title}{Sustained Antarctic Research: A 21st Century Imperative}
+      \field{volume}{1}
+      \field{year}{2019}
+      \field{pages}{95\bibrangedash 113}
+      \range{pages}{19}
+    \endentry
     \entry{kennicutt2014polar}{article}{}
       \true{moreauthor}
       \true{morelabelname}
       \name{author}{10}{}{%
-        {{un=0,uniquepart=base,hash=8016c5e8f7e806587d42a9c8f1c68918}{%
+        {{hash=8016c5e8f7e806587d42a9c8f1c68918}{%
            family={Kennicutt},
            familyi={K\bibinitperiod},
            given={Mahlon\bibnamedelima C},
-           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=07b9bd261b2dd57e93d1c363a9dde5c2}{%
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=07b9bd261b2dd57e93d1c363a9dde5c2}{%
            family={Chown},
            familyi={C\bibinitperiod},
            given={Steven\bibnamedelima L},
-           giveni={S\bibinitperiod\bibinitdelim L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=14d67654e6d7dc6e5b7f18c3c66f55fa}{%
+           giveni={S\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=14d67654e6d7dc6e5b7f18c3c66f55fa}{%
            family={Cassano},
            familyi={C\bibinitperiod},
            given={John\bibnamedelima J},
-           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=8774323f769617ea7a3f62dee24ba609}{%
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=8774323f769617ea7a3f62dee24ba609}{%
            family={Liggett},
            familyi={L\bibinitperiod},
            given={Daniela},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
-        {{un=1,uniquepart=given,hash=098febb2a3236c9c519920dd9a7f51fe}{%
+           giveni={D\bibinitperiod}}}%
+        {{hash=098febb2a3236c9c519920dd9a7f51fe}{%
            family={Massom},
            familyi={M\bibinitperiod},
            given={Rob},
-           giveni={R\bibinitperiod},
-           givenun=1}}%
-        {{un=1,uniquepart=given,hash=6898801ef6c134b0eab552f662334dd5}{%
+           giveni={R\bibinitperiod}}}%
+        {{hash=6898801ef6c134b0eab552f662334dd5}{%
            family={Peck},
            familyi={P\bibinitperiod},
            given={Lloyd\bibnamedelima S},
-           giveni={L\bibinitperiod\bibinitdelim S\bibinitperiod},
-           givenun=1}}%
-        {{un=0,uniquepart=base,hash=6f4d0c4d867349d5008436527c360a95}{%
+           giveni={L\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=6f4d0c4d867349d5008436527c360a95}{%
            family={Rintoul},
            familyi={R\bibinitperiod},
            given={Steve\bibnamedelima R},
-           giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=32bd175762ca069e4e6f9a0eb60f9ab9}{%
+           giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=32bd175762ca069e4e6f9a0eb60f9ab9}{%
            family={Storey},
            familyi={S\bibinitperiod},
            given={John\bibnamedelima WV},
-           giveni={J\bibinitperiod\bibinitdelim W\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=eebe1a6cd344bf1d275105bbb03a1e7f}{%
+           giveni={J\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=eebe1a6cd344bf1d275105bbb03a1e7f}{%
            family={Vaughan},
            familyi={V\bibinitperiod},
            given={David\bibnamedelima G},
-           giveni={D\bibinitperiod\bibinitdelim G\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=6cf2bd20ffc10232df4f864d0686bec4}{%
+           giveni={D\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=6cf2bd20ffc10232df4f864d0686bec4}{%
            family={Wilson},
            familyi={W\bibinitperiod},
            given={Terry\bibnamedelima J},
-           giveni={T\bibinitperiod\bibinitdelim J\bibinitperiod},
-           givenun=0}}%
+           giveni={T\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
       }
       \strng{namehash}{09986c12c4a916a54fcbc265e07a7903}
       \strng{fullhash}{58a3ac04ff4ecc903568fb6f43fb07bb}
@@ -1873,7 +1825,7 @@
       \strng{authorbibnamehash}{58a3ac04ff4ecc903568fb6f43fb07bb}
       \strng{authornamehash}{09986c12c4a916a54fcbc265e07a7903}
       \strng{authorfullhash}{58a3ac04ff4ecc903568fb6f43fb07bb}
-      \field{extraname}{1}
+      \field{extraname}{2}
       \field{sortinit}{K}
       \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
       \field{extradatescope}{labelyear}
@@ -1893,66 +1845,56 @@
       \true{moreauthor}
       \true{morelabelname}
       \name{author}{10}{}{%
-        {{un=0,uniquepart=base,hash=8016c5e8f7e806587d42a9c8f1c68918}{%
+        {{hash=8016c5e8f7e806587d42a9c8f1c68918}{%
            family={Kennicutt},
            familyi={K\bibinitperiod},
            given={Mahlon\bibnamedelima C},
-           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a9eea89db5440bf04af890df3201489d}{%
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=a9eea89db5440bf04af890df3201489d}{%
            family={Kim},
            familyi={K\bibinitperiod},
            given={Yeadong\bibnamedelima D},
-           giveni={Y\bibinitperiod\bibinitdelim D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=b3e400347576cdccaab640f72712bd37}{%
+           giveni={Y\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=b3e400347576cdccaab640f72712bd37}{%
            family={Rogan-Finnemore},
            familyi={R\bibinithyphendelim F\bibinitperiod},
            given={Michelle},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=f1311dabbc3541658b08543478f6f94e}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=f1311dabbc3541658b08543478f6f94e}{%
            family={Anandakrishnan},
            familyi={A\bibinitperiod},
            given={Sridhar},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=ed78e4d35960a55573fe47f08dad4e1f}{%
+           giveni={S\bibinitperiod}}}%
+        {{hash=ed78e4d35960a55573fe47f08dad4e1f}{%
            family={Chown},
            familyi={C\bibinitperiod},
            given={STEVEN\bibnamedelima L},
-           giveni={S\bibinitperiod\bibinitdelim L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=2556a64ef46483ae7af2714d91229fa5}{%
+           giveni={S\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=2556a64ef46483ae7af2714d91229fa5}{%
            family={Colwell},
            familyi={C\bibinitperiod},
            given={STEVEN},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=b566401a5332f9cc0f9eca5980cafedd}{%
+           giveni={S\bibinitperiod}}}%
+        {{hash=b566401a5332f9cc0f9eca5980cafedd}{%
            family={Cowan},
            familyi={C\bibinitperiod},
            given={D},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=11d7ffae3525c501ba48b4ebf0ad6877}{%
+           giveni={D\bibinitperiod}}}%
+        {{hash=11d7ffae3525c501ba48b4ebf0ad6877}{%
            family={Escutia},
            familyi={E\bibinitperiod},
            given={C},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=c952263551873c6927cc6e819f0a5b08}{%
+           giveni={C\bibinitperiod}}}%
+        {{hash=c952263551873c6927cc6e819f0a5b08}{%
            family={Frenot},
            familyi={F\bibinitperiod},
            given={Y},
-           giveni={Y\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=c90885d8fbb509d706191ecfed90e34c}{%
+           giveni={Y\bibinitperiod}}}%
+        {{hash=c90885d8fbb509d706191ecfed90e34c}{%
            family={Hall},
            familyi={H\bibinitperiod},
            given={J},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
+           giveni={J\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Cambridge University Press}%
@@ -1963,7 +1905,7 @@
       \strng{authorbibnamehash}{e8e3a57b101b9bf0f3a69f0a0c282843}
       \strng{authornamehash}{09986c12c4a916a54fcbc265e07a7903}
       \strng{authorfullhash}{e8e3a57b101b9bf0f3a69f0a0c282843}
-      \field{extraname}{2}
+      \field{extraname}{3}
       \field{sortinit}{K}
       \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
       \field{extradatescope}{labelyear}
@@ -1979,121 +1921,28 @@
       \field{pages}{407\bibrangedash 423}
       \range{pages}{17}
     \endentry
-    \entry{kennicutt2019sustained}{article}{}
-      \true{moreauthor}
-      \true{morelabelname}
-      \name{author}{10}{}{%
-        {{un=0,uniquepart=base,hash=f54f5e48e7dd4477671c7564ce6a0648}{%
-           family={Kennicutt\bibnamedelima II},
-           familyi={K\bibinitperiod\bibinitdelim I\bibinitperiod},
-           given={Mahlon\bibnamedelima C},
-           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=c03ce0227cecee645e777fa8562fd890}{%
-           family={Bromwich},
-           familyi={B\bibinitperiod},
-           given={David},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=8774323f769617ea7a3f62dee24ba609}{%
-           family={Liggett},
-           familyi={L\bibinitperiod},
-           given={Daniela},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=466233e5b7416ee9e5793170dce1fcfb}{%
-           family={Nj{å}stad},
-           familyi={N\bibinitperiod},
-           given={Birgit},
-           giveni={B\bibinitperiod},
-           givenun=0}}%
-        {{un=1,uniquepart=given,hash=4319149802a7bd989140429cb05d7c30}{%
-           family={Peck},
-           familyi={P\bibinitperiod},
-           given={Lloyd},
-           giveni={L\bibinitperiod},
-           givenun=1}}%
-        {{un=0,uniquepart=base,hash=5e6fccdde92ff909bc5514997b0197bf}{%
-           family={Rintoul},
-           familyi={R\bibinitperiod},
-           given={Stephen\bibnamedelima R},
-           giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=019bef21888e830072f3bf29d9399bb9}{%
-           family={Ritz},
-           familyi={R\bibinitperiod},
-           given={Catherine},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d66346ea2885a4f34710b7b0710d1075}{%
-           family={Siegert},
-           familyi={S\bibinitperiod},
-           given={Martin\bibnamedelima J},
-           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=19793661597f60c400894d79a01570f2}{%
-           family={Aitken},
-           familyi={A\bibinitperiod},
-           given={Alan},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a5b7d502811928431410859c99e1c0c7}{%
-           family={Brooks},
-           familyi={B\bibinitperiod},
-           given={Cassandra\bibnamedelima M},
-           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Elsevier}%
-      }
-      \strng{namehash}{1fdeb6ad70aca9e31962e82b9faa87db}
-      \strng{fullhash}{b1a611758f13e7b43e1404a532ec1982}
-      \strng{bibnamehash}{b1a611758f13e7b43e1404a532ec1982}
-      \strng{authorbibnamehash}{b1a611758f13e7b43e1404a532ec1982}
-      \strng{authornamehash}{1fdeb6ad70aca9e31962e82b9faa87db}
-      \strng{authorfullhash}{b1a611758f13e7b43e1404a532ec1982}
-      \field{sortinit}{K}
-      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{One Earth}
-      \field{number}{1}
-      \field{title}{Sustained Antarctic Research: A 21st Century Imperative}
-      \field{volume}{1}
-      \field{year}{2019}
-      \field{pages}{95\bibrangedash 113}
-      \range{pages}{19}
-    \endentry
     \entry{kohout2014storm}{article}{}
       \name{author}{4}{}{%
-        {{un=1,uniquepart=given,hash=354cb530c2213c1b876b7ceffadfc253}{%
+        {{hash=354cb530c2213c1b876b7ceffadfc253}{%
            family={Kohout},
            familyi={K\bibinitperiod},
            given={AL},
-           giveni={A\bibinitperiod},
-           givenun=1}}%
-        {{un=0,uniquepart=base,hash=9971382c828cab3253971218880a230a}{%
+           giveni={A\bibinitperiod}}}%
+        {{hash=9971382c828cab3253971218880a230a}{%
            family={Williams},
            familyi={W\bibinitperiod},
            given={MJM},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=aa0f9f62dd8044324eab368ac66eeac8}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=aa0f9f62dd8044324eab368ac66eeac8}{%
            family={Dean},
            familyi={D\bibinitperiod},
            given={SM},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=8cfe69cb3b81f4d7943868f0d31dcd99}{%
+           giveni={S\bibinitperiod}}}%
+        {{hash=8cfe69cb3b81f4d7943868f0d31dcd99}{%
            family={Meylan},
            familyi={M\bibinitperiod},
            given={MH},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
+           giveni={M\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Nature Publishing Group}%
@@ -2121,42 +1970,36 @@
     \endentry
     \entry{kohout2020observation}{article}{}
       \name{author}{6}{}{%
-        {{un=1,uniquepart=given,hash=106a3772cd8150914de444a43b6177e0}{%
+        {{hash=106a3772cd8150914de444a43b6177e0}{%
            family={Kohout},
            familyi={K\bibinitperiod},
            given={Alison},
-           giveni={A\bibinitperiod},
-           givenun=1}}%
-        {{un=0,uniquepart=base,hash=aca5a3d1f54fbee679067732d2d8642c}{%
+           giveni={A\bibinitperiod}}}%
+        {{hash=aca5a3d1f54fbee679067732d2d8642c}{%
            family={Smith},
            familyi={S\bibinitperiod},
            given={Madison},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=1b6d8e806e4493b109e5e1a1b97dbe72}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=1b6d8e806e4493b109e5e1a1b97dbe72}{%
            family={Roach},
            familyi={R\bibinitperiod},
            given={Lettie},
-           giveni={L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=3474440ceba4bbf34ed683745416d316}{%
+           giveni={L\bibinitperiod}}}%
+        {{hash=3474440ceba4bbf34ed683745416d316}{%
            family={Williams},
            familyi={W\bibinitperiod},
            given={Guy},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a57d42153d0db2b0856cca94397eb0af}{%
+           giveni={G\bibinitperiod}}}%
+        {{hash=a57d42153d0db2b0856cca94397eb0af}{%
            family={Montiel},
            familyi={M\bibinitperiod},
            given={Fabien},
-           giveni={F\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d377302743e0ca21850cb290b55f165c}{%
+           giveni={F\bibinitperiod}}}%
+        {{hash=d377302743e0ca21850cb290b55f165c}{%
            family={Williams},
            familyi={W\bibinitperiod},
            given={Mike},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
+           giveni={M\bibinitperiod}}}%
       }
       \strng{namehash}{910026cbd8cb9e139b538b6a213849bd}
       \strng{fullhash}{adaf6e132162a2ec2f67483964c01428}
@@ -2167,6 +2010,7 @@
       \field{extraname}{2}
       \field{sortinit}{K}
       \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradate}{1}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
@@ -2184,30 +2028,26 @@
     \endentry
     \entry{kohout2015device}{article}{}
       \name{author}{4}{}{%
-        {{un=1,uniquepart=given,hash=dfd7ece8006a05a5231b8adcaf0707c6}{%
+        {{hash=dfd7ece8006a05a5231b8adcaf0707c6}{%
            family={Kohout},
            familyi={K\bibinitperiod},
            given={Alison\bibnamedelima L},
-           giveni={A\bibinitperiod\bibinitdelim L\bibinitperiod},
-           givenun=1}}%
-        {{un=0,uniquepart=base,hash=5c71b595463b4770aef7764925e0bdbe}{%
+           giveni={A\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=5c71b595463b4770aef7764925e0bdbe}{%
            family={Penrose},
            familyi={P\bibinitperiod},
            given={Bill},
-           giveni={B\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=1bb19ce973c497f29b9cc4200f50c7e0}{%
+           giveni={B\bibinitperiod}}}%
+        {{hash=1bb19ce973c497f29b9cc4200f50c7e0}{%
            family={Penrose},
            familyi={P\bibinitperiod},
            given={Scott},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=64c85435c7466149c3d1dd4018baa771}{%
+           giveni={S\bibinitperiod}}}%
+        {{hash=64c85435c7466149c3d1dd4018baa771}{%
            family={Williams},
            familyi={W\bibinitperiod},
            given={Michael\bibnamedelima JM},
-           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
-           givenun=0}}%
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Cambridge University Press}%
@@ -2218,7 +2058,7 @@
       \strng{authorbibnamehash}{719f44cc6c4e0c06df82b4f69a406410}
       \strng{authornamehash}{156c234886655e352c0d7484cdae5747}
       \strng{authorfullhash}{719f44cc6c4e0c06df82b4f69a406410}
-      \field{extraname}{1}
+      \field{extraname}{3}
       \field{sortinit}{K}
       \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
       \field{extradatescope}{labelyear}
@@ -2235,42 +2075,36 @@
     \endentry
     \entry{kohout_smith_roach_williams_montiel_williams_2020}{article}{}
       \name{author}{6}{}{%
-        {{un=1,uniquepart=given,hash=dfd7ece8006a05a5231b8adcaf0707c6}{%
+        {{hash=dfd7ece8006a05a5231b8adcaf0707c6}{%
            family={Kohout},
            familyi={K\bibinitperiod},
            given={Alison\bibnamedelima L.},
-           giveni={A\bibinitperiod\bibinitdelim L\bibinitperiod},
-           givenun=1}}%
-        {{un=0,uniquepart=base,hash=aca5a3d1f54fbee679067732d2d8642c}{%
+           giveni={A\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=aca5a3d1f54fbee679067732d2d8642c}{%
            family={Smith},
            familyi={S\bibinitperiod},
            given={Madison},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=1be0acb5969ffe61b3d07fef2b703f7d}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=1be0acb5969ffe61b3d07fef2b703f7d}{%
            family={Roach},
            familyi={R\bibinitperiod},
            given={Lettie\bibnamedelima A.},
-           giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=3474440ceba4bbf34ed683745416d316}{%
+           giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=3474440ceba4bbf34ed683745416d316}{%
            family={Williams},
            familyi={W\bibinitperiod},
            given={Guy},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a57d42153d0db2b0856cca94397eb0af}{%
+           giveni={G\bibinitperiod}}}%
+        {{hash=a57d42153d0db2b0856cca94397eb0af}{%
            family={Montiel},
            familyi={M\bibinitperiod},
            given={Fabien},
-           giveni={F\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=64c85435c7466149c3d1dd4018baa771}{%
+           giveni={F\bibinitperiod}}}%
+        {{hash=64c85435c7466149c3d1dd4018baa771}{%
            family={Williams},
            familyi={W\bibinitperiod},
            given={Michael\bibnamedelimb J.\bibnamedelimi M.},
-           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim M\bibinitperiod},
-           givenun=0}}%
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Cambridge University Press}%
@@ -2281,9 +2115,10 @@
       \strng{authorbibnamehash}{c32762d80791bcc051cdfa102eff1980}
       \strng{authornamehash}{156c234886655e352c0d7484cdae5747}
       \strng{authorfullhash}{c32762d80791bcc051cdfa102eff1980}
-      \field{extraname}{2}
+      \field{extraname}{4}
       \field{sortinit}{K}
       \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradate}{2}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
@@ -2301,24 +2136,21 @@
     \endentry
     \entry{kuik1988method}{article}{}
       \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=19095546fcc94e1516946993e999883a}{%
+        {{hash=19095546fcc94e1516946993e999883a}{%
            family={Kuik},
            familyi={K\bibinitperiod},
            given={AJ},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=c68362a934d72b3a07c13cabc61ce569}{%
+           giveni={A\bibinitperiod}}}%
+        {{hash=c68362a934d72b3a07c13cabc61ce569}{%
            family={Van\bibnamedelima Vledder},
            familyi={V\bibinitperiod\bibinitdelim V\bibinitperiod},
            given={G\bibnamedelima Ph},
-           giveni={G\bibinitperiod\bibinitdelim P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=ac7a2677f720d3a2c8cbfcba2ba980f6}{%
+           giveni={G\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=ac7a2677f720d3a2c8cbfcba2ba980f6}{%
            family={Holthuijsen},
            familyi={H\bibinitperiod},
            given={LH},
-           giveni={L\bibinitperiod},
-           givenun=0}}%
+           giveni={L\bibinitperiod}}}%
       }
       \strng{namehash}{111fb2449711edff038918098d7dfeb8}
       \strng{fullhash}{b814b7cf130884662fd0656e1aef0135}
@@ -2343,48 +2175,41 @@
     \endentry
     \entry{lei2018seasonal}{article}{}
       \name{author}{7}{}{%
-        {{un=0,uniquepart=base,hash=ab421a6f0aadfe857514bc16ee3bc9fa}{%
+        {{hash=ab421a6f0aadfe857514bc16ee3bc9fa}{%
            family={Lei},
            familyi={L\bibinitperiod},
            given={Ruibo},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=b9359e37b98db04db8950022034eccdd}{%
+           giveni={R\bibinitperiod}}}%
+        {{hash=b9359e37b98db04db8950022034eccdd}{%
            family={Cheng},
            familyi={C\bibinitperiod},
            given={Bin},
-           giveni={B\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=2c120a86b83aa0a5b08e1dffd95d26d7}{%
+           giveni={B\bibinitperiod}}}%
+        {{hash=2c120a86b83aa0a5b08e1dffd95d26d7}{%
            family={Heil},
            familyi={H\bibinitperiod},
            given={Petra},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=3c8b1329f1568408cf5cdf0616a47b3e}{%
+           giveni={P\bibinitperiod}}}%
+        {{hash=3c8b1329f1568408cf5cdf0616a47b3e}{%
            family={Vihma},
            familyi={V\bibinitperiod},
            given={Timo},
-           giveni={T\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e453927e646e355f3edb61c5518de1d1}{%
+           giveni={T\bibinitperiod}}}%
+        {{hash=e453927e646e355f3edb61c5518de1d1}{%
            family={Wang},
            familyi={W\bibinitperiod},
            given={Jia},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=fb40e867d3a2488db378395f665b5af7}{%
+           giveni={J\bibinitperiod}}}%
+        {{hash=fb40e867d3a2488db378395f665b5af7}{%
            family={Ji},
            familyi={J\bibinitperiod},
            given={Qing},
-           giveni={Q\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=41a66b6fed74ad96d6a5fc65e957b528}{%
+           giveni={Q\bibinitperiod}}}%
+        {{hash=41a66b6fed74ad96d6a5fc65e957b528}{%
            family={Zhang},
            familyi={Z\bibinitperiod},
            given={Zhanhai},
-           giveni={Z\bibinitperiod},
-           givenun=0}}%
+           giveni={Z\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Wiley Online Library}%
@@ -2412,30 +2237,26 @@
     \endentry
     \entry{lepparanta2001sea}{article}{}
       \name{author}{4}{}{%
-        {{un=0,uniquepart=base,hash=80231b468c034547560fc6e9f770a694}{%
+        {{hash=80231b468c034547560fc6e9f770a694}{%
            family={Leppäranta},
            familyi={L\bibinitperiod},
            given={Matti},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=0e2863fa3235fbc27b9a7edc93f8f48e}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=0e2863fa3235fbc27b9a7edc93f8f48e}{%
            family={Zhanhai},
            familyi={Z\bibinitperiod},
            given={Zhang},
-           giveni={Z\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=7b6fe779bca50f1a3b56b7d2f9ef2954}{%
+           giveni={Z\bibinitperiod}}}%
+        {{hash=7b6fe779bca50f1a3b56b7d2f9ef2954}{%
            family={Haapala},
            familyi={H\bibinitperiod},
            given={Jari},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=f220a1d8652aee4722fc84e8deb74c8d}{%
+           giveni={J\bibinitperiod}}}%
+        {{hash=f220a1d8652aee4722fc84e8deb74c8d}{%
            family={Stipa},
            familyi={S\bibinitperiod},
            given={Tapani},
-           giveni={T\bibinitperiod},
-           givenun=0}}%
+           giveni={T\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Cambridge University Press}%
@@ -2462,18 +2283,16 @@
     \endentry
     \entry{ludecke2010second}{inbook}{}
       \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=fbe2f4b43696205f5151708a1e2cea8e}{%
+        {{hash=fbe2f4b43696205f5151708a1e2cea8e}{%
            family={Lüdecke},
            familyi={L\bibinitperiod},
            given={Cornelia},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e598fddcfdc026cb698e9a20004ea9fe}{%
+           giveni={C\bibinitperiod}}}%
+        {{hash=e598fddcfdc026cb698e9a20004ea9fe}{%
            family={Lajus},
            familyi={L\bibinitperiod},
            given={Julia},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
+           giveni={J\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Springer}%
@@ -2499,48 +2318,41 @@
     \endentry
     \entry{lund2018Arctic}{article}{}
       \name{author}{7}{}{%
-        {{un=0,uniquepart=base,hash=6136c01271c7db680287e363b8b0054e}{%
+        {{hash=6136c01271c7db680287e363b8b0054e}{%
            family={Lund},
            familyi={L\bibinitperiod},
            given={B.},
-           giveni={B\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=dd83bafc046b365f8a9829e98892a8cc}{%
+           giveni={B\bibinitperiod}}}%
+        {{hash=dd83bafc046b365f8a9829e98892a8cc}{%
            family={Graber},
            familyi={G\bibinitperiod},
            given={H.\bibnamedelimi C.},
-           giveni={H\bibinitperiod\bibinitdelim C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=49e97eb26752ff747959f4a8f1dadcd5}{%
+           giveni={H\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=49e97eb26752ff747959f4a8f1dadcd5}{%
            family={Persson},
            familyi={P\bibinitperiod},
            given={P.\bibnamedelimi O.\bibnamedelimi G.},
-           giveni={P\bibinitperiod\bibinitdelim O\bibinitperiod\bibinitdelim G\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e44f09a2d84db823a77079697cf1a851}{%
+           giveni={P\bibinitperiod\bibinitdelim O\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=e44f09a2d84db823a77079697cf1a851}{%
            family={Smith},
            familyi={S\bibinitperiod},
            given={M.},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=385fc9bfd97dbd1b35aa9cc6faa941f7}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=385fc9bfd97dbd1b35aa9cc6faa941f7}{%
            family={Doble},
            familyi={D\bibinitperiod},
            given={M.},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e19f01cb995272f1dbe1838020306acc}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=e19f01cb995272f1dbe1838020306acc}{%
            family={Thomson},
            familyi={T\bibinitperiod},
            given={J.},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=ec1025f67d2e0859fdf9b0182e2241c7}{%
+           giveni={J\bibinitperiod}}}%
+        {{hash=ec1025f67d2e0859fdf9b0182e2241c7}{%
            family={Wadhams},
            familyi={W\bibinitperiod},
            given={P.},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
+           giveni={P\bibinitperiod}}}%
       }
       \strng{namehash}{a083f327e28327d32511038b51672afd}
       \strng{fullhash}{e83c1865ae2a05288d95179e76520b5a}
@@ -2578,30 +2390,26 @@
     \endentry
     \entry{MAKSYM2012seaiceextent}{article}{}
       \name{author}{4}{}{%
-        {{un=0,uniquepart=base,hash=26ac0bb063492a58d69bd38d3517ad46}{%
+        {{hash=26ac0bb063492a58d69bd38d3517ad46}{%
            family={Maksym},
            familyi={M\bibinitperiod},
            given={Ted},
-           giveni={T\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e80a136bf343fa3871e0e45ca6ff033f}{%
+           giveni={T\bibinitperiod}}}%
+        {{hash=e80a136bf343fa3871e0e45ca6ff033f}{%
            family={Stammerjohn},
            familyi={S\bibinitperiod},
            given={Sharon\bibnamedelima E.},
-           giveni={S\bibinitperiod\bibinitdelim E\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=31809620b7a8b2558af82a59d0e9304c}{%
+           giveni={S\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=31809620b7a8b2558af82a59d0e9304c}{%
            family={Ackly},
            familyi={A\bibinitperiod},
            given={Stephen},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=098febb2a3236c9c519920dd9a7f51fe}{%
+           giveni={S\bibinitperiod}}}%
+        {{hash=098febb2a3236c9c519920dd9a7f51fe}{%
            family={Massom},
            familyi={M\bibinitperiod},
            given={Rob},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
+           giveni={R\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Oceanography Society}%
@@ -2636,36 +2444,31 @@
     \endentry
     \entry{mansoor2015silicon}{article}{}
       \name{author}{5}{}{%
-        {{un=0,uniquepart=base,hash=31393c2f7b9e2a64ca8a8bcaa5c0f9f5}{%
+        {{hash=31393c2f7b9e2a64ca8a8bcaa5c0f9f5}{%
            family={Mansoor},
            familyi={M\bibinitperiod},
            given={Mohtashim},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=f7ba52aba3a71f6d9a885bacfbee4c0b}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=f7ba52aba3a71f6d9a885bacfbee4c0b}{%
            family={Haneef},
            familyi={H\bibinitperiod},
            given={Ibraheem},
-           giveni={I\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=4ea3646d3f57afd940e99cc61d2b3584}{%
+           giveni={I\bibinitperiod}}}%
+        {{hash=4ea3646d3f57afd940e99cc61d2b3584}{%
            family={Akhtar},
            familyi={A\bibinitperiod},
            given={Suhail},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=aaa81d54c868c60b1ab5f746ba0ad56c}{%
+           giveni={S\bibinitperiod}}}%
+        {{hash=aaa81d54c868c60b1ab5f746ba0ad56c}{%
            family={De\bibnamedelima Luca},
            familyi={D\bibinitperiod\bibinitdelim L\bibinitperiod},
            given={Andrea},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=08aed20c7c746c156ad1e4865680b7b9}{%
+           giveni={A\bibinitperiod}}}%
+        {{hash=08aed20c7c746c156ad1e4865680b7b9}{%
            family={Udrea},
            familyi={U\bibinitperiod},
            given={Florin},
-           giveni={F\bibinitperiod},
-           givenun=0}}%
+           giveni={F\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Elsevier}%
@@ -2692,36 +2495,31 @@
     \endentry
     \entry{Rutgher2019SmallScale}{article}{}
       \name{author}{5}{}{%
-        {{un=0,uniquepart=base,hash=f334e2ed9da48a771192db7eeb9c93a6}{%
+        {{hash=f334e2ed9da48a771192db7eeb9c93a6}{%
            family={Marquart},
            familyi={M\bibinitperiod},
            given={R},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=96f00c9d5787d239aafb2455d2aac2bc}{%
+           giveni={R\bibinitperiod}}}%
+        {{hash=96f00c9d5787d239aafb2455d2aac2bc}{%
            family={MacHutchon},
            familyi={M\bibinitperiod},
            given={K},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=bdedc10becd9cccaef66c1f63aba71bc}{%
+           giveni={K\bibinitperiod}}}%
+        {{hash=bdedc10becd9cccaef66c1f63aba71bc}{%
            family={Skatulla},
            familyi={S\bibinitperiod},
            given={S},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=2e27358c42310902278aa7ae5fecbbf6}{%
+           giveni={S\bibinitperiod}}}%
+        {{hash=2e27358c42310902278aa7ae5fecbbf6}{%
            family={Vichi},
            familyi={V\bibinitperiod},
            given={M},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d223d6ad30118e4865ce2a7a407ed0dd}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=d223d6ad30118e4865ce2a7a407ed0dd}{%
            family={Bogaers},
            familyi={B\bibinitperiod},
            given={A},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
+           giveni={A\bibinitperiod}}}%
       }
       \strng{namehash}{96343fd11935a9d5055d628ffe6da003}
       \strng{fullhash}{7c25bae76eb7bbb215b89e9a00d07329}
@@ -2742,18 +2540,16 @@
     \endentry
     \entry{MASSOM2010149}{article}{}
       \name{author}{2}{}{%
-        {{un=1,uniquepart=given,hash=66cae99183a02433e08da0255367dab2}{%
+        {{hash=66cae99183a02433e08da0255367dab2}{%
            family={Massom},
            familyi={M\bibinitperiod},
            given={Robert\bibnamedelima A.},
-           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
-           givenun=1}}%
-        {{un=0,uniquepart=base,hash=e80a136bf343fa3871e0e45ca6ff033f}{%
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=e80a136bf343fa3871e0e45ca6ff033f}{%
            family={Stammerjohn},
            familyi={S\bibinitperiod},
            given={Sharon\bibnamedelima E.},
-           giveni={S\bibinitperiod\bibinitdelim E\bibinitperiod},
-           givenun=0}}%
+           giveni={S\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
       }
       \strng{namehash}{ffdb3450817d7046914f339c4a1ffa82}
       \strng{fullhash}{ffdb3450817d7046914f339c4a1ffa82}
@@ -2790,24 +2586,21 @@
     \endentry
     \entry{meylan2014situ}{article}{}
       \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=a1a8c3721095338b63f242afc0850498}{%
+        {{hash=a1a8c3721095338b63f242afc0850498}{%
            family={Meylan},
            familyi={M\bibinitperiod},
            given={Michael\bibnamedelima H},
-           giveni={M\bibinitperiod\bibinitdelim H\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=8f651bf1e45dea10a2d3b1e478e8d13e}{%
+           giveni={M\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=8f651bf1e45dea10a2d3b1e478e8d13e}{%
            family={Bennetts},
            familyi={B\bibinitperiod},
            given={Luke\bibnamedelima G},
-           giveni={L\bibinitperiod\bibinitdelim G\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=dfd7ece8006a05a5231b8adcaf0707c6}{%
+           giveni={L\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=dfd7ece8006a05a5231b8adcaf0707c6}{%
            family={Kohout},
            familyi={K\bibinitperiod},
            given={Alison\bibnamedelima L},
-           giveni={A\bibinitperiod\bibinitdelim L\bibinitperiod},
-           givenun=0}}%
+           giveni={A\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Wiley Online Library}%
@@ -2835,7 +2628,7 @@
     \endentry
     \entry{usdcoversion}{online}{}
       \name{editor}{1}{}{%
-        {{un=0,uniquepart=base,hash=b0a36dfd7777fe62021179878dfc64eb}{%
+        {{hash=b0a36dfd7777fe62021179878dfc64eb}{%
            family={OANDA},
            familyi={O\bibinitperiod}}}%
       }
@@ -2850,27 +2643,30 @@
       \strng{editorfullhash}{b0a36dfd7777fe62021179878dfc64eb}
       \field{sortinit}{O}
       \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
-      \field{labeldatesource}{nodate}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{editor}
       \field{labeltitlesource}{title}
+      \field{day}{22}
+      \field{month}{1}
       \field{title}{Currency Converter}
+      \field{year}{2021}
+      \field{dateera}{ce}
       \verb{urlraw}
       \verb https://www1.oanda.com/currency/converter/
       \endverb
       \verb{url}
       \verb https://www1.oanda.com/currency/converter/
       \endverb
-      \warn{\item Entry 'usdcoversion' (thesis.bib): Invalid format '22 January 2021' of date field 'date' - ignoring}
     \endentry
     \entry{worldmeteorologicalorganization_2010}{book}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=fca72ffe5788381ee702164cf47f0a98}{%
+        {{hash=fca72ffe5788381ee702164cf47f0a98}{%
            family={Organization},
            familyi={O\bibinitperiod},
            given={World\bibnamedelima Meteorological},
-           giveni={W\bibinitperiod\bibinitdelim M\bibinitperiod},
-           givenun=0}}%
+           giveni={W\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {World Meteorological Organization}%
@@ -2895,12 +2691,11 @@
     \endentry
     \entry{parkinson2004southern}{article}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=b2e8aee542c7ef7e089fa56a4d13d5f3}{%
+        {{hash=b2e8aee542c7ef7e089fa56a4d13d5f3}{%
            family={Parkinson},
            familyi={P\bibinitperiod},
            given={Claire\bibnamedelima L},
-           giveni={C\bibinitperiod\bibinitdelim L\bibinitperiod},
-           givenun=0}}%
+           giveni={C\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Citeseer}%
@@ -2928,30 +2723,26 @@
     \endentry
     \entry{PLANCK2019102792}{article}{}
       \name{author}{4}{}{%
-        {{un=0,uniquepart=base,hash=797fc954cd6ad2984f17e3e8bff9af1e}{%
+        {{hash=797fc954cd6ad2984f17e3e8bff9af1e}{%
            family={Planck},
            familyi={P\bibinitperiod},
            given={Cameron\bibnamedelima J.},
-           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=ef8362184b6d13af069bb11ed2aeecc9}{%
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=ef8362184b6d13af069bb11ed2aeecc9}{%
            family={Whitlock},
            familyi={W\bibinitperiod},
            given={James},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=ac32b51970d1db7b341d5bc0d6df4f24}{%
+           giveni={J\bibinitperiod}}}%
+        {{hash=ac32b51970d1db7b341d5bc0d6df4f24}{%
            family={Polashenski},
            familyi={P\bibinitperiod},
            given={Chris},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=3337f2019800cebcb771c11330088203}{%
+           giveni={C\bibinitperiod}}}%
+        {{hash=3337f2019800cebcb771c11330088203}{%
            family={Perovich},
            familyi={P\bibinitperiod},
            given={Donald},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
+           giveni={D\bibinitperiod}}}%
       }
       \strng{namehash}{c7dd85ff24bb57503080ae0fd891a516}
       \strng{fullhash}{a23dd0d2b6994e71828d78dc47a272bc}
@@ -2988,30 +2779,26 @@
     \endentry
     \entry{planck2019evolution}{article}{}
       \name{author}{4}{}{%
-        {{un=0,uniquepart=base,hash=797fc954cd6ad2984f17e3e8bff9af1e}{%
+        {{hash=797fc954cd6ad2984f17e3e8bff9af1e}{%
            family={Planck},
            familyi={P\bibinitperiod},
            given={Cameron\bibnamedelima J},
-           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=ef8362184b6d13af069bb11ed2aeecc9}{%
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=ef8362184b6d13af069bb11ed2aeecc9}{%
            family={Whitlock},
            familyi={W\bibinitperiod},
            given={James},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=ac32b51970d1db7b341d5bc0d6df4f24}{%
+           giveni={J\bibinitperiod}}}%
+        {{hash=ac32b51970d1db7b341d5bc0d6df4f24}{%
            family={Polashenski},
            familyi={P\bibinitperiod},
            given={Chris},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=3337f2019800cebcb771c11330088203}{%
+           giveni={C\bibinitperiod}}}%
+        {{hash=3337f2019800cebcb771c11330088203}{%
            family={Perovich},
            familyi={P\bibinitperiod},
            given={Donald},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
+           giveni={D\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Elsevier}%
@@ -3040,30 +2827,26 @@
     \endentry
     \entry{polashenski2011seasonal}{article}{}
       \name{author}{4}{}{%
-        {{un=0,uniquepart=base,hash=ac32b51970d1db7b341d5bc0d6df4f24}{%
+        {{hash=ac32b51970d1db7b341d5bc0d6df4f24}{%
            family={Polashenski},
            familyi={P\bibinitperiod},
            given={Chris},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=4a466e391ff0dcf514b8373bfd0afb1b}{%
+           giveni={C\bibinitperiod}}}%
+        {{hash=4a466e391ff0dcf514b8373bfd0afb1b}{%
            family={Perovich},
            familyi={P\bibinitperiod},
            given={Don},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=f9e4ea1de5ec8798ffe0cee0fd70e619}{%
+           giveni={D\bibinitperiod}}}%
+        {{hash=f9e4ea1de5ec8798ffe0cee0fd70e619}{%
            family={Richter-Menge},
            familyi={R\bibinithyphendelim M\bibinitperiod},
            given={Jackie},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=58ea1fe46b2471ba64a08874220adb79}{%
+           giveni={J\bibinitperiod}}}%
+        {{hash=58ea1fe46b2471ba64a08874220adb79}{%
            family={Elder},
            familyi={E\bibinitperiod},
            given={Bruce},
-           giveni={B\bibinitperiod},
-           givenun=0}}%
+           giveni={B\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Cambridge University Press}%
@@ -3091,12 +2874,11 @@
     \endentry
     \entry{pollock2017thermocouples}{book}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=19948062693a8da4c1766345b6c9df59}{%
+        {{hash=19948062693a8da4c1766345b6c9df59}{%
            family={Pollock},
            familyi={P\bibinitperiod},
            given={DanielD},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
+           giveni={D\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Routledge}%
@@ -3119,12 +2901,11 @@
     \endentry
     \entry{Scale2019Cruise}{article}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=1e54f6fac689a5d9a1e1c9bd0ab98813}{%
+        {{hash=1e54f6fac689a5d9a1e1c9bd0ab98813}{%
            family={Program},
            familyi={P\bibinitperiod},
            given={South\bibnamedelimb African\bibnamedelimb National\bibnamedelima Antarctic},
-           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim N\bibinitperiod\bibinitdelim A\bibinitperiod},
-           givenun=0}}%
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim N\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {SANAP}%
@@ -3155,30 +2936,26 @@
     \endentry
     \entry{rabault2017measurements}{article}{}
       \name{author}{4}{}{%
-        {{un=0,uniquepart=base,hash=6a5e764ed0ccb9c472d1b065942f2766}{%
+        {{hash=6a5e764ed0ccb9c472d1b065942f2766}{%
            family={Rabault},
            familyi={R\bibinitperiod},
            given={Jean},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=ffa285e0d57c2a321f4bbf120fab6c2d}{%
+           giveni={J\bibinitperiod}}}%
+        {{hash=ffa285e0d57c2a321f4bbf120fab6c2d}{%
            family={Sutherland},
            familyi={S\bibinitperiod},
            given={Graig},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d6bfe1d91e7bd1e218c169ae186d9578}{%
+           giveni={G\bibinitperiod}}}%
+        {{hash=d6bfe1d91e7bd1e218c169ae186d9578}{%
            family={Gundersen},
            familyi={G\bibinitperiod},
            given={Olav},
-           giveni={O\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=3e6bc6c46d3fc9d46d46e4c6b71026ae}{%
+           giveni={O\bibinitperiod}}}%
+        {{hash=3e6bc6c46d3fc9d46d46e4c6b71026ae}{%
            family={Jensen},
            familyi={J\bibinitperiod},
            given={Atle},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
+           giveni={A\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Cambridge University Press}%
@@ -3207,30 +2984,26 @@
     \endentry
     \entry{rabault2019open}{article}{}
       \name{author}{4}{}{%
-        {{un=0,uniquepart=base,hash=6a5e764ed0ccb9c472d1b065942f2766}{%
+        {{hash=6a5e764ed0ccb9c472d1b065942f2766}{%
            family={Rabault},
            familyi={R\bibinitperiod},
            given={Jean},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=ffa285e0d57c2a321f4bbf120fab6c2d}{%
+           giveni={J\bibinitperiod}}}%
+        {{hash=ffa285e0d57c2a321f4bbf120fab6c2d}{%
            family={Sutherland},
            familyi={S\bibinitperiod},
            given={Graig},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d6bfe1d91e7bd1e218c169ae186d9578}{%
+           giveni={G\bibinitperiod}}}%
+        {{hash=d6bfe1d91e7bd1e218c169ae186d9578}{%
            family={Gundersen},
            familyi={G\bibinitperiod},
            given={Olav},
-           giveni={O\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=3e6bc6c46d3fc9d46d46e4c6b71026ae}{%
+           giveni={O\bibinitperiod}}}%
+        {{hash=3e6bc6c46d3fc9d46d46e4c6b71026ae}{%
            family={Jensen},
            familyi={J\bibinitperiod},
            given={Atle},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
+           giveni={A\bibinitperiod}}}%
       }
       \strng{namehash}{e2e9366dfd6a5ac7aef5242e396bc608}
       \strng{fullhash}{fb402148f2fa1a6ddced6e3575b65a45}
@@ -3254,66 +3027,56 @@
       \true{moreauthor}
       \true{morelabelname}
       \name{author}{10}{}{%
-        {{un=0,uniquepart=base,hash=1be0acb5969ffe61b3d07fef2b703f7d}{%
+        {{hash=1be0acb5969ffe61b3d07fef2b703f7d}{%
            family={Roach},
            familyi={R\bibinitperiod},
            given={Lettie\bibnamedelima A},
-           giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=0dc4750f5b08da2c6455ae5c8e7132b0}{%
+           giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=0dc4750f5b08da2c6455ae5c8e7132b0}{%
            family={Dörr},
            familyi={D\bibinitperiod},
            given={Jakob},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=6d36ec713c94f6a9ea883350712ccb24}{%
+           giveni={J\bibinitperiod}}}%
+        {{hash=6d36ec713c94f6a9ea883350712ccb24}{%
            family={Holmes},
            familyi={H\bibinitperiod},
            given={Caroline\bibnamedelima R},
-           giveni={C\bibinitperiod\bibinitdelim R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=4de4e6ab1715cab9a62999a28c89e33c}{%
+           giveni={C\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=4de4e6ab1715cab9a62999a28c89e33c}{%
            family={Massonnet},
            familyi={M\bibinitperiod},
            given={François},
-           giveni={F\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=cfa945177bdd3b16774c95d374a7e323}{%
+           giveni={F\bibinitperiod}}}%
+        {{hash=cfa945177bdd3b16774c95d374a7e323}{%
            family={Blockley},
            familyi={B\bibinitperiod},
            given={Edward\bibnamedelima W},
-           giveni={E\bibinitperiod\bibinitdelim W\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a9706e1f00c12bb71c087278d3eaa003}{%
+           giveni={E\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=a9706e1f00c12bb71c087278d3eaa003}{%
            family={Notz},
            familyi={N\bibinitperiod},
            given={Dirk},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d0927cd70836aa798cd7015666e394bf}{%
+           giveni={D\bibinitperiod}}}%
+        {{hash=d0927cd70836aa798cd7015666e394bf}{%
            family={Rackow},
            familyi={R\bibinitperiod},
            given={Thomas},
-           giveni={T\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a6c2fc7b4ad2eab83d6b5e4c10a13c59}{%
+           giveni={T\bibinitperiod}}}%
+        {{hash=a6c2fc7b4ad2eab83d6b5e4c10a13c59}{%
            family={Raphael},
            familyi={R\bibinitperiod},
            given={Marilyn\bibnamedelima N},
-           giveni={M\bibinitperiod\bibinitdelim N\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=bd61a4896f26b1fced9061e972bc497a}{%
+           giveni={M\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=bd61a4896f26b1fced9061e972bc497a}{%
            family={O'Farrell},
            familyi={O\bibinitperiod},
            given={Siobhan\bibnamedelima P},
-           giveni={S\bibinitperiod\bibinitdelim P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=9ff82a60fd047f519a2c60fb08e4ea95}{%
+           giveni={S\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=9ff82a60fd047f519a2c60fb08e4ea95}{%
            family={Bailey},
            familyi={B\bibinitperiod},
            given={David\bibnamedelima A},
-           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod},
-           givenun=0}}%
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Wiley Online Library}%
@@ -3339,32 +3102,55 @@
       \field{pages}{e2019GL086729}
       \range{pages}{-1}
     \endentry
+    \entry{liquidrobot2016wave}{report}{}
+      \name{author}{1}{}{%
+        {{hash=5a30d634edb760c6f7fd88d1e97569a6}{%
+           family={Robotics},
+           familyi={R\bibinitperiod},
+           given={Liquid},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Liquid Robotics}%
+      }
+      \strng{namehash}{5a30d634edb760c6f7fd88d1e97569a6}
+      \strng{fullhash}{5a30d634edb760c6f7fd88d1e97569a6}
+      \strng{bibnamehash}{5a30d634edb760c6f7fd88d1e97569a6}
+      \strng{authorbibnamehash}{5a30d634edb760c6f7fd88d1e97569a6}
+      \strng{authornamehash}{5a30d634edb760c6f7fd88d1e97569a6}
+      \strng{authorfullhash}{5a30d634edb760c6f7fd88d1e97569a6}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The New Economics of Marine Environmental Monitoring}
+      \field{year}{2016}
+    \endentry
     \entry{samaun1971ic}{article}{}
       \name{author}{4}{}{%
-        {{un=0,uniquepart=base,hash=389c987bd9db5c1ac3be808e06859b7d}{%
+        {{hash=389c987bd9db5c1ac3be808e06859b7d}{%
            family={Samaun},
            familyi={S\bibinitperiod},
            given={S},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=16778b7f496d9649bdc0df54e81742f2}{%
+           giveni={S\bibinitperiod}}}%
+        {{hash=16778b7f496d9649bdc0df54e81742f2}{%
            family={Wise},
            familyi={W\bibinitperiod},
            given={K},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=4d02926e630b490dba2867118a13bf68}{%
+           giveni={K\bibinitperiod}}}%
+        {{hash=4d02926e630b490dba2867118a13bf68}{%
            family={Nielsen},
            familyi={N\bibinitperiod},
            given={E},
-           giveni={E\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=572aeb04c524efa7bed050bfaac3fa24}{%
+           giveni={E\bibinitperiod}}}%
+        {{hash=572aeb04c524efa7bed050bfaac3fa24}{%
            family={Angell},
            familyi={A\bibinitperiod},
            given={J},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
+           giveni={J\bibinitperiod}}}%
       }
       \list{organization}{1}{%
         {IEEE}%
@@ -3391,12 +3177,11 @@
     \endentry
     \entry{BMP280_Datasheet}{manual}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=4db271d8a2a60d8c408423f38e60b5bc}{%
+        {{hash=4db271d8a2a60d8c408423f38e60b5bc}{%
            family={Sensortech},
            familyi={S\bibinitperiod},
            given={Bosch},
-           giveni={B\bibinitperiod},
-           givenun=0}}%
+           giveni={B\bibinitperiod}}}%
       }
       \strng{namehash}{4db271d8a2a60d8c408423f38e60b5bc}
       \strng{fullhash}{4db271d8a2a60d8c408423f38e60b5bc}
@@ -3441,12 +3226,11 @@
     \endentry
     \entry{IEEE_STD_UREQ}{article}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=d7e516380100beea42ad1ab83a405b1e}{%
+        {{hash=d7e516380100beea42ad1ab83a405b1e}{%
            family={Society},
            familyi={S\bibinitperiod},
            given={IEEE\bibnamedelima Computer},
-           giveni={I\bibinitperiod\bibinitdelim C\bibinitperiod},
-           givenun=0}}%
+           giveni={I\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
       }
       \strng{namehash}{d7e516380100beea42ad1ab83a405b1e}
       \strng{fullhash}{d7e516380100beea42ad1ab83a405b1e}
@@ -3472,30 +3256,26 @@
     \endentry
     \entry{spilker1996global}{book}{}
       \name{author}{4}{}{%
-        {{un=0,uniquepart=base,hash=631f9822f8f357e2858847db88a69080}{%
+        {{hash=631f9822f8f357e2858847db88a69080}{%
            family={Spilker\bibnamedelima Jr},
            familyi={S\bibinitperiod\bibinitdelim J\bibinitperiod},
            given={James\bibnamedelima J},
-           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=dd5a46e0bb1d1546d81f459e87a76191}{%
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=dd5a46e0bb1d1546d81f459e87a76191}{%
            family={Axelrad},
            familyi={A\bibinitperiod},
            given={Penina},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=3937c00c0e09ee35964adfa80051463d}{%
+           giveni={P\bibinitperiod}}}%
+        {{hash=3937c00c0e09ee35964adfa80051463d}{%
            family={Parkinson},
            familyi={P\bibinitperiod},
            given={Bradford\bibnamedelima W},
-           giveni={B\bibinitperiod\bibinitdelim W\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d1f03e41902631e4ef274a6a749fca7e}{%
+           giveni={B\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=d1f03e41902631e4ef274a6a749fca7e}{%
            family={Enge},
            familyi={E\bibinitperiod},
            given={Per},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
+           giveni={P\bibinitperiod}}}%
       }
       \list{publisher}{2}{%
         {American Institute of Aeronautics}%
@@ -3519,12 +3299,11 @@
     \endentry
     \entry{Antseaice}{misc}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=2ea86e0cbd79b92b87173e392f10ec78}{%
+        {{hash=2ea86e0cbd79b92b87173e392f10ec78}{%
            family={Steer},
            familyi={S\bibinitperiod},
            given={Adam},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
+           giveni={A\bibinitperiod}}}%
       }
       \strng{namehash}{2ea86e0cbd79b92b87173e392f10ec78}
       \strng{fullhash}{2ea86e0cbd79b92b87173e392f10ec78}
@@ -3552,24 +3331,21 @@
     \endentry
     \entry{STEER2008933}{article}{}
       \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=2ea86e0cbd79b92b87173e392f10ec78}{%
+        {{hash=2ea86e0cbd79b92b87173e392f10ec78}{%
            family={Steer},
            familyi={S\bibinitperiod},
            given={Adam},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=83c146f4815b1c13d7f2b69b39948137}{%
+           giveni={A\bibinitperiod}}}%
+        {{hash=83c146f4815b1c13d7f2b69b39948137}{%
            family={Worby},
            familyi={W\bibinitperiod},
            given={Anthony},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=2c120a86b83aa0a5b08e1dffd95d26d7}{%
+           giveni={A\bibinitperiod}}}%
+        {{hash=2c120a86b83aa0a5b08e1dffd95d26d7}{%
            family={Heil},
            familyi={H\bibinitperiod},
            given={Petra},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
+           giveni={P\bibinitperiod}}}%
       }
       \strng{namehash}{ab4f44bc05bd2a18ba0cfaeb215dad1b}
       \strng{fullhash}{5d6ff79bd606316365897d67cb972161}
@@ -3606,18 +3382,16 @@
     \endentry
     \entry{sturm2009snow}{article}{}
       \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=dbb64595fe850757a81c35eec0d9983c}{%
+        {{hash=dbb64595fe850757a81c35eec0d9983c}{%
            family={Sturm},
            familyi={S\bibinitperiod},
            given={Matthew},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=1,uniquepart=given,hash=66cae99183a02433e08da0255367dab2}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=66cae99183a02433e08da0255367dab2}{%
            family={Massom},
            familyi={M\bibinitperiod},
            given={Robert\bibnamedelima A},
-           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
-           givenun=1}}%
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Wiley-Blackwell}%
@@ -3642,102 +3416,50 @@
       \field{pages}{153\bibrangedash 204}
       \range{pages}{52}
     \endentry
-    \entry{swart2015seasonal}{article}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=f1214cfe848273a9e30a38c6a89f7244}{%
-           family={Swart},
-           familyi={S\bibinitperiod},
-           given={S},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e433e140e4d9f7a9094c93bbfd526b36}{%
-           family={Thomalla},
-           familyi={T\bibinitperiod},
-           given={Sandy\bibnamedelima J},
-           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=226bee44b273c3e35c6e424c5d02d380}{%
-           family={Monteiro},
-           familyi={M\bibinitperiod},
-           given={PMS},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Elsevier}%
-      }
-      \strng{namehash}{15ae6f22326336f353831d732389d8d1}
-      \strng{fullhash}{9d17f178a1a46729f015eda8b32a0f32}
-      \strng{bibnamehash}{9d17f178a1a46729f015eda8b32a0f32}
-      \strng{authorbibnamehash}{9d17f178a1a46729f015eda8b32a0f32}
-      \strng{authornamehash}{15ae6f22326336f353831d732389d8d1}
-      \strng{authorfullhash}{9d17f178a1a46729f015eda8b32a0f32}
-      \field{extraname}{1}
-      \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Journal of Marine Systems}
-      \field{title}{The seasonal cycle of mixed layer dynamics and phytoplankton biomass in the Sub-Antarctic Zone: A high-resolution glider experiment}
-      \field{volume}{147}
-      \field{year}{2015}
-      \field{pages}{103\bibrangedash 115}
-      \range{pages}{13}
-    \endentry
     \entry{swart2020submesoscale}{article}{}
       \name{author}{8}{}{%
-        {{un=0,uniquepart=base,hash=8cb43de80b64a091b8dad95b60079b00}{%
+        {{hash=8cb43de80b64a091b8dad95b60079b00}{%
            family={Swart},
            familyi={S\bibinitperiod},
            given={Sebastiaan},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=733f694da2d619aeb26dd1513014a975}{%
+           giveni={S\bibinitperiod}}}%
+        {{hash=733f694da2d619aeb26dd1513014a975}{%
            family={Plessis},
            familyi={P\bibinitperiod},
            given={Marcel\bibnamedelima D},
            giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod},
-           givenun=0,
            prefix={du},
            prefixi={d\bibinitperiod}}}%
-        {{un=0,uniquepart=base,hash=0b056e590d105ab8f7b11512ac37c255}{%
+        {{hash=0b056e590d105ab8f7b11512ac37c255}{%
            family={Thompson},
            familyi={T\bibinitperiod},
            given={Andrew\bibnamedelima F},
-           giveni={A\bibinitperiod\bibinitdelim F\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=00440e7a9af29dc3758c7082e4fb3034}{%
+           giveni={A\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=00440e7a9af29dc3758c7082e4fb3034}{%
            family={Biddle},
            familyi={B\bibinitperiod},
            given={Louise\bibnamedelima C},
-           giveni={L\bibinitperiod\bibinitdelim C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=0a45b5de38c3e68f01738b132b7051b4}{%
+           giveni={L\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=0a45b5de38c3e68f01738b132b7051b4}{%
            family={Giddy},
            familyi={G\bibinitperiod},
            given={Isabelle},
-           giveni={I\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=480c95913b81dc9c0122f1852a0ce0a7}{%
+           giveni={I\bibinitperiod}}}%
+        {{hash=480c95913b81dc9c0122f1852a0ce0a7}{%
            family={Linders},
            familyi={L\bibinitperiod},
            given={Torsten},
-           giveni={T\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=ca5739386aa4989a7b19210e4dae84ca}{%
+           giveni={T\bibinitperiod}}}%
+        {{hash=ca5739386aa4989a7b19210e4dae84ca}{%
            family={Mohrmann},
            familyi={M\bibinitperiod},
            given={Martin},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=19824a7d7a629535893488406ef0ae24}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=19824a7d7a629535893488406ef0ae24}{%
            family={Nicholson},
            familyi={N\bibinitperiod},
            given={Sarah-Anne},
-           giveni={S\bibinithyphendelim A\bibinitperiod},
-           givenun=0}}%
+           giveni={S\bibinithyphendelim A\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Wiley Online Library}%
@@ -3748,11 +3470,11 @@
       \strng{authorbibnamehash}{aeecf421da5fdf66a3367900b0ef2a3b}
       \strng{authornamehash}{cb474a51001bf991e117c43714245bc4}
       \strng{authorfullhash}{aeecf421da5fdf66a3367900b0ef2a3b}
-      \field{extraname}{2}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Geophysical Research Letters}
@@ -3765,7 +3487,7 @@
     \endentry
     \entry{swift}{misc}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=6a057610781388923bebe37a329c92c9}{%
+        {{hash=6a057610781388923bebe37a329c92c9}{%
            family={SWIFT},
            familyi={S\bibinitperiod}}}%
       }
@@ -3783,11 +3505,13 @@
       \strng{authorfullhash}{6a057610781388923bebe37a329c92c9}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{labeldatesource}{nodate}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{journaltitle}{Apl.uw.edu}
       \field{note}{n.d. [Online; accessed December 16, 2020]}
+      \field{year}{2014}
       \verb{urlraw}
       \verb https://apl.uw.edu/project/project.php?id=swift
       \endverb
@@ -3797,24 +3521,21 @@
     \endentry
     \entry{tammiksaar2010international}{inbook}{}
       \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=4b8737de889458ff9e63ad65eff85122}{%
+        {{hash=4b8737de889458ff9e63ad65eff85122}{%
            family={Tammiksaar},
            familyi={T\bibinitperiod},
            given={Erki},
-           giveni={E\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e90018677c09ae50163a38fddcd778fb}{%
+           giveni={E\bibinitperiod}}}%
+        {{hash=e90018677c09ae50163a38fddcd778fb}{%
            family={Sukhova},
            familyi={S\bibinitperiod},
            given={Natal’ya\bibnamedelima Georgievna},
-           giveni={N\bibinitperiod\bibinitdelim G\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=fbe2f4b43696205f5151708a1e2cea8e}{%
+           giveni={N\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=fbe2f4b43696205f5151708a1e2cea8e}{%
            family={Lüdecke},
            familyi={L\bibinitperiod},
            given={Cornelia},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
+           giveni={C\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Springer}%
@@ -3840,12 +3561,11 @@
     \endentry
     \entry{taylor1981first}{article}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=fb879ffaa0dbbb5ec0d1fe828bd92c62}{%
+        {{hash=fb879ffaa0dbbb5ec0d1fe828bd92c62}{%
            family={Taylor},
            familyi={T\bibinitperiod},
            given={CJ},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
+           giveni={C\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {JSTOR}%
@@ -3871,12 +3591,11 @@
     \endentry
     \entry{thomson2012wave}{article}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=a72b9b84115dc7135f1fdb325c6e3cf8}{%
+        {{hash=a72b9b84115dc7135f1fdb325c6e3cf8}{%
            family={Thomson},
            familyi={T\bibinitperiod},
            given={Jim},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
+           giveni={J\bibinitperiod}}}%
       }
       \strng{namehash}{a72b9b84115dc7135f1fdb325c6e3cf8}
       \strng{fullhash}{a72b9b84115dc7135f1fdb325c6e3cf8}
@@ -3901,12 +3620,11 @@
     \endentry
     \entry{tong2001improving}{article}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=c962e0e98f4bf4dc2dec24d1afc73055}{%
+        {{hash=c962e0e98f4bf4dc2dec24d1afc73055}{%
            family={Tong},
            familyi={T\bibinitperiod},
            given={Alan},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
+           giveni={A\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {MCB UP Ltd}%
@@ -3934,48 +3652,41 @@
     \endentry
     \entry{turner2017unprecedented}{article}{}
       \name{author}{7}{}{%
-        {{un=0,uniquepart=base,hash=6e889d94c59bbc4801a9b06bcbf95ab1}{%
+        {{hash=6e889d94c59bbc4801a9b06bcbf95ab1}{%
            family={Turner},
            familyi={T\bibinitperiod},
            given={John},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=802ab5ffa7f8e817077745b0c24e8c2f}{%
+           giveni={J\bibinitperiod}}}%
+        {{hash=802ab5ffa7f8e817077745b0c24e8c2f}{%
            family={Phillips},
            familyi={P\bibinitperiod},
            given={Tony},
-           giveni={T\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d03df46bd09fc89d11e4fbbb5b561465}{%
+           giveni={T\bibinitperiod}}}%
+        {{hash=d03df46bd09fc89d11e4fbbb5b561465}{%
            family={Marshall},
            familyi={M\bibinitperiod},
            given={Gareth\bibnamedelima J},
-           giveni={G\bibinitperiod\bibinitdelim J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=1dbc9272dd93e561c504d8e16585cb58}{%
+           giveni={G\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=1dbc9272dd93e561c504d8e16585cb58}{%
            family={Hosking},
            familyi={H\bibinitperiod},
            given={J\bibnamedelima Scott},
-           giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=b37ecc50872455f312fb3cd1c2495175}{%
+           giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=b37ecc50872455f312fb3cd1c2495175}{%
            family={Pope},
            familyi={P\bibinitperiod},
            given={James\bibnamedelima O},
-           giveni={J\bibinitperiod\bibinitdelim O\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=1f801f8bc1799f0034653bde7655c460}{%
+           giveni={J\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+        {{hash=1f801f8bc1799f0034653bde7655c460}{%
            family={Bracegirdle},
            familyi={B\bibinitperiod},
            given={Thomas\bibnamedelima J},
-           giveni={T\bibinitperiod\bibinitdelim J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=8f556f88ba4b3934db0aa340e12ba71f}{%
+           giveni={T\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=8f556f88ba4b3934db0aa340e12ba71f}{%
            family={Deb},
            familyi={D\bibinitperiod},
            given={Pranab},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
+           giveni={P\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Wiley Online Library}%
@@ -4003,7 +3714,7 @@
     \endentry
     \entry{UBLOX_M9N_INTERFACE}{manual}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=e793a6d14967c3cbaa58d7485e48be84}{%
+        {{hash=e793a6d14967c3cbaa58d7485e48be84}{%
            family={U-Blox},
            familyi={U\bibinithyphendelim B\bibinitperiod}}}%
       }
@@ -4054,7 +3765,7 @@
     \endentry
     \entry{simbfact}{misc}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=bc9ee3e9d726962297716c9c79d77331}{%
+        {{hash=bc9ee3e9d726962297716c9c79d77331}{%
            family={USACE},
            familyi={U\bibinitperiod}}}%
       }
@@ -4082,18 +3793,16 @@
     \endentry
     \entry{varvasovszky2000stakeholder}{article}{}
       \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=eff8dd0e4e6fbe27294786c4e4674b5e}{%
+        {{hash=eff8dd0e4e6fbe27294786c4e4674b5e}{%
            family={Varvasovszky},
            familyi={V\bibinitperiod},
            given={Zsuzsa},
-           giveni={Z\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=02c8f99532a310aece187bdbd5c5bc54}{%
+           giveni={Z\bibinitperiod}}}%
+        {{hash=02c8f99532a310aece187bdbd5c5bc54}{%
            family={Brugha},
            familyi={B\bibinitperiod},
            given={Ruairı́},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
+           giveni={R\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Oxford University Press}%
@@ -4123,68 +3832,58 @@
       \true{moreauthor}
       \true{morelabelname}
       \name{author}{10}{}{%
-        {{un=0,uniquepart=base,hash=89fba3e6e5969e08f095c08eed06948e}{%
+        {{hash=89fba3e6e5969e08f095c08eed06948e}{%
            family={Vichi},
            familyi={V\bibinitperiod},
            given={Marcello},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=f215ec29de971cdb397e736c4428ebfd}{%
+           giveni={M\bibinitperiod}}}%
+        {{hash=f215ec29de971cdb397e736c4428ebfd}{%
            family={Eayrs},
            familyi={E\bibinitperiod},
            given={Clare},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=1f41128a44870dcaeeca940433b42242}{%
+           giveni={C\bibinitperiod}}}%
+        {{hash=1f41128a44870dcaeeca940433b42242}{%
            family={Alberello},
            familyi={A\bibinitperiod},
            given={Alberto},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=98746fc9b77b98cb4258daa7485ed7f9}{%
+           giveni={A\bibinitperiod}}}%
+        {{hash=98746fc9b77b98cb4258daa7485ed7f9}{%
            family={Bekker},
            familyi={B\bibinitperiod},
            given={Anriëtte},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=1c95e1d235b74cac279f73f562925dc5}{%
+           giveni={A\bibinitperiod}}}%
+        {{hash=1c95e1d235b74cac279f73f562925dc5}{%
            family={Bennetts},
            familyi={B\bibinitperiod},
            given={Luke},
-           giveni={L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e4127fc4261b28ec7ed5975ece15d81a}{%
+           giveni={L\bibinitperiod}}}%
+        {{hash=e4127fc4261b28ec7ed5975ece15d81a}{%
            family={Holland},
            familyi={H\bibinitperiod},
            given={David},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d0d4903b42bc9f110104da59fbf947c5}{%
+           giveni={D\bibinitperiod}}}%
+        {{hash=d0d4903b42bc9f110104da59fbf947c5}{%
            family={Jong},
            familyi={J\bibinitperiod},
            given={Ehlke},
            giveni={E\bibinitperiod},
-           givenun=0,
            prefix={de},
            prefixi={d\bibinitperiod}}}%
-        {{un=0,uniquepart=base,hash=c7084a49a7e1b8cf6be3dd4731119b13}{%
+        {{hash=c7084a49a7e1b8cf6be3dd4731119b13}{%
            family={Joubert},
            familyi={J\bibinitperiod},
            given={Warren},
-           giveni={W\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a4d83fa2974ca27268d2f25c0cfadc18}{%
+           giveni={W\bibinitperiod}}}%
+        {{hash=a4d83fa2974ca27268d2f25c0cfadc18}{%
            family={MacHutchon},
            familyi={M\bibinitperiod},
            given={Keith},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=f700a832b740186994e4531c6a35ed2a}{%
+           giveni={K\bibinitperiod}}}%
+        {{hash=f700a832b740186994e4531c6a35ed2a}{%
            family={Messori},
            familyi={M\bibinitperiod},
            given={Gabriele},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
+           giveni={G\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Wiley Online Library}%
@@ -4226,12 +3925,11 @@
     \endentry
     \entry{welch1967use}{article}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=576f8524fc13840ed07f2aa33fe35170}{%
+        {{hash=576f8524fc13840ed07f2aa33fe35170}{%
            family={Welch},
            familyi={W\bibinitperiod},
            given={Peter},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
+           giveni={P\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {IEEE}%
@@ -4259,36 +3957,31 @@
     \endentry
     \entry{williams2013wave}{article}{}
       \name{author}{5}{}{%
-        {{un=0,uniquepart=base,hash=f1054430ee0df9a51bddaa26aaa02fe7}{%
+        {{hash=f1054430ee0df9a51bddaa26aaa02fe7}{%
            family={Williams},
            familyi={W\bibinitperiod},
            given={Timothy\bibnamedelima D},
-           giveni={T\bibinitperiod\bibinitdelim D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=8f651bf1e45dea10a2d3b1e478e8d13e}{%
+           giveni={T\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=8f651bf1e45dea10a2d3b1e478e8d13e}{%
            family={Bennetts},
            familyi={B\bibinitperiod},
            given={Luke\bibnamedelima G},
-           giveni={L\bibinitperiod\bibinitdelim G\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=90c9971b2160576314b2530bef37eaf7}{%
+           giveni={L\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=90c9971b2160576314b2530bef37eaf7}{%
            family={Squire},
            familyi={S\bibinitperiod},
            given={Vernon\bibnamedelima A},
-           giveni={V\bibinitperiod\bibinitdelim A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=74356f1dfcf85edf541630d9d6b45f75}{%
+           giveni={V\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=74356f1dfcf85edf541630d9d6b45f75}{%
            family={Dumont},
            familyi={D\bibinitperiod},
            given={Dany},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=b3931638a115a2ed94c6596d34e9bfed}{%
+           giveni={D\bibinitperiod}}}%
+        {{hash=b3931638a115a2ed94c6596d34e9bfed}{%
            family={Bertino},
            familyi={B\bibinitperiod},
            given={Laurent},
-           giveni={L\bibinitperiod},
-           givenun=0}}%
+           giveni={L\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Elsevier}%
@@ -4315,12 +4008,11 @@
     \endentry
     \entry{womack_2020}{thesis}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=f5ee73adc338c0a7f9f8e53bb58be703}{%
+        {{hash=f5ee73adc338c0a7f9f8e53bb58be703}{%
            family={Womack},
            familyi={W\bibinitperiod},
            given={Ashleigh\bibnamedelimb Catherine\bibnamedelima Stevenson},
-           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim S\bibinitperiod},
-           givenun=0}}%
+           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
       }
       \list{institution}{1}{%
         {University of Cape Town}%
