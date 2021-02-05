@@ -74,17 +74,6 @@
 \usepackage[sorting=nyt,style=apa,uniquename = false,uniquelist = false]{biblatex}
 \addbibresource{thesis.bib}% Syntax for version >= 1.2
 \let\cite\parencite
-
-\DefineBibliographyStrings{english}{%
-	urlseen = {Accessed}
-}
-
-\DefineBibliographyStrings{english}{%
-	urlseen = {Accessed},
-	url = { [Online]. Available at}
-}
-\DeclareFieldFormat{url}{\bibstring{url}\space\url{#1}}
-
 %---------------------------------------------------------------------
 % 	Colours
 %---------------------------------------------------------------------
