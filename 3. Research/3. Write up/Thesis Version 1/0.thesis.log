@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.1.22)  4 FEB 2021 10:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.2.4)  5 FEB 2021 12:29
 entering extended mode
 **./0.thesis.tex
 (0.thesis.tex
@@ -86,7 +86,7 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/hyphenat\hyphenat.sty
 Package: hyphenat 2009/09/02 v2.3c hyphenation utilities
-\langwohyphens=\language79
+\langwohyphens=\language84
 LaTeX Info: Redefining \_ on input line 43.
 )
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/setspace\setspace.sty
@@ -116,7 +116,7 @@ Package: varioref 2020/08/11 v1.6e package for extended references (FMi)
 \c@vrcnt=\count190
 ))
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/fancyvrb\fancyvrb.sty
-Package: fancyvrb 2020/05/03 v3.6 verbatim text (tvz,hv)
+Package: fancyvrb 2021/01/20 v3.7 verbatim text (tvz,hv)
 \FV@CodeLineNo=\count191
 \FV@InFile=\read2
 \FV@TabBox=\box49
@@ -210,8 +210,8 @@ Package: expl3 2021-01-09 L3 programming layer (loader)
 
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
-File: l3backend-pdftex.def 2021-01-09 L3 backend support: PDF output (pdfTeX)
-\l__kernel_color_stack_int=\count267
+File: l3backend-pdftex.def 2020-01-29 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count267
 \l__pdf_internal_box=\box59
 ))
 Package: xparse 2020-10-27 L3 Experimental document command parser
@@ -816,9 +816,11 @@ Package: fontenc 2020/08/10 v2.0s Standard LaTeX package
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/ragged2e\ragged2e.sty
 Package: ragged2e 2019/07/28 v2.2 ragged2e Package (MS)
 
-(C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/ms\everysel.sty
-Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
-)
+(C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/everysel\everysel.sty
+Package: everysel 2021/01/20 v2.1 EverySelectfont Package (MS)
+
+(C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/everysel\everysel-2011-
+10-28.sty))
 \CenteringLeftskip=\skip129
 \RaggedLeftLeftskip=\skip130
 \RaggedRightLeftskip=\skip131
@@ -1064,7 +1066,7 @@ File: listings.cfg 2020/03/24 1.8d listings configuration
 ))
 Package: listings 2020/03/24 1.8d (Carsten Heinz)
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
-Package: multirow 2021/01/02 v2.6 Span multiple rows of a table
+Package: multirow 2021/01/29 v2.7 Span multiple rows of a table
 \multirow@colwidth=\skip152
 \multirow@cntb=\count366
 \multirow@dima=\skip153
@@ -1134,7 +1136,7 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 \bibhang=\skip161
 \blx@bcfin=\read4
 \blx@bcfout=\write5
-\blx@langwohyphens=\language80
+\blx@langwohyphens=\language85
 \c@mincomprange=\count410
 \c@maxcomprange=\count411
 \c@mincompwidth=\count412
@@ -1332,20 +1334,20 @@ LaTeX Warning: Unused global option(s):
 (appendix.aux))
 \openout1 = `0.thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 261.
-LaTeX Font Info:    ... okay on input line 261.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 261.
-LaTeX Font Info:    ... okay on input line 261.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 261.
-LaTeX Font Info:    ... okay on input line 261.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 261.
-LaTeX Font Info:    ... okay on input line 261.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 261.
-LaTeX Font Info:    ... okay on input line 261.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 261.
-LaTeX Font Info:    ... okay on input line 261.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 261.
-LaTeX Font Info:    ... okay on input line 261.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 272.
+LaTeX Font Info:    ... okay on input line 272.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 272.
+LaTeX Font Info:    ... okay on input line 272.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 272.
+LaTeX Font Info:    ... okay on input line 272.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 272.
+LaTeX Font Info:    ... okay on input line 272.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 272.
+LaTeX Font Info:    ... okay on input line 272.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 272.
+LaTeX Font Info:    ... okay on input line 272.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 272.
+LaTeX Font Info:    ... okay on input line 272.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1413,28 +1415,28 @@ G,.JBIG2,.JB2,.eps]
 )
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 261.
+(lastpage)             ! on input line 272.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 261.
+LaTeX Info: Redefining \selectfont on input line 272.
 
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/fmtcount\fc-english.def
 File: fc-english.def 2016/01/12
 )
 \symgns@font=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
-(Font)                  TS1/cmr/m/n --> TS1/cmr/b/n on input line 261.
-Package gensymb Info: Math companion symbols declared on input line 261.
-LaTeX Info: Redefining \degree on input line 261.
-LaTeX Info: Redefining \celsius on input line 261.
+(Font)                  TS1/cmr/m/n --> TS1/cmr/b/n on input line 272.
+Package gensymb Info: Math companion symbols declared on input line 272.
+LaTeX Info: Redefining \degree on input line 272.
+LaTeX Info: Redefining \celsius on input line 272.
 Package gensymb Info: Using text companion symbols for \degree, \celsius and \p
-erthousand on input line 261.
-LaTeX Info: Redefining \ohm on input line 261.
-Package gensymb Info: Using \textohm for \ohm on input line 261.
-Package gensymb Info: Using \textmu for \micro on input line 261.
+erthousand on input line 272.
+LaTeX Info: Redefining \ohm on input line 272.
+Package gensymb Info: Using \textohm for \ohm on input line 272.
+Package gensymb Info: Using \textmu for \micro on input line 272.
 
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.sty
 Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
@@ -1491,25 +1493,25 @@ Package: blx-case-expl3 2020/12/31 v3.16 expl3 case changing code for biblatex
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file '0.thesis.bbl' found.
  (0.thesis.bbl)
-Package biblatex Info: Reference section=0 on input line 261.
-Package biblatex Info: Reference segment=0 on input line 261.
+Package biblatex Info: Reference section=0 on input line 272.
+Package biblatex Info: Reference segment=0 on input line 272.
 <figs/uctLogo.png, id=4, 418.56375pt x 425.59pt>
 File: figs/uctLogo.png Graphic file (type png)
 <use figs/uctLogo.png>
-Package pdftex.def Info: figs/uctLogo.png  used on input line 289.
+Package pdftex.def Info: figs/uctLogo.png  used on input line 300.
 (pdftex.def)             Requested size: 125.57008pt x 127.67798pt.
  [1
 
 
 {C:/Users/jamie/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./figs/uctLogo.
 png>]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 372
+LaTeX Font Info:    Trying to load font information for U+msa on input line 383
 .
 
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 372
+LaTeX Font Info:    Trying to load font information for U+msb on input line 383
 .
 
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
@@ -2403,16 +2405,16 @@ Package logreq Info: Writing requests to '0.thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34151 strings out of 479618
- 677645 string characters out of 2865026
- 1606493 words of memory out of 3000000
- 50563 multiletter control sequences out of 15000+200000
- 430284 words of font info for 89 fonts, out of 3000000 for 9000
+ 34165 strings out of 479580
+ 678142 string characters out of 2863326
+ 1608259 words of memory out of 3000000
+ 50590 multiletter control sequences out of 15000+200000
+ 430661 words of font info for 90 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 87i,16n,101p,3111b,4952s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}{C:
-/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-super-ts
-1.enc}{C:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm
+ 87i,16n,101p,3111b,4955s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-sup
+er-ts1.enc}{C:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8
+r.enc}{C:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm
 -super-t1.enc}<C:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 amsfonts/cm/cmex10.pfb><C:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/amsfonts/cm/cmmi12.pfb><C:/Users/jamie/AppData/Local/Programs/MiKTeX/f
@@ -2438,9 +2440,9 @@ r/sfti0700.pfb><C:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/type1/public
 /cm-super/sfti1000.pfb><C:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/cm-super/sfti1200.pfb><C:/Users/jamie/AppData/Local/Programs/MiKTeX/fo
 nts/type1/urw/courier/ucrr8a.pfb>
-Output written on 0.thesis.pdf (182 pages, 25610012 bytes).
+Output written on 0.thesis.pdf (182 pages, 25611659 bytes).
 PDF statistics:
- 806 PDF objects out of 1000 (max. 8388607)
+ 808 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  313 words of extra memory for PDF output out of 10000 (max. 10000000)
 
