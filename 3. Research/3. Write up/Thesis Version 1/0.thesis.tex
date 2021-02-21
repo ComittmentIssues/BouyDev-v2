@@ -417,11 +417,10 @@ I, \auth,  hereby:
 			\auth\\
 			\vskip 0.2cm
 	\textit{\footnotesize\today}
-			\vskip 1cm
+		
 \end{center}
 %---------------------------------------------------------------------
 % Write abstract here [350 words]
-
 Sea ice in the Antarctic Marginal Ice Zone (MIZ) plays a pivotal role in regulating heat and energy exchange between oceanic and atmospheric systems, which drive global climate. Current understanding of Southern Ocean sea ice dynamics is poor with temporal and spatial gaps in critical seasonal data-sets. The lack of in situ environmental and wave data from the MIZ in the Antarctic region drove the development of UCT’s first generation of in situ ice-tethered measurement platform as part of a larger UCT and NRF SANAP project on realistic modeling of the Marginal Ice Zone in the changing Southern Ocean (MISO). This thesis focuses on the firmware development for the device and the design process taken to obtain key measurements for understanding sea ice dynamics and increasing sensing capabilities in the Southern Ocean.\par 
 
 The buoy was required to survive the Antarctic climate and contained a global positioning system, temperature sensor, digital barometer and inertial measurement unit to measure waves in ice. Power was supplied to the device by a power supply unit consisting of commercial-grade batteries in series with a temperature-resistant low dropout regulator, and a power sensor to monitor the module. A satellite modem transmitted data through the Iridium satellite network. Finally, flash chips provided permanent storage for the data. The firmware and peripheral driver files were written in C for an STM32L4 ARM-based microcontroller. To optimise the firmware for low power consumption, inactive sensors were placed in power-saving mode and the processor was put to sleep during periods of no sampling activity. \par 

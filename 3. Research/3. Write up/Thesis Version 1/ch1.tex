@@ -9,15 +9,39 @@
 
 Antarctica plays host to ocean-atmospheric processes, which are significant drivers of global climate. These interactions are strongly influenced by sea ice coverage and extent, which acts as a boundary layer between the atmosphere and ocean \cite{parkinson2004southern}. Sea ice reflects incoming solar radiation which, otherwise, would be absorbed by the ocean thereby influencing ocean temperature and salinity \cite{parkinson2004southern}. Additionally, sea ice expanse  has been shown to insulate the ocean and reduce evaporation while regulating heat flux, and gaseous exchange \cite{deconto2003rapid} thereby providing a stable habitat for the diverse ecosystem that inhabits the region \cite{arrigo2004large} (see figure \ref{fig:AntaDiag}). Sea ice provides a damping effect on oceanic kinetic energy as it regulates the mass and movement of waves around the Southern Ocean \cite{parkinson2004southern,roach2020antarctic}. Sea ice coverage is fundamental to preserving a stable ocean environment as well as providing protection from extreme, weather conditions that affect the region \cite{vichi2019effects}. High winds, cyclone frequency and prominent wave activity perturbs the ice preventing it from congealing. The result is a region of semi-consolidated ice masses known as the Marginal Ice Zone (MIZ) \cite{vichi2019effects}.
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale =0.5]{Sea Ice Lifecycle diagram.png}
+	\caption{Diagram showing the lifecycle of Antarctic sea ice as observed using remote sensing based on the information from \textcite{barber2005microwave}. The cycle begins with the congealing of the ocean surface known as Freeze Up with peak ice formation during Winter, the second half of the cycle is characterised by various stages of melt with complete sea ice retreat occurring in the Summer.}
+	\label{fig:ice_diag}
+\end{figure}
+
 Sea ice formation in the Southern Ocean begins when the surface layer of the ocean congeals causing ice crystals to form. These crystals combine to form frazil ice; the concentration of which increases as the heat from the ocean is removed by the atmosphere \cite{arrigo2004large}. As the wind and wave activity begin to calm, the frazil ice combines into grease ice, which grows into pancake ice floes \cite{arrigo2004large}. This growth period is known as "freeze-up" and forms the first stages of the sea ice life cycle \cite{barber2005microwave}. Additionally, strong winds in the Marginal Ice Zones cause the floes to drift over long distances \cite{alberello2019drift}. These winds, coupled with high ice floe density result in collisions between floes causing them to break apart \cite{STEER2008933} resulting in brash ice \cite{icedefinition1992}.  During the winter months, newly formed ice grows a layer of snow \cite{barber2005microwave} and is termed "first year ice"\footnote{First year ice is newly consolidated ice that has been growing for less than one winter's growth period \cite{icedefinition1992}.}, brine is present between the ice fragments and the layer of snow is affected by the level of precipitation \cite{barber2005microwave}.\par
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width = 6cm,height=6cm]{AntDiag.png}
-    \caption{Diagram showing the expanse of sea ice in the Southern Ocean. Packed ice forms closer to the continent in calmer conditions while strong oceanic currents,winds wave action and extreme temperatures result in the formation of semi-consolidated ice in the marginal ice zone (1 - 5). Here, ice formation is highly seasonal expanding to a maximum in winter and retreating to a minimum in summer. Sea ice acts as a boundary layer influencing heat and gaseous  exchange between the atmosphere and ocean. Figure taken from \textcite{Antseaice}.}
-    \label{fig:AntaDiag}
-\end{figure}
+	\centering
+	\begin{subfigure}[t]{0.5\textwidth}
 
+		 \begin{tikzpicture}
+			\node[anchor=south west,inner sep=0] (image) at (0,0) { 		\includegraphics[width = 0.95\linewidth,height=6cm]{floe snow.jpg}};
+			\begin{scope}[x={(image.south east)},y={(image.north west)}]
+				\draw[color=black, ultra thin,fill=white] (0.0,0.0) rectangle (0.16,0.16) node[pos=.5] {A};
+			\end{scope}
+		\end{tikzpicture}
+	\label{fig:Ice Types}
+	\end{subfigure}%
+	\begin{subfigure}[t]{0.5\textwidth}
+		\begin{tikzpicture}
+			\node[anchor=south west,inner sep=0] (image) at (0,0) { 		\includegraphics[width = 0.95\linewidth, height = 6cm]{MIZICE.jpg}};
+			\begin{scope}[x={(image.south east)},y={(image.north west)}]
+				\draw[color=black, ultra thin,fill=white] (0.0,0.0) rectangle (0.13,0.13) node[pos=.5] {B};
+			\end{scope}
+		\end{tikzpicture}
+		\label{fig:MIZICE}
+	\end{subfigure}%
+	\caption{(A) Diagram showing different types of ice present in the marginal Ice Zone including ice floes (a) frazil ice (b) and brash ice (c).Some ice floes exhibit snow growth along the ridges while other floes exhibit flooding. Photo taken from the SCALE 2019 winter expedition during the early sea ice formation period by the author. (B) Sea ice in the Southern Ocean MIZ during July 2019, where pancake ice is the predominant  concentration while brash ice is the smallest. Swell waves can also be observed propagating through the region. Photo taken during the early sea ice formation period during the SCALE winter cruise July 2019 by the Author.}
+	\label{fig:ridging}
+\end{figure}
 
 
 Finally, the seasonal cycle closes with three phases of melting. Early melt marks the transitional period  where moisture is continuously present in snow cover on the sea ice \cite{barber2005microwave}. The level of moisture in the snow increases through "melt-onset" brought on by the transition from summer to winter and increasing ocean/atmospheric temperatures \cite{barber2005microwave}. Eventually, the snow and ice surface begin to melt rapidly during the "advanced melt" phase resulting in complete desalination of the ice floes followed by the breaking up of the sea ice sheets \cite{barber2005microwave}. 
@@ -25,10 +49,10 @@ Finally, the seasonal cycle closes with three phases of melting. Early melt mark
 The result of these processes is a region of semi-consolidated ice, which extends an estimated 19 million $\text{km}^2$ from the Antarctic continent \cite{MAKSYM2012seaiceextent}. These ice floes increase in size through gradual heating, fusing the floes into packed ice \cite{arrigo2004large}. Sea ice concentration in the MIZ is highly variable covering a range of 15\% to 85\% of total ice concentration from summer to winter respectively \cite{alberello2019drift}. The variability of the MIZ, coupled with the strong storms and weather patterns, drive the strongest atmospheric-ocean-sea ice interactions in the region. \textcite{alberello2019drift} further highlight that knowledge of MIZ sea ice dynamics is required to model the response to storms as well as predict the regional response to changes in climate.
 
 \begin{figure}[H]
-    \centering
-   \includegraphics[width = 10cm, height = 6cm]{MIZICE.jpg}
-    \caption{Sea ice in the Southern Ocean MIZ during July 2019, where pancake ice is the predominant  concentration while brash ice is the smallest. Swell waves can also be observed propagating through the region. Photo taken during SCALE winter cruise July 2019 by the Author.}
-    \label{fig:MIZICE}
+	\centering
+	\includegraphics[width = 10cm,height=10cm]{AntDiag.png}
+	\caption{Diagram showing the expanse of sea ice in the Southern Ocean. Packed ice forms closer to the continent in calmer conditions while strong oceanic currents,winds wave action and extreme temperatures result in the formation of semi-consolidated ice in the marginal ice zone (1 - 5). Here, ice formation is highly seasonal expanding to a maximum in winter and retreating to a minimum in summer. Sea ice acts as a boundary layer influencing heat and gaseous  exchange between the atmosphere and ocean. Figure taken from \textcite{Antseaice}.}
+	\label{fig:AntaDiag}
 \end{figure}
 
 Antarctic sea ice has gained recognition for playing a critical role in global climate systems \cite{kennicutt2016delivering}. There has been growing interest by the global scientific community in Antarctic research since the first International Polar Years \cite{kennicutt2016delivering}. International collaborations have sought to formalise Antarctic Research and unite efforts under common goals \cite{kennicutt2016delivering} with the formation of the Scientific Committee on Antarctic Research (SCAR), which has resulted in increased sampling in the MIZ. However, data from the marginal and packed ice zones are under-sampled and poorly represented \cite{vichi2019effects}. Very little in situ data exist to fully understand the environmental conditions surrounding the key metamorphic phases of sea ice in the MIZ. Current climate models and observations exist based on data sets from the Arctic \cite{vichi2019effects} which, when applied to Antarctic sea ice, fail to accurately capture the dynamics of the region on a high-resolution scale. Sea ice expeditions have traditionally taken place during the summer months when the sea ice extent is at a minimum \cite{kennicutt2016delivering}. This results in temporal and spatial gaps in seasonal measurements, which fail to characterise sea ice expanse during the fundamental formation periods \cite{MAKSYM2012seaiceextent}. Additionally, these data are critical for understand Southern Ocean sea ice dynamics and observed phenomenon in the Marginal Ice Zone such as waves-in-ice \cite{kohout2014storm}. Additionally, polar oceanic and atmospheric measurements are critical for understanding the local climates since the high cyclonic activity in the region affects the heat and moisture delivery to higher latitudes. \cite{vichi2019effects}.

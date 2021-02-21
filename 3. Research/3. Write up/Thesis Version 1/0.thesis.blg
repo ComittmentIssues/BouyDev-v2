@@ -1,15 +1,17 @@
 [0] Config.pm:311> INFO - This is Biber 2.16
-[0] Config.pm:314> INFO - Logfile is '0.thesis.blg'
-[202] biber-MSWIN64:340> INFO - === 
-[288] Biber.pm:415> INFO - Reading '0.thesis.bcf'
-[932] Biber.pm:952> INFO - Found 92 citekeys in bib section 0
-[959] Biber.pm:4340> INFO - Processing section 0
-[976] Biber.pm:4531> INFO - Looking for bibtex format file 'thesis.bib' for section 0
-[1120] bibtex.pm:1689> INFO - LaTeX decoding ...
-[1335] bibtex.pm:1494> INFO - Found BibTeX data source 'thesis.bib'
-[2487] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[2487] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[2487] Biber.pm:4168> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
-[2487] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
-[2669] bbl.pm:654> INFO - Writing '0.thesis.bbl' with encoding 'UTF-8'
-[2754] bbl.pm:757> INFO - Output to 0.thesis.bbl
+[1] Config.pm:314> INFO - Logfile is '0.thesis.blg'
+[170] biber-MSWIN64:340> INFO - === 
+[231] Biber.pm:415> INFO - Reading '0.thesis.bcf'
+[717] Biber.pm:952> INFO - Found 98 citekeys in bib section 0
+[740] Biber.pm:4340> INFO - Processing section 0
+[756] Biber.pm:4531> INFO - Looking for bibtex format file 'thesis.bib' for section 0
+[850] bibtex.pm:1689> INFO - LaTeX decoding ...
+[1056] bibtex.pm:1494> INFO - Found BibTeX data source 'thesis.bib'
+[1068] Utils.pm:395> WARN - Duplicate entry key: 'intelsat2021website' in file 'thesis.bib', skipping ...
+[2000] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[2000] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[2000] Biber.pm:4168> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[2000] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
+[2279] bbl.pm:654> INFO - Writing '0.thesis.bbl' with encoding 'UTF-8'
+[2367] bbl.pm:757> INFO - Output to 0.thesis.bbl
+[2373] Biber.pm:128> INFO - WARNINGS: 1

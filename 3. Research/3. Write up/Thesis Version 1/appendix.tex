@@ -3,6 +3,77 @@
 %*****************************************************
 \appendix
 
+\chapter{Numerical modeling of polar stochastic processes}
+
+In this section, modeling techniques for the polar region are explored. Here, the focus is given on developing models for Polar sea ice mechanics and dynamics. An overview of these models is given along with a description of the variables as well as the scope of each model.
+
+\subsubsection{Numerical Modeling of Sea Ice}
+
+The Hibler model is a numerical designed to investigate sea ice dynamics and thermodynamics in the Arctic region \cite{hibler1979dynamic}. This model attempts to couple the sea ice dynamics to Sea ice thickness and uses this relationship to investigate the relationship between the effects of sea ice and the climate. Work so far has largely studied these effects independently using factors that largely ignore the inherent mechanical properties of Sea Ice \cite{hibler1979dynamic}. Coupling these effects would allow for a more general descriptor of Sea Ice spread regions.\par
+
+The model is based off \textcite{coon1974modeling} AIDJEX \cite{hibler1979dynamic}, who use plastic-elastic constitutive laws to describe large-scale sea Ice spreads. It is assumed that cracks, ridges, and leads are randomly distributed on large scales \footnote{100 km from \textcite{coon2007arctic}}. While the Hibler model is not as complex, it is more robust as it allows for larger time-steps and simplifies system boundaries. Here, sea ice is modelled using similar viscous plastic laws \cite{hibler1979dynamic} that allow for non-linear plastic flows to be modelled without severe limitations by large time-steps. The model uses the following components:
+
+\begin{enumerate}
+	\item    Momentum balance  - air and water stress
+	\item    Coriolis force
+	\item    Inertial forces
+	\item    Constitutive laws - ice stress, strain, strength
+	\item    Ice thickness distribution - accounting for open water patches, changes in thickness and Concentration
+	\item    Ice strength 
+\end{enumerate}
+\begin{equation}
+	\frac{mDu}{Dt} = -mfk\times u +\tau_a +\tau_w -mg \nabla H +F 
+\end{equation}
+
+$\frac{D}{Dt}$ is the substantial time derivative, k is a unit vector, u is the sea ice velocity, m is the ice mass and f is the Coriolis parameter. Forces in the equation $\tau_a$, $\tau_w$ represent the stress of the air and water respectively where F is the force related to the internal ice stresses. H is the sea surface dynamic height and g is the acceleration due to gravity. Assuming constant turning angles, The air and water momentum equations are as follows
+\begin{equation}
+	\tau_a = \rho_a C_a|U_g|(U_g cos(\phi)+k\times U_g sin(\phi))
+\end{equation}
+
+\begin{equation}
+	\tau_w = \rho_w C_w|U_w-u|[(U_w-u)cos(\phi)+k\times(U_w-u)sin(\phi)]
+\end{equation}
+
+
+where $\rho_a $ and $\rho_w$ are the densities of air and water, $C_a$/$C_w$ are the drag coefficients, $U_g$ is the geostrophic wind and $U_w$ is the geostrophic ocean current\par
+
+The Hibler model is the de facto numerical model for large scale ice process \cite{Rutgher2019SmallScale}. The model is used to describe an area of 10 - 100km$^2$, Small scale models are still in development \cite{Rutgher2019SmallScale}.\par 
+
+\subsubsection{Numerical Modeling of Ocean Waves}
+Ocean waves are comprised of multiple spectral components with different magnitudes and wave periods knowledge of these spectral components is important for understanding the wave attenuation model \cite{williams2013wave} where, assuming the ice is modelled as a viscous fluid, wave energy is exponentially attenuated \cite{meylan2014situ}\cite{williams2013wave} with distance travelled into the ice due to partial reflections with the ice floes. The rate of attenuation is dependant on the wavelength however an exact mathematical relationship has not been found. The major issue with verifying these models is the lack of robust data availability \cite{meylan2014situ} thereby reaffirming the need for in-situ measurements.\par 
+%%% TODO: INCLUDE WILLIAMS WAVE MODELS AND EQUATIONS FOR WAVE SPECTRUM ANALYSIS
+\textcite{williams2013wave} describe three fundamental components of Waves in Ice Modeling. These are advection, attenuation, and ice breakage \cite{williams2013wave}. Advection and Attenuation describe how energy transfer occurs between waves and ice and are dependant on the group velocity $c_g$ and the attenuation factor $\hat{\alpha}$ which, in turn, are dependant on the frequency of the wave \cite{williams2013wave}. Also, the properties of ice are significant. These include Young's modulus $Y$, Poisson Ratio $\nu$, strain $\epsilon$ and viscous damping parameter $\Gamma$. The initial Floe Size Distribution and sea ice concentration are also considered. The assumption is that wave breakage feeds back into the model with a new Floe Size distribution \cite{williams2013wave}. \par
+
+Wave advection is described by the following energy model:
+\begin{equation}
+	\frac{1}{c_g}(\partial_t +c_g\partial_x)S(\omega;x,t) = R_{in}- R_{ice} - R_{other}- R_{nl}
+\end{equation}
+where $R_{in}$ is the wind input energy, $R_{ice}$,$R_{nl}$,$R_{other}$ represent the energy loss from ice, other sources as well as non linear energy exchanges. $S(\omega;x,t)$ represents the waves in terms of its energy spectral density \cite{williams2013wave} For this model, the energy input is considered to come only from the Rate of exchange between ocean and Ice. Hence all other energy rates are considered 0 and $R_{ice}$ is defined in terms of $\hat{alpha} \text{ and } S$
+\begin{equation}
+	\frac{1}{c_g}(\partial_t +c_g\partial_x)S(\omega;x,t)  = -\hat{\alpha}(\omega,c,h,\langle D \rangle)S(\omega;x,t)
+\end{equation}
+
+$\hat{\alpha} = \frac{\alpha}{\langle D \rangle}$ describes the average attenuation per ice floe. In terms of Ice thickness and wave period \cite{williams2013wave}. By this definition, $R_ice$ is quasi linear \cite{williams2013wave} since a wave with a significantly large Energy spectral density can break the floe decreasing the dimensions $\langle D \rangle$ and increase the dimensional attenuation factor $\hat{\alpha}$. The  operator $(\partial_t +c_g\partial_x)$ serves as the lagrangian reference fram at a moving velocity $c_g$. Finally, by breaking the above model into:
+\begin{subequations}
+	\begin{align}
+		\frac{dx}{dt} = c_g(\omega,t_*,x) \label{advect}\\
+		\frac{dS(\omega;x,t)}{dx} = -\hat{\alpha}(\omega,x,t_*,S_*)S(\omega;x,t) \label{atten}
+	\end{align}
+\end{subequations}
+
+we can describe the dynamics of the sea ice during a breaking event at a time $t_*$ \cite{williams2013wave}. Hence, the model is broken up into an advection model in \ref{advect} and an attenuation model in \ref{atten}.\par
+
+The next step in the model is determining the mathematical model for wave energy. A stochastic approach is taken to define key wave parameters \cite{williams2013wave}. The Significant wave height is found using the formula
+\begin{equation}
+	H_s = 4\sqrt{m_0[n]}
+\end{equation}
+$m_n[\eta]$ describes the mean square surface sea elevation of a particle and is derived from the Spectral Density $S$ \cite{williams2013wave}.
+\begin{equation}
+	m_n[\eta] = \int_{0}{\infty}S(\omega)\omega^nd\omega
+\end{equation}
+
+The significant wave height can be considered 4 times the standard deviation of the surface elevation \cite{meylan2014situ}. finally, by determining the significant wave height, the dominant wave period can be calculated as $\frac{1}{f_d}$ where $f_d$ is the frequency at which the dominant wave period occurs \cite{meylan2014situ}.
+
 \chapter{Mechanical Schematics and Renders}
 \label{ch:appendix.schem}
 
@@ -399,36 +470,6 @@ typedef struct
 
 \chapter{Supplementary Tables}
 
-\begin{center}{\setlength{\extrarowheight}{5pt}%
-    \begin{longtable}[H]{|>{\RaggedRight}m{0.3\textwidth}|>{\RaggedRight}m{0.2\textwidth}| >{\RaggedRight}m{0.4\textwidth}|}
-    \caption{Devices used for the comparison including the device name, lead developer and the institution. These consist of both commercial and institutional devices for in-situ sea ice and wave measurements.}\\
-    \hline
-    \label{tab:device_list}
-    \textbf{Device Name} & \textbf{Developed By} & \textbf{Institution}\\
-    \hline
-    Waves in Ice Buoy (WIIB) & Jean Rabault & University of Oslo, Norway \cite{rabault2019open} \\
-    \hline
-    Waves in Ice Observational System (WIIOS) & Alison Kohout & National Institute of Water and Atmospheric Research \cite{kohout2015device}, New Zealand \\
-    \hline
-    Novel Directional Wave Buoys (NDWB) & Martin J Doble &  Polar Scientific (Ltd.), United Kingdom \cite{doble2017robust}\\
-    \hline
-    Surface Kinematic Buoy (SKIB) & Pedro Veras Guimarães & Université de Bretagne Occidentale, France \cite{guimaraes2018surface} \\
-    \hline
-    Surface Wave Instrument Float with Tracking (SWIFT) Buoy & Jim Thompson & University of Washington Applied Physics Laboratory, United States of America \cite{thomson2012wave}\\
-    \hline
-    Seasonal Ice Mass Balance Buoy (SIMB) & Donald K. Perovich & Dartmouth College \\
-    \hline
-    Polar ISVP & MetOcean & MetOcean \\
-    \hline
-     UptempO & MetOcean & MetOcean \\
-    \hline
-    Trident Buoy & Trident Sensor & Trident Sensor \\
-    \hline
-    \end{longtable}
-}
-\end{center}
-
-
 \begin{table}[H]
     \centering
     \caption{ List of data services provided by Iridium for transmission of data over the satellite network including the bandwidth and purpose of the service taken from \cite{iridium_mobile}}
@@ -470,33 +511,10 @@ typedef struct
     \end{tabular}
 \end{table}
 
-\begin{table}[H]
-    \centering
-        \caption{ The following Iridium modems are compared in their key specifications. devices in the table were suitable for IoT applications based on prevalence in literature and recommendations from the manufacturer. Key parameters include weight, power consumption and transmission latency.Taken from \cite{iridium_product} }
-    \label{tab:ir_devices}
-    \begin{tabular}{|l|c|c|c|c|c|}
-    \hline
-         \textbf{Device Name: } & \textbf{9602} & \textbf{9603} & \textbf{9522B\footnotemark} & \textbf{9523} & \textbf{Edge}\\
-         \hline
-         Weight (g) & 30 & 11.4 & 420 & 32 & 330 \\
-         \hline
-         Input Voltage (VDC) & 5 &5 & 4 -32 & 3.2-6 & 9 - 32V\\
-         \hline
-         Idle Current (mA) & 35 & 34 & 250 & 70 &300\\
-         \hline
-         Transmit Current (mA)& 140 & 145 &2.5$\times10^3$&500& 300 \\
-         \hline
-         Recieve Current (mA) & 40 & 39 &2.5$\times10^3$&110 & 300 \\
-         \hline
-         Packet Latency (s) &  20  &  20 & N/A &45 s& 20s\\
-         \hline
-    \end{tabular}
-\end{table}
-
 \begin{center}
    { \setlength{\extrarowheight}{5pt}%
     \begin{longtable}[H]{|*{5}{>{\RaggedRight}m{0.18\textwidth}|}}
-    \caption{Strategies used by the devices to transfer data from remote locations. Table includes transmission technologies and services used as well and transmission strategies and transmission intervals where given.}
+    \caption{Strategies used by the devices to transfer data from remote locations. Table includes transmission technologies and services used as well and transmission strategies and transmission intervals where given. Prices are converted to Rands (R) via \cite{usdcoversion}.}
     \label{tab:device_transmissionstrategies}\\
     \hline
       \textbf{Device Name}  & \textbf{Service} & \textbf{Modem} & \textbf{Bandwidth} & \textbf{Transmission Strategy}\\
@@ -540,33 +558,6 @@ typedef struct
 \end{center}
 \newpage
 
-\begin{table}[H]
-    \centering
-    \caption{A comparison of power supply strategies of the different devices  showing the the power source, topology of the power supply module as well as the voltage supplied at the output of the module. Information that was unavailable at the time of research has been labelled as "Not reported"}
-    \label{tab:device_power_source}
-    \begin{tabular}{|>{\centering}m{0.25\textwidth}|>{\RaggedRight}m{0.2\textwidth}|>{\RaggedRight}m{0.25\textwidth}|>{\Centering}m{0.2\textwidth}|}
-    \hline
-    \textbf{Device Name}& \textbf{Power Source} & \textbf{Power Topology} & \textbf{Supply Voltage}  \\
-    \hline
-    WIIB & LiFePO4 battery cells & power source coupled with solar panel recharging and placed in series with a boost converter. Power consumption feedback and control using an ATMega 328P microcontroller.\footnotemark & 5V\\
-    \hline    
-    WIIOS & Alkaline 1.5V battery Cells & 8 cells placed in series to boost voltage. & 12V\\
-    \hline
-    NDWB & D - Cell Alkaline Battery Array (primary) \par E-cells lead-acid (secondary) & Cells configured in an array of 42 E-cells and 248 D-cells. secondary source coupled with a solar panel for recharging. & 12V\\
-    \hline
-    SKIB & LiSOCl2 battery C-cells & Baterries configured into a "pack" & 3.6V\\
-    \hline
-    SWIFT & Alkaline Or Lithium Battery packs & Not Reported &  14V\\
-    \hline
-    SIMB & Alkaline D-cell battery array.& Cells placed in packs of 60 to produce a nominal 18V output, LMZ12003 Step Down Converter used to provide 5V and 3.3V, MIC29201-12W Low Dropout regulator used to provide 12V output. & 18V\\
-    \hline
-    Polar ISVP & LiSoCl2 batteries & Not Reported & 12V\\
-    \hline
-    Trident & Lithium AA cell batteries & 4 cells connected to a LP3876 LDO & 5V \\
-    \hline
-    \end{tabular}
-\end{table}
-\footnotetext{Information available online at \url{https://github.com/jerabaul29/LoggerWavesInIce_InSituWithIridium/blob/master/ElectronicsList/list.md}}
 \newpage
 \refstepcounter{table}
 
@@ -586,7 +577,6 @@ Trident & Unspecified GPS\par{}ADC - Battery Monitor& Flash Chips & Unspecified 
 \end{longtable}
 \footnotetext{Discontinued. End of life: 19 November 2019 source: \cite{iridium_eol}}
 \newpage
-
 \begin{center}{
     \setlength{\extrarowheight}{5pt}%
     \begin{longtable}[H]{|>{\RaggedRight}m{0.2\textwidth}|>{\RaggedRight}m{0.4\textwidth}|>{\RaggedRight}m{0.3\textwidth}|}
