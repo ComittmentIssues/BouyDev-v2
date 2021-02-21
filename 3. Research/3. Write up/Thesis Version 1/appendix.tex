@@ -73,6 +73,60 @@ $m_n[\eta]$ describes the mean square surface sea elevation of a particle and is
 \end{equation}
 
 The significant wave height can be considered 4 times the standard deviation of the surface elevation \cite{meylan2014situ}. finally, by determining the significant wave height, the dominant wave period can be calculated as $\frac{1}{f_d}$ where $f_d$ is the frequency at which the dominant wave period occurs \cite{meylan2014situ}.
+\subsubsection{Kuik Method}
+
+The Kuik method, developed by \textcite{kuik1988method} is a computational technique for measuring and determining the directional characteristics of ocean waves. Measurement of these characteristics are derived from the pitch and roll of an ocean buoy are measured. By using an accelerometer, gyroscope or an inertial measurement system to measure the slope and heave of the 3 axes \cite{kuik1988method}, it is possible to reconstruct the sea state given a set of data provided the data is of a specific length sampled above the Nyquist frequency of dominant ocean swells. A major advantage of the Kuik method is that the parameters are estimated directly from the Fourier transform of the measured signal \cite{kuik1988method} without assumptions about the model. Should the algorithm be used to measure waves in ice, no information is required about the dynamics of the model of the ice floe. This greatly improves the accuracy since ice floes can vary in width, distribution and area as well as change shape due to collisions, freezing and melting. Wind waves are described using a two-dimensional energy spectrum $E$ with wave energy spread over a frequency $f$. The normalised distribution of energy over direction is defined according to \textcite{kuik1988method} as
+\begin{equation}
+	D_f(\theta) = \frac{E(f,\theta)}{\int_0^{2
+			\pi}E(f,\theta)d\theta}
+\end{equation} 
+
+Finally, by computing the model per frequency, the distribution simplifies to $D(\theta)$ which can be approximated by a Fourier series with 4 terms \cite{kuik1988method} derived from the pitch, roll and heave of a buoy. Finally, the model can fully characterise the wave spectrum by calculating the following parameters from the Fourier coefficients:
+
+\begin{enumerate}
+	\item mean wave direction $\theta_0$
+	\item directional width $\sigma$
+	\item skewness $\gamma$
+	\item kurtosis $\delta$ 
+\end{enumerate}
+
+The accuracy of the mean wave direction and width is affected by noise in the sampled data. small RMS values of noise can result in rapid increases of directional width by 1\% to 5\% \cite{kuik1988method}. Additionally, pitch and roll buoys are not free particles. They have an associated mass and therefore an associated inertia \cite{kuik1988method}. This results in a phase shift of the Fourier term by $\phi_i i \in {x,y,z}$  in the first harmonic \cite{kuik1988method}. This shift can result in an error of $0.5^\circ $ for $\sigma > 25 ^\circ $ to $1^\circ \text{ for } \sigma < 10^\circ $ \cite{kuik1988method}   
+
+\subsubsection{Welch-Earle Method}
+
+The Welch-Earle Method is an algorithm for calculating either directional and non-directional wave data depending on the assumptions of the input data \cite{earle1996nondirectional}. Data is derived from the vertical acceleration, roll and pitch of a buoy oriented perpendicular to the surface on either a vertically stabilised platform or a hull-fixed platform \cite{earle1996nondirectional}. Directional wave data is determined from both the acceleration, roll, pitch and heave from the buoy while non-directional wave data is calculated from time-series acceleration only. In this method, a digital time series representation of the vertical Acceleration along with 2 orthogonal Gyroscope measurements and Magnetometer readings relative to the earth’s magnetic field is obtained. The method accounts for the response function of the buoy and provides corrections to phase differences as a result of the buoy's inertia \cite{earle1996nondirectional}. Full directional and non-directional wave data is characterised by calculating the spectra and co-spectra of the time series data. The first part of the method is developed by \textcite{welch1967use} and is used to calculate the power spectral density.
+Given a discrete time series data X(j) with a power spectral density P(f), |f|< $\frac{1}{2}$.this data segmented into a set of k-bins $X_k(j) | j \in {0,L-1}$ \cite{welch1967use}. Each bin is multiplied by a selected window function W(k) of length L. Additionally, Bins are taken with a 50\% overlap to produce better statistical averages \cite{earle1996nondirectional} The Fast Fourier Transform (FFT) of the result is taken to for a periodograms $I_k$ \cite{earle1996nondirectional}. Finally, the new power spectral estimator $\hat{P}(f_n)$ is calculated by taking the average of the K periodograms as shown in \textcite{welch1967use}
+
+\begin{equation}
+	\hat{P}(f_n) = \frac{1}{K}\sum^K_{k=1}I_k(f_n)
+\end{equation}
+
+where 
+\begin{equation}
+	f_n = \frac{n}{L} | n \in 0,1,2... \frac{L}{2}
+\end{equation}
+
+Detrending is used to account for the effects of buoy motion on the time series. The inertia of the platform results in non-zero mean trends often as a result of constant wind or currents acting on the hull of the buoy \cite{earle1996nondirectional}. These must be discarded before the spectrum and co spectra are calculated. The resolution of the accelerometer is important for accurately tracking acceleration \cite{kohout2015device}. If the resolution is too small, low accelerations will not be recorded resulting in incorrect vertical accelerations being calculated. \textcite{kohout2015device} found that a low-resolution IMU was unable to reliably flag that it had exceeded a boundary condition and hence it was discarded \cite{kohout2015device}\par 
+
+The spectra and co-spectra of the directional and non-directional wave series can be calculated by computing the spectrum $S(x)$ as a function of frequency and direction (as is similar to the Kuik method). \textcite{earle1996nondirectional} show that characterisation of the co-spectra $C(x)$ and spectrum$S(x)$ can be achieved by calculating the first 4 Fourier coefficients. Finally, the sea state can be represented by calculating the following parameters
+
+\begin{enumerate}
+	\item Longuet-Higgins directional parameters
+	\begin{enumerate}
+		\item $a_0$
+		\item $a_1$
+		\item $b_0$
+		\item $b_1$
+	\end{enumerate}
+	\item Significant Wave Height $H_0$
+	\item Dominant Wave Period $T_p$
+	\item Total Degrees of Freedom $TDF$
+	\item Average zero-crossing period $T_{av}$
+	\item Zero-crossing period $T_{zero}$
+\end{enumerate}
+
+This approach brings into account the possibility of spectral leakage however, this can be greatly minimised by sampling above the Nyquist frequency of the upper Wave frequency band (generally taken to be 0.5Hz) for a minimum of 1000 seconds (about 16 – 17 minutes). Additionally, spectral leakage can be reduced by selecting a window function with a gradual taper such as a half cosine or Hanning taper \cite{welch1967use}\par
+
 
 \chapter{Mechanical Schematics and Renders}
 \label{ch:appendix.schem}
@@ -577,35 +631,7 @@ Trident & Unspecified GPS\par{}ADC - Battery Monitor& Flash Chips & Unspecified 
 \end{longtable}
 \footnotetext{Discontinued. End of life: 19 November 2019 source: \cite{iridium_eol}}
 \newpage
-\begin{center}{
-    \setlength{\extrarowheight}{5pt}%
-    \begin{longtable}[H]{|>{\RaggedRight}m{0.2\textwidth}|>{\RaggedRight}m{0.4\textwidth}|>{\RaggedRight}m{0.3\textwidth}|}
-    \caption{ comparison between the functionality and purpose of the buoy showing the critical measurements as well as the significant deployment locations either in the polar ice zones or in a location critical to the validation of the device.}
-    
-    \label{tab:device_deployment}\\
-    \hline
-    \textbf{Device Name} & \textbf{Measurands}& \textbf{Significant deployment Location}\\
-    \hline
-    WIIB    & Ice drift.\par Waves in ice. \par Ambient temperature. \par Atmospheric pressure. &Antarctica: \par  Northeast Barents sea marginal ice zone.\\
-    \hline
-    WIIOS   & Wave Energy Attenuation. \par Significant wave height. \par  Data quality. & Antarctica:  \par Ross Sea marginal ice zone and packed ice zone \cite{kohout_smith_roach_williams_montiel_williams_2020} \par \vspace{1.5mm} Arctic: \par Templefjord, Svalbard landfast ice. \\
-    \hline
-    NDWB    & Ice drift. \par Wave induced ice breaking. \par Ambient temperature. \par Atmospheric Pressure. & Beaufort Sea (Arctic). \\
-    \hline
-    SKIB    &Ice drift. \par Surface waves. & North Atlantic ocean,  (France) \cite{guimaraes2018surface}\\
-    \hline
-    SWIFT   &Surface images.\par Ocean waves. \par  Turbulence profiles. \par  Ocean current profiles.\par Conductivity. \par  Wind speed and direction. & Antarctica: \par Ross Sea \cite{ackley_2020_seaice} \par Weddel sea \cite{DeSanti2018OceanWave} \par 
-    \vspace{1.5mm} Arctic: \par Chuckchi sea \cite{hosekova2020Attenuation} \par Beaufort sea \cite{lund2018Arctic}\\
-    \hline
-    SIMB    & Surface and bottom ice position. \par Snow depth. \par Atmospheric pressure \par Ambient Temperature \par Vertical temperature profile \par  GPS location & Antarctic: \par Weddel Sea \cite{hoppmann2015fmot} \par Ross Sea \cite{ackley_2020_seaice} \par \vspace{1.5mm}Arctic: \par Beaufort sea marginal ice zone. \par Greenland sea \cite{lei2018seasonal}\\
-    \hline
-    Polar ISVP &Sea ice drift.\par Ambient temperature. \par Atmospheric pressure. & Antarctic and Arctic \par Marginal ice zones.\\
-    \hline
-    Trident &Sea ice drift. \par Battery voltage. \par  Ambient temperature. & Antarctic and Arctic \par Marginal ice zones.\\
-    \hline
-    \end{longtable}
-}
-\end{center}
+
 
 \chapter{Test Protocols}
 

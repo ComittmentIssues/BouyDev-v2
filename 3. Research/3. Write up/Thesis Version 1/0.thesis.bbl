@@ -688,6 +688,33 @@
       \field{volume}{112}
       \field{year}{2007}
     \endentry
+    \entry{crisp2003introduction}{book}{}
+      \name{author}{1}{}{%
+        {{hash=ed8c5d6a616fd0828f1aed3c15bc8ed8}{%
+           family={Crisp},
+           familyi={C\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{ed8c5d6a616fd0828f1aed3c15bc8ed8}
+      \strng{fullhash}{ed8c5d6a616fd0828f1aed3c15bc8ed8}
+      \strng{bibnamehash}{ed8c5d6a616fd0828f1aed3c15bc8ed8}
+      \strng{authorbibnamehash}{ed8c5d6a616fd0828f1aed3c15bc8ed8}
+      \strng{authornamehash}{ed8c5d6a616fd0828f1aed3c15bc8ed8}
+      \strng{authorfullhash}{ed8c5d6a616fd0828f1aed3c15bc8ed8}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Introduction to microprocessors and microcontrollers}
+      \field{year}{2003}
+    \endentry
     \entry{IEEE_STD_UREQ}{article}{}
       \name{author}{1}{}{%
         {{hash=680d4ac390e0359132cd0ba18e60031c}{%
@@ -814,6 +841,63 @@
       \field{year}{2003}
       \field{pages}{245\bibrangedash 249}
       \range{pages}{5}
+    \endentry
+    \entry{deVos2021evaluating}{article}{}
+      \name{author}{6}{}{%
+        {{hash=2594ec6a4360432390d7582e0817e39c}{%
+           family={Vos},
+           familyi={V\bibinitperiod},
+           given={Marc},
+           giveni={M\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+        {{hash=e7912e19dbeea350d003e4b0463d1d2f}{%
+           family={Barnes},
+           familyi={B\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=00440e7a9af29dc3758c7082e4fb3034}{%
+           family={Biddle},
+           familyi={B\bibinitperiod},
+           given={Louise\bibnamedelima C},
+           giveni={L\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=8cb43de80b64a091b8dad95b60079b00}{%
+           family={Swart},
+           familyi={S\bibinitperiod},
+           given={Sebastiaan},
+           giveni={S\bibinitperiod}}}%
+        {{hash=481144a745c028d1ec75a3eceeaf9074}{%
+           family={Ramjukadh},
+           familyi={R\bibinitperiod},
+           given={Carla-Louise},
+           giveni={C\bibinithyphendelim L\bibinitperiod}}}%
+        {{hash=89fba3e6e5969e08f095c08eed06948e}{%
+           family={Vichi},
+           familyi={V\bibinitperiod},
+           given={Marcello},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor \& Francis}%
+      }
+      \strng{namehash}{bb4a5354236cecb10d8c346e9ce69d3f}
+      \strng{fullhash}{eed6856da75d000a78ae758576deec7a}
+      \strng{bibnamehash}{eed6856da75d000a78ae758576deec7a}
+      \strng{authorbibnamehash}{eed6856da75d000a78ae758576deec7a}
+      \strng{authornamehash}{bb4a5354236cecb10d8c346e9ce69d3f}
+      \strng{authorfullhash}{eed6856da75d000a78ae758576deec7a}
+      \field{sortinit}{d}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Operational Oceanography}
+      \field{title}{Evaluating numerical and free-drift forecasts of sea ice drift during a Southern Ocean research expedition: An operational perspective}
+      \field{year}{2021}
+      \field{pages}{1\bibrangedash 17}
+      \range{pages}{17}
     \endentry
     \entry{doble_wave_2015}{misc}{}
       \name{author}{1}{}{%
@@ -2365,53 +2449,43 @@
       \range{pages}{13}
       \keyw{satellite constellation,elliptical orbits,critical inclination,lattice flower constellations designtheory}
     \endentry
-    \entry{lei2018seasonal}{article}{}
-      \name{author}{7}{}{%
+    \entry{lei2020comparisons}{article}{}
+      \name{author}{5}{}{%
         {{hash=ab421a6f0aadfe857514bc16ee3bc9fa}{%
            family={Lei},
            familyi={L\bibinitperiod},
            given={Ruibo},
            giveni={R\bibinitperiod}}}%
-        {{hash=b9359e37b98db04db8950022034eccdd}{%
-           family={Cheng},
-           familyi={C\bibinitperiod},
-           given={Bin},
-           giveni={B\bibinitperiod}}}%
+        {{hash=48df6f41f2d641069d2a3100542996bb}{%
+           family={Gui},
+           familyi={G\bibinitperiod},
+           given={Dawei},
+           giveni={D\bibinitperiod}}}%
         {{hash=2c120a86b83aa0a5b08e1dffd95d26d7}{%
            family={Heil},
            familyi={H\bibinitperiod},
            given={Petra},
            giveni={P\bibinitperiod}}}%
-        {{hash=3c8b1329f1568408cf5cdf0616a47b3e}{%
-           family={Vihma},
-           familyi={V\bibinitperiod},
-           given={Timo},
-           giveni={T\bibinitperiod}}}%
-        {{hash=e453927e646e355f3edb61c5518de1d1}{%
-           family={Wang},
-           familyi={W\bibinitperiod},
-           given={Jia},
-           giveni={J\bibinitperiod}}}%
-        {{hash=fb40e867d3a2488db378395f665b5af7}{%
-           family={Ji},
-           familyi={J\bibinitperiod},
-           given={Qing},
-           giveni={Q\bibinitperiod}}}%
-        {{hash=41a66b6fed74ad96d6a5fc65e957b528}{%
-           family={Zhang},
-           familyi={Z\bibinitperiod},
-           given={Zhanhai},
-           giveni={Z\bibinitperiod}}}%
+        {{hash=a5d85a0bbaac112b0cf2a9a2588e7bad}{%
+           family={Hutchings},
+           familyi={H\bibinitperiod},
+           given={Jennifer\bibnamedelima K},
+           giveni={J\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=c7a88170dc8b643c79c28759daab9a20}{%
+           family={Ding},
+           familyi={D\bibinitperiod},
+           given={Minghu},
+           giveni={M\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {Wiley Online Library}%
+        {Elsevier}%
       }
       \strng{namehash}{4d90157d0fcf3808e4d819364fcd46f3}
-      \strng{fullhash}{48dbd566b2f3966c4ca1d587c1ac4f90}
-      \strng{bibnamehash}{48dbd566b2f3966c4ca1d587c1ac4f90}
-      \strng{authorbibnamehash}{48dbd566b2f3966c4ca1d587c1ac4f90}
+      \strng{fullhash}{15400f06fb7084ee8a2ea8878d0f026e}
+      \strng{bibnamehash}{15400f06fb7084ee8a2ea8878d0f026e}
+      \strng{authorbibnamehash}{15400f06fb7084ee8a2ea8878d0f026e}
       \strng{authornamehash}{4d90157d0fcf3808e4d819364fcd46f3}
-      \strng{authorfullhash}{48dbd566b2f3966c4ca1d587c1ac4f90}
+      \strng{authorfullhash}{15400f06fb7084ee8a2ea8878d0f026e}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
       \field{extradatescope}{labelyear}
@@ -2419,13 +2493,12 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Journal of Geophysical Research: Oceans}
-      \field{number}{4}
-      \field{title}{Seasonal and interannual variations of sea ice mass balance from the Central {Arctic} to the {Greenland Sea}}
-      \field{volume}{123}
-      \field{year}{2018}
-      \field{pages}{2422\bibrangedash 2439}
-      \range{pages}{18}
+      \field{journaltitle}{Cold Regions Science and Technology}
+      \field{title}{Comparisons of sea ice motion and deformation, and their responses to ice conditions and cyclonic activity in the western Arctic Ocean between two summers}
+      \field{volume}{170}
+      \field{year}{2020}
+      \field{pages}{102925}
+      \range{pages}{1}
     \endentry
     \entry{lepparanta2001sea}{article}{}
       \name{author}{4}{}{%
@@ -2779,10 +2852,10 @@
       \field{year}{2016}
       \field{urldateera}{ce}
       \verb{urlraw}
-      \verb https://www.metocean.com/product/uptempo/
+      \verb https://www.metocean.com/product/polar-isvp/
       \endverb
       \verb{url}
-      \verb https://www.metocean.com/product/uptempo/
+      \verb https://www.metocean.com/product/polar-isvp/
       \endverb
     \endentry
     \entry{meylan2014situ}{article}{}
@@ -3187,6 +3260,57 @@
       \field{title}{An Open Source, Versatile, Affordable Waves in Ice Instrument for Remote Sensing in the Polar Regions}
       \field{year}{2019}
     \endentry
+    \entry{rabault2020development}{article}{}
+      \name{author}{6}{}{%
+        {{hash=6a5e764ed0ccb9c472d1b065942f2766}{%
+           family={Rabault},
+           familyi={R\bibinitperiod},
+           given={Jean},
+           giveni={J\bibinitperiod}}}%
+        {{hash=e1afc93ecf73c2592f0d14c4143a5e92}{%
+           family={Voermans},
+           familyi={V\bibinitperiod},
+           given={Joey},
+           giveni={J\bibinitperiod}}}%
+        {{hash=ffa285e0d57c2a321f4bbf120fab6c2d}{%
+           family={Sutherland},
+           familyi={S\bibinitperiod},
+           given={Graig},
+           giveni={G\bibinitperiod}}}%
+        {{hash=3e6bc6c46d3fc9d46d46e4c6b71026ae}{%
+           family={Jensen},
+           familyi={J\bibinitperiod},
+           given={Atle},
+           giveni={A\bibinitperiod}}}%
+        {{hash=3ea119c2fb615c3065931d5051f69730}{%
+           family={Babanin},
+           familyi={B\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=2365208a8b8471c840a0c62a2cf02470}{%
+           family={Filchuk},
+           familyi={F\bibinitperiod},
+           given={Kirill},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{e2e9366dfd6a5ac7aef5242e396bc608}
+      \strng{fullhash}{4b80e18400157db9b99cfeee61d112ec}
+      \strng{bibnamehash}{4b80e18400157db9b99cfeee61d112ec}
+      \strng{authorbibnamehash}{4b80e18400157db9b99cfeee61d112ec}
+      \strng{authornamehash}{e2e9366dfd6a5ac7aef5242e396bc608}
+      \strng{authorfullhash}{4b80e18400157db9b99cfeee61d112ec}
+      \field{extraname}{3}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2003.02540}
+      \field{title}{Development of open source instruments for in-situ measurements of waves in ice}
+      \field{year}{2020}
+    \endentry
     \entry{simbpic}{article}{}
       \name{author}{6}{}{%
         {{hash=40aef93ee881d76feb45086a4f106a01}{%
@@ -3367,6 +3491,31 @@
       \field{year}{1971}
       \field{pages}{104\bibrangedash 105}
       \range{pages}{2}
+    \endentry
+    \entry{subham2018micro}{article}{}
+      \name{author}{1}{}{%
+        {{hash=520c615cf5ac805ef00ddf2a61565310}{%
+           family={Sarkar},
+           familyi={S\bibinitperiod},
+           given={Subham},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{520c615cf5ac805ef00ddf2a61565310}
+      \strng{fullhash}{520c615cf5ac805ef00ddf2a61565310}
+      \strng{bibnamehash}{520c615cf5ac805ef00ddf2a61565310}
+      \strng{authorbibnamehash}{520c615cf5ac805ef00ddf2a61565310}
+      \strng{authornamehash}{520c615cf5ac805ef00ddf2a61565310}
+      \strng{authorfullhash}{520c615cf5ac805ef00ddf2a61565310}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{03}
+      \field{title}{A survey of new research directions in microprocessors}
+      \field{year}{2018}
     \endentry
     \entry{seabird2021website}{online}{}
       \name{author}{1}{}{%

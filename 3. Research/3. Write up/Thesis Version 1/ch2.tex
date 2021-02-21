@@ -290,8 +290,64 @@ Table \ref{tab:device_power_source} shows the power supply strategies of each de
 
 \subsection{Polar Performance}
 
-This section outlines the deployment of the systems in the Arctic/Antarctic marginal ice zones and compares the survivability and performance of each system. The focus of this section will be predominantly on devices deployed in the marginal ice zone. Table \ref{tab:device_components} shows the significant deployment locations in the Arctic and Antarctic sea ice zones as well as the deployment objectives of each device.
-\subsubsection{Ice Buoy Performance}
+This section outlines the deployment of the systems in the Arctic/Antarctic marginal ice zones and compares the survivability and performance of each system. The focus of this section will be predominantly on devices deployed in the marginal ice zone. Table \ref{tab:device_components} shows the significant deployment locations in the Arctic and Antarctic sea ice zones as well as the deployment objectives of each device. 
+
+\begin{table}[H]
+	\centering
+    \caption{ comparison between the functionality and purpose of the buoy showing the critical measurements as well as the significant deployment locations either in the polar ice zones or in a location critical to the validation of the device.}
+	\label{tab:device_deployment}
+	\setlength{\extrarowheight}{5pt}
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{|l| >{\raggedright\arraybackslash}m{5cm}|>{\raggedright\arraybackslash}m{5.4cm}|>{\raggedright\arraybackslash}m{5cm}|}
+			\hline
+			\textbf{Device name} & \textbf{Deployment objectives} & \textbf{Antarctica Deployments} & \textbf{Arctic deployments}\\
+			\hline
+		\multirow{3}{*}{WIIB} & Wave energy attenuation &  Ross Sea landfast ice \cite{rabault2020development} &  Templefjord (Svalbard) landfast ice \cite{rabault2019open} \\
+			& Significant wave height &  & Northeast Barents sea \cite{rabault2019open}\\
+			& Data quality && \\
+			\hline
+		\multirow{5}{5cm}{WIIOS} &Ice drift&Ross sea marginal ice zone \cite{kohout_smith_roach_williams_montiel_williams_2020}&\multirow{5}{*}{-}\\ 
+			 & Waves in ice & Ross Sea packed ice zone \cite{kohout2015device} & \\ 
+			 & Ambient temperature & Weddel Sea marginal ice zone \cite{albarello2020drift}& \\
+			 & Atmospheric pressure && \\
+		\hline
+		\multirow{4}{*}{NDWB} & Ice drift  & \multirow{4}{*}{ - } & \multirow{4}{5cm}{Beaufort sea \cite{doble2017robust}} \\
+			& Wave induced ice breaking &&\\
+			& Ambient temperature &&\\
+			& Atmospheric pressure &&\\
+		\hline
+		\multirow{2}{*}{SKIB} & Ice drift &\multirow{2}{*}{-} & North Atlantic ocean (France) \cite{guimaraes2018surface}\\
+		& Surface waves &&\\
+		\hline
+		\multirow{6}{*}{SWIFT} & Surface images & Ross Sea \cite{ackley_2020_seaice} & Chukchi sea \cite{hosekova2020Attenuation} \\
+			& Ocean waves & Weddel sea \cite{DeSanti2018OceanWave} &  Beaufort sea \cite{lund2018Arctic} \\
+			& Turbulence profiles &&\\
+			& Ocean current profiles &&\\
+			& Conductivity && \\
+			&Wind speed and direction && \\
+		\hline
+		\multirow{6}{*}{SIMB} & Surface and bottom ice position &Weddel sea \cite{hoppmann2015fmot} & Beaufort sea marginal ice zone \cite{PLANCK2019102792} \\
+		& Snow depth& & \\
+		& Atmospheric pressure&& \\
+		& Ambient temperature &&\\
+		& Vertical temperature profile& & \\
+		& GPS Location&&\\
+		\hline
+		\multirow{3}{*}{Polar ISVP} & Sea ice drift & \multirow{3}{5.4cm}{Weddel Sea marginal ice zone \cite{deVos2021evaluating}} & \multirow{3}{5cm}{Western Arctic Ocean \cite{lei2020comparisons}}\\
+		 & Ambient temperature & &\\
+		 & Atmospheric pressure &&\\
+		 \hline
+		\multirow{3}{*}{Trident} & Sea ice drift & \multirow{3}{5.4cm}{Weddel sea \cite{alberello2019drift}}
+		 	& \multirow{3}{*}{-}\\
+			& Ambient temperature & &\\
+			& Battery voltage &&\\
+		\hline
+		\end{tabular}
+	}
+\end{table}
+
+\textcite{kohout2015device} deployed five Wave in Ice Observational Systems (WIIOS) in the East Antarctic marginal ice zone during the Sea Ice Physics and Ecosystem Experiment (SIPEX) mission\footnote{1st deployment occured September 2012 \cite{kohout2015device}} with the goal of capturing wave in ice events with measurement goals shown in table \ref{tab:device_deployment}. Three devices were deployed by helicopters on ice floes while two devices were deployed via the ships crane. \textcite{kohout2015device}
+note that deployment via crane was successful in spite of 7 m swell and 25 $m.s^{-1}$ winds. The device was fitted inside a Pelican box with a sealed membrane surrounded by a tyre for protection and flotation in case of melting \cite{kohout2015device}. Consequently, this places the buoy directly on the surface of the floe rendering it susceptible to snow build up and flooding as mentioned in the previous sections.  After deployment, the crew received 600 samples of data over 39 days in total. However, the first device failed 20 hours after deployment coinciding with the first large wave event captured the buoys \cite{kohout2015device}. The second large wave event resulted in the failure of two more systems just 9 days after deployment \cite{kohout2015device}. The fourth buoy lasted for 17.5 days. The final buoy survived the longest at 39 days. As a result only one device lasted for the expected time with the majority of data captured during calm events.
 
 \begin{figure}[H]
     \centering
@@ -312,39 +368,68 @@ This section outlines the deployment of the systems in the Arctic/Antarctic marg
     \end{scope}
     \end{tikzpicture}    
     \end{subfigure}
-    \caption{ Examples of different deployment protocols for ice tethered devices. In regions of consildated ice in favourable conditions, manned crews will step foot on the ice to deploy the device (A) (image source: \cite{kohout2020observation}), in unfavourable conditions, devices may deployed from a basket attached to a crane (B). A manned crew will lower the buoy on a suitable ice floe from the safety of the basket (image source: author) }
+    \caption{ Examples of different deployment protocols for ice tethered devices. In regions of consildated ice in favourable conditions, manned crews will step foot on the ice to deploy the device (A) (image source: \cite{kohout2020observation}), in unfavourable conditions, devices may deployed from a basket attached to a crane (B). A manned crew will lower the buoy on a suitable ice floe from the safety of the basket (image source: N. Taylor) }
     \label{fig:deploy}
 \end{figure}
-\textcite{kohout2015device} deployed 5 Wave in Ice Observational Systems in the East Antarctic marginal ice zone during the Spring\footnote{1st deployment occured September 2012 \cite{kohout2015device}}. 3 devices were deployed by helicopters on ice floes while 2 devices were deployed via the ships crane. \textcite{kohout2015device}
-note that deployment via crane was successful in spite of 7m swell and 25$m.s^{-1}$ winds. The device was fitted inside a pelican box with a sealed membrane surrounded by a tire for protection and flotation in case of melting \cite{kohout2015device}. Consequently, this places the buoy directly on the surface of the floe rendering it susceptible to snow build up and flooding as mentioned in the previous sections.  After deployment, the crew received 600 samples of data over 39 days in total. However, the first device failed 20 hours after deployment coinciding with the first large wave event captured the buoys \cite{kohout2015device}. The second large wave event resulted in the failure of two more systems just 9 days after deployment \cite{kohout2015device}. The 4th buoy lasted for 17.5 days. The final buoy survived the longest at 39 days. As a result only 1 device lasted for the expected time with the majority of data captured during calm events. Two additional WIIOS buoys were deployed by \textcite{alberello2019drift} during the winter \footnote{first deployment occured in July 2017 \cite{alberello2019drift}}. Here, the buoys lasted significantly shorter than the previous deployment. The first system survived for 8 days while the second system survived for 3 weeks in spite of measures taken to place the device in power saving mode \cite{alberello2019drift}. This was achieved by lowering the sample period from to 2 hours. Consequently, the lower temporal resolution resulted in a significantly reduced accuracy of the ice deformation calculations \cite{alberello2019drift}. However, despite this low resolution, by operating at a temporal scale of 3 hours or less \cite{alberello2019drift}, one can effectively and accurately capture ice drift speed as well as the oscillations surrounding the movement. Additionally, \textcite{vichi2019effects} and \cite{albarello2020drift} discuss the deployment of 2 Wave in Ice Observation Systems dissimilar to the ones by \cite{kohout2015device}. 2 devices were deployed on two separate 3m Ice floes 100km from the ice edge \cite{albarello2020drift}. One System survived for 8 days and 18 hours while sampling every 15 minutes before transmission ended \cite{albarello2020drift}. The second buoy however, survived for 6 days sampling every 15 minutes until it switched to power saving mode surviving for a total time frame of 3 weeks. \textcite{vichi2019effects} deployed a second pair of WIIOS buoys in a similar method to \cite{alberello2019drift} however, the first buoy stopped responding after 3 days while the second buoy survived for only 16 days \cite{vichi2019effects}. While the buoys survival is largely attributed to power optimization, the lifespan could be influenced by the selection of the ice floe. Ice floe size and proximity to the ice edge affect the exposure of the floe to open-ocean processes and storms \cite{vichi2019effects}. This could result in failure due to ice mechanic which is discussed in section \ref{ch2:sec3_failiure}. \par 
+ Two additional WIIOS buoys were deployed by \textcite{alberello2019drift} during the winter\footnote{first deployment occured in July 2017 \cite{alberello2019drift}}. Here, the buoys lasted significantly shorter than the previous deployment. The first system survived for 8 days while the second system survived for 3 weeks in spite of measures taken to place the device in power saving mode \cite{alberello2019drift}. This was achieved by lowering the sample period from to 2 hours. Consequently, the lower temporal resolution resulted in a significantly reduced accuracy of the ice deformation calculations \cite{alberello2019drift}. However, despite this low resolution, by operating at a temporal scale of 3 hours or less \cite{alberello2019drift}, one can effectively and accurately capture ice drift speed as well as the oscillations surrounding the movement. Additionally, \textcite{vichi2019effects} and \cite{albarello2020drift} discuss the deployment of two Wave in Ice Observation Systems similar to the ones by \cite{kohout2015device}. 2 devices were deployed on two separate ice floes 3 m in diameter and 100 km from the ice edge \cite{albarello2020drift}. One system survived for 8 days and 18 hours while sampling every 15 minutes before transmission ended \cite{albarello2020drift}. The second buoy however, survived for 6 days sampling every 15 minutes until it switched to power saving mode surviving for a total time frame of 3 weeks. \textcite{vichi2019effects} deployed a second pair of WIIOS buoys in a similar method to \cite{alberello2019drift} however, the first buoy stopped responding after 3 days while the second buoy survived for only 16 days \cite{vichi2019effects}. While the buoys survival is largely attributed to power optimisation, the lifespan could be influenced by the selection of the ice floe. Ice floe size and proximity to the ice edge affect the exposure of the floe to open-ocean processes and storms \cite{vichi2019effects}. This could result in failure due to ice mechanics which is discussed in section \ref{ch2:sec3_failiure}. \par 
 
-\textcite{rabault2019open} deployed the Waves in Ice Buoy on land-fast ice to test the device's performance in the Antarctic. In a similar fashion to the WIIOS buoy, the device was placed in a pelican case and attached to a flotation device, however, expected survival time for the device was significantly lower: a maximum of 8 days \cite{rabault2019open} of continuous operation. The buoys by \textcite{kohout2015device} were designed to be expendable\cite{alberello2019drift} whereas the buoys by \textcite{rabault2019open} were designed to be retrievable. Additionally, the WIIB devices were deployed in the summer\footnote{First deployment date: December 2019 \cite{rabault2019open}}. 2 devices were deployed in proximity however an ice break event resulted in the separation of the devices. The devices survived for 2.5 weeks \cite{rabault2019open} which \textcite{rabault2019open} attribute the failure to the devices having been crushed by ice and wave activity. Despite this, the devices were able to record significant wave events and maintain a fully charged battery throughout the deployment which \textcite{rabault2019open} attributes to the solar panel. 
+\textcite{rabault2019open} deployed the waves in ice buoy (WIIB) WIIB on land-fast ice in the Ross sea \cite{rabault2020development} to test the device's performance in the Antarctic. In a similar fashion to the WIIOS buoy, the device was placed in a pelican case and attached to a flotation device, however, expected survival time for this device was significantly lower compared to the WIIOS devices: a maximum of 8 days \cite{rabault2019open} of continuous operation. The buoys by \textcite{kohout2015device} were designed to be expendable \cite{alberello2019drift} whereas the buoys by \textcite{rabault2019open} were designed to be retrievable. Additionally, the WIIB devices were deployed in the summer\footnote{First deployment date: December 2019 \cite{rabault2019open}}. Two devices were deployed in proximity however an ice break event resulted in the separation of the devices. The devices survived for 2.5 weeks \cite{rabault2019open} which \textcite{rabault2019open} attribute the failure to the devices having been crushed by ice and wave activity. Despite this, the devices were able to record significant wave events and maintain a fully charged battery throughout the deployment which \textcite{rabault2019open} attributes to the solar panel. 
 
-\par \textcite{doble2017robust} alludes to series of environmental considerations when designing the NDWB systems. One such consideration is the frosting over/ rimming of the device due to freezing ocean spray. Additionally, auxiliary power sources (i.e. Solar panels) would need to account for long periods of no cloud cover \cite{doble2017robust}. Since the buoys were deployed by a manned crew, the design also had to account for ease of handling by the crew and not be too heavy \cite{doble2017robust}. The mechanical enclosure consisted of a float and a keel with the electronics contained above the surface in a dome. 20 Buoys were deployed in the Arctic marginal ice zone with each device anchored by drilling a hole in the ice and placing the keel inside. 19 buoys survived the deployment with 1 system failing to boot. The buoys survived for extremely long periods with 12 systems surviving for 200 days off a single alkaline battery pack \cite{doble2017robust}. 7 systems ran for 70 days on alkaline batteries before switching over to solar power. During this period, devices transmitted continuously over the Iridium network and were able to interpolate sea ice phases (see Section \ref{sec:ch1.section1}) from the tilt of the buoy \cite{doble2017robust}.
+\par \textcite{doble2017robust} alluded to a series of environmental considerations when designing the NDWB systems. One such consideration is the frosting over/ rimming of the device due to freezing ocean spray. Additionally, auxiliary power sources (i.e. solar panels) would need to account for long periods of no cloud cover \cite{doble2017robust}. Since the buoys were deployed by a manned crew, the design also had to account for ease of handling by the crew and not be too heavy \cite{doble2017robust}. The mechanical enclosure consisted of a float and a keel with the electronics contained above the surface in a dome. Twenty buoys were deployed in the Arctic marginal ice zone with each device anchored by drilling a hole in the ice and placing the keel inside. nineteen buoys survived the deployment with one system failing to boot. The buoys survived for extremely long periods with twelve systems surviving for two hundred days off a single alkaline battery pack \cite{doble2017robust}. A significantly longer period than both the WIIOS and WIIB systems. Seven systems ran for 70 days on alkaline batteries before switching over to  the solar powered lead-acid batteries. During this period, devices transmitted continuously over the Iridium network and were able to interpolate sea ice phases (see Section \ref{sec:ch1.section1}) from the tilt of the buoy \cite{doble2017robust}.
 
 \subsubsection{Reasons for Failure}
 \label{ch2:sec3_failiure}
-\begin{figure}
+\begin{figure}[H]
     \centering
-    \includegraphics[width = 8cm, height = 6cm]{swift_fail.jpg}
+    \includegraphics[width = 7cm]{swift_fail.jpg}
     \caption{During the 2019 SCALE winter expedition, a SWIFT device was retrieved early due to lost communication with the host. This failure was attributed to a build up of ice along the the rim from ocean spray. Photo taken by author.}
     \label{fig:swift_fail}
 \end{figure}
 Eventually, the systems by \textcite{doble2017robust} lost transmission 300 days after their deployment. This can be attributed to the depletion of the alkaline battery packs. The solar powered lead acid battery voltage eventually dropped below the alkaline battery voltage due to the lack of consistent solar coverage \cite{doble2017robust}. Additionally, sub zero temperatures have a tendency to reduce battery capacities by up to 50\% \cite{doble2017robust} however, \textcite{doble2017robust} found this estimate to be over conservative. Systems by \textcite{kohout2015device} and \textcite{doble2017robust} encountered similar failures with devices eventually depleting the on-board batteries. Additionally, \cite{alberello2019drift} attribute failiure of the first WIIOS system to the battery being depleted.\par 
 
-Additional sources of failure experienced by \textcite{doble2017robust} include ice convergence. The systems were subject to ice-mechanics and as a result, ended up crushed by the floes due to rafting or buried under ice \textcite{doble2017robust}. These failures were identified when more than one system suddenly went offline. Devices also experienced freeze-over or were buried under snow which resulted in the devices going offline for temporary periods \cite{doble2017robust}. Additional evidence of rafting and ridging was captured by webcams on the buoy shortly before transmission ended \cite{doble2017robust}. Buoys that survived the spring melt refroze during the gradual refreezing of the ice. During the second cycle, none of the buoys rebooted when the ice melted in the spring \cite{doble2017robust}. Finally, the buoys developed by \textcite{kohout2015device} and \textcite{rabault2017measurements} sit in close proximity to the ice floes. As discussed previously, during the winter cycles, snow accumulates on the surface that can reach up to 1m in height. This snow formation can result in flooding where the floe becomes submerged. Prolonged burying under snow may have resulted in the device freezing over thereby losing contact while prolonged contact with the seawater may have resulted in the buoys failing on several occasions (\cite{kohout2015device} \cite{vichi2019effects} \cite{albarello2020drift} \cite{rabault2019open})\par 
+Additional sources of failure experienced by \textcite{doble2017robust} include ice convergence. The systems were subject to ice-mechanics and as a result, ended up crushed by the floes due to rafting or buried under ice \textcite{doble2017robust}. These failures were identified when more than one system suddenly went offline. Devices also experienced freeze-over or were buried under snow which resulted in the devices going offline for temporary periods \cite{doble2017robust}. Additional evidence of rafting and ridging was captured by webcams on the buoy shortly before transmission ended \cite{doble2017robust}. Buoys that survived the spring melt refroze during the gradual refreezing of the ice. During the second cycle, none of the buoys rebooted when the ice melted in the spring \cite{doble2017robust}. Finally, the buoys developed by \textcite{kohout2015device} and \textcite{rabault2017measurements} sit in close proximity to the ice floes. As discussed previously, during the winter cycles, snow accumulates on the surface that can reach up to 1m in height. This snow formation can result in flooding where the floe becomes submerged. Prolonged burying under snow may have resulted in the device freezing over thereby losing contact while prolonged contact with the seawater may have resulted in the buoys failing on several occasions (\cite{kohout2015device,vichi2019effects,albarello2020drift,rabault2019open})\par 
 
-Finally, \textcite{vichi2019effects} discuss the findings surrounding the failure of the first WIIOS system. \textcite{vichi2019effects} observed a major cyclonic event. The cyclone formed on the 2nd July 2017 and achieved lysis on the 5th July 2017 which coincided with the buoy deployment. Following the event, four more cyclonic events were recorded with three explosive cyclones \cite{vichi2019effects} characterising a change of pressure over 24 hours. During this time, \textcite{vichi2019effects} observed winds speeds of up to $33 m/s^{-1}$ while noting that the air temperatures had increased to values "close to melting" \cite{vichi2019effects}. Additional observations found an increase in significant wave height in the activity. These conditions indicate deformation \cite{vichi2019effects} which may have subjected the buoys to forces experienced by \cite{doble2017robust} during their arctic deployment which were verified against the temperature and pressure readings of the 2nd WIIOS during the cyclonic event. The buoys were deployed close to the ice edge exposed to greater open ocean processes and cyclonic activities than other semi-consolidated and consolidated regions \cite{vichi2019effects}. As a result, air advection, storms and large wave movement delay the consolidation of sea ice considerably \cite{vichi2019effects}. Hence, the ice floes were more likely to experience rafting, ridging \cite{icedefinition1992}, extended flooding, and freezing over which may have caused the failures of the WIIOS buoys.
+Finally, \textcite{vichi2019effects} discuss the findings surrounding the failure of the first WIIOS system. \textcite{vichi2019effects} observed a major cyclonic event. The cyclone formed on  2 July 2017 and achieved lysis on 5 July 2017 which coincided with the buoy deployment. Following the event, four more cyclonic events were recorded with three explosive cyclones \cite{vichi2019effects} characterising a change of pressure over 24 hours. During this time, \textcite{vichi2019effects} observed winds speeds of up to $33$ $m/s^{-1}$ while noting that the air temperatures had increased to values "close to melting" \cite{vichi2019effects}. Additional observations found an increase in significant wave height in the activity. These conditions indicate deformation \cite{vichi2019effects} which may have subjected the buoys to forces experienced by \cite{doble2017robust} during their arctic deployment which were verified against the temperature and pressure readings of the second WIIOS during the cyclonic event. The buoys were deployed close to the ice edge exposed to greater open ocean processes and cyclonic activities than other semi-consolidated and consolidated regions \cite{vichi2019effects}. As a result, air advection, storms and large wave movement delay the consolidation of sea ice considerably \cite{vichi2019effects}. Hence, the ice floes were more likely to experience rafting, ridging \cite{icedefinition1992}, extended flooding, and freezing over which may have caused the failures of the WIIOS buoys.
 \newpage
 \section{Subsystem Overview}
 
 This section focuses on the subsystem analysis and component selection for each system. Each buoy was created with a unique objective which is shown in table \ref{tab:device_deployment}. This table shows that there is significant reporting of devices used in the Antarctic Marginal Ice Zone. However, the more high power devices (i.e. SWIFT, SKIB and NDWB ) have been focused more on the Arctic marginal ice zones. Technology developed for the Antarctic Ocean typically focuses on ice drift and environmental sensing. WIIB was developed using open-source hardware while WIIOS was developed using off-the-shelf components. Both systems aimed to provide a low-cost solution for wave in ice measurements.
 
 \subsection{Processing capabilities}
-The processing capabilities of each device facilitate the functionality of each buoy. A strong processor allows for the implementation of in-situ data processing and wave analysis algorithms \cite{kohout2015device,rabault2019open}. Additionally, due to the bandwidth constraints mentioned in section \ref{ch2:sec_remote}, some devices require data compression algorithms to allow the data to fit in the transmission buffers. 
+The processing capabilities of each device facilitate the functionality of each buoy. A strong processor allows for the implementation of in-situ data processing and wave analysis algorithms \cite{kohout2015device,rabault2019open}. Additionally, due to the bandwidth constraints mentioned in section \ref{ch2:sec_remote}, some devices require data compression algorithms to allow the data to fit in the transmission buffers. The functionality of these devices has been made possible through the use of microprocessors. These are programmable integrated circuits that contain processing elements \cite{subham2018micro} and form the basis of microcontrollers and microcomputers \cite{crisp2003introduction}. These components are small and are increasingly becoming integrated into affordable, widely available components such as Raspbery Pis and Arduinos \cite{rabault2019open}. The table below shows a comparison of processors and topological implemented in each design
 
+\begin{table}[H]
+	\centering
+	\caption{Comparison of the processing strategy implemented by each device. Multiple processors have been used in a selection of devices hence included in the comparison is the number of processors used and the type of processor used as well as the function of each processor }
+	\label{tab:device_process}
+	\setlength{\extrarowheight}{5pt}
+	\resizebox{\textwidth}{!}{%
+		
+		\begin{tabular}{|l|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{5cm}|l|}
+			\hline
+			\textbf{Device name} & \textbf{Number of processors} & \textbf{Processor name} & \textbf{Function} \\
+			\hline
+			\multirow{3}{*}{WIIB}& \multirow{3}{*}{3} & Raspberry Pi Zero & Data Processing \\ \cline{3-4} & & Arduino Mega 2560 & Y\\ \cline{3-4} && Raspberry Pi Zero & Wave processing \\
+			\hline
+			\multirow{2}{*}{WIIOS} & \multirow{2}{*}{2} & Intel Edison dual core & Wave processing \\ \cline{3-4}&& ATMega 328 & Low power unit \\
+			\hline
+			NDWB & 1 & ACME Systems Fox G20 & Power control \\
+			\hline
+			\multirow{2}{*}{SKIB} & \multirow{2}{*}{2} & EFM32-M3 & Wave spectral processing \\ \cline{3-4} && Unspecified processor & Power control \\
+			\hline
+			SWIFT & 1 & Sutron Xpert & Data processing \\
+			\hline
+			SIMB & 1 & ATSAMD21G18 & Data processing control \\
+			\hline
+			Polar ISVP & 1 & Global Platform Transceiver Controller (GPTII)\footnotemark & Data processing and control \\
+			\hline
+			\multirow{2}{*}{Trident} & \multirow{2}{*}{2} & Unnamed microprocessor & Data processing \\ \cline{3-4} && Unnamed low power unit & power control \\
+			\hline	
+	\end{tabular}}
+\end{table}
 
-\ref{tab:device_components}. NDWB for instance builds its system around the dominant sensor i.e. the AHRS IMU with a single processor controlling all the peripherals as well as allowing for data processing. Drift loggers such as Trident, and Polar ISVP feature sparser sets of electronics with smaller, lower-powered processors for Power control and peripheral control, In contrast, WIIOS and WII Buoy compartmentalise subsystems with a cluster of processors handling different aspects from the buoy. This shows a focus on computation rather than sensing as multiple controllers are used to allowing the main processor to implement advanced Digital Signal processing. SWIFT Buoy appears as the outlier as the system is built around a dedicated data logger i.e. The Sutron Xpert with an integrated processor and Satellite communication link abstracting data processing strategies on the buoy side. The SIMB buoy has the most advanced and largest number of sensors of all the buoys. A commonality amongst the buoys is the use of off the shelf components and processors. A predominant feature, the GPS is an Adafruit MTK339 device that is low cost as well as SAMD Chips, Raspberry Pis and Arduino boards whereas, for Trident and MetOCean, more expensive solutions are used. This shows that developers have opted for ready-made that components that are auxiliary to the main measurements. This should explain why some components on a system are more advanced than others.
+\footnote[1]{Developed by \textcite{uptempo}$^{\text{TM}}$}
+From table \ref{tab:device_process}, we can see that each device has been developed either with a single, powerful processor or with multiple, low powered processors. NDWB for instance builds its system around the dominant sensor i.e. the AHRS IMU with a single processor controlling all the peripherals as well as allowing for data processing. Drift loggers such as Trident, and Polar ISVP feature sparser sets of electronics with smaller, lower-powered processors for power control and peripheral control, In contrast, WIIOS and WII Buoy compartmentalise subsystems with a cluster of processors handling different aspects from the buoy. This shows a focus on computation rather than sensing as multiple controllers are used to free the main processor for implementing advanced digital signal processing. SWIFT Buoy appears as the outlier as the system is built around a dedicated data logger i.e. The Sutron Xpert with an integrated processor and satellite communication link abstracting data processing strategies on the buoy side. The SIMB buoy has the most advanced and largest number of sensors of all the buoys. A commonality among the buoys is the use of off the shelf components and processors. A predominant feature, the GPS is an Adafruit MTK339 device that is low cost as well as SAMD Chips, Raspberry Pis and Arduino boards whereas, for Trident and MetOcean, more expensive solutions are used. This shows that developers have opted for ready-made that components that are auxiliary to the main measurements. This should explain why some components on a system are more advanced than others.
 
 
 
@@ -352,58 +437,7 @@ The processing capabilities of each device facilitate the functionality of each 
 
 Most of the aforementioned metocean systems focus on measuring sea states and ocean processes. Common measurements of interests are significant wave height and dominant wave frequency \cite{williams2013wave}. Also, Wave data can be analysed in terms of its power spectral density. The two main methods for wave data analysis presented in this section are the Kuik Method and the Welch Earle Method. M
 
-\subsubsection{Kuik Method}
 
- The Kuik method, developed by \textcite{kuik1988method} is a computational technique for measuring and determining the directional characteristics of ocean waves. Measurement of these characteristics are derived from the pitch and roll of an ocean buoy are measured. By using an accelerometer, gyroscope or an inertial measurement system to measure the slope and heave of the 3 axes \cite{kuik1988method}, it is possible to reconstruct the sea state given a set of data provided the data is of a specific length sampled above the Nyquist frequency of dominant ocean swells. A major advantage of the Kuik method is that the parameters are estimated directly from the Fourier transform of the measured signal \cite{kuik1988method} without assumptions about the model. Should the algorithm be used to measure waves in ice, no information is required about the dynamics of the model of the ice floe. This greatly improves the accuracy since ice floes can vary in width, distribution and area as well as change shape due to collisions, freezing and melting. Wind waves are described using a two-dimensional energy spectrum $E$ with wave energy spread over a frequency $f$. The normalised distribution of energy over direction is defined according to \textcite{kuik1988method} as
- \begin{equation}
-     D_f(\theta) = \frac{E(f,\theta)}{\int_0^{2
-     \pi}E(f,\theta)d\theta}
- \end{equation} 
- 
- Finally, by computing the model per frequency, the distribution simplifies to $D(\theta)$ which can be approximated by a Fourier series with 4 terms \cite{kuik1988method} derived from the pitch, roll and heave of a buoy. Finally, the model can fully characterise the wave spectrum by calculating the following parameters from the Fourier coefficients:
- 
- \begin{enumerate}
-    \item mean wave direction $\theta_0$
-     \item directional width $\sigma$
-     \item skewness $\gamma$
-     \item kurtosis $\delta$ 
- \end{enumerate}
-
-The accuracy of the mean wave direction and width is affected by noise in the sampled data. small RMS values of noise can result in rapid increases of directional width by 1\% to 5\% \cite{kuik1988method}. Additionally, pitch and roll buoys are not free particles. They have an associated mass and therefore an associated inertia \cite{kuik1988method}. This results in a phase shift of the Fourier term by $\phi_i i \in {x,y,z}$  in the first harmonic \cite{kuik1988method}. This shift can result in an error of $0.5^\circ $ for $\sigma > 25 ^\circ $ to $1^\circ \text{ for } \sigma < 10^\circ $ \cite{kuik1988method}   
-
-\subsubsection{Welch-Earle Method}
-
-The Welch-Earle Method is an algorithm for calculating either directional and non-directional wave data depending on the assumptions of the input data \cite{earle1996nondirectional}. Data is derived from the vertical acceleration, roll and pitch of a buoy oriented perpendicular to the surface on either a vertically stabilised platform or a hull-fixed platform \cite{earle1996nondirectional}. Directional wave data is determined from both the acceleration, roll, pitch and heave from the buoy while non-directional wave data is calculated from time-series acceleration only. In this method, a digital time series representation of the vertical Acceleration along with 2 orthogonal Gyroscope measurements and Magnetometer readings relative to the earth’s magnetic field is obtained. The method accounts for the response function of the buoy and provides corrections to phase differences as a result of the buoy's inertia \cite{earle1996nondirectional}. Full directional and non-directional wave data is characterised by calculating the spectra and co-spectra of the time series data. The first part of the method is developed by \textcite{welch1967use} and is used to calculate the power spectral density.
-Given a discrete time series data X(j) with a power spectral density P(f), |f|< $\frac{1}{2}$.this data segmented into a set of k-bins $X_k(j) | j \in {0,L-1}$ \cite{welch1967use}. Each bin is multiplied by a selected window function W(k) of length L. Additionally, Bins are taken with a 50\% overlap to produce better statistical averages \cite{earle1996nondirectional} The Fast Fourier Transform (FFT) of the result is taken to for a periodograms $I_k$ \cite{earle1996nondirectional}. Finally, the new power spectral estimator $\hat{P}(f_n)$ is calculated by taking the average of the K periodograms as shown in \textcite{welch1967use}
-
-\begin{equation}
-    \hat{P}(f_n) = \frac{1}{K}\sum^K_{k=1}I_k(f_n)
-\end{equation}
-
-where 
-\begin{equation}
-    f_n = \frac{n}{L} | n \in 0,1,2... \frac{L}{2}
-\end{equation}
-
-Detrending is used to account for the effects of buoy motion on the time series. The inertia of the platform results in non-zero mean trends often as a result of constant wind or currents acting on the hull of the buoy \cite{earle1996nondirectional}. These must be discarded before the spectrum and co spectra are calculated. The resolution of the accelerometer is important for accurately tracking acceleration \cite{kohout2015device}. If the resolution is too small, low accelerations will not be recorded resulting in incorrect vertical accelerations being calculated. \textcite{kohout2015device} found that a low-resolution IMU was unable to reliably flag that it had exceeded a boundary condition and hence it was discarded \cite{kohout2015device}\par 
-
-The spectra and co-spectra of the directional and non-directional wave series can be calculated by computing the spectrum $S(x)$ as a function of frequency and direction (as is similar to the Kuik method). \textcite{earle1996nondirectional} show that characterisation of the co-spectra $C(x)$ and spectrum$S(x)$ can be achieved by calculating the first 4 Fourier coefficients. Finally, the sea state can be represented by calculating the following parameters
-
-\begin{enumerate}
- \item Longuet-Higgins directional parameters
-    \begin{enumerate}
-        \item $a_0$
-        \item $a_1$
-        \item $b_0$
-        \item $b_1$
-    \end{enumerate}
-    \item Significant Wave Height $H_0$
-     \item Dominant Wave Period $T_p$
-     \item Total Degrees of Freedom $TDF$
-     \item Average zero-crossing period $T_{av}$
-     \item Zero-crossing period $T_{zero}$
-\end{enumerate}
- This approach brings into account the possibility of spectral leakage however, this can be greatly minimised by sampling above the Nyquist frequency of the upper Wave frequency band (generally taken to be 0.5Hz) for a minimum of 1000 seconds (about 16 – 17 minutes). Additionally, spectral leakage can be reduced by selecting a window function with a gradual taper such as a half cosine or Hanning taper \cite{welch1967use}\par
 
 \subsubsection{Implementation}
 As mentioned previously, systems such as WIIOS and WIIB have built their purpose around wave measurements and therefore have specified High Powered, High Accuracy IMUs for wave measurements. However, WIIOS buoy separates itself from WII Buoy by having a cheaper complimentary 9 d0f IMU to complement the measurements. SWIFT Buoy and the DOBLE buoy use an integrated system known as an Inertial Navigation System. This device contains a GPS and an Onboard processor for RTK fusion and Kalman filtering whereas other devices use an external processor for filtering. The SIMB Buoy is the only buoy on the list that has an IMU for non-wave related measurements. It uses a cheaper Bosch BNO055 which is used solely for measuring the orientation of the device.
