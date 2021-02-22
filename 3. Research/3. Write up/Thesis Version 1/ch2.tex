@@ -435,10 +435,20 @@ From table \ref{tab:device_process}, we can see that each device has been develo
 
 \subsection{Measurement of Wave data using Accelerometers}
 
-Most of the aforementioned metocean systems focus on measuring sea states and ocean processes. Common measurements of interests are significant wave height and dominant wave frequency \cite{williams2013wave}. Also, Wave data can be analysed in terms of its power spectral density. The two main methods for wave data analysis presented in this section are the Kuik Method and the Welch Earle Method. M. Further explanations can be found in Appendix \ref{welchearl} and \ref{kuik}.
+Typical wave state estimation are derived from calculating wave parameters such as significant wave height and dominant wave frequency \cite{williams2013wave}. Additionally, Wave data can be analyzed in terms of its power spectral density. The two main methods for wave data analysis presented in this section are the Kuik Method and the Welch-Earle Method. Further explanations can be found in Appendix \ref{kuik}. Both approaches rely on a discrete time series of inertial data from a device with 3 axes of acceleration of 3 axes of rotation \cite{kuik1988method,earle1996nondirectional}.
 
+\subsection{Inertial Measurement Systems}
 
-\subsubsection{Implementation}
+Devices that measure wave parameters such as significant wave height, wave spectra or ocean states, incorporate a sensor that measures the vertical acceleration and roll, pitch, and yaw in discretised space \cite{earle1996nondirectional}. These parameters can be measured using an accelerometer for axial acceleration and a gyroscope for rotational velocity \cite{fong2008methods}. These devices are typically integrated circuits manufactured using micro electro-mechanical systems (MEMS) and are often combined to form an inertial measurement unit (IMU) allowing for 6 axes of measurement from a single device \cite{fong2008methods}. IMUs can also be expanded to include a magnetometer which measures magnetic bearing in 3 axis\cite{ahmad2013reviews}.IMU selection is dependent on the following factors\footcite{ahmad2013reviews}:
+\begin{enumerate}
+	\item Package size
+	\item Accuracy
+	\item Response rate
+	\item Degrees of freedom
+\end{enumerate}
+
+\textcite{ahmad2013reviews} show that package size can limit the applications of the IMU. Additionally, IMUs require careful calibration and filtering in order to reduce the effects of bias offsets as well as low and high frequency drift \cite{fong2008methods}. More advanced filtering methods have been developed to improve the accuracy of IMUs such as Kalman filters \cite{simon2001kalman}  for positional estimates or Real-Time Kinetic Fusion (RTK) for velocity \textcite{meng2014optimal}. While important to the integrity of IMU data, these methods are usually implimented in software which is discussed in the upcoming sections. Finally, the degrees of freedom (DoF) influences the application of the IMU. The magnetometer is used to improve the acuracy of the gyroscope measurement and account for low freuqency noise (drift) \cite{ahmad2013reviews}. However, removing the magnetometer is sensitive to magnetic distortion which can affect the measurements. \textcite{kohout2015device} encountered magnetic distortion during the SIPEX II deployments in September 2012 which rendered the magnetometer readings useless. In this section, the IMU is integral to deriving a time-series representation of inertia to calculate wave data as described above however, another application relevent to the literature is using IMUs to improve navigation \cite{ahmad2013reviews}
+
 As mentioned previously, systems such as WIIOS and WIIB have built their purpose around wave measurements and therefore have specified High Powered, High Accuracy IMUs for wave measurements. However, WIIOS buoy separates itself from WII Buoy by having a cheaper complimentary 9 d0f IMU to complement the measurements. SWIFT Buoy and the DOBLE buoy use an integrated system known as an Inertial Navigation System. This device contains a GPS and an Onboard processor for RTK fusion and Kalman filtering whereas other devices use an external processor for filtering. The SIMB Buoy is the only buoy on the list that has an IMU for non-wave related measurements. It uses a cheaper Bosch BNO055 which is used solely for measuring the orientation of the device.
 
 \subsubsection{Software processing}

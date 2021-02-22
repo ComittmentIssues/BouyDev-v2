@@ -101,6 +101,50 @@
       \field{pages}{181\bibrangedash 195}
       \range{pages}{15}
     \endentry
+    \entry{ahmad2013reviews}{article}{}
+      \name{author}{4}{}{%
+        {{hash=a5d5d658c8d12db0870835827cc4694c}{%
+           family={Ahmad},
+           familyi={A\bibinitperiod},
+           given={Norhafizan},
+           giveni={N\bibinitperiod}}}%
+        {{hash=f93169364fd781140327ab0e3098c2f5}{%
+           family={Ghazilla},
+           familyi={G\bibinitperiod},
+           given={Raja\bibnamedelimb Ariffin\bibnamedelima Raja},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=d77278556f8fa563bb8ac298ee850755}{%
+           family={Khairi},
+           familyi={K\bibinitperiod},
+           given={Nazirah\bibnamedelima M},
+           giveni={N\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=3009ed944a2497315cd251b73289f8fb}{%
+           family={Kasi},
+           familyi={K\bibinitperiod},
+           given={Vijayabaskar},
+           giveni={V\bibinitperiod}}}%
+      }
+      \strng{namehash}{b5315aa2113cd084b877c3b05d70fc90}
+      \strng{fullhash}{b8f31e4920be8a0c06e9db0cff3553b7}
+      \strng{bibnamehash}{b8f31e4920be8a0c06e9db0cff3553b7}
+      \strng{authorbibnamehash}{b8f31e4920be8a0c06e9db0cff3553b7}
+      \strng{authornamehash}{b5315aa2113cd084b877c3b05d70fc90}
+      \strng{authorfullhash}{b8f31e4920be8a0c06e9db0cff3553b7}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Signal Processing Systems}
+      \field{number}{2}
+      \field{title}{Reviews on various inertial measurement unit (IMU) sensor applications}
+      \field{volume}{1}
+      \field{year}{2013}
+      \field{pages}{256\bibrangedash 262}
+      \range{pages}{7}
+    \endentry
     \entry{alberello2019drift}{article}{}
       \name{author}{8}{}{%
         {{hash=1f41128a44870dcaeeca940433b42242}{%
@@ -1145,6 +1189,48 @@
       \field{year}{1997}
       \field{pages}{897\bibrangedash 900}
       \range{pages}{4}
+    \endentry
+    \entry{fong2008methods}{article}{}
+      \name{author}{3}{}{%
+        {{hash=94ef1ebf34562dc368db1634a55e48e1}{%
+           family={Fong},
+           familyi={F\bibinitperiod},
+           given={WT},
+           giveni={W\bibinitperiod}}}%
+        {{hash=432b2ad34673e7d223d89f2809aeb655}{%
+           family={Ong},
+           familyi={O\bibinitperiod},
+           given={SK},
+           giveni={S\bibinitperiod}}}%
+        {{hash=ea60886b3e56ab80762010b43dd61d72}{%
+           family={Nee},
+           familyi={N\bibinitperiod},
+           given={AYC},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IOP Publishing}%
+      }
+      \strng{namehash}{0b42c13debdeed61afe475875e9aad00}
+      \strng{fullhash}{2468993e884e97a7880ac3acf7e51c97}
+      \strng{bibnamehash}{2468993e884e97a7880ac3acf7e51c97}
+      \strng{authorbibnamehash}{2468993e884e97a7880ac3acf7e51c97}
+      \strng{authornamehash}{0b42c13debdeed61afe475875e9aad00}
+      \strng{authorfullhash}{2468993e884e97a7880ac3acf7e51c97}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Measurement Science and technology}
+      \field{number}{8}
+      \field{title}{Methods for in-field user calibration of an inertial measurement unit without external equipment}
+      \field{volume}{19}
+      \field{year}{2008}
+      \field{pages}{085202}
+      \range{pages}{1}
     \endentry
     \entry{galin2011validation}{article}{}
       \name{author}{5}{}{%
@@ -2823,6 +2909,48 @@
       \field{title}{Modelling the dynamics of ice in the {Antarctic} marginal ice zone}
       \field{year}{2019}
     \endentry
+    \entry{meng2014optimal}{article}{}
+      \name{author}{3}{}{%
+        {{hash=7cd163dc4d38538f2ca61c1e6aa4d60e}{%
+           family={Meng},
+           familyi={M\bibinitperiod},
+           given={Xiaolin},
+           giveni={X\bibinitperiod}}}%
+        {{hash=c33641e67eeaefc87b7821dc9b51ff90}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Jian},
+           giveni={J\bibinitperiod}}}%
+        {{hash=7fe8ba569a3ecd0b68d55fa837c7dd8f}{%
+           family={Han},
+           familyi={H\bibinitperiod},
+           given={Houzeng},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {De Gruyter}%
+      }
+      \strng{namehash}{7975496ddad6f18afa80ec0c06afc4f3}
+      \strng{fullhash}{8348f1cae7582b660d7cb13c789d1e19}
+      \strng{bibnamehash}{8348f1cae7582b660d7cb13c789d1e19}
+      \strng{authorbibnamehash}{8348f1cae7582b660d7cb13c789d1e19}
+      \strng{authornamehash}{7975496ddad6f18afa80ec0c06afc4f3}
+      \strng{authorfullhash}{8348f1cae7582b660d7cb13c789d1e19}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Applied Geodesy}
+      \field{number}{4}
+      \field{title}{Optimal GPS/accelerometer integration algorithm for monitoring the vertical structural dynamics}
+      \field{volume}{8}
+      \field{year}{2014}
+      \field{pages}{265\bibrangedash 272}
+      \range{pages}{8}
+    \endentry
     \entry{uptempo}{misc}{}
       \name{author}{1}{}{%
         {{hash=8fff4269fae6080aef2485b18d0aa98e}{%
@@ -3624,6 +3752,35 @@
       \field{year}{2015}
       \field{pages}{1145}
       \range{pages}{1}
+    \endentry
+    \entry{simon2001kalman}{article}{}
+      \name{author}{1}{}{%
+        {{hash=d2075620d3db6f848d4904775355e936}{%
+           family={Simon},
+           familyi={S\bibinitperiod},
+           given={Dan},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{d2075620d3db6f848d4904775355e936}
+      \strng{fullhash}{d2075620d3db6f848d4904775355e936}
+      \strng{bibnamehash}{d2075620d3db6f848d4904775355e936}
+      \strng{authorbibnamehash}{d2075620d3db6f848d4904775355e936}
+      \strng{authornamehash}{d2075620d3db6f848d4904775355e936}
+      \strng{authorfullhash}{d2075620d3db6f848d4904775355e936}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Embedded systems programming}
+      \field{number}{6}
+      \field{title}{Kalman filtering}
+      \field{volume}{14}
+      \field{year}{2001}
+      \field{pages}{72\bibrangedash 79}
+      \range{pages}{8}
     \endentry
     \entry{IEE_STD_SOFTCYCLE}{article}{}
       \name{author}{2}{}{%
