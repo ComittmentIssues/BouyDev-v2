@@ -1630,6 +1630,36 @@
       \verb https://www.inmarsat.com/en/index.html
       \endverb
     \endentry
+    \entry{edison}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=ff97a9fdede09eaf6e1c8ec9f6a61dd5}{%
+           family={{Intel}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
+      \strng{fullhash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
+      \strng{bibnamehash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
+      \strng{authorbibnamehash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
+      \strng{authornamehash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
+      \strng{authorfullhash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Product Brief}
+      \field{number}{331179-002}
+      \field{title}{{Intel® Edison Development Platform}}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb https://www.intel.com/content/dam/support/us/en/documents/edison/sb/edison_pb_331179002.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.intel.com/content/dam/support/us/en/documents/edison/sb/edison_pb_331179002.pdf
+      \endverb
+    \endentry
     \entry{intelsat2021website}{online}{}
       \name{author}{1}{}{%
         {{hash=b7c21a35c6d98f3b0e375e0c9912d528}{%
@@ -2248,6 +2278,36 @@
       \field{year}{2016}
       \field{pages}{407\bibrangedash 423}
       \range{pages}{17}
+    \endentry
+    \entry{kistlerIMU}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=4367fb68637197b6d5990b238d09c07c}{%
+           family={Kistler},
+           familyi={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{4367fb68637197b6d5990b238d09c07c}
+      \strng{fullhash}{4367fb68637197b6d5990b238d09c07c}
+      \strng{bibnamehash}{4367fb68637197b6d5990b238d09c07c}
+      \strng{authorbibnamehash}{4367fb68637197b6d5990b238d09c07c}
+      \strng{authornamehash}{4367fb68637197b6d5990b238d09c07c}
+      \strng{authorfullhash}{4367fb68637197b6d5990b238d09c07c}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{a-03.11}
+      \field{number}{8330B_000-897}
+      \field{title}{{ServoK-Beam Accelerometer Force Feedback Capacitive Accelerometer}}
+      \field{year}{2011}
+      \verb{urlraw}
+      \verb https://manualzz.com/doc/28248639/servok-beam-accelerometer
+      \endverb
+      \verb{url}
+      \verb https://manualzz.com/doc/28248639/servok-beam-accelerometer
+      \endverb
     \endentry
     \entry{kohout2014storm}{article}{}
       \name{author}{4}{}{%
@@ -4009,6 +4069,36 @@
       \field{pages}{e2019GL086649}
       \range{pages}{-1}
     \endentry
+    \entry{mpu9520}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=800b6477ead073c30d06d5e88e01d089}{%
+           family={{TDK InvenSense}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{800b6477ead073c30d06d5e88e01d089}
+      \strng{fullhash}{800b6477ead073c30d06d5e88e01d089}
+      \strng{bibnamehash}{800b6477ead073c30d06d5e88e01d089}
+      \strng{authorbibnamehash}{800b6477ead073c30d06d5e88e01d089}
+      \strng{authornamehash}{800b6477ead073c30d06d5e88e01d089}
+      \strng{authorfullhash}{800b6477ead073c30d06d5e88e01d089}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Rev 1.1}
+      \field{number}{PS--MPU--9250A--01}
+      \field{title}{{MPU--9250 Product Specification}}
+      \field{year}{2016}
+      \verb{urlraw}
+      \verb https://invensense.tdk.com/download-pdf/mpu-9250-datasheet/
+      \endverb
+      \verb{url}
+      \verb https://invensense.tdk.com/download-pdf/mpu-9250-datasheet/
+      \endverb
+    \endentry
     \entry{jim_swift_2012}{online}{}
       \name{author}{1}{}{%
         {{hash=a72b9b84115dc7135f1fdb325c6e3cf8}{%
@@ -4300,6 +4390,32 @@
       \field{year}{2000}
       \field{pages}{338\bibrangedash 345}
       \range{pages}{8}
+    \endentry
+    \entry{vn-100}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b8bc2f0ea642f6ef46421cdc1217ae2f}{%
+           family={VECTORNAV},
+           familyi={V\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {VECTORNAV}%
+      }
+      \strng{namehash}{b8bc2f0ea642f6ef46421cdc1217ae2f}
+      \strng{fullhash}{b8bc2f0ea642f6ef46421cdc1217ae2f}
+      \strng{bibnamehash}{b8bc2f0ea642f6ef46421cdc1217ae2f}
+      \strng{authorbibnamehash}{b8bc2f0ea642f6ef46421cdc1217ae2f}
+      \strng{authornamehash}{b8bc2f0ea642f6ef46421cdc1217ae2f}
+      \strng{authorfullhash}{b8bc2f0ea642f6ef46421cdc1217ae2f}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{VN-100 IMU/AHRS High-Performance Embedded Navigation}
+      \field{title}{VN-100 IMU/AHRS High-Performance Embedded Navigation}
+      \field{year}{2019}
     \endentry
     \entry{vichi2019effects}{article}{}
       \true{moreauthor}

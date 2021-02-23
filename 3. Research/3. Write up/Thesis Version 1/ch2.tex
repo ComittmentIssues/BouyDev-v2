@@ -242,7 +242,7 @@ A robust power supply is critical to support the functionality of a remotely dep
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = 0.5\linewidth]{power module diagram.png}
+	\includegraphics[width = 0.6\linewidth]{power module diagram.png}
 	\caption{A block diagram of a typical power module for a remote sensing device based off the information from \cite{rabault2019open,doble2017robust,vidal2019xev}. Batteries are used as a primary source of energy which is connected to a battery management system to control and regulate the power supply to the device. optionally, solar panels are implemented with a rechargeable battery as a secondary power supply. Shown in the figure: flow of power (red), control lines (blue) and ground (black).}
 	\label{fig:powermoddiag}
 \end{figure}
@@ -393,9 +393,24 @@ Finally, \textcite{vichi2019effects} discuss the findings surrounding the failur
 \newpage
 \section{Subsystem Overview}
 
-This section focuses on the subsystem analysis and component selection for each system. Each buoy was created with a unique objective which is shown in table \ref{tab:device_deployment}. This table shows that there is significant reporting of devices used in the Antarctic Marginal Ice Zone. However, the more high power devices (i.e. SWIFT, SKIB and NDWB ) have been focused more on the Arctic marginal ice zones. Technology developed for the Antarctic Ocean typically focuses on ice drift and environmental sensing. WIIB was developed using open-source hardware while WIIOS was developed using off-the-shelf components. Both systems aimed to provide a low-cost solution for wave in ice measurements.
+This section focuses on the subsystem analysis and component selection for each system. As stated previously, each buoy was created with a unique objective shown in table \ref{tab:device_deployment}. These objectives have influenced the sensor selection, topology and layout of the overall subsystems. In addition, the device designs choices have been influnced objectives for developing new in situ technologies by \textcite{kennicutt2016delivering} as the device developers have factored in power consumption \cite{kohout2015device}, ease of use and deployment \cite{rabault2019open}, long-term operation \cite{doble2017robust},cost \cite{planck2019evolution,rabault2019open} and availability of infrastructure \cite{doble2017robust} over and above functionality. For example WIIB was developed using open-source hardware \cite{rabault2019open} in order to increase access to readily available technology while WIIOS was developed using off-the-shelf components \cite{kohout2015device} to create a cost effective device. From table \ref{tab:device_deployment} we saw that the principle measurements of each device share the following measurement objectives:
+
+\begin{enumerate}
+	\item Ice drift
+	\item Wave data/Wave in Ice data
+	\item Ambient temperature
+	\item Atmospheric pressure 
+\end{enumerate}
+
+The following sections discuss how these objectives have influenced sensor selection for each of these measurements as well as the hardware, and software strategies implemented to achieve these objectives.
 
 \subsection{Processing capabilities}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 0.9\textwidth]{edison.png}
+	\caption{Diagram of a typical microprocessor (yellow) on a development board. This device is an Intel Edison which was used as the main processor \textcite{kohout2015device} for the WIIOS. The development board allow for fast prototyping and integration into projects. The processor interface with external peripherals through physical input/output pins (Red) and contains standard serial communication ports such as USB (orange), micro USB (teal) and a connector for external voltage (purple). Image source: \cite{edison} }
+\end{figure}
 The processing capabilities of each device facilitate the functionality of each buoy. A strong processor allows for the implementation of in-situ data processing and wave analysis algorithms \cite{kohout2015device,rabault2019open}. Additionally, due to the bandwidth constraints mentioned in section \ref{ch2:sec_remote}, some devices require data compression algorithms to allow the data to fit in the transmission buffers. The functionality of these devices has been made possible through the use of microprocessors. These are programmable integrated circuits that contain processing elements \cite{subham2018micro} and form the basis of microcontrollers and microcomputers \cite{crisp2003introduction}. These components are small and are increasingly becoming integrated into affordable, widely available components such as Raspbery Pis and Arduinos \cite{rabault2019open}. The table below shows a comparison of processors and topological implemented in each design
 
 \begin{table}[H]
@@ -433,11 +448,9 @@ From table \ref{tab:device_process}, we can see that each device has been develo
 
 
 
-\subsection{Measurement of Wave data using Accelerometers}
+\subsection{Measurement of Wave data using inertial measurement systems}
 
 Typical wave state estimation are derived from calculating wave parameters such as significant wave height and dominant wave frequency \cite{williams2013wave}. Additionally, Wave data can be analyzed in terms of its power spectral density. The two main methods for wave data analysis presented in this section are the Kuik Method and the Welch-Earle Method. Further explanations can be found in Appendix \ref{kuik}. Both approaches rely on a discrete time series of inertial data from a device with 3 axes of acceleration of 3 axes of rotation \cite{kuik1988method,earle1996nondirectional}.
-
-\subsection{Inertial Measurement Systems}
 
 Devices that measure wave parameters such as significant wave height, wave spectra or ocean states, incorporate a sensor that measures the vertical acceleration and roll, pitch, and yaw in discretised space \cite{earle1996nondirectional}. These parameters can be measured using an accelerometer for axial acceleration and a gyroscope for rotational velocity \cite{fong2008methods}. These devices are typically integrated circuits manufactured using micro electro-mechanical systems (MEMS) and are often combined to form an inertial measurement unit (IMU) allowing for 6 axes of measurement from a single device \cite{fong2008methods}. IMUs can also be expanded to include a magnetometer which measures magnetic bearing in 3 axis\cite{ahmad2013reviews}.IMU selection is dependent on the following factors\footcite{ahmad2013reviews}:
 \begin{enumerate}
@@ -447,12 +460,109 @@ Devices that measure wave parameters such as significant wave height, wave spect
 	\item Degrees of freedom
 \end{enumerate}
 
-\textcite{ahmad2013reviews} show that package size can limit the applications of the IMU. Additionally, IMUs require careful calibration and filtering in order to reduce the effects of bias offsets as well as low and high frequency drift \cite{fong2008methods}. More advanced filtering methods have been developed to improve the accuracy of IMUs such as Kalman filters \cite{simon2001kalman}  for positional estimates or Real-Time Kinetic Fusion (RTK) for velocity \textcite{meng2014optimal}. While important to the integrity of IMU data, these methods are usually implimented in software which is discussed in the upcoming sections. Finally, the degrees of freedom (DoF) influences the application of the IMU. The magnetometer is used to improve the acuracy of the gyroscope measurement and account for low freuqency noise (drift) \cite{ahmad2013reviews}. However, removing the magnetometer is sensitive to magnetic distortion which can affect the measurements. \textcite{kohout2015device} encountered magnetic distortion during the SIPEX II deployments in September 2012 which rendered the magnetometer readings useless. In this section, the IMU is integral to deriving a time-series representation of inertia to calculate wave data as described above however, another application relevent to the literature is using IMUs to improve navigation \cite{ahmad2013reviews}
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[t]{.3\textwidth}
+		\begin{tikzpicture}
+			\node[anchor=south west,inner sep=0] (image) at (0,0) { \includegraphics[width = 4cm, height = 6cm]{vn-100-smd-rugged_new.png}};
+			\begin{scope}[x={(image.south east)},y={(image.north west)}]
+				\draw[color=black, ultra thin,fill=white] (0.0,0.0) rectangle (0.21,0.16) node[pos=.5] {A};
+			\end{scope}
+		\end{tikzpicture}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{.3\textwidth}
+		\begin{tikzpicture}
+			\node[anchor=south west,inner sep=0] (image) at (0,0) { \includegraphics[width = 4cm, height = 6cm]{servokbeam.PNG}};
+			\begin{scope}[x={(image.south east)},y={(image.north west)}]
+				\draw[color=black, ultra thin,fill=white] (0.0,0.0) rectangle (0.21,0.16) node[pos=.5] {B};
+			\end{scope}
+		\end{tikzpicture}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{.3\textwidth}
+		\begin{tikzpicture}
+			\node[anchor=south west,inner sep=0] (image) at (0,0) { \includegraphics[width = 4cm, height = 6cm]{rp-mpu-9250.png}};
+			\begin{scope}[x={(image.south east)},y={(image.north west)}]
+				\draw[color=black, ultra thin,fill=white] (0.0,0.0) rectangle (0.21,0.16) node[pos=.5] {C};
+			\end{scope}
+		\end{tikzpicture}
+	\end{subfigure}
+	\hfill
+	\label{fig:imus}
+	\caption{Diagram showing examples of the different types of inertial measurement systems (IMUs) available for commercial use such as (A) an Attitude Heading Reference System (AHRS) VN100 \cite{vn-100} used by \cite{rabault2019open}, (B) an analog capacitive accelerometer 8330B3 Servo-Kbeam accelerometer used by \cite{kohout2015device} \cite{kistlerIMU} and (C) a 9 degree of freedom MPU9520 \cite{mpu9520} used by \cite{kohout2015device}. }
+\end{figure}
 
-As mentioned previously, systems such as WIIOS and WIIB have built their purpose around wave measurements and therefore have specified High Powered, High Accuracy IMUs for wave measurements. However, WIIOS buoy separates itself from WII Buoy by having a cheaper complimentary 9 d0f IMU to complement the measurements. SWIFT Buoy and the DOBLE buoy use an integrated system known as an Inertial Navigation System. This device contains a GPS and an Onboard processor for RTK fusion and Kalman filtering whereas other devices use an external processor for filtering. The SIMB Buoy is the only buoy on the list that has an IMU for non-wave related measurements. It uses a cheaper Bosch BNO055 which is used solely for measuring the orientation of the device.
+\textcite{ahmad2013reviews} show that package size can limit the applications of the IMU. Additionally, IMUs require careful calibration and filtering in order to reduce the effects of bias offsets as well as low and high frequency drift \cite{fong2008methods}. More advanced filtering methods have been developed to improve the accuracy of IMUs such as Kalman filters \cite{simon2001kalman}  for positional estimates or Real-Time Kinetic Fusion (RTK) for velocity \textcite{meng2014optimal}. While important to the integrity of IMU data, these methods are usually implemented in software which is discussed in the upcoming sections. Finally, the degrees of freedom (DoF) influences the application of the IMU. The magnetometer is used to improve the accuracy of the gyroscope measurement and account for low frequency noise (drift) \cite{ahmad2013reviews}. However, removing the magnetometer is sensitive to magnetic distortion which can affect the measurements. \textcite{kohout2015device} encountered magnetic distortion during the SIPEX II deployments in September 2012 which rendered the magnetometer readings useless. In this section, the IMU is integral to deriving a time-series representation of inertia to calculate wave data as described above however, another application relevant to the literature is using IMUs to improve navigation \cite{ahmad2013reviews}. An IMU can be coupled with a Global Positioning System (GPS) device to determine position in areas with poor signal which can assist greatly with determine ice drift (discussed in section \ref{sec:ch2_drift}). Based on these considerations, table \ref{tab:imu_component} shows the IMU component selection for each device.
+ 
+%TODO add table
+
+\begin{table}[H]
+	\centering
+	\label{tab:imu_component}
+	\setlength{\extrarowheight}{5pt};
+	\caption{Comparison of the inertial measurement systems selected for each device showing the sensors included as well as the degrees of freedom.}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|l|l|c|l}
+			\cline{1-4}
+			\textbf{Device name} & \textbf{Inertial Measurment Unit} & \textbf{Sensors} & \textbf{Degrees of freedom} &  \\ \cline{1-4}
+			\multirow{3}{*}{WIIB} & \multirow{3}{*}{VN-100} & Accelerometer & \multirow{3}{*}{9} &  \\ \cline{3-3}
+			&  & Gyroscope &  &  \\ \cline{3-3}
+			&  & Magnetometer &  &  \\ \cline{1-4}
+			\multirow{4}{*}{WIIOS} & 8330B3 Servo-KBeam & Vertical Acceleration & 1 &  \\ \cline{2-4}
+			& \multirow{3}{*}{MPU9250} & Accelerometer & \multirow{3}{*}{9} &  \\ \cline{3-3}
+			&  & Gyroscope &  &  \\ \cline{3-3}
+			&  & Magnetometer &  &  \\ \cline{1-4}
+			\multirow{3}{*}{NDWB} & \multirow{3}{*}{IG-500N} & Accelerometer & \multirow{3}{*}{9} &  \\ \cline{3-3}
+			&  & Gyroscope &  &  \\ \cline{3-3}
+			&  & Magnetometer &  &  \\ \cline{1-4}
+			SKIB & LIS3DH & Accelerometer & 3 &  \\ \cline{1-4}
+			\multirow{3}{*}{SIMB} & \multirow{3}{*}{BNO055} & Accelerometer & \multirow{3}{*}{9} &  \\ \cline{3-3}
+			&  & Gyroscop &  &  \\ \cline{3-3}
+			&  & Magnetomer &  &  \\ \cline{1-4}
+			Polar ISVP & None & - & - &  \\ \cline{1-4}
+			Trident & None & - & - &  \\ \cline{1-4}
+		\end{tabular}
+		}
+\end{table}
+As mentioned previously, systems such as WIIOS and WIIB have built their purpose around wave measurements and therefore have specified high powered, high accuracy IMUs for wave measurements. However, WIIOS buoy separates itself from WIIB by having a cheaper complimentary 9 dof IMU to complement the measurements \cite{kohout2015device}. SWIFT Buoy and the NDWB buoy use an integrated system known as an Inertial Navigation System (INS) with the former containing an SBG Elipse AHRS \cite{thomson2012wave} and the latter containing a IG-500-A1G2 \cite{doble2017robust}. This device contains a GPS and an Onboard processor for RTK fusion and Kalman filtering whereas other devices use an external processor for filtering. The SIMB Buoy is the only buoy on the list that has an IMU for non-wave related measurements. It uses a cheaper Bosch BNO055 which is used solely for measuring the orientation of the device.
 
 \subsubsection{Software processing}
 
+An IMU is a power device however extensive software proccessing is required to extract key parameters \cite{ahmad2013reviews}. Examples of software processing algorithms are shown in \textcite{kuik1988method} and \textcite{earle1996nondirectional}\footnote{See Appendix \ref{welchearl}.} for wave processing algorithms. Additionally, as mentioned previously, advanced filtering techniques are required to reduce the effects of low and high frequency noise. In this subsection the software processing strategy for each device given for extracting the desired parameters shown in table \ref{tab:device_deployment}.
+
+\begin{table}[H]
+	\centering
+	\label{key}
+	\caption{text}
+	\setlength{\extrarowheight}{5pt}
+	\resizebox{\textwidth}{!}{%
+		% Please add the following required packages to your document preamble:
+		% \usepackage{multirow}
+		\begin{tabular}{|l|l|l|l|}
+			\hline
+			\textbf{Device name} & \textbf{Degree of Freedom used} & \textbf{Sample rate} & \textbf{Sample Period} \\ \hline
+				\multirow{3}{*}{WIIB} & Vertical Acceleration & \multirow{3}{*}{10 Hz} & \multirow{3}{*}{25 minutes} \\ \cline{2-2}
+				& Pitch &  &  \\ \cline{2-2}
+				& Roll &  &  \\ \hline
+				\multirow{4}{*}{WIIOS} & 3-axis acceleration & \multirow{4}{*}{2 Hz} & \multirow{4}{*}{11 minutes} \\ \cline{2-2}
+				& 3-axis gyroscope &  &  \\ \cline{2-2}
+				& 3-axis magnetometer &  &  \\ \cline{2-2}
+				& Vertical  analog acceleration &  &  \\ \hline
+				\multirow{5}{*}{NDWB} & 3-axis acceleration & \multirow{5}{*}{1 Hz} & \multirow{5}{*}{Continuous} \\ \cline{2-2}
+				& 3-magnetometer &  &  \\ \cline{2-2}
+				& heave &  &  \\ \cline{2-2}
+				& roll &  &  \\ \cline{2-2}
+				& pitch &  &  \\ \hline
+				SKIB & 3-axis acceleration & 25 & 10 minutes \\ \hline
+				\multirow{3}{*}{SWIFT} & 3-axis accleration & \multirow{3}{*}{5} & \multirow{3}{*}{9 minutes} \\ \cline{2-2}
+				& Tilt &  &  \\ \cline{2-2}
+				& Horizontal Rotation &  &  \\ \hline
+				\multirow{2}{*}{SIMB} & Tilt & \multirow{2}{*}{-} & \multirow{2}{*}{-} \\ \cline{2-2}
+				& Orientation &  &  \\ \hline
+			\end{tabular}
+	}
+\end{table}
 \par{WIIB}	
 
 Raw Time series is passed through an Extended Kalman Filter running at 800Hz than a low pass filter. Wave Spectral data is calculated using the method by \textcite{earle1996nondirectional} where Co-Spectra is calculated using the Method by \textcite{kuik1988method}. Significant wave height is calculated through double integration. A Fast Fourier transform is applied to the data series to achieve this.
@@ -476,7 +586,7 @@ The Swift buoy is the only device that uses multiple sensors for sea state calcu
 No Clear Data processing strategy is available in the literature. This may be due to the non-critical nature of the IMU.
 
 \subsection{Measurement of Ice drift using GPS}
-
+\label{sec:ch2_drift}
 The approach towards studying ice drift is typically performed using the techniques presented by \textcite{hibler1979dynamic} \footnote{See Numerical Modeling} where kinematic data is used to study ice drift dynamics and calibrate the ice drift model.\textcite{lepparanta2001sea} present two methods for data. The first method utilises measurement beacons are attached to the ice floes and used to track trajectories. The second method uses imaging devices such as radar, and satellites to determine ice displacement \cite{lepparanta2001sea}.\par
 
 Each ice floe follows a unique trajectory \cite{lepparanta2001sea}  and individual trajectories combine to form a continuum. It has previously been believed that Sea Ice drift has been linked strongly to significant wave events \cite{alberello2019drift}. An experiment was conducted by \textcite{alberello2019drift} to measure the drift of sea ice during a cyclone event. Here it was found that wind velocity is the dominant driver of sea ice drift \cite{alberello2019drift} causing ice drifts of up to $0.75 m\cdot s^{-1}$ \cite{alberello2019drift}. Sea Ice drift speed is extremely sensitive to sampling rates. \cite{alberello2019drift} where sampling rates of 6 hours can underestimate the ice velocity by 5\% \cite{alberello2019drift} and up to 20\% for 12-hour sample rates. The consequence is reduced, near unusable, estimates of sea ice velocity components as well as drag coefficient and wind factor estimates. High temporal resolutions are capable of capturing important, inter-daily such as Ice oscillations. \textcite{alberello2019drift} state that to accurately capture Sea Ice behaviour, a temporal resolution of at least 3 hours is required \cite{alberello2019drift}. This not only allows for the capture of accurate drift speeds but provides an accurate characterization of Instantaneous velocities and Coriolis forces \cite{alberello2019drift}. Satellite observations OSI-SAF and METSAT are unsuitable for measurements hence a need arises for in -situ drift measurement devices. The GPS technology has been the standard for ice drift measurement. Current measurement sensing platforms such as those developed by \textcite{kohout2015device}, \textcite{rabault2019open}, \textcite{doble2017robust} and proprietary sensing technologies; Trident Buoy, SWIFT Buoy, Metocean. The GPS is set to measure data at relatively high temporal resolutions ranging from 15 minutes \cite{alberello2019drift} to 25 minutes \cite{rabault2019open}.
