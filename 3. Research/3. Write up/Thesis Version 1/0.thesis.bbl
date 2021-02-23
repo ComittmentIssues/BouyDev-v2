@@ -4234,6 +4234,31 @@
       \verb https://www.tridentsensors.com/products/19-buoy-tracking-systems/21-buoy-tracking-2
       \endverb
     \endentry
+    \entry{tuck2007tilt}{article}{}
+      \name{author}{1}{}{%
+        {{hash=633cba0153447e02b53be2f7e75cdf97}{%
+           family={Tuck},
+           familyi={T\bibinitperiod},
+           given={Kimberly},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{633cba0153447e02b53be2f7e75cdf97}
+      \strng{fullhash}{633cba0153447e02b53be2f7e75cdf97}
+      \strng{bibnamehash}{633cba0153447e02b53be2f7e75cdf97}
+      \strng{authorbibnamehash}{633cba0153447e02b53be2f7e75cdf97}
+      \strng{authornamehash}{633cba0153447e02b53be2f7e75cdf97}
+      \strng{authorfullhash}{633cba0153447e02b53be2f7e75cdf97}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Freescale semiconductor application note AN3107}
+      \field{title}{Tilt sensing using linear accelerometers}
+      \field{year}{2007}
+    \endentry
     \entry{turner2017unprecedented}{article}{}
       \name{author}{7}{}{%
         {{hash=6e889d94c59bbc4801a9b06bcbf95ab1}{%

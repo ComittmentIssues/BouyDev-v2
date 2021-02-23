@@ -1,6 +1,7 @@
 
 \chapter{Literature Review}
 \label{ch:chapter2}
+As highlighted by section \ref{sec:ch1.section1}, there is a great desire by research scientists for in situ instruments to provide observation data which fills spatial and temporal measurement gaps in Antarctic sea ice monitoring in the Southern Ocean as shown in figure \ref{fig:Antarctica_Southern_Ocean}. This chapter investigates the current use of autonomous monitoring technology used by research scientists in this region focusing on progress made to improving in situ observations and highlighting areas for improvement.
 
 \begin{figure}[H]
 	\centering
@@ -9,12 +10,13 @@
 	\label{fig:Antarctica_Southern_Ocean}
 \end{figure}
 
-As highlighted by section \ref{sec:ch1.section1}, there is a great desire by research scientists for in situ instruments to provide observation data which fills spatial and temporal measurement gaps in Antarctic sea ice monitoring in the Southern Ocean as shown in figure \ref{fig:Antarctica_Southern_Ocean}. This chapter investigates the current use of autonomous monitoring technology used by research scientists in this region focusing on progress made to improving in situ observations and highlighting areas for improvement.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
 \section{In situ climate sensing technologies}
 
+Autonomous instrumentation has seen increased use for in situ observations in the polar sea ice regions \cite{kennicutt2016delivering}. These devices have typically  been developed by the commercial sector \cite{rabault2017measurements} from companies such as Trident \cite{trident}, MetOcean \cite{uptempo}, Seabird \cite{seabird2021website} and Sea Technology Services (STS) \cite{sts2021website}. Additionally, academic institutions have also developed in situ measurement devices such as The University of Washington's SWIFT buoy \cite{thomson2012wave} or University of Dartmouth's Seasonal Ice Mass Balance (SIMB) buoy \cite{polashenski2011seasonal}. While these technologies have the benefit of reliability, they are often expensive \cite{rabault2017measurements} and inflexible to the specific needs of polar scientists. Technology has reached a point where low-cost and open source alternatives are well documented and reliable enough to be integrated into customized solutions \cite{rabault2019open}.\par 
 
 \begin{figure}[H]
 	\centering
@@ -22,9 +24,6 @@ As highlighted by section \ref{sec:ch1.section1}, there is a great desire by res
 	\caption{A block diagram of a typical device for in situ measurements. Each device contains modules for environmental sensing and drift sensing connected to a processor. This can be a micro-controller or microprocessor. Additionally, a data storage module (such as an SD card) is included to store data during the operation. Some device include modules for local communications or wave sensing units. Finally, a remote communication module is included to transfer the data to a research center or a user. The electronics are placed inside a physical enclosure for protection against the polar climate while a portable power module supplies the device during its operation.}
 	\label{fig:devblockdiag}
 \end{figure}
-
-Autonomous instrumentation has seen increased use for in situ observations in the polar sea ice regions \cite{kennicutt2016delivering}. These devices have typically  been developed by the commercial sector \cite{rabault2017measurements} from companies such as Trident \cite{trident}, MetOcean \cite{uptempo}, Seabird \cite{seabird2021website} and Sea Technology Services (STS) \cite{sts2021website}. Additionally, academic institutions have also developed in situ measurement devices such as The University of Washington's SWIFT buoy \cite{thomson2012wave} or University of Dartmouth's Seasonal Ice Mass Balance (SIMB) buoy \cite{polashenski2011seasonal}. While these technologies have the benefit of reliability, they are often expensive \cite{rabault2017measurements} and inflexible to the specific needs of polar scientists. Technology has reached a point where low-cost and open source alternatives are well documented and reliable enough to be integrated into customized solutions \cite{rabault2019open}.\par 
-
 
 In this section, a comparison of data collection devices used in the polar regions is presented as well as  description of their design, opperation and deployment. Where possible, certain specifications have been converted into standardised formats. To ensure a fair evaluation, data were collected from the latest technical publication of each platform where possible. These publications may not contain all relevant data. In this case, the data entry has been marked with a "Not reported" or "NR". Figure \ref{fig:buoys}.
 
@@ -242,7 +241,7 @@ A robust power supply is critical to support the functionality of a remotely dep
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = 0.6\linewidth]{power module diagram.png}
+	\includegraphics[width = \linewidth]{power module diagram.png}
 	\caption{A block diagram of a typical power module for a remote sensing device based off the information from \cite{rabault2019open,doble2017robust,vidal2019xev}. Batteries are used as a primary source of energy which is connected to a battery management system to control and regulate the power supply to the device. optionally, solar panels are implemented with a rechargeable battery as a secondary power supply. Shown in the figure: flow of power (red), control lines (blue) and ground (black).}
 	\label{fig:powermoddiag}
 \end{figure}
@@ -379,21 +378,23 @@ Two additional WIIOS buoys were deployed by \textcite{alberello2019drift} during
 
 \subsubsection{Reasons for Failure}
 \label{ch2:sec3_failiure}
+
+Eventually, the systems by \textcite{doble2017robust} lost transmission 300 days after their deployment. This can be attributed to the depletion of the alkaline battery packs. The solar powered lead acid battery voltage eventually dropped below the alkaline battery voltage due to the lack of consistent solar coverage \cite{doble2017robust}. Additionally, sub zero temperatures have a tendency to reduce battery capacities by up to 50\% \cite{doble2017robust} however, \textcite{doble2017robust} found this estimate to be over conservative. Systems by \textcite{kohout2015device} and \textcite{doble2017robust} encountered similar failures with devices eventually depleting the on-board batteries. Additionally, \cite{alberello2019drift} attribute failure of the first WIIOS system to the battery being depleted.\par 
+
+Additional sources of failure experienced by \textcite{doble2017robust} include ice convergence. The systems were subject to ice-mechanics and as a result, ended up crushed by the floes due to rafting or buried under ice \textcite{doble2017robust}. These failures were identified when more than one system suddenly went offline. Devices also experienced freeze-over or were buried under snow which resulted in the devices going offline for temporary periods \cite{doble2017robust}. Additional evidence of rafting and ridging was captured by webcams on the buoy shortly before transmission ended \cite{doble2017robust}. Buoys that survived the spring melt refroze during the gradual refreezing of the ice. During the second cycle, none of the buoys rebooted when the ice melted in the spring \cite{doble2017robust}. Finally, the buoys developed by \textcite{kohout2015device} and \textcite{rabault2017measurements} sit in close proximity to the ice floes. As discussed previously, during the winter cycles, snow accumulates on the surface that can reach up to 1m in height. This snow formation can result in flooding where the floe becomes submerged. Prolonged burying under snow may have resulted in the device freezing over thereby losing contact while prolonged contact with the seawater may have resulted in the buoys failing on several occasions (\cite{kohout2015device,vichi2019effects,albarello2020drift,rabault2019open})\par 
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width = 7cm]{swift_fail.jpg}
 	\caption{During the 2019 SCALE winter expedition, a SWIFT device was retrieved early due to lost communication with the host. This failure was attributed to a build up of ice along the the rim from ocean spray. Photo taken by author.}
 	\label{fig:swift_fail}
 \end{figure}
-Eventually, the systems by \textcite{doble2017robust} lost transmission 300 days after their deployment. This can be attributed to the depletion of the alkaline battery packs. The solar powered lead acid battery voltage eventually dropped below the alkaline battery voltage due to the lack of consistent solar coverage \cite{doble2017robust}. Additionally, sub zero temperatures have a tendency to reduce battery capacities by up to 50\% \cite{doble2017robust} however, \textcite{doble2017robust} found this estimate to be over conservative. Systems by \textcite{kohout2015device} and \textcite{doble2017robust} encountered similar failures with devices eventually depleting the on-board batteries. Additionally, \cite{alberello2019drift} attribute failiure of the first WIIOS system to the battery being depleted.\par 
-
-Additional sources of failure experienced by \textcite{doble2017robust} include ice convergence. The systems were subject to ice-mechanics and as a result, ended up crushed by the floes due to rafting or buried under ice \textcite{doble2017robust}. These failures were identified when more than one system suddenly went offline. Devices also experienced freeze-over or were buried under snow which resulted in the devices going offline for temporary periods \cite{doble2017robust}. Additional evidence of rafting and ridging was captured by webcams on the buoy shortly before transmission ended \cite{doble2017robust}. Buoys that survived the spring melt refroze during the gradual refreezing of the ice. During the second cycle, none of the buoys rebooted when the ice melted in the spring \cite{doble2017robust}. Finally, the buoys developed by \textcite{kohout2015device} and \textcite{rabault2017measurements} sit in close proximity to the ice floes. As discussed previously, during the winter cycles, snow accumulates on the surface that can reach up to 1m in height. This snow formation can result in flooding where the floe becomes submerged. Prolonged burying under snow may have resulted in the device freezing over thereby losing contact while prolonged contact with the seawater may have resulted in the buoys failing on several occasions (\cite{kohout2015device,vichi2019effects,albarello2020drift,rabault2019open})\par 
 
 Finally, \textcite{vichi2019effects} discuss the findings surrounding the failure of the first WIIOS system. \textcite{vichi2019effects} observed a major cyclonic event. The cyclone formed on  2 July 2017 and achieved lysis on 5 July 2017 which coincided with the buoy deployment. Following the event, four more cyclonic events were recorded with three explosive cyclones \cite{vichi2019effects} characterising a change of pressure over 24 hours. During this time, \textcite{vichi2019effects} observed winds speeds of up to $33$ $m/s^{-1}$ while noting that the air temperatures had increased to values "close to melting" \cite{vichi2019effects}. Additional observations found an increase in significant wave height in the activity. These conditions indicate deformation \cite{vichi2019effects} which may have subjected the buoys to forces experienced by \cite{doble2017robust} during their arctic deployment which were verified against the temperature and pressure readings of the second WIIOS during the cyclonic event. The buoys were deployed close to the ice edge exposed to greater open ocean processes and cyclonic activities than other semi-consolidated and consolidated regions \cite{vichi2019effects}. As a result, air advection, storms and large wave movement delay the consolidation of sea ice considerably \cite{vichi2019effects}. Hence, the ice floes were more likely to experience rafting, ridging \cite{icedefinition1992}, extended flooding, and freezing over which may have caused the failures of the WIIOS buoys.
 \newpage
 \section{Subsystem Overview}
 
-This section focuses on the subsystem analysis and component selection for each system. As stated previously, each buoy was created with a unique objective shown in table \ref{tab:device_deployment}. These objectives have influenced the sensor selection, topology and layout of the overall subsystems. In addition, the device designs choices have been influnced objectives for developing new in situ technologies by \textcite{kennicutt2016delivering} as the device developers have factored in power consumption \cite{kohout2015device}, ease of use and deployment \cite{rabault2019open}, long-term operation \cite{doble2017robust},cost \cite{planck2019evolution,rabault2019open} and availability of infrastructure \cite{doble2017robust} over and above functionality. For example WIIB was developed using open-source hardware \cite{rabault2019open} in order to increase access to readily available technology while WIIOS was developed using off-the-shelf components \cite{kohout2015device} to create a cost effective device. From table \ref{tab:device_deployment} we saw that the principle measurements of each device share the following measurement objectives:
+This section focuses on the subsystem analysis and component selection for each system. As stated previously, each buoy was created with a unique objective shown in table \ref{tab:device_deployment}. These objectives have influenced the sensor selection, topology and layout of the overall subsystems. In addition, the device designs choices have been influenced objectives for developing new in situ technologies by \textcite{kennicutt2016delivering} as the device developers have factored in power consumption \cite{kohout2015device}, ease of use and deployment \cite{rabault2019open}, long-term operation \cite{doble2017robust},cost \cite{planck2019evolution,rabault2019open} and availability of infrastructure \cite{doble2017robust} over and above functionality. For example WIIB was developed using open-source hardware \cite{rabault2019open} in order to increase access to readily available technology while WIIOS was developed using off-the-shelf components \cite{kohout2015device} to create a cost effective device. From table \ref{tab:device_deployment} we saw that the principle measurements of each device share the following measurement objectives:
 
 \begin{enumerate}
 	\item Ice drift
@@ -406,12 +407,15 @@ The following sections discuss how these objectives have influenced sensor selec
 
 \subsection{Processing capabilities}
 
+The processing capabilities of each device facilitate the functionality of each buoy. A strong processor allows for the implementation of in-situ data processing and wave analysis algorithms \cite{kohout2015device,rabault2019open}. Additionally, due to the bandwidth constraints mentioned in section \ref{ch2:sec_remote}, some devices require data compression algorithms to allow the data to fit in the transmission buffers. The functionality of these devices has been made possible through the use of microprocessors.
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width = 0.9\textwidth]{edison.png}
 	\caption{Diagram of a typical microprocessor (yellow) on a development board. This device is an Intel Edison which was used as the main processor \textcite{kohout2015device} for the WIIOS. The development board allow for fast prototyping and integration into projects. The processor interface with external peripherals through physical input/output pins (Red) and contains standard serial communication ports such as USB (orange), micro USB (teal) and a connector for external voltage (purple). Image source: \cite{edison} }
 \end{figure}
-The processing capabilities of each device facilitate the functionality of each buoy. A strong processor allows for the implementation of in-situ data processing and wave analysis algorithms \cite{kohout2015device,rabault2019open}. Additionally, due to the bandwidth constraints mentioned in section \ref{ch2:sec_remote}, some devices require data compression algorithms to allow the data to fit in the transmission buffers. The functionality of these devices has been made possible through the use of microprocessors. These are programmable integrated circuits that contain processing elements \cite{subham2018micro} and form the basis of microcontrollers and microcomputers \cite{crisp2003introduction}. These components are small and are increasingly becoming integrated into affordable, widely available components such as Raspbery Pis and Arduinos \cite{rabault2019open}. The table below shows a comparison of processors and topological implemented in each design
+
+These are programmable integrated circuits that contain processing elements \cite{subham2018micro} and form the basis of microcontrollers and microcomputers \cite{crisp2003introduction}. These components are small and are increasingly becoming integrated into affordable, widely available components such as Raspbery Pis and Arduinos \cite{rabault2019open}. The table below shows a comparison of processors and topological implemented in each design
 
 \begin{table}[H]
 	\centering
@@ -448,7 +452,7 @@ From table \ref{tab:device_process}, we can see that each device has been develo
 
 
 
-\subsection{Measurement of Wave data using inertial measurement systems}
+\subsection{Measurement of wave data using inertial measurement systems}
 
 Typical wave state estimation are derived from calculating wave parameters such as significant wave height and dominant wave frequency \cite{williams2013wave}. Additionally, Wave data can be analyzed in terms of its power spectral density. The two main methods for wave data analysis presented in this section are the Kuik Method and the Welch-Earle Method. Further explanations can be found in Appendix \ref{kuik}. Both approaches rely on a discrete time series of inertial data from a device with 3 axes of acceleration of 3 axes of rotation \cite{kuik1988method,earle1996nondirectional}.
 
@@ -490,7 +494,7 @@ Devices that measure wave parameters such as significant wave height, wave spect
 	\end{subfigure}
 	\hfill
 	\label{fig:imus}
-	\caption{Diagram showing examples of the different types of inertial measurement systems (IMUs) available for commercial use such as (A) an Attitude Heading Reference System (AHRS) VN100 \cite{vn-100} used by \cite{rabault2019open}, (B) an analog capacitive accelerometer 8330B3 Servo-Kbeam accelerometer used by \cite{kohout2015device} \cite{kistlerIMU} and (C) a 9 degree of freedom MPU9520 \cite{mpu9520} used by \cite{kohout2015device}. }
+	\caption{Diagram showing examples of the different types of inertial measurement systems (IMUs) available for commercial use such as (A) an Attitude Heading Reference System (AHRS) VN100 \cite{vn-100} used by \cite{rabault2019open}, (B) an analog capacitive accelerometer 8330B3 Servo-KBeam accelerometer used by \cite{kohout2015device} \cite{kistlerIMU} and (C) a 9 degree of freedom MPU9520 \cite{mpu9520} used by \cite{kohout2015device}. }
 \end{figure}
 
 \textcite{ahmad2013reviews} show that package size can limit the applications of the IMU. Additionally, IMUs require careful calibration and filtering in order to reduce the effects of bias offsets as well as low and high frequency drift \cite{fong2008methods}. More advanced filtering methods have been developed to improve the accuracy of IMUs such as Kalman filters \cite{simon2001kalman}  for positional estimates or Real-Time Kinetic Fusion (RTK) for velocity \textcite{meng2014optimal}. While important to the integrity of IMU data, these methods are usually implemented in software which is discussed in the upcoming sections. Finally, the degrees of freedom (DoF) influences the application of the IMU. The magnetometer is used to improve the accuracy of the gyroscope measurement and account for low frequency noise (drift) \cite{ahmad2013reviews}. However, removing the magnetometer is sensitive to magnetic distortion which can affect the measurements. \textcite{kohout2015device} encountered magnetic distortion during the SIPEX II deployments in September 2012 which rendered the magnetometer readings useless. In this section, the IMU is integral to deriving a time-series representation of inertia to calculate wave data as described above however, another application relevant to the literature is using IMUs to improve navigation \cite{ahmad2013reviews}. An IMU can be coupled with a Global Positioning System (GPS) device to determine position in areas with poor signal which can assist greatly with determine ice drift (discussed in section \ref{sec:ch2_drift}). Based on these considerations, table \ref{tab:imu_component} shows the IMU component selection for each device.
@@ -534,11 +538,10 @@ An IMU is a power device however extensive software proccessing is required to e
 \begin{table}[H]
 	\centering
 	\label{key}
-	\caption{text}
+	\caption{Comparison of sampling strategies implemented in each device. This includes the desired measurands, sample rate and sample period of each IMU session}
 	\setlength{\extrarowheight}{5pt}
 	\resizebox{\textwidth}{!}{%
-		% Please add the following required packages to your document preamble:
-		% \usepackage{multirow}
+
 		\begin{tabular}{|l|l|l|l|}
 			\hline
 			\textbf{Device name} & \textbf{Degree of Freedom used} & \textbf{Sample rate} & \textbf{Sample Period} \\ \hline
@@ -555,45 +558,42 @@ An IMU is a power device however extensive software proccessing is required to e
 				& roll &  &  \\ \cline{2-2}
 				& pitch &  &  \\ \hline
 				SKIB & 3-axis acceleration & 25 & 10 minutes \\ \hline
-				\multirow{3}{*}{SWIFT} & 3-axis accleration & \multirow{3}{*}{5} & \multirow{3}{*}{9 minutes} \\ \cline{2-2}
+				\multirow{3}{*}{SWIFT} & 3-axis acceleration & \multirow{3}{*}{5} & \multirow{3}{*}{9 minutes} \\ \cline{2-2}
 				& Tilt &  &  \\ \cline{2-2}
 				& Horizontal Rotation &  &  \\ \hline
 				\multirow{2}{*}{SIMB} & Tilt & \multirow{2}{*}{-} & \multirow{2}{*}{-} \\ \cline{2-2}
 				& Orientation &  &  \\ \hline
 			\end{tabular}
-	}
-\end{table}
-\par{WIIB}	
+			}
+		\end{table}
 
-Raw Time series is passed through an Extended Kalman Filter running at 800Hz than a low pass filter. Wave Spectral data is calculated using the method by \textcite{earle1996nondirectional} where Co-Spectra is calculated using the Method by \textcite{kuik1988method}. Significant wave height is calculated through double integration. A Fast Fourier transform is applied to the data series to achieve this.
-\par{WIIOS}
+\textcite{rabault2019open} extract wave parameters by passing the raw time series data through an Extended Kalman Filter running at 800 Hz then through a low pass filter. Wave spectral data is calculated using the method by \textcite{earle1996nondirectional} where Co-spectra was calculated using the method by \textcite{kuik1988method}. Significant wave height wass calculated through double integration using a Fast Fourier Transform. sampling is performed at 10 Hz to satisfy the nyquist sampling criteria for open ocean waves as described in \cite{rabault2019open,earle1996nondirectional}.
 
-Data is filtered using a Butterworth filter with a cut-off frequency of 2Hz. Significant wave height is calculated by double integration using a Fast Fourier Transform. Spectra is calculated using the method by \textcite{earle1996nondirectional}.
+\textcite{kohout2015device} however, opted for a reduced sampling rate of 2 Hz over a shorter sample time. This was achieved by oversampling IMU data at 640 Hz then down-sampling the data through a multistage decimator \cite{kohout2015device}. Before each decimation, data was filtered using a Butterworth filter at 8 Hz with a cut-off frequency of 2 Hz, then once again at 40 Hz. Significant wave height is calculated by double integration using the Welch-Earl method \cite{earle1996nondirectional,welch1967use} multiplying the transformed data set by a response weighted function to remove low frequency drift. Finally, the Longuet-Higgens parameters are calculated thereby characterizing wave in ice activity.
 
-\par{NDWB}
+\textcite{doble2017robust} did not apply any data processing algorithm to the raw time series as it is transmitted directly over iridium. However, the raw time series is filtered using an Extended Kalman Filter running at 10 Hz.
 
-The double buoy is unique as it does not directly calculate wave parameters. However, the raw time series is filtered using an Extended Kalman Filter running at 10Hz
+The SKIB collects data from a sample window which is processed using a classical RC filter to attenuate frequencies below 0.04 Hz.Thereafter, \textcite{earle1996nondirectional} spectra and Co-spectra calculation are then applied.
 
-\par{SKIB}
-
-Data collected from a sample window is processed using a classical RC filter to attenuate frequencies below 0.04Hz. \textcite{earle1996nondirectional} Spectra and Co-Spectra  Calculation is then applied.
-
-\par{SWIFT}
-
-The Swift buoy is the only device that uses multiple sensors for sea state calculation. First, data is collected more frequently in short intervals (9 minute sample periods every 12 minutes) which include Doppler Profiles, Camera images and IMU data. The INS System outputs a Real-time kinematic (RTK) fusion data series where IMU data is passed through a Coning \& Sculling Extended Kalman Filter running at 1KHz while the Doppler profiler is sampled at 8Hz. Turbulence profile is calculated through time-averaged data fitting of the Doppler profiler. The current state is calculated using the Stokes drift Equation over time-averaged velocity series. Finally, Wave information is calculated from an image of the sea state.
+The SWIFT buoy is the only device that used multiple sensor types for sea state calculation. Additionally, data was collected more frequently in short intervals (9 minute sample periods every 12 minutes) which include Doppler profiles, camera images and IMU data. The inertial navigation system (INS) outputted a real-time kinematic (RTK) fusion data set where IMU data was passed through a Coning \& Sculling Extended Kalman Filter running at 1 KHz \cite{thomson2012wave} while the doppler profiler was sampled at 8 Hz. Turbulence profile was calculated through time-averaging and data fitting of the Doppler profile. Then, the ocean current state was calculated using the Stokes drift equation over a time-averaged velocity series. Finally, wave data was calculated  through image processing from a still of the sea state taken from an onboard camera.
 
 \par{SIMB}
-No Clear Data processing strategy is available in the literature. This may be due to the non-critical nature of the IMU.
+
+The SIMB uses the IMU in a non-critical manner. The device transmits tilt and orientation metadata \cite{planck2019evolution} describing the current status of the SIMB. While no method has been described by \textcite{planck2019evolution} to calculate tilt, it can be achieved by measuring the orthogonal acceleration values over an angle of ration and taking the inverse tangent of the resulting value for each axis \cite{tuck2007tilt}.
+
+
+Therefore IMUs are integral for performing sea state calculations and measuring wave spectra, a sufficient processor is required to filter and process the data therefore, significant consideration should be given to coupling a powerful processor with a sufficiently powerful inertial measurement unit.
 
 \subsection{Measurement of Ice drift using GPS}
 \label{sec:ch2_drift}
-The approach towards studying ice drift is typically performed using the techniques presented by \textcite{hibler1979dynamic} \footnote{See Numerical Modeling} where kinematic data is used to study ice drift dynamics and calibrate the ice drift model.\textcite{lepparanta2001sea} present two methods for data. The first method utilises measurement beacons are attached to the ice floes and used to track trajectories. The second method uses imaging devices such as radar, and satellites to determine ice displacement \cite{lepparanta2001sea}.\par
 
-Each ice floe follows a unique trajectory \cite{lepparanta2001sea}  and individual trajectories combine to form a continuum. It has previously been believed that Sea Ice drift has been linked strongly to significant wave events \cite{alberello2019drift}. An experiment was conducted by \textcite{alberello2019drift} to measure the drift of sea ice during a cyclone event. Here it was found that wind velocity is the dominant driver of sea ice drift \cite{alberello2019drift} causing ice drifts of up to $0.75 m\cdot s^{-1}$ \cite{alberello2019drift}. Sea Ice drift speed is extremely sensitive to sampling rates. \cite{alberello2019drift} where sampling rates of 6 hours can underestimate the ice velocity by 5\% \cite{alberello2019drift} and up to 20\% for 12-hour sample rates. The consequence is reduced, near unusable, estimates of sea ice velocity components as well as drag coefficient and wind factor estimates. High temporal resolutions are capable of capturing important, inter-daily such as Ice oscillations. \textcite{alberello2019drift} state that to accurately capture Sea Ice behaviour, a temporal resolution of at least 3 hours is required \cite{alberello2019drift}. This not only allows for the capture of accurate drift speeds but provides an accurate characterization of Instantaneous velocities and Coriolis forces \cite{alberello2019drift}. Satellite observations OSI-SAF and METSAT are unsuitable for measurements hence a need arises for in -situ drift measurement devices. The GPS technology has been the standard for ice drift measurement. Current measurement sensing platforms such as those developed by \textcite{kohout2015device}, \textcite{rabault2019open}, \textcite{doble2017robust} and proprietary sensing technologies; Trident Buoy, SWIFT Buoy, Metocean. The GPS is set to measure data at relatively high temporal resolutions ranging from 15 minutes \cite{alberello2019drift} to 25 minutes \cite{rabault2019open}.
+The approach towards studying ice drift is typically performed using the techniques presented by \textcite{hibler1979dynamic}\footnote{See Numerical Modeling} where kinematic data is used to study ice drift dynamics and calibrate the ice drift model. Additionally, \textcite{lepparanta2001sea} present two methods for collecting ice drift data. The first method utilises measurement beacons are attached to the ice floes and used to track trajectories. The second method uses imaging devices such as radar, and satellites to determine ice displacement \cite{lepparanta2001sea}.\par
+
+Each ice floe follows a unique trajectory \cite{lepparanta2001sea}  and individual trajectories combine to form a continuum. It has previously been believed that sea ice drift has been linked strongly to significant wave events \cite{alberello2019drift}. An experiment was conducted by \textcite{alberello2019drift} to measure the drift of sea ice during a cyclone event. Here it was found that wind velocity is the dominant driver of sea ice drift \cite{alberello2019drift} causing ice drifts of up to $0.75\text{ } m\cdot s^{-1}$ \cite{alberello2019drift}. Sea ice drift speed is extremely sensitive to sampling rates. \cite{alberello2019drift} where sampling rates of 6 hours can underestimate the ice velocity by 5\% \cite{alberello2019drift} and up to 20\% for 12-hour sample rates. The consequence is reduced, near unusable, estimates of sea ice velocity components as well as drag coefficient and wind factor estimates. High temporal resolutions are capable of capturing important, inter-daily activities such as ice oscillations. \textcite{alberello2019drift} state that to accurately capture Sea ice dynamics, a temporal resolution of at least 3 hours is required \cite{alberello2019drift}. This not only allows for the capture of accurate drift speeds but provides an accurate characterization of instantaneous velocities and Coriolis forces \cite{alberello2019drift}. Satellite observations OSI-SAF and METSAT are unsuitable for measurements hence a need arises for in situ drift measurement devices. Global positioning systems (GPS) have been the standard for ice drift measurements \cite{lepparanta2001sea} as they are capable of measuring data at relatively high temporal resolutions ranging from 15 minutes \cite{alberello2019drift} to 25 minutes \cite{rabault2019open} as opposed to the limit of 3 hours \cite{alberello2019drift}. This section provides an overview of GPS technology and how the devices have implemented it for measuring positional or drift data.
 
 \subsubsection{Overview of GPS}
 
-The principles that govern GPS have remained unchanged since its inception in 1973 \cite{spilker1996global}. The system consists of a satellite constellation that constantly broadcast their estimated position. A GPS device determines its position by matching a user-generated signal to that of 4 received satellites and comparing the phase difference to an on-board crystal oscillator \cite{spilker1996global}. This technique is called ranging and 4 satellites spread in a uniform geometry will allow for a device to calculate latitude, longitude, altitude and time to a relative degree of accuracy. The number of unknown signals correlates to the number of satellites required. Generally, a GPS device will have a lesser degree of accuracy than the satellites hence, an incoming signal can be used to correct the device's clock \footnote{provided altitude or time are already known \cite{spilker1996global}}.To accurately predict the satellite's trajectory, Satelite ranging is performed by a network of global monitoring which calculate the future position and send it back to the satellite. GPS signals are transmitted on two frequencies: 1575.42MHz and 1227.46MHz\cite{spilker1996global}. These are synchronously generated signals and allow a device to correct for ionospheric distortion. These bands carry modulated signals which are as follows: \cite{spilker1996global}
+The principles that govern GPS have remained unchanged since its inception in 1973 \cite{spilker1996global}. The system consists of a satellite constellation that constantly broadcast their estimated position. A GPS device determines its position by matching a user-generated signal to that of 4 received satellites and comparing the phase difference to an on-board crystal oscillator \cite{spilker1996global}. This technique is called ranging and 4 satellites spread in a uniform geometry will allow for a device to calculate latitude, longitude, altitude and time to a relative degree of accuracy. The number of unknown signals correlates to the number of satellites required. Generally, a GPS device will have a lesser degree of accuracy than the satellites hence, an incoming signal can be used to correct the device's clock \footnote{provided altitude or time are already known \cite{spilker1996global}}.To accurately predict the satellite's trajectory, satelite ranging is performed by a network of global monitoring which calculate the future position and send it back to the satellite. GPS signals are transmitted on two frequencies: 1575.42MHz and 1227.46MHz\cite{spilker1996global}. These are synchronously generated signals and allow a device to correct for ionospheric distortion. These bands carry modulated signals which are as follows: \cite{spilker1996global}
 
 
 \begin{enumerate}
