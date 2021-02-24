@@ -63,27 +63,32 @@
 \@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Measurement of wave data using inertial measurement systems}{33}{}\protected@file@percent }
 \newlabel{fig:imus}{{\caption@xref {fig:imus}{ on input line 496}}{34}}
 \@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\contentsline {figure}{\numberline {2.9}{\ignorespaces Diagram showing examples of the different types of inertial measurement systems (IMUs) available for commercial use such as (A) an Attitude Heading Reference System (AHRS) VN100 \cite {vn-100} used by \cite {rabault2019open}, (B) an analog capacitive accelerometer 8330B3 Servo-KBeam accelerometer used by \cite {kohout2015device} \cite {kistlerIMU} and (C) a 9 degree of freedom MPU9520 \cite {mpu9520} used by \cite {kohout2015device}. \relax }}{34}{}\protected@file@percent }
-\newlabel{tab:imu_component}{{\caption@xref {tab:imu_component}{ on input line 506}}{35}}
 \@writefile{lot}{\defcounter {refsection}{0}\relax }\@writefile{lot}{\contentsline {table}{\numberline {2.6}{\ignorespaces Comparison of the inertial measurement systems selected for each device showing the sensors included as well as the degrees of freedom.\relax }}{35}{}\protected@file@percent }
+\newlabel{tab:imu_component}{{2.6}{35}}
 \@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{Software processing}{35}{}\protected@file@percent }
-\newlabel{key}{{\caption@xref {key}{ on input line 540}}{36}}
+\newlabel{key}{{\caption@xref {key}{ on input line 541}}{36}}
 \@writefile{lot}{\defcounter {refsection}{0}\relax }\@writefile{lot}{\contentsline {table}{\numberline {2.7}{\ignorespaces Comparison of sampling strategies implemented in each device. This includes the desired measurands, sample rate and sample period of each IMU session\relax }}{36}{}\protected@file@percent }
 \@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Measurement of Ice drift using GPS}{37}{}\protected@file@percent }
 \newlabel{sec:ch2_drift}{{2.3.3}{37}}
 \@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{Overview of GPS}{38}{}\protected@file@percent }
 \@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{GPS Error Modeling}{39}{}\protected@file@percent }
+\newlabel{fig:DOP_effects}{{\caption@xref {fig:DOP_effects}{ on input line 615}}{39}}
+\@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\contentsline {figure}{\numberline {2.10}{\ignorespaces Diagram showing how satellite distribution affects the positional estimation. GNSS Satellites have an associated inaccuracy which is represented by the circles. Locking on to more than one satellite reduces these inaccuracies by interpolating the position from the phase differences between satellites. This value is greatly affected by the spread of satellites as a larger spread results in a more accurate positional estimate (A) while a shorter satellite spread results in a less accurate positional estimate. A measure of this inaccuracy is called the dilation of procession (DOP). Figure was adapted from images by \cite {GISGeo2020DOP} for A and B.\relax }}{39}{}\protected@file@percent }
 \newlabel{los}{{2.5}{40}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.4}Temperature Sensing and Measurement}{42}{}\protected@file@percent }
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{Thermocouples}{42}{}\protected@file@percent }
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{Resistive Temperature Detector}{43}{}\protected@file@percent }
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{Thermistors}{44}{}\protected@file@percent }
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{Silicon Temperature Devices}{44}{}\protected@file@percent }
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.5}Atmospheric Pressure Sensing and Sensors}{45}{}\protected@file@percent }
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{Diaphragm Based Sensors}{45}{}\protected@file@percent }
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{Piezoresistive Sensors}{46}{}\protected@file@percent }
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{capacitive sensors}{46}{}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{GPS Component Selection}{42}{}\protected@file@percent }
+\@writefile{lot}{\defcounter {refsection}{0}\relax }\@writefile{lot}{\contentsline {table}{\numberline {2.8}{\ignorespaces Comparison between different GPS devices, sampled data and periods between samples implemented by each device.\relax }}{42}{}\protected@file@percent }
+\newlabel{tab:dev_gps}{{2.8}{42}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.4}Temperature Sensing and Measurement}{43}{}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{Thermocouples}{44}{}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{Resistive Temperature Detector}{45}{}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{Thermistors}{45}{}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{Silicon Temperature Devices}{46}{}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.5}Atmospheric Pressure Sensing and Sensors}{46}{}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{Diaphragm Based Sensors}{47}{}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{Piezoresistive Sensors}{47}{}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{capacitive sensors}{48}{}\protected@file@percent }
 \@setckpt{ch2}{
-\setcounter{page}{47}
+\setcounter{page}{49}
 \setcounter{equation}{20}
 \setcounter{enumi}{3}
 \setcounter{enumii}{2}
@@ -98,8 +103,8 @@
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
-\setcounter{figure}{9}
-\setcounter{table}{7}
+\setcounter{figure}{10}
+\setcounter{table}{8}
 \setcounter{r@tfl@t}{0}
 \setcounter{vrcnt}{0}
 \setcounter{FancyVerbLine}{0}
@@ -131,7 +136,7 @@
 \setcounter{citetotal}{0}
 \setcounter{multicitecount}{0}
 \setcounter{multicitetotal}{0}
-\setcounter{instcount}{559}
+\setcounter{instcount}{581}
 \setcounter{maxnames}{2}
 \setcounter{minnames}{1}
 \setcounter{maxitems}{999}

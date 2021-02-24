@@ -1284,6 +1284,41 @@
       \field{pages}{3\bibrangedash 12}
       \range{pages}{10}
     \endentry
+    \entry{GISGeo2020DOP}{online}{}
+      \name{author}{1}{}{%
+        {{hash=e797f903267c55882141d3c7ca691344}{%
+           family={{GIS Geography}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{e797f903267c55882141d3c7ca691344}
+      \strng{fullhash}{e797f903267c55882141d3c7ca691344}
+      \strng{bibnamehash}{e797f903267c55882141d3c7ca691344}
+      \strng{authorbibnamehash}{e797f903267c55882141d3c7ca691344}
+      \strng{authornamehash}{e797f903267c55882141d3c7ca691344}
+      \strng{authorfullhash}{e797f903267c55882141d3c7ca691344}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{26}
+      \field{month}{12}
+      \field{title}{GPS Accuracy: HDOP, PDOP, GDOP, Multipath \& the Atmosphere}
+      \field{urlday}{24}
+      \field{urlmonth}{2}
+      \field{urlyear}{2021}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://gisgeography.com/gps-accuracy-hdop-pdop-gdop-multipath/
+      \endverb
+      \verb{url}
+      \verb https://gisgeography.com/gps-accuracy-hdop-pdop-gdop-multipath/
+      \endverb
+    \endentry
     \entry{globalstar2021website}{online}{}
       \name{author}{1}{}{%
         {{hash=36b9dd52ddfade057d2b46c6bb05e5d1}{%

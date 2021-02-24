@@ -503,9 +503,9 @@ Devices that measure wave parameters such as significant wave height, wave spect
 
 \begin{table}[H]
 	\centering
-	\label{tab:imu_component}
 	\setlength{\extrarowheight}{5pt};
 	\caption{Comparison of the inertial measurement systems selected for each device showing the sensors included as well as the degrees of freedom.}
+	\label{tab:imu_component}
 	\resizebox{\textwidth}{!}{%
 		\begin{tabular}{|l|l|l|c|l}
 			\cline{1-4}
@@ -529,6 +529,7 @@ Devices that measure wave parameters such as significant wave height, wave spect
 		\end{tabular}
 		}
 \end{table}
+
 As mentioned previously, systems such as WIIOS and WIIB have built their purpose around wave measurements and therefore have specified high powered, high accuracy IMUs for wave measurements. However, WIIOS buoy separates itself from WIIB by having a cheaper complimentary 9 dof IMU to complement the measurements \cite{kohout2015device}. SWIFT Buoy and the NDWB buoy use an integrated system known as an Inertial Navigation System (INS) with the former containing an SBG Elipse AHRS \cite{thomson2012wave} and the latter containing a IG-500-A1G2 \cite{doble2017robust}. This device contains a GPS and an Onboard processor for RTK fusion and Kalman filtering whereas other devices use an external processor for filtering. The SIMB Buoy is the only buoy on the list that has an IMU for non-wave related measurements. It uses a cheaper Bosch BNO055 which is used solely for measuring the orientation of the device.
 
 \subsubsection{Software processing}
@@ -587,13 +588,13 @@ Therefore IMUs are integral for performing sea state calculations and measuring 
 \subsection{Measurement of Ice drift using GPS}
 \label{sec:ch2_drift}
 
-The approach towards studying ice drift is typically performed using the techniques presented by \textcite{hibler1979dynamic}\footnote{See Numerical Modeling} where kinematic data is used to study ice drift dynamics and calibrate the ice drift model. Additionally, \textcite{lepparanta2001sea} present two methods for collecting ice drift data. The first method utilises measurement beacons are attached to the ice floes and used to track trajectories. The second method uses imaging devices such as radar, and satellites to determine ice displacement \cite{lepparanta2001sea}.\par
+This sections discusses the technology and techniques used for determining ice drift. The predominant approach towards understanding modeling ice drift is by using the techniques presented by \textcite{hibler1979dynamic}\footnote{See Numerical Modeling in Appendix \ref{app:modelling}} where kinematic data is used to study ice drift dynamics and calibrate the ice drift model. Additionally, \textcite{lepparanta2001sea} present two methods for collecting ice drift data. The first method utilises measurement beacons are attached to the ice floes and used to track trajectories. The second method uses imaging devices such as radar, and satellites to determine ice displacement \cite{lepparanta2001sea}.\par
 
-Each ice floe follows a unique trajectory \cite{lepparanta2001sea}  and individual trajectories combine to form a continuum. It has previously been believed that sea ice drift has been linked strongly to significant wave events \cite{alberello2019drift}. An experiment was conducted by \textcite{alberello2019drift} to measure the drift of sea ice during a cyclone event. Here it was found that wind velocity is the dominant driver of sea ice drift \cite{alberello2019drift} causing ice drifts of up to $0.75\text{ } m\cdot s^{-1}$ \cite{alberello2019drift}. Sea ice drift speed is extremely sensitive to sampling rates. \cite{alberello2019drift} where sampling rates of 6 hours can underestimate the ice velocity by 5\% \cite{alberello2019drift} and up to 20\% for 12-hour sample rates. The consequence is reduced, near unusable, estimates of sea ice velocity components as well as drag coefficient and wind factor estimates. High temporal resolutions are capable of capturing important, inter-daily activities such as ice oscillations. \textcite{alberello2019drift} state that to accurately capture Sea ice dynamics, a temporal resolution of at least 3 hours is required \cite{alberello2019drift}. This not only allows for the capture of accurate drift speeds but provides an accurate characterization of instantaneous velocities and Coriolis forces \cite{alberello2019drift}. Satellite observations OSI-SAF and METSAT are unsuitable for measurements hence a need arises for in situ drift measurement devices. Global positioning systems (GPS) have been the standard for ice drift measurements \cite{lepparanta2001sea} as they are capable of measuring data at relatively high temporal resolutions ranging from 15 minutes \cite{alberello2019drift} to 25 minutes \cite{rabault2019open} as opposed to the limit of 3 hours \cite{alberello2019drift}. This section provides an overview of GPS technology and how the devices have implemented it for measuring positional or drift data.
+The discussion of modern technology for ice observations from chapter \ref{sec:ch1.section1} showed that observations from satellites such as OSI-SAF and METSAT are unsuitable for measurements \cite{lepparanta2001sea,galin2011validation} due ti their low spatial resolutions. Hence, a need arises for in situ drift measurement devices. Global positioning systems (GPS) have been the standard for ice drift measurements \cite{lepparanta2001sea} as they are capable of measuring data at relatively high temporal resolutions ranging from 15 minutes \cite{alberello2019drift} to 25 minutes \cite{rabault2019open} as opposed to the limit of 3 hours \cite{alberello2019drift}. This section provides an overview of GPS technology and how the devices have implemented it for measuring positional or drift data.
 
 \subsubsection{Overview of GPS}
 
-The principles that govern GPS have remained unchanged since its inception in 1973 \cite{spilker1996global}. The system consists of a satellite constellation that constantly broadcast their estimated position. A GPS device determines its position by matching a user-generated signal to that of 4 received satellites and comparing the phase difference to an on-board crystal oscillator \cite{spilker1996global}. This technique is called ranging and 4 satellites spread in a uniform geometry will allow for a device to calculate latitude, longitude, altitude and time to a relative degree of accuracy. The number of unknown signals correlates to the number of satellites required. Generally, a GPS device will have a lesser degree of accuracy than the satellites hence, an incoming signal can be used to correct the device's clock \footnote{provided altitude or time are already known \cite{spilker1996global}}.To accurately predict the satellite's trajectory, satelite ranging is performed by a network of global monitoring which calculate the future position and send it back to the satellite. GPS signals are transmitted on two frequencies: 1575.42MHz and 1227.46MHz\cite{spilker1996global}. These are synchronously generated signals and allow a device to correct for ionospheric distortion. These bands carry modulated signals which are as follows: \cite{spilker1996global}
+The principles that govern GPS have remained unchanged since its inception in 1973 \cite{spilker1996global}. The system consists of a satellite constellation that constantly broadcast their estimated position. A GPS device determines its position by matching a user-generated signal to that of four received satellites and comparing the phase difference to an on-board crystal oscillator \cite{spilker1996global}. This technique is called ranging and four satellites spread in a uniform geometry will allow for a device to calculate latitude, longitude, altitude and time to a relative degree of accuracy. The number of unknown signals correlates to the number of satellites required. Generally, a GPS device will have a lesser degree of accuracy than the satellites. Hence, an incoming signal can be used to correct the device's clock \footnote{provided altitude or time are already known \cite{spilker1996global}}.To accurately predict the satellite's trajectory, satellite ranging is performed by a network of global monitoring which calculate the future position and send it back to the satellite. GPS signals are transmitted on two frequencies: 1575.42 MHz and 1227.46 MHz\cite{spilker1996global}. These are synchronously generated signals and allow a device to correct for ionospheric distortion. These bands carry modulated signals which are as follows: \cite{spilker1996global}
 
 
 \begin{enumerate}
@@ -601,11 +602,23 @@ The principles that govern GPS have remained unchanged since its inception in 19
 	\item Precise (P) Code: this is a much longer acquisition code. This signal is transmitted at 10.23MHz which is 10 x the rate of a CA code. This results in a much more accurate signal with less noise. This signal allows for the acquisition of Precise Positioning Service. However, this service is not available to unauthorized users and cannot be spoofed. As a result, this signal requires additional decryption.    
 \end{enumerate}
 
-\textcite{spilker1996global} also mention that military operators can degrade GPS signals which result in decreased accuracy from 20m up to 100m. The reduction of these accuracies requires differential GPS techniques, however, for the sake of this project. \par
-once the acquisition signal is transmitted, the GPS device begins modulating at 50 bit/s. This allows the satellite to transmit its position as well as clock correction information to the device.\par
-The GPS satellite constellation consists of 24 GPS satellites. These are configured into 3 rings of 8 satellites orbiting at different latitudes. The orbital altitudes were selected as 10.98 Nautical Miles \cite{spilker1996global}. This altitude was chosen to optimize user visibility with the number of crossings over United Sates ground stations, and cost of launching the satellites \cite{spilker1996global}. These satellites carry onboard atomic clocks for stability at $1\times10^{13}$ resolution. This allows for extremely accurate signalling as well as allowing for much more predictable time and position signals \cite{spilker1996global}. To achieve this, these atomic clocks are made out of either Cesium or Rubidium. Also, a frequency correction at $4.5\times10^{10}$ is provided to correct for relative shifts. \par
+\textcite{spilker1996global} also mention that military operators can degrade GPS signals which result in decreased accuracy from 20 m up to 100 m. The reduction of these accuracies requires differential GPS techniques, however, due to the scope of this projects, this section will not be explored any further.Finally, once the acquisition signal is transmitted, the GPS device begins modulating at 50 bit/s. This allows the satellite to transmit its position as well as clock correction information to the device.\par
+
+The GPS satellite constellation consists of 24 GPS satellites. These are configured into three rings of eight satellites orbiting at different latitudes. These orbital altitudes were selected as 10.98 Nautical Miles \cite{spilker1996global}. This altitude was chosen to optimise user visibility with the number of crossings over United Sates ground stations, and cost of launching the satellites \cite{spilker1996global}. These satellites carry onboard atomic clocks for stability at $1\times10^{13}$ resolution. This allows for extremely accurate signaling as well as allowing for much more predictable time and position signals \cite{spilker1996global}. To achieve this, these atomic clocks are made out of either Cesium or Rubidium. Also, a frequency correction at $4.5\times10^{10} \text{ } Hz$ is provided to correct for relative shifts. \par
+
 \subsubsection{GPS Error Modeling}
-As mentioned before, the accuracy of the GPS signal is greatly affected by earth effects and satellite distribution. The main source of distortion is attributed to the earth's Ionosphere \cite{spilker1996global}. The ionospheric free electronics cause a delay in the modulated signal which is proportional to the sum of electrons along the signal's trajectory and inversely proportional to the signal's frequency squared. This delay is modelled as the product of a theoretical $90^\circ$ delay (Zenith delay) and a function of the elevation angle (obliquity factor). This results in a ratio of between 1.0 to 3.0 at small elevation angles \cite{spilker1996global}. This results in delays of 3m (often at night) to 20m (after midday). These delays are usually resolved by Satelite correlated positions. Correction can be performed in one of two ways:
+
+As mentioned in the previous section,GPS signal accuracy is greatly affected by earth effects and satellite distribution. The main source of distortion is attributed to the earth's ionosphere \cite{spilker1996global}. The ionospheric free electronics cause a delay in the modulated signal which is proportional to the sum of electrons along the signal's trajectory and inversely proportional to the signal's frequency squared. This delay is modeled as the product of a theoretical $90^\circ$ delay (Zenith delay) and a function of the elevation angle (obliquity factor). This results in a ratio of between 1.0 to 3.0 at small elevation angles \cite{spilker1996global}. This results in delays of 3 m (often at night) to 20 m (after midday).These delays result in errors in positional accuracy as shown in figure \ref{fig:DOP_effects} which can increase the measurement confidence interval resulting in an unreliable positional reading \cite{spilker1996global}. Fortunately,These delays are usually resolved by satellite correlated positions.
+
+\begin{figure}[H]
+	\centering
+	\label{fig:DOP_effects}
+	\includegraphics[width =\linewidth]{DOPeffect.png}
+
+	\caption{Diagram showing how satellite distribution affects the positional estimation. GNSS Satellites have an associated inaccuracy which is represented by the circles. Locking on to more than one satellite reduces these inaccuracies by interpolating the position from the phase differences between satellites. This value is greatly affected by the spread of satellites as a larger spread results in a more accurate positional estimate (A) while a shorter satellite spread results in a less accurate positional estimate. A measure of this inaccuracy is called the dilation of procession (DOP). Figure was adapted from images by \cite{GISGeo2020DOP} for A and B.}
+\end{figure}
+
+ Correction can be performed in one of two ways:
 \begin{enumerate}
 	\item Transmission of Ionospheric model parameters as part of the message to the device and calculating the offset using that
 	\item Using the two previously mentioned transmission frequencies directly measuring the delays in each broadcast frequency and estimating the position using the equation:\cite{spilker1996global}
@@ -614,12 +627,12 @@ As mentioned before, the accuracy of the GPS signal is greatly affected by earth
 	\end{equation}
 \end{enumerate}
 
-Navigation errors are characteristic of GPS performances. These errors are affected significantly by Satelite spread and ranging errors. Assuming the incoming signal is uncorrelated with a mean of zero, the RMS positional error is calculated as:
+Navigation errors are characteristic of GPS performances. These errors are affected significantly by satellite spread and ranging errors. Assuming the incoming signal is uncorrelated with a mean of zero, the RMS positional error is calculated as:
 \begin{equation}
 	RMS_{error} = (\text{Geometric Dilution})(\text{RMS Ranging errors})
 \end{equation}
 
-The geometric Dilution is modelled by estimating the precisional dilution of the spatial and temporal dimension measurements. This value estimates the quality of the GPS signal and is inversely proportional to the volume of the shape formed by 4 satellite \cite{jwo2001efficient}. Jwo (2001) outlines the procedure for the calculation of this value. Given a user's position on the earth, the distance from the user to the satellite is characterised by the equation:
+The geometric dilution is modeled by estimating the processional dilution of the spatial and temporal dimension measurements. This value estimates the quality of the GPS signal and is inversely proportional to the volume of the shape formed by 4 satellite \cite{jwo2001efficient}. \textcite{jwo2001efficient} outlines the procedure for the calculation of this value. Given a user's position on the earth, the distance from the user to the satellite is characterised by the equation:
 \begin{equation}
 	r =  s - u
 \end{equation}
@@ -631,7 +644,7 @@ where $\rho_i$ is the pseudorange for satelite i, c is the speed of light, $t_b$
 \begin{equation}
 	||s_i-u|| = \sqrt{(x_i - x_u)^2+(y_i-y_u)^2+(z_i-z_u)^2} \text{ for } i \in 1,2,3...N \label{los}
 \end{equation}
-where N is the number of satelites and $(x_i,y_i,z_i)$ is the 3 dimensional position of satelite i. This represents a non-linear relationship for the line of sight of a satelite.  Jwo (2001) Explains that by creating a Taylor series centered on a nominal user position $(\hat{x_n},\hat{y_n},\hat{z_n})$ and ignoring the higher terms \cite{jwo2001efficient}. It then follows that:
+where $N$ is the number of satellites and $(x_i,y_i,z_i)$ is the 3 dimensional position of satellite $i$. This represents a non-linear relationship for the line of sight of a satellite.  \textcite{jwo2001efficient} explains that by creating a Taylor series centered on a nominal user position $(\hat{x_n},\hat{y_n},\hat{z_n})$ and ignoring the higher terms \cite{jwo2001efficient}. It then follows that:
 \begin{equation}
 	\Delta\rho_i = \rho_i - \hat{\rho_i} = e_{i1}\Delta x_u + e_{i2}\Delta x_u +  e_{i3}\Delta z_u
 \end{equation}
@@ -646,7 +659,7 @@ The terms $e_{ij}$ represent the line of sight vector $E_i$ whereas the term $\h
 	\end{align}
 \end{subequations}
 
-Given n number of satellites, the equation \eqref{los} can be written as a matrix with the following form:
+Given $n$ satellites, the equation \eqref{los} can be written as a matrix with the following form:
 \begin{equation}
 	\textbf{z} = \textbf{Hx}+ \textbf{v}
 \end{equation}
@@ -681,7 +694,7 @@ where
 	\end{align}
 \end{subequations}
 
-The Matrix \textbf{H} is $n\times4$ where $n \geq 4$ to calculate all the paramters for GDOP \cite{jwo2001efficient}. We can then solve for the vector \textbf{x} by taking the psuedo inverse of H i.e $\hat{\textbf{x}} = (\textbf{H}^T\textbf{H})^{-1}\textbf{H}^t\textbf{z}$. Hence, given that the psuedo range is linearised, the quality of navigation is taken as the difference between the estimated position and the actual position \cite{jwo2001efficient}.
+The Matrix \textbf{H} is $n\times4$ where $n \geq 4$ to calculate all the parameters for GDOP \cite{jwo2001efficient}. We can then solve for the vector \textbf{x} by taking the psuedo inverse of H i.e $\hat{\textbf{x}} = (\textbf{H}^T\textbf{H})^{-1}\textbf{H}^t\textbf{z}$. Hence, given that the psuedo range is linearised, the quality of navigation is taken as the difference between the estimated position and the actual position \cite{jwo2001efficient}.
 \begin{equation}
 	\Tilde{\textbf{x}} = \hat{\textbf{x}} - x = (\textbf{H}^T\textbf{H})^{-1}\textbf{H}^Tv
 \end{equation}
@@ -696,24 +709,55 @@ where $E\{\textbf{vv}^T\} = \sigma^2 I$. If all components of $\sigma$ are uncor
 and thus the GDOP factor can be calculated from the RMS values of $\sigma^2$ i.e.
 \begin{equation}
 	GDOP = \frac{\sqrt{\sigma_{xx}^2+\sigma_{yy}^2+ \sigma_{zz}^2+\sigma_{tt}^2}}{\sigma}
-\end{equation} where $\sigma_{xx}^2$,$\sigma_{yy}^2$,$\sigma_{zz}^2$,$\sigma_{tt}^2$ are the RMS values of the x,y,z time components respectively. THe value GDOP can also be decomposed into the components PDOP,TDOP,HDOP,VDOP which represent the dilution of precision of Position, Time, Horizontal position and vertical position respectively.\par
+\end{equation} where $\sigma_{xx}^2$,$\sigma_{yy}^2$,$\sigma_{zz}^2$,$\sigma_{tt}^2$ are the RMS values of the x,y,z time components respectively. THe value GDOP can also be decomposed into the positional dilation of precision (PDOP), time dilation of precision (TDOP), horizontal dilation of precision HDOP, and vertical dilation of precision (VDOP) which characterise the effects satellite spread on the 3 dimensional position, time, horizontal position and altitude respectively.\par
 
 Ranging errors are shown to come from 6 sources \cite{spilker1996global}:
 \begin{enumerate}
-	\item Satelite Ephemeris
-	\item Satelite Clock
+	\item Satelite ephemeris
+	\item Satelite clock
 	\item Ionospheric group delay
 	\item Trophospheric group delay
 	\item Multipath scattering
 	\item Hardware/software errors
 \end{enumerate}
 
+These errors need to be accounted for in order to produce an accurate, reliable position.
 
+\subsubsection{GPS Component Selection}
 
+The component selection for each device is shown in table \ref{tab:dev_gps} below.
 
+\begin{table}[H]
+	\centering
+	\caption{Comparison between different GPS devices, sampled data and periods between samples implemented by each device.}
+	\label{tab:dev_gps}
+	\setlength{\extrarowheight}{5pt}
+	\resizebox{\textwidth}{!}{% 
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		\textbf{Device Name} & \textbf{GNSS Device} & \textbf{Data Sampled} & \textbf{Period between Samples} \\ \hline
+		WIIB & MTK3339 & Geographical position & 25 minutes \\ \hline
+		\multirow{2}{*}{WIIOS} & \multirow{2}{*}{MTK3339} & Latitude (decimal degrees) & \multirow{2}{*}{3 hours} \\ \cline{3-3}
+		&  & Longitude (decimal degrees) &  \\ \hline
+		NDWB & SkyTraq S1351R & Geographical position & 1 hour \\ \hline
+		SKIB & MTK3339 & Geographical postion & 10 minutes \\ \hline
+		\multirow{2}{*}{SWIFT} & \multirow{2}{*}{Qstarz BT-Q1000eX} & Geographical position & \multirow{2}{*}{200 ms} \\ \cline{3-3}
+		&  & Horizontal velocity &  \\ \hline
+		SIMB & MTK3339 & Geographical position & 1 hour \\ \hline
+		Polar ISVP & Jupiter F2 Module & Geographical position & 3 hours \\ \hline
+		\multirow{3}{*}{Trident} & \multirow{3}{*}{Unspecified GPS} & \multirow{3}{*}{Geographical position} & 0 - 5 minutes \\ \cline{4-4} 
+		&  &  & 5 - 60 minutes \\ \cline{4-4} 
+		&  &  & 1 - 24 hours \\ \hline
+	\end{tabular}	
+	}
+	
+\end{table}
+Table \ref{tab:dev_gps} above shows the GPS receivers implemented in each system as well as measurements of interest. The most common gps is the MTK3339, a gps module developed by adafruit (cite). Additionally, all devices have fixed transmission periods between samples except the Trident buoy which has user configurable periods that can be set from a couple of minutes to full hours. Most devices use the GPS for positional location however, SWIFT buoy measures horizontal velocity in addition to vertical position\cite{thomson2012wave}. \textcite{thomson2012wave} justify this by stating that the accuracy of horizontal velocity measured by a gps is accurate enough ($\pm 0.5 \text{ }m\cdot s^{-1}$)to be used for determining the orbital motions of waves. \textcite{kohout2015device} and \textcite{rabault2019open} provide the measurements recorded by the GPS however, very little discussion is given regarding the performance of the device. \textcite{doble2017robust} showed that during their year long deployment, 14 buoys maintained a near perfect satellite signal acquisition however, software issues with the GNSS reciever resulted in a failure to obtain measurements in 5 systems. However, \textcite{doble2017robust} had implemented two-way iridium communication and were able to partially overcome this set back by transmitting commands that performed a software reset on the GPS receiver. Additionally, two devices lost signal for 6 days while another two devices lost signal for 62 days and 41 days respectively \cite{doble2013wave}. This shows that acquisition failures can cause temporal gaps in data and therefore, need to be reduced in order to provide robust data sets.
+
+Each ice floe follows a unique trajectory \cite{lepparanta2001sea}  and individual trajectories combine to form a continuum. It has previously been believed that sea ice drift has been linked strongly to significant wave events \cite{alberello2019drift}. An experiment was conducted by \textcite{alberello2019drift} to measure the drift of sea ice during a cyclone event. Here it was found that wind velocity is the dominant driver of sea ice drift \cite{alberello2019drift} causing ice drifts of up to $0.75\text{ } m\cdot s^{-1}$ \cite{alberello2019drift}. Sea ice drift speed is extremely sensitive to sampling rates. \cite{alberello2019drift} where sampling rates of 6 hours can underestimate the ice velocity by 5\% \cite{alberello2019drift} and up to 20\% for 12-hour sample rates. The consequence is reduced, near unusable, estimates of sea ice velocity components as well as drag coefficient and wind factor estimates. High temporal resolutions are capable of capturing important, inter-daily activities such as ice oscillations. \textcite{alberello2019drift} state that to accurately capture Sea ice dynamics, a temporal resolution of at least 3 hours is required \cite{alberello2019drift}. Table \ref{tab:dev_gps} shows that all devices sample GPS at a rate of 3 hours or less thereby fulfilling this criteria This not only allows for the capture of accurate drift speeds but provides an accurate characterization of instantaneous velocities and Coriolis forces \cite{alberello2019drift}. 
 \subsection{Temperature Sensing and Measurement}
 
-Environmental Sensing plays a pivotal role in predicting earth systemic processes. Tracking major events such as cyclones \cite{vichi2019effects} requires constant monitoring of antarctic environmental conditions. Temperature sensors can help predict atmospheric events such as storms, cyclones and seasonal changes as well as sea ice events such as sea ice melting \cite{kohout2015device} \cite{doble2017robust}. \textcite{doble2017robust} have discussed the significance of sea ice melting. This was considered a significant phase of sea ice and was classified as a phase in the development of their buoy. \par 
+Environmental sensing plays a pivotal role in predicting earth systemic processes. Tracking major events such as cyclones \cite{vichi2019effects} requires constant monitoring of antarctic environmental conditions. Temperature sensors can help predict atmospheric events such as storms, cyclones and seasonal changes as well as sea ice events such as sea ice melting \cite{kohout2015device} \cite{doble2017robust}. \textcite{doble2017robust} have discussed the significance of sea ice melting. This was considered a significant phase of sea ice and was classified as a phase in the development of their buoy. \par 
 
 Temperature sensing technology is widely used for a variety of applications including food storage, mechanical failure warning systems, transport systems etc. \cite{awtrey2002environmental}. The majority of temperature sensing technology is used for thermal compensation as measurements such as pressure and humidity are dependant on environmental temperature \cite{mansoor2015silicon}. Thermal sensing technology exists in a variety of forms however, choice of sensor is heavily dependant on the application i.e. the object to be measured, the material state and the type of contact with the sensor \cite{mansoor2015silicon}\cite{childs2000review}. There are 3 main categories of measurement techniques \cite{childs2000review}:
 \begin{enumerate}
