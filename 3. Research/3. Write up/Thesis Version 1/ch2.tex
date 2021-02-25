@@ -839,12 +839,33 @@ Semiconductor temperature devices are suited to applications where the temperatu
 
 \subsection{Atmospheric Pressure Sensing and Sensors}
 
+There has been an increased demand for in-situ environmental monitoring as mentioned by \cite{vichi2019effects} \cite{kennicutt2014polar} \cite{kennicutt2016delivering} \cite{kennicutt2019sustained} \cite{alberello2019drift}. It can provide insight into wind currents and storm events as well as predict trajectories of these storms. In addition, atmospheric pressure is crucial for charachterising atmospheric-ocean process such as tropical storms which have been shown by Vichi et. al. to create areas of low pressure during their trajectory \cite{vichi2019effects}. Current devices have employed pressure sensing techniques which have been critical for determining accurate AHRS measurements\cite{vn-100} in addition to environmental monitoring. Examples of pressure sensing devices are shown in table \ref{tab:device_press} below.
 
-%TODO include introduction paragraph explaining the importance of press sensing in the polar regions
-Atmospheric pressure is a key measurement for environmental sensing. There has been an increased demand for in-situ environmental monitoring as mentioned by \cite{vichi2019effects} \cite{kennicutt2014polar} \cite{kennicutt2016delivering} \cite{kennicutt2019sustained} \cite{alberello2019drift}. It can provide insight into wind currents and storm events as well as predict trajectories of these storms. Also, pressure characterises the relationship between Atmospheric and ocean air process. The pressure is a Temperature dependent measurement \cite{mansoor2015silicon} and, often, Autonomous platforms couple pressure sensors with temperature sensors on the same Integrated Circuit (IC).One example is the BMP280 environmental sensor developed by Bosch \footnote{More details provided by Bosch Sensortech }. The current state of Pressure Sensing technology is driven towards Miniature MEMs version of large scale devices \cite{eaton1997micromachined}. Most large scale pressure sensors consist of a diaphragm mounted on a device in a known way. The diaphragm is coupled to a device that converts the pressure to a mechanical movement which is then measured using a gauge. These senses often had a secondary sensor that would convert the mechanical movement to an electrical signal which was then measured \cite{eaton1997micromachined}. Other sensors include barometers, bourdon tubes and vacuum pressure gauges. Most MEMs are based on these principles.\par 
-\textcite{eaton1997micromachined} discuss the importance of micro-machined pressure sensors and provide an overview of various sensors. These can be classified as piezoresistive, capacitive, optical and resonant each with their pressure relationship.
-\subsubsection{Diaphragm Based Sensors}
-Previously mentioned, Diaphragm sensors determine pressure by measuring the deflection of a miniature diaphragm. This deflection is converted to an electrical signal. Typically, a reference pressure is provided as a measurement of a sealed chamber or absolute pressure port. Assuming the simplest version of this sensor i.e. a plate of uniform thickness \cite{eaton1997micromachined} The deflection $w$ of the diaphragm is related to the pressure  $P$ by the following equation: \cite{eaton1997micromachined}
+\begin{table}[H]
+	\centering
+	\caption{Comparison of the different pressure sensing components used by each device as well as the measurement objective guiding the selection of the component. "Not Reported" is given where a device includes a pressure sensor but provides no information to its use. "-" is given where a column does not apply to the device. "None" is given where a device does not contain a pressure sensor}
+	\label{tab:device_press}
+	\setlength{\extrarowheight}{5pt}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|l|l|l|}
+			\hline
+			\textbf{Device Name} & \textbf{Pressure sensor}& \textbf{Sensor type} & \textbf{Measurement objective} \\ \hline
+			WIIB & VN-100 & Digital barometric pressure sensor & Atmospheric pressure \\ \hline
+			WIIOS & None &- &- \\ \hline
+			NDWB & MXP-5100-AP & Piezoresistive silicon pressure sensor &Atmospheric pressure \\ \hline
+			SKIB & None &- &- \\ \hline
+			SWIFT & SBG Eclipse-N & Not Reported & Not Reported \\ \hline
+			\multirow{2}{*}{SIMB} & \multirow{2}{*}{BME280} & \multirow{2}{*}{Digital barometric pressure sensor} & Atmospheric pressure  \\ \cline{4-4} &&& humidity\\ \hline
+			Polar ISVP & PTB100 & a silicon capacitive barometric sensor & Atmospheric pressure \\ \hline
+			Trident & None &- &- \\ \hline
+		\end{tabular}	
+}
+\end{table}
+
+While pressure is important for understanding atmospheric processes, table \ref{tab:device_press} shows that it is the least critical component for in-situ remote sensing. The WIIOS, SKIB and Trident sensors do not include a pressure sensor at all. The consequence is that these devices are not suitable for characterizing the effects of climate on sea ice as well as capturing the/predicting severe weather events such as the cyclones discussed in \textcite{vichi2019effects}. The SWIFT buoy includes the capability of pressure sensing however, do not sample the sensor for standalone pressure measurements. The devices that include pressure measurements focus on measuring atmospheric pressure through digital barometric pressure sensors \cite{rabault2019open,planck2019evolution}, piezoresistive silicon sensors \cite{doble2017robust} or silicon capacitive sensors \cite{uptempo}. This shows that silicon based pressure sensors are the most commonly used for remote sensing.\textcite{eaton1997micromachined} discuss the importance of micro-machined pressure sensors and provide an overview of various sensors that have been used in remote sensing devices as shown in table \ref{tab:device_press}.
+\subsubsection{Diaphragm based sensors}
+
+The current state of pressure sensing technology is driven towards Miniature MEMs version of large scale devices \cite{eaton1997micromachined}. Most large scale pressure sensors consist of a diaphragm mounted on a device in a known way. The diaphragm is coupled to a device that converts the pressure to a mechanical movement which is then measured using a gauge. These senses often had a secondary sensor that would convert the mechanical movement to an electrical signal which was then measured \cite{eaton1997micromachined} these sensors determine pressure by measuring the deflection of a miniature diaphragm. This deflection is converted to an electrical signal. Typically, a reference pressure is provided as a measurement of a sealed chamber or absolute pressure port. Assuming the simplest version of this sensor i.e. a plate of uniform thickness \cite{eaton1997micromachined} The deflection $w$ of the diaphragm is related to the pressure  $P$ by the following equation: \cite{eaton1997micromachined}
 
 \begin{equation}
 	w(r) = \frac{Pa^4}{64D}(1- (\frac{r}{a})^2)^2
@@ -856,6 +877,7 @@ where r is the deformed radius of the diaphragm, a is the original radius and D 
 	D = \frac{Eh^3}{12(1-v^2)}
 \end{equation}
 where E,h,v are Young's modulus, thickness and Poisson's ratio of the disc \cite{eaton1997micromachined}. This technique suffers from a multitude of problems namely, the diaphragm is susceptible to plastic deformation and more robust diaphragms result in more complex relationships. The current relationship is nonlinear and can result in calculation errors. Eaten (1997) advocate for the use of MEMs based electronics on these principles.
+
 \subsubsection{Piezoresistive Sensors}
 
 Piezoresistive sensors are electric devices constructed out of a semiconductor whose electrical properties change when a stress is applied \cite{eaton1997micromachined}. these devices are mounted to a diaphragm and exhibit a linear change in resistance with a change in Pressure. Currently, these sensors take the form of single-crystal diaphragms with piezoelectric resistors diffused through the materials. The advantage of these devices is robustness towards hysteresis and measurement drift. At low temperatures, silicon exhibits near-perfect elastic behaviour and is  3 times the tensile strength of strain gauges\cite{eaton1997micromachined}. The sensors are, however susceptible to thermal expansion and can exhibit significant temperature drift \cite{samaun1971ic}. Additionally, these sensors require resistors with identical temperature Resistance characteristics otherwise the measurements will be inaccurate. Finally, additional compensation techniques are required.
@@ -869,25 +891,3 @@ These sensors consist of parallel conductive plates. Assuming a constant, known 
 
 where $w(r)$ is the deformation of the plate, $\epsilon$ is the strain experienced on the plate and d is the distance of separation. The Pressure capacitance relationship can be approximated using a least-squares fit \cite{eaton1997micromachined} however this results in model errors of 1.5\% and up to 11\% at $w = \frac{1}{2}h$ the height of the plate. These sensors are more advantageous over piezoresistive sensors as they have higher pressure sensitivity and reduced susceptibility to temperature drift. However, these sensors are significantly susceptible to parasitic capacitance which can result in losses and errors. Additionally, these sensors are simple in design however they tend towards more complex circuit requirements.
 
-\subsection{Pressure sensing components}
-
-\begin{table}[H]
-	\centering
-	\caption{Comparison of the different pressure sensing components used by each device as well as the measurement objective guiding the selection of the component.}
-	\label{tab:device_press}
-	\setlength{\extrarowheight}{5pt}
-	\resizebox{\textwidth}{!}{%
-	\begin{tabular}{|l|l|l|}
-		\hline
-		\textbf{Device Name} & \textbf{Pressure sensor} & \textbf{Measurement objective} \\ \hline
-		WIIB & VN-100 & Atmospheric pressure \\ \hline
-		WIIOS & None & - \\ \hline
-		NDWB & MXP-5100-AP & barometric pressure \\ \hline
-		SKIB & None & - \\ \hline
-		SWIFT & SBG Eclipse-N & Not Reported \\ \hline
-		SIMB & BME380 & Barometric pressure \\ \hline
-		Polar ISVP & \multicolumn{1}{r|}{PTB100} & Barometric pressure \\ \hline
-		Trident & None & - \\ \hline
-	\end{tabular}
-}
-\end{table}

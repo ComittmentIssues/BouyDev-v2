@@ -48,93 +48,51 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Block Diagram of the proposed autonomous system showing subsystem arrangement, data flow and interfaces with the environment.\relax }}{58}{}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Block Diagram of the proposed autonomous system showing subsystem arrangement, data flow and interfaces with the environment.\relax }}{59}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Breakdown of subsystems from table 3.9\hbox {} into usable components\relax }}{59}{}%
-\defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.1}{\ignorespaces 3D Render of the buoy stand.\relax }}{70}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.2}{\ignorespaces 2-D Drawing of the Buoy Enclosure showing the separate components\relax }}{70}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Simplified schematic of the final version of SHARC buoy showing power supply (dash), communication (solid) and digital connections (arrows) and configurations\relax }}{81}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Power Module for the SHARC BUOY. A custom PCB with Dropout Regulator and current sensor connected to a battery pack\relax }}{82}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Electronic Stack for the top module consisting of connector board, micro-controller board and sensor board attached to the connector block \relax }}{83}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.6}{\ignorespaces SHARC BUOY fully assembled and in deployment state. Electronics placed in enclosure and fastened to the buoy stand. LEDs on the various components indicate that the device is in working order\relax }}{84}{}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Breakdown of subsystems from table 3.9\hbox {} into usable components\relax }}{60}{}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Diagram showing the decomposition of the overall firmware into distinct layers and the relationship between each part.\relax }}{86}{}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces 3D Render of the buoy stand.\relax }}{71}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Diagram showing a general low power operation profile for the micro controller with two distinct phases: Process and Inactive occuring over a period T\relax }}{88}{}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces 2-D Drawing of the Buoy Enclosure showing the separate components\relax }}{71}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Diagram showing the steps executed from wake up when \relax }}{91}{}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Simplified schematic of the final version of SHARC buoy showing power supply (dash), communication (solid) and digital connections (arrows) and configurations\relax }}{82}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.4}{\ignorespaces ASM chart for the proposed program to run on the processor showing entry/exit conditions and functions to be run during states.\relax }}{92}{}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Power Module for the SHARC BUOY. A custom PCB with Dropout Regulator and current sensor connected to a battery pack\relax }}{83}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Application Diagram with Event and Interrupt sequencing\relax }}{94}{}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Electronic Stack for the top module consisting of connector board, micro-controller board and sensor board attached to the connector block \relax }}{84}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Flow chart for the state-check algorithm\relax }}{95}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Diagram showing the algorithm for Brown Out Event Recovery and Handling\relax }}{96}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Diagram showing the algorithm for handling an external interrupt from a Wake Up pin connected to one of the modules\relax }}{97}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Data struct for storing drift data collected from the sensors during a sample period where Coord\_t and Diagostic\_t are shown in Appendix D.10\hbox {} - D.11\hbox {}\relax }}{105}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Diagram showing the structure of a drift data packet including byte position, size and data being collected\relax }}{106}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Diagram showing the flow of data during a cycle of the buoy. The data is sampled by the sensors and converted into packet form where it is stored until it is ready to be transmitted. The transmitted data arrives at a server and is sent via email to the user\relax }}{107}{}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces SHARC BUOY fully assembled and in deployment state. Electronics placed in enclosure and fastened to the buoy stand. LEDs on the various components indicate that the device is in working order\relax }}{85}{}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Figures Showing the Fully Assembled SHARC Buoy device in a deployable state (a), The deployment procedure (b) and the results of a successful deployment showing a SHARC Buoy tethered to an Ice floe (c)\relax }}{111}{}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Diagram showing the decomposition of the overall firmware into distinct layers and the relationship between each part.\relax }}{87}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Diagram showing a general low power operation profile for the micro controller with two distinct phases: Process and Inactive occuring over a period T\relax }}{89}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Diagram showing the steps executed from wake up when \relax }}{92}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.4}{\ignorespaces ASM chart for the proposed program to run on the processor showing entry/exit conditions and functions to be run during states.\relax }}{93}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Application Diagram with Event and Interrupt sequencing\relax }}{95}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Flow chart for the state-check algorithm\relax }}{96}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Diagram showing the algorithm for Brown Out Event Recovery and Handling\relax }}{97}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Diagram showing the algorithm for handling an external interrupt from a Wake Up pin connected to one of the modules\relax }}{98}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Data struct for storing drift data collected from the sensors during a sample period where Coord\_t and Diagostic\_t are shown in Appendix D.10\hbox {} - D.11\hbox {}\relax }}{106}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Diagram showing the structure of a drift data packet including byte position, size and data being collected\relax }}{107}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Diagram showing the flow of data during a cycle of the buoy. The data is sampled by the sensors and converted into packet form where it is stored until it is ready to be transmitted. The transmitted data arrives at a server and is sent via email to the user\relax }}{108}{}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Schematic of Top Enclosure\relax }}{131}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {B.2}{\ignorespaces Schematic of Bottom Enclosure\relax }}{132}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {B.3}{\ignorespaces Schematic of Bottom Enclosure\relax }}{132}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {B.4}{\ignorespaces Full Enclosure Schematic\relax }}{133}{}%
-\defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {D.1}{\ignorespaces Ublox Neo 7-m initialisation routine\relax }}{137}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {D.2}{\ignorespaces Rockblock 9603 initialisation routine\relax }}{137}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {D.3}{\ignorespaces AT45DB641E initialisation routine\relax }}{138}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {D.4}{\ignorespaces BMP280 initialisation routine\relax }}{138}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {D.5}{\ignorespaces INA219 initialisation routine\relax }}{139}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {D.6}{\ignorespaces MPU6050 initialization routine\relax }}{139}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {D.7}{\ignorespaces Function written to compensate a 32 bit Temperature reading for sensor irregularities using the 32 bit version of the recommended compensation formula from the datasheet \cite {BMP280_Datasheet}. The formula uses the compensation parameters stored on the sensor\relax }}{140}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {D.8}{\ignorespaces Function written to compensate a 32 bit pressure reading for sensor irregularities using the 32 bit version of the recommended compensation formula from the datasheet \cite {BMP280_Datasheet}. The formula uses the compensation parameters stored on the sensor\relax }}{141}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {D.9}{\ignorespaces Calibration routine for INA219 Current sensor for a maximum current of 1.2A, maximum Bus Voltage of 16V and maximum shunt voltage of 160mV\relax }}{143}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {D.10}{\ignorespaces Coord\_t Data structure to store incoming GPS coordinates as IEEE754 32-bit floats\relax }}{143}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {D.11}{\ignorespaces Data Structure for storing GPS signal diagnostic information\relax }}{144}{}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Figures Showing the Fully Assembled SHARC Buoy device in a deployable state (a), The deployment procedure (b) and the results of a successful deployment showing a SHARC Buoy tethered to an Ice floe (c)\relax }}{112}{}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
@@ -142,10 +100,52 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {G.1}{\ignorespaces Graph showing a typical current cycle of the buoy during the various phases. Data was sampled at 1Hz with all modules connected, sample intervals set to 30 mins the INA219 sensor connected to an external data logger and the device placed in a partially obstructed environment.\relax }}{155}{}%
+\addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {G.2}{\ignorespaces Average Current consumption at each phase in the life-cycle of the buoy. Ordered chronologically\relax }}{156}{}%
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Schematic of Top Enclosure\relax }}{132}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {G.3}{\ignorespaces The GPS trajectory of the Aghulus 2 ship from the Marginal Ice Zone to East London. The plot shows the estimated position (magenta) taken from the buoy samples (red) compared to the actual trajectory (cyan). The positional error (PDOP) of each measurement is shown as an exaggerated area around the measured position\relax }}{156}{}%
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Schematic of Bottom Enclosure\relax }}{133}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {G.4}{\ignorespaces Air Temperature recorded by the buoy (yellow) over 11 days compared to the air temperature recorded by the ship (blue) \relax }}{157}{}%
+\contentsline {figure}{\numberline {B.3}{\ignorespaces Schematic of Bottom Enclosure\relax }}{133}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {B.4}{\ignorespaces Full Enclosure Schematic\relax }}{134}{}%
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {D.1}{\ignorespaces Ublox Neo 7-m initialisation routine\relax }}{138}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {D.2}{\ignorespaces Rockblock 9603 initialisation routine\relax }}{138}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {D.3}{\ignorespaces AT45DB641E initialisation routine\relax }}{139}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {D.4}{\ignorespaces BMP280 initialisation routine\relax }}{139}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {D.5}{\ignorespaces INA219 initialisation routine\relax }}{140}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {D.6}{\ignorespaces MPU6050 initialization routine\relax }}{140}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {D.7}{\ignorespaces Function written to compensate a 32 bit Temperature reading for sensor irregularities using the 32 bit version of the recommended compensation formula from the datasheet \cite {BMP280_Datasheet}. The formula uses the compensation parameters stored on the sensor\relax }}{141}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {D.8}{\ignorespaces Function written to compensate a 32 bit pressure reading for sensor irregularities using the 32 bit version of the recommended compensation formula from the datasheet \cite {BMP280_Datasheet}. The formula uses the compensation parameters stored on the sensor\relax }}{142}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {D.9}{\ignorespaces Calibration routine for INA219 Current sensor for a maximum current of 1.2A, maximum Bus Voltage of 16V and maximum shunt voltage of 160mV\relax }}{144}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {D.10}{\ignorespaces Coord\_t Data structure to store incoming GPS coordinates as IEEE754 32-bit floats\relax }}{144}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {D.11}{\ignorespaces Data Structure for storing GPS signal diagnostic information\relax }}{145}{}%
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {G.1}{\ignorespaces Graph showing a typical current cycle of the buoy during the various phases. Data was sampled at 1Hz with all modules connected, sample intervals set to 30 mins the INA219 sensor connected to an external data logger and the device placed in a partially obstructed environment.\relax }}{156}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {G.2}{\ignorespaces Average Current consumption at each phase in the life-cycle of the buoy. Ordered chronologically\relax }}{157}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {G.3}{\ignorespaces The GPS trajectory of the Aghulus 2 ship from the Marginal Ice Zone to East London. The plot shows the estimated position (magenta) taken from the buoy samples (red) compared to the actual trajectory (cyan). The positional error (PDOP) of each measurement is shown as an exaggerated area around the measured position\relax }}{157}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {G.4}{\ignorespaces Air Temperature recorded by the buoy (yellow) over 11 days compared to the air temperature recorded by the ship (blue) \relax }}{158}{}%
