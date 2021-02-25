@@ -30,6 +30,10 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {table}{\numberline {2.8}{\ignorespaces Comparison between different GPS devices, sampled data and periods between samples implemented by each device.\relax }}{42}{}%
 \defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {2.9}{\ignorespaces Comparison of the different components used by each device for temperature measurement as well as the . Each device measures temperature of a different process. For example: the WIIB measure air temperature whereas a device like the SIMB measures temperature profiles of ice floes in addition to air temperature.\relax }}{45}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {2.10}{\ignorespaces Comparison of the different pressure sensing components used by each device as well as the measurement objective guiding the selection of the component.\relax }}{48}{}%
+\defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
 \contentsline {table}{\numberline {3.1}{\ignorespaces Table showing the key stakeholders in the project, their level of involvement as well as their interests in the project\relax }}{50}{}%
@@ -176,28 +180,26 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {table}{\numberline {E.1}{\ignorespaces List of data services provided by Iridium for transmission of data over the satellite network including the bandwidth and purpose of the service taken from \cite {iridium_mobile}\relax }}{145}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.2}{\ignorespaces Strategies used by the devices to transfer data from remote locations. Table includes transmission technologies and services used as well and transmission strategies and transmission intervals where given. Prices are converted to Rands (R) via \cite {usdcoversion}.\relax }}{145}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.4}{\ignorespaces Breakdown of each devices component selection as well as the storage strategy and processing strategy used by each device. \relax }}{148}{}%
+\contentsline {table}{\numberline {E.2}{\ignorespaces Strategies used by the devices to transfer data from remote locations. Table includes transmission technologies and services used as well and transmission strategies and transmission intervals where given. Prices are converted to Rands (R) via \cite {usdcoversion}.\relax }}{146}{}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {F.1}{\ignorespaces Unit Test 1: Hardware Verification test outlining procedure, test cases and relation to acceptance tests\relax }}{150}{}%
+\contentsline {table}{\numberline {F.1}{\ignorespaces Unit Test 1: Hardware Verification test outlining procedure, test cases and relation to acceptance tests\relax }}{148}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {F.2}{\ignorespaces Unit Test 2: GPS Connection Test test outlining procedure, test cases and relation to acceptance tests\relax }}{151}{}%
+\contentsline {table}{\numberline {F.2}{\ignorespaces Unit Test 2: GPS Connection Test test outlining procedure, test cases and relation to acceptance tests\relax }}{149}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {F.3}{\ignorespaces Unit Test 3: GPS Data Validity Test test outlining procedure, test cases and relation to acceptance tests\relax }}{152}{}%
+\contentsline {table}{\numberline {F.3}{\ignorespaces Unit Test 3: GPS Data Validity Test test outlining procedure, test cases and relation to acceptance tests\relax }}{150}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {F.4}{\ignorespaces Unit Test 4: Memory Verification test procedure, test cases and relation to acceptance tests\relax }}{153}{}%
+\contentsline {table}{\numberline {F.4}{\ignorespaces Unit Test 4: Memory Verification test procedure, test cases and relation to acceptance tests\relax }}{151}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {F.5}{\ignorespaces Unit Test 5: Power Module Verification test outlining procedure, test cases and relation to acceptance tests\relax }}{153}{}%
+\contentsline {table}{\numberline {F.5}{\ignorespaces Unit Test 5: Power Module Verification test outlining procedure, test cases and relation to acceptance tests\relax }}{151}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {F.6}{\ignorespaces Unit Test 6: Transmission test test outlining procedure, test cases and relation to acceptance tests\relax }}{154}{}%
+\contentsline {table}{\numberline {F.6}{\ignorespaces Unit Test 6: Transmission test test outlining procedure, test cases and relation to acceptance tests\relax }}{152}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {F.7}{\ignorespaces Unit Test 7: Temperature Verification test test outlining procedure, test cases and relation to acceptance tests\relax }}{155}{}%
+\contentsline {table}{\numberline {F.7}{\ignorespaces Unit Test 7: Temperature Verification test test outlining procedure, test cases and relation to acceptance tests\relax }}{153}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {F.8}{\ignorespaces Unit Test 8: Inertial Measurement Unit test outlining procedure, test cases and relation to acceptance tests\relax }}{155}{}%
+\contentsline {table}{\numberline {F.8}{\ignorespaces Unit Test 8: Inertial Measurement Unit test outlining procedure, test cases and relation to acceptance tests\relax }}{153}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {F.9}{\ignorespaces Results of subsystem acceptance tests for each of the identified modules. Modules that were successfully validated were marked with a \text {$\mathsurround \z@ \mathchar "458$}, failed tests were marked by an X and tests that could not be applied to a subsystem were marked by an N/A\relax }}{156}{}%
+\contentsline {table}{\numberline {F.9}{\ignorespaces Results of subsystem acceptance tests for each of the identified modules. Modules that were successfully validated were marked with a \text {$\mathsurround \z@ \mathchar "458$}, failed tests were marked by an X and tests that could not be applied to a subsystem were marked by an N/A\relax }}{154}{}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }

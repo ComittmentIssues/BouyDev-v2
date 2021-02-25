@@ -565,6 +565,7 @@ typedef struct
     \end{tabular}
 \end{table}
 
+\newpage
 \begin{center}
    { \setlength{\extrarowheight}{5pt}%
     \begin{longtable}[H]{|*{5}{>{\RaggedRight}m{0.18\textwidth}|}}
@@ -611,27 +612,6 @@ typedef struct
     \end{longtable} }
 \end{center}
 \newpage
-
-\newpage
-\refstepcounter{table}
-
-\begin{longtable}{>{\RaggedRight}m{0.092\linewidth}>{\RaggedRight}m{0.284\linewidth}>{\RaggedRight}m{0.117\linewidth}>{\RaggedRight}m{0.445\linewidth}} 
-\label{tab:device_components}\\
-\caption{Breakdown of each devices component selection as well as the storage strategy and processing strategy used by each device. }\\
-\hline\hline
-\textbf{Device Name} & \textbf{Sensors} & \textbf{Storage Strategy} & \textbf{Processor Topology} \endfirsthead \hline\hline
-WIIB & Adafruit 05 breakout - GPS\par{}VN100 - IMU, temperature \& pressure & SD Card & {ATMega 328P - Low Power Unit}\par{}{Arduino Mega - Logger}\par{} {Raspberry Pi Zero - Wave processing} {} \\ \hline
-WIIOS & MTK3339 - GPS\par{}ServoK-beam 8330B3 - IMU\footnote{Inertial Measurement Unit}\par{}DS18B20 - Temperature\par{}ITG-3200 - Secondary Gyro\par{}ADXL345 - Secondary Accleration & SD Card & Dual Core Edison - Wave processing\par{}ATMega 328 - Low Power Unit \\ \hline
-NDWB & SBG IG500 - AHRS\footnote{Altitude Heading Reference System} & Not Reported & ACME Systems Fox G20 - Power Control \\ \hline
-SKIB & MTK3339 - GPS\par{}LIS3DK - Accelerometer & SD Card & EFM32-M3: Spectral Processing  Power Controller \\ \hline
-SWIFT & uCam - Optical image\par{}SBG Eclipse N - INS\footnote{Inertial Navigation System}\par{}Nortek Signature 1000 - Doppler profiler\par{}Aanderaa 4319 - Conductivity Sensor~\par{}Airmax WX200 - Temperature Sensor & SD Card & Sutron Xpert - Data Processing \\ \hline
-SIMB & Maxbrook MB7374 - Snow ARF\footnote{Acoustic Range Finder}\par{}Airmax Echo Ranger- Underwater ARF\par{}DS18B20 - Air Temperature\par{}Bruncin DTC - vertical ice temperature profile\par{}MTK3339 - GPS\par{}BME280 - Pressure~\par{}BNO055 - IMU & SD Card & ATSAMD21G18 - Data Processing  Control~ \\ \hline
-Polar ISVP & Navman Jupiter 32 - GPS\par{}Vaisala PTB100 - Pressure\par{}YSI 4032 - Temperature& Not Reported & MetOcean’s Global Platform Transceiver Controller (GPTII)$^{TM}$\\ \hline
-Trident & Unspecified GPS\par{}ADC - Battery Monitor& Flash Chips & Unspecified microprocessor - Data processing\par{}Unspecified Low Power Unit - Power Control \\ \hline
-\end{longtable}
-\footnotetext{Discontinued. End of life: 19 November 2019 source: \cite{iridium_eol}}
-\newpage
-
 
 \chapter{Test Protocols}
 

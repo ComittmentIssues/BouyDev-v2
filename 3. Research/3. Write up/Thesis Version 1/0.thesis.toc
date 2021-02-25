@@ -62,10 +62,6 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.3.4}Temperature Sensing and Measurement}{43}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Thermocouples}{44}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Resistive Temperature Detector}{45}{}%
-\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{Thermistors}{45}{}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{Silicon Temperature Devices}{46}{}%
@@ -77,6 +73,8 @@
 \contentsline {subsubsection}{Piezoresistive Sensors}{47}{}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{capacitive sensors}{48}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.6}Pressure sensing components}{48}{}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Design Methodology}{49}{}%
 \defcounter {refsection}{0}\relax 
@@ -254,10 +252,10 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {E}Supplementary Tables}{145}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {F}Test Protocols}{150}{}%
+\contentsline {chapter}{\numberline {F}Test Protocols}{148}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {F.1}Unit Tests}{150}{}%
+\contentsline {section}{\numberline {F.1}Unit Tests}{148}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {F.2}System Tests}{156}{}%
+\contentsline {section}{\numberline {F.2}System Tests}{154}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {G}Test results}{157}{}%
+\contentsline {chapter}{\numberline {G}Test results}{155}{}%

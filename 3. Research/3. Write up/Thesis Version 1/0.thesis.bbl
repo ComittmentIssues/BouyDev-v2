@@ -567,6 +567,39 @@
       \verb https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmp280-ds001.pdf
       \endverb
     \endentry
+    \entry{bruncindtc}{online}{}
+      \name{author}{1}{}{%
+        {{hash=783a6374e3b5e116a1d2a9b07448beae}{%
+           family={Bruncin},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{783a6374e3b5e116a1d2a9b07448beae}
+      \strng{fullhash}{783a6374e3b5e116a1d2a9b07448beae}
+      \strng{bibnamehash}{783a6374e3b5e116a1d2a9b07448beae}
+      \strng{authorbibnamehash}{783a6374e3b5e116a1d2a9b07448beae}
+      \strng{authornamehash}{783a6374e3b5e116a1d2a9b07448beae}
+      \strng{authorfullhash}{783a6374e3b5e116a1d2a9b07448beae}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{IMB} DIGITAL TEMPERATURE CHAIN}
+      \field{urlday}{25}
+      \field{urlmonth}{2}
+      \field{urlyear}{2021}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.bruncin.com/products/temperature-chain/
+      \endverb
+      \verb{url}
+      \verb https://www.bruncin.com/products/temperature-chain/
+      \endverb
+    \endentry
     \entry{icedefinition1992}{book}{}
       \name{author}{1}{}{%
         {{hash=12810b7399ab4139f78a99c11537c9f9}{%
@@ -771,6 +804,7 @@
       \strng{authorbibnamehash}{680d4ac390e0359132cd0ba18e60031c}
       \strng{authornamehash}{680d4ac390e0359132cd0ba18e60031c}
       \strng{authorfullhash}{680d4ac390e0359132cd0ba18e60031c}
+      \field{extraname}{1}
       \field{sortinit}{C}
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
       \field{extradatescope}{labelyear}
@@ -783,6 +817,32 @@
       \field{year}{1996}
       \field{pages}{1\bibrangedash 30}
       \range{pages}{30}
+    \endentry
+    \entry{IEE_STD_SOFTCYCLE}{article}{}
+      \name{author}{1}{}{%
+        {{hash=680d4ac390e0359132cd0ba18e60031c}{%
+           family={{C/S2ESC - Software and Systems Engineering Standards Committee}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{680d4ac390e0359132cd0ba18e60031c}
+      \strng{fullhash}{680d4ac390e0359132cd0ba18e60031c}
+      \strng{bibnamehash}{680d4ac390e0359132cd0ba18e60031c}
+      \strng{authorbibnamehash}{680d4ac390e0359132cd0ba18e60031c}
+      \strng{authornamehash}{680d4ac390e0359132cd0ba18e60031c}
+      \strng{authorfullhash}{680d4ac390e0359132cd0ba18e60031c}
+      \field{extraname}{2}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE/EIA 12207.1-1997}
+      \field{title}{IEEE/EIA Guide - Industry Implementation of International Standard {ISO/IEC 12207} : 1995 {(ISO/IEC 12207)} - Software Life Cycle Processes - Life Cycle Data}
+      \field{year}{1998}
+      \field{pages}{1\bibrangedash 38}
+      \range{pages}{38}
     \endentry
     \entry{DeSanti2018OceanWave}{article}{}
       \name{author}{8}{}{%
@@ -942,6 +1002,39 @@
       \field{year}{2021}
       \field{pages}{1\bibrangedash 17}
       \range{pages}{17}
+    \endentry
+    \entry{ds18b20}{online}{}
+      \name{author}{1}{}{%
+        {{hash=418a79ecacd74d226f063a3d8e245d8e}{%
+           family={Digikey},
+           familyi={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{418a79ecacd74d226f063a3d8e245d8e}
+      \strng{fullhash}{418a79ecacd74d226f063a3d8e245d8e}
+      \strng{bibnamehash}{418a79ecacd74d226f063a3d8e245d8e}
+      \strng{authorbibnamehash}{418a79ecacd74d226f063a3d8e245d8e}
+      \strng{authornamehash}{418a79ecacd74d226f063a3d8e245d8e}
+      \strng{authorfullhash}{418a79ecacd74d226f063a3d8e245d8e}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{DS18B20+PAR}
+      \field{urlday}{25}
+      \field{urlmonth}{2}
+      \field{urlyear}{2021}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb shorturl.at/dsPS7
+      \endverb
+      \verb{url}
+      \verb shorturl.at/dsPS7
+      \endverb
     \endentry
     \entry{doble_wave_2015}{misc}{}
       \name{author}{1}{}{%
@@ -1819,7 +1912,6 @@
       \field{extraname}{2}
       \field{sortinit}{I}
       \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
-      \field{extradate}{1}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \true{uniqueprimaryauthor}
@@ -1839,43 +1931,6 @@
       \verb https://www.iridium.com/products/iridium-9603/
       \endverb
     \endentry
-    \entry{iridium_eol}{online}{}
-      \name{author}{1}{}{%
-        {{hash=940a6791fa9a1c420210af51e874d586}{%
-           family={{Iridium Satellite Communications}},
-           familyi={I\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Iridium}%
-      }
-      \strng{namehash}{940a6791fa9a1c420210af51e874d586}
-      \strng{fullhash}{940a6791fa9a1c420210af51e874d586}
-      \strng{bibnamehash}{940a6791fa9a1c420210af51e874d586}
-      \strng{authorbibnamehash}{940a6791fa9a1c420210af51e874d586}
-      \strng{authornamehash}{940a6791fa9a1c420210af51e874d586}
-      \strng{authorfullhash}{940a6791fa9a1c420210af51e874d586}
-      \field{extraname}{3}
-      \field{sortinit}{I}
-      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
-      \field{extradate}{2}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Product Availability Notification End of Life and Last Time Buy Opportunity {Iridium 9522B [Brochure]}}
-      \field{urlday}{15}
-      \field{urlmonth}{12}
-      \field{urlyear}{2020}
-      \field{year}{2019}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://www.iridium.com/file/237058/?dlm-dp-dl-force=1&dlm-dp-dl-nonce=5bb4c013b0
-      \endverb
-      \verb{url}
-      \verb https://www.iridium.com/file/237058/?dlm-dp-dl-force=1&dlm-dp-dl-nonce=5bb4c013b0
-      \endverb
-    \endentry
     \entry{9522B}{online}{}
       \name{author}{1}{}{%
         {{hash=940a6791fa9a1c420210af51e874d586}{%
@@ -1891,7 +1946,7 @@
       \strng{authorbibnamehash}{940a6791fa9a1c420210af51e874d586}
       \strng{authornamehash}{940a6791fa9a1c420210af51e874d586}
       \strng{authorfullhash}{940a6791fa9a1c420210af51e874d586}
-      \field{extraname}{4}
+      \field{extraname}{3}
       \field{sortinit}{I}
       \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
       \field{extradate}{1}
@@ -1929,7 +1984,7 @@
       \strng{authorbibnamehash}{940a6791fa9a1c420210af51e874d586}
       \strng{authornamehash}{940a6791fa9a1c420210af51e874d586}
       \strng{authorfullhash}{940a6791fa9a1c420210af51e874d586}
-      \field{extraname}{5}
+      \field{extraname}{4}
       \field{sortinit}{I}
       \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
       \field{extradate}{2}
@@ -1964,7 +2019,7 @@
       \strng{authorbibnamehash}{940a6791fa9a1c420210af51e874d586}
       \strng{authornamehash}{940a6791fa9a1c420210af51e874d586}
       \strng{authorfullhash}{940a6791fa9a1c420210af51e874d586}
-      \field{extraname}{6}
+      \field{extraname}{5}
       \field{sortinit}{I}
       \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
       \field{extradate}{3}
@@ -2751,6 +2806,39 @@
       \field{labeltitlesource}{title}
       \field{title}{The New Economics of Marine Environmental Monitoring}
       \field{year}{2016}
+    \endentry
+    \entry{pr303J2}{online}{}
+      \name{author}{1}{}{%
+        {{hash=b720fcfe7f2fed67908f2ce755699a73}{%
+           family={Littelfuse},
+           familyi={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{b720fcfe7f2fed67908f2ce755699a73}
+      \strng{fullhash}{b720fcfe7f2fed67908f2ce755699a73}
+      \strng{bibnamehash}{b720fcfe7f2fed67908f2ce755699a73}
+      \strng{authorbibnamehash}{b720fcfe7f2fed67908f2ce755699a73}
+      \strng{authornamehash}{b720fcfe7f2fed67908f2ce755699a73}
+      \strng{authorfullhash}{b720fcfe7f2fed67908f2ce755699a73}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{PR303J2 - PR Series}
+      \field{urlday}{25}
+      \field{urlmonth}{2}
+      \field{urlyear}{2021}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.littelfuse.com/products/temperature-sensors/leaded-thermistors/interchangeable-thermistors/ultra-precision-pr/pr303j2.aspx
+      \endverb
+      \verb{url}
+      \verb https://www.littelfuse.com/products/temperature-sensors/leaded-thermistors/interchangeable-thermistors/ultra-precision-pr/pr303j2.aspx
+      \endverb
     \endentry
     \entry{lund2018Arctic}{article}{}
       \name{author}{7}{}{%
@@ -3876,38 +3964,6 @@
       \field{year}{2001}
       \field{pages}{72\bibrangedash 79}
       \range{pages}{8}
-    \endentry
-    \entry{IEE_STD_SOFTCYCLE}{article}{}
-      \name{author}{2}{}{%
-        {{hash=765b25aa3e8c7f3950f28243873ba7ca}{%
-           family={Software},
-           familyi={S\bibinitperiod},
-           given={C/S2ESC\bibnamedelima -},
-           giveni={C\bibinitperiod\bibinitdelim \bibinithyphendelim \bibinitperiod}}}%
-        {{hash=3133ce241143bb7125493e7ae5c77720}{%
-           family={Committee},
-           familyi={C\bibinitperiod},
-           given={Systems\bibnamedelimb Engineering\bibnamedelima Standards},
-           giveni={S\bibinitperiod\bibinitdelim E\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
-      }
-      \strng{namehash}{10686957c669a7580d0a34104ca3dbe1}
-      \strng{fullhash}{10686957c669a7580d0a34104ca3dbe1}
-      \strng{bibnamehash}{10686957c669a7580d0a34104ca3dbe1}
-      \strng{authorbibnamehash}{10686957c669a7580d0a34104ca3dbe1}
-      \strng{authornamehash}{10686957c669a7580d0a34104ca3dbe1}
-      \strng{authorfullhash}{10686957c669a7580d0a34104ca3dbe1}
-      \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE/EIA 12207.1-1997}
-      \field{title}{IEEE/EIA Guide - Industry Implementation of International Standard {ISO/IEC 12207} : 1995 {(ISO/IEC 12207)} - Software Life Cycle Processes - Life Cycle Data}
-      \field{year}{1998}
-      \field{pages}{1\bibrangedash 38}
-      \range{pages}{38}
     \endentry
     \entry{spilker1996global}{book}{}
       \name{author}{4}{}{%

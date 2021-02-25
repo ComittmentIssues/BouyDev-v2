@@ -612,10 +612,9 @@ As mentioned in the previous section,GPS signal accuracy is greatly affected by 
 
 \begin{figure}[H]
 	\centering
-	\label{fig:DOP_effects}
 	\includegraphics[width =\linewidth]{DOPeffect.png}
-
 	\caption{Diagram showing how satellite distribution affects the positional estimation. GNSS Satellites have an associated inaccuracy which is represented by the circles. Locking on to more than one satellite reduces these inaccuracies by interpolating the position from the phase differences between satellites. This value is greatly affected by the spread of satellites as a larger spread results in a more accurate positional estimate (A) while a shorter satellite spread results in a less accurate positional estimate. A measure of this inaccuracy is called the dilation of procession (DOP). Figure was adapted from images by \cite{GISGeo2020DOP} for A and B.}
+	\label{fig:DOP_effects}
 \end{figure}
 
  Correction can be performed in one of two ways:
@@ -754,50 +753,95 @@ The component selection for each device is shown in table \ref{tab:dev_gps} belo
 \end{table}
 Table \ref{tab:dev_gps} above shows the GPS receivers implemented in each system as well as measurements of interest. The most common gps is the MTK3339, a gps module developed by adafruit (cite). Additionally, all devices have fixed transmission periods between samples except the Trident buoy which has user configurable periods that can be set from a couple of minutes to full hours. Most devices use the GPS for positional location however, SWIFT buoy measures horizontal velocity in addition to vertical position\cite{thomson2012wave}. \textcite{thomson2012wave} justify this by stating that the accuracy of horizontal velocity measured by a gps is accurate enough ($\pm 0.5 \text{ }m\cdot s^{-1}$)to be used for determining the orbital motions of waves. \textcite{kohout2015device} and \textcite{rabault2019open} provide the measurements recorded by the GPS however, very little discussion is given regarding the performance of the device. \textcite{doble2017robust} showed that during their year long deployment, 14 buoys maintained a near perfect satellite signal acquisition however, software issues with the GNSS reciever resulted in a failure to obtain measurements in 5 systems. However, \textcite{doble2017robust} had implemented two-way iridium communication and were able to partially overcome this set back by transmitting commands that performed a software reset on the GPS receiver. Additionally, two devices lost signal for 6 days while another two devices lost signal for 62 days and 41 days respectively \cite{doble2013wave}. This shows that acquisition failures can cause temporal gaps in data and therefore, need to be reduced in order to provide robust data sets.
 
-Each ice floe follows a unique trajectory \cite{lepparanta2001sea}  and individual trajectories combine to form a continuum. It has previously been believed that sea ice drift has been linked strongly to significant wave events \cite{alberello2019drift}. An experiment was conducted by \textcite{alberello2019drift} to measure the drift of sea ice during a cyclone event. Here it was found that wind velocity is the dominant driver of sea ice drift \cite{alberello2019drift} causing ice drifts of up to $0.75\text{ } m\cdot s^{-1}$ \cite{alberello2019drift}. Sea ice drift speed is extremely sensitive to sampling rates. \cite{alberello2019drift} where sampling rates of 6 hours can underestimate the ice velocity by 5\% \cite{alberello2019drift} and up to 20\% for 12-hour sample rates. The consequence is reduced, near unusable, estimates of sea ice velocity components as well as drag coefficient and wind factor estimates. High temporal resolutions are capable of capturing important, inter-daily activities such as ice oscillations. \textcite{alberello2019drift} state that to accurately capture Sea ice dynamics, a temporal resolution of at least 3 hours is required \cite{alberello2019drift}. Table \ref{tab:dev_gps} shows that all devices sample GPS at a rate of 3 hours or less thereby fulfilling this criteria This not only allows for the capture of accurate drift speeds but provides an accurate characterization of instantaneous velocities and Coriolis forces \cite{alberello2019drift}. 
+Each ice floe follows a unique trajectory \cite{lepparanta2001sea}  and individual trajectories combine to form a continuum. It has previously been believed that sea ice drift has been linked strongly to significant wave events \cite{alberello2019drift}. An experiment was conducted by \textcite{alberello2019drift} to measure the drift of sea ice during a cyclone event. Here it was found that wind velocity is the dominant driver of sea ice drift \cite{alberello2019drift} causing ice drifts of up to $0.75\text{ } m\cdot s^{-1}$ \cite{alberello2019drift}. Sea ice drift speed is extremely sensitive to sampling rates. \cite{alberello2019drift} where sampling rates of 6 hours can underestimate the ice velocity by 5\% \cite{alberello2019drift} and up to 20\% for 12-hour sample rates. The consequence is reduced, near unusable, estimates of sea ice velocity components as well as drag coefficient and wind factor estimates. High temporal resolutions are capable of capturing important, inter-daily activities such as ice oscillations. \textcite{alberello2019drift} state that to accurately capture Sea ice dynamics, a temporal resolution of at least 3 hours is required \cite{alberello2019drift}. Table \ref{tab:dev_gps} shows that all devices sample GPS at a rate of 3 hours or less thereby fulfilling this criteria This not only allows for the capture of accurate drift speeds but provides an accurate characterization of instantaneous velocities and Coriolis forces \cite{alberello2019drift}.
+ 
 \subsection{Temperature Sensing and Measurement}
 
-Environmental sensing plays a pivotal role in predicting earth systemic processes. Tracking major events such as cyclones \cite{vichi2019effects} requires constant monitoring of antarctic environmental conditions. Temperature sensors can help predict atmospheric events such as storms, cyclones and seasonal changes as well as sea ice events such as sea ice melting \cite{kohout2015device} \cite{doble2017robust}. \textcite{doble2017robust} have discussed the significance of sea ice melting. This was considered a significant phase of sea ice and was classified as a phase in the development of their buoy. \par 
+As discussed in Chapter \ref{sec:ch1.section1}, Antarctic sea ice follows a unique formation cycle with different phases marked by changes in season. Sea ice formation additionally is affected by environmental factors which can arise from one of two sources: Long-period seasonal cycles \cite{barber2005microwave} which affect snow growth and sea ice formation, and short term extreme weather events \cite{vichi2019effects,albarello2020drift} which affect the thermodynamics of the formed ice and results in ice drift and collisions \cite{arrigo2004large}. One key measurement for correlating environmental effects to sea ice formation is air temperature. \textcite{barber2005microwave} show that  the melting and freezing phases in the sea ice life cycle is preceded by increases in air temperature above freezing and decreases in temperature below freezing respectively. In addition, \textcite{vichi2019effects} show that warmer air temperatures were observed during polar events. This shows that temperature is critical measurement for understanding sea ice lifecylces and the effects of ocean procesess. Additionally \textcite{kohout2015device,doble2017robust,doble2017robust} have discussed the significance of sea ice melting. This was considered a significant phase of sea ice and was classified as a phase in the development of their buoy. Hence, we turn to temperature sensing as a solution to understanding the effects of temperature on Antarctic sea ice.\par 
 
-Temperature sensing technology is widely used for a variety of applications including food storage, mechanical failure warning systems, transport systems etc. \cite{awtrey2002environmental}. The majority of temperature sensing technology is used for thermal compensation as measurements such as pressure and humidity are dependant on environmental temperature \cite{mansoor2015silicon}. Thermal sensing technology exists in a variety of forms however, choice of sensor is heavily dependant on the application i.e. the object to be measured, the material state and the type of contact with the sensor \cite{mansoor2015silicon}\cite{childs2000review}. There are 3 main categories of measurement techniques \cite{childs2000review}:
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.3\textwidth}
+		\begin{tikzpicture}
+			\node[anchor=south west,inner sep=0] (image) at (0,0) { \includegraphics[width = 3cm,height=3cm]{pr303J2.jpg}};
+			\begin{scope}[x={(image.south east)},y={(image.north west)}]
+				\draw[color=black, ultra thin,fill=white] (0.0,0.0) rectangle (0.21,0.16) node[pos=.5] {A};
+			\end{scope}
+		\end{tikzpicture}
+	\end{subfigure}%
+	\hfill
+	\begin{subfigure}[b]{0.3\textwidth}
+		\begin{tikzpicture}
+			\node[anchor=south west,inner sep=0] (image) at (0,0) { \includegraphics[width = 3cm,height=3cm]{ds18b20.jpg}};
+			\begin{scope}[x={(image.south east)},y={(image.north west)}]
+				\draw[color=black, ultra thin,fill=white] (0.0,0.0) rectangle (0.21,0.16) node[pos=.5] {B};
+			\end{scope}
+		\end{tikzpicture}
+	\end{subfigure}%
+	\hfill
+	\begin{subfigure}[b]{0.3\textwidth}
+		\begin{tikzpicture}
+			\node[anchor=south west,inner sep=0] (image) at (0,0) { \includegraphics[width = 3cm,height=3cm]{temperature-chain-bruncin-1.jpg}};
+			\begin{scope}[x={(image.south east)},y={(image.north west)}]
+				\draw[color=black, ultra thin,fill=white] (0.0,0.0) rectangle (0.21,0.16) node[pos=.5] {C};
+			\end{scope}
+		\end{tikzpicture}
+	\end{subfigure}%
+	\hfill
+	\caption{Examples of temperature sensors employed by remote sensing devices.These types of devices include (A) thermistors such as the PR303J2 (image source: \cite{pr303J2}), (B) digital temperature sensors such as the DS18B20 (image source: \cite{ds18b20}) and (C) digital temperature chains (DTC) such as the Bruncin DTC (image source: \cite{bruncindtc}) } 
+	\label{fig:temp_examples}
+\end{figure}
+
+Temperature sensing technology is commonly used for thermal compensation as measurements such as pressure and humidity are dependent on environmental temperature \cite{mansoor2015silicon}. Thermal sensing technology exists in a variety of forms however, choice of sensor is heavily dependant on the application i.e. the object to be measured, the material state and the type of contact with the sensor \cite{mansoor2015silicon,childs2000review}. There are 3 main categories of measurement techniques \cite{childs2000review}:
+
 \begin{enumerate}
 	\item Invasive Measurements: Direct contact with an object of interest. This method is suitable for the measurement of objects in liquid or gas states. This category encompasses thermoelectric devices, liquid in glass thermometers, electronically resistive devices as well as semiconductor devices \cite{mansoor2015silicon}
-	\item Semi-Invasive: Using the thermal measurement medium on an object and observing the effects of temperature such as thermal paints. Note: measurements are not directly taken from the object but rather the properties of the medium
-	\item Non-Invasive: Object is measured from a distance using a device such as an infrared camera or acoustic thermography
+	\item Semi-Invasive: Using the thermal measurement medium on an object and observing the effects of temperature such as thermal paints. Note: measurements are not directly taken from the object but rather the properties of the medium.
+	\item Non-Invasive: Object is measured from a distance using a device such as an infrared camera or acoustic thermography.
 \end{enumerate}
-Also, the sensor selection must be based on the range, accuracy, resolution and precision of the device to ensure correct use An overview of different electric sensors is given below \cite{childs2000review}
-\subsubsection{Thermocouples}
 
-These devices use the principle of the Seebeck effect. Two conductors are joined at a junction which causes small electrons to flow \cite{pollock2017thermocouples}. This generates an EMF which is proportional to the temperature difference across their junctions \cite{pollock2017thermocouples}. Measurements are made using pairs of these conductors (referred to as thermo-elements \cite{pollock2017thermocouples}) one of the junctions is set to a known reference temperature (usually $0^\circ C$) while the other junction is measured. The resulting voltage is measured as a function of the temperature across the junction. In a practical sense, it may not be desirable to hold the reference voltage at $0^\circ C$, in this case, any reference voltage can be used provided it is fixed, repeatable and known \cite{pollock2017thermocouples}. a non-zero reference voltage will result in a relative voltage change. Hence this must be compensated in the measurement algorithm \cite{pollock2017thermocouples}. These devices have a wide temperature range from (-200 $^\circ C$ to 2000$^\circ C$ \cite{tong2001improving}). Despite this, there are some disadvantages. The temperature-voltage relationship is non-linear \cite{pollock2017thermocouples} \cite{tong2001improving} which can result in more intensive computational requirements as well as inaccuracies. Also, relative temperatures do not result in a stable voltage which gives uncertainty up to 2 $^\circ C$. Despite this, thermocouples are relatively cheap with a fast thermal response. However, this comes with a trade-off of increased noise. Finally, the temperature range of the thermocouple is limited by the metal used. Fortunately, thermocouples come in standard types \cite{tong2001improving} which have an associated range \cite{tong2001improving}
-The relationship governing the emf and relative temperature change is shown to be. 
-\begin{equation}
-	E_{ab} = E_0 + a \Delta T+ b\Delta T^2
-\end{equation}
+In addition, sensor selection is based on the range, accuracy, resolution and precision of the device to ensure correct use An overview of different electric sensors is given below \cite{childs2000review} A full discussion of the types of sensors is provided below where the types of technology, advantages and disadvantaeges are provided. Additionally, the technology has been selected for its implementation in the remote sensing devices shown in table \ref{tab:device_tempsense} below.
+ 
+\begin{table}[H]
+	\centering
+	\caption{Comparison of the different components used by each device for temperature measurement as well as the . Each device measures temperature of a different process. For example:  the WIIB measure air temperature whereas a device like the SIMB measures temperature profiles of ice floes in addition to air temperature.}
+	\label{tab:device_tempsense}
+	\setlength{\extrarowheight}{5pt}
+	\resizebox{\textwidth}{!}{%
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		\textbf{Device name} & \textbf{Temperature sensor} & \textbf{Sensor type}& \textbf{Measurement Objective} \\ \hline
+		WIIB & VN-100 & Digital Tempereture sensor & Air temperature \\ \hline
+		WIIOS & DS18B20 & Digital temperature sensor & Air temperature \\ \hline
+		NDWB & IG-500 & Digital temperature sensor &Internal ambient temperature \\ \hline
+		SKIB & None & none & None \\ \hline
+		SWIFT & Aquadop profiler & Thermistor & water temperature \\ \hline
+		\multirow{2}{*}{SIMB} & DS18B20 & Digital temperature sensor & Air Temperature \\ \cline{2-3} 
+		& Bruncin DTC & Digital temperature chain&Ice temperature profile \\ \hline
+		Polar ISVP & PR303J2 & thermistor &Sea surface temperature \\ \hline
+		Trident & unspecified & Not reported &Air temperature \\ \hline
+	\end{tabular}
+}
+\end{table}
 
-$E_{ab}$ is the emf across the junction formed by conductors a and b. T is the measured temperature. $E_0$ is the reference temperature (a constant),  a and b are constants otherwise known as the relative Seebeck coefficients. These values can be determined by solving the above quadratic and are derived by Pollock (2017) as.
-\begin{subequations}
-	\begin{align}
-		a = \alpha - \beta\\
-		b = \frac{m_A-m_B}{2}
-	\end{align}
-\end{subequations}
-$\alpha \text{ and } \beta$ are constants derived from the open circuit potential of conductors a and b respectively. $m_a\text{ and } m_b$ are the gradients of conductor and b respectively. \cite{pollock2017thermocouples}. 
-\subsubsection{Resistive Temperature Detector}
-
-Resistive Temperature Detectors (or RTDs) consist of metal with a known Temperature Coefficient. The device has a resistance that changes proportionally to the change in ambient temperature \cite{tong2001improving}. These devices are considered the most stable and accurate sensors \cite{tong2001improving} having an uncertainty range of $0.03^\circ C$ to $0.3^\circ C$ depending on the type. However, these sensors are considered more fragile and are largely expensive to obtain. These sensors come in the form of either a wound wire or a metal film with a known resistance at a specific temperature \cite{tong2001improving}. The advantage of these devices is a linear relationship between resistance and temperature. Hence a simple ohmic measurement \cite{tong2001improving} will allow for simple temperature prediction, however, these devices have a low sensitivity which can cause errors of up to $5 ^\circ C$ in this configuration \cite{tong2001improving}. A solution to this is to use four RTDs in a four-wire configuration where 2 wires provide excitement current and two wires connect to a voltmeter. This, however, adds to the complexity of the measurement and requires a more demanding processor. The measurements noise is proportional to the excitation current which causes the sensor to self-heat, According to Tong (2001) must be kept below 1mA to avoid significant noise distortion. Calibration of the sensor is performed against a compensation curve often provided with the device in question.
+Table \ref{tab:device_tempsense} shows that the majority of devices use digital temperature sensors for ambient air temperature measurementwith thermistors begin the second temperature sensors type as used by \textcite{thomson2012wave}. Most device use temperature sensors that have been integrated into high powered IMU/AHRS systems as is the case with WIIB and NDWB. While the SWIFT buoy and the Polar ISVP both utlise the same sensing technology however the Polar ISVP used a standalone PR303J2 while the SIFT used the temperature sensor onboard the Nortek Aquadopp Profiler which is primarly a current profiler. This shows that temperature sensing was not a primary focus for this device design and this is supported by the lack of discussion regarding the performance of the temperature sensor in the literature.
 \subsubsection{Thermistors}
 
-Modern Thermistors have progressed significantly in the past decade. Up until recently, they have been considered inaccurate with uncertainty ranges of up to 5\% \cite{tong2001improving}. Modern thermistors are capable of providing accuracies of up to 0.01$^\circ$. They consist of a semiconductor that changes its resistance in response to temperature \cite{childs2000review}. They have a faster response time than RTDs and work on the same principle for temperature measurement. However, where RTDs have a Positive temperature coefficient, Thermistors have a negative temperature coefficient \cite{tong2001improving}. These devices can operate over a substantial, albeit relatively limited, range of $-100^\circ - 300^\circ C$. The major trade-off with these devices is the lack of standards \cite{tong2001improving}. Operating the device involves a large degree of uncertainty. Also, these devices are not powerful enough to accurately reach the desired ranges alone. They need to be coupled with similar devices. Finally, the response curve is non-linear. The  relationship between resistance and temperature is \cite{childs2000review}:
+Modern thermistors have progressed significantly in the past decade. Up until recently, they have been considered inaccurate with uncertainty ranges of up to 5\% \cite{tong2001improving}. Modern thermistors are capable of providing accuracies of up to 0.01$^\circ$. They consist of a semiconductor that changes its resistance in response to temperature \cite{childs2000review}. They have a faster response time than RTDs and work on the same principle for temperature measurement. However, where RTDs have a Positive temperature coefficient, thermistors have a negative temperature coefficient \cite{tong2001improving}. These devices can operate over a substantial, albeit relatively limited, range of $-100^\circ - 300^\circ C$. The major trade-off with these devices is the lack of standards \cite{tong2001improving}. Operating the device involves a large degree of uncertainty. Also, these devices are not powerful enough to accurately reach the desired ranges alone. They need to be coupled with similar devices. Finally, the response curve is non-linear. The  relationship between resistance and temperature is \cite{childs2000review}:
 \begin{equation}
 	R_T = R_0e^{1 - B(\frac{1}{T}- \frac{1}{T_0})}
 \end{equation}
 where $R_T$ is the temperature measured, $R_0$ is the resistance at a known temperature $T_0$, T is the temperature and B is a coefficient based on the properties of the thermistor. Finally, these devices are more prone to noise from excitation current.
+
 \subsubsection{Silicon Temperature Devices}
 
 Semiconductor temperature devices are suited to applications where the temperature ranges from -55 to 150 $^\circ C$ these devices are capable of providing a stable output with a typical accuracy of $0.8 ^\circ C$. These devices typically consist of diodes and transistors with a bandgap voltage that changes with a change in temperature \cite{childs2000review}. These devices are advantageous in electronic application due to their small form, high accuracy and stability. These devices are relatively simple and have a good sensitivity to changes \cite{childs2000review}. Diodes are typically used in semiconductor devices. Here, the forward voltage drop across the p-n junction is linearly proportional to the Ambient temperature over a certain temperature range (typically 25K - 400k) \cite{childs2000review}. These devices are made out of either silicon or Galium-Arsenide. Silicon is preferred as it has better stability at low temperatures and is cheaper however, this comes at the trade-off of a lower voltage output \cite{childs2000review}. \par These Types of devices are readily available in IC forms and are manufactured in a variety of packages, types and compositions for any application. Typical devices are DS18B20, LM355 or BMP2080. Recent innovations in Silicon sensing have seen the rise of CMOS devices and Micro Electrical-MEchanical Systems (MEMs) being used more frequently \cite{mansoor2015silicon}. While these devices can suffer from deterioration due to self-heating, \textcite{mansoor2015silicon} discuss that the low-power operation of these devices can offset this issue. This is advantageous for systems that are constrained by power consumption. However, a major disadvantage with these devices is that these devices work ideally with a purely DC signal.An AC coupled signal can cause significant errors in the output \cite{childs2000review} \cite{mansoor2015silicon}. These errors can be the result of improper shielding and poor grounding. Hence proper shielding and grounding are required to reduce these errors. Finally, these devices require careful calibration before use.
 
 \subsection{Atmospheric Pressure Sensing and Sensors}
-Atmospheric pressure is a key measurement for environmental sensing. There has been an increased demand for in-situ environmental monitoring as mentioned by \cite{vichi2019effects} \cite{kennicutt2014polar} \cite{kennicutt2016delivering} \cite{kennicutt2019sustained} \cite{alberello2019drift}. It can provide insight into wind currents and storm events as well as predict trajectories of these storms. Also, pressure characterises the relationship between Atmospheric and ocean air process. The pressure is a Temperature dependant measurement \cite{mansoor2015silicon} and, often, Autonomous platforms couple pressure sensors with temperature sensors on the same Integrated Circuit (IC). One example is the BMP280 environmental sensor developed by Bosch \footnote{More details provided by Bosch Sensortech }. The current state of Pressure Sensing technology is driven towards Miniature MEMs version of large scale devices \cite{eaton1997micromachined}. Most large scale pressure sensors consist of a diaphragm mounted on a device in a known way. The diaphragm is coupled to a device that converts the pressure to a mechanical movement which is then measured using a gauge. These senses often had a secondary sensor that would convert the mechanical movement to an electrical signal which was then measured \cite{eaton1997micromachined}. Other sensors include barometers, bourdon tubes and vacuum pressure gauges. Most MEMs are based on these principles.\par 
+
+
+%TODO include introduction paragraph explaining the importance of press sensing in the polar regions
+Atmospheric pressure is a key measurement for environmental sensing. There has been an increased demand for in-situ environmental monitoring as mentioned by \cite{vichi2019effects} \cite{kennicutt2014polar} \cite{kennicutt2016delivering} \cite{kennicutt2019sustained} \cite{alberello2019drift}. It can provide insight into wind currents and storm events as well as predict trajectories of these storms. Also, pressure characterises the relationship between Atmospheric and ocean air process. The pressure is a Temperature dependent measurement \cite{mansoor2015silicon} and, often, Autonomous platforms couple pressure sensors with temperature sensors on the same Integrated Circuit (IC).One example is the BMP280 environmental sensor developed by Bosch \footnote{More details provided by Bosch Sensortech }. The current state of Pressure Sensing technology is driven towards Miniature MEMs version of large scale devices \cite{eaton1997micromachined}. Most large scale pressure sensors consist of a diaphragm mounted on a device in a known way. The diaphragm is coupled to a device that converts the pressure to a mechanical movement which is then measured using a gauge. These senses often had a secondary sensor that would convert the mechanical movement to an electrical signal which was then measured \cite{eaton1997micromachined}. Other sensors include barometers, bourdon tubes and vacuum pressure gauges. Most MEMs are based on these principles.\par 
 \textcite{eaton1997micromachined} discuss the importance of micro-machined pressure sensors and provide an overview of various sensors. These can be classified as piezoresistive, capacitive, optical and resonant each with their pressure relationship.
 \subsubsection{Diaphragm Based Sensors}
 Previously mentioned, Diaphragm sensors determine pressure by measuring the deflection of a miniature diaphragm. This deflection is converted to an electrical signal. Typically, a reference pressure is provided as a measurement of a sealed chamber or absolute pressure port. Assuming the simplest version of this sensor i.e. a plate of uniform thickness \cite{eaton1997micromachined} The deflection $w$ of the diaphragm is related to the pressure  $P$ by the following equation: \cite{eaton1997micromachined}
@@ -825,3 +869,25 @@ These sensors consist of parallel conductive plates. Assuming a constant, known 
 
 where $w(r)$ is the deformation of the plate, $\epsilon$ is the strain experienced on the plate and d is the distance of separation. The Pressure capacitance relationship can be approximated using a least-squares fit \cite{eaton1997micromachined} however this results in model errors of 1.5\% and up to 11\% at $w = \frac{1}{2}h$ the height of the plate. These sensors are more advantageous over piezoresistive sensors as they have higher pressure sensitivity and reduced susceptibility to temperature drift. However, these sensors are significantly susceptible to parasitic capacitance which can result in losses and errors. Additionally, these sensors are simple in design however they tend towards more complex circuit requirements.
 
+\subsection{Pressure sensing components}
+
+\begin{table}[H]
+	\centering
+	\caption{Comparison of the different pressure sensing components used by each device as well as the measurement objective guiding the selection of the component.}
+	\label{tab:device_press}
+	\setlength{\extrarowheight}{5pt}
+	\resizebox{\textwidth}{!}{%
+	\begin{tabular}{|l|l|l|}
+		\hline
+		\textbf{Device Name} & \textbf{Pressure sensor} & \textbf{Measurement objective} \\ \hline
+		WIIB & VN-100 & Atmospheric pressure \\ \hline
+		WIIOS & None & - \\ \hline
+		NDWB & MXP-5100-AP & barometric pressure \\ \hline
+		SKIB & None & - \\ \hline
+		SWIFT & SBG Eclipse-N & Not Reported \\ \hline
+		SIMB & BME380 & Barometric pressure \\ \hline
+		Polar ISVP & \multicolumn{1}{r|}{PTB100} & Barometric pressure \\ \hline
+		Trident & None & - \\ \hline
+	\end{tabular}
+}
+\end{table}

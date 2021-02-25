@@ -44,6 +44,8 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {2.10}{\ignorespaces Diagram showing how satellite distribution affects the positional estimation. GNSS Satellites have an associated inaccuracy which is represented by the circles. Locking on to more than one satellite reduces these inaccuracies by interpolating the position from the phase differences between satellites. This value is greatly affected by the spread of satellites as a larger spread results in a more accurate positional estimate (A) while a shorter satellite spread results in a less accurate positional estimate. A measure of this inaccuracy is called the dilation of procession (DOP). Figure was adapted from images by \cite {GISGeo2020DOP} for A and B.\relax }}{39}{}%
 \defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Examples of temperature sensors employed by remote sensing devices.These types of devices include (A) thermistors such as the PR303J2 (image source: \cite {pr303J2}), (B) digital temperature sensors such as the DS18B20 (image source: \cite {ds18b20}) and (C) digital temperature chains (DTC) such as the Bruncin DTC (image source: \cite {bruncindtc}) \relax }}{44}{}%
+\defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Block Diagram of the proposed autonomous system showing subsystem arrangement, data flow and interfaces with the environment.\relax }}{58}{}%
@@ -140,10 +142,10 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {G.1}{\ignorespaces Graph showing a typical current cycle of the buoy during the various phases. Data was sampled at 1Hz with all modules connected, sample intervals set to 30 mins the INA219 sensor connected to an external data logger and the device placed in a partially obstructed environment.\relax }}{157}{}%
+\contentsline {figure}{\numberline {G.1}{\ignorespaces Graph showing a typical current cycle of the buoy during the various phases. Data was sampled at 1Hz with all modules connected, sample intervals set to 30 mins the INA219 sensor connected to an external data logger and the device placed in a partially obstructed environment.\relax }}{155}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {G.2}{\ignorespaces Average Current consumption at each phase in the life-cycle of the buoy. Ordered chronologically\relax }}{158}{}%
+\contentsline {figure}{\numberline {G.2}{\ignorespaces Average Current consumption at each phase in the life-cycle of the buoy. Ordered chronologically\relax }}{156}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {G.3}{\ignorespaces The GPS trajectory of the Aghulus 2 ship from the Marginal Ice Zone to East London. The plot shows the estimated position (magenta) taken from the buoy samples (red) compared to the actual trajectory (cyan). The positional error (PDOP) of each measurement is shown as an exaggerated area around the measured position\relax }}{158}{}%
+\contentsline {figure}{\numberline {G.3}{\ignorespaces The GPS trajectory of the Aghulus 2 ship from the Marginal Ice Zone to East London. The plot shows the estimated position (magenta) taken from the buoy samples (red) compared to the actual trajectory (cyan). The positional error (PDOP) of each measurement is shown as an exaggerated area around the measured position\relax }}{156}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {G.4}{\ignorespaces Air Temperature recorded by the buoy (yellow) over 11 days compared to the air temperature recorded by the ship (blue) \relax }}{159}{}%
+\contentsline {figure}{\numberline {G.4}{\ignorespaces Air Temperature recorded by the buoy (yellow) over 11 days compared to the air temperature recorded by the ship (blue) \relax }}{157}{}%
