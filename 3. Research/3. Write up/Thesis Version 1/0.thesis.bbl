@@ -101,6 +101,41 @@
       \field{pages}{181\bibrangedash 195}
       \range{pages}{15}
     \endentry
+    \entry{mtk3339}{online}{}
+      \name{author}{1}{}{%
+        {{hash=df2ef9d987531dee5d52cd1fbc04b320}{%
+           family={Adafrut},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{df2ef9d987531dee5d52cd1fbc04b320}
+      \strng{fullhash}{df2ef9d987531dee5d52cd1fbc04b320}
+      \strng{bibnamehash}{df2ef9d987531dee5d52cd1fbc04b320}
+      \strng{authorbibnamehash}{df2ef9d987531dee5d52cd1fbc04b320}
+      \strng{authornamehash}{df2ef9d987531dee5d52cd1fbc04b320}
+      \strng{authorfullhash}{df2ef9d987531dee5d52cd1fbc04b320}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{8}
+      \field{month}{4}
+      \field{title}{Ultimate GPS Module - 66 channel w/10 Hz updates - MTK3339 chipset}
+      \field{urlday}{25}
+      \field{urlmonth}{2}
+      \field{urlyear}{2021}
+      \field{year}{2014}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.adafruit.com/product/790
+      \endverb
+      \verb{url}
+      \verb https://www.adafruit.com/product/790
+      \endverb
+    \endentry
     \entry{ahmad2013reviews}{article}{}
       \name{author}{4}{}{%
         {{hash=a5d5d658c8d12db0870835827cc4694c}{%
@@ -197,7 +232,6 @@
       \field{extraname}{1}
       \field{sortinit}{A}
       \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
-      \field{extradate}{1}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \true{uniqueprimaryauthor}
@@ -272,65 +306,6 @@
       \field{pages}{e2019JC015418}
       \range{pages}{-1}
       \keyw{sea ice,marginal ice zone,drift,pancake ice,Antarctic,buoy}
-    \endentry
-    \entry{alberello2019brief}{article}{}
-      \name{author}{7}{}{%
-        {{hash=1f41128a44870dcaeeca940433b42242}{%
-           family={Alberello},
-           familyi={A\bibinitperiod},
-           given={Alberto},
-           giveni={A\bibinitperiod}}}%
-        {{hash=bb58da8275193ce8f4e08d9bfe86ab1d}{%
-           family={Onorato},
-           familyi={O\bibinitperiod},
-           given={Miguel},
-           giveni={M\bibinitperiod}}}%
-        {{hash=1c95e1d235b74cac279f73f562925dc5}{%
-           family={Bennetts},
-           familyi={B\bibinitperiod},
-           given={Luke},
-           giveni={L\bibinitperiod}}}%
-        {{hash=89fba3e6e5969e08f095c08eed06948e}{%
-           family={Vichi},
-           familyi={V\bibinitperiod},
-           given={Marcello},
-           giveni={M\bibinitperiod}}}%
-        {{hash=f215ec29de971cdb397e736c4428ebfd}{%
-           family={Eayrs},
-           familyi={E\bibinitperiod},
-           given={Clare},
-           giveni={C\bibinitperiod}}}%
-        {{hash=a4d83fa2974ca27268d2f25c0cfadc18}{%
-           family={MacHutchon},
-           familyi={M\bibinitperiod},
-           given={Keith},
-           giveni={K\bibinitperiod}}}%
-        {{hash=101bef366904fae9e18a4a5532356f13}{%
-           family={Toffoli},
-           familyi={T\bibinitperiod},
-           given={Alessandro},
-           giveni={A\bibinitperiod}}}%
-      }
-      \strng{namehash}{7f80649007241781f0a461df13c7732f}
-      \strng{fullhash}{2240cc381281fbdfe44c3c4e7614af5c}
-      \strng{bibnamehash}{2240cc381281fbdfe44c3c4e7614af5c}
-      \strng{authorbibnamehash}{2240cc381281fbdfe44c3c4e7614af5c}
-      \strng{authornamehash}{7f80649007241781f0a461df13c7732f}
-      \strng{authorfullhash}{2240cc381281fbdfe44c3c4e7614af5c}
-      \field{extraname}{3}
-      \field{sortinit}{A}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
-      \field{extradate}{2}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Cryosphere}
-      \field{number}{1 - 9}
-      \field{title}{Brief communication: Pancake ice floe size distribution during the winter expansion of the {Antarctic} marginal ice zone.}
-      \field{volume}{13}
-      \field{year}{2019}
     \endentry
     \entry{zareer2018review}{article}{}
       \name{author}{3}{}{%
@@ -407,45 +382,6 @@
       \field{year}{2004}
       \field{pages}{471\bibrangedash 486}
       \range{pages}{16}
-    \endentry
-    \entry{awtrey2002environmental}{misc}{}
-      \name{author}{3}{}{%
-        {{hash=3103d247044ecaed8f626f09600ade9d}{%
-           family={Awtrey},
-           familyi={A\bibinitperiod},
-           given={James\bibnamedelima D},
-           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
-        {{hash=d141c76b70a05606cf6fe10d08d78c76}{%
-           family={Kurkowski},
-           familyi={K\bibinitperiod},
-           given={Hal},
-           giveni={H\bibinitperiod}}}%
-        {{hash=307eb33aadb703fe8706df9a9ca9c2a0}{%
-           family={Lee},
-           familyi={L\bibinitperiod},
-           given={Robert\bibnamedelima D},
-           giveni={R\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Google Patents}%
-      }
-      \strng{namehash}{dc45779c15bf0e9926d65a1d84208158}
-      \strng{fullhash}{f97b4fd7ea6cd27a5a9b2422db643a68}
-      \strng{bibnamehash}{f97b4fd7ea6cd27a5a9b2422db643a68}
-      \strng{authorbibnamehash}{f97b4fd7ea6cd27a5a9b2422db643a68}
-      \strng{authornamehash}{dc45779c15bf0e9926d65a1d84208158}
-      \strng{authorfullhash}{f97b4fd7ea6cd27a5a9b2422db643a68}
-      \field{sortinit}{A}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{month}{08}
-      \field{note}{US Patent 6,438,502}
-      \field{title}{Environmental condition sensor device and method}
-      \field{year}{2002}
     \endentry
     \entry{barber2005microwave}{article}{}
       \name{author}{1}{}{%
@@ -536,6 +472,83 @@
       \field{labeltitlesource}{title}
       \field{title}{Handbook of battery materials}
       \field{year}{2008}
+    \endentry
+    \entry{bonvoisin2017source}{article}{}
+      \name{author}{4}{}{%
+        {{hash=76e37f6bec4591572395f11c276f30c4}{%
+           family={Bonvoisin},
+           familyi={B\bibinitperiod},
+           given={Jérémy},
+           giveni={J\bibinitperiod}}}%
+        {{hash=1de77e262e82a58b1f6969b1f81b3c68}{%
+           family={Mies},
+           familyi={M\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod}}}%
+        {{hash=a33056ca5d0eeb73920f191c50522b15}{%
+           family={Boujut},
+           familyi={B\bibinitperiod},
+           given={Jean-François},
+           giveni={J\bibinithyphendelim F\bibinitperiod}}}%
+        {{hash=bf61f6313828950394e1f55900234929}{%
+           family={Stark},
+           familyi={S\bibinitperiod},
+           given={Rainer},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{69b15f97a625a29755d903b22fac328d}
+      \strng{fullhash}{0ea65012d9539810c5d95f74cfff5456}
+      \strng{bibnamehash}{0ea65012d9539810c5d95f74cfff5456}
+      \strng{authorbibnamehash}{0ea65012d9539810c5d95f74cfff5456}
+      \strng{authornamehash}{69b15f97a625a29755d903b22fac328d}
+      \strng{authorfullhash}{0ea65012d9539810c5d95f74cfff5456}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Open Hardware}
+      \field{number}{1}
+      \field{title}{What is the “source” of open source hardware?}
+      \field{volume}{1}
+      \field{year}{2017}
+      \field{pages}{1\bibrangedash 18}
+      \range{pages}{18}
+    \endentry
+    \entry{BME280}{online}{}
+      \name{author}{1}{}{%
+        {{hash=d2691bddb971d727ae403cee120362a3}{%
+           family={{Bosch Sensortec}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{d2691bddb971d727ae403cee120362a3}
+      \strng{fullhash}{d2691bddb971d727ae403cee120362a3}
+      \strng{bibnamehash}{d2691bddb971d727ae403cee120362a3}
+      \strng{authorbibnamehash}{d2691bddb971d727ae403cee120362a3}
+      \strng{authornamehash}{d2691bddb971d727ae403cee120362a3}
+      \strng{authorfullhash}{d2691bddb971d727ae403cee120362a3}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{OUT OF THE BOX SENSOR SUPPORT}
+      \field{urlday}{26}
+      \field{urlmonth}{2}
+      \field{urlyear}{2021}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.bosch-sensortec.com/products/environmental-sensors/humidity-sensors-bme280/
+      \endverb
+      \verb{url}
+      \verb https://www.bosch-sensortec.com/products/environmental-sensors/humidity-sensors-bme280/
+      \endverb
     \endentry
     \entry{BMP280_Datasheet}{manual}{}
       \name{author}{1}{}{%
@@ -1447,6 +1460,85 @@
       \verb https://www.globalstar.com/en-za/
       \endverb
     \endentry
+    \entry{grosfeld2016online}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{10}{}{%
+        {{hash=9da6a2ecb44acb02185730d556fad509}{%
+           family={Grosfeld},
+           familyi={G\bibinitperiod},
+           given={Klaus},
+           giveni={K\bibinitperiod}}}%
+        {{hash=4dce3f5a0384839b699132b9e89a0341}{%
+           family={Treffeisen},
+           familyi={T\bibinitperiod},
+           given={Renate},
+           giveni={R\bibinitperiod}}}%
+        {{hash=f9b47af9759dad766abbcf84d75fd7a5}{%
+           family={Asseng},
+           familyi={A\bibinitperiod},
+           given={Jölund},
+           giveni={J\bibinitperiod}}}%
+        {{hash=5fe2e79e019dc924450d710332e3a64f}{%
+           family={Bartsch},
+           familyi={B\bibinitperiod},
+           given={Annekathrin},
+           giveni={A\bibinitperiod}}}%
+        {{hash=0748a0da1796b5d944f6ed3f230b9ae0}{%
+           family={Bräuer},
+           familyi={B\bibinitperiod},
+           given={Benny},
+           giveni={B\bibinitperiod}}}%
+        {{hash=cdb0d622af96a4528cdf13590fe01723}{%
+           family={Fritzsch},
+           familyi={F\bibinitperiod},
+           given={Bernadette},
+           giveni={B\bibinitperiod}}}%
+        {{hash=f6eaaf27457a3cf563a389cdb80414d1}{%
+           family={Gerdes},
+           familyi={G\bibinitperiod},
+           given={Rüdiger},
+           giveni={R\bibinitperiod}}}%
+        {{hash=26c34e4bb9c00ab9454da58bbb1b3c1e}{%
+           family={Hendricks},
+           familyi={H\bibinitperiod},
+           given={Stefan},
+           giveni={S\bibinitperiod}}}%
+        {{hash=0bf1f7e919f3861f63549fc0ba097283}{%
+           family={Hiller},
+           familyi={H\bibinitperiod},
+           given={Wolfgang},
+           giveni={W\bibinitperiod}}}%
+        {{hash=24cd3789265306e5baa64cc5b2482906}{%
+           family={Heygster},
+           familyi={H\bibinitperiod},
+           given={Georg},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Bibliothek Wissenschaftspark Albert Einstein}%
+      }
+      \strng{namehash}{134c61a3af04da0b5d0cb0e28c77b565}
+      \strng{fullhash}{3484549c449bbb2fd1740789d223668e}
+      \strng{bibnamehash}{3484549c449bbb2fd1740789d223668e}
+      \strng{authorbibnamehash}{3484549c449bbb2fd1740789d223668e}
+      \strng{authornamehash}{134c61a3af04da0b5d0cb0e28c77b565}
+      \strng{authorfullhash}{3484549c449bbb2fd1740789d223668e}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Polarforschung}
+      \field{number}{2}
+      \field{title}{Online sea-ice knowledge and data platform}
+      \field{volume}{85}
+      \field{year}{2016}
+      \field{pages}{143\bibrangedash 155}
+      \range{pages}{13}
+    \endentry
     \entry{guimaraes2018surface}{article}{}
       \name{author}{9}{}{%
         {{hash=c60d685d66a0702948b7ceee5cd5d84d}{%
@@ -1518,6 +1610,46 @@
       \field{year}{2018}
       \field{pages}{1449\bibrangedash 1460}
       \range{pages}{12}
+    \endentry
+    \entry{ipab}{online}{}
+      \name{author}{2}{}{%
+        {{hash=df5dadd2d3fbb65e0e1641bab398afcd}{%
+           family={Haas},
+           familyi={H\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod}}}%
+        {{hash=3ad02719d659cb912727abe41425dc95}{%
+           family={Nicolaus},
+           familyi={N\bibinitperiod},
+           given={Marcel},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{d9fc6645efddd2592e37c2071caf6d11}
+      \strng{fullhash}{d9fc6645efddd2592e37c2071caf6d11}
+      \strng{bibnamehash}{d9fc6645efddd2592e37c2071caf6d11}
+      \strng{authorbibnamehash}{d9fc6645efddd2592e37c2071caf6d11}
+      \strng{authornamehash}{d9fc6645efddd2592e37c2071caf6d11}
+      \strng{authorfullhash}{d9fc6645efddd2592e37c2071caf6d11}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The International Programme for Antarctic Buoys}
+      \field{urlday}{28}
+      \field{urlmonth}{2}
+      \field{urlyear}{2021}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.ipab.aq/
+      \endverb
+      \verb{url}
+      \verb https://www.ipab.aq/
+      \endverb
     \endentry
     \entry{hibler1979dynamic}{article}{}
       \name{author}{1}{}{%
@@ -2645,6 +2777,78 @@
       \field{pages}{1020\bibrangedash 1034}
       \range{pages}{15}
     \endentry
+    \entry{lee2012program}{article}{}
+      \name{author}{10}{}{%
+        {{hash=9d167007e5cf73b42df0c88aa2c43e67}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Craig\bibnamedelima M},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=c029f2fc81eca08d7ad634fc78323542}{%
+           family={Cole},
+           familyi={C\bibinitperiod},
+           given={Sylvia},
+           giveni={S\bibinitperiod}}}%
+        {{hash=d11ea6706a1c8f641f15ee6440de5e30}{%
+           family={Doble},
+           familyi={D\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=80dbf3e10274d2354b91ff6103a393df}{%
+           family={Freitag},
+           familyi={F\bibinitperiod},
+           given={Lee},
+           giveni={L\bibinitperiod}}}%
+        {{hash=e99a3dffdc1782768f1bf8af9da9985a}{%
+           family={Hwang},
+           familyi={H\bibinitperiod},
+           given={Phil},
+           giveni={P\bibinitperiod}}}%
+        {{hash=a1524f255718b4163195fe734ded5ae9}{%
+           family={Jayne},
+           familyi={J\bibinitperiod},
+           given={Steve},
+           giveni={S\bibinitperiod}}}%
+        {{hash=2d16fb44c01eb996f0582180124471e5}{%
+           family={Jeffries},
+           familyi={J\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=f2494ee6d863143cda09f5356dab41d8}{%
+           family={Krishfield},
+           familyi={K\bibinitperiod},
+           given={Rick},
+           giveni={R\bibinitperiod}}}%
+        {{hash=26ac0bb063492a58d69bd38d3517ad46}{%
+           family={Maksym},
+           familyi={M\bibinitperiod},
+           given={Ted},
+           giveni={T\bibinitperiod}}}%
+        {{hash=220539e20cb733e8656087ae748f8065}{%
+           family={Maslowski},
+           familyi={M\bibinitperiod},
+           given={Wieslaw},
+           giveni={W\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Applied Physics Laboratory, University of Washington, Seattle.}%
+      }
+      \strng{namehash}{4c5f2258feff0a877c11c0c8422a6bc4}
+      \strng{fullhash}{a0f49e1dc894a2e48e857c4287b8d4ff}
+      \strng{bibnamehash}{a0f49e1dc894a2e48e857c4287b8d4ff}
+      \strng{authorbibnamehash}{a0f49e1dc894a2e48e857c4287b8d4ff}
+      \strng{authornamehash}{4c5f2258feff0a877c11c0c8422a6bc4}
+      \strng{authorfullhash}{a0f49e1dc894a2e48e857c4287b8d4ff}
+      \field{extraname}{1}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Marginal Ice Zone (MIZ) program: Science and experiment plan (No. APL-UW 1201)}}
+      \field{year}{2012}
+    \endentry
     \entry{Sanghyun2016satellite}{article}{}
       \name{author}{3}{}{%
         {{hash=30ce317400afb4407c7c565f90bb2ed3}{%
@@ -2669,11 +2873,11 @@
       \strng{authorbibnamehash}{8161f0d5925d731df5812cfdbede8c74}
       \strng{authornamehash}{641f777958b6b0482a8c8a430631bf5b}
       \strng{authorfullhash}{8161f0d5925d731df5812cfdbede8c74}
+      \field{extraname}{2}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
-      \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{International Journal of Satellite Communications and Networking}
@@ -2781,6 +2985,50 @@
       \field{year}{2001}
       \field{pages}{151\bibrangedash 156}
       \range{pages}{6}
+    \endentry
+    \entry{lever2006solar}{article}{}
+      \name{author}{4}{}{%
+        {{hash=e69b614752fb8460733d3a370f0c7856}{%
+           family={Lever},
+           familyi={L\bibinitperiod},
+           given={J.\bibnamedelimi H.},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=6c3d272a8b56c5472d7896ccaa94e62c}{%
+           family={Ray},
+           familyi={R\bibinitperiod},
+           given={L.\bibnamedelimi R.},
+           giveni={L\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=db87ec1de649ea89a60e32331508b88f}{%
+           family={Streeter},
+           familyi={S\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=7ce2d3e4c3e547b9ec969c510bf4c3be}{%
+           family={Price},
+           familyi={P\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{3472fcc4739d5a8496ad82654b1bd522}
+      \strng{fullhash}{b035033e32101ed895e8cf2280303a2b}
+      \strng{bibnamehash}{b035033e32101ed895e8cf2280303a2b}
+      \strng{authorbibnamehash}{b035033e32101ed895e8cf2280303a2b}
+      \strng{authornamehash}{3472fcc4739d5a8496ad82654b1bd522}
+      \strng{authorfullhash}{b035033e32101ed895e8cf2280303a2b}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Hydrological Processes}
+      \field{number}{4}
+      \field{title}{Solar power for an Antarctic rover}
+      \field{volume}{20}
+      \field{year}{2006}
+      \field{pages}{629\bibrangedash 644}
+      \range{pages}{16}
     \endentry
     \entry{liquidrobot2016wave}{report}{}
       \name{author}{1}{}{%
@@ -3091,6 +3339,43 @@
       \field{series}{Port and Ocean Engineering under Arctic Conditions}
       \field{title}{Modelling the dynamics of ice in the {Antarctic} marginal ice zone}
       \field{year}{2019}
+    \endentry
+    \entry{seastatediag}{online}{}
+      \name{author}{1}{}{%
+        {{hash=598963781c4103a901969cf4d7b5fd2c}{%
+           family={Mazarakis},
+           familyi={M\bibinitperiod},
+           given={Nikos},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{598963781c4103a901969cf4d7b5fd2c}
+      \strng{fullhash}{598963781c4103a901969cf4d7b5fd2c}
+      \strng{bibnamehash}{598963781c4103a901969cf4d7b5fd2c}
+      \strng{authorbibnamehash}{598963781c4103a901969cf4d7b5fd2c}
+      \strng{authornamehash}{598963781c4103a901969cf4d7b5fd2c}
+      \strng{authorfullhash}{598963781c4103a901969cf4d7b5fd2c}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{5}
+      \field{month}{9}
+      \field{title}{Why {Douglas} Sea State 3 Should be Eliminated from Good Weather Clauses}
+      \field{urlday}{28}
+      \field{urlmonth}{2}
+      \field{urlyear}{2021}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.stormgeo.com/products/s-suite/s-routing/articles/why-douglas-sea-state-3-should-be-eliminated-from-good-weather-clauses/
+      \endverb
+      \verb{url}
+      \verb https://www.stormgeo.com/products/s-suite/s-routing/articles/why-douglas-sea-state-3-should-be-eliminated-from-good-weather-clauses/
+      \endverb
     \endentry
     \entry{meng2014optimal}{article}{}
       \name{author}{3}{}{%
@@ -3455,32 +3740,63 @@
       \field{pages}{18\bibrangedash 26}
       \range{pages}{9}
     \endentry
-    \entry{pollock2017thermocouples}{book}{}
+    \entry{BTQ1000EX}{online}{}
       \name{author}{1}{}{%
-        {{hash=19948062693a8da4c1766345b6c9df59}{%
-           family={Pollock},
-           familyi={P\bibinitperiod},
-           given={DanielD},
-           giveni={D\bibinitperiod}}}%
+        {{hash=d0f8ddf01f2116b657e35cc0c9ac00fa}{%
+           family={QStarz},
+           familyi={Q\bibinitperiod}}}%
       }
-      \list{publisher}{1}{%
-        {Routledge}%
+      \strng{namehash}{d0f8ddf01f2116b657e35cc0c9ac00fa}
+      \strng{fullhash}{d0f8ddf01f2116b657e35cc0c9ac00fa}
+      \strng{bibnamehash}{d0f8ddf01f2116b657e35cc0c9ac00fa}
+      \strng{authorbibnamehash}{d0f8ddf01f2116b657e35cc0c9ac00fa}
+      \strng{authornamehash}{d0f8ddf01f2116b657e35cc0c9ac00fa}
+      \strng{authorfullhash}{d0f8ddf01f2116b657e35cc0c9ac00fa}
+      \field{sortinit}{Q}
+      \field{sortinithash}{ce69a400a872ddd02ee7fdb3b38c6abd}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{BT-Q1000eX}
+      \field{urlday}{25}
+      \field{urlmonth}{2}
+      \field{urlyear}{2021}
+      \field{year}{2013}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://www.qstarz.com/Products/GPS%20Products/BT-Q1000EX-10HZ-F.html
+      \endverb
+      \verb{url}
+      \verb http://www.qstarz.com/Products/GPS%20Products/BT-Q1000EX-10HZ-F.html
+      \endverb
+    \endentry
+    \entry{rabault2018investigation}{article}{}
+      \name{author}{1}{}{%
+        {{hash=6a5e764ed0ccb9c472d1b065942f2766}{%
+           family={Rabault},
+           familyi={R\bibinitperiod},
+           given={Jean},
+           giveni={J\bibinitperiod}}}%
       }
-      \strng{namehash}{19948062693a8da4c1766345b6c9df59}
-      \strng{fullhash}{19948062693a8da4c1766345b6c9df59}
-      \strng{bibnamehash}{19948062693a8da4c1766345b6c9df59}
-      \strng{authorbibnamehash}{19948062693a8da4c1766345b6c9df59}
-      \strng{authornamehash}{19948062693a8da4c1766345b6c9df59}
-      \strng{authorfullhash}{19948062693a8da4c1766345b6c9df59}
-      \field{sortinit}{P}
-      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \strng{namehash}{6a5e764ed0ccb9c472d1b065942f2766}
+      \strng{fullhash}{6a5e764ed0ccb9c472d1b065942f2766}
+      \strng{bibnamehash}{6a5e764ed0ccb9c472d1b065942f2766}
+      \strng{authorbibnamehash}{6a5e764ed0ccb9c472d1b065942f2766}
+      \strng{authornamehash}{6a5e764ed0ccb9c472d1b065942f2766}
+      \strng{authorfullhash}{6a5e764ed0ccb9c472d1b065942f2766}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Thermocouples: theory and properties}
-      \field{year}{2017}
+      \field{journaltitle}{arXiv preprint arXiv:1810.07022}
+      \field{title}{An investigation into the interaction between waves and ice}
+      \field{year}{2018}
     \endentry
     \entry{rabault2017measurements}{article}{}
       \name{author}{4}{}{%
@@ -3757,6 +4073,39 @@
       \field{pages}{e2019GL086729}
       \range{pages}{-1}
     \endentry
+    \entry{MPX5100AP}{online}{}
+      \name{author}{1}{}{%
+        {{hash=ea215ec6203dae21594979add1078e43}{%
+           family={{RS Components}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{ea215ec6203dae21594979add1078e43}
+      \strng{fullhash}{ea215ec6203dae21594979add1078e43}
+      \strng{bibnamehash}{ea215ec6203dae21594979add1078e43}
+      \strng{authorbibnamehash}{ea215ec6203dae21594979add1078e43}
+      \strng{authornamehash}{ea215ec6203dae21594979add1078e43}
+      \strng{authorfullhash}{ea215ec6203dae21594979add1078e43}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{NXP MPX5100AP}
+      \field{urlday}{26}
+      \field{urlmonth}{2}
+      \field{urlyear}{2021}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://ie.rs-online.com/web/p/pressure-sensor-ics/9227342/
+      \endverb
+      \verb{url}
+      \verb https://ie.rs-online.com/web/p/pressure-sensor-ics/9227342/
+      \endverb
+    \endentry
     \entry{samaun1971ic}{article}{}
       \name{author}{4}{}{%
         {{hash=389c987bd9db5c1ac3be808e06859b7d}{%
@@ -3862,16 +4211,16 @@
     \endentry
     \entry{sts2021website}{online}{}
       \name{author}{1}{}{%
-        {{hash=5921cb001ab269debd36cfe81102a30a}{%
-           family={{Sea Technology Serivces}},
+        {{hash=be66808c5ddddd91546200871ab8713c}{%
+           family={{Sea Technology Services}},
            familyi={S\bibinitperiod}}}%
       }
-      \strng{namehash}{5921cb001ab269debd36cfe81102a30a}
-      \strng{fullhash}{5921cb001ab269debd36cfe81102a30a}
-      \strng{bibnamehash}{5921cb001ab269debd36cfe81102a30a}
-      \strng{authorbibnamehash}{5921cb001ab269debd36cfe81102a30a}
-      \strng{authornamehash}{5921cb001ab269debd36cfe81102a30a}
-      \strng{authorfullhash}{5921cb001ab269debd36cfe81102a30a}
+      \strng{namehash}{be66808c5ddddd91546200871ab8713c}
+      \strng{fullhash}{be66808c5ddddd91546200871ab8713c}
+      \strng{bibnamehash}{be66808c5ddddd91546200871ab8713c}
+      \strng{authorbibnamehash}{be66808c5ddddd91546200871ab8713c}
+      \strng{authornamehash}{be66808c5ddddd91546200871ab8713c}
+      \strng{authorfullhash}{be66808c5ddddd91546200871ab8713c}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{extradatescope}{labelyear}
@@ -3964,6 +4313,41 @@
       \field{year}{2001}
       \field{pages}{72\bibrangedash 79}
       \range{pages}{8}
+    \endentry
+    \entry{s1315F}{online}{}
+      \name{author}{1}{}{%
+        {{hash=745fa0cbdb15cfd5340d89b422a224ba}{%
+           family={SparkFun},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{745fa0cbdb15cfd5340d89b422a224ba}
+      \strng{fullhash}{745fa0cbdb15cfd5340d89b422a224ba}
+      \strng{bibnamehash}{745fa0cbdb15cfd5340d89b422a224ba}
+      \strng{authorbibnamehash}{745fa0cbdb15cfd5340d89b422a224ba}
+      \strng{authornamehash}{745fa0cbdb15cfd5340d89b422a224ba}
+      \strng{authorfullhash}{745fa0cbdb15cfd5340d89b422a224ba}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{20}
+      \field{month}{4}
+      \field{title}{GPS Receiver Module SMD - S1315F}
+      \field{urlday}{25}
+      \field{urlmonth}{2}
+      \field{urlyear}{2021}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.sparkfun.com/products/retired/14239
+      \endverb
+      \verb{url}
+      \verb https://www.sparkfun.com/products/retired/14239
+      \endverb
     \endentry
     \entry{spilker1996global}{book}{}
       \name{author}{4}{}{%
@@ -4470,6 +4854,40 @@
       \verb https://www.erdc.usace.army.mil/Media/Fact-Sheets/Fact-Sheet-Article-View/Article/553850/crrel-ice-mass-balance-imb-buoy-program/
       \endverb
     \endentry
+    \entry{PTB110}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=6927efc4e34c833b9b459400077a1514}{%
+           family={Vaisala},
+           familyi={V\bibinitperiod}}}%
+      }
+      \strng{namehash}{6927efc4e34c833b9b459400077a1514}
+      \strng{fullhash}{6927efc4e34c833b9b459400077a1514}
+      \strng{bibnamehash}{6927efc4e34c833b9b459400077a1514}
+      \strng{authorbibnamehash}{6927efc4e34c833b9b459400077a1514}
+      \strng{authornamehash}{6927efc4e34c833b9b459400077a1514}
+      \strng{authorfullhash}{6927efc4e34c833b9b459400077a1514}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{B210681EN-E}
+      \field{title}{BAROCAP Barometer PTB110}
+      \field{urlday}{26}
+      \field{urlmonth}{2}
+      \field{urlyear}{2021}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.vaisala.com/sites/default/files/documents/PTB110-Datasheet-B210681EN.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.vaisala.com/sites/default/files/documents/PTB110-Datasheet-B210681EN.pdf
+      \endverb
+    \endentry
     \entry{varvasovszky2000stakeholder}{article}{}
       \name{author}{2}{}{%
         {{hash=eff8dd0e4e6fbe27294786c4e4674b5e}{%
@@ -4661,6 +5079,48 @@
       \field{year}{2019}
       \field{pages}{4560\bibrangedash 4572}
       \range{pages}{13}
+    \endentry
+    \entry{wadhams1987ice}{article}{}
+      \name{author}{3}{}{%
+        {{hash=41c2a21337a6a6c59c1f5f57e471c2e9}{%
+           family={Wadhams},
+           familyi={W\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=838be196ced1cd540298481f17d785d6}{%
+           family={Lange},
+           familyi={L\bibinitperiod},
+           given={Manfred\bibnamedelima A},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=79e22fcb11f45c70c75d75c8150337e1}{%
+           family={Ackley},
+           familyi={A\bibinitperiod},
+           given={Stephen\bibnamedelima F},
+           giveni={S\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{3678eb91e04860e9d4dad75bebac262e}
+      \strng{fullhash}{3c2af81a44270473709c3d3682aa9d1a}
+      \strng{bibnamehash}{3c2af81a44270473709c3d3682aa9d1a}
+      \strng{authorbibnamehash}{3c2af81a44270473709c3d3682aa9d1a}
+      \strng{authornamehash}{3678eb91e04860e9d4dad75bebac262e}
+      \strng{authorfullhash}{3c2af81a44270473709c3d3682aa9d1a}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Geophysical Research: Oceans}
+      \field{number}{C13}
+      \field{title}{The ice thickness distribution across the {Atlantic} sector of the {Antarctic} Ocean in midwinter}
+      \field{volume}{92}
+      \field{year}{1987}
+      \field{pages}{14535\bibrangedash 14552}
+      \range{pages}{18}
     \endentry
     \entry{welch1967use}{article}{}
       \name{author}{1}{}{%

@@ -1,16 +1,17 @@
 
 \chapter{Literature Review}
 \label{ch:chapter2}
-As highlighted by section \ref{sec:ch1.section1}, there is a great desire by research scientists for in situ instruments to provide observation data which fills spatial and temporal measurement gaps in Antarctic sea ice monitoring in the Southern Ocean as shown in figure \ref{fig:Antarctica_Southern_Ocean}. This chapter investigates the current use of autonomous monitoring technology used by research scientists in this region focusing on progress made to improving in situ observations and highlighting areas for improvement.
-
+As highlighted by section \ref{sec:ch1.section1}, there is a great desire by research scientists for in situ instruments to provide observation data which fills spatial and temporal measurement gaps in Antarctic sea ice monitoring in the Southern Ocean as shown in figure \ref{fig:Antarctica_Southern_Ocean}. This chapter investigates the current use of autonomous monitoring technology used by research scientists in this region focusing on progress made to improving in situ observations and highlighting areas for improvement. 
 \begin{figure}[H]
-	\centering
+	\centering. 
 	\includegraphics[width = 10cm,height=10cm]{Antarctica_and_the_Southern_Ocean.png}
 	\caption{Map of the Southern Ocean surrounding the Antarctic continent. Image created by \textcite{Hogweed2015Ocean} and licensed by CC BY-SA 3.0}
 	\label{fig:Antarctica_Southern_Ocean}
 \end{figure}
 
-
+ In this review, a system-level  analysis will be provided where the objectives of each buoy will be discussed in the contexts of the requirements for new technology as highlighted by \textcite{kennicutt2016delivering}.This will include an analysis on how these devices operated in remote conditions and the communication techniques employed in spite of a lack of infrastructure. The system-level analysis will conclude with a discussion of the device measurement objectives, their performance in the Antarctic sea ice region and how this performance compares to their deployment in the Arctic region.\par
+ 
+Next, a subsystem level analysis will be provided discussing how each device met their measurement objectives, what technology was used and how this technology works. Additionally, a comparison of different techniques for each subsystem will be provided among devices with similar components and, where possible, a discussion of their accuracy. This section will also highlight the critical measurement objectives of each device to understand which sub-modules are the most important for remote sensing. Finally, the processing architecture will be discussed in the context of how they were implemented in the devices, what purpose they serve and how the data requirements for each device's sensors were met.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
@@ -25,10 +26,10 @@ Autonomous instrumentation has seen increased use for in situ observations in th
 	\label{fig:devblockdiag}
 \end{figure}
 
-In this section, a comparison of data collection devices used in the polar regions is presented as well as  description of their design, opperation and deployment. Where possible, certain specifications have been converted into standardised formats. To ensure a fair evaluation, data were collected from the latest technical publication of each platform where possible. These publications may not contain all relevant data. In this case, the data entry has been marked with a "Not reported" or "NR". Figure \ref{fig:buoys}.
+In this section, a comparison of data collection devices used in the polar regions is presented as well as  description of their design, operation and deployment. Where spossible, certain specifications have been converted into standardized formats. To ensure a fair evaluation, data were collected from the latest technical publication of each platform where possible. These publications may not contain all relevant data. In this case, the data entry has been marked with a "Not reported" or "NR". 
 
 
-Eight platforms were selected for the comparison with each device designed by a private company or an institution. The key collaborators as well as the name of the institution are provided in table \ref{tab:device_list}. Where a buoy name is not given, the device will be named after the key contributor to the project. These systems have been selected due to their prevalence in global polar/ oceanographic science as well as notability in publications. Device performance will be evaluated in the context of the requirements set out by \textcite{kennicutt2016delivering} for an autonomous in situ measurement device shown in section \ref{sec:ch1.section1}. 
+Eight platforms were selected for the comparison and are shown in figure \ref{fig:buoys} with each device designed by a private company or an institution. The key collaborators as well as the name of the institution are provided in table \ref{tab:device_list}. Where a buoy name is not given, the device will be named after the key contributor to the project. These systems have been selected due to their prevalence in global polar/ oceanographic science as well as notability in publications. Device performance will be evaluated in the context of the requirements set out by \textcite{kennicutt2016delivering} for an autonomous in situ measurement device shown in section \ref{sec:ch1.section1}. 
 
 \label{ch2:secdevice}
 \begin{figure}[H]
@@ -126,7 +127,7 @@ Eight platforms were selected for the comparison with each device designed by a 
 \end{figure}
 
 
-A device that has sufficient autonomous and sustained capabilities will operate remotely with no human intervention. Therefore, the operating period of each device will be compared. This is the period between deployment and final transmission where the buoy is active. Additionally, the techniques for remote communication for each buoy will be examined in terms of data rates, coverage and transmission strategy to determine the techniques used to achieve remote communication effectively including a brief over view of available satellite networks. Then, to measure the sensing capabilities of each device, the measurement objectives of each device will be discussed as well as the hardware modules and software used to determine information. To compare the real time data collection, transfer and analysis, the device's processing strategy and storage strategies will be discussed. Data transfer techniques will be analysed with the remote communication section. Finally, device performance in the polar regions will be discussed through the success of each deployment, device deployment time, data integrity will be compared as well as devices that failed and the causes of those failures.
+A device that has sufficient autonomous and sustained capabilities will operate remotely with no human intervention. Therefore, the operating period of each device will be compared. This is the period between deployment and final transmission where the buoy is active. Additionally, the techniques for remote communication for each buoy will be examined in terms of data rates, coverage and transmission strategy to determine the techniques used to achieve remote communication effectively including a brief overview of available satellite networks. Then, to measure the sensing capabilities of each device, the measurement objectives will be discussed as well as the hardware modules and software used to determine information. To compare the real time data collection, transfer and analysis, the device's processing strategy and storage strategies will be discussed. Data transfer techniques will be analysed with the remote communication section. Finally, device performance in the polar regions will be discussed through the success of each deployment, device deployment time, data integrity will be compared as well as devices that failed and the causes of those failures.
 
 \begin{center}{\setlength{\extrarowheight}{5pt}%
 		\begin{longtable}[H]{|>{\RaggedRight}m{0.3\textwidth}|>{\RaggedRight}m{0.2\textwidth}| >{\RaggedRight}m{0.4\textwidth}|}
@@ -145,11 +146,9 @@ A device that has sufficient autonomous and sustained capabilities will operate 
 			\hline
 			Surface Wave Instrument Float with Tracking (SWIFT) Buoy & Jim Thompson & University of Washington Applied Physics Laboratory, United States of America \cite{thomson2012wave}\\
 			\hline
-			Seasonal Ice Mass Balance Buoy (SIMB) & Donald K. Perovich & Dartmouth College \\
+			Seasonal Ice Mass Balance Buoy (SIMB) & Donald K. Perovich & Dartmouth College \cite{planck2019evolution} \\
 			\hline
 			Polar ISVP & MetOcean & MetOcean \\
-			\hline
-			UptempO & MetOcean & MetOcean \\
 			\hline
 			Trident Buoy & Trident Sensor & Trident Sensor \\
 			\hline
@@ -163,7 +162,7 @@ A device that has sufficient autonomous and sustained capabilities will operate 
 \subsection{Remote Communication}
 \label{ch2:sec_remote}
 
-On the Antarctic continent, remote communication is critical for ongoing scientific activities allowing for data to be transmitted from instruments to research stations and camps \cite{Sanghyun2016satellite}. These activities are further supported by high speed, high bandwidth communication networks such as fibre links \cite{jabbar2001multi} however, these networks have been implemented on a small scale to support permanent field camps \cite{Sanghyun2016satellite} on the continent. \textcite{Sanghyun2016satellite} show that communication from polar stations and field sensors to the rest of the world occurs using satellite constellation networks \cite{Sanghyun2016satellite}. These constellations are classified as  geostationary earth orbit such as Inmarsat \cite{inmarsat2021website} and Intelsat \cite{intelsat2021website} or low earth orbit (LEO) such as ORBCOMM \cite{orbcomm2021website}, Iridium \cite{iridium2019website}, Globalstar \cite{globalstar2021website} \cite{jabbar2001multi}. GEO satellites consist of 2 - 8 satellites orbiting the equator \cite{jabbar2001multi}. As a result, the network coverage is strong for mid-latitudes and weak for low latitudes. However, these satellites cover large areas providing longer connectivity (of up to 6.5 hours) \cite{Sanghyun2016satellite}. LEO satellites cover less surface area and have a smaller connectivity window (10 - 30 minutes). However, these constellations consist of more satellites. Additionally, the Iridium satellite network is the only LEO network that reaches the polar region \cite{jabbar2001multi} and allow for longer network connectivity. The constellation consists of 66 satellites \cite{Sanghyun2016satellite} and is well optimised for marine applications making it suitable for Southern Ocean sea ice applications. Iridium is a satellite network with global coverage and a variety of modems for various IoT uses. The company offers four main data services. Each service places constraints on the data transmission rates, bandwidth and modem selection. Each modem runs a data service that dictates the transmission rates, bandwidth and protocols.  Table \ref{tab:iridium service} shows the available network services. Furthermore, a full description of these modems is shown in table \ref{tab:ir_devices}. \par 
+On the Antarctic continent, remote communication is critical for ongoing scientific activities allowing for data to be transmitted from instruments to research stations and camps \cite{Sanghyun2016satellite}. These activities are further supported by high speed, high bandwidth communication networks such as fibre links \cite{jabbar2001multi} however, these networks have been implemented on a small scale to support permanent field camps \cite{Sanghyun2016satellite} on the continent. \textcite{Sanghyun2016satellite} show that communication from polar stations and field sensors to the rest of the world occurs using satellite constellation networks. These constellations are classified as  geostationary earth orbit such as Inmarsat \cite{inmarsat2021website} and Intelsat \cite{intelsat2021website} or low earth orbit (LEO) such as ORBCOMM \cite{orbcomm2021website}, Iridium \cite{iridium2019website}, Globalstar \cite{globalstar2021website} \cite{jabbar2001multi}. GEO satellites consist of 2 - 8 satellites orbiting the equator \cite{jabbar2001multi}. As a result, the network coverage is strong for mid-latitudes and weak for low latitudes. However, these satellites cover large areas providing longer connectivity (of up to 6.5 hours) \cite{Sanghyun2016satellite}. LEO satellites cover less surface area and have a smaller connectivity window (10 - 30 minutes). However, these constellations consist of more satellites. Additionally, the Iridium satellite network is the only LEO network that reaches the polar region \cite{jabbar2001multi} and allow for longer network connectivity. The constellation consists of 66 satellites \cite{Sanghyun2016satellite} and is well optimised for marine applications making it suitable for Southern Ocean sea ice applications. Iridium is a satellite network with global coverage and a variety of modems for various IoT uses. The company offers four main data services. Each service places constraints on the data transmission rates, bandwidth and modem selection. Each modem runs a data service that dictates the transmission rates, bandwidth and protocols.  Table \ref{tab:iridium service} shows the available network services. Furthermore, a full description of these modems is shown in table \ref{tab:ir_devices}. \par 
 
 \begin{figure}[H]
 	\centering
@@ -252,7 +251,7 @@ Batteries such as lithium-ion are commonly used as sources of power for in situ 
 	\item Secondary: Cells that can be recharged. These cells are more cost effective with longer usage cycles \cite{besenhard2008handbook}.
 \end{enumerate}
 
-Lithium  Ion and Alkaline batteries are examples of primary cells that have commonly been used as they provide a cost effective solution due to their high energy density and long-term consistent life cycles \cite{zareer2018review}.  Secondary cells such as lead-acid, nickel-metal hydride and lithium polymer are commonly used coupled with a secondary charging circuit such as a solar panel \cite{manimekalai2013overview} to provide a more constant source of power. While batteries are cost effective solutions, the climate of the Southern ocean can affect the battery performance. Freezing air temperatures can reduce the capacity of a standard lithium cell by up to 50\% for temperatures below $-10^\circ C$ \cite{doble2017robust,ZHANG2003137}. Additionally, frozen batteries/ ice formation on batteries can stop them from working \cite{doble2017robust,manimekalai2013overview}.A solution to compensate for this reduction is to use rechargeable batteries coupled with a renewable power sources such as solar \cite{doble2017robust,rabault2019open}, wind and geothermal energy \cite{manimekalai2013overview}.Solar photovotaic (PV) cells is the fastest growing renewable energy source with the highest energy density \cite{jordehi2016parameter}. PVs have numerous advantages such as low maintenance and operational costs, wide temperature operations and long life-cycles \cite{jordehi2016parameter} which makes them ideal for long term operation in remote environments. However, the power output of PV cells are significantly affected by weather conditions \cite{sharma2015solar}. Therefore, areas with poor sunlight coverage will not benefit from solar panels. Additionally, power generation from solar panels is inconsistent and requires an additional storage bank capable of frequent charging and discharging. Wind energy can provide a viable alternative to solar energy. \textcite{vichi2019effects} show that the Southern Ocean hosts strong, consistent winds. However, the design and implementations have not been discussed in any of the literature. Therefore this options is provided as an area for future research. Finally, a critical component of the power system is a battery management system. This allows the power supply to opperate under safe conditions while meeting performance requiremnt \cite{vidal2019xev}. This module includes power monitoring, power control and energy cycle optimization. Table \ref{tab:device_power_source} below shows the power sources used by each device and the strategy used to manage it.
+Lithium  Ion and Alkaline batteries are examples of primary cells that have commonly been used as they provide a cost effective solution due to their high energy density and long-term consistent life cycles \cite{zareer2018review}.  Secondary cells such as lead-acid, nickel-metal hydride and lithium polymer are commonly used coupled with a secondary charging circuit such as a solar panel \cite{manimekalai2013overview} to provide a more constant source of power. While batteries are cost effective solutions, the climate of the Southern ocean can affect the battery performance. Freezing air temperatures can reduce the capacity of a standard lithium cell by up to 50\% for temperatures below $-10^\circ C$ \cite{doble2017robust,ZHANG2003137}. Additionally, frozen batteries/ ice formation on batteries can stop them from working \cite{doble2017robust,manimekalai2013overview}. A solution to compensate for this reduction is to use rechargeable batteries coupled with a renewable power sources such as solar \cite{doble2017robust,rabault2019open}, wind and geothermal energy \cite{manimekalai2013overview}. Solar photovotaic (PV) cells is the fastest growing renewable energy source with the highest energy density \cite{jordehi2016parameter}. PVs have numerous advantages such as low maintenance and operational costs, wide temperature operations and long life-cycles \cite{jordehi2016parameter} which makes them ideal for long term operation in remote environments. However, the power output of PV cells are significantly affected by weather conditions \cite{sharma2015solar}. Therefore, areas with poor sunlight coverage will not benefit from solar panels.Therefore this energy source is not suitable for winter Antarctic expeditions due to the lack of sunlight \cite{lever2006solar}. Additionally, power generation from solar panels is inconsistent and requires an additional storage bank capable of frequent charging and discharging. Wind energy can provide a viable alternative to solar energy. \textcite{vichi2019effects} show that the Southern Ocean hosts strong, consistent winds. However, the design and implementations have not been discussed in any of the literature. Therefore this options is provided as an area for future research. Finally, a critical component of the power system is a battery management system. This allows the power supply to operate under safe conditions while meeting performance requirements \cite{vidal2019xev}. This module includes power monitoring, power control and energy cycle optimization. Table \ref{tab:device_power_source} below shows the power sources used by each device and the strategy used to manage it.
 \begin{table}[H]
 	\centering
 	
@@ -285,11 +284,11 @@ Lithium  Ion and Alkaline batteries are examples of primary cells that have comm
 \end{table}
 \footnotetext{Information available online at \url{https://github.com/jerabaul29/LoggerWavesInIce_InSituWithIridium/blob/master/ElectronicsList/list.md}}
 
-Table \ref{tab:device_power_source} shows the power supply strategies of each device. All systems use primary batteries as a source of power with the most common choice being alkaline or lithium-based batteries. However, \textcite{doble2017robust} is the only exception where a secondary power source was adde consisting of a solar panel and lead-acid batteries. Systems deployed in the Arctic Marginal Ice Zone have been designed with a recharging system such as a solar panel in the case of WII Buoy and NDWB, however, most long-range deployment buoys have opted for non-rechargeable systems composed of Lithium Thionyl Chloride (LISOCL2) or Alkaline batteries. In the case of the high-power buoys (SIMB, WIIOS, NDWB, Polar ISVP) an array of 3.3V -3.7V cells is connected to provide a nominal voltage in series with a regulator to provide a stable output. The strategy for each system is to pack as many batteries in as possible to satisfy the long-term energy requirements \cite{doble2017robust,rabault2019open}. Finally, few devices have reported their battery management strategies. \textcite{rabault2019open} used an ATMega328P microcontroller as a power controller for their device which monitored the status of the battery. \textcite{trident} and \textcite{kohout2015device} however integrated power control into their main firmware allowing for them to control and monitor their power source off a single processor.
+Table \ref{tab:device_power_source} shows the power supply strategies of each device. All systems use primary batteries as a source of power with the most common choice being alkaline or lithium-based batteries. However, \textcite{doble2017robust} is the only exception where a secondary power source was added consisting of a solar panel and lead-acid batteries. As a consequence of the added power system the NDWB had an increased weight which affected its portability and ease of handling. This will be discussed further in subsection \ref{subsec:sec2_overallcost}. Furthermore, systems deployed in the Arctic Marginal Ice Zone have been designed with a recharging system such as a solar panel in the case of WII Buoy and NDWB, however, most long-range deployment buoys have opted for non-rechargeable systems composed of lithium thionyl chloride (LISOCL2) or alkaline batteries. In the case of the high-power buoys (SIMB, WIIOS, NDWB, Polar ISVP) an array of 3.3V -3.7V cells is connected to provide a nominal voltage in series with a regulator to provide a stable output. The strategy for each system is to pack as many batteries in as possible to satisfy the long-term energy requirements \cite{doble2017robust,rabault2019open}. Finally, few devices have reported their battery management strategies. \textcite{rabault2019open} used an ATMega328P microcontroller as a power controller for their device which monitored the status of the battery. \textcite{trident} and \textcite{kohout2015device} however integrated power control into their main firmware allowing for them to control and monitor their power source off a single processor.
 
 \subsection{Polar Performance}
 
-This section outlines the deployment of the systems in the Arctic/Antarctic marginal ice zones and compares the survivability and performance of each system. The focus of this section will be predominantly on devices deployed in the marginal ice zone. Table \ref{tab:device_components} shows the significant deployment locations in the Arctic and Antarctic sea ice zones as well as the deployment objectives of each device. 
+This section outlines the deployment of the systems in the Arctic/Antarctic marginal ice zones and compares the survivability and performance of each system. The focus of this section will be predominantly on devices deployed in the marginal ice zone. Table \ref{tab:device_deployment} shows the significant deployment locations in the Arctic and Antarctic sea ice zones as well as the deployment objectives of each device. 
 
 \begin{table}[H]
 	\centering
@@ -299,7 +298,7 @@ This section outlines the deployment of the systems in the Arctic/Antarctic marg
 	\resizebox{\textwidth}{!}{
 		\begin{tabular}{|l| >{\raggedright\arraybackslash}m{5cm}|>{\raggedright\arraybackslash}m{5.4cm}|>{\raggedright\arraybackslash}m{5cm}|}
 			\hline
-			\textbf{Device name} & \textbf{Deployment objectives} & \textbf{Antarctica Deployments} & \textbf{Arctic deployments}\\
+			\textbf{Device name} & \textbf{Deployment objectives} & \textbf{Antarctic Deployments} & \textbf{Arctic deployments}\\
 			\hline
 			\multirow{3}{*}{WIIB} & Wave energy attenuation &  Ross Sea landfast ice \cite{rabault2020development} &  Templefjord (Svalbard) landfast ice \cite{rabault2019open} \\
 			& Significant wave height &  & Northeast Barents sea \cite{rabault2019open}\\
@@ -307,7 +306,7 @@ This section outlines the deployment of the systems in the Arctic/Antarctic marg
 			\hline
 			\multirow{5}{5cm}{WIIOS} &Ice drift&Ross sea marginal ice zone \cite{kohout_smith_roach_williams_montiel_williams_2020}&\multirow{5}{*}{-}\\ 
 			& Waves in ice & Ross Sea packed ice zone \cite{kohout2015device} & \\ 
-			& Ambient temperature & Weddel Sea marginal ice zone \cite{albarello2020drift}& \\
+			& Ambient temperature & Weddel Sea marginal ice zone \cite{vichi2019effects,albarello2020drift}& \\
 			& Atmospheric pressure && \\
 			\hline
 			\multirow{4}{*}{NDWB} & Ice drift  & \multirow{4}{*}{ - } & \multirow{4}{5cm}{Beaufort sea \cite{doble2017robust}} \\
@@ -332,11 +331,11 @@ This section outlines the deployment of the systems in the Arctic/Antarctic marg
 			& Vertical temperature profile& & \\
 			& GPS Location&&\\
 			\hline
-			\multirow{3}{*}{Polar ISVP} & Sea ice drift & \multirow{3}{5.4cm}{Weddel Sea marginal ice zone \cite{deVos2021evaluating}} & \multirow{3}{5cm}{Western Arctic Ocean \cite{lei2020comparisons}}\\
+			\multirow{3}{*}{Polar ISVP} & Sea ice drift & \multirow{3}{5.4cm}{Weddel Sea marginal ice zone \cite{deVos2021evaluating,grosfeld2016online,ipab}} & \multirow{3}{5cm}{Western Arctic Ocean \cite{lei2020comparisons}}\\
 			& Ambient temperature & &\\
 			& Atmospheric pressure &&\\
 			\hline
-			\multirow{3}{*}{Trident} & Sea ice drift & \multirow{3}{5.4cm}{Weddel sea \cite{alberello2019drift}}
+			\multirow{3}{*}{Trident} & Sea ice drift & \multirow{3}{5.4cm}{Weddel sea \cite{vichi2019effects,alberello2019drift}}
 			& \multirow{3}{*}{-}\\
 			& Ambient temperature & &\\
 			& Battery voltage &&\\
@@ -346,7 +345,7 @@ This section outlines the deployment of the systems in the Arctic/Antarctic marg
 \end{table}
 
 \textcite{kohout2015device} deployed five Wave in Ice Observational Systems (WIIOS) in the East Antarctic marginal ice zone during the Sea Ice Physics and Ecosystem Experiment (SIPEX) mission\footnote{1st deployment occured September 2012 \cite{kohout2015device}} with the goal of capturing wave in ice events with measurement goals shown in table \ref{tab:device_deployment}. Three devices were deployed by helicopters on ice floes while two devices were deployed via the ships crane. \textcite{kohout2015device}
-note that deployment via crane was successful in spite of 7 m swell and 25 $m.s^{-1}$ winds. The device was fitted inside a Pelican box with a sealed membrane surrounded by a tyre for protection and flotation in case of melting \cite{kohout2015device}. Consequently, this places the buoy directly on the surface of the floe rendering it susceptible to snow build up and flooding as mentioned in the previous sections.  After deployment, the crew received 600 samples of data over 39 days in total. However, the first device failed 20 hours after deployment coinciding with the first large wave event captured the buoys \cite{kohout2015device}. The second large wave event resulted in the failure of two more systems just 9 days after deployment \cite{kohout2015device}. The fourth buoy lasted for 17.5 days. The final buoy survived the longest at 39 days. As a result only one device lasted for the expected time with the majority of data captured during calm events.
+note that deployment via crane was successful in spite of 7 m swell and 25 $m \text{ }s^{-1}$ winds. The device was fitted inside a Pelican box with a sealed membrane surrounded by a tyre for protection and flotation in case of melting \cite{kohout2015device}. Consequently, this places the buoy directly on the surface of the floe rendering it susceptible to snow build up and flooding as mentioned in the previous sections.  After deployment, the crew received 600 samples of data over 39 days in total. However, the first device failed 20 hours after deployment coinciding with the first large wave event captured the buoys \cite{kohout2015device}. The second large wave event resulted in the failure of two more systems just 9 days after deployment \cite{kohout2015device}. The fourth buoy lasted for 17.5 days. The final buoy survived the longest at 39 days. As a result only one device lasted for the expected time with the majority of data captured during calm events.
 
 \begin{figure}[H]
 	\centering
@@ -370,16 +369,16 @@ note that deployment via crane was successful in spite of 7 m swell and 25 $m.s^
 	\caption{ Examples of different deployment protocols for ice tethered devices. In regions of consildated ice in favourable conditions, manned crews will step foot on the ice to deploy the device (A) (image source: \cite{kohout2020observation}), in unfavourable conditions, devices may deployed from a basket attached to a crane (B). A manned crew will lower the buoy on a suitable ice floe from the safety of the basket (image source: N. Taylor) }
 	\label{fig:deploy}
 \end{figure}
-Two additional WIIOS buoys were deployed by \textcite{alberello2019drift} during the winter\footnote{first deployment occured in July 2017 \cite{alberello2019drift}}. Here, the buoys lasted significantly shorter than the previous deployment. The first system survived for 8 days while the second system survived for 3 weeks in spite of measures taken to place the device in power saving mode \cite{alberello2019drift}. This was achieved by lowering the sample period from to 2 hours. Consequently, the lower temporal resolution resulted in a significantly reduced accuracy of the ice deformation calculations \cite{alberello2019drift}. However, despite this low resolution, by operating at a temporal scale of 3 hours or less \cite{alberello2019drift}, one can effectively and accurately capture ice drift speed as well as the oscillations surrounding the movement. Additionally, \textcite{vichi2019effects} and \cite{albarello2020drift} discuss the deployment of two Wave in Ice Observation Systems similar to the ones by \cite{kohout2015device}. 2 devices were deployed on two separate ice floes 3 m in diameter and 100 km from the ice edge \cite{albarello2020drift}. One system survived for 8 days and 18 hours while sampling every 15 minutes before transmission ended \cite{albarello2020drift}. The second buoy however, survived for 6 days sampling every 15 minutes until it switched to power saving mode surviving for a total time frame of 3 weeks. \textcite{vichi2019effects} deployed a second pair of WIIOS buoys in a similar method to \cite{alberello2019drift} however, the first buoy stopped responding after 3 days while the second buoy survived for only 16 days \cite{vichi2019effects}. While the buoys survival is largely attributed to power optimisation, the lifespan could be influenced by the selection of the ice floe. Ice floe size and proximity to the ice edge affect the exposure of the floe to open-ocean processes and storms \cite{vichi2019effects}. This could result in failure due to ice mechanics which is discussed in section \ref{ch2:sec3_failiure}. \par 
+Two additional WIIOS buoys were deployed by NYU Abu Dhabi \textcite{vichi2019effects,alberello2019drift} during the winter\footnote{first deployment occured in July 2017 \cite{vichi2019effects,alberello2019drift}}. Here, the buoys lasted significantly shorter than the previous deployment. The first system survived for 8 days while the second system survived for 3 weeks in spite of measures taken to place the device in power saving mode \cite{vichi2019effects,alberello2019drift}. This was achieved by lowering the sample period from to 2 hours. Consequently, the lower temporal resolution resulted in a significantly reduced accuracy of the ice deformation calculations \cite{vichi2019effects,alberello2019drift}. However, despite this low resolution, by operating at a temporal scale of 3 hours or less \cite{vichi2019effects,alberello2019drift}, one can effectively and accurately capture ice drift speed as well as the oscillations surrounding the movement. Additionally, \textcite{vichi2019effects,albarello2020drift} discuss the deployment of two Wave in Ice Observation Systems similar to the ones by \cite{kohout2015device}. 2 devices were deployed on two separate ice floes 3 m in diameter and 100 km  the ice edge \cite{vichi2019effects,albarello2020drift}. One system survived for 8 days and 18 hours while sampling every 15 minutes before transmission ended \cite{vichi2019effects,albarello2020drift}. The second buoy however, survived for 6 days sampling every 15 minutes until it switched to power saving mode surviving for a total time frame of 3 weeks. \textcite{vichi2019effects,alberello2019drift} deployed a second pair of WIIOS buoys however, the first buoy stopped responding after 3 days while the second buoy survived for only 16 days \cite{vichi2019effects}. While the buoys survival is largely attributed to power optimisation, the lifespan could be influenced by the selection of the ice floe. Ice floe size and proximity to the ice edge affect the exposure of the floe to open-ocean processes and storms \cite{vichi2019effects}. This could result in failure due to ice mechanics which is discussed in section \ref{ch2:sec3_failiure}. \par 
 
-\textcite{rabault2019open} deployed the waves in ice buoy (WIIB) WIIB on land-fast ice in the Ross sea \cite{rabault2020development} to test the device's performance in the Antarctic. In a similar fashion to the WIIOS buoy, the device was placed in a pelican case and attached to a flotation device, however, expected survival time for this device was significantly lower compared to the WIIOS devices: a maximum of 8 days \cite{rabault2019open} of continuous operation. The buoys by \textcite{kohout2015device} were designed to be expendable \cite{alberello2019drift} whereas the buoys by \textcite{rabault2019open} were designed to be retrievable. Additionally, the WIIB devices were deployed in the summer\footnote{First deployment date: December 2019 \cite{rabault2019open}}. Two devices were deployed in proximity however an ice break event resulted in the separation of the devices. The devices survived for 2.5 weeks \cite{rabault2019open} which \textcite{rabault2019open} attribute the failure to the devices having been crushed by ice and wave activity. Despite this, the devices were able to record significant wave events and maintain a fully charged battery throughout the deployment which \textcite{rabault2019open} attributes to the solar panel. 
+\textcite{rabault2019open} deployed the waves in ice buoy (WIIB) WIIB on land-fast ice in the Ross sea \cite{rabault2020development} to test the device's performance in the Antarctic. In a similar fashion to the WIIOS buoy, the device was placed in a pelican case and attached to a flotation device, however, expected survival time for this device was significantly lower compared to the WIIOS devices: a maximum of 8 days \cite{rabault2019open} of continuous operation. The buoys by \textcite{kohout2015device} were designed to be expendable whereas the buoys by \textcite{rabault2019open} were designed to be retrievable. Additionally, the WIIB devices were deployed in the summer\footnote{First deployment date: December 2019 \cite{rabault2019open}}. Two devices were deployed in proximity however an ice break event resulted in the separation of the devices. The devices survived for 2.5 weeks \cite{rabault2019open} which \textcite{rabault2019open} attribute the failure to the devices having been crushed by ice and wave activity. Despite this, the devices were able to record significant wave events and maintain a fully charged battery throughout the deployment which \textcite{rabault2019open} attributes to the solar panel. 
 
-\par \textcite{doble2017robust} alluded to a series of environmental considerations when designing the NDWB systems. One such consideration is the frosting over/ rimming of the device due to freezing ocean spray. Additionally, auxiliary power sources (i.e. solar panels) would need to account for long periods of no cloud cover \cite{doble2017robust}. Since the buoys were deployed by a manned crew, the design also had to account for ease of handling by the crew and not be too heavy \cite{doble2017robust}. The mechanical enclosure consisted of a float and a keel with the electronics contained above the surface in a dome. Twenty buoys were deployed in the Arctic marginal ice zone with each device anchored by drilling a hole in the ice and placing the keel inside. nineteen buoys survived the deployment with one system failing to boot. The buoys survived for extremely long periods with twelve systems surviving for two hundred days off a single alkaline battery pack \cite{doble2017robust}. A significantly longer period than both the WIIOS and WIIB systems. Seven systems ran for 70 days on alkaline batteries before switching over to  the solar powered lead-acid batteries. During this period, devices transmitted continuously over the Iridium network and were able to interpolate sea ice phases (see Section \ref{sec:ch1.section1}) from the tilt of the buoy \cite{doble2017robust}.
+\par \textcite{doble2017robust} alluded to a series of environmental considerations when designing the NDWB systems. One such consideration is the frosting over/ rimming of the device due to freezing ocean spray. Additionally, auxiliary power sources (i.e. solar panels) would need to account for long periods of heavy cloud cover and no sunlight \cite{doble2017robust,lever2006solar}. Since the buoys were deployed by a manned crew, the design also had to account for ease of handling by the crew and not be too heavy \cite{doble2017robust}. The mechanical enclosure consisted of a float and a keel with the electronics contained above the surface in a dome. Twenty buoys were deployed in the Arctic marginal ice zone with each device anchored by drilling a hole in the ice and placing the keel inside. nineteen buoys survived the deployment with one system failing to boot. The buoys survived for extremely long periods with twelve systems surviving for two hundred days off a single alkaline battery pack \cite{doble2017robust}. A significantly longer period than both the WIIOS and WIIB systems. Seven systems ran for 70 days on alkaline batteries before switching over to  the solar powered lead-acid batteries. During this period, devices transmitted continuously over the Iridium network and were able to interpolate sea ice phases (see Section \ref{sec:ch1.section1}) from the tilt of the buoy \cite{doble2017robust} however, unlike the design phase for the NDWB was unconstrained by costs unlike the design phases of devices by \textcite{rabault2019open,planck2019evolution,kohout2015device}. 
 
 \subsubsection{Reasons for Failure}
 \label{ch2:sec3_failiure}
 
-Eventually, the systems by \textcite{doble2017robust} lost transmission 300 days after their deployment. This can be attributed to the depletion of the alkaline battery packs. The solar powered lead acid battery voltage eventually dropped below the alkaline battery voltage due to the lack of consistent solar coverage \cite{doble2017robust}. Additionally, sub zero temperatures have a tendency to reduce battery capacities by up to 50\% \cite{doble2017robust} however, \textcite{doble2017robust} found this estimate to be over conservative. Systems by \textcite{kohout2015device} and \textcite{doble2017robust} encountered similar failures with devices eventually depleting the on-board batteries. Additionally, \cite{alberello2019drift} attribute failure of the first WIIOS system to the battery being depleted.\par 
+Eventually, the systems by \textcite{doble2017robust} lost transmission 300 days after their deployment. This can be attributed to the depletion of the alkaline battery packs. The solar powered lead acid battery voltage eventually dropped below the alkaline battery voltage due to the lack of consistent solar coverage \cite{doble2017robust}. Additionally, sub zero temperatures have a tendency to reduce battery capacities by up to 50\% \cite{doble2017robust} however, \textcite{doble2017robust} found this estimate to be over conservative. Systems by \textcite{kohout2015device} and \textcite{doble2017robust} encountered similar failures with devices eventually depleting the on-board batteries. Additionally, \cite{vichi2019effects,alberello2019drift} attribute failure of the first WIIOS system to the battery being depleted.\par 
 
 Additional sources of failure experienced by \textcite{doble2017robust} include ice convergence. The systems were subject to ice-mechanics and as a result, ended up crushed by the floes due to rafting or buried under ice \textcite{doble2017robust}. These failures were identified when more than one system suddenly went offline. Devices also experienced freeze-over or were buried under snow which resulted in the devices going offline for temporary periods \cite{doble2017robust}. Additional evidence of rafting and ridging was captured by webcams on the buoy shortly before transmission ended \cite{doble2017robust}. Buoys that survived the spring melt refroze during the gradual refreezing of the ice. During the second cycle, none of the buoys rebooted when the ice melted in the spring \cite{doble2017robust}. Finally, the buoys developed by \textcite{kohout2015device} and \textcite{rabault2017measurements} sit in close proximity to the ice floes. As discussed previously, during the winter cycles, snow accumulates on the surface that can reach up to 1m in height. This snow formation can result in flooding where the floe becomes submerged. Prolonged burying under snow may have resulted in the device freezing over thereby losing contact while prolonged contact with the seawater may have resulted in the buoys failing on several occasions (\cite{kohout2015device,vichi2019effects,albarello2020drift,rabault2019open})\par 
 
@@ -390,7 +389,42 @@ Additional sources of failure experienced by \textcite{doble2017robust} include 
 	\label{fig:swift_fail}
 \end{figure}
 
-Finally, \textcite{vichi2019effects} discuss the findings surrounding the failure of the first WIIOS system. \textcite{vichi2019effects} observed a major cyclonic event. The cyclone formed on  2 July 2017 and achieved lysis on 5 July 2017 which coincided with the buoy deployment. Following the event, four more cyclonic events were recorded with three explosive cyclones \cite{vichi2019effects} characterising a change of pressure over 24 hours. During this time, \textcite{vichi2019effects} observed winds speeds of up to $33$ $m/s^{-1}$ while noting that the air temperatures had increased to values "close to melting" \cite{vichi2019effects}. Additional observations found an increase in significant wave height in the activity. These conditions indicate deformation \cite{vichi2019effects} which may have subjected the buoys to forces experienced by \cite{doble2017robust} during their arctic deployment which were verified against the temperature and pressure readings of the second WIIOS during the cyclonic event. The buoys were deployed close to the ice edge exposed to greater open ocean processes and cyclonic activities than other semi-consolidated and consolidated regions \cite{vichi2019effects}. As a result, air advection, storms and large wave movement delay the consolidation of sea ice considerably \cite{vichi2019effects}. Hence, the ice floes were more likely to experience rafting, ridging \cite{icedefinition1992}, extended flooding, and freezing over which may have caused the failures of the WIIOS buoys.
+Finally, \textcite{vichi2019effects} discuss the findings surrounding the failure of the first WIIOS system. \textcite{vichi2019effects} observed a major cyclonic event. The cyclone formed on  2 July 2017 and achieved lysis on 5 July 2017 which coincided with the buoy deployment. Following the event, four more cyclonic events were recorded with three explosive cyclones \cite{vichi2019effects} characterising a change of pressure over 24 hours. During this time, \textcite{vichi2019effects} observed winds speeds of up to $33$ $m \text{ }s^{-1}$ while noting that the air temperatures had increased to values "close to melting" \cite{vichi2019effects}. Additional observations found an increase in significant wave height in the activity. These conditions indicate deformation \cite{vichi2019effects} which may have subjected the buoys to forces experienced by \cite{doble2017robust} during their Arctic deployment which were verified against the temperature and pressure readings of the second WIIOS during the cyclonic event. The buoys were deployed close to the ice edge exposed to greater open ocean processes and cyclonic activities than other semi-consolidated and consolidated regions \cite{vichi2019effects}. As a result, air advection, storms and large wave movement delay the consolidation of sea ice considerably \cite{vichi2019effects}. Hence, the ice floes were more likely to experience rafting, ridging \cite{icedefinition1992}, extended flooding, and freezing over which may have caused the failures of the WIIOS buoys.
+
+\subsection{Overall cost}
+\label{subsec:sec2_overallcost}
+Finally a key factor of buoy development is the cost and weight of the overall device. Additionally, devices are still deployed manually by manned teams. Such techniques involve deployments from on-ship cranes \cite{alberello2019drift,kohout2015device}, or by setting foot on the deployment site \cite{planck2019evolution,rabault2019open}. Additionally, \textcite{doble2017robust} deployed buoys by transporting them on a twin otter aircraft and installing them on arrival. This shows that the weight and form factor of the device can impact the ease of deployment as well as where the device can be deployed. The table below provides insight into the quoted price and development cost of each device in order to understand how expensive the current state of the art is.
+\begin{table}[H]
+	\centering
+	\caption{Comparison of price and wieght of each device according to the published literature or commercial listing. Weight provides an indicator of the ease of handling whereas price provides an indicator of affordability. Prices have been converted to South African Rand (R)  online \cite{usdcoversion}where applicable while weight has been converted to Kg. "Not Reported"  or "N/R" is given where a value could not be obtained.}
+	\label{tab:device_price}
+	\small
+	\begin{tabular}{|l|l|l|}
+		\hline
+		\textbf{Device Name:} & \textbf{Weight (Kg):} & \textbf{Price} \\
+		\hline
+		WIIB & 4.5 & R30,200.00\\
+		\hline
+		WIIOS & N/R & N/R \\
+		\hline
+		NDWB & 150 & N/R \\
+		\hline
+		SKIB  & N/R &  R39,784.40\\
+		\hline
+		SWIFT & 30 & N/R \\
+		\hline
+		SIMB & 34 & R58,909.30 \\
+		\hline
+		Polar ISVP & 11.34 & R52,119.00 \\
+		\hline
+		UptempO & 105 & R863,686.00 \\
+		\hline
+		Trident & 0.42 & R30,524.70 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+Table \ref{tab:device_price} shows the current cost of in situ sensing devices. The cheapest wave sensing device is the WIIB at R30,200.00 thereby showing that \textcite{rabault2019open} succeeded in developing a feature-rich device for a cost relatively lower than the current state. Also included in the price comparison is a version of the Polar ISVP for deployment on ice floes called the UpTempo. This device is the lowest cost efficient device at R863,686.00 with only a GPS, pressure sensor and temperature sensor. This shows that in order to provide a cost effective solution, a new device will have to cost less than R30,200.00 however, this can be possible through the use of open-source and off-the-shelf solutions \cite{bonvoisin2017source}.\par
 \newpage
 \section{Subsystem Overview}
 
@@ -455,6 +489,13 @@ From table \ref{tab:device_process}, we can see that each device has been develo
 \subsection{Measurement of wave data using inertial measurement systems}
 
 Typical wave state estimation are derived from calculating wave parameters such as significant wave height and dominant wave frequency \cite{williams2013wave}. Additionally, Wave data can be analyzed in terms of its power spectral density. The two main methods for wave data analysis presented in this section are the Kuik Method and the Welch-Earle Method. Further explanations can be found in Appendix \ref{kuik}. Both approaches rely on a discrete time series of inertial data from a device with 3 axes of acceleration of 3 axes of rotation \cite{kuik1988method,earle1996nondirectional}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{sea state diagram.png}
+	\caption{Diagram showing the characterization of sea state through statistical methods described by \textcite{kuik1988method} and \textcite{earle1996nondirectional,welch1967use}. A wave consists of a maximum vertical point (crest) and a minimal vertical point (trough) with the distance between the two points referred to as the wave height ($H_0$). The period between consecutive crests of a similar frequency is referred to as the wave length and the point where a wave crosses the mean sea state level is the zero crossing. From a statistical analysis, the significant wave height is four times the average wave height measured from the spectral density over a period of time \cite{kuik1988method}. Diagram is based off the figure by \cite{seastatediag}.}
+	\label{fig:seastatediag}
+\end{figure}
 
 Devices that measure wave parameters such as significant wave height, wave spectra or ocean states, incorporate a sensor that measures the vertical acceleration and roll, pitch, and yaw in discretised space \cite{earle1996nondirectional}. These parameters can be measured using an accelerometer for axial acceleration and a gyroscope for rotational velocity \cite{fong2008methods}. These devices are typically integrated circuits manufactured using micro electro-mechanical systems (MEMS) and are often combined to form an inertial measurement unit (IMU) allowing for 6 axes of measurement from a single device \cite{fong2008methods}. IMUs can also be expanded to include a magnetometer which measures magnetic bearing in 3 axis\cite{ahmad2013reviews}.IMU selection is dependent on the following factors\footcite{ahmad2013reviews}:
 \begin{enumerate}
@@ -538,8 +579,9 @@ An IMU is a power device however extensive software proccessing is required to e
 
 \begin{table}[H]
 	\centering
-	\label{key}
+
 	\caption{Comparison of sampling strategies implemented in each device. This includes the desired measurands, sample rate and sample period of each IMU session}
+	\label{tab:device_imumeasure}
 	\setlength{\extrarowheight}{5pt}
 	\resizebox{\textwidth}{!}{%
 
@@ -590,7 +632,39 @@ Therefore IMUs are integral for performing sea state calculations and measuring 
 
 This sections discusses the technology and techniques used for determining ice drift. The predominant approach towards understanding modeling ice drift is by using the techniques presented by \textcite{hibler1979dynamic}\footnote{See Numerical Modeling in Appendix \ref{app:modelling}} where kinematic data is used to study ice drift dynamics and calibrate the ice drift model. Additionally, \textcite{lepparanta2001sea} present two methods for collecting ice drift data. The first method utilises measurement beacons are attached to the ice floes and used to track trajectories. The second method uses imaging devices such as radar, and satellites to determine ice displacement \cite{lepparanta2001sea}.\par
 
-The discussion of modern technology for ice observations from chapter \ref{sec:ch1.section1} showed that observations from satellites such as OSI-SAF and METSAT are unsuitable for measurements \cite{lepparanta2001sea,galin2011validation} due ti their low spatial resolutions. Hence, a need arises for in situ drift measurement devices. Global positioning systems (GPS) have been the standard for ice drift measurements \cite{lepparanta2001sea} as they are capable of measuring data at relatively high temporal resolutions ranging from 15 minutes \cite{alberello2019drift} to 25 minutes \cite{rabault2019open} as opposed to the limit of 3 hours \cite{alberello2019drift}. This section provides an overview of GPS technology and how the devices have implemented it for measuring positional or drift data.
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[t]{.3\textwidth}
+		\begin{tikzpicture}
+			\node[anchor=south west,inner sep=0] (image) at (0,0) { \includegraphics[width = 4cm, height = 6cm]{mtk3339.jpg}};
+			\begin{scope}[x={(image.south east)},y={(image.north west)}]
+				\draw[color=black, ultra thin,fill=white] (0.0,0.0) rectangle (0.21,0.16) node[pos=.5] {A};
+			\end{scope}
+		\end{tikzpicture}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{.3\textwidth}
+		\begin{tikzpicture}
+			\node[anchor=south west,inner sep=0] (image) at (0,0) { \includegraphics[width = 4cm, height = 6cm]{skytraq.PNG}};
+			\begin{scope}[x={(image.south east)},y={(image.north west)}]
+				\draw[color=black, ultra thin,fill=white] (0.0,0.0) rectangle (0.21,0.16) node[pos=.5] {B};
+			\end{scope}
+		\end{tikzpicture}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{.3\textwidth}
+		\begin{tikzpicture}
+			\node[anchor=south west,inner sep=0] (image) at (0,0) { \includegraphics[width = 4cm, height = 6cm]{BT-1000ex-310-1.png}};
+			\begin{scope}[x={(image.south east)},y={(image.north west)}]
+				\draw[color=black, ultra thin,fill=white] (0.0,0.0) rectangle (0.21,0.16) node[pos=.5] {C};
+			\end{scope}
+		\end{tikzpicture}
+	\end{subfigure}
+	\hfill
+	\label{fig:device_gps}
+	\caption{Diagram showing examples of the different types of global positioning devices available for commercial use such as (A) MTK3339 (image source: \cite{mtk3339}) , (B) SkyTraq S1351R (image source: \cite{s1315F}) (C) Qstarz BT-Q1000eX (image source: \cite{BTQ1000EX})  }
+\end{figure}
+The discussion of modern technology for ice observations from chapter \ref{sec:ch1.section1} showed that observations from satellites such as OSI-SAF and METSAT are unsuitable for measurements \cite{lepparanta2001sea,galin2011validation} due to their low spatial resolutions. Hence, a need arises for in situ drift measurement devices. Global positioning systems (GPS) have been the standard for ice drift measurements \cite{lepparanta2001sea} as they are capable of measuring data at relatively high temporal resolutions ranging from 15 minutes \cite{alberello2019drift} to 25 minutes \cite{rabault2019open} as opposed to the limit of 3 hours \cite{alberello2019drift}. This section provides an overview of GPS technology and how the devices have implemented it for measuring positional or drift data.
 
 \subsubsection{Overview of GPS}
 
@@ -839,7 +913,7 @@ Semiconductor temperature devices are suited to applications where the temperatu
 
 \subsection{Atmospheric Pressure Sensing and Sensors}
 
-There has been an increased demand for in-situ environmental monitoring as mentioned by \cite{vichi2019effects} \cite{kennicutt2014polar} \cite{kennicutt2016delivering} \cite{kennicutt2019sustained} \cite{alberello2019drift}. It can provide insight into wind currents and storm events as well as predict trajectories of these storms. In addition, atmospheric pressure is crucial for charachterising atmospheric-ocean process such as tropical storms which have been shown by Vichi et. al. to create areas of low pressure during their trajectory \cite{vichi2019effects}. Current devices have employed pressure sensing techniques which have been critical for determining accurate AHRS measurements\cite{vn-100} in addition to environmental monitoring. Examples of pressure sensing devices are shown in table \ref{tab:device_press} below.
+There has been an increased demand for in-situ environmental monitoring as mentioned by \cite{vichi2019effects} \cite{kennicutt2014polar} \cite{kennicutt2016delivering} \cite{kennicutt2019sustained} \cite{alberello2019drift}. It can provide insight into wind currents and storm events as well as predict trajectories of these storms. In addition, atmospheric pressure is crucial for characterizing atmospheric-ocean process such as tropical storms which create areas of low pressure during their trajectory \cite{vichi2019effects}. Current devices have employed pressure sensing techniques which have been critical for determining accurate AHRS measurements\cite{vn-100} in addition to environmental monitoring. Examples of pressure sensing devices are shown in table \ref{tab:device_press} below.
 
 \begin{table}[H]
 	\centering
@@ -862,7 +936,43 @@ There has been an increased demand for in-situ environmental monitoring as menti
 }
 \end{table}
 
-While pressure is important for understanding atmospheric processes, table \ref{tab:device_press} shows that it is the least critical component for in-situ remote sensing. The WIIOS, SKIB and Trident sensors do not include a pressure sensor at all. The consequence is that these devices are not suitable for characterizing the effects of climate on sea ice as well as capturing the/predicting severe weather events such as the cyclones discussed in \textcite{vichi2019effects}. The SWIFT buoy includes the capability of pressure sensing however, do not sample the sensor for standalone pressure measurements. The devices that include pressure measurements focus on measuring atmospheric pressure through digital barometric pressure sensors \cite{rabault2019open,planck2019evolution}, piezoresistive silicon sensors \cite{doble2017robust} or silicon capacitive sensors \cite{uptempo}. This shows that silicon based pressure sensors are the most commonly used for remote sensing.\textcite{eaton1997micromachined} discuss the importance of micro-machined pressure sensors and provide an overview of various sensors that have been used in remote sensing devices as shown in table \ref{tab:device_press}.
+While pressure is important for understanding atmospheric processes, table \ref{tab:device_press} shows that it is the least critical component for in-situ remote sensing. The WIIOS, SKIB and Trident sensors do not include a pressure sensor at all. The consequence is that these devices are not suitable for characterizing the effects of climate on sea ice as well as capturing the/predicting severe weather events such as the cyclones discussed in \textcite{vichi2019effects}. The SWIFT buoy includes the capability of pressure sensing however, do not sample the sensor for standalone pressure measurements. The devices that include pressure measurements focus on measuring atmospheric pressure through digital barometric pressure sensors \cite{rabault2019open,planck2019evolution}, piezoresistive silicon sensors \cite{doble2017robust} or silicon capacitive sensors \cite{uptempo}. Examples of these sensors are shown in figure \ref{fig:press_examples} 
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.3\textwidth}
+		\begin{tikzpicture}
+			\node[anchor=south west,inner sep=0] (image) at (0,0) { \includegraphics[width = 3cm,height=3cm]{BME280.jpg}};
+			\begin{scope}[x={(image.south east)},y={(image.north west)}]
+				\draw[color=black, ultra thin,fill=white] (0.0,0.0) rectangle (0.21,0.16) node[pos=.5] {A};
+			\end{scope}
+		\end{tikzpicture}
+	\end{subfigure}%
+	\hfill
+	\begin{subfigure}[b]{0.3\textwidth}
+		\begin{tikzpicture}
+			\node[anchor=south west,inner sep=0] (image) at (0,0) { \includegraphics[width = 3cm,height=3cm]{MPX5100AP.jpg}};
+			\begin{scope}[x={(image.south east)},y={(image.north west)}]
+				\draw[color=black, ultra thin,fill=white] (0.0,0.0) rectangle (0.21,0.16) node[pos=.5] {B};
+			\end{scope}
+		\end{tikzpicture}
+	\end{subfigure}%
+	\hfill
+	\begin{subfigure}[b]{0.3\textwidth}
+		\begin{tikzpicture}
+			\node[anchor=south west,inner sep=0] (image) at (0,0) { \includegraphics[width = 3cm,height=3cm]{PTB110.jpg}};
+			\begin{scope}[x={(image.south east)},y={(image.north west)}]
+				\draw[color=black, ultra thin,fill=white] (0.0,0.0) rectangle (0.21,0.16) node[pos=.5] {C};
+			\end{scope}
+		\end{tikzpicture}
+	\end{subfigure}%
+	\hfill
+	\caption{Examples of pressure sensing technologies using a diaphragm based MEMS with different methods of measuring the strain. These are piezoresitive sensors: (A) the BME280 (image source: \cite{BME280}), (B) the MPX-5100-AP (image source: \cite{MPX5100AP}) or  capacitive sensors: (C) the PTB100 (image source: \cite{PTB110})  } 
+	\label{fig:press_examples}
+\end{figure}
+
+
+This shows that silicon based pressure sensors are the most commonly used for remote sensing.\textcite{eaton1997micromachined} discuss the importance of micro-machined pressure sensors and provide an overview of various sensors that have been used in remote sensing devices as shown in table \ref{tab:device_press}.
 \subsubsection{Diaphragm based sensors}
 
 The current state of pressure sensing technology is driven towards Miniature MEMs version of large scale devices \cite{eaton1997micromachined}. Most large scale pressure sensors consist of a diaphragm mounted on a device in a known way. The diaphragm is coupled to a device that converts the pressure to a mechanical movement which is then measured using a gauge. These senses often had a secondary sensor that would convert the mechanical movement to an electrical signal which was then measured \cite{eaton1997micromachined} these sensors determine pressure by measuring the deflection of a miniature diaphragm. This deflection is converted to an electrical signal. Typically, a reference pressure is provided as a measurement of a sealed chamber or absolute pressure port. Assuming the simplest version of this sensor i.e. a plate of uniform thickness \cite{eaton1997micromachined} The deflection $w$ of the diaphragm is related to the pressure  $P$ by the following equation: \cite{eaton1997micromachined}
@@ -891,3 +1001,28 @@ These sensors consist of parallel conductive plates. Assuming a constant, known 
 
 where $w(r)$ is the deformation of the plate, $\epsilon$ is the strain experienced on the plate and d is the distance of separation. The Pressure capacitance relationship can be approximated using a least-squares fit \cite{eaton1997micromachined} however this results in model errors of 1.5\% and up to 11\% at $w = \frac{1}{2}h$ the height of the plate. These sensors are more advantageous over piezoresistive sensors as they have higher pressure sensitivity and reduced susceptibility to temperature drift. However, these sensors are significantly susceptible to parasitic capacitance which can result in losses and errors. Additionally, these sensors are simple in design however they tend towards more complex circuit requirements.
 
+ 
+\section{Conclusion}
+
+From the system analysis, we can see that all devices were successful in communicating remotely with a user through the Iridium satelite network due to its high area coverage and reliability. However, due to network and bandwidth constraints, most devices compensated for this by implementing computationally intensive algorithms to compress data into the required bandwidth, the popular choice for network modems is the 9603 which is ideal for its low power consumption, small form factor and relatively low cost however it only allows for short burst data transmissions. For continuous transmissions, the 9523 modem is ideal \par 
+
+Systems were able to operate remotely for long periods of time using batteries as a power source. Lithium batteries and Alkaline batteries were the most prevalent as primary power sources allowing devices such as the WIIOS to survive for a maximum of 39 days. \textcite{doble2017robust} showed that in the Arctic marginal ice zone by coupling a solar power to a secondary lead acid battery, the device could survive for up to a year without human intervention however, \textcite{rabault2020development} achieved lower surviviabilty even with an onboard solar panel. Additional energy harvesting techniques are required in order for secondary power source to be viable. \par 
+
+In spite of advances in power optimization, the marginal ice zone is a dangerous region. A significant number of devices were reported by \textcite{doble2017robust} to have failed when devices were frozen over and failed to recover during sea ice melt. Additionally, polar storms and large swells caused the WIIOS buoys to offline during their deployments \textcite{kohout2015device,alberello2019drift}. Additional sources of failiure have been attributed to freezing over \textcite{rabault2018investigation} however, this was due to the device being placed in the ground allowing it to be covered by snow growth \cite{barber2005microwave} and flooding. Additionally, \textcite{rabault2019open} reported failures due to rafting and ridging of ice floes which critically damaged devices.\par 
+
+From the system analysis, we can determine that the most important measurement objectives are:
+\begin{itemize}
+	\item Ice drift
+	\item Wave in ice measurements
+	\item Ambient temperature
+	\item Atmospheric pressure
+\end{itemize}
+
+Wave analysis is the most computationally expensive measurement objective as 
+table \ref{tab:device_imumeasure} show that raw imu time series measured by each wave sensing device was sampled above 2Hz \cite{kohout2015device}. Advanced filtering techniques were required to compensate for the effects of low drift and biases. Some devices achieved this by using components with integrated filters such as the VN-100 AHRS sensor however, these components  are expensive and resulted in a higher overall cost for the device \cite{guimaraes2018surface}. Additionally, devices such as WIIOS and SWIFT required more expensive, more power processors to compensate for higher data rates and advanced processing algorithms. \par 
+
+Additionally, all devices used a GPS to measure sea ice drift showing that these devices are reliable enough to perform these measurements \cite{doble2017robust}. A sample time of atleast 3 hours between GPS measurements is required to accurately capture sea ice dynamics such as oscillations and collisions. \textcite{thomson2012wave} additionally show that GPS velocity measurements are suitable for wave measurements in addition to telemetry and used these measurements to determine the orbital motion of waves. However, the positional accuracy of GPS is not suitable for measuring significant wave height as the uncertainty in positional measurements is too high ($\pm$ 5 m). GPS readings are affected by Ionospheric interference which causes a phase delay resulting in a dilation of precision (DOP), this can also be caused by the spread of satellites, azimuth and number of satellites used to take measurements. Hence, these measurements form a critical part for statistical analysis of GPS signals as this section was under-reported in the current literature. \par 
+
+Finally, environmental sensing is critical to determining the conditions around sea ice formation. Temperature and pressure changes are key indicators of short term weather events such as polar cyclones and as such, All devices employ some form of temperature measurement either actively through components such as thermistors, and silicon temperature devices or passively embedded in higher powered sensors such as an AHRS. Additionally, the effects of temperature sensing on atmospheric temperature measurements were significantly under-reported in the literature as was the effect of pressure sensing.  Pressure sensing was also the least critical objective for the devices as this device was excluded from three out of eight devices while the SWIFT buoy had pressure sensing capabilities, this feature was not used. Hence, more research is required to fill in this knowledge gap to understand the effects of environmental sampling and their impact on climate measurements. \par
+
+In conclusion, while the literature shows breakthroughs in low cost in situ remote sensing in the marginal ice zone, some of the effects remain unknown. Devices are still extremely specialised however, open-source, off the shelf devices can pave the way for more accessible, more affordable devices thereby increasing access to science and increasing our understanding of the marginal ice zone.

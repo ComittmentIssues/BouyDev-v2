@@ -14,147 +14,143 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {2.1}{\ignorespaces Devices used for the comparison including the device name, lead developer and the institution. These consist of both commercial and institutional devices for in-situ sea ice and wave measurements.\relax }}{19}{}%
+\contentsline {table}{\numberline {2.1}{\ignorespaces Devices used for the comparison including the device name, lead developer and the institution. These consist of both commercial and institutional devices for in-situ sea ice and wave measurements.\relax }}{20}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {2.2}{\ignorespaces The following Iridium modems are compared in their key specifications. devices in the table were suitable for IoT applications based on prevalence in literature and recommendations from the manufacturer. Key parameters include weight, power consumption and transmission latency.Taken from \cite {iridium_product} \relax }}{21}{}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces The following Iridium modems are compared in their key specifications. devices in the table were suitable for IoT applications based on prevalence in literature and recommendations from the manufacturer. Key parameters include weight, power consumption and transmission latency.Taken from \cite {iridium_product} \relax }}{22}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {2.3}{\ignorespaces A comparison of power supply strategies of the different devices showing the the power source, topology of the power supply module as well as the voltage supplied at the output of the module. Information that was unavailable at the time of research has been labeled as "Not reported"\relax }}{23}{}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces A comparison of power supply strategies of the different devices showing the the power source, topology of the power supply module as well as the voltage supplied at the output of the module. Information that was unavailable at the time of research has been labeled as "Not reported"\relax }}{24}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {2.4}{\ignorespaces comparison between the functionality and purpose of the buoy showing the critical measurements as well as the significant deployment locations either in the polar ice zones or in a location critical to the validation of the device.\relax }}{25}{}%
+\contentsline {table}{\numberline {2.4}{\ignorespaces comparison between the functionality and purpose of the buoy showing the critical measurements as well as the significant deployment locations either in the polar ice zones or in a location critical to the validation of the device.\relax }}{26}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {2.5}{\ignorespaces Comparison of the processing strategy implemented by each device. Multiple processors have been used in a selection of devices hence included in the comparison is the number of processors used and the type of processor used as well as the function of each processor \relax }}{32}{}%
+\contentsline {table}{\numberline {2.5}{\ignorespaces Comparison of price and wieght of each device according to the published literature or commercial listing. Weight provides an indicator of the ease of handling whereas price provides an indicator of affordability. Prices have been converted to South African Rand (R) online \cite {usdcoversion}where applicable while weight has been converted to Kg. "Not Reported" or "N/R" is given where a value could not be obtained.\relax }}{31}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {2.6}{\ignorespaces Comparison of the inertial measurement systems selected for each device showing the sensors included as well as the degrees of freedom.\relax }}{35}{}%
+\contentsline {table}{\numberline {2.6}{\ignorespaces Comparison of the processing strategy implemented by each device. Multiple processors have been used in a selection of devices hence included in the comparison is the number of processors used and the type of processor used as well as the function of each processor \relax }}{34}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {2.7}{\ignorespaces Comparison of sampling strategies implemented in each device. This includes the desired measurands, sample rate and sample period of each IMU session\relax }}{36}{}%
+\contentsline {table}{\numberline {2.7}{\ignorespaces Comparison of the inertial measurement systems selected for each device showing the sensors included as well as the degrees of freedom.\relax }}{37}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {2.8}{\ignorespaces Comparison between different GPS devices, sampled data and periods between samples implemented by each device.\relax }}{42}{}%
+\contentsline {table}{\numberline {2.8}{\ignorespaces Comparison of sampling strategies implemented in each device. This includes the desired measurands, sample rate and sample period of each IMU session\relax }}{38}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {2.9}{\ignorespaces Comparison of the different components used by each device for temperature measurement as well as the . Each device measures temperature of a different process. For example: the WIIB measure air temperature whereas a device like the SIMB measures temperature profiles of ice floes in addition to air temperature.\relax }}{45}{}%
+\contentsline {table}{\numberline {2.9}{\ignorespaces Comparison between different GPS devices, sampled data and periods between samples implemented by each device.\relax }}{45}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {2.10}{\ignorespaces Comparison of the different pressure sensing components used by each device as well as the measurement objective guiding the selection of the component. "Not Reported" is given where a device includes a pressure sensor but provides no information to its use. "-" is given where a column does not apply to the device. "None" is given where a device does not contain a pressure sensor\relax }}{47}{}%
+\contentsline {table}{\numberline {2.10}{\ignorespaces Comparison of the different components used by each device for temperature measurement as well as the . Each device measures temperature of a different process. For example: the WIIB measure air temperature whereas a device like the SIMB measures temperature profiles of ice floes in addition to air temperature.\relax }}{47}{}%
 \defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.1}{\ignorespaces Table showing the key stakeholders in the project, their level of involvement as well as their interests in the project\relax }}{51}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.2}{\ignorespaces User requirements obtained by meeting with the principle stakeholders. These will be used to determine the desired functionality of the buoy\relax }}{51}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.3}{\ignorespaces Comparison of standard measurements for meteorological data including temporal resolution, measurement unit and accuracy from: \cite {worldmeteorologicalorganization_2010}\relax }}{53}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.4}{\ignorespaces Comparison of price and wieght of each device according to the published literature or commercial listing. Weight provides an indicator of the ease of handling whereas price provides an indicator of affordability. Prices have been converted to South African Rand (R) online \cite {usdcoversion}where applicable while weight has been converted to Kg. "Not Reported" is given where a value could not be obtained. \relax }}{55}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.5}{\ignorespaces Requirements addressing the mechanical needs for the system during operation.\relax }}{56}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.6}{\ignorespaces Requirements addressing the electronic needs for the system including the modules, components and sensors that satisfy the user requirements.\relax }}{57}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.7}{\ignorespaces Software functional requirements for the system addressing the system function, performance, operation and control during the lifetime of the device.\relax }}{57}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.8}{\ignorespaces Other system requirements being addressed.\relax }}{58}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.9}{\ignorespaces Table showing the subsystems that are critical to the functionality of the buoy and the level of importance indicated by rank\relax }}{58}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.10}{\ignorespaces Technical specifications for the overall system\relax }}{61}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.11}{\ignorespaces Acceptance Test for Subsystem connectivity Testing\relax }}{62}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.12}{\ignorespaces Acceptance Test for Fault Testing\relax }}{63}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.13}{\ignorespaces Acceptance Test for component selection\relax }}{64}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.14}{\ignorespaces Acceptance Test for Subsystem Robustness Testing\relax }}{64}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.15}{\ignorespaces Acceptance Test for accelerated system testing\relax }}{65}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.16}{\ignorespaces Acceptance Test for Subsystem Calibration Testing\relax }}{66}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.17}{\ignorespaces Acceptance Test for Power Test\relax }}{67}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.18}{\ignorespaces Acceptance Test for Low Temperature Test\relax }}{68}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.19}{\ignorespaces Acceptance Test for final system deployment test.\relax }}{69}{}%
+\contentsline {table}{\numberline {2.11}{\ignorespaces Comparison of the different pressure sensing components used by each device as well as the measurement objective guiding the selection of the component. "Not Reported" is given where a device includes a pressure sensor but provides no information to its use. "-" is given where a column does not apply to the device. "None" is given where a device does not contain a pressure sensor\relax }}{49}{}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.1}{\ignorespaces Primary Measurements of the buoy enclosure taken from the schematic in appendex B.4\hbox {} B.2\hbox {} B.1\hbox {} B.3\hbox {}\relax }}{72}{}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Table showing the key stakeholders in the project, their level of involvement as well as their interests in the project\relax }}{55}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.2}{\ignorespaces Comparison of key parameters between the initial Ublox Neo-7m gnss module and the updated Ublox Neo-N9M module\relax }}{73}{}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces User requirements obtained by meeting with the principle stakeholders. These will be used to determine the desired functionality of the buoy\relax }}{55}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.3}{\ignorespaces Pinout for the Rockblock 9603 Iridium Modem\relax }}{74}{}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Comparison of standard measurements for meteorological data including temporal resolution, measurement unit and accuracy from: \cite {worldmeteorologicalorganization_2010}\relax }}{57}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.4}{\ignorespaces Table showing key parameters and performance characteristics taken from the datasheet\relax }}{74}{}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces Requirements addressing the mechanical needs for the system during operation.\relax }}{60}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.5}{\ignorespaces Comparison of performance between the BMP280 and DS18B20 environmental sensors.\relax }}{75}{}%
+\contentsline {table}{\numberline {3.5}{\ignorespaces Requirements addressing the electronic needs for the system including the modules, components and sensors that satisfy the user requirements.\relax }}{60}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.6}{\ignorespaces Comparison between supply voltage and current draw of the BMP280 and DS18B20\relax }}{75}{}%
+\contentsline {table}{\numberline {3.6}{\ignorespaces Software functional requirements for the system addressing the system function, performance, operation and control during the lifetime of the device.\relax }}{61}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.7}{\ignorespaces Performance specifications for the INA219 current monitor chip.\relax }}{76}{}%
+\contentsline {table}{\numberline {3.7}{\ignorespaces Other system requirements being addressed.\relax }}{61}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.8}{\ignorespaces Performance Characteristics of the MPU6050 6-axis IMU \relax }}{77}{}%
+\contentsline {table}{\numberline {3.8}{\ignorespaces Table showing the subsystems that are critical to the functionality of the buoy and the level of importance indicated by rank\relax }}{61}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.9}{\ignorespaces Key performance characteristics for the AT45DB641E flash chips.\relax }}{78}{}%
+\contentsline {table}{\numberline {3.9}{\ignorespaces Technical specifications for the overall system\relax }}{64}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.10}{\ignorespaces Type and number of communication ports in order to facilitate communication with all the external modules.\relax }}{78}{}%
+\contentsline {table}{\numberline {3.10}{\ignorespaces Acceptance Test for Subsystem connectivity Testing\relax }}{65}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.11}{\ignorespaces Performance parameters for the STM32L4 microcontroller. \relax }}{79}{}%
+\contentsline {table}{\numberline {3.11}{\ignorespaces Acceptance Test for Fault Testing\relax }}{66}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.12}{\ignorespaces Current consumption of various components as well as the estimated maximum possible current draw\relax }}{80}{}%
+\contentsline {table}{\numberline {3.12}{\ignorespaces Acceptance Test for component selection\relax }}{67}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.13}{\ignorespaces Key Performance Characteristics for the LP3876 Low Dropout Regulator\relax }}{80}{}%
+\contentsline {table}{\numberline {3.13}{\ignorespaces Acceptance Test for Subsystem Robustness Testing\relax }}{67}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.14}{\ignorespaces Approximate procurement cost for a single SHARC buoy node.\relax }}{83}{}%
+\contentsline {table}{\numberline {3.14}{\ignorespaces Acceptance Test for accelerated system testing\relax }}{68}{}%
 \defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.15}{\ignorespaces Acceptance Test for Subsystem Calibration Testing\relax }}{69}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.1}{\ignorespaces Table showing the power mode selection for each phase of the Buoy's operational cycle\relax }}{89}{}%
+\contentsline {table}{\numberline {3.16}{\ignorespaces Acceptance Test for Power Test\relax }}{70}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.2}{\ignorespaces configuration parameters for the system clock and Real Time Clock including sources and frequencies\relax }}{90}{}%
+\contentsline {table}{\numberline {3.17}{\ignorespaces Acceptance Test for Low Temperature Test\relax }}{71}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.3}{\ignorespaces Table showing the types of states that the system checks for ordered by priority with 1 being the highest priority and 3 being the lowest\relax }}{96}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.4}{\ignorespaces Table Showing the device behaviour in case of a critical failure in one or more of the subsystems. Critical failures are defined in AT006 (table 3.16\hbox {}) testing protocol.\relax }}{99}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.5}{\ignorespaces Breakdown of a typical NMEA message string with fields indicating start/stop sequences and character information.\relax }}{100}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.6}{\ignorespaces Description of ZDA Message string showing variables, description and how the example datum 5th September 2002 08:27:10 am is stored\relax }}{101}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.7}{\ignorespaces Description of GSA Message string showing variables, description of parameters and how the variables are stored\relax }}{101}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.8}{\ignorespaces Description of GLL Message string showing variables, description and how a set of coordinates e.g. (47$\degree $17.11364'N, 8$\degree $ 33.91565' ) is stored\relax }}{101}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.9}{\ignorespaces Data collected from the GPS in a single sample session.\relax }}{102}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.10}{\ignorespaces Description of output values from BMP280 post processing.\relax }}{103}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.11}{\ignorespaces Description of parameters used to calibrate the INA219 current sensor\relax }}{103}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.12}{\ignorespaces Description of output values from INA219 current sensor.\relax }}{104}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.13}{\ignorespaces Description of output values from the MPU6050 IMU showing variable name, size and significance\relax }}{104}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.14}{\ignorespaces Paramaters of the IMU and their configured value for this application\relax }}{105}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.15}{\ignorespaces Breakdown of data accumulated from the IMU with the sample parameters mentioned in table 5.14\hbox {}\relax }}{105}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.16}{\ignorespaces Total drift data collected during a single sample point\relax }}{105}{}%
+\contentsline {table}{\numberline {3.18}{\ignorespaces Acceptance Test for final system deployment test.\relax }}{72}{}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.1}{\ignorespaces Description of accelerated system test protocol.\relax }}{110}{}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Primary Measurements of the buoy enclosure taken from the schematic in appendex B.4\hbox {} B.2\hbox {} B.1\hbox {} B.3\hbox {}\relax }}{75}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.2}{\ignorespaces Average current draw (mA) and cycle\relax }}{111}{}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Comparison of key parameters between the initial Ublox Neo-7m gnss module and the updated Ublox Neo-N9M module\relax }}{76}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.3}{\ignorespaces Table showing the parameters the GPS was configured with before deployment \relax }}{112}{}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Pinout for the Rockblock 9603 Iridium Modem\relax }}{77}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.4}{\ignorespaces Deployment conditions for buoy 1 (2019-WC-SB01) and buoy 2 (2019-WC-SB02) including deployment coordinates, time and environmental conditions\relax }}{113}{}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Table showing key parameters and performance characteristics taken from the datasheet\relax }}{77}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.5}{\ignorespaces Results of the full system acceptance tests indicated by a \text {$\mathsurround \z@ \mathchar "458$}in the appropriate column\relax }}{113}{}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Comparison of performance between the BMP280 and DS18B20 environmental sensors.\relax }}{78}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.6}{\ignorespaces Results of the platform evaluation and how each functional requirement was addressed.\relax }}{115}{}%
+\contentsline {table}{\numberline {4.6}{\ignorespaces Comparison between supply voltage and current draw of the BMP280 and DS18B20\relax }}{78}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {4.7}{\ignorespaces Performance specifications for the INA219 current monitor chip.\relax }}{79}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {4.8}{\ignorespaces Performance Characteristics of the MPU6050 6-axis IMU \relax }}{80}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {4.9}{\ignorespaces Key performance characteristics for the AT45DB641E flash chips.\relax }}{81}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {4.10}{\ignorespaces Type and number of communication ports in order to facilitate communication with all the external modules.\relax }}{81}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {4.11}{\ignorespaces Performance parameters for the STM32L4 microcontroller. \relax }}{82}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {4.12}{\ignorespaces Current consumption of various components as well as the estimated maximum possible current draw\relax }}{83}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {4.13}{\ignorespaces Key Performance Characteristics for the LP3876 Low Dropout Regulator\relax }}{83}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {4.14}{\ignorespaces Approximate procurement cost for a single SHARC buoy node.\relax }}{86}{}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.1}{\ignorespaces Table showing the power mode selection for each phase of the Buoy's operational cycle\relax }}{93}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.2}{\ignorespaces configuration parameters for the system clock and Real Time Clock including sources and frequencies\relax }}{94}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.3}{\ignorespaces Table showing the types of states that the system checks for ordered by priority with 1 being the highest priority and 3 being the lowest\relax }}{99}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.4}{\ignorespaces Table Showing the device behaviour in case of a critical failure in one or more of the subsystems. Critical failures are defined in AT006 (table 3.15\hbox {}) testing protocol.\relax }}{102}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.5}{\ignorespaces Breakdown of a typical NMEA message string with fields indicating start/stop sequences and character information.\relax }}{103}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.6}{\ignorespaces Description of ZDA Message string showing variables, description and how the example datum 5th September 2002 08:27:10 am is stored\relax }}{104}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.7}{\ignorespaces Description of GSA Message string showing variables, description of parameters and how the variables are stored\relax }}{104}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.8}{\ignorespaces Description of GLL Message string showing variables, description and how a set of coordinates e.g. (47$\degree $17.11364'N, 8$\degree $ 33.91565' ) is stored\relax }}{104}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.9}{\ignorespaces Data collected from the GPS in a single sample session.\relax }}{105}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.10}{\ignorespaces Description of output values from BMP280 post processing.\relax }}{106}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.11}{\ignorespaces Description of parameters used to calibrate the INA219 current sensor\relax }}{106}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.12}{\ignorespaces Description of output values from INA219 current sensor.\relax }}{107}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.13}{\ignorespaces Description of output values from the MPU6050 IMU showing variable name, size and significance\relax }}{107}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.14}{\ignorespaces Paramaters of the IMU and their configured value for this application\relax }}{108}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.15}{\ignorespaces Breakdown of data accumulated from the IMU with the sample parameters mentioned in table 5.14\hbox {}\relax }}{108}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.16}{\ignorespaces Total drift data collected during a single sample point\relax }}{108}{}%
+\defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.1}{\ignorespaces Description of accelerated system test protocol.\relax }}{113}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.2}{\ignorespaces Average current draw (mA) and cycle\relax }}{114}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.3}{\ignorespaces Table showing the parameters the GPS was configured with before deployment \relax }}{115}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.4}{\ignorespaces Deployment conditions for buoy 1 (2019-WC-SB01) and buoy 2 (2019-WC-SB02) including deployment coordinates, time and environmental conditions\relax }}{116}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.5}{\ignorespaces Results of the full system acceptance tests indicated by a \text {$\mathsurround \z@ \mathchar "458$}in the appropriate column\relax }}{116}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.6}{\ignorespaces Results of the platform evaluation and how each functional requirement was addressed.\relax }}{118}{}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
@@ -162,44 +158,48 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {C.1}{\ignorespaces Description of Interrupt generated by the iridium module on an external digital input line.\relax }}{135}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {C.2}{\ignorespaces Description of routine for interrupts generated by the IMU on an external digital input line.\relax }}{135}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {C.3}{\ignorespaces Description of event handling routine for a brown out recovery event.\relax }}{136}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {C.4}{\ignorespaces Description of routine for handling low power events.\relax }}{136}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {C.5}{\ignorespaces Description of routine for handling a software reset event.\relax }}{136}{}%
+\addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {D.1}{\ignorespaces Color guide for the initialization routine flow diagrams.\relax }}{137}{}%
+\contentsline {table}{\numberline {C.1}{\ignorespaces Description of Interrupt generated by the iridium module on an external digital input line.\relax }}{138}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {C.2}{\ignorespaces Description of routine for interrupts generated by the IMU on an external digital input line.\relax }}{138}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {C.3}{\ignorespaces Description of event handling routine for a brown out recovery event.\relax }}{139}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {C.4}{\ignorespaces Description of routine for handling low power events.\relax }}{139}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {C.5}{\ignorespaces Description of routine for handling a software reset event.\relax }}{139}{}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.1}{\ignorespaces List of data services provided by Iridium for transmission of data over the satellite network including the bandwidth and purpose of the service taken from \cite {iridium_mobile}\relax }}{146}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.2}{\ignorespaces Strategies used by the devices to transfer data from remote locations. Table includes transmission technologies and services used as well and transmission strategies and transmission intervals where given. Prices are converted to Rands (R) via \cite {usdcoversion}.\relax }}{147}{}%
+\contentsline {table}{\numberline {D.1}{\ignorespaces Color guide for the initialization routine flow diagrams.\relax }}{140}{}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {F.1}{\ignorespaces Unit Test 1: Hardware Verification test outlining procedure, test cases and relation to acceptance tests\relax }}{149}{}%
+\contentsline {table}{\numberline {E.1}{\ignorespaces List of data services provided by Iridium for transmission of data over the satellite network including the bandwidth and purpose of the service taken from \cite {iridium_mobile}\relax }}{149}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {F.2}{\ignorespaces Unit Test 2: GPS Connection Test test outlining procedure, test cases and relation to acceptance tests\relax }}{150}{}%
+\contentsline {table}{\numberline {E.2}{\ignorespaces Strategies used by the devices to transfer data from remote locations. Table includes transmission technologies and services used as well and transmission strategies and transmission intervals where given. Prices are converted to Rands (R) via \cite {usdcoversion}.\relax }}{150}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {F.3}{\ignorespaces Unit Test 3: GPS Data Validity Test test outlining procedure, test cases and relation to acceptance tests\relax }}{151}{}%
+\addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {F.4}{\ignorespaces Unit Test 4: Memory Verification test procedure, test cases and relation to acceptance tests\relax }}{152}{}%
+\contentsline {table}{\numberline {F.1}{\ignorespaces Unit Test 1: Hardware Verification test outlining procedure, test cases and relation to acceptance tests\relax }}{152}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {F.5}{\ignorespaces Unit Test 5: Power Module Verification test outlining procedure, test cases and relation to acceptance tests\relax }}{152}{}%
+\contentsline {table}{\numberline {F.2}{\ignorespaces Unit Test 2: GPS Connection Test test outlining procedure, test cases and relation to acceptance tests\relax }}{153}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {F.6}{\ignorespaces Unit Test 6: Transmission test test outlining procedure, test cases and relation to acceptance tests\relax }}{153}{}%
+\contentsline {table}{\numberline {F.3}{\ignorespaces Unit Test 3: GPS Data Validity Test test outlining procedure, test cases and relation to acceptance tests\relax }}{154}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {F.7}{\ignorespaces Unit Test 7: Temperature Verification test test outlining procedure, test cases and relation to acceptance tests\relax }}{154}{}%
+\contentsline {table}{\numberline {F.4}{\ignorespaces Unit Test 4: Memory Verification test procedure, test cases and relation to acceptance tests\relax }}{155}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {F.8}{\ignorespaces Unit Test 8: Inertial Measurement Unit test outlining procedure, test cases and relation to acceptance tests\relax }}{154}{}%
+\contentsline {table}{\numberline {F.5}{\ignorespaces Unit Test 5: Power Module Verification test outlining procedure, test cases and relation to acceptance tests\relax }}{155}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {F.9}{\ignorespaces Results of subsystem acceptance tests for each of the identified modules. Modules that were successfully validated were marked with a \text {$\mathsurround \z@ \mathchar "458$}, failed tests were marked by an X and tests that could not be applied to a subsystem were marked by an N/A\relax }}{155}{}%
+\contentsline {table}{\numberline {F.6}{\ignorespaces Unit Test 6: Transmission test test outlining procedure, test cases and relation to acceptance tests\relax }}{156}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {F.7}{\ignorespaces Unit Test 7: Temperature Verification test test outlining procedure, test cases and relation to acceptance tests\relax }}{157}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {F.8}{\ignorespaces Unit Test 8: Inertial Measurement Unit test outlining procedure, test cases and relation to acceptance tests\relax }}{157}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {F.9}{\ignorespaces Results of subsystem acceptance tests for each of the identified modules. Modules that were successfully validated were marked with a \text {$\mathsurround \z@ \mathchar "458$}, failed tests were marked by an X and tests that could not be applied to a subsystem were marked by an N/A\relax }}{158}{}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }

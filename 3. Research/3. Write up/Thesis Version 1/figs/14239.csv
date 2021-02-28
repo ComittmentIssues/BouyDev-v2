@@ -1,0 +1,107 @@
+"id","sku","name","description","description_markdown","date_published","price","qty_price","in_stock","backorder_allowed","is_rohs_compliant","is_export_controlled","is_oshw","in_eagle_library","in_fritzing_library","sparkfun_original","hstariff","pack_length","pack_width","pack_height","packed_weight","ascii_art","ascii_art_url","categories","quantity","images","related_products","videos"
+"14239","DD-14239","GPS Receiver Module SMD - S1315F","<p>The S1315F SMD IC is a small form factor 65-channel GPS module solution intended for a broad range of OEM products, where fast and easy system integration and minimal development risk is required. You only need to provide DC power of 3.0V to 3.6V and GPS signal; the S1315F will output navigation solution in standard NMEA-0183 protocol format.</p>
+
+<p>We found quite a few of these on our last Inventory Day, but we don\'t actually use them on any of our boards. We have made them available at a drastically reduced price for anyone who could possibly use one of these handy little ICs.</p>
+
+<p><strong>Note:</strong> Since this product belongs to our \""Ding &amp; Dent\"" category, once we are out of stock, we will not carry it again. Get them while you can!</p>
+
+<p><strong>Features:</strong></p>
+
+<ul>
+<li>65-Channel GPS L1 C/A Code</li>
+<li>Perform 8 million time-frequency hypothesis testing per second</li>
+<li>Open sky hot start 1 sec</li>
+<li>Open sky cold start 29 sec</li>
+<li>Cold start sensitivity -148dBm</li>
+<li>Tracking sensitivity -161dBm</li>
+<li>Multipath detection and suppression</li>
+<li>Accuracy 2.5m CEP</li>
+<li>Maximum update rate 10Hz</li>
+<li>Tracking current ~28mA</li>
+<li>Supports active and passive antenna</li>
+<li>Firmware customizable</li>
+<li>Operating temperature -40 ~ +85oC</li>
+</ul>
+
+<p><strong>Documents:</strong></p>
+
+<ul>
+<li><a href=\""https://cdn.sparkfun.com/datasheets/GPS/S1315F_v5.pdf\"">Datasheet</a></li>
+</ul>","The S1315F SMD IC is a small form factor 65-channel GPS module solution intended for a broad range of OEM products, where fast and easy system integration and minimal development risk is required. You only need to provide DC power of 3.0V to 3.6V and GPS signal; the S1315F will output navigation solution in standard NMEA-0183 protocol format.
+
+We found quite a few of these on our last Inventory Day, but we don\'t actually use them on any of our boards. We have made them available at a drastically reduced price for anyone who could possibly use one of these handy little ICs.
+
+**Note:** Since this product belongs to our \""Ding & Dent\"" category, once we are out of stock, we will not carry it again. Get them while you can!
+
+**Features:**
+
+* 65-Channel GPS L1 C/A Code
+* Perform 8 million time-frequency hypothesis testing per second
+* Open sky hot start 1 sec
+* Open sky cold start 29 sec
+* Cold start sensitivity -148dBm
+* Tracking sensitivity -161dBm
+* Multipath detection and suppression
+* Accuracy 2.5m CEP
+* Maximum update rate 10Hz
+* Tracking current ~28mA
+* Supports active and passive antenna
+* Firmware customizable
+* Operating temperature -40 ~ +85oC
+
+**Documents:**
+
+* [Datasheet](https://cdn.sparkfun.com/datasheets/GPS/S1315F_v5.pdf)
+
+","2017-04-20 15:18:53.730992-06","11","1110.5","","","","","","","","","8526.91.0040","25mm","17mm","4mm","0.0026lbs","
+
+
+
+
+
+
+
+
+
+                                                            ..;;.
+                                                       .\':lxkkkkx;
+                                                  .,:oxkkOOkOOOkkkd.
+                                            .\':lxxkkkkkOOOkxl:\'..cxxc.
+                                      ..;cdkkOkkkkOkkkdl;\'. ..    .oxx;
+                                 .\';lxkkOkOkkOOOkoc;..    c;.\'.     ,xko.
+                            .,:oxkkkOOOOOOOkoc,.    .c:,. .co.       .ckx:.
+                       .,cokkkkkkOOkOOkoc,.    \'l.   :;.,o  ..  ...    .oxd,
+                 .\';ldxkkkkkkkkkkxo:,.  .,\';.  ..,:.  ......\'. ;;\'l\'.    ;dxl.
+              ;oxxkkkkOkOOOkdl;..   ;\'   . ,,c.    . ..   ;. o. ,:.,;     .ckxc.
+             ..lkkkkkkxo:;.. .\'\'.  .\',c.  .\'\'\'  ..   \'d;c,. ;d\'\'.           .dkd,
+          .,,...;xkkOx\'     ,l,\',,.   .\'    \'.  :c;   x:..\'..                 ;kkl.
+          ,oo\'.\'..lkkOkc.     \'\'\';\'   .\'\'. .:c,   .:. ..                       .lkx:
+           .:c;\'...;xkOkd\'       .\'\'..l:cc;.  \',                            .,cdk0Okd,
+             .,l,....okkkkc.    .d. ;l.c;\':.                           .,:okOOOOOOkxdc\'
+              .\'\':....;xkkkd\'    .;,\'c.                           .\':okOOOOO0Oxoc;\'....\';
+                \'c:,....okOOkc.       .;ccc;.                .\':lxkkOOOkkxdc;\'....... ..:o.
+                 ..:c,...;xOkkx\'     \'O000OOO,          .,:lxkkkOkkkxo:;\'..........;:c:\';;\'
+                   \',......okOOko.   .lk00Okl.     .,:okOOOOOkkxl:,...........,:ll,.,;.
+                    .\'. ....;xkOOx,     ...   .,:okOOOkOkkxl:,...........,;:ll..,\'.
+                      ...:o...okOOko.    .\':oxkOOOOOOxl:,.........\',\',;;l:..\'.
+                       .,coo;..;xkOOkooxdkkkkOkxdc:,.........\'...;olc;....
+                         ..dlc,..oxOOKKKOOdl:,\'.........,;lcc;\';::,..
+                          .;;;o:..;dxxoc;\'..........;c;,\':lc:,\'.
+                            .;co\'..,\'..........,:c\'..;c, ..
+                             ..,l,\':......\';;;,.\'c:. .
+                               .cdl:..,\',:\'.;:\'
+                                 ,cl:,..;,.
+                                  .,\'.
+
+
+
+
+
+
+
+
+
+
+","https://www.sparkfun.com/products/14239/images.txt","SMD,
+Modules,
+Dings and Dents","0","","14410",""

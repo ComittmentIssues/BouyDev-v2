@@ -134,40 +134,10 @@ The deployment is also affected by the set up of the device. The SIMB Buoy, whil
 
 \textit{System must be cost effective}
 
-\textcite{PLANCK2019102792}, \textcite{guimaraes2018surface}, \textcite{rabault2019open} consider cost to be a significant constraint in designing a system. Additionally, some devices such as SIMB buoy, gradually factored in price after 2 iterations \cite{planck2019evolution}. This shows that optimizing device performance for cost is critical for increasing the affordability and avalability of devices. Table \ref{tab:device_price} shows a comparison of reported costs for each system where applicable 
+\textcite{PLANCK2019102792}, \textcite{guimaraes2018surface}, \textcite{rabault2019open} consider cost to be a significant constraint in designing a system. Additionally, some devices such as SIMB buoy, gradually factored in price after 2 iterations \cite{planck2019evolution}. This shows that optimizing device performance for cost is critical for increasing the affordability and availability of devices. Table \ref{tab:device_price} showed a comparison of reported costs  and weughtsfor each system where applicable 
 
-\begin{table}[H]
-	\centering
-
-	\caption{Comparison of price and wieght of each device according to the published literature or commercial listing. Weight provides an indicator of the ease of handling whereas price provides an indicator of affordability. Prices have been converted to South African Rand (R)  online \cite{usdcoversion}where applicable while weight has been converted to Kg. "Not Reported" is given where a value could not be obtained. }
-	
-	\begin{tabular}{|l|l|l|}
-		\hline
-		\textbf{Device Name:} & \textbf{Weight (Kg):} & \textbf{Price} \\
-		\hline
-		WIIB & 4.5 & R30,200\\
-		\hline
-		WIIOS & N/R & Not N/R \\
-		\hline
-		NDWB & 150 & N/R \\
-		\hline
-		SKIB  & N/R &  R39,784.4\\
-		\hline
-		SWIFT & 30 & N/R \\
-		\hline
-		SIMB & 34 & R58,909.3 \\
-		\hline
-		Polar ISVP & 11.34 & R52,119.0 \\
-		\hline
-		UptempO & 105 & R863,686 \\
-		\hline
-		Trident & 0.42 & R30,524.7 \\
-		\hline
-	\end{tabular}
-	\label{tab:device_price}
-\end{table}
  
-table \ref{tab:device_price} above shows the cost and weight of each device. \textcite{rabault2019open} succeeded in creating a low cost buoy through the use of open source hardware and off the shelf components resulting in the buoy having the lowest reported price out of the system. The next cheapest device, Trident is only R300.00 more expensive however, contains significantly less features. On average, commercial systems (UptempO, Polar ISVP, Trident) proved to be significantly more expensive than devices with similar attributes however, due to the absence of prices for SWIFT, WIIOS and Trident make it difficult to draw conclusions from this comparison. A novel sensing device that is cost optimsed should result in an overall cost cheaper than the devices in table \ref{tab:device_price} with comparable performance.
+from table \ref{tab:device_price} we can see from the cost breakdown that \textcite{rabault2019open} succeeded in creating a low cost buoy through the use of open source hardware and off the shelf components resulting in the buoy having the lowest reported price out of the system. The next cheapest device, Trident is only R300.00 more expensive however, contains significantly less features. On average, commercial systems (UptempO, Polar ISVP, Trident) proved to be significantly more expensive than devices with similar attributes however, due to the absence of prices for SWIFT, WIIOS and Trident make it difficult to draw conclusions from this comparison. A novel sensing device that is cost optimsed should result in an overall cost cheaper than the devices in table \ref{tab:device_price} with comparable performance.
 
 \subsection{Analysis of UR007}
 
@@ -1182,13 +1152,13 @@ This section begins with an overview of the development environment which discus
 
 \section{Software Architecture}
 
-The STM32 series does not come loaded with any Operating System. Therefore, firmware development had to occur on bare metal. In addition, the firmware had to be tailored to the specific micro-controllers Architecture. The Atollic Truestudio IDE allowed for development to take place in c. The program comes packaged with an ARM development tool chain and a C compiler allowing for code to be compiled and flashed onto the board via a USB cable. The manufacturer also provides a set of driver files and  initialisation tools. The project was written in C which allowed for higher-level code to implemented while still optimising for size and speed on the device. In addition, C allows for the program to include drivers and resources from the manufacturer. \par 
+The STM32 series does not come loaded with any Operating System. Therefore, firmware development had to occur on bare metal. In addition, the firmware had to be tailored to the specific micro-controllers architecture. The Atollic Truestudio IDE allowed for development to take place in C. The program comes packaged with an ARM development tool chain and a C compiler allowing for code to be compiled and flashed onto the board via a USB cable. The manufacturer also provides a set of driver files and  initialisation tools. The project was written in C which allowed for higher-level code to implemented while still optimising for size and speed on the device. In addition, C allows for the program to include drivers and resources from the manufacturer. \par 
 
 The Firmware was designed using a top down approach. The overall system was decomposed into 3 distinct layers as shown in the figure below
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{soft_arch.png}
+    \includegraphics[width= 0.7\linewidth]{soft_arch.png}
     \caption{Diagram showing the decomposition of the overall firmware into distinct layers and the relationship between each part.}
     \label{fig:soft_arch}
 \end{figure}
