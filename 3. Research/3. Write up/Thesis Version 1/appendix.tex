@@ -3,11 +3,13 @@
 %*****************************************************
 \appendix
 
-\chapter{Numerical modeling of polar stochastic processes}
+\chapter{Numerical modeling}
+
+\section{Modeling of polar stochastic processes}
 \label{app:modelling}
 In this section, modeling techniques for the polar region are explored. Here, the focus is given on developing models for Polar sea ice mechanics and dynamics. An overview of these models is given along with a description of the variables as well as the scope of each model.
 
-\subsubsection{Numerical Modeling of Sea Ice}
+\subsection{Numerical Modeling of Sea Ice}
 
 The Hibler model is a numerical designed to investigate sea ice dynamics and thermodynamics in the Arctic region \cite{hibler1979dynamic}. This model attempts to couple the sea ice dynamics to Sea ice thickness and uses this relationship to investigate the relationship between the effects of sea ice and the climate. Work so far has largely studied these effects independently using factors that largely ignore the inherent mechanical properties of Sea Ice \cite{hibler1979dynamic}. Coupling these effects would allow for a more general descriptor of Sea Ice spread regions.\par
 
@@ -73,7 +75,91 @@ $m_n[\eta]$ describes the mean square surface sea elevation of a particle and is
 \end{equation}
 
 The significant wave height can be considered 4 times the standard deviation of the surface elevation \cite{meylan2014situ}. finally, by determining the significant wave height, the dominant wave period can be calculated as $\frac{1}{f_d}$ where $f_d$ is the frequency at which the dominant wave period occurs \cite{meylan2014situ}.
-\subsubsection{Kuik Method}
+
+\section{Modeling of GPS dilation of precision}
+\label{appendix:GPS_DOP}
+ Given a user's position on the earth, the distance from the user to the satellite is characterised by the equation:
+\begin{equation}
+	r =  s - u
+\end{equation}
+where $r$ is the distance from the user to the satellite, $s$ is the distance from the earth's centre to the satellite and u is the distance from the earth to the user. By measuring the propagation time from the user to the satellite, The absolute distance $||r||$ can be calculated and hence, the pseudo-range can be calculated as
+\begin{equation}
+	\rho_i = ||s_i-u||+ct_b + v_{\rho_i}
+\end{equation}
+where $\rho_i$ is the pseudorange for satelite i, c is the speed of light, $t_b$ is  the clock offset and $v_{\rho_i}$ is the noise of the pseudorange measurement and:
+\begin{equation}
+	||s_i-u|| = \sqrt{(x_i - x_u)^2+(y_i-y_u)^2+(z_i-z_u)^2} \text{ for } i \in 1,2,3...N \label{los}
+\end{equation}
+where $N$ is the number of satellites and $(x_i,y_i,z_i)$ is the 3 dimensional position of satellite $i$. This represents a non-linear relationship for the line of sight of a satellite.  \textcite{jwo2001efficient} explains that by creating a Taylor series centered on a nominal user position $(\hat{x_n},\hat{y_n},\hat{z_n})$ and ignoring the higher terms \cite{jwo2001efficient}. It then follows that:
+\begin{equation}
+	\Delta\rho_i = \rho_i - \hat{\rho_i} = e_{i1}\Delta x_u + e_{i2}\Delta x_u +  e_{i3}\Delta z_u
+\end{equation}
+
+The terms $e_{ij}$ represent the line of sight vector $E_i$ whereas the term $\hat{\rho_i}$ is the pseudo-range at the nominal user's position. It follows that the vector $E_i$ can be calculated as follows \cite{jwo2001efficient}.
+\begin{subequations}
+	\begin{align}
+		e_{i1} = \frac{\hat{x_n} - x_i}{\hat{r_i}}\\
+		e_{i2} = \frac{\hat{y_n} - y_i}{\hat{r_i}}\\
+		e_{i3} = \frac{\hat{z_n} - z_i}{\hat{r_i}}\\
+		\hat{r_i} = \sqrt{(\hat{x_n} - x_i)^2+(\hat{y_n} -y_i)^2+(\hat{z_n} -z_i)^2}
+	\end{align}
+\end{subequations}
+
+Given $n$ satellites, the equation \eqref{los} can be written as a matrix with the following form:
+\begin{equation}
+	\textbf{z} = \textbf{Hx}+ \textbf{v}
+\end{equation}
+\begin{equation}
+	\Delta \rho _i = \begin{bmatrix}
+		\Delta \rho_1 &  \Delta \rho_2 &  \Delta \rho_3 & ... & \Delta \rho_n
+	\end{bmatrix} 
+\end{equation}
+where 
+\begin{subequations}
+	\begin{align}
+		\textbf{H} = \begin{bmatrix}
+			e_{11} & e_{12} & e_{13}& 1 \\
+			e_{21} & e_{22} & e_{23}& 1 
+			\\
+			e_{31} & e_{32} & e_{33}& 1
+			\\
+			... & ... & ... &  1 
+			\\
+			e_{n1} & e_{n2} & e_{n3} & 1
+		\end{bmatrix}\\
+		\textbf{x} = \begin{bmatrix}
+			\Delta x_u \\ \Delta y_u \\\Delta z_u \\ c\Delta t_b
+		\end{bmatrix}\\
+		\textbf{v} = \begin{bmatrix}
+			v_{\rho_1}\\
+			v_{\rho_2}\\
+			v_{\rho_3}\\
+			...\\
+			v_{\rho_n}
+		\end{bmatrix}
+	\end{align}
+\end{subequations}
+
+The Matrix \textbf{H} is $n\times4$ where $n \geq 4$ to calculate all the parameters for GDOP \cite{jwo2001efficient}. We can then solve for the vector \textbf{x} by taking the psuedo inverse of H i.e $\hat{\textbf{x}} = (\textbf{H}^T\textbf{H})^{-1}\textbf{H}^t\textbf{z}$. Hence, given that the psuedo range is linearised, the quality of navigation is taken as the difference between the estimated position and the actual position \cite{jwo2001efficient}.
+\begin{equation}
+	\Tilde{\textbf{x}} = \hat{\textbf{x}} - x = (\textbf{H}^T\textbf{H})^{-1}\textbf{H}^Tv
+\end{equation}
+$E\{\Tilde{\textbf{x}}\Tilde{\textbf{x}}^T\}$ describes the covariance between the errors in the components of the estimated position \cite{jwo2001efficient} and is calculated as 
+\begin{equation}
+	E\{\Tilde{\textbf{x}}\Tilde{\textbf{x}}^T\} = (\textbf{H}^T\textbf{H})^{-1}\textbf{H}^TE\{\textbf{vv}^T\} (\textbf{H}^T\textbf{H})^{-1}\textbf{H}
+\end{equation}
+where $E\{\textbf{vv}^T\} = \sigma^2 I$. If all components of $\sigma$ are uncorrelated then the covariance becomes 
+\begin{equation}
+	E\{\Tilde{\textbf{x}}\Tilde{\textbf{x}}^T\} = \sigma^2(\textbf{H}^T\textbf{H})^{-1}
+\end{equation}
+and thus the GDOP factor can be calculated from the RMS values of $\sigma^2$ i.e.
+\begin{equation}
+	GDOP = \frac{\sqrt{\sigma_{xx}^2+\sigma_{yy}^2+ \sigma_{zz}^2+\sigma_{tt}^2}}{\sigma}
+\end{equation} where $\sigma_{xx}^2$,$\sigma_{yy}^2$,$\sigma_{zz}^2$,$\sigma_{tt}^2$ are the RMS values of the x,y,z time components respectively. THe value GDOP can also be decomposed into the positional dilation of precision (PDOP), time dilation of precision (TDOP), horizontal dilation of precision HDOP, and vertical dilation of precision (VDOP) which characterise the effects satellite spread on the 3 dimensional position, time, horizontal position and altitude respectively.\par
+
+\section{Numerical Techniques for modeling ocean waves}
+
+\subsection{Kuik Method}
 \label{kuik}
 The Kuik method, developed by \textcite{kuik1988method} is a computational technique for measuring and determining the directional characteristics of ocean waves. Measurement of these characteristics are derived from the pitch and roll of an ocean buoy are measured. By using an accelerometer, gyroscope or an inertial measurement system to measure the slope and heave of the 3 axes \cite{kuik1988method}, it is possible to reconstruct the sea state given a set of data provided the data is of a specific length sampled above the Nyquist frequency of dominant ocean swells. A major advantage of the Kuik method is that the parameters are estimated directly from the Fourier transform of the measured signal \cite{kuik1988method} without assumptions about the model. Should the algorithm be used to measure waves in ice, no information is required about the dynamics of the model of the ice floe. This greatly improves the accuracy since ice floes can vary in width, distribution and area as well as change shape due to collisions, freezing and melting. Wind waves are described using a two-dimensional energy spectrum $E$ with wave energy spread over a frequency $f$. The normalised distribution of energy over direction is defined according to \textcite{kuik1988method} as
 \begin{equation}
@@ -92,7 +178,7 @@ Finally, by computing the model per frequency, the distribution simplifies to $D
 
 The accuracy of the mean wave direction and width is affected by noise in the sampled data. small RMS values of noise can result in rapid increases of directional width by 1\% to 5\% \cite{kuik1988method}. Additionally, pitch and roll buoys are not free particles. They have an associated mass and therefore an associated inertia \cite{kuik1988method}. This results in a phase shift of the Fourier term by $\phi_i i \in {x,y,z}$  in the first harmonic \cite{kuik1988method}. This shift can result in an error of $0.5^\circ $ for $\sigma > 25 ^\circ $ to $1^\circ \text{ for } \sigma < 10^\circ $ \cite{kuik1988method}   
 
-\subsubsection{Welch-Earle Method}
+\subsection{Welch-Earle Method}
 \label{welchearl}
 The Welch-Earle Method is an algorithm for calculating either directional and non-directional wave data depending on the assumptions of the input data \cite{earle1996nondirectional}. Data is derived from the vertical acceleration, roll and pitch of a buoy oriented perpendicular to the surface on either a vertically stabilised platform or a hull-fixed platform \cite{earle1996nondirectional}. Directional wave data is determined from both the acceleration, roll, pitch and heave from the buoy while non-directional wave data is calculated from time-series acceleration only. In this method, a digital time series representation of the vertical Acceleration along with 2 orthogonal Gyroscope measurements and Magnetometer readings relative to the earth’s magnetic field is obtained. The method accounts for the response function of the buoy and provides corrections to phase differences as a result of the buoy's inertia \cite{earle1996nondirectional}. Full directional and non-directional wave data is characterised by calculating the spectra and co-spectra of the time series data. The first part of the method is developed by \textcite{welch1967use} and is used to calculate the power spectral density.
 Given a discrete time series data X(j) with a power spectral density P(f), |f|< $\frac{1}{2}$.this data segmented into a set of k-bins $X_k(j) | j \in {0,L-1}$ \cite{welch1967use}. Each bin is multiplied by a selected window function W(k) of length L. Additionally, Bins are taken with a 50\% overlap to produce better statistical averages \cite{earle1996nondirectional} The Fast Fourier Transform (FFT) of the result is taken to for a periodograms $I_k$ \cite{earle1996nondirectional}. Finally, the new power spectral estimator $\hat{P}(f_n)$ is calculated by taking the average of the K periodograms as shown in \textcite{welch1967use}
@@ -127,40 +213,414 @@ The spectra and co-spectra of the directional and non-directional wave series ca
 
 This approach brings into account the possibility of spectral leakage however, this can be greatly minimised by sampling above the Nyquist frequency of the upper Wave frequency band (generally taken to be 0.5Hz) for a minimum of 1000 seconds (about 16 – 17 minutes). Additionally, spectral leakage can be reduced by selecting a window function with a gradual taper such as a half cosine or Hanning taper \cite{welch1967use}\par
 
+\section{Temperature sensing measurement techniques}
+\label{appendix:tempsense}
+\subsubsection{Thermistors}
 
-\chapter{Mechanical Schematics and Renders}
+Modern thermistors have progressed significantly in the past decade. Up until recently, they have been considered inaccurate with uncertainty ranges of up to 5\% \cite{tong2001improving}. Thermistors are capable of providing accuracies of up to 0.01$^\circ$. They consist of a semiconductor that changes its resistance in response to temperature \cite{childs2000review}. They have a faster response time than RTDs and work on the same principle for temperature measurement. However, where RTDs have a Positive temperature coefficient, thermistors have a negative temperature coefficient \cite{tong2001improving}. These devices can operate over a substantial, albeit relatively limited, range of $-100^\circ - 300^\circ C$. The major trade-off with these devices is the lack of standards \cite{tong2001improving}. Operating the device involves a large degree of uncertainty. Also, these devices are not powerful enough to accurately reach the desired ranges alone. They need to be coupled with similar devices. Finally, the response curve is non-linear. The  relationship between resistance and temperature is \cite{childs2000review}:
+\begin{equation}
+	R_T = R_0e^{1 - B(\frac{1}{T}- \frac{1}{T_0})}
+\end{equation}
+where $R_T$ is the temperature measured, $R_0$ is the resistance at a known temperature $T_0$, T is the temperature and B is a coefficient based on the properties of the thermistor. Finally, these devices are more prone to noise from excitation current.
+
+\subsubsection{Silicon Temperature Devices}
+
+Semiconductor temperature devices are suited to applications where the temperature ranges from -55 to 150 $^\circ C$ these devices are capable of providing a stable output with a typical accuracy of $0.8 ^\circ C$. These devices typically consist of diodes and transistors with a band gap voltage that changes with a change in temperature \cite{childs2000review}. These devices are advantageous in electronic application due to their small form, high accuracy and stability. These devices are relatively simple and have a good sensitivity to changes \cite{childs2000review}. Diodes are typically used in semiconductor devices. Here, the forward voltage drop across the p-n junction is linearly proportional to the Ambient temperature over a certain temperature range (typically 25K - 400K) \cite{childs2000review}. These devices are made out of either silicon or Gallium-Arsenide. Silicon is preferred as it has better stability at low temperatures and is cheaper however, this comes at the trade-off of a lower voltage output \cite{childs2000review}. \par These Types of devices are readily available in IC forms and are manufactured in a variety of packages, types and compositions for any application. Typical devices are DS18B20, LM355 or BMP2080. Recent innovations in Silicon sensing have seen the rise of CMOS devices and Micro Electrical-Mechanical Systems (MEMS) being used more frequently \cite{mansoor2015silicon}. While these devices can suffer from deterioration due to self-heating, \textcite{mansoor2015silicon} discuss that the low-power operation of these devices can offset this issue. This is advantageous for systems that are constrained by power consumption. However, a major disadvantage with these devices is that these devices work ideally with a purely DC signal.An AC coupled signal can cause significant errors in the output \cite{childs2000review} \cite{mansoor2015silicon}. These errors can be the result of improper shielding and poor grounding. Hence proper shielding and grounding are required to reduce these errors. Finally, these devices require careful calibration before use.
+
+\section{Pressure sensing techniques}
+
+In this section, common pressure sensing techniques are discussed as well as their applications in remote sensing. Additionally, the numerical model of each sensor is given showing the relationship between the measured variable and the output signal. 
+
+\subsubsection{Diaphragm based sensors}
+
+The current state of pressure sensing technology is driven towards Miniature MEMs version of large scale devices \cite{eaton1997micromachined}. Most large scale pressure sensors consist of a diaphragm mounted on a device in a known way. The diaphragm is coupled to a device that converts the pressure to a mechanical movement which is then measured using a gauge. These senses often had a secondary sensor that would convert the mechanical movement to an electrical signal which was then measured \cite{eaton1997micromachined} these sensors determine pressure by measuring the deflection of a miniature diaphragm. This deflection is converted to an electrical signal. Typically, a reference pressure is provided as a measurement of a sealed chamber or absolute pressure port. Assuming the simplest version of this sensor i.e. a plate of uniform thickness \cite{eaton1997micromachined} The deflection $w$ of the diaphragm is related to the pressure  $P$ by the following equation: \cite{eaton1997micromachined}
+
+\begin{equation}
+	w(r) = \frac{Pa^4}{64D}(1- (\frac{r}{a})^2)^2
+\end{equation}
+
+where r is the deformed radius of the diaphragm, a is the original radius and D is the  rigidity of the diaphragm governed by the equation:
+
+\begin{equation}
+	D = \frac{Eh^3}{12(1-v^2)}
+\end{equation}
+where E,h,v are Young's modulus, thickness and Poisson's ratio of the disc \cite{eaton1997micromachined}. This technique suffers from a multitude of problems namely, the diaphragm is susceptible to plastic deformation and more robust diaphragms result in more complex relationships. The current relationship is nonlinear and can result in calculation errors. Eaten (1997) advocate for the use of MEMs based electronics on these principles.
+
+\subsubsection{Piezoresistive sensors}
+
+Piezoresistive sensors are electric devices constructed out of a semiconductor whose electrical properties change when a stress is applied \cite{eaton1997micromachined}. these devices are mounted to a diaphragm and exhibit a linear change in resistance with a change in Pressure. Currently, these sensors take the form of single-crystal diaphragms with piezoelectric resistors diffused through the materials. The advantage of these devices is robustness towards hysteresis and measurement drift. At low temperatures, silicon exhibits near-perfect elastic behaviour and is  3 times the tensile strength of strain gauges\cite{eaton1997micromachined}. The sensors are, however susceptible to thermal expansion and can exhibit significant temperature drift \cite{samaun1971ic}. Additionally, these sensors require resistors with identical temperature Resistance characteristics otherwise the measurements will be inaccurate. Finally, additional compensation techniques are required.
+
+\subsubsection{Capacitive sensors}
+
+These sensors consist of parallel conductive plates. Assuming a constant, known dielectric, an external pressure causes the plates to deform which changes the capacitance C according to the relationship \cite{eaton1997micromachined}
+\begin{equation}
+	C = \int \int \frac{\epsilon}{d - w(r)}drd\theta
+\end{equation}
+
+where $w(r)$ is the deformation of the plate, $\epsilon$ is the strain experienced on the plate and d is the distance of separation. The Pressure capacitance relationship can be approximated using a least-squares fit \cite{eaton1997micromachined} however this results in model errors of 1.5\% and up to 11\% at $w = \frac{1}{2}h$ the height of the plate. These sensors are more advantageous over piezoresistive sensors as they have higher pressure sensitivity and reduced susceptibility to temperature drift. However, these sensors are significantly susceptible to parasitic capacitance which can result in losses and errors. Additionally, these sensors are simple in design however they tend towards more complex circuit requirements.
+
+\newpage
+\chapter{Project Design}
+
+\section{Stakeholder analysis}
+\label{app:stakeholder}
+For this project, a stakeholder is defined as any user or set of users who will impact the overall project or be impacted by the final design of the project \cite{varvasovszky2000stakeholder}. Therefore, the stakeholders for this project can be considered as any individual directly involved in the designing/building of the project or a user: i.e. an individual responsible for using the system or any data it generates. The approach was to first identify the key stakeholders of the project and identify their role and involvement. Information was obtained from face to face meetings with the stakeholders which was used to generate the table shown below.
+
+\begin{table}[H]
+	\centering
+	\caption{Table showing the key stakeholders in the project, their level of involvement as well as their interests in the project}
+	\setlength{\extrarowheight}{5pt}
+	\resizebox{\textwidth}{!}{%
+	\begin{tabular}{ | >{\RaggedRight}m{0.3\textwidth} | >{\RaggedRight}m{0.4\textwidth} |>{\RaggedRight}m{0.4\textwidth} | }
+		\hline
+		Stakeholder &  Function & Involvement\\
+		\hline
+		Lead Scientist \hfill & Principal stakeholder: Initiates and funds the SHARC buoy project & Sets the user requirements, provides feedback on progress, organises expeditions.  \\
+		\hline
+		Project Supervisor & Set the project timeline and provide feedback on progress.\hfill& Primary engagement with principle Stakeholder\\
+		\hline
+		Project Engineer & Translate specifications to subsystems.& Selecting hardware, sourcing materials as well as designing firmware for the buoy. \\
+		\hline
+		Deployment Team & Place the system in a selected location and ensure the device is communicating & Physical handling of the device, understanding how the system works.\\
+		\hline
+		User & Collect and archive data packets from the buoy & Interact with the data portal and decompression software.\\
+		\hline
+		Collaborators & Work with users on interpreting data from the system & Analysing generated data sets.\\
+		\hline
+	\end{tabular}}
+\end{table}
+
+\section{Acceptance test protocols}
+\label{app:atp}
+
+
+\begin{table}[H]
+	\centering
+	\caption{Acceptance test for subsystem connectivity testing}
+	\setlength{\extrarowheight}{5pt}
+	\resizebox{\textwidth}{!}{%
+	\begin{tabular}{|m{0.25\textwidth}|m{0.75\textwidth}|}
+		\hline
+		
+		\textbf{AT001 }& \textbf{Connection test} \\
+		\hline
+		\textbf{Evaluation type:} & Software unit test\\
+		\hline
+		\textbf{Target: } & Sensors \\
+		\hline
+		\textbf{Test protocol:} & microcontroller should be connected to the device on a specified communication port.The microcontroller then requests an acknowledgment from the device either by reading the id register or by asking the device to return an acknowledgment string.\\
+		\hline
+		\textbf{Pass Condition} & \vspace{5pt} \begin{itemize}
+			\item microontroller receives acknowledgment
+			\item ID register read and valid 
+		\end{itemize} \\
+		\hline
+		\textbf{Fail Condition:} & \begin{itemize}
+			\item Incorrect ID register value returned
+			\item NACK Returned 
+			\item Invalid message string (timing error or framing error)
+			\item No data received (receiver timeout - malfunctioning device)
+			\item Failure to request read (transmission timeout - No device available)
+		\end{itemize}\\
+		\hline
+	\end{tabular}}
+	
+	\label{tab:AT001}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Acceptance test for fault testing.}
+		\setlength{\extrarowheight}{5pt}
+	\resizebox{\textwidth}{!}{%
+	\begin{tabular}{|m{0.25\textwidth}|m{0.75\textwidth}|}
+		\hline
+		
+		\textbf{AT002 }& \textbf{Fault testing} \\
+		\hline
+		\textbf{Evaluation Type:} & System Recovery\\
+		\hline
+		\textbf{Target: } & Hardware subsystems\\
+		\hline
+		\textbf{Test Protocol:} & Connect Subsystem to a micro-controller and run Acceptance Test AT001 under the following circumstances
+		\begin{itemize}
+			\item \textbf{Nack Test:} Change Acknowledgement string (USART Peripheral) or device ID (SPI/I2C) to an incorrect value.
+			\item \textbf{Corrupted Message Response Test:} modify the baud rate to produce a corrupted message.
+			\item \textbf{Disconnection Test:} Set the system to run a continuous cycle. Unplug the device while the system is running.
+			
+		\end{itemize} Evaluate return status. \\
+		\hline
+		\multirow{3}{*}{\textbf{Expected Response}} & \textbf{Nack Test: }  Controlled Exit and return "NACK\_ERROR". System clears message buffer and retries.\\ 
+		\cline{2-2}
+		& \textbf{Corrupted Message: } Controlled Exit return "MESSAGE\_ERROR". System re-initialises communication peripheral with different baud rate and retries.\\
+		\cline{2-2}
+		& \textbf{Disconnection Test: } Communication Timeout, controlled exit + return "TX\_ERROR". Critical Failure: system recognises that device is missing and continues routine without it.\\
+		\hline
+		\textbf{Pass Condition:} &\vspace{5pt} \begin{itemize}
+			\item Device returns status and handles faults in a predicted manner  
+			\item Critical Failures handled without errors
+		\end{itemize} \\
+		\hline
+		\textbf{Fail Condition:} & \vspace{5pt} \begin{itemize}
+			\item Device freezes during test
+			\item Device returns incorrect status
+			\item Segment Faults
+			\item Hard faults
+			\item Software Rest occurs during test
+		\end{itemize}\\
+		\hline
+	\end{tabular}}
+	
+	\label{tab:AT002}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Acceptance Test for component selection}
+	\begin{tabular}{|m{0.25\textwidth}|m{0.75\textwidth}|}
+		\hline
+		\textbf{AT003 }& \textbf{Specification Test} \\
+		\hline
+		\textbf{Evaluation Type:} & Analytical \\
+		\hline
+		\textbf{Target: } & Hardware components\\
+		\hline
+		\textbf{Test Protocol:} & Evaluate Specifications of the components from the data sheet to determine if the specifications meet the requirements for the system \\
+		\hline
+		\textbf{Pass Condition} & \vspace{5pt} \begin{itemize}
+			\item Specifications meet the desired requirements
+		\end{itemize} \\
+		\hline
+		\textbf{Fail Condition:} & \vspace{5pt} \begin{itemize}
+			\item Specifications do not meet the requirement
+		\end{itemize}\\
+		\hline
+	\end{tabular}
+	
+	\label{tab:AT003}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Acceptance Test for Subsystem Robustness Testing}
+	\begin{tabular}{|m{0.25\textwidth}|m{0.75\textwidth}|}
+		\hline
+		
+		\textbf{AT004 }& \textbf{Subsystem Robustness Test} \\
+		\hline
+		\textbf{Evaluation Type:} & Software \\
+		\hline
+		\textbf{Target: } & System, subsystem \\
+		\hline
+		\textbf{Test Protocol:} & Connect Subsystem to microcontroller and run a preset routine covering the following cycle \begin{itemize}
+			\item Intialisation
+			\item function
+			\item Deinitialisation
+		\end{itemize} Run this cycle 100 times consecutively.\\
+		\hline
+		\textbf{Pass Condition} & \vspace{5pt} \begin{itemize}
+			\item Microcontroller sccessfully completes consecutive cycles
+		\end{itemize} \\
+		\hline
+		\textbf{Fail Condition:} & \vspace{5pt} \begin{itemize}
+			\item  failure to complete more than 1 consecutive cycle
+			\item failure to initialise (fails acceptance Test AT001)
+			\item failure to correctly deinitialise after completing routine
+			\item Subsystem does not restart the cycle when reset
+		\end{itemize}\\
+		\hline
+	\end{tabular}
+	
+	\label{tab:AT004}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Acceptance Test for accelerated system testing}
+	\begin{tabular}{|m{0.25\textwidth}|m{0.75\textwidth}|}
+		\hline
+		\textbf{AT005 }& \textbf{Accelerated System Test} \\
+		\hline
+		\textbf{Evaluation Type:} & Software \\
+		\hline
+		\textbf{Target: } & System \\
+		\hline
+		\textbf{Test Protocol:} &  System to run firmware with all sensors initialised. Routine loaded on system that cycles between all the sensors and communication modules turning them on and off then cycling through deep sleep mode. This occurs over a 1 hour period\\
+		\hline
+		\textbf{Pass Condition} & \vspace{5pt} \begin{itemize}
+			\item System successfully cycles through sensors with no timing delays
+			\item System completes an hour of accelerated testing with no intervention
+			\item Power Reset do not cause the device to lock up or malfunction
+		\end{itemize} \\
+		\hline
+		\textbf{Fail Condition:} & \vspace{5pt} \begin{itemize}
+			\item System freezes at any point during the test 
+			\item System unable to turn on any sensro
+			\item system unable to enter sleep mode
+			\item system encounters unexpected reset
+			\item system unable to run for an hour
+		\end{itemize}\\
+		\hline
+	\end{tabular}
+	
+	\label{tab:AT005}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Acceptance Test for Subsystem Calibration Testing}
+	\begin{tabular}{|m{0.25\textwidth}|m{0.75\textwidth}|}
+		\hline
+		
+		\textbf{AT006 }& \textbf{Calibration Test} \\
+		\hline
+		\textbf{Evaluation Type:} & Statistical \\
+		\hline
+		\textbf{Target: } & Sensor Measurements \\
+		\hline
+		\textbf{Test Protocol:} & Connect Device to a data logger and set the measurand to a static value Record 100 sample points from the Device under test at a fixed frequency for a set amount of time. Measure against an accurate reference. Calculate mean and average value from data set and ensure it falls within the parameters given by the datasheet.Determine the disagreement between the average recorded value and average measured value and take the difference as the fixed offset bias. Repeat the Test twice more first by adjusting the value half through recording then by varying the value at a fixed rate \\
+		\hline
+		\textbf{Pass Condition} & \vspace{5pt} \begin{itemize}
+			\item Calibration produces a consistent output well within the accepted error range when measured against a reference
+			\item Step testing bring the measured value to the correct value
+			\item device is capable of measuring over the specified range
+		\end{itemize}\\
+		\hline
+		\textbf{Fail Condition:} & \vspace{5pt} \begin{itemize}
+			\item  Test does not produce a predictable. consistent offset
+			\item  Calibration values produces an invalid dataset
+			\item Device under Test fails at any point.
+			\item Calibrated Data set unable to replicate the measurand
+		\end{itemize}\\
+		\hline
+	\end{tabular}
+	
+	\label{tab:AT006}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Acceptance Test for Power Test}
+	\begin{tabular}{|m{0.25\textwidth}|m{0.75\textwidth}|}
+		\hline
+		\textbf{AT007 }& \textbf{Power System Test} \\
+		\hline
+		\textbf{Evaluation Type:} & Hardware\\
+		\hline
+		\textbf{Target: } & Power System \\
+		\hline
+		\textbf{Test Protocol:} & Connect the Power system to a Load of a known resistance. Connect an Ammeter and a Voltmeter respectively in series and in parallel. Measure the Current and Supply voltage at a fixed rate for 1 hour. Record the Battery Voltage before the Test and After the Test Then decrease the load to increase the current and Run until the Battery Voltage drops Below the Threshold for the Regulator. Measure the Output current and Supply Voltage. \\
+		\hline
+		\textbf{Pass Condition} & \vspace{5pt} \begin{itemize}
+			\item Device cycles through routines for set period of time without failure
+			\item Device survives for specified period of time
+			\item Recorded values do not exceed the specs given from the data-sheet of the components
+		\end{itemize} \\
+		\hline
+		\textbf{Fail Condition:} & \vspace{5pt} \begin{itemize}
+			\item Power System depleted before test has finished
+			\item Device fails to perform routine at any point during the test
+			\item Mechanical/ Electrical failure occurs during test.
+		\end{itemize}\\
+		\hline
+	\end{tabular}
+	\label{tab:AT007}
+\end{table}
+
+
+\begin{table}[H]
+	\centering
+	\caption{Acceptance Test for Low Temperature Test}
+	\begin{tabular}{|m{0.25\textwidth}|m{0.75\textwidth}|}
+		\hline
+		\textbf{AT008 }& \textbf{Low Temperature Tests} \\
+		\hline
+		\textbf{Evaluation Type:} & Hardware Robustness\\
+		\hline
+		\textbf{Target: } & Subsystem and full system \\
+		\hline
+		\textbf{Test Protocol:} & Connect subsystem to a datalogger and place in freezer. Set the freezer to $-20^\circ C$ and run the system through an accelerated subsystem test as per AT003. Then take the device out the freezer and wait for it to thaw. Then run another accelerated subsystem test. Finally connect all subsystems together and place in enclosure. Put device in the freezer and run an accelerated system Test as per AT004. Repeat in Room Temperature Conditions\\
+		\hline
+		\textbf{Pass Condition} & \vspace{5pt} \begin{itemize}
+			\item System completes routine cycles in both sub zero and room temperature environment
+			\item Subsystem Passes AT003 in $-20^\circ C$ and Room Temperature
+		\end{itemize} \\
+		\hline
+		\textbf{Fail Condition:} & \vspace{5pt} \begin{itemize}
+			\item Incorrect ID register value returned (SPI or I2C Address Incorrect)
+			\item Subsystem Fails AT003 in sub-zero and room temperature environment available
+			\item System fails AT004 in sub-zero and room temperature environment
+		\end{itemize}\\
+		\hline
+	\end{tabular}
+	\label{tab:AT008}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Acceptance Test for final system deployment test.}
+	\begin{tabular}{|m{0.25\textwidth}|m{0.75\textwidth}|}
+		\hline
+		\textbf{AT009 }& \textbf{Deployment Test} \\
+		\hline
+		\textbf{Evaluation Type:} & Performance\\
+		\hline
+		\textbf{Target: } & Full System \\
+		\hline
+		\textbf{Test Protocol:} & Only to be performed once requirements for all other tests have been met. Ensure device is calibrated before hand and in a deploy-able state. Ensure power is turned on and sensors have been initialised. Deploy the system in a desired location and monitor the transmitted packages. \\
+		\hline
+		\textbf{Pass Condition} & \vspace{5pt} \begin{itemize}
+			\item System acknowledges Deployment and routinely transmits full packets of data.
+			\item System survives for 1 month or longer
+		\end{itemize} \\
+		\hline
+		\textbf{Fail Condition:} & \vspace{5pt} \begin{itemize}
+			\item No acknowledgement received
+			\item No packets received
+			\item Empty data received
+		\end{itemize}
+		Failure within the first half an hour of deployment should result in immediate retrieval of the device.\\
+		\hline
+	\end{tabular}
+	\label{tab:AT009}
+\end{table}
+
+
+\section{Schematics and renders}
 \label{ch:appendix.schem}
 
 \begin{figure}[H]
     \centering
 \includegraphics[page= 1,width= 0.9\textwidth]{enclosure}
-    \caption{Schematic of Top Enclosure}
+    \caption{Schematic of top enclosure which protects the electronics}
     \label{fig:top_schem}
 \end{figure}
 
 \begin{figure}[H]
     \centering
 \includegraphics[page= 2,width= 0.9\textwidth]{enclosure}
-    \caption{Schematic of Bottom Enclosure}
+    \caption{Schematic of bottom enclosure for the batteries and power system.}
     \label{fig:bot_schem}
 \end{figure}
 
 \begin{figure}[H]
     \centering
 \includegraphics[page= 3,width= 0.9\textwidth]{enclosure}
-    \caption{Schematic of Bottom Enclosure}
+    \caption{Schematic of the connector block which provides a base for the electronics to be mounted on. }
     \label{fig:conblock_schem}
 \end{figure}
 
 \begin{figure}[H]
     \centering
 \includegraphics[page= 4,width= 0.9\textwidth]{enclosure}
-    \caption{Full Enclosure Schematic}
+    \caption{Full enclosure schematic.}
     \label{fig:full_schem}
 \end{figure}
 
 %Event/ Interrupt description
-\chapter{Event and Interrupt Handling protocols} 
+\chapter{Software design}
+
+\section{Events and interrupt handling protocols} 
 \label{sec:evt}
 
 \begin{table}[H]
@@ -262,8 +722,6 @@ This approach brings into account the possibility of spectral leakage however, t
     \label{tab:Ev_desc_SWR}
 \end{table}
 
-
-\chapter{Software Figures}
 
 \section{Initialization Routines}
 

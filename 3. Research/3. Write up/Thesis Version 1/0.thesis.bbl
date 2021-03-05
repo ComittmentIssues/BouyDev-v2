@@ -473,6 +473,38 @@
       \field{title}{Handbook of battery materials}
       \field{year}{2008}
     \endentry
+    \entry{bishop1990ranging}{article}{}
+      \name{author}{2}{}{%
+        {{hash=6d6501e086ef7a069ca6d3adcae86de1}{%
+           family={Bishop},
+           familyi={B\bibinitperiod},
+           given={GJ},
+           giveni={G\bibinitperiod}}}%
+        {{hash=3e19ace7c5c8c022ee05edbec1dab994}{%
+           family={Klobuchar},
+           familyi={K\bibinitperiod},
+           given={JA},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{49e04a54177623963d45c97a9f098389}
+      \strng{fullhash}{49e04a54177623963d45c97a9f098389}
+      \strng{bibnamehash}{49e04a54177623963d45c97a9f098389}
+      \strng{authorbibnamehash}{49e04a54177623963d45c97a9f098389}
+      \strng{authornamehash}{49e04a54177623963d45c97a9f098389}
+      \strng{authorfullhash}{49e04a54177623963d45c97a9f098389}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the 3rd International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GPS 1990)}
+      \field{title}{Ranging errors due to disturbances in the polar ionosphere}
+      \field{year}{1990}
+      \field{pages}{175\bibrangedash 179}
+      \range{pages}{5}
+    \endentry
     \entry{bonvoisin2017source}{article}{}
       \name{author}{4}{}{%
         {{hash=76e37f6bec4591572395f11c276f30c4}{%
@@ -4544,6 +4576,51 @@
       \field{pages}{e2019GL086649}
       \range{pages}{-1}
     \endentry
+    \entry{tahsin2015analysis}{article}{}
+      \name{author}{4}{}{%
+        {{hash=31792b82773e5cd050f3b42e3364f019}{%
+           family={Tahsin},
+           familyi={T\bibinitperiod},
+           given={Mahdia},
+           giveni={M\bibinitperiod}}}%
+        {{hash=69a8a45711c964c23c54cb3bc274652c}{%
+           family={Sultana},
+           familyi={S\bibinitperiod},
+           given={Sunjida},
+           giveni={S\bibinitperiod}}}%
+        {{hash=6e9ad6410825e1f093bc7e25a2521f9b}{%
+           family={Reza},
+           familyi={R\bibinitperiod},
+           given={Tasmia},
+           giveni={T\bibinitperiod}}}%
+        {{hash=eb35ce2866eee23069edb2f92e833fe2}{%
+           family={Hossam-E-Haider},
+           familyi={H\bibinithyphendelim E\bibinithyphendelim H\bibinitperiod},
+           given={Md},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{1b78a31b9e6a8f06209d74b44f6ac600}
+      \strng{fullhash}{3639e8e6edd4c08deb2807a70f56b375}
+      \strng{bibnamehash}{3639e8e6edd4c08deb2807a70f56b375}
+      \strng{authorbibnamehash}{3639e8e6edd4c08deb2807a70f56b375}
+      \strng{authornamehash}{1b78a31b9e6a8f06209d74b44f6ac600}
+      \strng{authorfullhash}{3639e8e6edd4c08deb2807a70f56b375}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{2015 International conference on electrical engineering and information communication technology (ICEEICT)}
+      \field{title}{Analysis of DOP and its preciseness in GNSS position estimation}
+      \field{year}{2015}
+      \field{pages}{1\bibrangedash 6}
+      \range{pages}{6}
+    \endentry
     \entry{mpu9520}{manual}{}
       \name{author}{1}{}{%
         {{hash=800b6477ead073c30d06d5e88e01d089}{%
@@ -5154,6 +5231,53 @@
       \field{pages}{70\bibrangedash 73}
       \range{pages}{4}
     \endentry
+    \entry{willander2006silicon}{article}{}
+      \name{author}{4}{}{%
+        {{hash=8b60443ce3867328576d44ee83cf0fca}{%
+           family={Willander},
+           familyi={W\bibinitperiod},
+           given={Magnus},
+           giveni={M\bibinitperiod}}}%
+        {{hash=7b8aa1b409678742ff266b273e4d7f8d}{%
+           family={Friesel},
+           familyi={F\bibinitperiod},
+           given={Milan},
+           giveni={M\bibinitperiod}}}%
+        {{hash=fcfc033ad4a707ed37a9893a44861e71}{%
+           family={Wahab},
+           familyi={W\bibinitperiod},
+           given={Qamar-ul},
+           giveni={Q\bibinithyphendelim u\bibinitperiod}}}%
+        {{hash=9d33dd750a730c7fc028a6108608419e}{%
+           family={Straumal},
+           familyi={S\bibinitperiod},
+           given={Boris},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{c1a04d6813ae9bd11e800d9cc35e77c9}
+      \strng{fullhash}{b095f31616f4d2ad445625e39a206417}
+      \strng{bibnamehash}{b095f31616f4d2ad445625e39a206417}
+      \strng{authorbibnamehash}{b095f31616f4d2ad445625e39a206417}
+      \strng{authornamehash}{c1a04d6813ae9bd11e800d9cc35e77c9}
+      \strng{authorfullhash}{b095f31616f4d2ad445625e39a206417}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Materials Science: Materials in Electronics}
+      \field{number}{1}
+      \field{title}{Silicon carbide and diamond for high temperature device applications}
+      \field{volume}{17}
+      \field{year}{2006}
+      \field{pages}{1\bibrangedash 25}
+      \range{pages}{25}
+    \endentry
     \entry{williams2013wave}{article}{}
       \name{author}{5}{}{%
         {{hash=f1054430ee0df9a51bddaa26aaa02fe7}{%
@@ -5237,19 +5361,19 @@
     \endentry
     \entry{worldmeteorologicalorganization_2010}{book}{}
       \name{author}{1}{}{%
-        {{hash=a0976dd5c26a3096c852635be8d95c80}{%
-           family={{World Meteorological Organization}},
+        {{hash=dcf52e8409504dc927aced3f846d7e12}{%
+           family={{World Meteorological Organisation}},
            familyi={W\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {World Meteorological Organization}%
+        {World Meteorological Organisation}%
       }
-      \strng{namehash}{a0976dd5c26a3096c852635be8d95c80}
-      \strng{fullhash}{a0976dd5c26a3096c852635be8d95c80}
-      \strng{bibnamehash}{a0976dd5c26a3096c852635be8d95c80}
-      \strng{authorbibnamehash}{a0976dd5c26a3096c852635be8d95c80}
-      \strng{authornamehash}{a0976dd5c26a3096c852635be8d95c80}
-      \strng{authorfullhash}{a0976dd5c26a3096c852635be8d95c80}
+      \strng{namehash}{dcf52e8409504dc927aced3f846d7e12}
+      \strng{fullhash}{dcf52e8409504dc927aced3f846d7e12}
+      \strng{bibnamehash}{dcf52e8409504dc927aced3f846d7e12}
+      \strng{authorbibnamehash}{dcf52e8409504dc927aced3f846d7e12}
+      \strng{authornamehash}{dcf52e8409504dc927aced3f846d7e12}
+      \strng{authorfullhash}{dcf52e8409504dc927aced3f846d7e12}
       \field{sortinit}{W}
       \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
       \field{extradatescope}{labelyear}
