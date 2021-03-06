@@ -991,63 +991,6 @@
       \field{pages}{245\bibrangedash 249}
       \range{pages}{5}
     \endentry
-    \entry{deVos2021evaluating}{article}{}
-      \name{author}{6}{}{%
-        {{hash=2594ec6a4360432390d7582e0817e39c}{%
-           family={Vos},
-           familyi={V\bibinitperiod},
-           given={Marc},
-           giveni={M\bibinitperiod},
-           prefix={de},
-           prefixi={d\bibinitperiod}}}%
-        {{hash=e7912e19dbeea350d003e4b0463d1d2f}{%
-           family={Barnes},
-           familyi={B\bibinitperiod},
-           given={Michael},
-           giveni={M\bibinitperiod}}}%
-        {{hash=00440e7a9af29dc3758c7082e4fb3034}{%
-           family={Biddle},
-           familyi={B\bibinitperiod},
-           given={Louise\bibnamedelima C},
-           giveni={L\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
-        {{hash=8cb43de80b64a091b8dad95b60079b00}{%
-           family={Swart},
-           familyi={S\bibinitperiod},
-           given={Sebastiaan},
-           giveni={S\bibinitperiod}}}%
-        {{hash=481144a745c028d1ec75a3eceeaf9074}{%
-           family={Ramjukadh},
-           familyi={R\bibinitperiod},
-           given={Carla-Louise},
-           giveni={C\bibinithyphendelim L\bibinitperiod}}}%
-        {{hash=89fba3e6e5969e08f095c08eed06948e}{%
-           family={Vichi},
-           familyi={V\bibinitperiod},
-           given={Marcello},
-           giveni={M\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Taylor \& Francis}%
-      }
-      \strng{namehash}{bb4a5354236cecb10d8c346e9ce69d3f}
-      \strng{fullhash}{eed6856da75d000a78ae758576deec7a}
-      \strng{bibnamehash}{eed6856da75d000a78ae758576deec7a}
-      \strng{authorbibnamehash}{eed6856da75d000a78ae758576deec7a}
-      \strng{authornamehash}{bb4a5354236cecb10d8c346e9ce69d3f}
-      \strng{authorfullhash}{eed6856da75d000a78ae758576deec7a}
-      \field{sortinit}{d}
-      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Journal of Operational Oceanography}
-      \field{title}{Evaluating numerical and free-drift forecasts of sea ice drift during a Southern Ocean research expedition: An operational perspective}
-      \field{year}{2021}
-      \field{pages}{1\bibrangedash 17}
-      \range{pages}{17}
-    \endentry
     \entry{ds18b20}{online}{}
       \name{author}{1}{}{%
         {{hash=418a79ecacd74d226f063a3d8e245d8e}{%
@@ -1081,40 +1024,6 @@
       \verb shorturl.at/dsPS7
       \endverb
     \endentry
-    \entry{doble_wave_2015}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=d11ea6706a1c8f641f15ee6440de5e30}{%
-           family={Doble},
-           familyi={D\bibinitperiod},
-           given={Martin},
-           giveni={M\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {SBG Systems}%
-      }
-      \strng{namehash}{d11ea6706a1c8f641f15ee6440de5e30}
-      \strng{fullhash}{d11ea6706a1c8f641f15ee6440de5e30}
-      \strng{bibnamehash}{d11ea6706a1c8f641f15ee6440de5e30}
-      \strng{authorbibnamehash}{d11ea6706a1c8f641f15ee6440de5e30}
-      \strng{authornamehash}{d11ea6706a1c8f641f15ee6440de5e30}
-      \strng{authorfullhash}{d11ea6706a1c8f641f15ee6440de5e30}
-      \field{sortinit}{D}
-      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Open Ocean and In-ice Waves Measurement with AHRS}
-      \field{month}{07}
-      \field{title}{Wave {Buoys} in the {Arctic} {Sea} {Ice}}
-      \field{year}{2015}
-      \verb{urlraw}
-      \verb sbg-systems.com/news/wave-buoys-arctic-sea-ice/
-      \endverb
-      \verb{url}
-      \verb sbg-systems.com/news/wave-buoys-arctic-sea-ice/
-      \endverb
-    \endentry
     \entry{doble2013wave}{article}{}
       \name{author}{2}{}{%
         {{hash=5d82aee6671e52da3a45b432baecd23a}{%
@@ -1141,6 +1050,7 @@
       \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Ocean Modelling}
@@ -1216,6 +1126,7 @@
       \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Elementa: Science of the Anthropocene}
@@ -3970,62 +3881,6 @@
       \field{title}{Development of open source instruments for in-situ measurements of waves in ice}
       \field{year}{2020}
     \endentry
-    \entry{simbpic}{article}{}
-      \name{author}{6}{}{%
-        {{hash=40aef93ee881d76feb45086a4f106a01}{%
-           family={Richter-Menge},
-           familyi={R\bibinithyphendelim M\bibinitperiod},
-           given={Jacqueline\bibnamedelima A.},
-           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=431c2c4bc787358b8633ac592a13b4d1}{%
-           family={Perovich},
-           familyi={P\bibinitperiod},
-           given={Donald\bibnamedelima K.},
-           giveni={D\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
-        {{hash=96c7f5594d78d0e1ce496b1a914a85e8}{%
-           family={Elder},
-           familyi={E\bibinitperiod},
-           given={Bruce\bibnamedelima C.},
-           giveni={B\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
-        {{hash=75a59db5829fc30a6e0d77cba545fb53}{%
-           family={Claffey},
-           familyi={C\bibinitperiod},
-           given={Keran},
-           giveni={K\bibinitperiod}}}%
-        {{hash=b9fc5cffb31b020eb116907bd5dca325}{%
-           family={Rigor},
-           familyi={R\bibinitperiod},
-           given={Ignatius},
-           giveni={I\bibinitperiod}}}%
-        {{hash=e6aa4bc7b83bf41713d52d14203b7631}{%
-           family={Ortmeyer},
-           familyi={O\bibinitperiod},
-           given={Mark},
-           giveni={M\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Cambridge University Press}%
-      }
-      \strng{namehash}{edbff91c7b2d867edc986bbf2e6dca5d}
-      \strng{fullhash}{5b5daf11b3014379e783407078db67d0}
-      \strng{bibnamehash}{5b5daf11b3014379e783407078db67d0}
-      \strng{authorbibnamehash}{5b5daf11b3014379e783407078db67d0}
-      \strng{authornamehash}{edbff91c7b2d867edc986bbf2e6dca5d}
-      \strng{authorfullhash}{5b5daf11b3014379e783407078db67d0}
-      \field{sortinit}{R}
-      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Annals of Glaciology}
-      \field{title}{Ice mass-balance buoys: a tool for measuring and attributing changes in the thickness of the {Arctic} sea-ice cover}
-      \field{volume}{44}
-      \field{year}{2006}
-      \field{pages}{205\bibrangedash 210}
-      \range{pages}{6}
-    \endentry
     \entry{roach2020antarctic}{article}{}
       \true{moreauthor}
       \true{morelabelname}
@@ -4651,46 +4506,6 @@
       \verb https://invensense.tdk.com/download-pdf/mpu-9250-datasheet/
       \endverb
     \endentry
-    \entry{jim_swift_2012}{online}{}
-      \name{author}{1}{}{%
-        {{hash=a72b9b84115dc7135f1fdb325c6e3cf8}{%
-           family={Thomson},
-           familyi={T\bibinitperiod},
-           given={Jim},
-           giveni={J\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {English}%
-      }
-      \strng{namehash}{a72b9b84115dc7135f1fdb325c6e3cf8}
-      \strng{fullhash}{a72b9b84115dc7135f1fdb325c6e3cf8}
-      \strng{bibnamehash}{a72b9b84115dc7135f1fdb325c6e3cf8}
-      \strng{authorbibnamehash}{a72b9b84115dc7135f1fdb325c6e3cf8}
-      \strng{authornamehash}{a72b9b84115dc7135f1fdb325c6e3cf8}
-      \strng{authorfullhash}{a72b9b84115dc7135f1fdb325c6e3cf8}
-      \field{extraname}{1}
-      \field{sortinit}{T}
-      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
-      \field{extradate}{1}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{month}{12}
-      \field{title}{{Surface Wave Instrument Float with Tracking}}
-      \field{urlday}{1}
-      \field{urlmonth}{12}
-      \field{urlyear}{2020}
-      \field{year}{2012}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://apl.uw.edu/project/project.php?id=swift
-      \endverb
-      \verb{url}
-      \verb https://apl.uw.edu/project/project.php?id=swift
-      \endverb
-    \endentry
     \entry{thomson2012wave}{article}{}
       \name{author}{1}{}{%
         {{hash=a72b9b84115dc7135f1fdb325c6e3cf8}{%
@@ -4705,10 +4520,8 @@
       \strng{authorbibnamehash}{a72b9b84115dc7135f1fdb325c6e3cf8}
       \strng{authornamehash}{a72b9b84115dc7135f1fdb325c6e3cf8}
       \strng{authorfullhash}{a72b9b84115dc7135f1fdb325c6e3cf8}
-      \field{extraname}{2}
       \field{sortinit}{T}
       \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
-      \field{extradate}{2}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \true{uniqueprimaryauthor}
