@@ -17,15 +17,15 @@
 \BOOKMARK [1][-]{section.2.1}{In situ climate sensing technologies}{chapter.2}% 17
 \BOOKMARK [1][-]{section.2.2}{System level overview}{chapter.2}% 18
 \BOOKMARK [2][-]{subsection.2.2.1}{Remote communication}{section.2.2}% 19
-\BOOKMARK [2][-]{subsection.2.2.2}{Power Supply}{section.2.2}% 20
-\BOOKMARK [2][-]{subsection.2.2.3}{Polar Performance}{section.2.2}% 21
+\BOOKMARK [2][-]{subsection.2.2.2}{Power supply}{section.2.2}% 20
+\BOOKMARK [2][-]{subsection.2.2.3}{Polar performance}{section.2.2}% 21
 \BOOKMARK [2][-]{subsection.2.2.4}{Overall cost}{section.2.2}% 22
-\BOOKMARK [1][-]{section.2.3}{Subsystem Overview}{chapter.2}% 23
+\BOOKMARK [1][-]{section.2.3}{Subsystem overview}{chapter.2}% 23
 \BOOKMARK [2][-]{subsection.2.3.1}{Processing capabilities}{section.2.3}% 24
 \BOOKMARK [2][-]{subsection.2.3.2}{Measurement of wave data using inertial measurement systems}{section.2.3}% 25
-\BOOKMARK [2][-]{subsection.2.3.3}{Measurement of Ice drift using GPS}{section.2.3}% 26
+\BOOKMARK [2][-]{subsection.2.3.3}{Measurement of ice drift using GPS}{section.2.3}% 26
 \BOOKMARK [2][-]{subsection.2.3.4}{Temperature sensing and measurement}{section.2.3}% 27
-\BOOKMARK [2][-]{subsection.2.3.5}{Atmospheric Pressure Sensing and Sensors}{section.2.3}% 28
+\BOOKMARK [2][-]{subsection.2.3.5}{Atmospheric pressure sensing and sensors}{section.2.3}% 28
 \BOOKMARK [1][-]{section.2.4}{Conclusion}{chapter.2}% 29
 \BOOKMARK [0][-]{chapter.3}{Design methodology}{}% 30
 \BOOKMARK [1][-]{section.3.1}{Design overview}{chapter.3}% 31
