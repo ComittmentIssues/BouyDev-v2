@@ -3439,6 +3439,23 @@
       \field{pages}{5046\bibrangedash 5051}
       \range{pages}{6}
     \endentry
+    \entry{UBLOX_M7N_DATA}{manual}{}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labeltitlesource}{title}
+      \field{note}{Rev. R07}
+      \field{number}{UBX-13003830}
+      \field{title}{{NEO-7} {U-Blox} 7 {GNSS} modules data sheet.}
+      \field{year}{2014}
+      \verb{urlraw}
+      \verb https://www.u-blox.com/sites/default/files/products/documents/NEO-7_DataSheet_%28UBX-13003830%29.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.u-blox.com/sites/default/files/products/documents/NEO-7_DataSheet_%28UBX-13003830%29.pdf
+      \endverb
+    \endentry
     \entry{usdcoversion}{online}{}
       \name{author}{1}{}{%
         {{hash=ea449af4f92ed7be7b370a2eb978e414}{%
@@ -4362,6 +4379,58 @@
       \endverb
       \keyw{Ice-floe size distribution,Digital aerial photography,Western Weddell sea,Sea-ice dynamics}
     \endentry
+    \entry{drnovska2003surface}{article}{}
+      \name{author}{5}{}{%
+        {{hash=4177172ef5d4ac757bf57989a2f4e826}{%
+           family={Studenovská},
+           familyi={S\bibinitperiod},
+           given={Hana},
+           giveni={H\bibinitperiod}}}%
+        {{hash=8ccbe7d51466fc6588f29508536b0689}{%
+           family={Lapcik},
+           familyi={L\bibinitperiod},
+           given={Lubomir},
+           giveni={L\bibinitperiod}}}%
+        {{hash=c46a6b0a9870bfab541b58cd14e7395d}{%
+           family={Bursikova},
+           familyi={B\bibinitperiod},
+           given={Vilma},
+           giveni={V\bibinitperiod}}}%
+        {{hash=f8c81ceccea9372e93a09f2a3cd9615e}{%
+           family={Zemek},
+           familyi={Z\bibinitperiod},
+           given={Josef},
+           giveni={J\bibinitperiod}}}%
+        {{hash=cd7adef27278f7b479cf2d0d61cbcc90}{%
+           family={Barros-Timmons},
+           familyi={B\bibinithyphendelim T\bibinitperiod},
+           given={Ana},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{49cc82136498c06f190148a31253ae18}
+      \strng{fullhash}{740d7c2973765801cddd1c308e5e6012}
+      \strng{bibnamehash}{740d7c2973765801cddd1c308e5e6012}
+      \strng{authorbibnamehash}{740d7c2973765801cddd1c308e5e6012}
+      \strng{authornamehash}{49cc82136498c06f190148a31253ae18}
+      \strng{authorfullhash}{740d7c2973765801cddd1c308e5e6012}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Colloid and Polymer Science}
+      \field{month}{10}
+      \field{title}{Surface properties of polyethylene after low-temperature plasma treatment}
+      \field{volume}{281}
+      \field{year}{2003}
+      \field{pages}{1025\bibrangedash 1033}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1007/s00396-003-0871-8
+      \endverb
+    \endentry
     \entry{swart2020submesoscale}{article}{}
       \name{author}{8}{}{%
         {{hash=8cb43de80b64a091b8dad95b60079b00}{%
@@ -5011,6 +5080,39 @@
       \field{year}{1987}
       \field{pages}{14535\bibrangedash 14552}
       \range{pages}{18}
+    \endentry
+    \entry{waveshare}{online}{}
+      \name{author}{1}{}{%
+        {{hash=b7e398bfd94bab7e7a98e2bd288cb5aa}{%
+           family={Waveshare},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{b7e398bfd94bab7e7a98e2bd288cb5aa}
+      \strng{fullhash}{b7e398bfd94bab7e7a98e2bd288cb5aa}
+      \strng{bibnamehash}{b7e398bfd94bab7e7a98e2bd288cb5aa}
+      \strng{authorbibnamehash}{b7e398bfd94bab7e7a98e2bd288cb5aa}
+      \strng{authornamehash}{b7e398bfd94bab7e7a98e2bd288cb5aa}
+      \strng{authorfullhash}{b7e398bfd94bab7e7a98e2bd288cb5aa}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{UART GPS Module, {NEO-7M-C Onboard, Straight/Vertical Pinheader}}
+      \field{urlday}{6}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.waveshare.com/uart-gps-neo-7m-c-b.htm
+      \endverb
+      \verb{url}
+      \verb https://www.waveshare.com/uart-gps-neo-7m-c-b.htm
+      \endverb
     \endentry
     \entry{welch1967use}{article}{}
       \name{author}{1}{}{%

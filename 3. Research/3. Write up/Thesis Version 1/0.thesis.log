@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.2.4)  6 MAR 2021 20:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.2.4)  6 MAR 2021 22:29
 entering extended mode
 **./0.thesis.tex
 (0.thesis.tex
@@ -49,6 +49,11 @@ Package: iftex 2020/03/06 v1.0d TeX engine tests
 \Gm@dimlist=\toks16
 
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2020/08/01 v1.3d Input encoding file
+\inpenc@prehook=\toks17
+\inpenc@posthook=\toks18
+)
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty
 Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 
@@ -82,7 +87,7 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 \rotFPtop=\skip49
 \rotFPbot=\skip50
 \rot@float@box=\box47
-\rot@mess@toks=\toks17
+\rot@mess@toks=\toks19
 )
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/hyphenat\hyphenat.sty
 Package: hyphenat 2009/09/02 v2.3c hyphenation utilities
@@ -99,7 +104,7 @@ Package: titlesec 2019/10/16 v2.13 Sectioning titles
 \aftertitleunit=\skip52
 \ttl@plus=\dimen149
 \ttl@minus=\dimen150
-\ttl@toksa=\toks18
+\ttl@toksa=\toks20
 \titlewidth=\dimen151
 \titlewidthlast=\dimen152
 \titlewidthfirst=\dimen153
@@ -146,9 +151,9 @@ File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
 )) (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count194
-\float@exts=\toks19
+\float@exts=\toks21
 \float@box=\box50
-\@float@everytoks=\toks20
+\@float@everytoks=\toks22
 \@floatcapt=\box51
 )
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/wrapfig\wrapfig.sty
@@ -156,7 +161,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \WF@size=\dimen155
 \c@WF@wrappedlines=\count195
 \WF@box=\box52
-\WF@everypar=\toks21
+\WF@everypar=\toks23
 Package: wrapfig 2003/01/31  v 3.6
 )
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/import\import.sty
@@ -179,14 +184,14 @@ Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
 \LT@rows=\count198
 \c@LT@tables=\count199
 \c@LT@chunks=\count266
-\LT@p@ftn=\toks22
+\LT@p@ftn=\toks24
 )
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/latex-tools\array.sty
 Package: array 2020/10/01 v2.5c Tabular extension package (FMi)
 \col@sep=\dimen157
 \ar@mcellbox=\box57
 \extrarowheight=\dimen158
-\NC@list=\toks23
+\NC@list=\toks25
 \extratabsurround=\skip57
 \backup@length=\skip58
 \ar@cellbox=\box58
@@ -390,7 +395,7 @@ sty
 y
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
 -common.tex
-\pgfutil@everybye=\toks24
+\pgfutil@everybye=\toks26
 \pgfutil@tempdima=\dimen166
 \pgfutil@tempdimb=\dimen167
 
@@ -417,12 +422,12 @@ Package: pgfsys 2020/12/27 v3.1.8b (3.1.8b)
 
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
 .code.tex
-\pgfkeys@pathtoks=\toks25
-\pgfkeys@temptoks=\toks26
+\pgfkeys@pathtoks=\toks27
+\pgfkeys@temptoks=\toks28
 
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
 filtered.code.tex
-\pgfkeys@tmptoks=\toks27
+\pgfkeys@tmptoks=\toks29
 ))
 \pgf@x=\dimen168
 \pgf@y=\dimen169
@@ -440,9 +445,9 @@ filtered.code.tex
 \c@pgf@countb=\count281
 \c@pgf@countc=\count282
 \c@pgf@countd=\count283
-\t@pgf@toka=\toks28
-\t@pgf@tokb=\toks29
-\t@pgf@tokc=\toks30
+\t@pgf@toka=\toks30
+\t@pgf@tokb=\toks31
+\t@pgf@tokc=\toks32
 \pgf@sys@id@count=\count284
 
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.c
@@ -484,9 +489,9 @@ r.code.tex
 \pgfmath@dimen=\dimen178
 \pgfmath@count=\count287
 \pgfmath@box=\box66
-\pgfmath@toks=\toks31
-\pgfmath@stack@operand=\toks32
-\pgfmath@stack@operation=\toks33
+\pgfmath@toks=\toks33
+\pgfmath@stack@operand=\toks34
+\pgfmath@stack@operation=\toks35
 )
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
 ions.code.tex
@@ -647,8 +652,8 @@ Package: pgffor 2020/12/27 v3.1.8b (3.1.8b)
 .tex)
 \pgffor@iter=\dimen261
 \pgffor@skip=\dimen262
-\pgffor@stack=\toks34
-\pgffor@toks=\toks35
+\pgffor@stack=\toks36
+\pgffor@toks=\toks37
 ))
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z\tikz.code.tex
@@ -862,7 +867,7 @@ Package: environ 2014/05/04 v0.3 A new way to define environments
 ty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 )
-\@envbody=\toks36
+\@envbody=\toks38
 )
 \tikztiming@numint=\count314
 \tikztiming@numfrac=\count315
@@ -877,11 +882,11 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/latex-tools\enumerate.s
 ty
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
-\@enLab=\toks37
+\@enLab=\toks39
 )
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colortbl.sty
 Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
-\everycr=\toks38
+\everycr=\toks40
 \minrowclearance=\skip129
 )
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/latex-tools\xspace.sty
@@ -960,7 +965,7 @@ Package: amstext 2000/06/29 v2.01 AMS text
 
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks39
+\@emptytoks=\toks41
 \ex@=\dimen299
 ))
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
@@ -990,35 +995,35 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \dotsspace@=\muskip17
 \c@parentequation=\count332
 \dspbrk@lvl=\count333
-\tag@help=\toks40
+\tag@help=\toks42
 \row@=\count334
 \column@=\count335
 \maxfields@=\count336
-\andhelp@=\toks41
+\andhelp@=\toks43
 \eqnshift@=\dimen302
 \alignsep@=\dimen303
 \tagshift@=\dimen304
 \tagwidth@=\dimen305
 \totwidth@=\dimen306
 \lineht@=\dimen307
-\@envbody=\toks42
+\@envbody=\toks44
 \multlinegap=\skip145
 \multlinetaggap=\skip146
-\mathdisplay@stack=\toks43
+\mathdisplay@stack=\toks45
 LaTeX Info: Redefining \[ on input line 2923.
 LaTeX Info: Redefining \] on input line 2924.
 )
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
-\thm@style=\toks44
-\thm@bodyfont=\toks45
-\thm@headfont=\toks46
-\thm@notefont=\toks47
-\thm@headpunct=\toks48
+\thm@style=\toks46
+\thm@bodyfont=\toks47
+\thm@headfont=\toks48
+\thm@notefont=\toks49
+\thm@headpunct=\toks50
 \thm@preskip=\skip147
 \thm@postskip=\skip148
 \thm@headsep=\skip149
-\dth@everypar=\toks49
+\dth@everypar=\toks51
 )
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
@@ -1042,8 +1047,8 @@ Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
 
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex
-\XKV@toks=\toks50
-\XKV@tempa@toks=\toks51
+\XKV@toks=\toks52
+\XKV@tempa@toks=\toks53
 )
 \XKV@depth=\count337
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
@@ -1088,8 +1093,8 @@ put line 308.
 \dayofyear=\count361
 \dayofweek=\count362
 LaTeX Info: Redefining \today on input line 736.
-\dt@a=\toks52
-\dt@b=\toks53
+\dt@a=\toks54
+\dt@b=\toks55
 )
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
@@ -1126,15 +1131,15 @@ File: pppdftex.def 2021/01/09 v0.5r Pdfpages driver for pdfTeX (AM)
 )
 \pdfpages@includegraphics@status=\count366
 \AM@pagebox=\box82
-\AM@global@opts=\toks54
+\AM@global@opts=\toks56
 \AM@pagecnt=\count367
-\AM@toc@title=\toks55
+\AM@toc@title=\toks57
 \c@AM@survey=\count368
 \AM@templatesizebox=\box83
 ) (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
 \lst@mode=\count369
 \lst@gtempboxa=\box84
-\lst@token=\toks56
+\lst@token=\toks58
 \lst@length=\count370
 \lst@currlwidth=\dimen314
 \lst@column=\count371
@@ -1380,1264 +1385,4 @@ Package biblatex Info: ... file 'apa.cbx' found.
 
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/biblatex-apa\apa.cbx
 File: apa.cbx 2020/08/28 v9.14 APA biblatex citation style
-Package biblatex Info: Delimiter 'nameyeardelim' in context '' already defined,
- overwriting.
-Package biblatex Info: Delimiter 'nameyeardelim' in context 'textcite' already 
-defined, overwriting.
-Package biblatex Info: Delimiter 'andothersdelim' in context '' already defined
-, overwriting.
-Package biblatex Info: Redefining '\fullcite'.
-Package biblatex Info: Redefining '\citeauthor'.
-Package biblatex Info: Redefining '\citeyear'.
-Package biblatex Info: Redefining '\cite'.
-Package biblatex Info: Redefining '\cites'.
-Package biblatex Info: Redefining '\parencite'.
-Package biblatex Info: Redefining '\parencites'.
-Package biblatex Info: Redefining '\footcite'.
-Package biblatex Info: Redefining '\footcites'.
-Package biblatex Info: Redefining '\footcitetext'.
-Package biblatex Info: Redefining '\footcitetexts'.
-Package biblatex Info: Redefining '\smartcite'.
-Package biblatex Info: Redefining '\smartcites'.
-Package biblatex Info: Redefining '\textcite'.
-Package biblatex Info: Redefining '\textcites'.
-)
-Package biblatex Info: Trying to load configuration file...
-Package biblatex Info: ... file 'biblatex.cfg' found.
-
-(C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.cfg
-File: biblatex.cfg 
-)) (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.st
-y
-File: lstlang1.sty 2020/03/24 1.8d listings language file
-) (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
-File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-)
-\@quotelevel=\count515
-\@quotereset=\count516
-
-
-LaTeX Warning: Unused global option(s):
-    [parskip=full].
-
-(0.thesis.aux (ch1.aux) (ch2.aux) (ch3.aux) (ch4.aux) (ch5.aux) (ch6.aux)
-(ch7.aux) (ch8.aux) (appendix.aux))
-\openout1 = `0.thesis.aux'.
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 273.
-LaTeX Font Info:    ... okay on input line 273.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 273.
-LaTeX Font Info:    ... okay on input line 273.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 273.
-LaTeX Font Info:    ... okay on input line 273.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 273.
-LaTeX Font Info:    ... okay on input line 273.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 273.
-LaTeX Font Info:    ... okay on input line 273.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 273.
-LaTeX Font Info:    ... okay on input line 273.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 273.
-LaTeX Font Info:    ... okay on input line 273.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 273.
-LaTeX Font Info:    ... okay on input line 273.
-
-*geometry* driver: auto-detecting
-*geometry* detected driver: pdftex
-*geometry* verbose mode - [ preamble ] result:
-* driver: pdftex
-* paper: a4paper
-* layout: <same size as paper>
-* layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: 
-* h-part:(L,W,R)=(72.26999pt, 452.9679pt, 72.26999pt)
-* v-part:(T,H,B)=(72.26999pt, 700.50687pt, 72.26999pt)
-* \paperwidth=597.50787pt
-* \paperheight=845.04684pt
-* \textwidth=452.9679pt
-* \textheight=700.50687pt
-* \oddsidemargin=0.0pt
-* \evensidemargin=0.0pt
-* \topmargin=-31.8738pt
-* \headheight=12.0pt
-* \headsep=19.8738pt
-* \topskip=12.0pt
-* \footskip=30.0pt
-* \marginparwidth=38.0pt
-* \marginparsep=7.0pt
-* \columnsep=10.0pt
-* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
-* \hoffset=0.0pt
-* \voffset=0.0pt
-* \mag=1000
-* \@twocolumnfalse
-* \@twosidefalse
-* \@mparswitchfalse
-* \@reversemarginfalse
-* (1in=72.27pt=25.4mm, 1cm=28.453pt)
-
-
-(C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
-ii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count517
-\scratchdimen=\dimen319
-\scratchbox=\box86
-\nofMPsegments=\count518
-\nofMParguments=\count519
-\everyMPshowfont=\toks57
-\MPscratchCnt=\count520
-\MPscratchDim=\dimen320
-\MPnumerator=\count521
-\makeMPintoPDFobject=\count522
-\everyMPtoPDFconversion=\toks58
-)
-(C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
-ase.sty
-Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-
-(C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/grfext\grfext.sty
-Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
-)
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-85.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 504.
-)
-Package lastpage Info: Please have a look at the pageslts package at
-(lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 273.
-Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: hyperref package is loaded.
-Package caption Info: listings package is loaded.
-Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 273.
-
-(C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
-Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
-
-(C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
-Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-)
-(C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettit
-lestring.sty
-Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
-)
-\c@section@level=\count523
-LaTeX Info: Redefining \Ref on input line 520.
-)
-LaTeX Info: Redefining \ref on input line 273.
-LaTeX Info: Redefining \pageref on input line 273.
-LaTeX Info: Redefining \nameref on input line 273.
- (0.thesis.out) (0.thesis.out)
-\@outlinefile=\write6
-\openout6 = `0.thesis.out'.
-
-LaTeX Info: Redefining \Ref on input line 273.
-
-ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 273.
-
-(C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/fmtcount\fc-english.def
-File: fc-english.def 2016/01/12
-)
-\symgns@font=\mathgroup6
-LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
-(Font)                  TS1/cmr/m/n --> TS1/cmr/b/n on input line 273.
-Package gensymb Info: Math companion symbols declared on input line 273.
-LaTeX Info: Redefining \degree on input line 273.
-LaTeX Info: Redefining \celsius on input line 273.
-Package gensymb Info: Using text companion symbols for \degree, \celsius and \p
-erthousand on input line 273.
-LaTeX Info: Redefining \ohm on input line 273.
-Package gensymb Info: Using \textohm for \ohm on input line 273.
-Package gensymb Info: Using \textmu for \micro on input line 273.
-
-(C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.sty
-Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
-Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
-)
-\c@lstlisting=\count524
-Package biblatex Info: Trying to load language 'english' -> 'english-apa'...
-Package biblatex Info: ... file 'english-apa.lbx' found.
-
-(C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/biblatex-apa\english-ap
-a.lbx
-File: english-apa.lbx 2020/08/28 v9.14 APA biblatex localisation
-Package biblatex Info: Trying to load language 'english'...
-Package biblatex Info: ... file 'english.lbx' found.
-
-(C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\english.lb
-x
-File: english.lbx 2020/12/31 v3.16 biblatex localization (PK/MW)
-)
-Package biblatex Info: Trying to load language 'american' -> 'american-apa'...
-Package biblatex Info: ... file 'american-apa.lbx' found.
-
-(C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/biblatex-apa\american-a
-pa.lbx
-File: american-apa.lbx 2020/08/28 v9.14 APA biblatex localisation
-Package biblatex Info: Trying to load language 'american'...
-Package biblatex Info: ... file 'american.lbx' found.
-
-(C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\american.l
-bx
-File: american.lbx 2020/12/31 v3.16 biblatex localization (PK/MW)
-Package biblatex Info: Trying to load language 'english'...
-Package biblatex Info: ... file 'english.lbx' found.
-
-(C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\english.lb
-x
-File: english.lbx 2020/12/31 v3.16 biblatex localization (PK/MW)
-))))
-Package biblatex Info: Input encoding 'utf8' detected.
-Package biblatex Info: Automatic encoding selection.
-(biblatex)             Assuming data encoding 'utf8'.
-Package biblatex Info: Document encoding is UTF8 ....
-Package biblatex Info: ... and expl3
-(biblatex)             2021-01-09 L3 programming layer (loader) 
-(biblatex)             is new enough (at least 2020/04/06),
-(biblatex)             setting 'casechanger=expl3'.
-
-(C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-case-expl3
-.sty
-Package: blx-case-expl3 2020/12/31 v3.16 expl3 case changing code for biblatex
-)
-\openout5 = `0.thesis.bcf'.
-
-Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file '0.thesis.bbl' found.
- (0.thesis.bbl)
-Package biblatex Info: Reference section=0 on input line 273.
-Package biblatex Info: Reference segment=0 on input line 273.
-<figs/uctLogo.png, id=502, 418.56375pt x 425.59pt>
-File: figs/uctLogo.png Graphic file (type png)
-<use figs/uctLogo.png>
-Package pdftex.def Info: figs/uctLogo.png  used on input line 300.
-(pdftex.def)             Requested size: 125.57008pt x 127.67798pt.
-<figs//soccesm-logo.png, id=504, 179.9523pt x 190.311pt>
-File: figs//soccesm-logo.png Graphic file (type png)
-<use figs//soccesm-logo.png>
-Package pdftex.def Info: figs//soccesm-logo.png  used on input line 352.
-(pdftex.def)             Requested size: 53.80762pt x 56.9055pt.
-<figs//NRF LOGO.png, id=505, 744.8628pt x 251.2587pt>
-File: figs//NRF LOGO.png Graphic file (type png)
-<use figs//NRF LOGO.png>
-Package pdftex.def Info: figs//NRF LOGO.png  used on input line 356.
-(pdftex.def)             Requested size: 168.68936pt x 56.9055pt.
- [1
-
-
-{C:/Users/jamie/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./figs/uctLogo.
-png> <./figs//soccesm-logo.png> <./figs//NRF LOGO.png>]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 395
-.
-
-(C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 395
-.
-
-(C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-[1
-
-
-] [2
-
-] [3
-
-] [4] (0.thesis.toc [5
-
-] [6] [7] [8])
-\tf@toc=\write7
-\openout7 = `0.thesis.toc'.
-
- [9] (0.thesis.lof [10
-
-]
-Overfull \hbox (13.25862pt too wide) in paragraph at lines 23--23
- [][] [][]\T1/cmr/m/n/12 Novel ice drift, en-vi-ron-men-tal mon-i-tor-ing and w
-ave mea-sure-ment au-tonomous 
- []
-
-
-Overfull \hbox (25.70691pt too wide) in paragraph at lines 23--23
- \T1/cmr/m/n/12 plat-form: the South-ern Hemi-sphere Antarc-tic Re-search Col-l
-ab-o-ra-tion (SHARC) 
- []
-
-[11] [12] [13] [14])
-\tf@lof=\write8
-\openout8 = `0.thesis.lof'.
-
- [15] (0.thesis.lot [16
-
-] [17] [18]
-Overfull \hbox (13.57104pt too wide) in paragraph at lines 101--101
- [][] [][]\T1/cmr/m/n/12 Breakdown of a typ-i-cal NMEA mes-sage string with fie
-lds in-di-cat-ing start/stop 
- []
-
-[19] [20])
-\tf@lot=\write9
-\openout9 = `0.thesis.lot'.
-
- [21]
-\openout2 = `ch1.aux'.
-
- (ch1.tex
-Chapter 1.
-<figs//Sea Ice Lifecycle diagram.png, id=1406, 412.54124pt x 403.5075pt>
-File: figs//Sea Ice Lifecycle diagram.png Graphic file (type png)
-<use figs//Sea Ice Lifecycle diagram.png>
-Package pdftex.def Info: figs//Sea Ice Lifecycle diagram.png  used on input lin
-e 15.
-(pdftex.def)             Requested size: 206.27011pt x 201.75325pt.
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.19 
-      [1
-
-
-
-]
-<figs//floe snow.jpg, id=1427, 522.95375pt x 392.46625pt>
-File: figs//floe snow.jpg Graphic file (type jpg)
-<use figs//floe snow.jpg>
-Package pdftex.def Info: figs//floe snow.jpg  used on input line 27.
-(pdftex.def)             Requested size: 215.1625pt x 170.72142pt.
-<figs//MIZICE.jpg, id=1428, 3982.88pt x 2987.16pt>
-File: figs//MIZICE.jpg Graphic file (type jpg)
-<use figs//MIZICE.jpg>
-Package pdftex.def Info: figs//MIZICE.jpg  used on input line 36.
-(pdftex.def)             Requested size: 215.13918pt x 170.69835pt.
- [2 <./figs//Sea Ice Lifecycle diagram.png>]
-<figs//AntDiag.png, id=1449, 405.9165pt x 312.4473pt>
-File: figs//AntDiag.png Graphic file (type png)
-<use figs//AntDiag.png>
-Package pdftex.def Info: figs//AntDiag.png  used on input line 54.
-(pdftex.def)             Requested size: 284.52982pt x 284.53247pt.
- [3 <./figs//floe snow.jpg> <./figs//MIZICE.jpg>] [4 <./figs//AntDiag.png>]
-<figs//SHIPACT.jpg, id=1478, 2987.16pt x 3982.88pt>
-File: figs//SHIPACT.jpg Graphic file (type jpg)
-<use figs//SHIPACT.jpg>
-Package pdftex.def Info: figs//SHIPACT.jpg  used on input line 66.
-(pdftex.def)             Requested size: 142.25621pt x 199.15567pt.
- [5 <./figs//SHIPACT.jpg>]
-<figs//tech.png, id=1495, 588.69937pt x 503.63156pt>
-File: figs//tech.png Graphic file (type png)
-<use figs//tech.png>
-Package pdftex.def Info: figs//tech.png  used on input line 77.
-(pdftex.def)             Requested size: 294.34895pt x 251.81516pt.
-
-[6 <./figs//tech.png>]
-<figs//swift_4.png, id=1517, 481.8pt x 642.4pt>
-File: figs//swift_4.png Graphic file (type png)
-<use figs//swift_4.png>
-Package pdftex.def Info: figs//swift_4.png  used on input line 91.
-(pdftex.def)             Requested size: 113.81114pt x 170.7155pt.
-<figs//IMBBuoy1.jpg, id=1518, 307.1475pt x 225.84375pt>
-File: figs//IMBBuoy1.jpg Graphic file (type jpg)
-<use figs//IMBBuoy1.jpg>
-Package pdftex.def Info: figs//IMBBuoy1.jpg  used on input line 100.
-(pdftex.def)             Requested size: 113.81151pt x 170.72636pt.
-<figs//deploy.jpg, id=1519, 963.6pt x 1284.8pt>
-File: figs//deploy.jpg Graphic file (type jpg)
-<use figs//deploy.jpg>
-Package pdftex.def Info: figs//deploy.jpg  used on input line 109.
-(pdftex.def)             Requested size: 113.80379pt x 170.7155pt.
- [7 <./figs//swift_4.png> <./figs//IMBBuoy1.jpg> <./figs//deploy.jpg>] [8]
-<figs//SHARC.jpeg, id=1575, 963.6pt x 1284.8pt>
-File: figs//SHARC.jpeg Graphic file (type jpg)
-<use figs//SHARC.jpeg>
-Package pdftex.def Info: figs//SHARC.jpeg  used on input line 139.
-(pdftex.def)             Requested size: 170.70569pt x 227.60759pt.
- [9 <./figs//SHARC.jpeg>] [10] [11] [12]
-Overfull \hbox (35.99307pt too wide) in alignment at lines 263--290
- [] [] [] 
- []
-
-[13]) [14]
-\openout2 = `ch2.aux'.
-
- (ch2.tex
-Chapter 2.
-<figs//Antarctica_and_the_Southern_Ocean.png, id=1638, 1003.75pt x 1170.3725pt>
-
-File: figs//Antarctica_and_the_Southern_Ocean.png Graphic file (type png)
-<use figs//Antarctica_and_the_Southern_Ocean.png>
-Package pdftex.def Info: figs//Antarctica_and_the_Southern_Ocean.png  used on i
-nput line 7.
-(pdftex.def)             Requested size: 284.52481pt x 284.5204pt.
-[15
-
-
-
-
- <./figs//Antarctica_and_the_Southern_Ocean.png>]
-<figs//device block diagram.png, id=1657, 403.5075pt x 453.695pt>
-File: figs//device block diagram.png Graphic file (type png)
-<use figs//device block diagram.png>
-Package pdftex.def Info: figs//device block diagram.png  used on input line 23.
-
-(pdftex.def)             Requested size: 226.48395pt x 254.6559pt.
- [16]
-<figs//WIIB.jpg, id=1668, 249.04242pt x 164.63106pt>
-File: figs//WIIB.jpg Graphic file (type jpg)
-<use figs//WIIB.jpg>
-Package pdftex.def Info: figs//WIIB.jpg  used on input line 39.
-(pdftex.def)             Requested size: 113.80847pt x 113.81409pt.
-
-Overfull \hbox (5.34369pt too wide) in paragraph at lines 43--45
- [][] 
- []
-
-<figs//WIIOS.png, id=1669, 711.65875pt x 456.70625pt>
-File: figs//WIIOS.png Graphic file (type png)
-<use figs//WIIOS.png>
-Package pdftex.def Info: figs//WIIOS.png  used on input line 50.
-(pdftex.def)             Requested size: 113.80257pt x 113.80693pt.
-
-Overfull \hbox (5.33777pt too wide) in paragraph at lines 54--56
- [][] 
- []
-
-<figs//doble.jpg, id=1670, 602.25pt x 312.16624pt>
-File: figs//doble.jpg Graphic file (type jpg)
-<use figs//doble.jpg>
-Package pdftex.def Info: figs//doble.jpg  used on input line 61.
-(pdftex.def)             Requested size: 113.80379pt x 113.80873pt.
-
-Overfull \hbox (5.33899pt too wide) in paragraph at lines 65--67
- [][] 
- []
-
-<figs//SKIB.png, id=1671, 98.769pt x 75.6426pt>
-File: figs//SKIB.png Graphic file (type png)
-<use figs//SKIB.png>
-Package pdftex.def Info: figs//SKIB.png  used on input line 72.
-(pdftex.def)             Requested size: 113.81403pt x 113.81331pt.
-
-Overfull \hbox (5.34924pt too wide) in paragraph at lines 76--78
- [][] 
- []
-
-File: figs//swift_4.png Graphic file (type png)
-<use figs//swift_4.png>
-Package pdftex.def Info: figs//swift_4.png  used on input line 83.
-(pdftex.def)             Requested size: 113.81114pt x 113.80379pt.
-
-Overfull \hbox (5.34634pt too wide) in paragraph at lines 87--89
- [][] 
- []
-
-<figs//SIMB.jpg, id=1672, 501.875pt x 752.8125pt>
-File: figs//SIMB.jpg Graphic file (type jpg)
-<use figs//SIMB.jpg>
-Package pdftex.def Info: figs//SIMB.jpg  used on input line 94.
-(pdftex.def)             Requested size: 113.80533pt x 113.8015pt.
-
-Overfull \hbox (5.34055pt too wide) in paragraph at lines 98--100
- [][] 
- []
-
-<figs//UptempO.png, id=1673, 112.92188pt x 112.92188pt>
-File: figs//UptempO.png Graphic file (type png)
-<use figs//UptempO.png>
-Package pdftex.def Info: figs//UptempO.png  used on input line 105.
-(pdftex.def)             Requested size: 113.81757pt x 113.81757pt.
-
-Overfull \hbox (5.35278pt too wide) in paragraph at lines 109--111
- [][] 
- []
-
-<figs//trident.png, id=1674, 283.7802pt x 269.808pt>
-File: figs//trident.png Graphic file (type png)
-<use figs//trident.png>
-Package pdftex.def Info: figs//trident.png  used on input line 116.
-(pdftex.def)             Requested size: 113.81317pt x 113.8085pt.
-
-Overfull \hbox (5.34839pt too wide) in paragraph at lines 120--122
- [][] 
- []
-
-[17 <./figs//device block diagram.png>]
-Overfull \hbox (35.99307pt too wide) in alignment at lines 132--156
- [] [] [] 
- []
-
-[18 <./figs//WIIB.jpg> <./figs//WIIOS.png> <./figs//doble.jpg> <./figs//SKIB.pn
-g> <./figs//SIMB.jpg> <./figs//UptempO.png> <./figs//trident.png>] [19]
-<figs//9522B.png, id=1738, 1016.04512pt x 674.83594pt>
-File: figs//9522B.png Graphic file (type png)
-<use figs//9522B.png>
-Package pdftex.def Info: figs//9522B.png  used on input line 172.
-(pdftex.def)             Requested size: 85.3472pt x 85.3531pt.
-<figs//9602.png, id=1739, 1351.0475pt x 1320.935pt>
-File: figs//9602.png Graphic file (type png)
-<use figs//9602.png>
-Package pdftex.def Info: figs//9602.png  used on input line 181.
-(pdftex.def)             Requested size: 85.34734pt x 85.33974pt.
-<figs//9603.png, id=1740, 1517.67pt x 1453.43pt>
-File: figs//9603.png Graphic file (type png)
-<use figs//9603.png>
-Package pdftex.def Info: figs//9603.png  used on input line 190.
-(pdftex.def)             Requested size: 85.3363pt x 85.33911pt.
-
-[20 <./figs//9522B.png> <./figs//9602.png> <./figs//9603.png>]
-Underfull \hbox (badness 2368) in paragraph at lines 236--236
-[][]\T1/cmr/m/n/10 source: []$https : / / www . africasatellite . com / Iridium
--[]9523-[]Core-[]Module-[]p / iridium-[]9523-[]core-[]module .
- []
-
-[21]
-<figs//power module diagram.png, id=1774, 658.46pt x 461.725pt>
-File: figs//power module diagram.png Graphic file (type png)
-<use figs//power module diagram.png>
-Package pdftex.def Info: figs//power module diagram.png  used on input line 248
-.
-(pdftex.def)             Requested size: 452.9679pt x 317.63947pt.
- [22 <./figs//power module diagram.png>] [23] [24] [25]
-File: figs//WIIOS.png Graphic file (type png)
-<use figs//WIIOS.png>
-Package pdftex.def Info: figs//WIIOS.png  used on input line 363.
-(pdftex.def)             Requested size: 170.7147pt x 227.62083pt.
-<figs//Basket.jpg, id=1872, 436.63126pt x 596.2275pt>
-File: figs//Basket.jpg Graphic file (type jpg)
-<use figs//Basket.jpg>
-Package pdftex.def Info: figs//Basket.jpg  used on input line 372.
-(pdftex.def)             Requested size: 170.7119pt x 227.62413pt.
- [26 <./figs//Basket.jpg>] [27]
-<figs//swift_fail.jpg, id=1950, 2987.16pt x 3982.88pt>
-File: figs//swift_fail.jpg Graphic file (type jpg)
-<use figs//swift_fail.jpg>
-Package pdftex.def Info: figs//swift_fail.jpg  used on input line 396.
-(pdftex.def)             Requested size: 199.16928pt x 265.52063pt.
- [28] [29 <./figs//swift_fail.jpg>] [30]
-<figs//edison.png, id=2002, 724.7075pt x 238.8925pt>
-File: figs//edison.png Graphic file (type png)
-<use figs//edison.png>
-Package pdftex.def Info: figs//edison.png  used on input line 462.
-(pdftex.def)             Requested size: 407.66833pt x 134.38399pt.
- [31] [32 <./figs//edison.png>] [33]
-<figs//sea state diagram.png, id=2037, 484.05844pt x 246.9225pt>
-File: figs//sea state diagram.png Graphic file (type png)
-<use figs//sea state diagram.png>
-Package pdftex.def Info: figs//sea state diagram.png  used on input line 511.
-(pdftex.def)             Requested size: 452.9679pt x 231.0748pt.
- [34 <./figs//sea state diagram.png>]
-<figs//vn-100-smd-rugged_new.png, id=2062, 622.325pt x 511.9125pt>
-File: figs//vn-100-smd-rugged_new.png Graphic file (type png)
-<use figs//vn-100-smd-rugged_new.png>
-Package pdftex.def Info: figs//vn-100-smd-rugged_new.png  used on input line 52
-8.
-(pdftex.def)             Requested size: 113.80838pt x 170.71259pt.
-<figs//servokbeam.PNG, id=2063, 122.859pt x 125.268pt>
-File: figs//servokbeam.PNG Graphic file (type png)
-<use figs//servokbeam.PNG>
-Package pdftex.def Info: figs//servokbeam.PNG  used on input line 537.
-(pdftex.def)             Requested size: 113.81711pt x 170.71774pt.
-<figs//rp-mpu-9250.png, id=2064, 501.875pt x 358.33875pt>
-File: figs//rp-mpu-9250.png Graphic file (type png)
-<use figs//rp-mpu-9250.png>
-Package pdftex.def Info: figs//rp-mpu-9250.png  used on input line 546.
-(pdftex.def)             Requested size: 113.80533pt x 170.71571pt.
- [35 <./figs//vn-100-smd-rugged_new.png> <./figs//servokbeam.PNG> <./figs//rp-m
-pu-9250.png>] [36] [37]
-<figs//mtk3339.jpg, id=2139, 973.6375pt x 730.73pt>
-File: figs//mtk3339.jpg Graphic file (type jpg)
-<use figs//mtk3339.jpg>
-Package pdftex.def Info: figs//mtk3339.jpg  used on input line 669.
-(pdftex.def)             Requested size: 113.80072pt x 170.71806pt.
-<figs//skytraq.PNG, id=2140, 144.54pt x 144.54pt>
-File: figs//skytraq.PNG Graphic file (type png)
-<use figs//skytraq.PNG>
-Package pdftex.def Info: figs//skytraq.PNG  used on input line 678.
-(pdftex.def)             Requested size: 113.8104pt x 170.72551pt.
-<figs//BT-1000ex-310-1.png, id=2141, 311.1625pt x 266.9975pt>
-File: figs//BT-1000ex-310-1.png Graphic file (type png)
-<use figs//BT-1000ex-310-1.png>
-Package pdftex.def Info: figs//BT-1000ex-310-1.png  used on input line 687.
-(pdftex.def)             Requested size: 113.80838pt x 170.72299pt.
- [38]
-[39 <./figs//mtk3339.jpg> <./figs//skytraq.PNG> <./figs//BT-1000ex-310-1.png>]
-<figs//DOPeffect.png, id=2186, 466.1415pt x 187.902pt>
-File: figs//DOPeffect.png Graphic file (type png)
-<use figs//DOPeffect.png>
-Package pdftex.def Info: figs//DOPeffect.png  used on input line 719.
-(pdftex.def)             Requested size: 452.9679pt x 182.5973pt.
-
-[40] [41 <./figs//DOPeffect.png>] [42] [43]
-<figs//pr303J2.jpg, id=2270, 289.08pt x 289.08pt>
-File: figs//pr303J2.jpg Graphic file (type jpg)
-<use figs//pr303J2.jpg>
-Package pdftex.def Info: figs//pr303J2.jpg  used on input line 822.
-(pdftex.def)             Requested size: 85.35725pt x 85.35725pt.
-<figs//ds18b20.jpg, id=2271, 196.735pt x 196.735pt>
-File: figs//ds18b20.jpg Graphic file (type jpg)
-<use figs//ds18b20.jpg>
-Package pdftex.def Info: figs//ds18b20.jpg  used on input line 831.
-(pdftex.def)             Requested size: 85.35687pt x 85.35687pt.
-<figs//temperature-chain-bruncin-1.jpg, id=2272, 702.625pt x 394.47375pt>
-File: figs//temperature-chain-bruncin-1.jpg Graphic file (type jpg)
-<use figs//temperature-chain-bruncin-1.jpg>
-Package pdftex.def Info: figs//temperature-chain-bruncin-1.jpg  used on input l
-ine 840.
-(pdftex.def)             Requested size: 85.3513pt x 85.35794pt.
- [44 <./figs//pr303J2.jpg> <./figs//ds18b20.jpg> <./figs//temperature-chain-bru
-ncin-1.jpg>] [45] [46] [47]
-<figs//BME280.jpg, id=2343, 803.0pt x 451.6875pt>
-File: figs//BME280.jpg Graphic file (type jpg)
-<use figs//BME280.jpg>
-Package pdftex.def Info: figs//BME280.jpg  used on input line 946.
-(pdftex.def)             Requested size: 85.35284pt x 85.35284pt.
-<figs//MPX5100AP.jpg, id=2344, 602.25pt x 338.26375pt>
-File: figs//MPX5100AP.jpg Graphic file (type jpg)
-<use figs//MPX5100AP.jpg>
-Package pdftex.def Info: figs//MPX5100AP.jpg  used on input line 955.
-(pdftex.def)             Requested size: 85.35284pt x 85.35542pt.
-<figs//PTB110.jpg, id=2345, 1003.75pt x 808.01875pt>
-File: figs//PTB110.jpg Graphic file (type jpg)
-<use figs//PTB110.jpg>
-Package pdftex.def Info: figs//PTB110.jpg  used on input line 964.
-(pdftex.def)             Requested size: 85.35591pt x 85.35614pt.
- [48 <./figs//BME280.jpg> <./figs//MPX5100AP.jpg> <./figs//PTB110.jpg>] [49]) [
-50]
-\openout2 = `ch3.aux'.
-
-
-(ch3.tex
-Chapter 3.
-[51
-
-
-
-
-] [52] [53]
-
-LaTeX Warning: Reference `ch2' on page 54 undefined on input line 71.
-
-[54] [55] [56] [57] [58] [59]
-<figs//SHARC_NODE.png, id=2518, 703.62875pt x 733.74126pt>
-File: figs//SHARC_NODE.png Graphic file (type png)
-<use figs//SHARC_NODE.png>
-Package pdftex.def Info: figs//SHARC_NODE.png  used on input line 297.
-(pdftex.def)             Requested size: 452.9679pt x 472.34702pt.
- [60]
-<figs//Subsystem_Diagram.png, id=2523, 507.8975pt x 583.17876pt>
-File: figs//Subsystem_Diagram.png Graphic file (type png)
-<use figs//Subsystem_Diagram.png>
-Package pdftex.def Info: figs//Subsystem_Diagram.png  used on input line 306.
-(pdftex.def)             Requested size: 362.37569pt x 416.0976pt.
- [61 <./figs//SHARC_NODE.png>] [62 <./figs//Subsystem_Diagram.png>] [63]) [64]
-\openout2 = `ch4.aux'.
-
- (ch4.tex
-Chapter 4.
-<figs//buoy_stand.PNG, id=2554, 264.99pt x 425.79076pt>
-File: figs//buoy_stand.PNG Graphic file (type png)
-<use figs//buoy_stand.PNG>
-Package pdftex.def Info: figs//buoy_stand.PNG  used on input line 14.
-(pdftex.def)             Requested size: 185.49173pt x 298.0515pt.
-[65
-
-
-
-
-]
-<figs//enclo_schem.PNG, id=2559, 536.0025pt x 165.0165pt>
-File: figs//enclo_schem.PNG Graphic file (type png)
-<use figs//enclo_schem.PNG>
-Package pdftex.def Info: figs//enclo_schem.PNG  used on input line 23.
-(pdftex.def)             Requested size: 536.00119pt x 165.01607pt.
-
-Overfull \hbox (83.0333pt too wide) in paragraph at lines 23--24
- [][] 
- []
-
-[66 <./figs//buoy_stand.PNG> <./figs//enclo_schem.PNG>] [67] [68] [69] [70]
-[71] [72] [73] [74] [75] [76]
-<figs/SHARC_Final.png, id=2638, 832.10875pt x 641.39626pt>
-File: figs/SHARC_Final.png Graphic file (type png)
-<use figs/SHARC_Final.png>
-Package pdftex.def Info: figs/SHARC_Final.png  used on input line 461.
-(pdftex.def)             Requested size: 543.58142pt x 271.78238pt.
- [77
-
- <./figs/SHARC_Final.png>]
-<figs//bot_encl.png, id=2644, 763.85374pt x 328.22626pt>
-File: figs//bot_encl.png Graphic file (type png)
-<use figs//bot_encl.png>
-Package pdftex.def Info: figs//bot_encl.png  used on input line 502.
-(pdftex.def)             Requested size: 381.92593pt x 164.11272pt.
-<figs//Top_encl.png, id=2645, 753.81625pt x 815.045pt>
-File: figs//Top_encl.png Graphic file (type png)
-<use figs//Top_encl.png>
-Package pdftex.def Info: figs//Top_encl.png  used on input line 510.
-(pdftex.def)             Requested size: 376.90721pt x 407.5215pt.
- [78
-
- <./figs//bot_encl.png>]
-<figs//full buoy.jpg, id=2651, 722.7pt x 963.6pt>
-File: figs//full buoy.jpg Graphic file (type jpg)
-<use figs//full buoy.jpg>
-Package pdftex.def Info: figs//full buoy.jpg  used on input line 519.
-(pdftex.def)             Requested size: 361.3491pt x 481.79883pt.
-) [79 <./figs//Top_encl.png>] [80 <./figs//full buoy.jpg>]
-\openout2 = `ch5.aux'.
-
- (ch5.tex
-Chapter 5.
-pdfTeX warning (ext4): destination with the same identifier (name{Hfootnote.26}
-) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.3 ...—Life cycle data\cite{IEE_STD_SOFTCYCLE}}
-                                                  .
-<figs//soft_arch.png, id=2662, 665.48625pt x 522.95375pt>
-File: figs//soft_arch.png Graphic file (type png)
-<use figs//soft_arch.png>
-Package pdftex.def Info: figs//soft_arch.png  used on input line 18.
-(pdftex.def)             Requested size: 317.07614pt x 249.16367pt.
- [81
-
-
-
-
-] [82 <./figs//soft_arch.png>] [83]
-<figs//Application profile.png, id=2681, 508.90125pt x 197.538pt>
-File: figs//Application profile.png Graphic file (type png)
-<use figs//Application profile.png>
-Package pdftex.def Info: figs//Application profile.png  used on input line 55.
-(pdftex.def)             Requested size: 305.34311pt x 118.5237pt.
- [84 <./figs//Application profile.png>] [85]
-<figs//state Run.png, id=2698, 543.02875pt x 272.01625pt>
-File: figs//state Run.png Graphic file (type png)
-<use figs//state Run.png>
-Package pdftex.def Info: figs//state Run.png  used on input line 141.
-(pdftex.def)             Requested size: 271.5137pt x 136.00778pt.
- [86]
-<figs//Main Loop ASM Chart.png, id=2708, 804.00375pt x 482.80376pt>
-File: figs//Main Loop ASM Chart.png Graphic file (type png)
-<use figs//Main Loop ASM Chart.png>
-Package pdftex.def Info: figs//Main Loop ASM Chart.png  used on input line 163.
-
-(pdftex.def)             Requested size: 482.40598pt x 289.6845pt.
-
-Overfull \hbox (29.43808pt too wide) in paragraph at lines 163--164
- [][] 
- []
-
-[87 <./figs//state Run.png>] [88 <./figs//Main Loop ASM Chart.png>]
-<figs//Asynchronous State diagram.png, id=2729, 831.105pt x 863.225pt>
-File: figs//Asynchronous State diagram.png Graphic file (type png)
-<use figs//Asynchronous State diagram.png>
-Package pdftex.def Info: figs//Asynchronous State diagram.png  used on input li
-ne 194.
-(pdftex.def)             Requested size: 332.43611pt x 345.28389pt.
- [89]
-<figs//State Check Algorithm.png, id=2743, 804.00375pt x 743.77875pt>
-File: figs//State Check Algorithm.png Graphic file (type png)
-<use figs//State Check Algorithm.png>
-Package pdftex.def Info: figs//State Check Algorithm.png  used on input line 20
-5.
-(pdftex.def)             Requested size: 402.0009pt x 371.88846pt.
-
-[90 <./figs//Asynchronous State diagram.png>] [91 <./figs//State Check Algorith
-m.png>]
-<figs//Brown Out Reset Handler Flow Chart.png, id=2755, 728.7225pt x 924.45375p
-t>
-File: figs//Brown Out Reset Handler Flow Chart.png Graphic file (type png)
-<use figs//Brown Out Reset Handler Flow Chart.png>
-Package pdftex.def Info: figs//Brown Out Reset Handler Flow Chart.png  used on 
-input line 235.
-(pdftex.def)             Requested size: 291.48383pt x 369.77495pt.
-<figs//Asynchronous State flow chart.png, id=2756, 643.40375pt x 744.7825pt>
-File: figs//Asynchronous State flow chart.png Graphic file (type png)
-<use figs//Asynchronous State flow chart.png>
-Package pdftex.def Info: figs//Asynchronous State flow chart.png  used on input
- line 244.
-(pdftex.def)             Requested size: 321.70108pt x 372.39034pt.
- [92 <./figs//Brown Out Reset Handler Flow Chart.png>] [93 <./figs//Asynchronou
-s State flow chart.png>]
-Overfull \hbox (38.22675pt too wide) in paragraph at lines 270--288
- [][] 
- []
-
-[94]
-Underfull \hbox (badness 2293) in paragraph at lines 310--310
-[][][]\T1/cmr/m/n/10 Information about NMEA mes-sag-ing on the UBlox Neo GPS is
- taken from the In-ter-
- []
-
-[95] [96] [97]
-Overfull \hbox (30.73328pt too wide) in paragraph at lines 452--464
- [][] 
- []
-
-
-Overfull \hbox (3.58435pt too wide) in paragraph at lines 492--508
- [][] 
- []
-
-[98] [99] [100]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 61
-4.
-
-(C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-<figs//Drift Packet Diagram.png, id=2831, 783.92876pt x 462.72874pt>
-File: figs//Drift Packet Diagram.png Graphic file (type png)
-<use figs//Drift Packet Diagram.png>
-Package pdftex.def Info: figs//Drift Packet Diagram.png  used on input line 639
-.
-(pdftex.def)             Requested size: 313.56595pt x 185.08821pt.
-
-[101]
-<figs//Data Flow Diagram.png, id=2854, 773.89125pt x 467.7475pt>
-File: figs//Data Flow Diagram.png Graphic file (type png)
-<use figs//Data Flow Diagram.png>
-Package pdftex.def Info: figs//Data Flow Diagram.png  used on input line 652.
-(pdftex.def)             Requested size: 386.94467pt x 233.87317pt.
-) [102 <./figs//Drift Packet Diagram.png>] [103 <./figs//Data Flow Diagram.png>
-]
-\openout2 = `ch6.aux'.
-
- (ch6.tex
-Chapter 6.
-[104
-
-
-
-
-] [105] [106]
-<figs//buoy.jpg, id=2894, 459.21562pt x 576.65437pt>
-File: figs//buoy.jpg Graphic file (type jpg)
-<use figs//buoy.jpg>
-Package pdftex.def Info: figs//buoy.jpg  used on input line 133.
-(pdftex.def)             Requested size: 113.80861pt x 170.71869pt.
-<figs//basket.jpg, id=2895, 436.63126pt x 596.2275pt>
-File: figs//basket.jpg Graphic file (type jpg)
-<use figs//basket.jpg>
-Package pdftex.def Info: figs//basket.jpg  used on input line 137.
-(pdftex.def)             Requested size: 113.80792pt x 170.7181pt.
-<figs//deployment.jpg, id=2896, 441.14813pt x 576.65437pt>
-File: figs//deployment.jpg Graphic file (type jpg)
-<use figs//deployment.jpg>
-Package pdftex.def Info: figs//deployment.jpg  used on input line 141.
-(pdftex.def)             Requested size: 113.80727pt x 170.71869pt.
- [107 <./figs//buoy.jpg> <./figs//basket.jpg> <./figs//deployment.jpg>] [108]
-Underfull \hbox (badness 10000) in paragraph at lines 217--217
-[]|\T1/cmr/m/n/12 Functional
- []
-
-
-Overfull \hbox (38.65874pt too wide) in paragraph at lines 215--252
- [][] 
- []
-
-[109] [110] [111] [112] [113]) [114]
-\openout2 = `ch7.aux'.
-
- (ch7.tex
-Chapter 7.
-[115
-
-
-
-
-] [116]) [117]
-\openout2 = `ch8.aux'.
-
- (ch8.tex
-Chapter 8.
-[118
-
-
-
-
-] [119]) [120]
-\openout2 = `appendix.aux'.
-
- (appendix.tex
-Appendix A.
-[121
-
-
-
-
-] [122]pdfTeX warning (ext4): destination with the same identifier (name{equati
-on.A.1.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.63 	\end{align}
-                 pdfTeX warning (ext4): destination with the same identifier (n
-ame{equation.A.1.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.63 	\end{align}
-                  [123] [124] [125pdfTeX warning (ext4): destination with the s
-ame identifier (name{equation.A.2.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.165 \begin{equation}
-                      pdfTeX warning (ext4): destination with the same identifi
-er (name{equation.A.2.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.165 \begin{equation}
-                      pdfTeX warning (ext4): destination with the same identifi
-er (name{equation.A.2.3}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.165 \begin{equation}
-                      ] [126] [127] [128] [129] [130]
-Appendix B.
-[131
-
-]
-Overfull \hbox (1.32443pt too wide) in paragraph at lines 372--372
-[]|[]| 
- []
-
-[132]
-Overfull \hbox (25.19998pt too wide) in paragraph at lines 380--399
- [][] 
- []
-
-[133]
-Overfull \hbox (25.19998pt too wide) in paragraph at lines 406--433
- [][] 
- []
-
-
-Overfull \hbox (25.19998pt too wide) in paragraph at lines 440--465
- [][] 
- []
-
-[134]
-Overfull \hbox (25.19998pt too wide) in paragraph at lines 472--497
- [][] 
- []
-
-[135]
-Overfull \hbox (25.19998pt too wide) in paragraph at lines 504--528
- [][] 
- []
-
-[136]
-Overfull \hbox (25.19998pt too wide) in paragraph at lines 534--557
- [][] 
- []
-
-[137]
-Overfull \hbox (25.19998pt too wide) in paragraph at lines 562--586
- [][] 
- []
-
-[138]
-
-pdfTeX warning: pdflatex.exe (file ./figs//enclosure.pdf): PDF inclusion: found
- PDF version <1.7>, but at most version <1.5> allowed
-<figs//enclosure.pdf, id=3195, page=1, 1195.46625pt x 845.1575pt>
-File: figs//enclosure.pdf Graphic file (type pdf)
-<use figs//enclosure.pdf, page 1>
-Package pdftex.def Info: figs//enclosure.pdf , page1 used on input line 594.
-(pdftex.def)             Requested size: 407.66833pt x 288.21378pt.
-[139]
-
-pdfTeX warning: pdflatex.exe (file ./figs//enclosure.pdf): PDF inclusion: found
- PDF version <1.7>, but at most version <1.5> allowed
-<figs//enclosure.pdf, id=3200, page=2, 1195.46625pt x 845.1575pt>
-File: figs//enclosure.pdf Graphic file (type pdf)
-<use figs//enclosure.pdf, page 2>
-Package pdftex.def Info: figs//enclosure.pdf , page2 used on input line 601.
-(pdftex.def)             Requested size: 407.66833pt x 288.21378pt.
-[140 <./figs//enclosure.pdf, page is rotated 270 degrees>]
-
-pdfTeX warning: pdflatex.exe (file ./figs//enclosure.pdf): PDF inclusion: found
- PDF version <1.7>, but at most version <1.5> allowed
-<figs//enclosure.pdf, id=3214, page=3, 1195.46625pt x 845.1575pt>
-File: figs//enclosure.pdf Graphic file (type pdf)
-<use figs//enclosure.pdf, page 3>
-Package pdftex.def Info: figs//enclosure.pdf , page3 used on input line 608.
-(pdftex.def)             Requested size: 407.66833pt x 288.21378pt.
-
-
-pdfTeX warning: pdflatex.exe (file ./figs//enclosure.pdf): PDF inclusion: found
- PDF version <1.7>, but at most version <1.5> allowed
-<figs//enclosure.pdf, id=3215, page=4, 1195.46625pt x 845.1575pt>
-File: figs//enclosure.pdf Graphic file (type pdf)
-<use figs//enclosure.pdf, page 4>
-Package pdftex.def Info: figs//enclosure.pdf , page4 used on input line 615.
-(pdftex.def)             Requested size: 407.66833pt x 288.21378pt.
-[141 <./figs//enclosure.pdf, page is rotated 270 degrees> <./figs//enclosure.pd
-f, page is rotated 270 degrees>] [142 <./figs//enclosure.pdf, page is rotated 2
-70 degrees>]
-Appendix C.
-
-Overfull \hbox (25.19998pt too wide) in paragraph at lines 629--642
- [][] 
- []
-
-
-Overfull \hbox (25.19998pt too wide) in paragraph at lines 649--662
- [][] 
- []
-
-
-Overfull \hbox (25.19998pt too wide) in paragraph at lines 669--683
- [][] 
- []
-
-[143
-
-]
-Overfull \hbox (25.19998pt too wide) in paragraph at lines 688--701
- [][] 
- []
-
-
-Overfull \hbox (25.19998pt too wide) in paragraph at lines 708--721
- [][] 
- []
-
-[144]
-<figs//GPS Initialization Algorithm .png, id=3251, 793.96625pt x 1012.78375pt>
-File: figs//GPS Initialization Algorithm .png Graphic file (type png)
-<use figs//GPS Initialization Algorithm .png>
-Package pdftex.def Info: figs//GPS Initialization Algorithm .png  used on input
- line 747.
-(pdftex.def)             Requested size: 238.19171pt x 303.83746pt.
-<figs//Iridium Init Routine.png, id=3252, 713.66624pt x 703.62875pt>
-File: figs//Iridium Init Routine.png Graphic file (type png)
-<use figs//Iridium Init Routine.png>
-Package pdftex.def Info: figs//Iridium Init Routine.png  used on input line 754
-.
-(pdftex.def)             Requested size: 214.10152pt x 211.09026pt.
- [145 <./figs//GPS Initialization Algorithm .png>]
-<figs//Flash Chip Init Routine.png, id=3258, 507.8975pt x 1034.86626pt>
-File: figs//Flash Chip Init Routine.png Graphic file (type png)
-<use figs//Flash Chip Init Routine.png>
-Package pdftex.def Info: figs//Flash Chip Init Routine.png  used on input line 
-762.
-(pdftex.def)             Requested size: 152.37042pt x 310.46227pt.
-<figs//Environmental Sensor Init Routine.png, id=3259, 643.40375pt x 763.85374p
-t>
-File: figs//Environmental Sensor Init Routine.png Graphic file (type png)
-<use figs//Environmental Sensor Init Routine.png>
-Package pdftex.def Info: figs//Environmental Sensor Init Routine.png  used on i
-nput line 769.
-(pdftex.def)             Requested size: 193.02261pt x 229.15788pt.
- [146 <./figs//Iridium Init Routine.png> <./figs//Flash Chip Init Routine.png>]
-<figs//INA219 Init routine.png, id=3266, 583.17876pt x 834.11626pt>
-File: figs//INA219 Init routine.png Graphic file (type png)
-<use figs//INA219 Init routine.png>
-Package pdftex.def Info: figs//INA219 Init routine.png  used on input line 776.
-
-(pdftex.def)             Requested size: 174.95497pt x 250.2368pt.
-<figs//MPU Init Diagram.png, id=3267, 522.95375pt x 673.51625pt>
-File: figs//MPU Init Diagram.png Graphic file (type png)
-<use figs//MPU Init Diagram.png>
-Package pdftex.def Info: figs//MPU Init Diagram.png  used on input line 783.
-(pdftex.def)             Requested size: 156.88733pt x 202.05643pt.
- [147 <./figs//Environmental Sensor Init Routine.png> <./figs//INA219 Init rout
-ine.png>] [148 <./figs//MPU Init Diagram.png>] [149] [150]
-Overfull \hbox (107.12383pt too wide) in paragraph at lines 907--908
-[][][][][][][][][][][][][][][][][][][][][] 
- []
-
-[151] [152] [153]
-Appendix D.
-
-Overfull \hbox (5.39957pt too wide) in paragraph at lines 1008--1009
-[]\T1/cmr/m/n/12 (\T1/cmr/m/it/12 depreciated\T1/cmr/m/n/12 )  
- []
-
-
-Overfull \hbox (5.39957pt too wide) in paragraph at lines 1017--1018
-[]\T1/cmr/m/n/12 (\T1/cmr/m/it/12 depreciated\T1/cmr/m/n/12 )  
- []
-
-
-Overfull \hbox (27.35017pt too wide) in paragraph at lines 990--1024
- [][] 
- []
-
-[154
-
-]
-Underfull \hbox (badness 1092) in paragraph at lines 1039--1039
-[]|\T1/cmr/m/n/12 6 - 10 
- []
-
-
-Overfull \hbox (17.08656pt too wide) in alignment at lines 1029--1070
- [] [] [] [] [] 
- []
-
-[155] [156]
-Appendix E.
-
-Overfull \hbox (2.5502pt too wide) in paragraph at lines 1081--1110
- [][] 
- []
-
-
-Overfull \hbox (2.5502pt too wide) in paragraph at lines 1118--1147
- [][] 
- []
-
-[157
-
-]
-Overfull \hbox (2.5502pt too wide) in paragraph at lines 1153--1180
- [][] 
- []
-
-[158]
-Overfull \hbox (2.5502pt too wide) in paragraph at lines 1187--1213
- [][] 
- []
-
-[159]
-Overfull \hbox (2.5502pt too wide) in paragraph at lines 1220--1245
- [][] 
- []
-
-
-Overfull \hbox (2.5502pt too wide) in paragraph at lines 1252--1280
- [][] 
- []
-
-[160]
-Overfull \hbox (2.5502pt too wide) in paragraph at lines 1287--1312
- [][] 
- []
-
-[161]
-Overfull \hbox (2.5502pt too wide) in paragraph at lines 1319--1345
- [][] 
- []
-
-[162] [163]
-Appendix F.
-<figs//Power Cycle.png, id=3571, 1445.4pt x 704.6325pt>
-File: figs//Power Cycle.png Graphic file (type png)
-<use figs//Power Cycle.png>
-Package pdftex.def Info: figs//Power Cycle.png  used on input line 1382.
-(pdftex.def)             Requested size: 452.9679pt x 220.82072pt.
-<figs//State Current Draw.png, id=3572, 1445.4pt x 704.6325pt>
-File: figs//State Current Draw.png Graphic file (type png)
-<use figs//State Current Draw.png>
-Package pdftex.def Info: figs//State Current Draw.png  used on input line 1390.
-
-(pdftex.def)             Requested size: 452.9679pt x 220.82072pt.
-[164
-
- <./figs//Power Cycle.png (PNG copy)>]
-<figs//gps_trajectory_scale2019.png, id=3577, 803.1131pt x 496.72902pt>
-File: figs//gps_trajectory_scale2019.png Graphic file (type png)
-<use figs//gps_trajectory_scale2019.png>
-Package pdftex.def Info: figs//gps_trajectory_scale2019.png  used on input line
- 1397.
-(pdftex.def)             Requested size: 401.55557pt x 248.36389pt.
-<figs//temp_test_scale2019.png, id=3578, 803.1131pt x 486.55014pt>
-File: figs//temp_test_scale2019.png Graphic file (type png)
-<use figs//temp_test_scale2019.png>
-Package pdftex.def Info: figs//temp_test_scale2019.png  used on input line 1404
-.
-(pdftex.def)             Requested size: 401.55557pt x 243.27448pt.
-) [165 <./figs//State Current Draw.png (PNG copy)> <./figs//gps_trajectory_scal
-e2019.png>] [166 <./figs//temp_test_scale2019.png>] [167
-
-
-
-
-]
-Overfull \hbox (3.14723pt too wide) in paragraph at lines 549--549
-\T1/cmr/m/n/12 (ISO/IEC 12207) - soft-ware life cy-cle pro-cesses - life cy-cle
- data. \T1/cmr/m/it/12 IEEE/EIA 12207.1-
- []
-
-[168] [169] [170] [171] [172] [173] 
-AED: lastpage setting LastPage
-[174] (0.thesis.aux (ch1.aux) (ch2.aux) (ch3.aux) (ch4.aux) (ch5.aux) (ch6.aux)
-(ch7.aux) (ch8.aux) (appendix.aux))
-
-LaTeX Warning: There were undefined references.
-
-Package rerunfilecheck Info: File `0.thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 4C35F896140C37C5DC7293F59F250FB3;8618.
-Package logreq Info: Writing requests to '0.thesis.run.xml'.
-\openout1 = `0.thesis.run.xml'.
-
- ) 
-Here is how much of TeX's memory you used:
- 38855 strings out of 479580
- 753269 string characters out of 2863326
- 1745439 words of memory out of 3000000
- 54172 multiletter control sequences out of 15000+200000
- 431427 words of font info for 91 fonts, out of 3000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 87i,17n,101p,2786b,4955s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{Hfootnote.21} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.6} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
-, replaced by a fixed one
-
-{C:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-super
--ts1.enc}{C:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.
-enc}{C:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-s
-uper-t1.enc}<C:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmex10.pfb><C:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/type1/
-public/amsfonts/cm/cmmi10.pfb><C:/Users/jamie/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/jamie/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/jamie/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/jamie/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/jamie/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users
-/jamie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C
-:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy
-10.pfb><C:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
-s/cm/cmsy8.pfb><C:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/amsfonts/symbols/msam10.pfb><C:/Users/jamie/AppData/Local/Programs/MiKTeX/font
-s/type1/public/cm-super/sfbx1000.pfb><C:/Users/jamie/AppData/Local/Programs/MiK
-TeX/fonts/type1/public/cm-super/sfbx1200.pfb><C:/Users/jamie/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/cm-super/sfrm0700.pfb><C:/Users/jamie/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm0800.pfb><C:/Users/jamie/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm1000.pfb><C:/Users/
-jamie/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm1200.pfb><C
-:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm172
-8.pfb><C:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super
-/sfsl1200.pfb><C:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-cm-super/sfti0700.pfb><C:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/cm-super/sfti1000.pfb><C:/Users/jamie/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/cm-super/sfti1200.pfb><C:/Users/jamie/AppData/Local/Programs/Mi
-KTeX/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on 0.thesis.pdf (196 pages, 23870342 bytes).
-PDF statistics:
- 3979 PDF objects out of 4296 (max. 8388607)
- 1017 named destinations out of 1200 (max. 500000)
- 1395 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+Package biblatex Info: Delimiter 'nameyeardelim' in context ''

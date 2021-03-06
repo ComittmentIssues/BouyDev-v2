@@ -2,87 +2,110 @@
 \chapter{Platform design}
 \label{sec:ch3_platform}
 
-In this chapter, the hardware design for the buoy is given based on the user requirements and technical specifications given in Chapter \ref{ch:ch3}. This chapter begins with a description of the mechanical features and how the design accommodates the electronic sub systems while meeting the functional requirements outlined in Table \ref{tab:hard_funcreqsl}. Next, a description of the component selection is given for each of the critical subsystems identified in table \ref{tab:subsys}. Finally, the chapter will conclude with a description of the hardware synthesis and final design considerations for the buoy. \par 
+In this chapter, the hardware design processes are outlined based on the user requirements and technical specifications given in Chapter \ref{ch:ch3}. This chapter begins with a description of the mechanical features showing how the design accommodates the electronic subsystems while meeting the functional requirements outlined in Table \ref{tab:hard_funcreqsl}. This chapter then shows the electronic components selected for each subsystem and how they affect the overall system. Finally, this chapter will conclude with the final design considerations for the buoy. \par 
 
-The Initial system design was performed by Son and Vorajee in 2018 which strongly influenced the design choices discussed in the forthcoming sections. Furthermore, MacHutchon designed the original buoy with modifications by Verrinder to accommodate the buoy. Verrinder designed the physical enclosure and electronic hardware subsystems for the first (V1) and second (V2) versions of the buoy with further design contributions from Jacobson (V1,V2) Cloete (V1) and Pead (V2).
-\section{Mechanical Features}
+Son and Vorajee in 2018 performed initial concept work for the buoy, which strongly influenced the current design choices for this device. Furthermore, MacHutchon designed the original buoy with modifications by Verrinder to accommodate the buoy. Verrinder designed the physical enclosure and electronic hardware subsystems for the first (V1) and second (V2) versions of the buoy with further design contributions from Jacobson (V1, V2), Cloete (V1) and Pead (V2).
+\section{Mechanical features}
 
-The mechanical design for the system falls outside the scope of this project however, it forms an integral part in protecting the electronics. The principle goal of the mechanically features are to anchor the device to the ice floe and protect it from the harsh environment. A buoy stand was designed by Keith Hutchinson with the University of Cape Town Workshop to satisfy this requirement. The stand is 1.2m tall with a base cross section of 0.71m and contains a cylindrical housing at the top where the device will be placed. A screw hole in the side of the stand allows the buoy to be fast-end to the stand to prevent it from falling out. The base of the stand is pyramid shaped with metal spikes to anchor the system to an ice floe. Due to the height of the stand, the system may be susceptible to tipping. This has been overcome by constructing the base to be heavier than the top thereby lowering the center of gravity. The stand was originally designed for the Trident buoys and this design has been modified by increasing the radius of the housing. 
+The mechanical design for the system falls outside the scope of this project. However, it forms an integral part in protecting the electronics against sea ice dynamics, strong wave activity and freezing. This subsystem consists of two parts: 
+
+\begin{enumerate}
+	\item Buoy stand
+	\item Enclosure
+\end{enumerate}
+
+
+\subsection{Buoy Stand}
+
+The principle goal of the stand is to anchor the device to the ice floe and protect it from the harsh environment. A buoy stand was designed by K MacHutchon with modification from R. Verrinder and was constructed by the University of Cape Town's Mechanical Engineering Workshop to satisfy this requirement. The stand is shown in Figure \ref{fig:stand} and is 1.2 m tall with a width of 0.71 m. The stand has a cylindrical cradle at the top where the device will be placed. A screw hole in the side of the cradle allows the buoy to be fastened to the stand to prevent it from falling out during deployment. The base of the stand is pyramid shaped with metal spikes to anchor the system to an ice floe. Due to the height of the stand, the system may be susceptible to tipping. This has been overcome by constructing the base to be heavier than the top thereby lowering the centre of gravity. The stand was originally designed for the Trident buoys. However, this design has been modified by increasing the radius of the housing. 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale = 0.7]{buoy_stand.PNG}
-	\caption{3D Render of the buoy stand.}
+	\includegraphics[height = 0.5\textheight]{buoy_stand.PNG}
+	\caption{Diagram of the buoy stand for the SHARC buoy. The stand consists of stainless steel and painted mild steel to withstand the climate of the Southern Ocean and stop the stand from rusting. A cradle at the top of the stand houses the buoy and secures it to the stand via a screw. The buoy stand elevates the electronics 1m above the ice to overcome the effects of snow growth and flooding. Finally, spikes at the bottom of the base will secure the stand to the ice floe. Drawn by R. Verrinder.}
 	\label{fig:stand}
 \end{figure}
 
-The second part of the mechanical subsystem is the physical buoy enclosure. The greatest challenge for designing this system was selecting a material that was both lightweight and low-temperature resistant. A decision was made to use High-Density Polyethylene which has excellent low temperature thermal properties. The enclosure was designed to fit the housing on the buoy stand while providing ample room for the antennas of the various communication modules. the enclosure was split into 3 parts: A top enclosure, a bottom enclosure and a connector block. A schematic of the enclosure is shown in the figure below
+\subsection{Enclosure}
 
+The second part of the mechanical subsystem is the physical buoy enclosure, which was designed by R. Verrinder. The greatest challenge for designing this system was selecting a material that was both lightweight and low-temperature resistant. A decision was made to use High-Density Polyethylene (HDPE) which can survive temperatures up to $-120 ^\circ$ C before becoming too brittle \cite{drnovska2003surface}. The enclosure was designed to fit the housing on the buoy stand while providing ample room for the antennas of the various communication modules. It was split into 3 parts: A top enclosure, a bottom enclosure and a connector block. A schematic of the enclosure is shown in figure \ref{fig:enclo_schem}
 \begin{figure}[H]
 	\centering
-	\includegraphics{enclo_schem.PNG}
-	\caption{2-D Drawing of the Buoy Enclosure showing the separate components}
+	\includegraphics[width=\textwidth]{enclo_schem.PNG}
+	\caption{2-D exploded view of the buoy enclosure showing (A) the bottom enclosure for the power module, (B) the connector block which also acts as a base for the electronics and (C) the top enclosure which covers the electronics. Drawn by R. Verrinder.}
 	\label{fig:enclo_schem}
 \end{figure}
 
 \begin{table}[H]
 	\centering
-	\caption{Primary Measurements of the buoy enclosure taken from the schematic in appendex \ref{fig:full_schem} \ref{fig:bot_schem} \ref{fig:top_schem} \ref{fig:conblock_schem}}
-	\begin{tabular}{||l  l c||}
+	\caption{Primary measurements of the buoy enclosure taken from the schematic in Appendex \ref{app:appendix.schem}}
+	\setlength{\extrarowheight}{5pt}
+	\begin{tabular}{l  l c}
 		\hline
-		\textbf{Component} &   \textbf{Dimension} &   \textbf{Value (mm)} \\
+		\textbf{Component} &   \textbf{Dimension} &   \textbf{Size [mm]} \\
 		\hline
 		\hline
-		\multirow{4}{*}{Top Enclosure} & height & 240\\
-		&  diameter & 98  \\
-		&  wall thickness & 4 \\ 
-		& base thickness & 5 \\
+		\setlength{\extrarowheight}{2.5pt}
+		\multirow{4}{*}{Top Enclosure} & Height & 240\\
+		&  Outer diameter & 98  \\
+		&  Wall thickness & 4 \\ 
+		&  Base thickness & 5 \\
 		\hline
-		\multirow{3}{*}{Bottom Enclosure} & height & 100\\
-		&  diameter & 98  \\
-		& thickness & 10 \\ 
+		\multirow{3}{*}{Bottom enclosure} & Height & 100\\
+		& Outer diameter & 98  \\
+		& Wall and base thickness & 10 \\ 
 		\hline
-		\multirow{5}{*}{Bottom Enclosure} & height & 80\\
-		&  outer diameter & 98  \\
-		&  top inner diameter & 89.94  \\ 
-		&  bottom inner diameter & 77.85\\
-		&  O-ring Thickness & 2.6 \\
+		\multirow{5}{*}{Connector Block} & Height & 80\\
+		&  Outer diameter & 98  \\
+		&  Top inner diameter & 89.94  \\ 
+		&  Bottom inner diameter & 77.85\\
+		&  O-ring thickness & 2.6 \\
+		\hline
 		\hline
 	\end{tabular}
 	
 	\label{tab:enc_meas}
 \end{table}
 
-This design allows for easy access to the electronics as well as separation between the various subsystems. The connector block acts as a connection point for the electronics in version 1. This point of contact was a 3d printed connector for a vertically mounted PCB. In version 2, this was replaced by a row of screw holes around the connector block to connect a horizontal Stack of customised PCBs. This was found to greatly improve the robustness of the system and prevented components from breaking. The communication modules, microcontroller and sensors were mounted in the top enclosure while the batteries and power system were placed in the bottom enclosure. The power system was connected to the top enclosure through a drill hole in the connector block. The system was waterproofed by placing 2 o-rings on either side of the connector block. The top and bottom enclosure are fastened to the connector block using a a flat head counter sunk hex screw. Finally a drill hole in the connector block allowed the system to be secured to the buoy stand preventing it from falling out during deployment.
+This design allows for easy access to the electronics as well as separation between the various subsystems. The connector block acts as a connection point for the electronics in version 1 of the buoy. This point of contact was a three-dimensional printed connector for a vertically mounted printed circuit board (PCB). In version 2 of the buoy, this was replaced by a row of screw holes around the connector block to connect a horizontal stack of customised PCBs. This was found to greatly improve the robustness of the system and prevented components from breaking during transport and deployment. The communication modules, microcontroller and sensors were mounted in the top enclosure while the batteries and power system were placed in the bottom enclosure. The power system was connected to the top enclosure through a drill hole in the connector block. The system was waterproofed by placing two o-rings on either side of the connector block. The top and bottom enclosure are fastened to the connector block using a a flat head counter-sunk hex screw. Finally a drill hole in the connector block allowed the system to be secured to the buoy stand preventing it from falling out during deployment.
 
 \section{Electronics}
 
-The electronics for the system refer to the Communication subsystems, power electronics, sensors and processors. Due to project time constraints, the approach to developing the platform was to select off the shelf components that satisfied the requirements shown in table \ref{tab:sys_specs}. Further consideration was given to components that were low power (SP011, SP012) and cost effective components (SP013). Additionally, devices with intelligent operations were selected as this would allow us to effectively control the current consumption and operations of the device. These consisted of components with programmable settings such as digital sensors, actuators and modems. The following section gives an overview of the selection consideration for each subsystem
+The electronics for the system refer to the communication subsystems, power electronics, sensors and processors. Due to project time constraints, the approach to developing the platform was to select off-the-shelf components that satisfied the subsystem specifications shown in Table \ref{tab:sys_specs}. Further consideration was given to components that were low power (SP011, SP012) and cost effective (SP013). Additionally, devices with intelligent operations were selected as this would allow us to effectively control the current consumption and operations of the device. These consisted of components with programmable settings such as digital sensors and modems. The following section gives an overview of the selection consideration for each subsystem.
 
 \subsection{GPS}
 
-A Ublox Neo-7m was initially selected as it was easy to procure and has a small form factor. The module comes on a Waveshare breakout board which significantly decreases the development time. The board comes with an active patch antenna which has a gain of about 30dB. In addition, the component is low power with a relatively fast acquisition time and accuracy. The device also can be configured to output diagnostic information and Dilation of procession with the associated measurement which can provide a greater understanding of satelite connectivity in the region. However, by the time we requested more modules, the device was out of stock and had depreciated. To overcome this, we opted for the Neo-M9N module which had significantly improved performance at a higher cost. The table below shows a comparison of the two modules and their key performance parameters.
+A u-blox NEO-7M\footcite{UBLOX_M7N_DATA} GNSS reciever was initially selected during the 2018 design concept phase as it was easy to procure and has a small form factor. The positioning  module was designed around a Waveshare\footcite{waveshare} development board which significantly decreases the development time. The board comes with an active patch antenna which has a gain of about 30 dB \cite{waveshare}. In addition, the component is low power with a relatively fast acquisition time and accuracy. The device also can be configured to output diagnostic information such as dilation of procession with the associated measurement which can provide a greater understanding of satelite connectivity in the region. However,  this product has been depreciated by the time the latest buoy was developed. To overcome this, we opted for the u-blox NEO-M9N\footcite{UBLOX_M9N_DATA} module which had improved performance at a higher cost. Table \ref{tab:gps_mod} below shows a comparison of the two modules and their key performance parameters.
 
 \begin{table}[H]
 	\centering
-	\caption{Comparison of key parameters between the initial Ublox Neo-7m gnss module and the updated Ublox Neo-N9M module}
-	\begin{tabular}{|l |l |l|}
+	\caption{Comparison of key parameters between the initial u-blox NEO-7M GNSS module and the updated u-blox NEO-N9M module.}
+	\label{tab:gps_mod}
+	\setlength{\extrarowheight}{5pt}
+	\begin{tabular}{l l l}
 		\hline
-		\textbf{Description} & Neo-7M & Neo-M9N\\
+		\textbf{Specification} & Neo-7M & Neo-M9N\\
 		\hline
-		Positional Accuracy: & 2.5m  & 2.0m\\
-		Communication Type: & UART, I2C, SPI & UART, I2C, SPI\\
-		Cold-Start Time:& 30s & 26s\\
-		Supply Voltage & 1.65V - 3.6V & 2.7V -3.6V\\
-		Active Current Draw & 32mA &  42mA\\
-		Price & R269 \footnotemark & R1,195.45 \footnotemark\\
+		\hline
+		Positional accuracy [m] & 2.5  & 2.0 \\
+		\hline
+		\multirow{3}{*}{Communication type} & UART & UART\\ & I2C & I2C \\ & SPI & SPI\\
+		\hline
+		Cold-start time [s]& 30 & 26\\
+		\hline
+		Supply voltage [V] & 1.65 to 3.6 & 2.7 to 3.6\\
+		\hline
+		Active current draw [mA] & 32 &  42\\
+		\hline
+		Price & R269 \footnotemark & R1,195\footnotemark\\
+		\hline
 		\hline
 	\end{tabular}
 	\label{tab:neo7}
 \end{table}
 \footnotetext[1]{from Digikey \url{https://www.digikey.co.za/} ordered on 09/2020} 
 \footnotetext{from Microrobotics \url{https://www.robotics.org.za/} ordered on 19/12/2018}
-The Neo 9-m offers improved performance at a higher cost and higher power consumption. This module comes on a Sparkfun breakout board with an option for an external u.fl antenna or an integrated chip antenna. The chip antenna however has a very small gain making it unsuitable to be used for this application. Therefore, an additional antenna was bought.
+Table \ref{tab:gps_mod} shows the u-blox NEO-M9N offers improved performance  over the u-blox NEO-7M at a higher cost and higher power consumption. This module comes on a Sparkfun GPS Breakout - NEO-M9N U.FL (Qwiic) board which optionally comes with an integrated chip antenna. The chip antenna however has a very small gain making it unsuitable to be used for this application. Therefore, an additional antenna was bought. %TODO: name the antenna and link to the sparkfun board
 
 \subsection{Iridium}
 
