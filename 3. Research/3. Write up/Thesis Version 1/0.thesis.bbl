@@ -4755,6 +4755,23 @@
       \field{pages}{6868\bibrangedash 6875}
       \range{pages}{8}
     \endentry
+    \entry{UBLOX_M9N_DATA}{manual}{}
+      \field{sortinit}{u}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labeltitlesource}{title}
+      \field{note}{Rev. R04}
+      \field{number}{UBX-19014285}
+      \field{title}{u-blox M9N standard precision module Datasheet}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://www.u-blox.com/sites/default/files/NEO-M9N_DataSheet_\%28UBX-19014285\%29.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.u-blox.com/sites/default/files/NEO-M9N_DataSheet_%5C%28UBX-19014285%5C%29.pdf
+      \endverb
+    \endentry
     \entry{UBLOX_M9N_INTERFACE}{manual}{}
       \name{author}{1}{}{%
         {{hash=e793a6d14967c3cbaa58d7485e48be84}{%
