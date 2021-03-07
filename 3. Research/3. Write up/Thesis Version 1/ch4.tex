@@ -74,8 +74,33 @@ This design allows for easy access to the electronics as well as separation betw
 The electronics for the system refer to the communication subsystems, power electronics, sensors and processors. Due to project time constraints, the approach to developing the platform was to select off-the-shelf components that satisfied the subsystem specifications shown in Table \ref{tab:sys_specs}. Further consideration was given to components that were low power (SP011, SP012) and cost effective (SP013). Additionally, devices with intelligent operations were selected as this would allow us to effectively control the current consumption and operations of the device. These consisted of components with programmable settings such as digital sensors and modems. The following section gives an overview of the selection consideration for each subsystem.
 
 \subsection{GPS}
+\label{subsec:ch3_gps}
+A u-blox NEO-7M\footcite{UBLOX_M7N_DATA} GPS receiver was initially selected during the 2018 design concept phase as it was easy to procure and has a small form factor. The positioning  module was designed around a Waveshare\footcite{waveshare} development board which significantly decreases the development time. The board comes with an active patch antenna which has a gain of about 30 dB \cite{waveshare}. In addition, the component is low power with a relatively fast acquisition time and accuracy. The device also can be configured to output diagnostic information such as dilation of procession with the associated measurement which can provide a greater understanding of satellite connectivity in the region. However,  this product has been depreciated by the time the latest buoy was developed. To overcome this, we opted for the u-blox NEO-M9N\footcite{UBLOX_M9N_DATA} module which had improved performance at a higher cost. Both GPS modules are shown in Figure \ref{fig:gps_mod}.
 
-A u-blox NEO-7M\footcite{UBLOX_M7N_DATA} GNSS reciever was initially selected during the 2018 design concept phase as it was easy to procure and has a small form factor. The positioning  module was designed around a Waveshare\footcite{waveshare} development board which significantly decreases the development time. The board comes with an active patch antenna which has a gain of about 30 dB \cite{waveshare}. In addition, the component is low power with a relatively fast acquisition time and accuracy. The device also can be configured to output diagnostic information such as dilation of procession with the associated measurement which can provide a greater understanding of satelite connectivity in the region. However,  this product has been depreciated by the time the latest buoy was developed. To overcome this, we opted for the u-blox NEO-M9N\footcite{UBLOX_M9N_DATA} module which had improved performance at a higher cost. Table \ref{tab:gps_mod} below shows a comparison of the two modules and their key performance parameters.
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\begin{tikzpicture}
+			\node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width = 6cm,height=8cm]{NEO7.jpg}};
+			\begin{scope}[x={(image.south east)},y={(image.north west)}]
+				\draw[color=black, ultra thin,fill=white] (0.0,0.0) rectangle (0.21,0.16) node[pos=.5] {A};
+			\end{scope}
+		\end{tikzpicture}
+	\end{subfigure}%
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\begin{tikzpicture}
+			\node[anchor=south west,inner sep=0] (image) at (0,0) { \includegraphics[width = 6cm,height=8cm]{NEO9.jpg}};
+			\begin{scope}[x={(image.south east)},y={(image.north west)}]
+				\draw[color=black, ultra thin,fill=white] (0.0,0.0) rectangle (0.21,0.16) node[pos=.5] {B};
+			\end{scope}
+		\end{tikzpicture}    
+	\end{subfigure}
+	\caption{ The u-blox GPS Modules selected for this project which are: (A) the u-blox NEO-7M on a Waveshare breakout board \cite{waveshare} and (B) a u-blox NEO-M9N on a Sparkfun breakout board \cite{UBLOX_M9N_DATA}.}
+	\label{fig:gps_mod}
+\end{figure}
+
+Table \ref{tab:gps_mod} below shows a comparison of the two modules and their key performance parameters.
 
 \begin{table}[H]
 	\centering
@@ -84,12 +109,12 @@ A u-blox NEO-7M\footcite{UBLOX_M7N_DATA} GNSS reciever was initially selected du
 	\setlength{\extrarowheight}{5pt}
 	\begin{tabular}{l l l}
 		\hline
-		\textbf{Specification} & Neo-7M & Neo-M9N\\
+		\textbf{Specification} & NEO-7M & EO-M9N\\
 		\hline
 		\hline
 		Positional accuracy [m] & 2.5  & 2.0 \\
 		\hline
-		\multirow{3}{*}{Communication type} & UART & UART\\ & I2C & I2C \\ & SPI & SPI\\
+		\multirow{3}{*}{Communication type} & UART & UART\\ & I$^2$C & I$^2$C \\ & SPI & SPI\\
 		\hline
 		Cold-start time [s]& 30 & 26\\
 		\hline
@@ -97,26 +122,36 @@ A u-blox NEO-7M\footcite{UBLOX_M7N_DATA} GNSS reciever was initially selected du
 		\hline
 		Active current draw [mA] & 32 &  42\\
 		\hline
-		Price & R269 \footnotemark & R1,195\footnotemark\\
+		Price\tablefootnote{Price as of March 2021} & R269\tablefootnote{Source: \url{https://www.digikey.co.za/}}  & R1,195\tablefootnote{Source: \url{https://www.robotics.org.za/}}
+		Table \ref{tab:gps_mod}\\
 		\hline
 		\hline
 	\end{tabular}
 	\label{tab:neo7}
 \end{table}
-\footnotetext[1]{from Digikey \url{https://www.digikey.co.za/} ordered on 09/2020} 
-\footnotetext{from Microrobotics \url{https://www.robotics.org.za/} ordered on 19/12/2018}
-Table \ref{tab:gps_mod} shows the u-blox NEO-M9N offers improved performance  over the u-blox NEO-7M at a higher cost and higher power consumption. This module comes on a Sparkfun GPS Breakout - NEO-M9N U.FL (Qwiic) board which optionally comes with an integrated chip antenna. The chip antenna however has a very small gain making it unsuitable to be used for this application. Therefore, an additional antenna was bought. %TODO: name the antenna and link to the sparkfun board
+
+ shows the u-blox NEO-M9N offers improved performance  over the u-blox NEO-7M at a higher cost and higher power consumption. This module comes on a Sparkfun GPS Breakout\footnote{Available at: \url{https://learn.sparkfun.com/tutorials/sparkfun-gps-neo-m9n-hookup-guide}} - NEO-M9N U.FL (Qwiic) board which optionally comes with an integrated chip antenna. The chip antenna however has a very small gain making it unsuitable to be used for this application. Therefore, an additional antenna was bought. 
 
 \subsection{Iridium}
 
-The Iridium modem is critical for ensuring data can be transmitted from remote locations. When selecting a modem, key considerations were given to the physical size, Bandwidth as well as coverage. In addition, we require a module that is low powered and cost effective. For this reason, we have selected the Rock block 9603 modem which has the following key specifications. This is a module that contains an Iridium 9603 modem on a specially -designed power board. The device communicates via UART with the option for flow control. The module contains a 10-pin picoblade. The module contains 4 communications pins, 1 digital input pin and 2 digital output pins for interfacing with. Power is supplied either through a 5V pin or 3.3V pin in addition to the ground pin. A brief description of the pin out is given in the table below: 
+As discussed in Section \ref{sec:sec3_UR}, the Iridium modem is critical for ensuring data can be transmitted from remote locations where other forms of communication are unavailable. When selecting a modem, key considerations were given to the physical size, bandwidth as well as coverage. In addition, we require a module that is low powered and cost effective. For this reason, we have selected the Rock Seven RockBLOCK 9603\cite{rockblock2019image} which is shown in Figure \ref{fig:rockblock} below.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 0.3\textwidth]{rockblock9603.jpg}
+	\caption{A Rock Seven RockBLOCK 9603 satelite module containing an Iridium 9603 modem \cite{9603} and a coaxial Sub-miniature version A (SMA) connector for an external antenna. Image by \textcite{rockblock2019image}.}
+	\label{fig:rockblock}
+\end{figure}
+
+This module contains an Iridium 9603 modem on a specially designed power board. The device communicates via Universal Asynchronous Receiver/Transmitter (UART) with the option for flow control. Communication is performed through a ten-pin Molex PicoBlade connector. The module contains four communications pins, one digital input pin and two digital output pins. Power is supplied either through a 5 V pin or 3.3V pin in addition to the ground pin. A brief description of the pinout is given in Table \ref{tab:ir_pinout}. 
 
 \begin{table}[H]
 	\centering
-	\caption{Pinout for the Rockblock 9603 Iridium Modem}
+	\caption{Pinout for the Rock Seven RockBLOCK 9603 Iridium modem.}
+	\setlength{\extrarowheight}{5pt}
 	\begin{tabular}{c l l}
 		\hline
-		Pin Number: & Label & Pin Description\\
+		\textbf{Pin Number} & \textbf{Label} & \textbf{Pin description}\\
 		\hline
 		\hline
 		1 & RXD & UART Output Pin \\
@@ -137,306 +172,432 @@ The Iridium modem is critical for ensuring data can be transmitted from remote l
 	\label{tab:ir_pinout}
 \end{table}
 
-The device communicates via UART through the RXD and TXD pins. The CTS and RTS pins are optional if flow control is required. The OnOff pin can be used to put the device to sleep which significantly improves power performances. Finally, The NetAv and Ring Indicator are notification pins that can be used to indicate whether there is sufficient signal to transmit as well as to notify when a message is waiting to be downloaded respectively. 
-
-Finally, the key characteristics for the device are shown in the table below:
+The device communicates via UART through the RXD and TXD pins. Additional flow control pins Clear To Send (CTS) and Request To Send (RTS) pins are available in the interface. However, these are optional. The OnOff pin can be used to put the device to sleep which significantly improves power performance. Finally, the NetAv and Ring Indicator are digital output pins that can be used to indicate whether there is sufficient signal to transmit as well as to notify when a message is waiting to be downloaded respectively.  Finally, the key characteristics for the device are shown in Table \ref{tab:ir_specs}.
 
 \begin{table}[H]
 	\centering
-	\caption{Table showing key parameters and performance characteristics taken from the datasheet}
-	\begin{tabular}{|c|c|}
-		\multicolumn{2}{l}{Mechanical Features:}\\
+	\caption{Table showing the key parameters and performance characteristics of the Rock Seven RockBLOCK 9603 module \cite{9603}.}
+	\setlength{\extrarowheight}{5pt}
+	\begin{tabular}{lc}
 		\hline
-		\textbf{Antenna: } & Patch or External SMA\\
+		\multicolumn{2}{l}\textbf{{Mechanical features}}\\
 		\hline
-		\textbf{Temperature Rating:} & -40ºC to +85ºC\\
 		\hline
-		\textbf{Dimensions}  & $45.0 \times 45.0 \times 15.0$ mm  \\
+		Antenna & Patch or external SMA\\
 		\hline
-		\textbf{Cost: } & R2,850.56\\
+		Temperature rating [$^\circ$ C] & -40 to 85\\
+				\hline
+		Dimensions [mm]  & $45.0 \times 45.0 \times 15.0$ \\
+				\hline
+		Price\tablefootnote{Cost as of March 2021 from \cite{rockblock2019image}} & R3,571\tablefootnote{GBP 1 = ZAR 20.41}\\
 		\hline
-		\multicolumn{2}{l}{Power Characteristics:}\\
 		\hline
-		\textbf{Supply Voltage} & 5v or 3.7v Li-Ion \\
+		\multicolumn{2}{l}{Power characteristics}\\
 		\hline
-		\textbf{Start-Up Current} & 450mA \\
 		\hline
-		\textbf{Active Current} & 100mA \\
+		\multirow{2}{*}{Supply Voltage [V]} & 5 \\ & 3.3\\ 
+		Start-up current [mA] & 450 \\
+				\hline
+		Active current [mA] & 100 \\
+				\hline
+		Sleep current [$\mu$A] & 200\\
 		\hline
-		\textbf{Sleep Current} & 200uA\\
 		\hline
-		\multicolumn{2}{l}{Communication:}\\
+		\multicolumn{2}{l}{\textbf{Communication}}\\
 		\hline
-		\textbf{Baudrate} & 19200 b/s \\
 		\hline
-		\textbf{ Data bits} &  8\\
+		Baud rate [bits/s] & 19200\\
 		\hline
-		\textbf{Stop bits} & 1 \\
+		Data bits &  8\\
 		\hline
-		\textbf{Parity} & none \\
+		Stop bits & 1 \\
 		\hline
-		\textbf{Max Upload size} & 340 bytes \\
+		Parity & none \\
 		\hline
-		\textbf{Max Download Size} & 270 bytes \\
+		Maximum upload size [bytes] & 340\\
+		\hline
+		Maximum download size [bytes]	 & 270\\
+		\hline
 		\hline
 	\end{tabular}
 	
 	\label{tab:ir_specs}
 \end{table}
 
-\subsection{Sensors}
+\subsection{Environmental sensors}
 
-2 versions of the buoy were developed from 2019 - 2020 with different sensing capabilities. The first version consisted of a DS18B20 Temperature sensor. This was a low cost, small form factor device that interfaced over One-wire. In version two, this was dropped in favour of the Bosh Sensortech BMP280 sensor. The BMP featured improved sensing capabilities, temperature compensation as well as a programmable interface. In addition, the sensor contains both an ambient temperature sensor as well as a pressure sensor. A comparison of each device is given in the table below
+Two versions of the buoy were developed from 2019 to 2020 with different sensing capabilities. The first version consisted of a Maxim Integrated DS18B20 temperature sensor \cite{DS18B20manual}. This is a low cost digital sillicon temperature sensor with a small form factor that uses one-wire interface. However, in version two, this device was replaced with the Bosch Sensortech BMP280 sensor \cite{BMP280_Datasheet}. The BMP280 senosr featured pressure sensing as well as temperature sensing as well as a programmable interface. Furthermore, the BMP280 can optionally be ordered on an Adafruit BMP breakout board \cite{BMP280breakout} whereas the DS18B20 arrives as a stand-alone through-hole component that requires an additional circuit. The devices are shown in Figure \ref{fig:bmpds} while a comparison of the features of each device is given in Table \ref{tab:senv_spec}.
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[t]{.45\textwidth}
+		\begin{tikzpicture}
+			\node[anchor=south west,inner sep=0] (image) at (0,0) { \includegraphics[width = 6cm]{BMP280.jpg}};
+			\begin{scope}[x={(image.south east)},y={(image.north west)}]
+				\draw[color=black, ultra thin,fill=white] (0.0,0.0) rectangle (0.21,0.16) node[pos=.5] {A};
+			\end{scope}
+		\end{tikzpicture}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{.45\textwidth}
+		\begin{tikzpicture}
+			\node[anchor=south west,inner sep=0] (image) at (0,0) { \includegraphics[width = 6cm]{ds18b20.jpg}};
+			\begin{scope}[x={(image.south east)},y={(image.north west)}]
+				\draw[color=black, ultra thin,fill=white] (0.0,0.0) rectangle (0.21,0.16) node[pos=.5] {B};
+			\end{scope}
+		\end{tikzpicture}
+	\end{subfigure}
+	\hfill
+
+	\caption{ Environmental sensing devices selected for the buoy. (A) The Bosch Sensortech BMP280 digital pressure and temperature sensor on an Adafruit sensor breakout board \cite{BMP280breakout} and (B) a Maxim Integrated DS18B20 in a through hole TO-226-3 package \cite{DS18B20manual}.}
+	\label{fig:bmpds}
+\end{figure}
 
 \begin{table}[H]
 	\centering
-	\caption{Comparison of performance between the BMP280 and DS18B20 environmental sensors.}
-	\begin{tabular}{|c|c|c|}
+	\caption{Comparison of performance between the BMP280 and DS18B20 environmental sensors. The term "Not applicable" or N/A is given where a parameter does not apply to a device.}
+	\setlength{\extrarowheight}{5pt}
+	\begin{tabular}{lcc}
 		\hline
 		& \textbf{BMP280} & \textbf{DS18B20} \\
 		\hline
-		Temperature Range & $-40^\circ C \text{ to } 85^\circ C$&$-55^\circ C \text{ to } 125^\circ C$ \\
 		\hline
-		Accuracy & $1^\circ C \text{ for } T < 0^\circ C$ & $1^\circ C \text{ for } T < 0^\circ C$ \\
+		Temperature range [$^\circ$ C ]& -40 to 85& -55 to 125 \\
 		\hline
-		Pressure Range  & N/A & 300 to 1100 HPa \\
+		Temperature sensor accuracy\tablefootnote{At temperatures below 0$^\circ$} [$^\circ$ C]& $\pm$1 & $\pm$ 1 \\
 		\hline
-		Pressure Accuracy & N/A & 1.7 HPa $ \text{ for } T < 0^\circ $\\
+		Pressure range [Hpa]  & 300 to 1100 & N/A \\
 		\hline
-		Price & R87,84 & R85.17 \\
+		Pressure sensor accuracy\tablefootnote{At temperatures below 0$^\circ$} [Hpa] & $\pm$1.7 & N/A\\
+		\hline
+		Price\tablefootnote{As of March 2021 } & R47\tablefootnote{Source: \url{https://www.digikey.co.za/short/80dv2nhm}}& R77\tablefootnote{Source: \url{https://www.digikey.co.za/short/mqb0qm4j}} \\
+		\hline
 		\hline
 	\end{tabular}
 	\label{tab:senv_spec}
 \end{table}
 
-The BMP 280 is a chip that can be ordered standalone or comes on a I2c/SPI ready breakout board. The device on a breakout board is cheaper than than DS18B20 and can measure both temperature and Pressure whereas the DS18B20 can only measure temperature. The Power characteristics of each device are given in the table below
+Table \ref{tab:senv_spec} shows a comparison between the Bosch Sensortech BMP280 and Maxim DS18B20 performance characteristics. The temperature ranges of both sensors are capable of measuring subzero temperatures at an accuracy of $\pm1^\circ$ C which, is required to survive in the Southern Ocean climate as discussed in Chapter \ref{ch:chapter2}. Only the BMP280 can measure temperature and pressure, whereas the DS18B20 can only measure temperature. Furthermore, the BMP280 cost R47 cheaper than the DS18B20 at R77. However, this is for the standalone BMP280. This device can be, optionally,  ordered on an Adafruit breakout board. However, this increases the price to R218\footnote{Source: \url{https://www.digikey.co.za/short/qbn473mr}}. Therefore, the BMP280 was selected for version 2 as it contains more environmental sensing features for a lower price. The power consumption characteristics of each device are shown in Table \ref{tab:env_power}.
 
 \begin{table}[H]
 	\centering
 	\caption{Comparison between supply voltage and current draw of the BMP280 and DS18B20}
-	\begin{tabular}{|c|c|c|}
+	\setlength{\extrarowheight}{5pt}
+	\begin{tabular}{lcc}
 		\hline
 		&  \textbf{BMP280} & \textbf{DS18B20}\\
 		\hline
-		Supply Voltage & 3.0V - 5.5V & 1.71V - 3.6V\\
-		Sleep Current & $0.75\mu A$ & $0.3\mu A$\\ 
-		Active Current & $1500\mu A $ & $4.2\mu A$\\
 		\hline
+		Supply voltage [V] & 3.0 to 5.5 & 1.7 to 3.6\\
+		\hline
+		Sleep current [$\mu$ A]& 0.75 & 0.3\\ 
+		\hline
+		Active current [$\mu$ A] & 4.2 &1500 \\
+		\hline
+		\hline
+
 	\end{tabular}
-	
 	\label{tab:env_power}
 \end{table}
 
-The BMP280 was chosen for its comparable performance and accuracy. In addition, the BMP280 features more sensing capabilities and is more power efficient and cost effective than the DS18B20 making it suitable for this application.\par 
+Table \ref{tab:env_power} shows the power performance characteristics of the BMP280 and the DS18B20. The DS18B20 has a lower operating voltage requirement with a smaller sleep current draw than the BMP280. However, the DS18B20 has a much higher active current. Furthermore, both devices can operate at 3.3 V. Therefore, the BMP280 will have the lowest active power consumption during operation. \par 
 
-Finally, a digital sensor for power monitoring was selected to provide constant feedback on the status of the power system. This will be used to monitor the battery voltage as well as the current draw to make sure that the system does not deplete the energy reserves to quickly. To achieve this a INA219A IC was selected and mounted on a custom PCB with a shunt resistor of known resistance. The device has a high reported accuracy of 1\% over a full temperature range and is fully programmable. The device  communicates via I2C with 16-bit registers storing ADC values for  Current (mA),Voltage (V) as well as power (mW). The device is extremely low power with a high voltage measurement range and on-board calibration features. Some key performance parameters are shown in the table below:
+In conclusion, the BMP280 offers both temperature and pressure sensing at a lower price than the DS18B20 that can only perform temperature measurements. Therefore the BMP280 was selected for version 2 of the buoy to increase environmental sensing capabilities.
+
+\subsection{Power monitoring sensors}
+
+Finally, a digital sensor for power monitoring was selected to provide constant feedback on the status of the power system. This device is used to monitor the battery voltage and current to keep track of the buoys power consumption. To achieve this, the Texas Instruments INA219A I$^\text{2}$C power monitor \cite{INA219} was selected. This device has a high reported accuracy of 1\% over a full temperature range and is fully programmable. The device  communicates via I2C with 16-bit registers storing values for  current (mA), voltage (V) and power (mW). The device is extremely low power with a high voltage measurement range and on-board calibration features. The integrated circuit (IC) is shown in Figure \ref{fig:ina} while the key performance characteristics are shown in Table \ref{tab:INA_spec}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width= 0.3\textwidth]{INA219.jpg}
+	\caption{3-D render\protect\footnotemark of the Texas Instruments INA219 current/power monitor I$^2$C chip in an 8-pin small outline integrated circuit (SOIC) package \cite{INA219}. }
+	\label{fig:ina}
+\end{figure}
+\footnotetext{Source: \url{https://www.ti.com/product/INA219}}
 
 \begin{table}[H]
 	\centering
 	\caption{Performance specifications for the INA219 current monitor chip.}
-	\begin{tabular}{|l|l|}
+	\setlength{\extrarowheight}{5pt}
+	\begin{tabular}{l c}
 		\hline
-		\textbf{Operating Temperature: }& $-40\degree C\text{ to } 125\degree C$ \\
+		\multicolumn{2}{l}{\textbf{Performance characteristics}}\\
 		\hline
-		\textbf{$V_{shunt}$ range: }& $40mV \text{ to } 320mV$\\ 
 		\hline
-		\textbf{$V_{bus}$ rage: } & $0V - 16V \text{ or } 0V-32V$\\
+		Operating temperature [$\degree$ C] & -40 to 125 \\
 		\hline
-		\textbf{ADC Resolution: } & 12-bits\\
+		V$_{\text{shunt}}$ range [mV] & 40 to 320\\ 
 		\hline
-		\textbf{Measurement Error: } &$\pm 1\%$\\ 
+		\multirow{2}{*}{V$_{\text{bus}}$ range [V] } & 0 to 16\\ & 0 to 32\\
 		\hline
-		\textbf{Price: } & R17.77\footnotemark\\
+	    ADC resolution & 12-bits\\
 		\hline
-		\multicolumn{2}{l}{Power Characteristics}\\
+		Measurement error &$\pm$1\%\\ 
 		\hline
-		\textbf{Supply Voltage: } & $3.3V \text{ to } 5V$\\
+		Price\tablefootnote{Price as of March 2021}  & R16\tablefootnote{Source: \url{https://www.digikey.co.za/short/255dtrfm}}\\
 		\hline
-		\textbf{Quiescent Current: } & $0.7mA \text{ to } 1mA$\\
 		\hline
-		\textbf{Standby Current: } & $6\mu A \text{ to } 15\mu A$\\
+		\multicolumn{2}{l}{\textbf{Power characteristics}}\\
+		\hline
+		\hline
+		Supply voltage [V]  & $3.3V \text{ to } 5V$\\
+		\hline
+		Quiescent current [mA]  & $0.7mA \text{ to } 1mA$\\
+		\hline
+		Standby current [$\mu$ A] &6 to 15\\
+		\hline
 		\hline
 	\end{tabular}
 	
 	\label{tab:INA_spec}
 \end{table}
-\footnotetext{source: \url{https://www.digikey.co.za/}}
 
-\subsection{Inertial Measurement Unit}
+Table \ref{tab:INA_spec} above shows that the device is capable of measuring voltage, current and power at low temperatures up to -40$\degree$ C thereby making it a suitable choice for active power monitoring of the device in the polar climate.
 
-The MPU6050 is a 6-axis IMU that measures the acceleration and rotational velocity of 3 axes respectively.This component has a small form factor, low power and is fully programmable allowing the device to operate in different modes thereby optimising the data flow to and from the device. While the device does not contain a magnetometer, this is not an issue since the region suffers greatly from magnetic distortion \cite{kohout2015device} thereby rendering all readings to be unreliable. In addition, The acceleration of waves can be defined by the stoke supper limit \cite{kohout2015device} as 0.5g for a non breaking wave. The device has a programmable full scale range for both the accelerometer and gyroscope. IT contains an IIR filter and on-board self testing for added robustness and data integrity thereby making it  the ideal device for this application. The key parameters for the device are shown in the table below:
+\subsection{Inertial measurement unit}
+
+The TDK InvenSense MPU6050\cite{mpu6050} is a 6-axis inertial measurement unit IMU that measures the acceleration and rotational velocity of 3 axes respectively. This component has a small form factor, low power and is fully programmable allowing the device to operate in different modes thereby optimising the data flow to and from the device. While the device does not contain a magnetometer, this is not an issue since the region suffers greatly from magnetic distortion \cite{kohout2015device} thereby rendering all magnetic readings to be unreliable. In addition, the acceleration of waves can be defined by Stoke's upper limit as 0.5 g for a non breaking wave  \cite{kohout2015device}. The device has a programmable full scale range for both the accelerometer and gyroscope. It contains an infinite impulse response (IIR) filter and on-board self testing for added robustness and data integrity thereby making it  the ideal device for this application. The device can be, optionally, ordered on a SparkFun Triple Axis Accelerometer and Gyro Breakout - MPU-6050 which is shown in Figure \ref{fig:mpubreakout}. The key parameters for the device are shown in Table \ref{tab:mpu_specs}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 0.3\textwidth]{mpu6050 breakout.jpg}
+	\caption{A TDK Invensense MPU6050 6 degrees of freedom inertial measurement unit on a Sparkfun development board. The board allows for fast prototyping with communication performed via I$^2$C. Image source: \cite{mpu6050breakout}.}
+	\label{fig:mpubreakout}
+\end{figure}
+
 \begin{table}[H]
 	\centering
-	\caption{Performance Characteristics of the MPU6050 6-axis IMU }
-	\begin{tabular}{|l|l|}
-		\multicolumn{2}{l}{Accelerometer:}\\
+	\caption{Performance characteristics of the TDK Invensense MPU6050 6-axis inertial measurement unit (IMU) showing the accelerometer performance, gyroscope performance, current consumption and price. }
+	\setlength{\extrarowheight}{5pt}
+	\begin{tabular}{lc}
 		\hline
-		Full Scale Resolution:  & $ \pm 2g \text{ to } \pm8g$\\
+		\multicolumn{2}{l}{\textbf{Accelerometer}}\\
 		\hline
-		Sensitivity: &  $61.17 \mu g/LSB^{-1} \text{ to } 488.281\mu g/LSB^{-1}$\\
 		\hline
-		Sample Rate: & 4Hz - 1000Hz\\
+		Full scale resolution [g] & $ \pm\text{2 to } \pm\text{8}$\\
 		\hline
-		Noise Performance: & $400\mu g/\sqrt{Hz}$\\
+		Sensitivity [$\mu$g/LSB ] &  61.17 to 488.281\\
 		\hline
-		\multicolumn{2}{l}{Gyroscope:}\\
+		Sample rate [Hz] & 4 to 1000\\
 		\hline
-		Full Scale Resolution:  & $\pm 250\degree/s \text{ to } \pm 2000\degree/s $ \\
+		Noise performance [$\mu g/\sqrt{Hz}$] & 400\\
 		\hline
-		Sensitivity: &  $7.63(\mu\degree/s)/LSB^{-1} \text{ to } 60.98(\mu\degree/s)/LSB^{-1}$\\
 		\hline
-		Sample Rate: & 4Hz - 8000Hz\\
+		\multicolumn{2}{l}{\textbf{Gyroscope}}\\
 		\hline
-		Noise Performance: & $0.005(\mu\degree/s)/\sqrt{Hz}$\\
 		\hline
-		\multicolumn{2}{l}{Device Characteristics:}\\
+		Full scale resolution [$\degree/s$]  & $\pm \text{250 to } \pm \text{2000}$ \\
 		\hline
-		Temperature Range: & $40\degree C \text{ to } 85 \degree C$\\
+		Sensitivity [$(\mu\degree/s)/LSB^{-1}$]&  7.63 to 60.98\\
 		\hline
-		Low Pass Filter Range: & 5Hz to 256Hz \\
+		Sample rate [Hz] & 4 to 8000\\
 		\hline
-		Supply Voltage: & 2.375V to 3.46V\\
+		Noise performance [$(\mu\degree/s)/\sqrt{Hz}$] & 0.005\\
+		\hline
+		\multicolumn{2}{l}{\textbf{Device characteristics}}\\
+		\hline
+		\hline
+		Temperature range [$\degree$ C] & -40 to 85\\
+		\hline
+		Low pass filter range [Hz] & 5 to 256 \\
+		\hline
+		Supply voltage [V] & 2.4 to 3.5\\
 		\hline 
-		Active Current: & 3.9mA (Max) \\
+		Maximum active current [mA] & 3.9\\
 		\hline
-		Low Power Current: & $< 20 \mu A$ for $ODR < 5Hz$\\
+		Low power mode current\tablefootnote{for output data rate (ODR) < 5 Hz} [$\mu$A]: & 20 \\
 		\hline
-		Cost: & R40.00 \footnotemark\\
+		Price\tablefootnote{Price as of March 2021}: & R110\tablefootnote{Source: \url{https://www.digikey.co.za/short/rh95nm3v}}\\
 		\hline
 	\end{tabular}
 	\label{tab:mpu_specs}
 \end{table}
-\footnotetext{Source: \url{https://www.communica.co.za/}}
 
-The device has a high range for both gyroscope and imu with ideal low power performances making it the ideal device. In addition, the device comes prototype ready on the GY-521 development board. The device can be interfaced either using SPI or I2C. For this application, the device was interfaced with using I2C.
+
+Table \ref{tab:mpu_specs} shows that the TDK InvenSense MPU6050 IMU has the capabilities to measure acceleration and angular velocity necessary to perform wave calculations as described in x. The device can operate with a voltage supply of 2.4 V to 3.5 V. Furthermore, the lowest sample rate of the IMU is 4Hz which is well above the Nyquist sampling criteria for open ocean waves as discussed by \textcite{earle1996nondirectional} in Subsection \ref{subsec:ch2_wavemeas}. This device is also capable of operating in low temperatures up to -40$\degree$ C which, is suitable for the Southern Ocean climate. The chip can, optionally, arrive on a  SparkFun Triple Axis Accelerometer and Gyro Breakout - MPU-6050. However, this board has an increased cost of R437\footnote{Source: \url{https://www.digikey.co.za/short/bpqqdjdv}} compared to R110 for a standalone chip. For this reason, the Sparkfun board was used to develop and test the firmware for the device.Verrinder and Pead designed the circuit for the MPU6050 for the final version of the buoy.
 
 \subsection{Memory}
+\label{subsec:ch3_mem}
+Physical memory is an important feature in the device as it allows for permanent storage of data during the life cycle of buoy. Having the device in various sleep modes may result in lost data if the data are stored in non-volatile memory.
 
-Physical memory is an important feature in the device as it allows for permanent storage of data during the life cycle of buoy. Having the device in various sleep modes may result in lost data if the data is stored in RAM.
+Flash chips were selected as a permanent solution. A total of four Adesto Technologies AT45DB641E SPI serial flash chips \cite{AT45DB641E} were selected and mounted on a PCB directly interfacing with the system. Each chip can hold up to 64 megabits of data. Data can be read/written at speeds of up to 85 MHz of 15 MHz in low power mode. These chips are low power with high data retention requiring a supply voltage of 1.7 V to 3.6 V and draws a maximum of 11 mA in active read mode thereby making it one of the lowest power consumption components in the system. In addition, the device comes with two 256 byte buffers that can store data while a read/write operation is taking place. Memory is Organized into sectors (2 to 256 KB long), blocks (2 KB long) and pages (256 bytes) with write, read and erase options at each level. The device comes in a surface mount package shown in Figure \ref{fig:flashAAHAH}. Table \ref{tab:flash_specs} shows key performance characteristics
 
-Flash Chips were selected as a permanent Solution. An array of 4 AT45DB641E SPI Serial Flash Chips were selected and mounted on a PCB directly interfacing with the system. Each chip can hold up to 64Mbit of data. Data can be read/ written at speeds of up to 85MHz of 15MHz in low power mode. The device is low power with high data retention requiring a supply voltage of 1.7V – 3.6V and draws a maximum of 11mA in Active Read mode thereby making it one of the lowest power consumption components in the system. In addition, the device comes with 2 x 256byte buffers that can store data while a read/ write operation is taking place. Memory is Organized into sectors (2 – 256 Kbs long), blocks (2kB long) and pages (256 bytes) with write, read and erase options at each level. The following table shows key performance characteristics
-
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 0.3\textwidth]{AT45DB.jpg}
+	\caption{The Adesto Technologies SPI serial flash chips in a surface mount package. Image source: \cite{flashchipimage}.}
+	\label{fig:flashAAHAH}
+\end{figure}
 \begin{table}[H]
 	\centering
-	\caption{Key performance characteristics for the AT45DB641E flash chips.}
-	\begin{tabular}{|l|l|}
+	\caption{Key performance characteristics for the AT45DB641E flash chips \cite{AT45DB641E} including temperature rating, power consumption, storge capacity and price.}
+	\setlength{\extrarowheight}{5pt}
+	\begin{tabular}{lc}
 		\hline
-		Operating Temperature:  & $ -40\degree \text{ to }85 \degree$ \\
+		\textbf{Performance characteristics} &\\
 		\hline
-		Storage Capacity: & 64 Mbit \\
 		\hline
-		Supply Voltage    & 1.7V -3.6V\\
+		Operating temperature [$\degree$ C]  & $ -40 to 85$ \\
 		\hline
-		Standby Current: & $45\mu A$ \\
+		Storage capacity [Mbit] & 64 \\
 		\hline
-		Active Current:  & $22mA$ \\
+		Supply voltage [V]    & 1.7 to 3.6\\
 		\hline
-		Unit Cost:       & R 65.307 \footnotemark\\
+		Standby current [$\mu$A] & 45 \\
+		\hline
+		Active current [mA]  & 22 \\
+		\hline
+		Price   & R65\tablefootnote{Source: \url{https://za.rs-online.com/}}\\
+		\hline
 		\hline
 	\end{tabular}
-	
 	\label{tab:flash_specs}
 \end{table}
-\footnotetext{Source: \url{https://za.rs-online.com/}}
+
 \subsection{Processor}
 
-For the processor, a single processing unit was selected to reduce complexity of the system. However, in order to satisfy the requirements for the buoy, a processor must be selected with sufficient peripheral ports to handle communication from all sensors, communication modules and memory banks. In addition, there should be sufficient digital input and output pins to control the sensors and provide feedback The communication peripheral requirements are condensed into the following table: 
+For the processor, a single processing unit was selected to reduce complexity of the system. However, to satisfy the requirements for the buoy, a processor must be selected with sufficient peripheral ports to handle communication from all sensors, communication modules and memory banks. In addition, there should be sufficient digital input and output pins to control the sensors and provide feedback. The communication peripheral requirements are condensed into Table \ref{tab:micro_ports}: 
 
 \begin{table}[H]
 	\centering
-	\caption{ Type and number of communication ports in order to facilitate communication with  all the external modules.}
-	\begin{tabular}{|l|l|}
-		\hline \hline
-		Peripheral Name: & Qty \\
+	\caption{ Type and number of communication ports to facilitate communication among all the external modules.}
+	\setlength{\extrarowheight}{5pt}
+	\begin{tabular}{lc}
+		\hline 
+		\textbf{Peripheral name} & \textbf{Qty }\\
 		\hline \hline
 		UART & 2\\
+		\hline
 		I2C & 2\\
+		\hline
 		SPI & 2\\
+		\hline
 		Digital Pins & 11\\
 		\hline 
+		\hline
 	\end{tabular}
 	\label{tab:micro_ports}
 \end{table}
 
-Additionally, the processor needs to have a high resolution and large memory bank to handle incoming data. For this reason, a 32-bit micro-controller was identified as the ideal component for the processing system. 3 processors were selected from the STM32 range of microcontrollers and prototyped at various phases during the development cycle. The first version of the buoy contained the STM32F407 which is available on a 100-pin development board thereby decreasing the development time and increasing the technology readyness level of the system. This device was found to have more peripherals than required and had a large power requirement. Therefore the device was replaced by the STM32F446-RE which had significantly reduced peripherals and more optimal performance. The final processor selected was the STM32l476RG. Which matched the STM32F446 in pinout and peripheral however it was significantly more optimised for low power operation. The device had significantly more wake up pins with an extremely low power consumption therefore being the optimal choice. In addition, the development board for the STM32l476 has an on-board debugger which can be removed to reduce the physical size of the device. The STM32L4 can also be configured to passively detect a brownout event as well as a low power event which provides critical feedback regarding the device's performance. Some key performance parameters of the STM32l476 are shown in the table below:
+From Subsections \ref{subsec:ch3_gps} to \ref{subsec:ch3_mem}, the modules given have a data requirement and a communication requirement. Some modules, such as the RockBLOCK 9603 modem, require additional digital pins. Furthermore, all sensors output data at different resolutions. The BMP280 and MPU6050 have an 8-bit resolution, while the INA219 has a 16-bit resolution. Therefore, the selected processor needs to have sufficient width to accommodate incoming data of varying sizes while containing sufficient peripherals to interface with and control the subsystems. For this reason, a 32-bit microcontroller was selected for the processing system. During the prototyping period, three processors were selected from the STMicroelectronics STM32 range of microcontrollers for different versions of the buoy. These microcontrollers are shown in Figure \ref{fig:mcus}.
+
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[t]{.5\textwidth}
+		\begin{tikzpicture}
+			\node[anchor=south west,inner sep=0] (image) at (0,0) { \includegraphics[width = 0.6\textwidth]{stm32f4disc.png}};
+			\begin{scope}[x={(image.south east)},y={(image.north west)}]
+				\draw[color=black, ultra thin,fill=white] (0.0,0.0) rectangle (0.21,0.16) node[pos=.5] {A};
+			\end{scope}
+		\end{tikzpicture}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{.49\textwidth}
+		\begin{tikzpicture}
+			\node[anchor=south west,inner sep=0] (image) at (0,0) { \includegraphics[width = 0.6\textwidth]{stm32f4nuc.PNG}};
+			\begin{scope}[x={(image.south east)},y={(image.north west)}]
+				\draw[color=black, ultra thin,fill=white] (0.0,0.0) rectangle (0.21,0.16) node[pos=.5] {B};
+			\end{scope}
+		\end{tikzpicture}
+	\end{subfigure}
+	\hfill
+	\caption{The 32-bit microcontrollers used for the different versions of SHARC buoy. (A) is the STMicroelectronics STM32F407VTG6 \cite{stmdisc} on a 100 pin Discovery development board which was used for version one. (B) is the 64 pin STMicroelectronics Nucleo development board which initially contained an STMicroelectronics STM32F446RE \cite{stmnuceo} for version 2. However, it was replaced with an STMicroelectronics STM32L476RG \cite{stm32l4} for the final version.}
+	\label{fig:mcus}
+\end{figure}
+
+The first version of the buoy contained the STMicroelectronics STM32F407VGT6 \cite{stmdisc} which is available on a 100-pin Discovery development board. However, this device was found to have more peripherals than necessary and had a large power requirement. Therefore the device was replaced by the STMicroelectronics STM32F446RE \cite{stmnucleo}. This device came on the STMicroelectronics Nucleo development board and had reduced peripherals and more optimal performance. The final processor selected was the STMicroelectronics STM32L476RG \cite{stm32l4}. Development boards were selected for the prototyping phase as they were quick to set up and program. In figure \ref{fig:mcus}, both the Discovery and the Nucleo have pinheaders allowing for quic interfacing with the peripherals of the microcontroller. Which matched the STM32F446RE in pinout and number of peripheral. However, it was more optimised for low power operation. This microcontroller had additional wake-up pins and lower current consumption. Furthermore, the Nucleo boards have an on-board STLink debugger to program the microcontroller. However, this can be removed to reduce the physical size of the module. The STM32L476RG can be configured to detect brownout events and low power events. This provides critical feedback regarding the device's performance. Some key performance parameters of the STM32L476RE are shown in Table \ref{tab:stm_spec}
 
 \begin{table}[H]
 	\centering
-	\caption{Performance parameters for the STM32L4 microcontroller. }
-	\begin{tabular}{|l | l|}
-		\multicolumn{2}{l}{Electrical Characteristics:}\\
+	\caption{Performance parameters for the STM32L476RG microcontroller. }
+	\setlength{\extrarowheight}{5pt}
+	\begin{tabular}{l  c}
 		\hline
-		\textbf{Input Voltage: }    & $1.71V \text{ to } 3.6V$ \\
+		\multicolumn{2}{l}{\textbf{Electrical characteristics}}\\
 		\hline
-		\textbf{Active Current Draw: }    & $100 \mu A/Hz$ \\
 		\hline
-		\textbf{Shutdown Mode Current Draw: }    &  $30nA$ \\
+		Input voltage [V]    & 1.7 to 3.6\\
 		\hline
-		\textbf{Standby Mode Current Draw: }    &  $420nA$ \\
+		Active current [$\mu$ A/Hz]    & 100 \\
 		\hline
-		\textbf{$V_{brownout}$ Threshold:} &  $1.66V \text{ to } 2.90V$\\
+		Shutdown mode current [nA]  &  30 \\
 		\hline
-		\multicolumn{2}{l}{Computational Characteristics:}\\
+		Standby mode current [nA] &  420 \\
 		\hline
-		\textbf{Processor: }    &  ARM Cortex-M4 \\
+		$V_{\text{brownout}}$ threshold [V] &  1.7 to 2.9\\
 		\hline
-		\textbf{MCU Size: }     & 32-bit\\
 		\hline
-		\textbf{Float representation: } & Hardware FPU \\
+		\multicolumn{2}{l}{\textbf{Processor characteristics}}\\
 		\hline
-		\textbf{Flash size: } & 1MB\\
 		\hline
-		\textbf{RAM Size:} & 128 KB\\
+		Processor   &  ARM Cortex-M4 \\
 		\hline
-		\textbf{Clock Source: } & LSE, HSE, LSI, MSI, HSI \\
+		Processor size   & 32-bit\\
 		\hline
-		\textbf{System Clock Frequency: } & 4MHz to 80MHz \\
+		Float representation & Hardware FPU \\
 		\hline
-		\textbf{Dhrystone Benchmark: } & 1.25 DMIPS/Hz \\
+		Flash memory size [MB] & 1\\
 		\hline
-		\multicolumn{2}{l}{Communication Ports:} \\
+		Volatile memory (RAM) size [KB] & 128\\
 		\hline
-		\textbf{Total  Communication ports: } & 20 \\
+		\multirow{5}{*}{Input clock sources } & \multicolumn{1}{l}{Low speed external (LSE)}\\&  \multicolumn{1}{l}{High speed external (HSE)}\\ &  \multicolumn{1}{l}{Low speed internal (LSI)}\\ &  \multicolumn{1}{l}{Mixed speed internal (MSI)}\\ &  \multicolumn{1}{l}{High speed internal (HSI)} \\
 		\hline
-		\textbf{UART Ports} & 5 \\
+		Input clock frequency [MHz] & 4 to 80 \\
 		\hline
-		\textbf{I2C Ports} & 3 \\
+		Dhrystone Benchmark: & 1.25 DMIPS/Hz \\
 		\hline
-		\textbf{SPI Ports} & 3 \\
+		\hline
+		\multicolumn{2}{l}{\textbf{Communication ports}} \\
+		\hline
+		\hline
+		Total communication ports & 20 \\
+		\hline
+		UART ports & 5 \\
+		\hline
+		I$^2$C ports & 3 \\
+		\hline
+		SPI Ports & 3 \\
+		\hline
 		\hline
 	\end{tabular}
 	
 	\label{tab:stm_spec}
 \end{table}
 
-The STM32l4 also features seven general purpose timers as well as two advanced timers and two low power timers. In addition, the device has five wake up pins which allow the device to be woken up from deep sleep (shutdown) via an external source. The device is capable of DSP processing using external libraries provided by the manufacturer and a real-time clock thereby making it the ideal component to be a processor for the buoy.
+Table \ref{tab:stm_spec} shows the performance characteristics of the STM32L476RG also features seven general purpose timers as well as two advanced timers and two low power timers. In addition, the device has five wake up pins which allow the device to be woken up from deep sleep (shutdown) via an external source. The device is capable of  digital siganl processing (DSP) using external libraries provided by the manufacturer. This allows the device to perform wave spectra calculations as described by \textcite{kuik1988method} and \textcite{earle1996nondirectional} . Furthermore, the STM32L4 Nucleo board contains an onboard real-time clock (RTC) with a 32.768 KHz LSE crystal to provide an accurate reference for time-based applications thereby making it the ideal component to be a processor for the buoy.
 
-\subsection{Power Electronics}
+\subsection{Power electronics}
 
 Based on the aforementioned Hardware selection, the following power requirements are outlined in the table below:
 
 \begin{table}[H]
 	\centering
 	\caption{Current consumption of various components as well as the estimated maximum possible current draw}
-	\begin{tabular}{|c|c |c|c|}
+	\setlength{\extrarowheight}{5pt}
+	\begin{tabular}{l c c l}
 		\hline
-		Device Name & QTY &  Supply Voltage & Maximum current Draw\\
+		\textbf{Device name} & \textbf{Qty} &  \textbf{Supply voltage [V]} & \textbf{Opperating current [mA]}\\
 		\hline
-		Ublox NEO-M9N & 1 & 3.3V & 42mA \\
 		\hline
-		Rockblock 9603 & 1 & 5V &  450mA\\
+		Ublox NEO-M9N & 1 & 3.3 & 42 \\
 		\hline
-		BMP280 & 1 & 3.3V & 0.0042mA\\
+		Rockblock 9603 & 1 & 5 &  450\\
 		\hline
-		INA219A & 1 & $V_{Bat}$ & 1mA\\
-		MPU6050 & 1 & 3.3V & 3.9mA\\
+		BMP280 & 1 & 3.3 & 0.0042\\
+		\hline
+		INA219A & 1 & $V_{Bat}$\tablefootnote{INA219A supply voltage is fixed to the reference power supply \cite{INA219}} & 1\\
+		\hline
+		MPU6050 & 1 & 3.3 & 3.9\\
 		\hline 
-		AT45DB641E & 4 & 3.3V & 88mA\\
+		AT45DB641E & 4 & 3.3 & 88\\
 		\hline
-		STM32L476RG & 1 & 5V & 2.6mA\\
+		STM32L476RG & 1 & 5 & 2.6\\
+		\hline
 		\hline
 		\cline{4-4}
-		\multicolumn{2}{c}{} &\multicolumn{1}{c}{\textbf{total:}} & \multicolumn{1}{c}{587.50mA} \\
+		\multicolumn{2}{r}{} &\multicolumn{1}{r}{\textbf{total [mA] }} & \multicolumn{1}{l}{587.50} \\
 		\cline{4-4}
 		\cline{4-4}
 	\end{tabular}
@@ -444,58 +605,76 @@ Based on the aforementioned Hardware selection, the following power requirements
 	\label{tab:pow_budget}
 \end{table}
 
-From table \ref{tab:pow_budget} we can expect a maximum current draw of 587.50. The largest consumer of power is the Rock-block 9603 which can draw up to 450mA when charging. Therefore, the power supply needs to be able to supply at-least 500mA during start up. Current can be conserved by placing the devices into sleep mode which further reduces the current consumption from the batteries. Finally, By only turning the components on when required, even less power can be conserved. \par 
+From Table \ref{tab:pow_budget}, a maximum current draw of 587.50 mA can be expected if all the sensors are running concurrently. The largest consumer of power is the RockBLOCK 9603 which can draw up to 450 mA when charging. Therefore, the power supply needs to be to supply at least 500 mA during startup. Current can be conserved by placing the devices into sleep mode which further reduces the current consumption from the batteries. These techniques will be discussed in Chapter \ref{ch:ch5}. Finally, By only turning the components on when required, more power can be conserved. \par 
 
-Therefore, a regulator is required that is capable of supplying the required current  while being able to stand the drastic changes in current consumption. A decision was made to use a 5V low Dropout regulator to supply the 5V components directly i.e. the iridium modem and the micro-controller. The 3.3V components are powered through the on-board 3.3V regulator for the STM32L4 nucleo development board. The Low Dropout regulator is a LP3876 7V LDO capable of supplying up to 3A. The device has a quick response to step changes and an adjustable output voltage thereby making it the ideal device to supply power. The output voltage level can be controlled by selecting capacitors. For this application a $10 \mu C$ tantalum capacitor was used as tantalum capacitors have  excellent robustness and transient responses especially at low temperatures.  Some key characteristics for the device are given in the table below
+Therefore, a regulator is required to supply the required current at a constant voltage while being able to stand the drastic changes in current consumption. A decision was made to use a 5 V low dropout regulator (LDO) to supply the 5 V components directly. The 3.3 V components are powered through the STMicroelectronics Nucleo-L476RG on-board 3.3 V regulator. The 5 V LDO is a Texas Instruments LP3876 7 V LDO \cite{LP3876} which is shown in Figure \ref{fig:lp3876}.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width= 0.3\textwidth]{LP3876.jpg}
+	\caption{3-D render\tablefootnote{Source:\url{https://www.ti.com/store/ti/en/p/product/?p=LP3876ES-2.5/NOPB}} of the Texas Instruments LP3876 linear low drop out regulator in a surface mount package\cite{LP3876}. }
+	\label{fig:lp3876}
+\end{figure}
+
+This regulator is capable of supplying up to 3 A. The device has a quick response to step changes and an adjustable output voltage thereby making it the ideal device to supply power.$10$ $\mu$C tantalum capacitors are used as decoupling capacitors to filter the power source as these capacitors have excellent robustness and transient responses especially at low temperatures. Some key characteristics for the device are given in Table \ref{tab:lp_spec}
 
 \begin{table}[H]
 	\centering
-	\caption{Key Performance Characteristics for the LP3876 Low Dropout Regulator}
-	\begin{tabular}{|l|c|}
+	\caption{Key Performance characteristics for the Texas Instruments LP3876 linear low dropout regulator \cite{LP3876}.}
+	\setlength{\extrarowheight}{5pt}
+	\begin{tabular}{lc}
 		\hline
-		Input Voltage & $2.5V \text{ to } 7.0V$  \\
+		\textbf{Performance characteristics} & \\
+		\hline \hline
+		Input voltage [V] & 2.5 to 7.0  \\
 		\hline
-		Voltage Regulation (over current)& 0.14\%\\
+		Voltage regulation over current& 0.14\%\\
 		\hline
-		Dropout Voltage at 3A & 0.8V to 1.2V  \\
+		Dropout voltage at 3 A [V] & 0.8 to 1.2  \\
 		\hline
-		Quiescent Current at 3A &  14mA\\
+		Quiescent Current at 3 A  [mA]&  14\\
 		\hline
-		Temperature Range & $-40 \degree C \text{ to }125 \degree C$\\
+		Temperature Range [$\degree$ C] &-40 to 125\\
 		\hline
-		Unit Cost & R95.19 \footnotemark\\
+		Price\tablefootnote{Price as of February 2021} & R86\tablefootnote{Source: \url{https://www.digikey.co.za/product-detail/en/texas-instruments/LP3876ES-3-3-NOPB/LP3876ES-3-3-NOPB-ND/570055}}\\
+		\hline
 		\hline
 	\end{tabular}    
 	\label{tab:lp_spec}
 \end{table}
 
-\footnotetext{source: \url{https://www.digikey.co.za/}}
 
-The LDO was placed on a customised PCB  with the INA 219 Current sensor as well as an indicator LED to show that the batteries have sufficient charge. The power board was supplied by 3.6V C-cell LiSOCl2 batteries. These batteries have ideal low temperature characteristics as well as a high capacity. 2 cells were placed in series to create a 7.2V power source which was placed in parallel with another 7.2V array to increase the capacity. The batteries, battery holders and power board are connected to form a single subsystem which was placed in the bottom enclosure and connected to the micro-controller via a 7-pin cable.
 
-\section{Final Assembly}
+The LDO was placed on a customised PCB designed by Verrinder and Pead with the Texas Instruments INA219A current sensor as well as an indicator LED to show that the batteries have sufficient charge. The power board was supplied by 3.6 V C-cell LiSOCl$_2$ batteries. These batteries have ideal low temperature characteristics as well as a high capacity. Two cells were placed in series to create a 7.2 V power source which was placed in parallel with another 7.2 V array to increase the capacity. The batteries, battery holders and power board are connected to form a single subsystem which was placed in the bottom enclosure and connected to the microcontroller via a 7-pin cable.
+
+\section{Final assembly}
 \label{sec:ch3_final_assembly}
-The final electronics choice and configurations are shown in the figure below:
 
-\begin{landscape}\centering
+The final electronics choice and configurations are shown in Figure \ref{fig:sharc_final}.
+
+\begin{landscape}
+	\centering
 	\vspace*{\fill}
 	\begin{figure}[htpb]
 		\centering
-		\includegraphics[height=0.6\textheight, width=1.2\textwidth]{figs/SHARC_Final.png}
-		\caption{Simplified schematic of the final version of SHARC buoy showing power supply (dash), communication (solid) and digital connections (arrows) and configurations}
+		\captionsetup{font=footnotesize}
+		\includegraphics[height=0.6\textwidth,width=1.2\textheight]{figs/SHARC_Final.png}
+		\caption{Simplified schematic of the final version of SHARC buoy showing (dash) power supply, (solid) communication and digital (arrows) connections. Also shown in the figure are lines indicating: (black) ground, (red) 5 V power, (pink) 3.3 V power, (Purple) analog inputs, (orange) I$^2$C, (yellow) UART, (green) SPI and (blue) digital input/output.}
 		\label{fig:sharc_final}
 	\end{figure}
 	\vfill
 \end{landscape}
 
 
-A final costing of the system is provided in the table below:
+A final costing of the system is provided in Table \ref{tab:total_cost}.
 \begin{table}[H]
 	\centering
 	\caption{Approximate procurement cost for a single SHARC buoy node.}
+	\setlength{\extrarowheight}{5pt}
 	\begin{tabular}{l c r r}
 		\hline \hline
-		\textbf{Component Name:} & \textbf{QTY:} & \textbf{Unit Cost} & \textbf{Total:}  \\
+		\textbf{Component name} & \textbf{Qty} & \textbf{Unit cost} & \textbf{Total}  \\
 		\hline \hline
 		Buoy Enclosure and Stand  & 1 & R1,206.84 & R1,206.84 \\
 		Ublox Neo-M9N & 1 &  R1,195.45 &R1,195.45\\
@@ -512,13 +691,13 @@ A final costing of the system is provided in the table below:
 		Wiring and Connectors & - & R136.46 & R136.46 \\
 		\hline 
 		\hline
-		& & \textbf{ Grand Total: } & R8,421.13\\ 
+		& & \textbf{ Grand total } & R8,421.13\\ 
 		\hline \hline
 	\end{tabular}
 	\label{tab:total_cost}
 \end{table}
 
-Customised PCBs were designed to connect the various subsystems together. The device was kept modular by separating PCBs and grouping devices by functionality. A circuit board was created for the Dropout regulator and INA219 current sensor which was affixed to 4 x C-cell battery holders.The battery holders have leads which were were arranged in a 2-series, 2- parallel configuration.
+Customised PCBs were designed to connect the various subsystems together. The device was kept modular by separating PCBs and grouping devices by functionality. A circuit board was created for the LP3876 LDO and INA219 current sensor which was affixed to four C-cell battery holders.The battery holders have leads which were were arranged in a 2-series, 2-parallel configuration.
 
 \begin{figure}[H]
 	\centering
@@ -527,19 +706,16 @@ Customised PCBs were designed to connect the various subsystems together. The de
 	\label{fig:bot_elec}
 \end{figure}
 
-This module was placed in the bottom enclosure and fastened to the connector block using a hex screw. A customised 7-pin duraclick cable connects the module to the modules in the top enclosure. A main connector board was developed with duraclick connections for each of the aforementioned devices. The board contains 2  2x16 female header rows to fit the morpho connectors of the nucleo-l4 development board. 2 more disc-shaped PCBs were developed. First a communication boards which contains a 4-pin female header to connect the ublox GPS module and 2 brackets to mount the iridium module vertically. A helical antenna connects to an SMA antenna on the Iridium module. Then a sensor board for the IMU and environmental sensor. The boards were connected in a stack configuration and fastened to the connector block using M6 metal Hex Spaces with the communication board being placed at the top for direct line of sight with satellites. The environmental board was secured to the base of the connector block with the BMP280 placed face-down over a hole drilled through the connector block allowing it to interface with the environment.
+This module was placed in the bottom enclosure and fastened to the connector block using a hex screw. A customised 7-pin Molex Duraclick cable connects the module to the modules in the top enclosure. A main connector board was developed with Molex Duraclick connections for each of the aforementioned devices. The board contains 2  2x16 female header rows to fit the morpho connectors of the Nucleo-L476RG development board. Two more disc-shaped PCBs were developed with the first for a communication board containing a 4-pin female header to connect the u-blox NEO GPS module and two brackets to mount the RockBLOCK 9603 Iridium module vertically. A helical antenna connects to an SMA antenna on the Iridium module. The second board was developed as a sensor board for the IMU and environmental sensor. The boards were connected in a stack configuration and fastened to the connector block using M6 metal hex spaces with the communication board being placed at the top for direct line of sight with satellites. The environmental board was secured to the base of the connector block with the BMP280 placed face-down over a hole drilled through the connector block allowing it to interface with the environment. Figure \ref{fig:top_elec} shows the configuration of the PCBs in the top enclosure of the buoy.
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale =0.5]{Top_encl.png}
-	\caption{Electronic Stack for the top module consisting of connector board, micro-controller board and sensor board attached to the connector block }
+	\caption{Electronic PCB stack for the top module consisting of connector board, microcontroller board and sensor board attached to the connector block. }
 	\label{fig:top_elec}
 \end{figure}
 
-This configuration greatly increases the robustness of the electronics and can overcome breaking caused by poor handling or improper deployment.  The top enclosure is placed over the electronics and fastened to the connector block using Hex screws. Finally, the system is placed in the stand housing and secured using another hex screw.
+This configuration greatly increases the robustness of the electronics and can overcome breaking caused by poor handling or improper deployment.  The top enclosure is placed over the electronics and fastened to the connector block using hex screws. Finally, the system is placed in the stand housing and secured using another hex screw. Final assembly of the buoy can be seen in Figure \ref{fig:sharc_final}.
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale = 0.5]{full buoy.jpg}
-	\caption{SHARC BUOY fully assembled and in deployment state. Electronics placed in enclosure and fastened to the buoy stand. LEDs on the various components indicate that the device is in working order}
-	\label{fig:my_label}
-\end{figure}
+\section{Conclusion}
+
+In conclusion, this chapter outlined the construction of the SHARC buoy remote sensing device. Electronic components were selected and arranged into a system and connected together on customised PCB. This platform was then used to develop the firmware which will be discussed in the next chapter.

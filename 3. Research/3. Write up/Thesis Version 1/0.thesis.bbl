@@ -101,6 +101,41 @@
       \field{pages}{181\bibrangedash 195}
       \range{pages}{15}
     \endentry
+    \entry{BMP280breakout}{online}{}
+      \name{author}{1}{}{%
+        {{hash=15a4fbe287b7987574ac59b2f938ddeb}{%
+           family={Adafruit},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{15a4fbe287b7987574ac59b2f938ddeb}
+      \strng{fullhash}{15a4fbe287b7987574ac59b2f938ddeb}
+      \strng{bibnamehash}{15a4fbe287b7987574ac59b2f938ddeb}
+      \strng{authorbibnamehash}{15a4fbe287b7987574ac59b2f938ddeb}
+      \strng{authornamehash}{15a4fbe287b7987574ac59b2f938ddeb}
+      \strng{authorfullhash}{15a4fbe287b7987574ac59b2f938ddeb}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{31}
+      \field{month}{7}
+      \field{title}{Adafruit BMP280 Barometric Pressure + Temperature Sensor Breakout}
+      \field{urlday}{7}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://learn.adafruit.com/adafruit-bmp280-barometric-pressure-plus-temperature-sensor-breakout/overview
+      \endverb
+      \verb{url}
+      \verb https://learn.adafruit.com/adafruit-bmp280-barometric-pressure-plus-temperature-sensor-breakout/overview
+      \endverb
+    \endentry
     \entry{mtk3339}{online}{}
       \name{author}{1}{}{%
         {{hash=df2ef9d987531dee5d52cd1fbc04b320}{%
@@ -134,6 +169,40 @@
       \endverb
       \verb{url}
       \verb https://www.adafruit.com/product/790
+      \endverb
+    \endentry
+    \entry{AT45DB641E}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=bb0f0044b58e8edcdf320cb4e398ddef}{%
+           family={{Adesto Technologies}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{bb0f0044b58e8edcdf320cb4e398ddef}
+      \strng{fullhash}{bb0f0044b58e8edcdf320cb4e398ddef}
+      \strng{bibnamehash}{bb0f0044b58e8edcdf320cb4e398ddef}
+      \strng{authorbibnamehash}{bb0f0044b58e8edcdf320cb4e398ddef}
+      \strng{authornamehash}{bb0f0044b58e8edcdf320cb4e398ddef}
+      \strng{authorfullhash}{bb0f0044b58e8edcdf320cb4e398ddef}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Rev. DS-45DB641E-027G–DFLASH}
+      \field{title}{64-Mbit DataFlash (with Extra 2-Mbits), 1.7V Minimum {SPI} Serial Flash Memory}
+      \field{urlday}{7}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://datasheet.octopart.com/AT45DB641E-SHN2B-T-Adesto-Technologies-datasheet-60482850.pdf
+      \endverb
+      \verb{url}
+      \verb https://datasheet.octopart.com/AT45DB641E-SHN2B-T-Adesto-Technologies-datasheet-60482850.pdf
       \endverb
     \endentry
     \entry{ahmad2013reviews}{article}{}
@@ -1833,6 +1902,42 @@
       \verb https://www.inmarsat.com/en/index.html
       \endverb
     \endentry
+    \entry{LP3876}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=98891ef37ae74f3a00ae9a7c9c316e78}{%
+           family={Instruments},
+           familyi={I\bibinitperiod},
+           given={Texas},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{98891ef37ae74f3a00ae9a7c9c316e78}
+      \strng{fullhash}{98891ef37ae74f3a00ae9a7c9c316e78}
+      \strng{bibnamehash}{98891ef37ae74f3a00ae9a7c9c316e78}
+      \strng{authorbibnamehash}{98891ef37ae74f3a00ae9a7c9c316e78}
+      \strng{authornamehash}{98891ef37ae74f3a00ae9a7c9c316e78}
+      \strng{authorfullhash}{98891ef37ae74f3a00ae9a7c9c316e78}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{SNVS220E}
+      \field{title}{{LP3873/LP3876 3A} Fast Ultra Low Dropout Linear Regulators}
+      \field{urlday}{7}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2013}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.ti.com/lit/ds/snvs220e/snvs220e.pdf?ts=1615138884680&ref_url=https%253A%252F%252Fwww.google.com%252F
+      \endverb
+      \verb{url}
+      \verb https://www.ti.com/lit/ds/snvs220e/snvs220e.pdf?ts=1615138884680&ref_url=https%253A%252F%252Fwww.google.com%252F
+      \endverb
+    \endentry
     \entry{edison}{manual}{}
       \name{author}{1}{}{%
         {{hash=ff97a9fdede09eaf6e1c8ec9f6a61dd5}{%
@@ -3283,6 +3388,41 @@
       \field{title}{Modelling the dynamics of ice in the {Antarctic} marginal ice zone}
       \field{year}{2019}
     \endentry
+    \entry{DS18B20manual}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=708945beacf49e6e06951ec3f877a859}{%
+           family={{Maxim Integrated}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{708945beacf49e6e06951ec3f877a859}
+      \strng{fullhash}{708945beacf49e6e06951ec3f877a859}
+      \strng{bibnamehash}{708945beacf49e6e06951ec3f877a859}
+      \strng{authorbibnamehash}{708945beacf49e6e06951ec3f877a859}
+      \strng{authornamehash}{708945beacf49e6e06951ec3f877a859}
+      \strng{authorfullhash}{708945beacf49e6e06951ec3f877a859}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Rev. 6}
+      \field{number}{19--7487}
+      \field{title}{{DS18B20} Programmable Resolution {1-Wire} Digital Thermometer}
+      \field{urlday}{7}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf
+      \endverb
+      \verb{url}
+      \verb https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf
+      \endverb
+    \endentry
     \entry{seastatediag}{online}{}
       \name{author}{1}{}{%
         {{hash=598963781c4103a901969cf4d7b5fd2c}{%
@@ -3489,6 +3629,39 @@
       \endverb
       \verb{url}
       \verb https://www1.oanda.com/currency/converter/
+      \endverb
+    \endentry
+    \entry{flashchipimage}{online}{}
+      \name{author}{1}{}{%
+        {{hash=3a0e9336be556965750c0ebb6133fb8c}{%
+           family={Octopart},
+           familyi={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{3a0e9336be556965750c0ebb6133fb8c}
+      \strng{fullhash}{3a0e9336be556965750c0ebb6133fb8c}
+      \strng{bibnamehash}{3a0e9336be556965750c0ebb6133fb8c}
+      \strng{authorbibnamehash}{3a0e9336be556965750c0ebb6133fb8c}
+      \strng{authornamehash}{3a0e9336be556965750c0ebb6133fb8c}
+      \strng{authorfullhash}{3a0e9336be556965750c0ebb6133fb8c}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{AT45DB641E--SHN2B--T}}
+      \field{urlday}{7}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://octopart.com/at45db641e-shn2b-t-adesto+technologies-31435401
+      \endverb
+      \verb{url}
+      \verb https://octopart.com/at45db641e-shn2b-t-adesto+technologies-31435401
       \endverb
     \endentry
     \entry{orbcomm2021website}{online}{}
@@ -3977,6 +4150,39 @@
       \field{pages}{e2019GL086729}
       \range{pages}{-1}
     \endentry
+    \entry{rockblock2019image}{online}{}
+      \name{author}{1}{}{%
+        {{hash=6f090fb899722e97ccd0c2e2365b7d37}{%
+           family={{Rock Seven}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{6f090fb899722e97ccd0c2e2365b7d37}
+      \strng{fullhash}{6f090fb899722e97ccd0c2e2365b7d37}
+      \strng{bibnamehash}{6f090fb899722e97ccd0c2e2365b7d37}
+      \strng{authorbibnamehash}{6f090fb899722e97ccd0c2e2365b7d37}
+      \strng{authornamehash}{6f090fb899722e97ccd0c2e2365b7d37}
+      \strng{authorfullhash}{6f090fb899722e97ccd0c2e2365b7d37}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{About RockBLOCK 9603}
+      \field{urlday}{7}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.rock7.com/products/rockblock-9603-compact-plug-play-satellite-transmitter
+      \endverb
+      \verb{url}
+      \verb https://www.rock7.com/products/rockblock-9603-compact-plug-play-satellite-transmitter
+      \endverb
+    \endentry
     \entry{MPX5100AP}{online}{}
       \name{author}{1}{}{%
         {{hash=ea215ec6203dae21594979add1078e43}{%
@@ -4253,6 +4459,39 @@
       \verb https://www.sparkfun.com/products/retired/14239
       \endverb
     \endentry
+    \entry{mpu6050breakout}{online}{}
+      \name{author}{1}{}{%
+        {{hash=aab303b1d1e2d7fbb445a4b20f091c5c}{%
+           family={Sparkfun},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{aab303b1d1e2d7fbb445a4b20f091c5c}
+      \strng{fullhash}{aab303b1d1e2d7fbb445a4b20f091c5c}
+      \strng{bibnamehash}{aab303b1d1e2d7fbb445a4b20f091c5c}
+      \strng{authorbibnamehash}{aab303b1d1e2d7fbb445a4b20f091c5c}
+      \strng{authornamehash}{aab303b1d1e2d7fbb445a4b20f091c5c}
+      \strng{authorfullhash}{aab303b1d1e2d7fbb445a4b20f091c5c}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{SparkFun Triple Axis Accelerometer and Gyro Breakout - MPU-6050}
+      \field{urlday}{7}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.sparkfun.com/products/11028
+      \endverb
+      \verb{url}
+      \verb https://www.sparkfun.com/products/11028
+      \endverb
+    \endentry
     \entry{spilker1996global}{book}{}
       \name{author}{4}{}{%
         {{hash=631f9822f8f357e2858847db88a69080}{%
@@ -4378,6 +4617,79 @@
       \verb http://www.sciencedirect.com/science/article/pii/S0967064508000362
       \endverb
       \keyw{Ice-floe size distribution,Digital aerial photography,Western Weddell sea,Sea-ice dynamics}
+    \endentry
+    \entry{stmdisc}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=c38884ab3cf908c2798725960369391b}{%
+           family={STMicroelectronics},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{c38884ab3cf908c2798725960369391b}
+      \strng{fullhash}{c38884ab3cf908c2798725960369391b}
+      \strng{bibnamehash}{c38884ab3cf908c2798725960369391b}
+      \strng{authorbibnamehash}{c38884ab3cf908c2798725960369391b}
+      \strng{authornamehash}{c38884ab3cf908c2798725960369391b}
+      \strng{authorfullhash}{c38884ab3cf908c2798725960369391b}
+      \field{extraname}{1}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Rev. 4}
+      \field{number}{022204}
+      \field{title}{Discovery kit for STM32F407/417 line}
+      \field{type}{Data brief}
+      \field{urlday}{7}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2014}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://docs.rs-online.com/433b/0900766b813edf4a.pdf
+      \endverb
+      \verb{url}
+      \verb https://docs.rs-online.com/433b/0900766b813edf4a.pdf
+      \endverb
+    \endentry
+    \entry{stm32l4}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=c38884ab3cf908c2798725960369391b}{%
+           family={STMicroelectronics},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{c38884ab3cf908c2798725960369391b}
+      \strng{fullhash}{c38884ab3cf908c2798725960369391b}
+      \strng{bibnamehash}{c38884ab3cf908c2798725960369391b}
+      \strng{authorbibnamehash}{c38884ab3cf908c2798725960369391b}
+      \strng{authornamehash}{c38884ab3cf908c2798725960369391b}
+      \strng{authorfullhash}{c38884ab3cf908c2798725960369391b}
+      \field{extraname}{2}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Rev. 08}
+      \field{number}{10198}
+      \field{title}{Ultra-low-power Arm® Cortex®-M4 32-bit MCU+FPU, 100DMIPS, up to {1MB Flash, 128 KB SRAM, USB OTG FS, LCD, ext. SMPS}}
+      \field{urlday}{7}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.st.com/resource/en/datasheet/stm32l476je.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.st.com/resource/en/datasheet/stm32l476je.pdf
+      \endverb
     \endentry
     \entry{drnovska2003surface}{article}{}
       \name{author}{5}{}{%
@@ -4545,6 +4857,44 @@
       \field{pages}{1\bibrangedash 6}
       \range{pages}{6}
     \endentry
+    \entry{mpu6050}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=800b6477ead073c30d06d5e88e01d089}{%
+           family={{TDK InvenSense}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{800b6477ead073c30d06d5e88e01d089}
+      \strng{fullhash}{800b6477ead073c30d06d5e88e01d089}
+      \strng{bibnamehash}{800b6477ead073c30d06d5e88e01d089}
+      \strng{authorbibnamehash}{800b6477ead073c30d06d5e88e01d089}
+      \strng{authornamehash}{800b6477ead073c30d06d5e88e01d089}
+      \strng{authorfullhash}{800b6477ead073c30d06d5e88e01d089}
+      \field{extraname}{1}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{19}
+      \field{month}{8}
+      \field{note}{Rev. 3.4}
+      \field{number}{PS-MPU-6000A-00}
+      \field{title}{MPU-6000 and MPU-6050 Product Specification Revision 3.4}
+      \field{urlday}{7}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2013}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf
+      \endverb
+      \verb{url}
+      \verb https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf
+      \endverb
+    \endentry
     \entry{mpu9520}{manual}{}
       \name{author}{1}{}{%
         {{hash=800b6477ead073c30d06d5e88e01d089}{%
@@ -4557,6 +4907,7 @@
       \strng{authorbibnamehash}{800b6477ead073c30d06d5e88e01d089}
       \strng{authornamehash}{800b6477ead073c30d06d5e88e01d089}
       \strng{authorfullhash}{800b6477ead073c30d06d5e88e01d089}
+      \field{extraname}{2}
       \field{sortinit}{T}
       \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
       \field{extradatescope}{labelyear}
@@ -4573,6 +4924,40 @@
       \endverb
       \verb{url}
       \verb https://invensense.tdk.com/download-pdf/mpu-9250-datasheet/
+      \endverb
+    \endentry
+    \entry{INA219}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=67e54b1ee931f3f4bddfefa5fbde5fd8}{%
+           family={{Texas Instruments}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{fullhash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{bibnamehash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{authorbibnamehash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{authornamehash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{authorfullhash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{SBOS448G}
+      \field{title}{INA219 Zerø-Drift, Bidirectional Current/Power Monitor With I 2C Interface}
+      \field{urlday}{7}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.ti.com/lit/ds/symlink/ina219.pdf?ts=1615100053864&ref_url=https%253A%252F%252Fwww.google.com%252F
+      \endverb
+      \verb{url}
+      \verb https://www.ti.com/lit/ds/symlink/ina219.pdf?ts=1615100053864&ref_url=https%253A%252F%252Fwww.google.com%252F
       \endverb
     \endentry
     \entry{thomson2012wave}{article}{}
@@ -5359,6 +5744,8 @@
       \range{pages}{4}
     \endentry
   \enddatalist
+  \missing{stmnuceo}
+  \missing{stmnucleo}
 \endrefsection
 \endinput
 

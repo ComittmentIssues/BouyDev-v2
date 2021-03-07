@@ -130,168 +130,172 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.2.1}GPS}{68}{subsection.4.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.2}Iridium}{69}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.2}Iridium}{70}{subsection.4.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.3}Sensors}{71}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.3}Environmental sensors}{72}{subsection.4.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.4}Inertial Measurement Unit}{72}{subsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.2.4}Power monitoring sensors}{74}{subsection.4.2.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.5}Memory}{73}{subsection.4.2.5}%
+\contentsline {subsection}{\numberline {4.2.5}Inertial measurement unit}{75}{subsection.4.2.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.6}Processor}{74}{subsection.4.2.6}%
+\contentsline {subsection}{\numberline {4.2.6}Memory}{77}{subsection.4.2.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.7}Power Electronics}{75}{subsection.4.2.7}%
+\contentsline {subsection}{\numberline {4.2.7}Processor}{78}{subsection.4.2.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Final Assembly}{77}{section.4.3}%
+\contentsline {subsection}{\numberline {4.2.8}Power electronics}{81}{subsection.4.2.8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Software Design}{82}{chapter.5}%
+\contentsline {section}{\numberline {4.3}Final assembly}{82}{section.4.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Software Architecture}{82}{section.5.1}%
+\contentsline {section}{\numberline {4.4}Conclusion}{86}{section.4.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}Project Structure}{84}{section.5.2}%
+\contentsline {chapter}{\numberline {5}Software Design}{87}{chapter.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.1}Power Mode Selection}{84}{subsection.5.2.1}%
+\contentsline {section}{\numberline {5.1}Software Architecture}{87}{section.5.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.2}Clock Selection}{86}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.2}Project Structure}{89}{section.5.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.3}Firmware Overview}{87}{section.5.3}%
+\contentsline {subsection}{\numberline {5.2.1}Power Mode Selection}{89}{subsection.5.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3.1}Execution}{87}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.2.2}Clock Selection}{91}{subsection.5.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3.2}Asynchronous Behaviours}{90}{subsection.5.3.2}%
+\contentsline {section}{\numberline {5.3}Firmware Overview}{92}{section.5.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3.3}Subsystem Execution}{94}{subsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.3.1}Execution}{92}{subsection.5.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.4}Data Management}{95}{section.5.4}%
+\contentsline {subsection}{\numberline {5.3.2}Asynchronous Behaviours}{95}{subsection.5.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4.1}Drift Data Acquisition}{96}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.3.3}Subsystem Execution}{99}{subsection.5.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4.2}Wave Measurement Data}{100}{subsection.5.4.2}%
+\contentsline {section}{\numberline {5.4}Data Management}{100}{section.5.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.5}Data Flow}{101}{section.5.5}%
+\contentsline {subsection}{\numberline {5.4.1}Drift Data Acquisition}{101}{subsection.5.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Testing}{105}{chapter.6}%
+\contentsline {subsection}{\numberline {5.4.2}Wave Measurement Data}{105}{subsection.5.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.1}System Tests}{106}{section.6.1}%
+\contentsline {section}{\numberline {5.5}Data Flow}{106}{section.5.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1.1}Power Test}{107}{subsection.6.1.1}%
+\contentsline {chapter}{\numberline {6}Testing}{110}{chapter.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.2}Remote Deployment}{107}{section.6.2}%
+\contentsline {section}{\numberline {6.1}System Tests}{111}{section.6.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Deployment procedure}{108}{subsubsection*.113}%
+\contentsline {subsection}{\numberline {6.1.1}Power Test}{112}{subsection.6.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Results}{109}{subsubsection*.116}%
+\contentsline {section}{\numberline {6.2}Remote Deployment}{112}{section.6.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.3}Final Evaluation}{109}{section.6.3}%
+\contentsline {subsubsection}{Deployment procedure}{113}{subsubsection*.120}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.3.1}System Validation}{110}{subsection.6.3.1}%
+\contentsline {subsubsection}{Results}{114}{subsubsection*.123}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.4}Discussion}{112}{section.6.4}%
+\contentsline {section}{\numberline {6.3}Final Evaluation}{114}{section.6.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.4.1}Power Requirements}{112}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.3.1}System Validation}{115}{subsection.6.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.4.2}System Performance}{112}{subsection.6.4.2}%
+\contentsline {section}{\numberline {6.4}Discussion}{117}{section.6.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.4.3}Mechanical Features}{113}{subsection.6.4.3}%
+\contentsline {subsection}{\numberline {6.4.1}Power Requirements}{117}{subsection.6.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.4.4}Power System}{113}{subsection.6.4.4}%
+\contentsline {subsection}{\numberline {6.4.2}System Performance}{117}{subsection.6.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.4.5}Future work on wave measurements}{114}{subsection.6.4.5}%
+\contentsline {subsection}{\numberline {6.4.3}Mechanical Features}{118}{subsection.6.4.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.4.6}Short-burst Data Modems vs Telephone modems}{114}{subsection.6.4.6}%
+\contentsline {subsection}{\numberline {6.4.4}Power System}{118}{subsection.6.4.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.4.7}Evaluation against the State of the Art}{115}{subsection.6.4.7}%
+\contentsline {subsection}{\numberline {6.4.5}Future work on wave measurements}{119}{subsection.6.4.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {7}Conclusion}{116}{chapter.7}%
+\contentsline {subsection}{\numberline {6.4.6}Short-burst Data Modems vs Telephone modems}{119}{subsection.6.4.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.1}Acceptance Test validation}{116}{section.7.1}%
+\contentsline {subsection}{\numberline {6.4.7}Evaluation against the State of the Art}{120}{subsection.6.4.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.2}User Requirement Verification}{117}{section.7.2}%
+\contentsline {chapter}{\numberline {7}Conclusion}{121}{chapter.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.3}Full System Testing}{117}{section.7.3}%
+\contentsline {section}{\numberline {7.1}Acceptance Test validation}{121}{section.7.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.4}Verification's against State of the Art}{117}{section.7.4}%
+\contentsline {section}{\numberline {7.2}User Requirement Verification}{122}{section.7.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.5}Final Remarks}{118}{section.7.5}%
+\contentsline {section}{\numberline {7.3}Full System Testing}{122}{section.7.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {8}Recommendations}{119}{chapter.8}%
+\contentsline {section}{\numberline {7.4}Verification's against State of the Art}{122}{section.7.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8.1}Improvements to Power Supply}{119}{section.8.1}%
+\contentsline {section}{\numberline {7.5}Final Remarks}{123}{section.7.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8.2}Improvements to Hardware}{119}{section.8.2}%
+\contentsline {chapter}{\numberline {8}Recommendations}{124}{chapter.8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8.3}Improvements to Communication Modules}{119}{section.8.3}%
+\contentsline {section}{\numberline {8.1}Improvements to Power Supply}{124}{section.8.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8.4}Firmware Improvements}{120}{section.8.4}%
+\contentsline {section}{\numberline {8.2}Improvements to Hardware}{124}{section.8.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{GPS}{120}{paragraph*.119}%
+\contentsline {section}{\numberline {8.3}Improvements to Communication Modules}{124}{section.8.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{IMU}{120}{paragraph*.120}%
+\contentsline {section}{\numberline {8.4}Firmware Improvements}{125}{section.8.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Iridium}{120}{paragraph*.121}%
+\contentsline {paragraph}{GPS}{125}{paragraph*.126}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8.5}Expansion of Nodes into a Network}{121}{section.8.5}%
+\contentsline {paragraph}{IMU}{125}{paragraph*.127}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8.6}Future Deployments}{121}{section.8.6}%
+\contentsline {paragraph}{Iridium}{125}{paragraph*.128}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Numerical modeling}{122}{appendix.A}%
+\contentsline {section}{\numberline {8.5}Expansion of Nodes into a Network}{126}{section.8.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.1}Modeling of polar stochastic processes}{122}{section.A.1}%
+\contentsline {section}{\numberline {8.6}Future Deployments}{126}{section.8.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {A.1.1}Numerical Modeling of Sea Ice}{122}{subsection.A.1.1}%
+\contentsline {chapter}{\numberline {A}Numerical modeling}{127}{appendix.A}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Numerical Modeling of Ocean Waves}{123}{subsubsection*.122}%
+\contentsline {section}{\numberline {A.1}Modeling of polar stochastic processes}{127}{section.A.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.2}Modeling of GPS dilation of precision}{125}{section.A.2}%
+\contentsline {subsection}{\numberline {A.1.1}Numerical Modeling of Sea Ice}{127}{subsection.A.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.3}Numerical Techniques for modeling ocean waves}{126}{section.A.3}%
+\contentsline {subsubsection}{Numerical Modeling of Ocean Waves}{128}{subsubsection*.129}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {A.3.1}Kuik Method}{126}{subsection.A.3.1}%
+\contentsline {section}{\numberline {A.2}Modeling of GPS dilation of precision}{130}{section.A.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {A.3.2}Welch-Earle Method}{127}{subsection.A.3.2}%
+\contentsline {section}{\numberline {A.3}Numerical Techniques for modeling ocean waves}{131}{section.A.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.4}Temperature sensing measurement techniques}{129}{section.A.4}%
+\contentsline {subsection}{\numberline {A.3.1}Kuik Method}{131}{subsection.A.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Thermistors}{129}{subsubsection*.123}%
+\contentsline {subsection}{\numberline {A.3.2}Welch-Earle Method}{132}{subsection.A.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Silicon Temperature Devices}{129}{subsubsection*.124}%
+\contentsline {section}{\numberline {A.4}Temperature sensing measurement techniques}{134}{section.A.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.5}Pressure sensing techniques}{130}{section.A.5}%
+\contentsline {subsubsection}{Thermistors}{134}{subsubsection*.130}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Diaphragm based sensors}{130}{subsubsection*.125}%
+\contentsline {subsubsection}{Silicon Temperature Devices}{134}{subsubsection*.131}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Piezoresistive sensors}{131}{subsubsection*.126}%
+\contentsline {section}{\numberline {A.5}Pressure sensing techniques}{135}{section.A.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Capacitive sensors}{131}{subsubsection*.127}%
+\contentsline {subsubsection}{Diaphragm based sensors}{135}{subsubsection*.132}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {B}Project Design}{132}{appendix.B}%
+\contentsline {subsubsection}{Piezoresistive sensors}{136}{subsubsection*.133}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {B.1}Stakeholder analysis}{132}{section.B.1}%
+\contentsline {subsubsection}{Capacitive sensors}{136}{subsubsection*.134}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {B.2}Acceptance test protocols}{133}{section.B.2}%
+\contentsline {chapter}{\numberline {B}Project Design}{137}{appendix.B}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {B.3}Schematics and renders}{141}{section.B.3}%
+\contentsline {section}{\numberline {B.1}Stakeholder analysis}{137}{section.B.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {C}Software design}{144}{appendix.C}%
+\contentsline {section}{\numberline {B.2}Acceptance test protocols}{138}{section.B.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {C.1}Events and interrupt handling protocols}{144}{section.C.1}%
+\contentsline {section}{\numberline {B.3}Schematics and renders}{146}{section.B.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {C.2}Initialization Routines}{146}{section.C.2}%
+\contentsline {chapter}{\numberline {C}Software design}{149}{appendix.C}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {C.3}Code}{150}{section.C.3}%
+\contentsline {section}{\numberline {C.1}Events and interrupt handling protocols}{149}{section.C.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {C.3.1}BMP280 Temperature compensation formula}{150}{subsection.C.3.1}%
+\contentsline {section}{\numberline {C.2}Initialization Routines}{151}{section.C.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {C.3.2}INA219 Calibration Algorithm}{151}{subsection.C.3.2}%
+\contentsline {section}{\numberline {C.3}Code}{155}{section.C.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {C.3.3}Data Structs}{153}{subsection.C.3.3}%
+\contentsline {subsection}{\numberline {C.3.1}BMP280 Temperature compensation formula}{155}{subsection.C.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {D}Supplementary Tables}{155}{appendix.D}%
+\contentsline {subsection}{\numberline {C.3.2}INA219 Calibration Algorithm}{156}{subsection.C.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {E}Test Protocols}{158}{appendix.E}%
+\contentsline {subsection}{\numberline {C.3.3}Data Structs}{158}{subsection.C.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {E.1}Unit Tests}{158}{section.E.1}%
+\contentsline {chapter}{\numberline {D}Supplementary Tables}{160}{appendix.D}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {E.2}System Tests}{164}{section.E.2}%
+\contentsline {chapter}{\numberline {E}Test Protocols}{163}{appendix.E}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {F}Test results}{165}{appendix.F}%
+\contentsline {section}{\numberline {E.1}Unit Tests}{163}{section.E.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {E.2}System Tests}{169}{section.E.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {F}Test results}{170}{appendix.F}%
