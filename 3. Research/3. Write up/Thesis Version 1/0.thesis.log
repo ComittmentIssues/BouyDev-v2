@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.2.4)  7 MAR 2021 21:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.2.4)  8 MAR 2021 23:52
 entering extended mode
 **./0.thesis.tex
 (0.thesis.tex
@@ -1630,17 +1630,17 @@ LaTeX Info: Redefining \nameref on input line 277.
 \openout6 = `0.thesis.out'.
 
 LaTeX Info: Redefining \Ref on input line 277.
-<figs/uctLogo.png, id=518, 418.56375pt x 425.59pt>
+<figs/uctLogo.png, id=558, 418.56375pt x 425.59pt>
 File: figs/uctLogo.png Graphic file (type png)
 <use figs/uctLogo.png>
 Package pdftex.def Info: figs/uctLogo.png  used on input line 304.
 (pdftex.def)             Requested size: 125.57008pt x 127.67798pt.
-<figs//soccesm-logo.png, id=520, 179.9523pt x 190.311pt>
+<figs//soccesm-logo.png, id=560, 179.9523pt x 190.311pt>
 File: figs//soccesm-logo.png Graphic file (type png)
 <use figs//soccesm-logo.png>
 Package pdftex.def Info: figs//soccesm-logo.png  used on input line 356.
 (pdftex.def)             Requested size: 53.80762pt x 56.9055pt.
-<figs//NRF LOGO.png, id=521, 744.8628pt x 251.2587pt>
+<figs//NRF LOGO.png, id=561, 744.8628pt x 251.2587pt>
 File: figs//NRF LOGO.png Graphic file (type png)
 <use figs//NRF LOGO.png>
 Package pdftex.def Info: figs//NRF LOGO.png  used on input line 360.
@@ -1671,11 +1671,11 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ] [4] (0.thesis.toc [5
 
-] [6] [7] [8])
+] [6] [7] [8] [9])
 \tf@toc=\write7
 \openout7 = `0.thesis.toc'.
 
- [9] (0.thesis.lof [10
+ [10] (0.thesis.lof [11
 
 ]
 Overfull \hbox (13.25862pt too wide) in paragraph at lines 23--23
@@ -1689,7 +1689,7 @@ Overfull \hbox (25.70691pt too wide) in paragraph at lines 23--23
 ab-o-ra-tion (SHARC) 
  []
 
-[11] [12] [13]
+[12] [13] [14]
 Overfull \hbox (11.7744pt too wide) in paragraph at lines 71--71
  \T1/cmr/m/n/12 sen-sor break-out board (Adafruit, []2015[]) and (B) a Maxim In
 -te-grated DS18B20 
@@ -1707,28 +1707,28 @@ Overfull \hbox (22.09338pt too wide) in paragraph at lines 79--79
 on-ics STM32L476RG 
  []
 
-[14] [15])
+[15] [16] [17])
 \tf@lof=\write8
 \openout8 = `0.thesis.lof'.
 
- [16] (0.thesis.lot [17
+ [18] (0.thesis.lot [19
 
-] [18] [19]
-Overfull \hbox (13.57104pt too wide) in paragraph at lines 101--101
+] [20] [21]
+Overfull \hbox (13.57104pt too wide) in paragraph at lines 103--103
  [][] [][]\T1/cmr/m/n/12 Breakdown of a typ-i-cal NMEA mes-sage string with fie
 lds in-di-cat-ing start/stop 
  []
 
-[20] [21])
+[22] [23])
 \tf@lot=\write9
 \openout9 = `0.thesis.lot'.
 
- [22]
+ [24]
 \openout2 = `ch1.aux'.
 
  (ch1.tex
 Chapter 1.
-<figs//Sea Ice Lifecycle diagram.png, id=1510, 412.54124pt x 403.5075pt>
+<figs//Sea Ice Lifecycle diagram.png, id=1606, 412.54124pt x 403.5075pt>
 File: figs//Sea Ice Lifecycle diagram.png Graphic file (type png)
 <use figs//Sea Ice Lifecycle diagram.png>
 Package pdftex.def Info: figs//Sea Ice Lifecycle diagram.png  used on input lin
@@ -1744,53 +1744,53 @@ l.19
 
 
 ]
-<figs//floe snow.jpg, id=1531, 522.95375pt x 392.46625pt>
+<figs//floe snow.jpg, id=1627, 522.95375pt x 392.46625pt>
 File: figs//floe snow.jpg Graphic file (type jpg)
 <use figs//floe snow.jpg>
 Package pdftex.def Info: figs//floe snow.jpg  used on input line 27.
 (pdftex.def)             Requested size: 215.1625pt x 170.72142pt.
-<figs//MIZICE.jpg, id=1532, 3982.88pt x 2987.16pt>
+<figs//MIZICE.jpg, id=1628, 3982.88pt x 2987.16pt>
 File: figs//MIZICE.jpg Graphic file (type jpg)
 <use figs//MIZICE.jpg>
 Package pdftex.def Info: figs//MIZICE.jpg  used on input line 36.
 (pdftex.def)             Requested size: 215.13918pt x 170.69835pt.
  [2 <./figs//Sea Ice Lifecycle diagram.png>]
-<figs//AntDiag.png, id=1554, 405.9165pt x 312.4473pt>
+<figs//AntDiag.png, id=1649, 405.9165pt x 312.4473pt>
 File: figs//AntDiag.png Graphic file (type png)
 <use figs//AntDiag.png>
 Package pdftex.def Info: figs//AntDiag.png  used on input line 54.
 (pdftex.def)             Requested size: 284.52982pt x 284.53247pt.
  [3 <./figs//floe snow.jpg> <./figs//MIZICE.jpg>] [4 <./figs//AntDiag.png>]
-<figs//SHIPACT.jpg, id=1582, 2987.16pt x 3982.88pt>
+<figs//SHIPACT.jpg, id=1677, 2987.16pt x 3982.88pt>
 File: figs//SHIPACT.jpg Graphic file (type jpg)
 <use figs//SHIPACT.jpg>
 Package pdftex.def Info: figs//SHIPACT.jpg  used on input line 66.
 (pdftex.def)             Requested size: 142.25621pt x 199.15567pt.
  [5 <./figs//SHIPACT.jpg>]
-<figs//tech.png, id=1599, 588.69937pt x 503.63156pt>
+<figs//tech.png, id=1694, 588.69937pt x 503.63156pt>
 File: figs//tech.png Graphic file (type png)
 <use figs//tech.png>
 Package pdftex.def Info: figs//tech.png  used on input line 77.
 (pdftex.def)             Requested size: 294.34895pt x 251.81516pt.
 
 [6 <./figs//tech.png>]
-<figs//swift_4.png, id=1621, 481.8pt x 642.4pt>
+<figs//swift_4.png, id=1717, 481.8pt x 642.4pt>
 File: figs//swift_4.png Graphic file (type png)
 <use figs//swift_4.png>
 Package pdftex.def Info: figs//swift_4.png  used on input line 91.
 (pdftex.def)             Requested size: 113.81114pt x 170.7155pt.
-<figs//IMBBuoy1.jpg, id=1622, 307.1475pt x 225.84375pt>
+<figs//IMBBuoy1.jpg, id=1718, 307.1475pt x 225.84375pt>
 File: figs//IMBBuoy1.jpg Graphic file (type jpg)
 <use figs//IMBBuoy1.jpg>
 Package pdftex.def Info: figs//IMBBuoy1.jpg  used on input line 100.
 (pdftex.def)             Requested size: 113.81151pt x 170.72636pt.
-<figs//deploy.jpg, id=1623, 963.6pt x 1284.8pt>
+<figs//deploy.jpg, id=1719, 963.6pt x 1284.8pt>
 File: figs//deploy.jpg Graphic file (type jpg)
 <use figs//deploy.jpg>
 Package pdftex.def Info: figs//deploy.jpg  used on input line 109.
 (pdftex.def)             Requested size: 113.80379pt x 170.7155pt.
  [7 <./figs//swift_4.png> <./figs//IMBBuoy1.jpg> <./figs//deploy.jpg>] [8]
-<figs//SHARC.jpeg, id=1680, 963.6pt x 1284.8pt>
+<figs//SHARC.jpeg, id=1775, 963.6pt x 1284.8pt>
 File: figs//SHARC.jpeg Graphic file (type jpg)
 <use figs//SHARC.jpeg>
 Package pdftex.def Info: figs//SHARC.jpeg  used on input line 139.
@@ -1815,7 +1815,7 @@ Overfull \hbox (35.99307pt too wide) in alignment at lines 263--290
 
  (ch2.tex
 Chapter 2.
-<figs//Antarctica_and_the_Southern_Ocean.png, id=1743, 1003.75pt x 1170.3725pt>
+<figs//Antarctica_and_the_Southern_Ocean.png, id=1838, 1003.75pt x 1170.3725pt>
 
 File: figs//Antarctica_and_the_Southern_Ocean.png Graphic file (type png)
 <use figs//Antarctica_and_the_Southern_Ocean.png>
@@ -1828,14 +1828,14 @@ nput line 7.
 
 
  <./figs//Antarctica_and_the_Southern_Ocean.png>]
-<figs//device block diagram.png, id=1761, 403.5075pt x 453.695pt>
+<figs//device block diagram.png, id=1856, 403.5075pt x 453.695pt>
 File: figs//device block diagram.png Graphic file (type png)
 <use figs//device block diagram.png>
 Package pdftex.def Info: figs//device block diagram.png  used on input line 23.
 
 (pdftex.def)             Requested size: 226.48395pt x 254.6559pt.
  [16]
-<figs//WIIB.jpg, id=1772, 249.04242pt x 164.63106pt>
+<figs//WIIB.jpg, id=1867, 249.04242pt x 164.63106pt>
 File: figs//WIIB.jpg Graphic file (type jpg)
 <use figs//WIIB.jpg>
 Package pdftex.def Info: figs//WIIB.jpg  used on input line 39.
@@ -1845,7 +1845,7 @@ Overfull \hbox (5.34369pt too wide) in paragraph at lines 43--45
  [][] 
  []
 
-<figs//WIIOS.png, id=1773, 711.65875pt x 456.70625pt>
+<figs//WIIOS.png, id=1868, 711.65875pt x 456.70625pt>
 File: figs//WIIOS.png Graphic file (type png)
 <use figs//WIIOS.png>
 Package pdftex.def Info: figs//WIIOS.png  used on input line 50.
@@ -1855,7 +1855,7 @@ Overfull \hbox (5.33777pt too wide) in paragraph at lines 54--56
  [][] 
  []
 
-<figs//doble.jpg, id=1774, 602.25pt x 312.16624pt>
+<figs//doble.jpg, id=1869, 602.25pt x 312.16624pt>
 File: figs//doble.jpg Graphic file (type jpg)
 <use figs//doble.jpg>
 Package pdftex.def Info: figs//doble.jpg  used on input line 61.
@@ -1865,7 +1865,7 @@ Overfull \hbox (5.33899pt too wide) in paragraph at lines 65--67
  [][] 
  []
 
-<figs//SKIB.png, id=1775, 98.769pt x 75.6426pt>
+<figs//SKIB.png, id=1870, 98.769pt x 75.6426pt>
 File: figs//SKIB.png Graphic file (type png)
 <use figs//SKIB.png>
 Package pdftex.def Info: figs//SKIB.png  used on input line 72.
@@ -1884,7 +1884,7 @@ Overfull \hbox (5.34634pt too wide) in paragraph at lines 87--89
  [][] 
  []
 
-<figs//SIMB.jpg, id=1776, 501.875pt x 752.8125pt>
+<figs//SIMB.jpg, id=1871, 501.875pt x 752.8125pt>
 File: figs//SIMB.jpg Graphic file (type jpg)
 <use figs//SIMB.jpg>
 Package pdftex.def Info: figs//SIMB.jpg  used on input line 94.
@@ -1894,7 +1894,7 @@ Overfull \hbox (5.34055pt too wide) in paragraph at lines 98--100
  [][] 
  []
 
-<figs//UptempO.png, id=1777, 112.92188pt x 112.92188pt>
+<figs//UptempO.png, id=1872, 112.92188pt x 112.92188pt>
 File: figs//UptempO.png Graphic file (type png)
 <use figs//UptempO.png>
 Package pdftex.def Info: figs//UptempO.png  used on input line 105.
@@ -1904,7 +1904,7 @@ Overfull \hbox (5.35278pt too wide) in paragraph at lines 109--111
  [][] 
  []
 
-<figs//trident.png, id=1778, 283.7802pt x 269.808pt>
+<figs//trident.png, id=1873, 283.7802pt x 269.808pt>
 File: figs//trident.png Graphic file (type png)
 <use figs//trident.png>
 Package pdftex.def Info: figs//trident.png  used on input line 116.
@@ -1921,17 +1921,17 @@ Overfull \hbox (35.99307pt too wide) in alignment at lines 132--156
 
 [18 <./figs//WIIB.jpg> <./figs//WIIOS.png> <./figs//doble.jpg> <./figs//SKIB.pn
 g> <./figs//SIMB.jpg> <./figs//UptempO.png> <./figs//trident.png>] [19]
-<figs//9522B.png, id=1842, 1016.04512pt x 674.83594pt>
+<figs//9522B.png, id=1938, 1016.04512pt x 674.83594pt>
 File: figs//9522B.png Graphic file (type png)
 <use figs//9522B.png>
 Package pdftex.def Info: figs//9522B.png  used on input line 172.
 (pdftex.def)             Requested size: 85.3472pt x 85.3531pt.
-<figs//9602.png, id=1843, 1351.0475pt x 1320.935pt>
+<figs//9602.png, id=1939, 1351.0475pt x 1320.935pt>
 File: figs//9602.png Graphic file (type png)
 <use figs//9602.png>
 Package pdftex.def Info: figs//9602.png  used on input line 181.
 (pdftex.def)             Requested size: 85.34734pt x 85.33974pt.
-<figs//9603.png, id=1844, 1517.67pt x 1453.43pt>
+<figs//9603.png, id=1940, 1517.67pt x 1453.43pt>
 File: figs//9603.png Graphic file (type png)
 <use figs//9603.png>
 Package pdftex.def Info: figs//9603.png  used on input line 190.
@@ -1944,7 +1944,7 @@ Underfull \hbox (badness 2368) in paragraph at lines 236--236
  []
 
 [21]
-<figs//power module diagram.png, id=1878, 658.46pt x 461.725pt>
+<figs//power module diagram.png, id=1973, 658.46pt x 461.725pt>
 File: figs//power module diagram.png Graphic file (type png)
 <use figs//power module diagram.png>
 Package pdftex.def Info: figs//power module diagram.png  used on input line 248
@@ -1955,83 +1955,83 @@ File: figs//WIIOS.png Graphic file (type png)
 <use figs//WIIOS.png>
 Package pdftex.def Info: figs//WIIOS.png  used on input line 363.
 (pdftex.def)             Requested size: 170.7147pt x 227.62083pt.
-<figs//Basket.jpg, id=1976, 436.63126pt x 596.2275pt>
+<figs//Basket.jpg, id=2072, 436.63126pt x 596.2275pt>
 File: figs//Basket.jpg Graphic file (type jpg)
 <use figs//Basket.jpg>
 Package pdftex.def Info: figs//Basket.jpg  used on input line 372.
 (pdftex.def)             Requested size: 170.7119pt x 227.62413pt.
  [26 <./figs//Basket.jpg>] [27]
-<figs//swift_fail.jpg, id=2054, 2987.16pt x 3982.88pt>
+<figs//swift_fail.jpg, id=2149, 2987.16pt x 3982.88pt>
 File: figs//swift_fail.jpg Graphic file (type jpg)
 <use figs//swift_fail.jpg>
 Package pdftex.def Info: figs//swift_fail.jpg  used on input line 396.
 (pdftex.def)             Requested size: 199.16928pt x 265.52063pt.
  [28] [29 <./figs//swift_fail.jpg>] [30]
-<figs//edison.png, id=2106, 724.7075pt x 238.8925pt>
+<figs//edison.png, id=2202, 724.7075pt x 238.8925pt>
 File: figs//edison.png Graphic file (type png)
 <use figs//edison.png>
 Package pdftex.def Info: figs//edison.png  used on input line 462.
 (pdftex.def)             Requested size: 407.66833pt x 134.38399pt.
  [31] [32 <./figs//edison.png>] [33]
-<figs//sea state diagram.png, id=2141, 484.05844pt x 246.9225pt>
+<figs//sea state diagram.png, id=2236, 484.05844pt x 246.9225pt>
 File: figs//sea state diagram.png Graphic file (type png)
 <use figs//sea state diagram.png>
 Package pdftex.def Info: figs//sea state diagram.png  used on input line 511.
 (pdftex.def)             Requested size: 452.9679pt x 231.0748pt.
  [34 <./figs//sea state diagram.png>]
-<figs//vn-100-smd-rugged_new.png, id=2166, 622.325pt x 511.9125pt>
+<figs//vn-100-smd-rugged_new.png, id=2261, 622.325pt x 511.9125pt>
 File: figs//vn-100-smd-rugged_new.png Graphic file (type png)
 <use figs//vn-100-smd-rugged_new.png>
 Package pdftex.def Info: figs//vn-100-smd-rugged_new.png  used on input line 52
 8.
 (pdftex.def)             Requested size: 113.80838pt x 170.71259pt.
-<figs//servokbeam.PNG, id=2167, 122.859pt x 125.268pt>
+<figs//servokbeam.PNG, id=2262, 122.859pt x 125.268pt>
 File: figs//servokbeam.PNG Graphic file (type png)
 <use figs//servokbeam.PNG>
 Package pdftex.def Info: figs//servokbeam.PNG  used on input line 537.
 (pdftex.def)             Requested size: 113.81711pt x 170.71774pt.
-<figs//rp-mpu-9250.png, id=2168, 501.875pt x 358.33875pt>
+<figs//rp-mpu-9250.png, id=2263, 501.875pt x 358.33875pt>
 File: figs//rp-mpu-9250.png Graphic file (type png)
 <use figs//rp-mpu-9250.png>
 Package pdftex.def Info: figs//rp-mpu-9250.png  used on input line 546.
 (pdftex.def)             Requested size: 113.80533pt x 170.71571pt.
  [35 <./figs//vn-100-smd-rugged_new.png> <./figs//servokbeam.PNG> <./figs//rp-m
 pu-9250.png>] [36] [37]
-<figs//mtk3339.jpg, id=2243, 973.6375pt x 730.73pt>
+<figs//mtk3339.jpg, id=2339, 973.6375pt x 730.73pt>
 File: figs//mtk3339.jpg Graphic file (type jpg)
 <use figs//mtk3339.jpg>
 Package pdftex.def Info: figs//mtk3339.jpg  used on input line 669.
 (pdftex.def)             Requested size: 113.80072pt x 170.71806pt.
-<figs//skytraq.PNG, id=2244, 144.54pt x 144.54pt>
+<figs//skytraq.PNG, id=2340, 144.54pt x 144.54pt>
 File: figs//skytraq.PNG Graphic file (type png)
 <use figs//skytraq.PNG>
 Package pdftex.def Info: figs//skytraq.PNG  used on input line 678.
 (pdftex.def)             Requested size: 113.8104pt x 170.72551pt.
-<figs//BT-1000ex-310-1.png, id=2245, 311.1625pt x 266.9975pt>
+<figs//BT-1000ex-310-1.png, id=2341, 311.1625pt x 266.9975pt>
 File: figs//BT-1000ex-310-1.png Graphic file (type png)
 <use figs//BT-1000ex-310-1.png>
 Package pdftex.def Info: figs//BT-1000ex-310-1.png  used on input line 687.
 (pdftex.def)             Requested size: 113.80838pt x 170.72299pt.
  [38]
 [39 <./figs//mtk3339.jpg> <./figs//skytraq.PNG> <./figs//BT-1000ex-310-1.png>]
-<figs//DOPeffect.png, id=2290, 466.1415pt x 187.902pt>
+<figs//DOPeffect.png, id=2385, 466.1415pt x 187.902pt>
 File: figs//DOPeffect.png Graphic file (type png)
 <use figs//DOPeffect.png>
 Package pdftex.def Info: figs//DOPeffect.png  used on input line 719.
 (pdftex.def)             Requested size: 452.9679pt x 182.5973pt.
 
 [40] [41 <./figs//DOPeffect.png>] [42] [43]
-<figs//pr303J2.jpg, id=2374, 289.08pt x 289.08pt>
+<figs//pr303J2.jpg, id=2470, 289.08pt x 289.08pt>
 File: figs//pr303J2.jpg Graphic file (type jpg)
 <use figs//pr303J2.jpg>
 Package pdftex.def Info: figs//pr303J2.jpg  used on input line 822.
 (pdftex.def)             Requested size: 85.35725pt x 85.35725pt.
-<figs//ds18b20.jpg, id=2375, 196.735pt x 196.735pt>
+<figs//ds18b20.jpg, id=2471, 196.735pt x 196.735pt>
 File: figs//ds18b20.jpg Graphic file (type jpg)
 <use figs//ds18b20.jpg>
 Package pdftex.def Info: figs//ds18b20.jpg  used on input line 831.
 (pdftex.def)             Requested size: 85.35687pt x 85.35687pt.
-<figs//temperature-chain-bruncin-1.jpg, id=2376, 702.625pt x 394.47375pt>
+<figs//temperature-chain-bruncin-1.jpg, id=2472, 702.625pt x 394.47375pt>
 File: figs//temperature-chain-bruncin-1.jpg Graphic file (type jpg)
 <use figs//temperature-chain-bruncin-1.jpg>
 Package pdftex.def Info: figs//temperature-chain-bruncin-1.jpg  used on input l
@@ -2039,17 +2039,17 @@ ine 840.
 (pdftex.def)             Requested size: 85.3513pt x 85.35794pt.
  [44 <./figs//pr303J2.jpg> <./figs//ds18b20.jpg> <./figs//temperature-chain-bru
 ncin-1.jpg>] [45] [46] [47]
-<figs//BME280.jpg, id=2447, 803.0pt x 451.6875pt>
+<figs//BME280.jpg, id=2542, 803.0pt x 451.6875pt>
 File: figs//BME280.jpg Graphic file (type jpg)
 <use figs//BME280.jpg>
 Package pdftex.def Info: figs//BME280.jpg  used on input line 946.
 (pdftex.def)             Requested size: 85.35284pt x 85.35284pt.
-<figs//MPX5100AP.jpg, id=2448, 602.25pt x 338.26375pt>
+<figs//MPX5100AP.jpg, id=2543, 602.25pt x 338.26375pt>
 File: figs//MPX5100AP.jpg Graphic file (type jpg)
 <use figs//MPX5100AP.jpg>
 Package pdftex.def Info: figs//MPX5100AP.jpg  used on input line 955.
 (pdftex.def)             Requested size: 85.35284pt x 85.35542pt.
-<figs//PTB110.jpg, id=2449, 1003.75pt x 808.01875pt>
+<figs//PTB110.jpg, id=2544, 1003.75pt x 808.01875pt>
 File: figs//PTB110.jpg Graphic file (type jpg)
 <use figs//PTB110.jpg>
 Package pdftex.def Info: figs//PTB110.jpg  used on input line 964.
@@ -2067,13 +2067,13 @@ Chapter 3.
 
 
 ] [52] [53] [54] [55] [56] [57] [58] [59]
-<figs//SHARC_NODE.png, id=2623, 703.62875pt x 733.74126pt>
+<figs//SHARC_NODE.png, id=2718, 703.62875pt x 733.74126pt>
 File: figs//SHARC_NODE.png Graphic file (type png)
 <use figs//SHARC_NODE.png>
 Package pdftex.def Info: figs//SHARC_NODE.png  used on input line 297.
 (pdftex.def)             Requested size: 452.9679pt x 472.34702pt.
  [60]
-<figs//Subsystem_Diagram.png, id=2628, 507.8975pt x 583.17876pt>
+<figs//Subsystem_Diagram.png, id=2724, 507.8975pt x 583.17876pt>
 File: figs//Subsystem_Diagram.png Graphic file (type png)
 <use figs//Subsystem_Diagram.png>
 Package pdftex.def Info: figs//Subsystem_Diagram.png  used on input line 306.
@@ -2089,35 +2089,35 @@ Chapter 4.
 
 
 ]
-<figs//buoy_stand.PNG, id=2665, 603.25375pt x 710.655pt>
+<figs//buoy_stand.PNG, id=2760, 603.25375pt x 710.655pt>
 File: figs//buoy_stand.PNG Graphic file (type png)
 <use figs//buoy_stand.PNG>
 Package pdftex.def Info: figs//buoy_stand.PNG  used on input line 24.
 (pdftex.def)             Requested size: 297.32744pt x 350.25343pt.
-<figs//enclo_schem.PNG, id=2668, 793.96625pt x 245.91875pt>
+<figs//enclo_schem.PNG, id=2763, 793.96625pt x 245.91875pt>
 File: figs//enclo_schem.PNG Graphic file (type png)
 <use figs//enclo_schem.PNG>
 Package pdftex.def Info: figs//enclo_schem.PNG  used on input line 34.
 (pdftex.def)             Requested size: 452.9679pt x 140.30272pt.
  [66 <./figs//buoy_stand.PNG>] [67 <./figs//enclo_schem.PNG>]
-<figs//NEO7.jpg, id=2691, 629.35126pt x 839.135pt>
+<figs//NEO7.jpg, id=2787, 629.35126pt x 839.135pt>
 File: figs//NEO7.jpg Graphic file (type jpg)
 <use figs//NEO7.jpg>
 Package pdftex.def Info: figs//NEO7.jpg  used on input line 84.
 (pdftex.def)             Requested size: 170.71455pt x 227.61942pt.
-<figs//NEO9.jpg, id=2692, 144.54pt x 144.54pt>
+<figs//NEO9.jpg, id=2788, 144.54pt x 144.54pt>
 File: figs//NEO9.jpg Graphic file (type jpg)
 <use figs//NEO9.jpg>
 Package pdftex.def Info: figs//NEO9.jpg  used on input line 93.
 (pdftex.def)             Requested size: 170.72551pt x 227.63402pt.
  [68] [69 <./figs//NEO7.jpg> <./figs//NEO9.jpg>]
-<figs//rockblock9603.jpg, id=2726, 355.3275pt x 354.32375pt>
+<figs//rockblock9603.jpg, id=2821, 355.3275pt x 354.32375pt>
 File: figs//rockblock9603.jpg Graphic file (type jpg)
 <use figs//rockblock9603.jpg>
 Package pdftex.def Info: figs//rockblock9603.jpg  used on input line 141.
 (pdftex.def)             Requested size: 135.89174pt x 135.50946pt.
  [70 <./figs//rockblock9603.jpg>] [71]
-<figs//BMP280.jpg, id=2751, 973.6375pt x 730.73pt>
+<figs//BMP280.jpg, id=2846, 973.6375pt x 730.73pt>
 File: figs//BMP280.jpg Graphic file (type jpg)
 <use figs//BMP280.jpg>
 Package pdftex.def Info: figs//BMP280.jpg  used on input line 235.
@@ -2134,30 +2134,30 @@ tech BMP280 and Maxim DS18B20
  []
 
 [73 <./figs//BMP280.jpg>]
-<figs//INA219.jpg, id=2789, 220.825pt x 150.5625pt>
+<figs//INA219.jpg, id=2885, 220.825pt x 150.5625pt>
 File: figs//INA219.jpg Graphic file (type jpg)
 <use figs//INA219.jpg>
 Package pdftex.def Info: figs//INA219.jpg  used on input line 313.
 (pdftex.def)             Requested size: 135.89174pt x 92.65625pt.
  [74 <./figs//INA219.jpg>]
-<figs//mpu6050 breakout.jpg, id=2810, 180.675pt x 180.675pt>
+<figs//mpu6050 breakout.jpg, id=2905, 180.675pt x 180.675pt>
 File: figs//mpu6050 breakout.jpg Graphic file (type jpg)
 <use figs//mpu6050 breakout.jpg>
 Package pdftex.def Info: figs//mpu6050 breakout.jpg  used on input line 364.
 (pdftex.def)             Requested size: 135.89174pt x 135.89186pt.
  [75] [76 <./figs//mpu6050 breakout.jpg>]
-<figs//AT45DB.jpg, id=2839, 72.27pt x 90.3375pt>
+<figs//AT45DB.jpg, id=2934, 72.27pt x 90.3375pt>
 File: figs//AT45DB.jpg Graphic file (type jpg)
 <use figs//AT45DB.jpg>
 Package pdftex.def Info: figs//AT45DB.jpg  used on input line 428.
 (pdftex.def)             Requested size: 135.89174pt x 169.87447pt.
  [77 <./figs//AT45DB.jpg>]
-<figs//stm32f4disc.png, id=2855, 209.583pt x 279.444pt>
+<figs//stm32f4disc.png, id=2950, 209.583pt x 279.444pt>
 File: figs//stm32f4disc.png Graphic file (type png)
 <use figs//stm32f4disc.png>
 Package pdftex.def Info: figs//stm32f4disc.png  used on input line 490.
 (pdftex.def)             Requested size: 135.89174pt x 181.18872pt.
-<figs//stm32f4nuc.PNG, id=2856, 208.3785pt x 237.88875pt>
+<figs//stm32f4nuc.PNG, id=2951, 208.3785pt x 237.88875pt>
 File: figs//stm32f4nuc.PNG Graphic file (type png)
 <use figs//stm32f4nuc.PNG>
 Package pdftex.def Info: figs//stm32f4nuc.PNG  used on input line 499.
@@ -2169,7 +2169,7 @@ cro-elec-tron-ics STM32F446RE
  []
 
 [79 <./figs//stm32f4disc.png> <./figs//stm32f4nuc.PNG>] [80]
-<figs//LP3876.jpg, id=2890, 192.72pt x 150.5625pt>
+<figs//LP3876.jpg, id=2985, 192.72pt x 150.5625pt>
 File: figs//LP3876.jpg Graphic file (type jpg)
 <use figs//LP3876.jpg>
 Package pdftex.def Info: figs//LP3876.jpg  used on input line 615.
@@ -2186,7 +2186,7 @@ Underfull \hbox (badness 6268) in paragraph at lines 645--645
  []
 
 [82]
-<figs/SHARC_Final.png, id=2917, 832.10875pt x 641.39626pt>
+<figs/SHARC_Final.png, id=3012, 832.10875pt x 641.39626pt>
 File: figs/SHARC_Final.png Graphic file (type png)
 <use figs/SHARC_Final.png>
 Package pdftex.def Info: figs/SHARC_Final.png  used on input line 662.
@@ -2194,12 +2194,12 @@ Package pdftex.def Info: figs/SHARC_Final.png  used on input line 662.
  [83
 
  <./figs/SHARC_Final.png>]
-<figs//bot_encl.png, id=2925, 763.85374pt x 328.22626pt>
+<figs//bot_encl.png, id=3020, 763.85374pt x 328.22626pt>
 File: figs//bot_encl.png Graphic file (type png)
 <use figs//bot_encl.png>
 Package pdftex.def Info: figs//bot_encl.png  used on input line 704.
 (pdftex.def)             Requested size: 381.92593pt x 164.11272pt.
-<figs//Top_encl.png, id=2927, 753.81625pt x 815.045pt>
+<figs//Top_encl.png, id=3022, 753.81625pt x 815.045pt>
 File: figs//Top_encl.png Graphic file (type png)
 <use figs//Top_encl.png>
 Package pdftex.def Info: figs//Top_encl.png  used on input line 712.
@@ -2211,146 +2211,134 @@ Package pdftex.def Info: figs//Top_encl.png  used on input line 712.
 
  (ch5.tex
 Chapter 5.
-pdfTeX warning (ext4): destination with the same identifier (name{Hfootnote.49}
-) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.3 ...â€”Life cycle data\cite{IEE_STD_SOFTCYCLE}}
-                                                  .
-<figs//soft_arch.png, id=2945, 665.48625pt x 522.95375pt>
+<figs//cpu_architecture.png, id=3044, 770.27776pt x 388.45125pt>
+File: figs//cpu_architecture.png Graphic file (type png)
+<use figs//cpu_architecture.png>
+Package pdftex.def Info: figs//cpu_architecture.png  used on input line 7.
+(pdftex.def)             Requested size: 452.9679pt x 228.43741pt.
+[87
+
+
+
+
+ <./figs//cpu_architecture.png>]
+<figs//soft_arch.png, id=3054, 670.505pt x 522.95375pt>
 File: figs//soft_arch.png Graphic file (type png)
 <use figs//soft_arch.png>
-Package pdftex.def Info: figs//soft_arch.png  used on input line 18.
-(pdftex.def)             Requested size: 317.07614pt x 249.16367pt.
- [87
+Package pdftex.def Info: figs//soft_arch.png  used on input line 24.
+(pdftex.def)             Requested size: 317.07614pt x 247.29643pt.
+ [88] [89 <./figs//soft_arch.png>] [90]
+<figs//projflow.png, id=3080, 734.745pt x 644.4075pt>
+File: figs//projflow.png Graphic file (type png)
+<use figs//projflow.png>
+Package pdftex.def Info: figs//projflow.png  used on input line 77.
+(pdftex.def)             Requested size: 452.9679pt x 397.28664pt.
 
-
-
-
-] [88 <./figs//soft_arch.png>] [89]
-<figs//Application profile.png, id=2963, 508.90125pt x 197.538pt>
+[91] [92 <./figs//projflow.png>] [93]
+<figs//Application profile.png, id=3114, 508.90125pt x 197.538pt>
 File: figs//Application profile.png Graphic file (type png)
 <use figs//Application profile.png>
-Package pdftex.def Info: figs//Application profile.png  used on input line 55.
+Package pdftex.def Info: figs//Application profile.png  used on input line 128.
+
 (pdftex.def)             Requested size: 305.34311pt x 118.5237pt.
- [90 <./figs//Application profile.png>] [91]
-<figs//state Run.png, id=2980, 543.02875pt x 272.01625pt>
+ [94 <./figs//Application profile.png>]
+[95]
+<figs//state Run.png, id=3134, 543.02875pt x 272.01625pt>
 File: figs//state Run.png Graphic file (type png)
 <use figs//state Run.png>
-Package pdftex.def Info: figs//state Run.png  used on input line 141.
+Package pdftex.def Info: figs//state Run.png  used on input line 185.
 (pdftex.def)             Requested size: 271.5137pt x 136.00778pt.
- [92]
-<figs//Main Loop ASM Chart.png, id=2991, 804.00375pt x 482.80376pt>
+ [96]
+<figs//Main Loop ASM Chart.png, id=3146, 804.00375pt x 482.80376pt>
 File: figs//Main Loop ASM Chart.png Graphic file (type png)
 <use figs//Main Loop ASM Chart.png>
-Package pdftex.def Info: figs//Main Loop ASM Chart.png  used on input line 163.
+Package pdftex.def Info: figs//Main Loop ASM Chart.png  used on input line 212.
 
 (pdftex.def)             Requested size: 482.40598pt x 289.6845pt.
 
-Overfull \hbox (29.43808pt too wide) in paragraph at lines 163--164
+Overfull \hbox (29.43808pt too wide) in paragraph at lines 212--213
  [][] 
  []
 
-[93 <./figs//state Run.png>] [94 <./figs//Main Loop ASM Chart.png>]
-<figs//Asynchronous State diagram.png, id=3011, 831.105pt x 863.225pt>
+[97 <./figs//state Run.png>] [98 <./figs//Main Loop ASM Chart.png>]
+<figs//Asynchronous State diagram.png, id=3171, 831.105pt x 863.225pt>
 File: figs//Asynchronous State diagram.png Graphic file (type png)
 <use figs//Asynchronous State diagram.png>
 Package pdftex.def Info: figs//Asynchronous State diagram.png  used on input li
-ne 194.
-(pdftex.def)             Requested size: 332.43611pt x 345.28389pt.
- [95]
-<figs//State Check Algorithm.png, id=3025, 804.00375pt x 743.77875pt>
+ne 244.
+(pdftex.def)             Requested size: 452.9679pt x 470.46806pt.
+ [99]
+[100 <./figs//Asynchronous State diagram.png>]
+<figs//State Check Algorithm.png, id=3192, 804.00375pt x 743.77875pt>
 File: figs//State Check Algorithm.png Graphic file (type png)
 <use figs//State Check Algorithm.png>
-Package pdftex.def Info: figs//State Check Algorithm.png  used on input line 20
-5.
-(pdftex.def)             Requested size: 402.0009pt x 371.88846pt.
-
-[96 <./figs//Asynchronous State diagram.png>] [97 <./figs//State Check Algorith
-m.png>]
-<figs//Brown Out Reset Handler Flow Chart.png, id=3037, 728.7225pt x 924.45375p
+Package pdftex.def Info: figs//State Check Algorithm.png  used on input line 27
+9.
+(pdftex.def)             Requested size: 452.9679pt x 419.03276pt.
+ [101 <./figs//State Check Algorithm.png>]
+<figs//Brown Out Reset Handler Flow Chart.png, id=3199, 728.7225pt x 924.45375p
 t>
 File: figs//Brown Out Reset Handler Flow Chart.png Graphic file (type png)
 <use figs//Brown Out Reset Handler Flow Chart.png>
 Package pdftex.def Info: figs//Brown Out Reset Handler Flow Chart.png  used on 
-input line 235.
-(pdftex.def)             Requested size: 291.48383pt x 369.77495pt.
-<figs//Asynchronous State flow chart.png, id=3038, 643.40375pt x 744.7825pt>
+input line 311.
+(pdftex.def)             Requested size: 452.9679pt x 574.62242pt.
+ [102]
+<figs//Asynchronous State flow chart.png, id=3206, 643.40375pt x 744.7825pt>
 File: figs//Asynchronous State flow chart.png Graphic file (type png)
 <use figs//Asynchronous State flow chart.png>
 Package pdftex.def Info: figs//Asynchronous State flow chart.png  used on input
- line 244.
-(pdftex.def)             Requested size: 321.70108pt x 372.39034pt.
- [98 <./figs//Brown Out Reset Handler Flow Chart.png>] [99 <./figs//Asynchronou
-s State flow chart.png>]
-Overfull \hbox (38.22675pt too wide) in paragraph at lines 270--288
- [][] 
- []
-
-[100]
-Underfull \hbox (badness 2293) in paragraph at lines 310--310
-[][][]\T1/cmr/m/n/10 Information about NMEA mes-sag-ing on the UBlox Neo GPS is
- taken from the In-ter-
- []
-
-[101] [102] [103]
-Overfull \hbox (30.73328pt too wide) in paragraph at lines 452--464
- [][] 
- []
-
-
-Overfull \hbox (3.58435pt too wide) in paragraph at lines 492--508
- [][] 
- []
-
-[104] [105] [106]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 61
-4.
+ line 320.
+(pdftex.def)             Requested size: 452.9679pt x 524.35577pt.
+ [103 <./figs//Brown Out Reset Handler Flow Chart.png>] [104 <./figs//Asynchron
+ous State flow chart.png>] [105] [106] [107] [108] [109]
+[110] [111] [112] [113] [114]
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 78
+8.
 
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-<figs//Drift Packet Diagram.png, id=3113, 783.92876pt x 462.72874pt>
+[115]
+<figs//Drift Packet Diagram.png, id=3315, 783.92876pt x 462.72874pt>
 File: figs//Drift Packet Diagram.png Graphic file (type png)
 <use figs//Drift Packet Diagram.png>
-Package pdftex.def Info: figs//Drift Packet Diagram.png  used on input line 639
+Package pdftex.def Info: figs//Drift Packet Diagram.png  used on input line 813
 .
 (pdftex.def)             Requested size: 313.56595pt x 185.08821pt.
-
-[107]
-<figs//Data Flow Diagram.png, id=3136, 773.89125pt x 467.7475pt>
+ [116 <./figs//Drift Packet Diagram.png>]
+<figs//Data Flow Diagram.png, id=3339, 773.89125pt x 467.7475pt>
 File: figs//Data Flow Diagram.png Graphic file (type png)
 <use figs//Data Flow Diagram.png>
-Package pdftex.def Info: figs//Data Flow Diagram.png  used on input line 652.
+Package pdftex.def Info: figs//Data Flow Diagram.png  used on input line 826.
 (pdftex.def)             Requested size: 386.94467pt x 233.87317pt.
-) [108 <./figs//Drift Packet Diagram.png>] [109 <./figs//Data Flow Diagram.png>
-]
+) [117 <./figs//Data Flow Diagram.png>] [118]
 \openout2 = `ch6.aux'.
 
  (ch6.tex
 Chapter 6.
-[110
+[119
 
 
 
 
-] [111] [112]
-<figs//buoy.jpg, id=3176, 459.21562pt x 576.65437pt>
+] [120] [121]
+<figs//buoy.jpg, id=3378, 459.21562pt x 576.65437pt>
 File: figs//buoy.jpg Graphic file (type jpg)
 <use figs//buoy.jpg>
 Package pdftex.def Info: figs//buoy.jpg  used on input line 133.
 (pdftex.def)             Requested size: 113.80861pt x 170.71869pt.
-<figs//basket.jpg, id=3177, 436.63126pt x 596.2275pt>
+<figs//basket.jpg, id=3379, 436.63126pt x 596.2275pt>
 File: figs//basket.jpg Graphic file (type jpg)
 <use figs//basket.jpg>
 Package pdftex.def Info: figs//basket.jpg  used on input line 137.
 (pdftex.def)             Requested size: 113.80792pt x 170.7181pt.
-<figs//deployment.jpg, id=3178, 441.14813pt x 576.65437pt>
+<figs//deployment.jpg, id=3380, 441.14813pt x 576.65437pt>
 File: figs//deployment.jpg Graphic file (type jpg)
 <use figs//deployment.jpg>
 Package pdftex.def Info: figs//deployment.jpg  used on input line 141.
 (pdftex.def)             Requested size: 113.80727pt x 170.71869pt.
- [113 <./figs//buoy.jpg> <./figs//basket.jpg> <./figs//deployment.jpg>] [114]
+ [122 <./figs//buoy.jpg> <./figs//basket.jpg> <./figs//deployment.jpg>] [123]
 Underfull \hbox (badness 10000) in paragraph at lines 217--217
 []|\T1/cmr/m/n/12 Functional
  []
@@ -2360,51 +2348,51 @@ Overfull \hbox (38.65874pt too wide) in paragraph at lines 215--252
  [][] 
  []
 
-[115] [116] [117] [118] [119]) [120]
+[124] [125] [126] [127] [128]) [129]
 \openout2 = `ch7.aux'.
 
  (ch7.tex
 Chapter 7.
-[121
+[130
 
 
 
 
-] [122]) [123]
+] [131]) [132]
 \openout2 = `ch8.aux'.
 
  (ch8.tex
 Chapter 8.
-[124
+[133
 
 
 
 
-] [125]) [126]
+] [134]) [135]
 \openout2 = `appendix.aux'.
 
  (appendix.tex
 Appendix A.
-[127
+[136
 
 
 
 
-] [128] [129] [130] [131] [132] [133] [134] [135] [136]
+] [137] [138] [139] [140] [141] [142] [143] [144] [145]
 Appendix B.
-[137
+[146
 
 ]
 Overfull \hbox (1.32443pt too wide) in paragraph at lines 372--372
 []|[]| 
  []
 
-[138]
+[147]
 Overfull \hbox (25.19998pt too wide) in paragraph at lines 380--399
  [][] 
  []
 
-[139]
+[148]
 Overfull \hbox (25.19998pt too wide) in paragraph at lines 406--433
  [][] 
  []
@@ -2414,49 +2402,49 @@ Overfull \hbox (25.19998pt too wide) in paragraph at lines 440--465
  [][] 
  []
 
-[140]
+[149]
 Overfull \hbox (25.19998pt too wide) in paragraph at lines 472--497
  [][] 
  []
 
-[141]
+[150]
 Overfull \hbox (25.19998pt too wide) in paragraph at lines 504--528
  [][] 
  []
 
-[142]
+[151]
 Overfull \hbox (25.19998pt too wide) in paragraph at lines 534--557
  [][] 
  []
 
-[143]
+[152]
 Overfull \hbox (25.19998pt too wide) in paragraph at lines 562--586
  [][] 
  []
 
-[144]
+[153]
 
 pdfTeX warning: pdflatex.exe (file ./figs//enclosure.pdf): PDF inclusion: found
  PDF version <1.7>, but at most version <1.5> allowed
-<figs//enclosure.pdf, id=3482, page=1, 1195.46625pt x 845.1575pt>
+<figs//enclosure.pdf, id=3684, page=1, 1195.46625pt x 845.1575pt>
 File: figs//enclosure.pdf Graphic file (type pdf)
 <use figs//enclosure.pdf, page 1>
 Package pdftex.def Info: figs//enclosure.pdf , page1 used on input line 594.
 (pdftex.def)             Requested size: 407.66833pt x 288.21378pt.
-[145]
+[154]
 
 pdfTeX warning: pdflatex.exe (file ./figs//enclosure.pdf): PDF inclusion: found
  PDF version <1.7>, but at most version <1.5> allowed
-<figs//enclosure.pdf, id=3487, page=2, 1195.46625pt x 845.1575pt>
+<figs//enclosure.pdf, id=3689, page=2, 1195.46625pt x 845.1575pt>
 File: figs//enclosure.pdf Graphic file (type pdf)
 <use figs//enclosure.pdf, page 2>
 Package pdftex.def Info: figs//enclosure.pdf , page2 used on input line 601.
 (pdftex.def)             Requested size: 407.66833pt x 288.21378pt.
-[146 <./figs//enclosure.pdf, page is rotated 270 degrees>]
+[155 <./figs//enclosure.pdf, page is rotated 270 degrees>]
 
 pdfTeX warning: pdflatex.exe (file ./figs//enclosure.pdf): PDF inclusion: found
  PDF version <1.7>, but at most version <1.5> allowed
-<figs//enclosure.pdf, id=3502, page=3, 1195.46625pt x 845.1575pt>
+<figs//enclosure.pdf, id=3703, page=3, 1195.46625pt x 845.1575pt>
 File: figs//enclosure.pdf Graphic file (type pdf)
 <use figs//enclosure.pdf, page 3>
 Package pdftex.def Info: figs//enclosure.pdf , page3 used on input line 608.
@@ -2465,13 +2453,13 @@ Package pdftex.def Info: figs//enclosure.pdf , page3 used on input line 608.
 
 pdfTeX warning: pdflatex.exe (file ./figs//enclosure.pdf): PDF inclusion: found
  PDF version <1.7>, but at most version <1.5> allowed
-<figs//enclosure.pdf, id=3503, page=4, 1195.46625pt x 845.1575pt>
+<figs//enclosure.pdf, id=3704, page=4, 1195.46625pt x 845.1575pt>
 File: figs//enclosure.pdf Graphic file (type pdf)
 <use figs//enclosure.pdf, page 4>
 Package pdftex.def Info: figs//enclosure.pdf , page4 used on input line 615.
 (pdftex.def)             Requested size: 407.66833pt x 288.21378pt.
-[147 <./figs//enclosure.pdf, page is rotated 270 degrees> <./figs//enclosure.pd
-f, page is rotated 270 degrees>] [148 <./figs//enclosure.pdf, page is rotated 2
+[156 <./figs//enclosure.pdf, page is rotated 270 degrees> <./figs//enclosure.pd
+f, page is rotated 270 degrees>] [157 <./figs//enclosure.pdf, page is rotated 2
 70 degrees>]
 Appendix C.
 
@@ -2489,7 +2477,7 @@ Overfull \hbox (25.19998pt too wide) in paragraph at lines 669--683
  [][] 
  []
 
-[149
+[158
 
 ]
 Overfull \hbox (25.19998pt too wide) in paragraph at lines 688--701
@@ -2501,52 +2489,52 @@ Overfull \hbox (25.19998pt too wide) in paragraph at lines 708--721
  [][] 
  []
 
-[150]
-<figs//GPS Initialization Algorithm .png, id=3538, 793.96625pt x 1012.78375pt>
+[159]
+<figs//GPS Initialization Algorithm .png, id=3740, 793.96625pt x 1012.78375pt>
 File: figs//GPS Initialization Algorithm .png Graphic file (type png)
 <use figs//GPS Initialization Algorithm .png>
 Package pdftex.def Info: figs//GPS Initialization Algorithm .png  used on input
  line 747.
 (pdftex.def)             Requested size: 238.19171pt x 303.83746pt.
-<figs//Iridium Init Routine.png, id=3539, 713.66624pt x 703.62875pt>
+<figs//Iridium Init Routine.png, id=3741, 713.66624pt x 703.62875pt>
 File: figs//Iridium Init Routine.png Graphic file (type png)
 <use figs//Iridium Init Routine.png>
 Package pdftex.def Info: figs//Iridium Init Routine.png  used on input line 754
 .
 (pdftex.def)             Requested size: 214.10152pt x 211.09026pt.
- [151 <./figs//GPS Initialization Algorithm .png>]
-<figs//Flash Chip Init Routine.png, id=3545, 507.8975pt x 1034.86626pt>
+ [160 <./figs//GPS Initialization Algorithm .png>]
+<figs//Flash Chip Init Routine.png, id=3747, 507.8975pt x 1034.86626pt>
 File: figs//Flash Chip Init Routine.png Graphic file (type png)
 <use figs//Flash Chip Init Routine.png>
 Package pdftex.def Info: figs//Flash Chip Init Routine.png  used on input line 
 762.
 (pdftex.def)             Requested size: 152.37042pt x 310.46227pt.
-<figs//Environmental Sensor Init Routine.png, id=3546, 643.40375pt x 763.85374p
+<figs//Environmental Sensor Init Routine.png, id=3748, 643.40375pt x 763.85374p
 t>
 File: figs//Environmental Sensor Init Routine.png Graphic file (type png)
 <use figs//Environmental Sensor Init Routine.png>
 Package pdftex.def Info: figs//Environmental Sensor Init Routine.png  used on i
 nput line 769.
 (pdftex.def)             Requested size: 193.02261pt x 229.15788pt.
- [152 <./figs//Iridium Init Routine.png> <./figs//Flash Chip Init Routine.png>]
-<figs//INA219 Init routine.png, id=3554, 583.17876pt x 834.11626pt>
+ [161 <./figs//Iridium Init Routine.png> <./figs//Flash Chip Init Routine.png>]
+<figs//INA219 Init routine.png, id=3755, 583.17876pt x 834.11626pt>
 File: figs//INA219 Init routine.png Graphic file (type png)
 <use figs//INA219 Init routine.png>
 Package pdftex.def Info: figs//INA219 Init routine.png  used on input line 776.
 
 (pdftex.def)             Requested size: 174.95497pt x 250.2368pt.
-<figs//MPU Init Diagram.png, id=3555, 522.95375pt x 673.51625pt>
+<figs//MPU Init Diagram.png, id=3756, 522.95375pt x 673.51625pt>
 File: figs//MPU Init Diagram.png Graphic file (type png)
 <use figs//MPU Init Diagram.png>
 Package pdftex.def Info: figs//MPU Init Diagram.png  used on input line 783.
 (pdftex.def)             Requested size: 156.88733pt x 202.05643pt.
- [153 <./figs//Environmental Sensor Init Routine.png> <./figs//INA219 Init rout
-ine.png>] [154 <./figs//MPU Init Diagram.png>] [155] [156]
+ [162 <./figs//Environmental Sensor Init Routine.png> <./figs//INA219 Init rout
+ine.png>] [163 <./figs//MPU Init Diagram.png>] [164] [165]
 Overfull \hbox (107.12383pt too wide) in paragraph at lines 907--908
 [][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[157] [158] [159]
+[166] [167] [168]
 Appendix D.
 
 Overfull \hbox (5.39957pt too wide) in paragraph at lines 1008--1009
@@ -2563,7 +2551,7 @@ Overfull \hbox (27.35017pt too wide) in paragraph at lines 990--1024
  [][] 
  []
 
-[160
+[169
 
 ]
 Underfull \hbox (badness 1092) in paragraph at lines 1039--1039
@@ -2575,7 +2563,7 @@ Overfull \hbox (17.08656pt too wide) in alignment at lines 1029--1070
  [] [] [] [] [] 
  []
 
-[161] [162]
+[170] [171]
 Appendix E.
 
 Overfull \hbox (2.5502pt too wide) in paragraph at lines 1081--1110
@@ -2587,19 +2575,19 @@ Overfull \hbox (2.5502pt too wide) in paragraph at lines 1118--1147
  [][] 
  []
 
-[163
+[172
 
 ]
 Overfull \hbox (2.5502pt too wide) in paragraph at lines 1153--1180
  [][] 
  []
 
-[164]
+[173]
 Overfull \hbox (2.5502pt too wide) in paragraph at lines 1187--1213
  [][] 
  []
 
-[165]
+[174]
 Overfull \hbox (2.5502pt too wide) in paragraph at lines 1220--1245
  [][] 
  []
@@ -2609,52 +2597,52 @@ Overfull \hbox (2.5502pt too wide) in paragraph at lines 1252--1280
  [][] 
  []
 
-[166]
+[175]
 Overfull \hbox (2.5502pt too wide) in paragraph at lines 1287--1312
  [][] 
  []
 
-[167]
+[176]
 Overfull \hbox (2.5502pt too wide) in paragraph at lines 1319--1345
  [][] 
  []
 
-[168] [169]
+[177] [178]
 Appendix F.
-<figs//Power Cycle.png, id=3858, 1445.4pt x 704.6325pt>
+<figs//Power Cycle.png, id=4060, 1445.4pt x 704.6325pt>
 File: figs//Power Cycle.png Graphic file (type png)
 <use figs//Power Cycle.png>
 Package pdftex.def Info: figs//Power Cycle.png  used on input line 1382.
 (pdftex.def)             Requested size: 452.9679pt x 220.82072pt.
-<figs//State Current Draw.png, id=3859, 1445.4pt x 704.6325pt>
+<figs//State Current Draw.png, id=4061, 1445.4pt x 704.6325pt>
 File: figs//State Current Draw.png Graphic file (type png)
 <use figs//State Current Draw.png>
 Package pdftex.def Info: figs//State Current Draw.png  used on input line 1390.
 
 (pdftex.def)             Requested size: 452.9679pt x 220.82072pt.
-[170
+[179
 
  <./figs//Power Cycle.png (PNG copy)>]
-<figs//gps_trajectory_scale2019.png, id=3865, 803.1131pt x 496.72902pt>
+<figs//gps_trajectory_scale2019.png, id=4066, 803.1131pt x 496.72902pt>
 File: figs//gps_trajectory_scale2019.png Graphic file (type png)
 <use figs//gps_trajectory_scale2019.png>
 Package pdftex.def Info: figs//gps_trajectory_scale2019.png  used on input line
  1397.
 (pdftex.def)             Requested size: 401.55557pt x 248.36389pt.
-<figs//temp_test_scale2019.png, id=3866, 803.1131pt x 486.55014pt>
+<figs//temp_test_scale2019.png, id=4067, 803.1131pt x 486.55014pt>
 File: figs//temp_test_scale2019.png Graphic file (type png)
 <use figs//temp_test_scale2019.png>
 Package pdftex.def Info: figs//temp_test_scale2019.png  used on input line 1404
 .
 (pdftex.def)             Requested size: 401.55557pt x 243.27448pt.
-) [171 <./figs//State Current Draw.png (PNG copy)> <./figs//gps_trajectory_scal
-e2019.png>] [172 <./figs//temp_test_scale2019.png>]
+) [180 <./figs//State Current Draw.png (PNG copy)> <./figs//gps_trajectory_scal
+e2019.png>] [181 <./figs//temp_test_scale2019.png>]
 Overfull \hbox (1.01768pt too wide) in paragraph at lines 553--553
 \T1/cmr/m/n/12 barometric -[] pressure -[] plus -[] temperature -[] sensor -[] 
 breakout / overview$[] (Ac-cessed March
  []
 
-[173
+[182
 
 
 
@@ -2665,31 +2653,48 @@ Overfull \hbox (3.14723pt too wide) in paragraph at lines 553--553
  data. \T1/cmr/m/it/12 IEEE/EIA 12207.1-
  []
 
-[174] [175] [176] [177] [178]
+[183] [184] [185] [186] [187]
 Overfull \hbox (12.17928pt too wide) in paragraph at lines 553--553
 [][]\T1/cmr/m/n/12 STMicroelectronics. (2019). \T1/cmr/m/it/12 Ultra-low-power 
 arm\TS1/cmr/m/it/12 ® \T1/cmr/m/it/12 cortex\TS1/cmr/m/it/12 ®\T1/cmr/m/it/12 -
 m4 32-bit mcu+fpu, 100dmips,
  []
 
-[179] [180] 
+
+Overfull \hbox (22.81355pt too wide) in paragraph at lines 553--553
+[][]\T1/cmr/m/n/12 STMicroelectronics. (2021). \T1/cmr/m/it/12 STM32L47xxx, STM
+32L48xxx, STM32L49xxx and STM32L4Axxx
+ []
+
+
+Overfull \hbox (5.06041pt too wide) in paragraph at lines 553--553
+\T1/cmr/m/n/12 stm32l49xxx -[] and -[] stm32l4axxx -[] advanced -[] armbased -[
+] 32bit -[] mcus -[] stmicroelectronics .
+ []
+
+[188] [189] 
 AED: lastpage setting LastPage
-[181] (0.thesis.aux (ch1.aux) (ch2.aux) (ch3.aux) (ch4.aux) (ch5.aux) (ch6.aux)
+[190] (0.thesis.aux (ch1.aux) (ch2.aux) (ch3.aux) (ch4.aux) (ch5.aux) (ch6.aux)
 (ch7.aux) (ch8.aux) (appendix.aux))
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `0.thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 610DB99B93DF648C0C59896D4A9CC4E3;8898.
+(rerunfilecheck)             Checksum: 0F157BA55EA0F41BEAE43A7C69D092A3;9694.
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                0.thesis
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to '0.thesis.run.xml'.
 \openout1 = `0.thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 39029 strings out of 479580
- 757650 string characters out of 2863326
- 1755735 words of memory out of 3000000
- 54261 multiletter control sequences out of 15000+200000
+ 39123 strings out of 479580
+ 759187 string characters out of 2863326
+ 1760255 words of memory out of 3000000
+ 54317 multiletter control sequences out of 15000+200000
  432113 words of font info for 92 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  87i,17n,101p,2786b,4955s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2732,22 +2737,23 @@ cm/cmsy10.pfb><C:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 amsfonts/cm/cmsy7.pfb><C:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/type1
 /public/amsfonts/cm/cmsy8.pfb><C:/Users/jamie/AppData/Local/Programs/MiKTeX/fon
 ts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/jamie/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/cm-super/sfbx1000.pfb><C:/Users/jamie/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1200.pfb><C:/Users/jamie/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm0700.pfb><C:/Users/j
-amie/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm0800.pfb><C:
-/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm1000
+ams/MiKTeX/fonts/type1/public/cm-super/sfbx0800.pfb><C:/Users/jamie/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1000.pfb><C:/Users/jamie/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1200.pfb><C:/Users/j
+amie/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm0700.pfb><C:
+/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm0800
 .pfb><C:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/
-sfrm1200.pfb><C:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/type1/public/c
-m-super/sfrm1728.pfb><C:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/type1/
-public/cm-super/sfsl1200.pfb><C:/Users/jamie/AppData/Local/Programs/MiKTeX/font
-s/type1/public/cm-super/sfti0700.pfb><C:/Users/jamie/AppData/Local/Programs/MiK
-TeX/fonts/type1/public/cm-super/sfti1000.pfb><C:/Users/jamie/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/cm-super/sfti1200.pfb><C:/Users/jamie/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on 0.thesis.pdf (204 pages, 25047117 bytes).
+sfrm1000.pfb><C:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/type1/public/c
+m-super/sfrm1200.pfb><C:/Users/jamie/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/cm-super/sfrm1728.pfb><C:/Users/jamie/AppData/Local/Programs/MiKTeX/font
+s/type1/public/cm-super/sfsl1200.pfb><C:/Users/jamie/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/cm-super/sfti0700.pfb><C:/Users/jamie/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/cm-super/sfti1000.pfb><C:/Users/jamie/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/cm-super/sfti1200.pfb><C:/Users/jamie/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on 0.thesis.pdf (215 pages, 25359075 bytes).
 PDF statistics:
- 4320 PDF objects out of 5155 (max. 8388607)
- 1081 named destinations out of 1200 (max. 500000)
- 1472 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 4534 PDF objects out of 5155 (max. 8388607)
+ 1117 named destinations out of 1200 (max. 500000)
+ 1562 words of extra memory for PDF output out of 10000 (max. 10000000)
 

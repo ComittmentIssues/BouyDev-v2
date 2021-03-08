@@ -205,6 +205,39 @@
       \verb https://datasheet.octopart.com/AT45DB641E-SHN2B-T-Adesto-Technologies-datasheet-60482850.pdf
       \endverb
     \endentry
+    \entry{ARMprocessor}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=805e287daa85ad322a430e184bdfcb14}{%
+           family={{Advanced RISC Machines}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{805e287daa85ad322a430e184bdfcb14}
+      \strng{fullhash}{805e287daa85ad322a430e184bdfcb14}
+      \strng{bibnamehash}{805e287daa85ad322a430e184bdfcb14}
+      \strng{authorbibnamehash}{805e287daa85ad322a430e184bdfcb14}
+      \strng{authornamehash}{805e287daa85ad322a430e184bdfcb14}
+      \strng{authorfullhash}{805e287daa85ad322a430e184bdfcb14}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Arm {Cortex-M4} Datasheet}
+      \field{urlday}{8}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://developer.arm.com/ip-products/processors/cortex-m/cortex-m4
+      \endverb
+      \verb{url}
+      \verb https://developer.arm.com/ip-products/processors/cortex-m/cortex-m4
+      \endverb
+    \endentry
     \entry{ahmad2013reviews}{article}{}
       \name{author}{4}{}{%
         {{hash=a5d5d658c8d12db0870835827cc4694c}{%
@@ -4689,6 +4722,42 @@
       \endverb
       \verb{url}
       \verb https://www.st.com/resource/en/datasheet/stm32l476je.pdf
+      \endverb
+    \endentry
+    \entry{stm32l4ref}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=c38884ab3cf908c2798725960369391b}{%
+           family={STMicroelectronics},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{c38884ab3cf908c2798725960369391b}
+      \strng{fullhash}{c38884ab3cf908c2798725960369391b}
+      \strng{bibnamehash}{c38884ab3cf908c2798725960369391b}
+      \strng{authorbibnamehash}{c38884ab3cf908c2798725960369391b}
+      \strng{authornamehash}{c38884ab3cf908c2798725960369391b}
+      \strng{authorfullhash}{c38884ab3cf908c2798725960369391b}
+      \field{extraname}{3}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Rev. 08}
+      \field{number}{RM0351}
+      \field{title}{{STM32L47xxx, STM32L48xxx, STM32L49xxx and STM32L4Axxx advanced Arm®-based 32-bit MCUs}}
+      \field{urlday}{8}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.st.com/resource/en/reference_manual/dm00083560-stm32l47xxx-stm32l48xxx-stm32l49xxx-and-stm32l4axxx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.st.com/resource/en/reference_manual/dm00083560-stm32l47xxx-stm32l48xxx-stm32l49xxx-and-stm32l4axxx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf
       \endverb
     \endentry
     \entry{drnovska2003surface}{article}{}

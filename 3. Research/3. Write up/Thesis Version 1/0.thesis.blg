@@ -1,20 +1,20 @@
 [0] Config.pm:311> INFO - This is Biber 2.16
 [0] Config.pm:314> INFO - Logfile is '0.thesis.blg'
-[144] biber-MSWIN64:340> INFO - === 
-[200] Biber.pm:415> INFO - Reading '0.thesis.bcf'
-[1162] Biber.pm:952> INFO - Found 141 citekeys in bib section 0
-[1185] Biber.pm:4340> INFO - Processing section 0
-[1202] Biber.pm:4531> INFO - Looking for bibtex format file 'thesis.bib' for section 0
-[1287] bibtex.pm:1689> INFO - LaTeX decoding ...
-[1557] bibtex.pm:1494> INFO - Found BibTeX data source 'thesis.bib'
-[1566] Utils.pm:395> WARN - Duplicate entry key: 'mtk3339' in file 'thesis.bib', skipping ...
-[1571] Utils.pm:395> WARN - Duplicate entry key: 'intelsat2021website' in file 'thesis.bib', skipping ...
-[2401] Utils.pm:395> WARN - I didn't find a database entry for 'stmnuceo' (section 0)
-[2401] Utils.pm:395> WARN - I didn't find a database entry for 'stmnucleo' (section 0)
-[2681] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[2681] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[2681] Biber.pm:4168> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
-[2681] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
-[2924] bbl.pm:654> INFO - Writing '0.thesis.bbl' with encoding 'UTF-8'
-[3032] bbl.pm:757> INFO - Output to 0.thesis.bbl
-[3038] Biber.pm:128> INFO - WARNINGS: 4
+[160] biber-MSWIN64:340> INFO - === 
+[232] Biber.pm:415> INFO - Reading '0.thesis.bcf'
+[1027] Biber.pm:952> INFO - Found 143 citekeys in bib section 0
+[1048] Biber.pm:4340> INFO - Processing section 0
+[1064] Biber.pm:4531> INFO - Looking for bibtex format file 'thesis.bib' for section 0
+[1152] bibtex.pm:1689> INFO - LaTeX decoding ...
+[1425] bibtex.pm:1494> INFO - Found BibTeX data source 'thesis.bib'
+[1438] Utils.pm:395> WARN - Duplicate entry key: 'mtk3339' in file 'thesis.bib', skipping ...
+[1443] Utils.pm:395> WARN - Duplicate entry key: 'intelsat2021website' in file 'thesis.bib', skipping ...
+[2370] Utils.pm:395> WARN - I didn't find a database entry for 'stmnuceo' (section 0)
+[2370] Utils.pm:395> WARN - I didn't find a database entry for 'stmnucleo' (section 0)
+[2621] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[2621] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[2621] Biber.pm:4168> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[2621] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
+[2866] bbl.pm:654> INFO - Writing '0.thesis.bbl' with encoding 'UTF-8'
+[2982] bbl.pm:757> INFO - Output to 0.thesis.bbl
+[2987] Biber.pm:128> INFO - WARNINGS: 4
