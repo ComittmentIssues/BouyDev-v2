@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.2.4)  9 MAR 2021 10:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.2.4)  9 MAR 2021 11:49
 entering extended mode
 **./0.thesis.tex
 (0.thesis.tex
@@ -1590,19 +1590,12 @@ Package: blx-case-expl3 2020/12/31 v3.16 expl3 case changing code for biblatex
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file '0.thesis.bbl' found.
- (0.thesis.bbl
-
-Package biblatex Warning: The following entry could not be found
-(biblatex)                in the database:
-(biblatex)                stmn32ucleo
-(biblatex)                Please verify the spelling and rerun
-(biblatex)                LaTeX afterwards.
-
-)
+ (0.thesis.bbl)
 Package biblatex Info: Reference section=0 on input line 277.
 Package biblatex Info: Reference segment=0 on input line 277.
 Package hyperref Info: Link coloring OFF on input line 277.
- (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+
+(C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
 (C:\Users\jamie\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
@@ -2421,44 +2414,31 @@ Overfull \hbox (25.19998pt too wide) in paragraph at lines 563--587
  []
 
 [156]
-
-pdfTeX warning: pdflatex.exe (file ./figs//enclosure.pdf): PDF inclusion: found
- PDF version <1.7>, but at most version <1.5> allowed
 <figs//enclosure.pdf, id=3757, page=1, 1195.46625pt x 845.1575pt>
 File: figs//enclosure.pdf Graphic file (type pdf)
 <use figs//enclosure.pdf, page 1>
 Package pdftex.def Info: figs//enclosure.pdf , page1 used on input line 595.
 (pdftex.def)             Requested size: 407.66833pt x 288.21378pt.
-[157]
-
-pdfTeX warning: pdflatex.exe (file ./figs//enclosure.pdf): PDF inclusion: found
- PDF version <1.7>, but at most version <1.5> allowed
+ [157]
 <figs//enclosure.pdf, id=3762, page=2, 1195.46625pt x 845.1575pt>
 File: figs//enclosure.pdf Graphic file (type pdf)
 <use figs//enclosure.pdf, page 2>
 Package pdftex.def Info: figs//enclosure.pdf , page2 used on input line 602.
 (pdftex.def)             Requested size: 407.66833pt x 288.21378pt.
-[158 <./figs//enclosure.pdf, page is rotated 270 degrees>]
-
-pdfTeX warning: pdflatex.exe (file ./figs//enclosure.pdf): PDF inclusion: found
- PDF version <1.7>, but at most version <1.5> allowed
+ [158 <./figs//enclosure.pdf, page is rotated 270 degrees>]
 <figs//enclosure.pdf, id=3776, page=3, 1195.46625pt x 845.1575pt>
 File: figs//enclosure.pdf Graphic file (type pdf)
 <use figs//enclosure.pdf, page 3>
 Package pdftex.def Info: figs//enclosure.pdf , page3 used on input line 609.
 (pdftex.def)             Requested size: 407.66833pt x 288.21378pt.
-
-
-pdfTeX warning: pdflatex.exe (file ./figs//enclosure.pdf): PDF inclusion: found
- PDF version <1.7>, but at most version <1.5> allowed
 <figs//enclosure.pdf, id=3777, page=4, 1195.46625pt x 845.1575pt>
 File: figs//enclosure.pdf Graphic file (type pdf)
 <use figs//enclosure.pdf, page 4>
 Package pdftex.def Info: figs//enclosure.pdf , page4 used on input line 616.
 (pdftex.def)             Requested size: 407.66833pt x 288.21378pt.
-[159 <./figs//enclosure.pdf, page is rotated 270 degrees> <./figs//enclosure.pd
-f, page is rotated 270 degrees>] [160 <./figs//enclosure.pdf, page is rotated 2
-70 degrees>]
+ [159 <./figs//enclosure.pdf, page is rotated 270 degrees> <./figs//enclosure.p
+df, page is rotated 270 degrees>] [160 <./figs//enclosure.pdf, page is rotated 
+270 degrees>]
 Appendix C.
 
 Overfull \hbox (25.19998pt too wide) in paragraph at lines 630--643
@@ -2674,25 +2654,17 @@ Overfull \hbox (5.06041pt too wide) in paragraph at lines 553--553
 AED: lastpage setting LastPage
 [193] (0.thesis.aux (ch1.aux) (ch2.aux) (ch3.aux) (ch4.aux) (ch5.aux) (ch6.aux)
 (ch7.aux) (ch8.aux) (appendix.aux))
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `0.thesis.out' has not changed.
 (rerunfilecheck)             Checksum: C89F137E09C9A903A6626E8361E794AB;9758.
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                0.thesis
-(biblatex)                and rerun LaTeX afterwards.
-
 Package logreq Info: Writing requests to '0.thesis.run.xml'.
 \openout1 = `0.thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 39193 strings out of 479580
- 760690 string characters out of 2863326
+ 39192 strings out of 479580
+ 760680 string characters out of 2863326
  1762741 words of memory out of 3000000
- 54361 multiletter control sequences out of 15000+200000
+ 54360 multiletter control sequences out of 15000+200000
  432113 words of font info for 92 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  87i,17n,101p,2786b,4955s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2749,7 +2721,7 @@ TeX/fonts/type1/public/cm-super/sfti0700.pfb><C:/Users/jamie/AppData/Local/Prog
 rams/MiKTeX/fonts/type1/public/cm-super/sfti1000.pfb><C:/Users/jamie/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/public/cm-super/sfti1200.pfb><C:/Users/jamie/Ap
 pData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on 0.thesis.pdf (218 pages, 25430438 bytes).
+Output written on 0.thesis.pdf (218 pages, 25430404 bytes).
 PDF statistics:
  4616 PDF objects out of 5155 (max. 8388607)
  1141 named destinations out of 1200 (max. 500000)

@@ -1935,42 +1935,6 @@
       \verb https://www.inmarsat.com/en/index.html
       \endverb
     \endentry
-    \entry{LP3876}{manual}{}
-      \name{author}{1}{}{%
-        {{hash=98891ef37ae74f3a00ae9a7c9c316e78}{%
-           family={Instruments},
-           familyi={I\bibinitperiod},
-           given={Texas},
-           giveni={T\bibinitperiod}}}%
-      }
-      \strng{namehash}{98891ef37ae74f3a00ae9a7c9c316e78}
-      \strng{fullhash}{98891ef37ae74f3a00ae9a7c9c316e78}
-      \strng{bibnamehash}{98891ef37ae74f3a00ae9a7c9c316e78}
-      \strng{authorbibnamehash}{98891ef37ae74f3a00ae9a7c9c316e78}
-      \strng{authornamehash}{98891ef37ae74f3a00ae9a7c9c316e78}
-      \strng{authorfullhash}{98891ef37ae74f3a00ae9a7c9c316e78}
-      \field{sortinit}{I}
-      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{number}{SNVS220E}
-      \field{title}{{LP3873/LP3876 3A} Fast Ultra Low Dropout Linear Regulators}
-      \field{urlday}{7}
-      \field{urlmonth}{3}
-      \field{urlyear}{2021}
-      \field{year}{2013}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://www.ti.com/lit/ds/snvs220e/snvs220e.pdf?ts=1615138884680&ref_url=https%253A%252F%252Fwww.google.com%252F
-      \endverb
-      \verb{url}
-      \verb https://www.ti.com/lit/ds/snvs220e/snvs220e.pdf?ts=1615138884680&ref_url=https%253A%252F%252Fwww.google.com%252F
-      \endverb
-    \endentry
     \entry{edison}{manual}{}
       \name{author}{1}{}{%
         {{hash=ff97a9fdede09eaf6e1c8ec9f6a61dd5}{%
@@ -5032,6 +4996,41 @@
       \verb https://invensense.tdk.com/download-pdf/mpu-9250-datasheet/
       \endverb
     \endentry
+    \entry{LP3876}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=67e54b1ee931f3f4bddfefa5fbde5fd8}{%
+           family={{Texas Instruments}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{fullhash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{bibnamehash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{authorbibnamehash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{authornamehash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \strng{authorfullhash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \field{extraname}{1}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{SNVS220E}
+      \field{title}{{LP3873/LP3876 3A} Fast Ultra Low Dropout Linear Regulators}
+      \field{urlday}{7}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2013}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.ti.com/lit/ds/snvs220e/snvs220e.pdf?ts=1615138884680&ref_url=https%253A%252F%252Fwww.google.com%252F
+      \endverb
+      \verb{url}
+      \verb https://www.ti.com/lit/ds/snvs220e/snvs220e.pdf?ts=1615138884680&ref_url=https%253A%252F%252Fwww.google.com%252F
+      \endverb
+    \endentry
     \entry{INA219}{manual}{}
       \name{author}{1}{}{%
         {{hash=67e54b1ee931f3f4bddfefa5fbde5fd8}{%
@@ -5044,6 +5043,7 @@
       \strng{authorbibnamehash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
       \strng{authornamehash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
       \strng{authorfullhash}{67e54b1ee931f3f4bddfefa5fbde5fd8}
+      \field{extraname}{2}
       \field{sortinit}{T}
       \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
       \field{extradatescope}{labelyear}
@@ -5850,7 +5850,6 @@
       \range{pages}{4}
     \endentry
   \enddatalist
-  \missing{stmn32ucleo}
 \endrefsection
 \endinput
 
