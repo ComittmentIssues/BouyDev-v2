@@ -158,8 +158,6 @@ Once the buoy has finished an active routine, the system becomes inactive betwee
 
 Table \ref{tab:powmode_cycle} above shows the selected power mode and the estimated current consumption of each mode \cite{stm32l4}. The run mode current was benchmarked using a Dhrystone test with an system clock of 24 MHz and code loaded from flash. The inactive current draw was estimated with a low speed external (LSE) oscillator supplying the real time clock. 
 
-
-
 \section{Main program design}
  
 As outlined in the user requirements in Section \ref{sec:sec3_UR}, the SHARC buoy aims to increase remote sensing on both a temporal and spatial scale. Each sensor has its own sampling requirement which needs to be synchronised to the clock speed of the processor. Furthermore, the device needs to monitor and control the subsystems to ensure they are functional and opperational. Finally, subsystem power consumption needs to be carefully controlled to ensure the device opperates in a power efficient manner. The main program was designed to meet these requirements by providing a frame to sequence sensor activities. The firmware was also designed to provide time-critical execution of sensor routines to ensure that the temporal integrity of the data set was achieved. To achieve this, a state machine was selected and implemented on the STM32l4 microcontroller. \par
@@ -374,6 +372,40 @@ A critical consideration for the system is the flow of data and memory Managemen
 
 The flash chips used are AT45DB641E SPI Serial flash chips. Each chip can hold up to 64 Mbit of data. Data can be read/ written at speeds of up to 85 MHz or 15 MHz in low power mode. The device is low power with high data retention requiring a supply voltage of 1.7 V to 3.6 V and draws a maximum of 11 mA in active read mode thereby making it one of the lowest power consumption components in the system. In addition, the device comes with two 256 byte buffers that can store data while a read/write operation is taking place. Memory is organized into sectors (2 – 256 KBs long), blocks (2KB long) and pages (256 bytes) with write, read and erase options at each level. In this section, the data requirements from each sensor is listed. The optimal storage strategy is to convert the measurements into binary data and store as an array of bytes at known locations in an array. \par 
 
+\subsection{Debugging}
+
+As discussed in Chapter \ref{ch:ch3}, a key user requirement for developing the SHARC buoy is ensuring the design is robust. This means that device must be capable of providing feedback of system and subsystem states either to the users or amnongst the different levels in the Firmware. Furthermore, from the stakeholders in Table \ref{tab:stake}, users of the buoy may not necessarily be involved in the design and development phases and therefore must rely on other methods to understand whether the device has deployed successfully or whether the system is online. To achieve this error checking methods were implemented in all algorithms to ensure that functions executed as predicted and current status of the buoy was known at all times. This subsections discusses the debugging methods both internal and external to the buoy
+
+\subsubsection{Internal debugging}
+
+Internal debugging was achieved by ensuring that each layer of the system had defensive measures built into the algorithms. For example, on the device driver layer, the communication algorithms had built in timeouts to prevent the system from freezing while waiting for input. These functions returned error codes to the higher layers when called. On this level, different errors were accounted for by creating an enumeration of error types as shown in Figure \ref{fig:errorcode}.
+
+\begin{figure}[H]
+	
+	\begin{lstlisting}
+typedef enum{
+	GPS_Init_OK = 1,
+	GPS_Init_Ack_Error = 2,
+	GPS_Init_Baud_Config_Error = 3,
+	GPS_Init_MSG_Config_Error = 4,
+	GPS_Init_Ack_Tx_Error = 5,
+	GPS_Init_Periph_Config_Error = 6,
+	GPS_Init_Offline_Error = 7
+}GPS_Init_msg_t;
+		
+	\end{lstlisting}
+	\caption{ Example of an enumeration of possible error sources for a peripheral library function. Each error code is a numeric value which is returned when a specific error condition is encountered thereby providing feedback to higher levels.}
+	\label{fig:errorcode}
+\end{figure}
+
+
+ On the device peripheral level, if an error code was returned, the routine that called the functions would evaluate the error code and act accordingly. If the failure was critical, this feedback would be provided to the main program which would then break out of the routine and continue with the primary loop.
+\subsubsection{External debugging}
+%TAlk back to the users of the system - engineers know whats happening but people
+%who deploy the system need feedback as to whether the system is on or not.
+progress was monitored via visual indication. Having a visual indicator ensured that the buoy progress was constantly known without needing to interfere with the program execution or peak into the code. This allows to understand how the buoy operates without needing the firmware or references to the firmware. This was achieved by using a green LED onboard the STMicroelectronics Nucleo-L476RG development board. The green LED was programmed to execute flashing sequences at various points in the code to signify information such as sensors were online or a routine was in progress. This allowed for remote debugging of the platform however does not offer any detailed information about the status of the buoy. \par
+
+To provide more information, a free UART port was programmed to output status information to a serial terminal. This allows a user to view more detail regarding the current state the buoy is in, the state of the sensors and the incoming data. However, this technique requires a constant connection and is not suitable for deployment.
 \subsection{Drift data acquisition}
 
 This section describes how data are acquired from the sensors to form an ice drift measurement packet. Readings are taken from the GPS and environmental sensor with the power monitor being sampled to provide an update on the buoys performance.\par 
@@ -760,28 +792,54 @@ Table \ref{tab:sensor_timing} below shows the timing requirements for each senso
 	\label{tab:sensor_timing}
 	\setlength{\extrarowheight}{5pt}
 	
-	\begin{tabular}{llc}
+	\begin{tabular}{llcl}
 		\hline
-		\textbf{Sensor}& \textbf{Sample interval} & \textbf{Number of samples}\\
+		\textbf{Sensor}& \textbf{Sample interval} & \textbf{Number of samples} & \textbf{Sample period}\\
 		\hline
 		\hline
-		u-blox NEO-7M/NEO-M9N & 30 minutes & 1\\
+		u-blox NEO-7M/NEO-M9N & 30 minutes & 1 & N/A\\
 		\hline
-		BMP280 & 30 minutes & 1 \\
+		BMP280 & 30 minutes & 1 & N/A\\
 		\hline
-		INA219 & 30 minutes & 1 \\
+		INA219 & 30 minutes & 1 & N/A \\
 		\hline
-		MPU6050 & 200 ms & 6000\\
+		MPU6050 & 200 ms & 6000 &  20 minutes\\
 		\hline
 		\hline
 	\end{tabular}
 \end{table}
-As mentioned in the previous sections, Ice drift measurements are sampled once every 30 minutes. \textcite{vichi2019effects,alberello2019drift} show that the conditions surround sea ice formation are important for understand sea ice dynamics. Therefore a decision was made to sample the environmental sensors directly after the GPS measurements. Furthermore, power monitoring was performed during each active sample cycle and transmitted with the environmental and drift data. This was done to simplify the timing requirements and reduce complexity in the firmware implementation. The Rock Seven RockBLOCK 9603 modem has a maximum transmission bandwidth of 340 bytes and the transmission periods were sequenced to be able to transmit one message containing as much drift data as possible.
+As mentioned in the previous sections, ice drift measurements are sampled once every 30 minutes. \textcite{vichi2019effects,alberello2019drift} show that the conditions surround sea ice formation are important for understand sea ice dynamics. Therefore a decision was made to sample the environmental sensors directly after the GPS measurements. Furthermore, power monitoring was performed during each active sample cycle and transmitted with the environmental and drift data. This was done to simplify the timing requirements and reduce complexity in the firmware implementation. The Rock Seven RockBLOCK 9603 modem has a maximum transmission bandwidth of 340 bytes and the transmission periods were sequenced to be able to transmit one message containing as much drift data as possible. However, in future, the full IMU sample period will be implemented followed by a data compression algorithm. Hence, Figure \ref{fig:buoyactivity diagram} shows how these activities are sequenced into a single buoy cycle.
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{buoy activity diag.png}
+	\caption{Timing diagram for the SHARC buoy showing the sequence and states as well as the expected current draw. The cycle begins with (grey) an initialisation phase where the sensors are verified and configured into the correct modes. Then (blue) the sample periods where the sensors are sampled followed by (orange) a period of inactivity. After four sample sessions, (green) the transmission state is entered where data are  condensed into packets and transmitted. Diagram is a representation of the current vs timing and is not to scale. }
+	\label{fig:buoyactivity diagram}
+\end{figure}
+
+Figure \ref{fig:buoyactivity diagram} shows that the largest current consumption is expected to occur at start up. This is due to the large start up current of the Iridium modem (see Table \ref{tab:ir_specs}). The device is also expected to consume more current during the transmission period. Once again, this is attributed to the power characteristics of the Iridium modem. Finally, the buoy is expected to be inactive for periods relatively longer than the periods of activity. This is dependent on the signal acquisition time of the GPS receiver (see Table \ref{tab:neo7}) as well as the time taken to complete a transmission. The firmware is therefore developed to ensure careful tracking of state transitions and timings to ensure activities are completed in ordered sequence. Finally the fourth state will be the longest period of activity since this is when the IMU will be sampled.
 \section{Data Flow}
 \label{sec:data_flow}
 
-Drift data are collected every half an hour with a transmission occurring after four sampling intervals. The total data collected before sampling is 140 bytes. The Iridium modem has a maximum transmission buffer of 340 bytes. Therefore, all data can be transmitted at once without any advanced transmission routines required. A custom struct was defined to hold all data in a central location.
+Based on the information above, drift data are collected every half an hour with a transmission occurring after four sampling intervals. The software interfaces with the GPS, environment sensor and power monitor sensor to create a single drift measurement. Since its important to understand the environmental conditions and give an update on the power performance of the device where possible.Therefore, the order of sampling is layed out as follows
+
+\begin{enumerate}
+	\item Activate sensor
+	\item Collect data
+	\item Order and compress data
+	\item Store in memory
+\end{enumerate}
+
+This sequence is shown in Figure \ref{fig:sampleflow} below.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{Sample state flow.png}
+	\caption{Flow chart showing the ice drift sampling routine called during the sample state. This diagram contains arrows showing: (blue) the main flow  and sequence of steps in the routine, (black) the flow of steps for sampling data from sensors. (white) the flow of data from temporary storage (as an ice drift measurement) to permanent storage. Also shown are (red) GPS subsystem, (blue) environmental sensor and (purple) power sensor.}
+	\label{fig:sampleflow}
+\end{figure}
+
+The total data collected before sampling is 140 bytes. The Iridium modem has a maximum transmission buffer of 340 bytes. Therefore, all data can be transmitted at once without any advanced transmission routines required. To accommodate centralised data storage in volatile memory, A custom struct was defined to hold all data in a central location.
 
 \begin{figure}[H]
 	\centering

@@ -76,7 +76,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {4.8}{\ignorespaces The Adesto Technologies SPI serial flash chips in a surface mount package. Image source: \cite {flashchipimage}.\relax }}{77}{figure.caption.78}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.9}{\ignorespaces The 32-bit microcontrollers used for the different versions of SHARC buoy. (A) is the STMicroelectronics STM32F407VTG6 \cite {stmdisc} on a 100 pin Discovery development board which was used for version one. (B) is the 64 pin STMicroelectronics Nucleo development board which initially contained an STMicroelectronics STM32F446RE \cite {stmnuceo} for version 2. However, it was replaced with an STMicroelectronics STM32L476RG \cite {stm32l4} for the final version.\relax }}{79}{figure.caption.81}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces The 32-bit microcontrollers used for the different versions of SHARC buoy. (A) is the STMicroelectronics STM32F407VTG6 \cite {stmdisc} on a 100 pin Discovery development board which was used for version one. (B) is the 64 pin STMicroelectronics Nucleo development board which initially contained an STMicroelectronics STM32F446RE \cite {stm32nucleo} for version 2. However, it was replaced with an STMicroelectronics STM32L476RG \cite {stm32l4} for the final version.\relax }}{79}{figure.caption.81}%
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {4.10}{\ignorespaces 3-D render\tablefootnote {Source:\url {https://www.ti.com/store/ti/en/p/product/?p=LP3876ES-2.5/NOPB}} of the Texas Instruments LP3876 linear low drop out regulator in a surface mount package\cite {LP3876}. \relax }}{81}{figure.caption.84}%
 \defcounter {refsection}{0}\relax 
@@ -108,55 +108,21 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {5.10}{\ignorespaces Diagram showing the algorithm for handling an external interrupt from a Wake Up pin connected to one of the modules\relax }}{104}{figure.caption.103}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Data struct for storing drift data collected from the sensors during a sample period where Coord\_t and Diagostic\_t are shown in Appendix \ref {fig:data_coord_t} - \ref {fig:data_Diagnostic_t}\relax }}{116}{figure.caption.121}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Example of an enumeration of possible error sources for a peripheral library function. Each error code is a numeric value which is returned when a specific error condition is encountered thereby providing feedback to higher levels.\relax }}{107}{figure.caption.106}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Diagram showing the structure of a drift data packet including byte position, size and data being collected\relax }}{116}{figure.caption.122}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Timing diagram for the SHARC buoy showing the sequence and states as well as the expected current draw. The cycle begins with (grey) an initialisation phase where the sensors are verified and configured into the correct modes. Then (blue) the sample periods where the sensors are sampled followed by (orange) a period of inactivity. After four sample sessions, (green) the transmission state is entered where data are condensed into packets and transmitted. Diagram is a representation of the current vs timing and is not to scale. \relax }}{116}{figure.caption.124}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Diagram showing the flow of data during a cycle of the buoy. The data are sampled by the sensors and converted into packet form where it is stored until it is ready to be transmitted. The transmitted data arrives at a server and is sent via email to the user\relax }}{117}{figure.caption.123}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Flow chart showing the ice drift sampling routine called during the sample state. This diagram contains arrows showing: (blue) the main flow and sequence of steps in the routine, (black) the flow of steps for sampling data from sensors. (white) the flow of data from temporary storage (as an ice drift measurement) to permanent storage. Also shown are (red) GPS subsystem, (blue) environmental sensor and (purple) power sensor.\relax }}{118}{figure.caption.125}%
 \defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Data struct for storing drift data collected from the sensors during a sample period where Coord\_t and Diagostic\_t are shown in Appendix \ref {fig:data_coord_t} - \ref {fig:data_Diagnostic_t}\relax }}{119}{figure.caption.126}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Figures Showing the Fully Assembled SHARC Buoy device in a deployable state (a), The deployment procedure (b) and the results of a successful deployment showing a SHARC Buoy tethered to an Ice floe (c)\relax }}{122}{figure.caption.128}%
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Diagram showing the structure of a drift data packet including byte position, size and data being collected\relax }}{119}{figure.caption.127}%
 \defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Diagram showing the flow of data during a cycle of the buoy. The data are sampled by the sensors and converted into packet form where it is stored until it is ready to be transmitted. The transmitted data arrives at a server and is sent via email to the user\relax }}{120}{figure.caption.128}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Schematic of top enclosure which protects the electronics\relax }}{155}{figure.caption.152}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {B.2}{\ignorespaces Schematic of bottom enclosure for the batteries and power system.\relax }}{156}{figure.caption.153}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {B.3}{\ignorespaces Schematic of the connector block which provides a base for the electronics to be mounted on. \relax }}{156}{figure.caption.154}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {B.4}{\ignorespaces Full enclosure schematic.\relax }}{157}{figure.caption.155}%
-\defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {C.1}{\ignorespaces Ublox Neo 7-m initialisation routine\relax }}{160}{figure.caption.162}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {C.2}{\ignorespaces Rockblock 9603 initialisation routine\relax }}{161}{figure.caption.163}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {C.3}{\ignorespaces AT45DB641E initialisation routine\relax }}{161}{figure.caption.164}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {C.4}{\ignorespaces BMP280 initialisation routine\relax }}{162}{figure.caption.165}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {C.5}{\ignorespaces INA219 initialisation routine\relax }}{162}{figure.caption.166}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {C.6}{\ignorespaces MPU6050 initialization routine\relax }}{163}{figure.caption.167}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {C.7}{\ignorespaces Function written to compensate a 32 bit Temperature reading for sensor irregularities using the 32 bit version of the recommended compensation formula from the datasheet \cite {BMP280_Datasheet}. The formula uses the compensation parameters stored on the sensor\relax }}{164}{figure.caption.168}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {C.8}{\ignorespaces Function written to compensate a 32 bit pressure reading for sensor irregularities using the 32 bit version of the recommended compensation formula from the datasheet \cite {BMP280_Datasheet}. The formula uses the compensation parameters stored on the sensor\relax }}{165}{figure.caption.169}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {C.9}{\ignorespaces Calibration routine for INA219 Current sensor for a maximum current of 1.2A, maximum Bus Voltage of 16V and maximum shunt voltage of 160mV\relax }}{167}{figure.caption.170}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {C.10}{\ignorespaces Coord\_t Data structure to store incoming GPS coordinates as IEEE754 32-bit floats\relax }}{167}{figure.caption.171}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {C.11}{\ignorespaces Data Structure for storing GPS signal diagnostic information\relax }}{168}{figure.caption.172}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Figures Showing the Fully Assembled SHARC Buoy device in a deployable state (a), The deployment procedure (b) and the results of a successful deployment showing a SHARC Buoy tethered to an Ice floe (c)\relax }}{125}{figure.caption.133}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
@@ -164,10 +130,50 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {F.1}{\ignorespaces Graph showing a typical current cycle of the buoy during the various phases. Data was sampled at 1Hz with all modules connected, sample intervals set to 30 mins the INA219 sensor connected to an external data logger and the device placed in a partially obstructed environment.\relax }}{179}{figure.caption.183}%
+\addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {F.2}{\ignorespaces Average Current consumption at each phase in the life-cycle of the buoy. Ordered chronologically\relax }}{180}{figure.caption.184}%
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Schematic of top enclosure which protects the electronics\relax }}{158}{figure.caption.157}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {F.3}{\ignorespaces The GPS trajectory of the Aghulus 2 ship from the Marginal Ice Zone to East London. The plot shows the estimated position (magenta) taken from the buoy samples (red) compared to the actual trajectory (cyan). The positional error (PDOP) of each measurement is shown as an exaggerated area around the measured position\relax }}{180}{figure.caption.185}%
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Schematic of bottom enclosure for the batteries and power system.\relax }}{159}{figure.caption.158}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {F.4}{\ignorespaces Air Temperature recorded by the buoy (yellow) over 11 days compared to the air temperature recorded by the ship (blue) \relax }}{181}{figure.caption.186}%
+\contentsline {figure}{\numberline {B.3}{\ignorespaces Schematic of the connector block which provides a base for the electronics to be mounted on. \relax }}{159}{figure.caption.159}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {B.4}{\ignorespaces Full enclosure schematic.\relax }}{160}{figure.caption.160}%
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Ublox Neo 7-m initialisation routine\relax }}{163}{figure.caption.167}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {C.2}{\ignorespaces Rockblock 9603 initialisation routine\relax }}{164}{figure.caption.168}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {C.3}{\ignorespaces AT45DB641E initialisation routine\relax }}{164}{figure.caption.169}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {C.4}{\ignorespaces BMP280 initialisation routine\relax }}{165}{figure.caption.170}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {C.5}{\ignorespaces INA219 initialisation routine\relax }}{165}{figure.caption.171}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {C.6}{\ignorespaces MPU6050 initialization routine\relax }}{166}{figure.caption.172}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {C.7}{\ignorespaces Function written to compensate a 32 bit Temperature reading for sensor irregularities using the 32 bit version of the recommended compensation formula from the datasheet \cite {BMP280_Datasheet}. The formula uses the compensation parameters stored on the sensor\relax }}{167}{figure.caption.173}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {C.8}{\ignorespaces Function written to compensate a 32 bit pressure reading for sensor irregularities using the 32 bit version of the recommended compensation formula from the datasheet \cite {BMP280_Datasheet}. The formula uses the compensation parameters stored on the sensor\relax }}{168}{figure.caption.174}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {C.9}{\ignorespaces Calibration routine for INA219 Current sensor for a maximum current of 1.2A, maximum Bus Voltage of 16V and maximum shunt voltage of 160mV\relax }}{170}{figure.caption.175}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {C.10}{\ignorespaces Coord\_t Data structure to store incoming GPS coordinates as IEEE754 32-bit floats\relax }}{170}{figure.caption.176}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {C.11}{\ignorespaces Data Structure for storing GPS signal diagnostic information\relax }}{171}{figure.caption.177}%
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {F.1}{\ignorespaces Graph showing a typical current cycle of the buoy during the various phases. Data was sampled at 1Hz with all modules connected, sample intervals set to 30 mins the INA219 sensor connected to an external data logger and the device placed in a partially obstructed environment.\relax }}{182}{figure.caption.188}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {F.2}{\ignorespaces Average Current consumption at each phase in the life-cycle of the buoy. Ordered chronologically\relax }}{183}{figure.caption.189}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {F.3}{\ignorespaces The GPS trajectory of the Aghulus 2 ship from the Marginal Ice Zone to East London. The plot shows the estimated position (magenta) taken from the buoy samples (red) compared to the actual trajectory (cyan). The positional error (PDOP) of each measurement is shown as an exaggerated area around the measured position\relax }}{183}{figure.caption.190}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {F.4}{\ignorespaces Air Temperature recorded by the buoy (yellow) over 11 days compared to the air temperature recorded by the ship (blue) \relax }}{184}{figure.caption.191}%

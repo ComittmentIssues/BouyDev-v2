@@ -4724,7 +4724,7 @@
       \verb https://www.st.com/resource/en/datasheet/stm32l476je.pdf
       \endverb
     \endentry
-    \entry{stm32l4ref}{manual}{}
+    \entry{stm32nucleo}{manual}{}
       \name{author}{1}{}{%
         {{hash=c38884ab3cf908c2798725960369391b}{%
            family={STMicroelectronics},
@@ -4737,6 +4737,43 @@
       \strng{authornamehash}{c38884ab3cf908c2798725960369391b}
       \strng{authorfullhash}{c38884ab3cf908c2798725960369391b}
       \field{extraname}{3}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{UM1724}
+      \field{title}{STM32 Nucleo-64 boards (MB1136)}
+      \field{type}{User manual}
+      \field{urlday}{7}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{version}{Rev. 14}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.st.com/resource/en/user_manual/dm00105823-stm32-nucleo-64-boards-mb1136-stmicroelectronics.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.st.com/resource/en/user_manual/dm00105823-stm32-nucleo-64-boards-mb1136-stmicroelectronics.pdf
+      \endverb
+    \endentry
+    \entry{stm32l4ref}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=c38884ab3cf908c2798725960369391b}{%
+           family={STMicroelectronics},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{c38884ab3cf908c2798725960369391b}
+      \strng{fullhash}{c38884ab3cf908c2798725960369391b}
+      \strng{bibnamehash}{c38884ab3cf908c2798725960369391b}
+      \strng{authorbibnamehash}{c38884ab3cf908c2798725960369391b}
+      \strng{authornamehash}{c38884ab3cf908c2798725960369391b}
+      \strng{authorfullhash}{c38884ab3cf908c2798725960369391b}
+      \field{extraname}{4}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{extradatescope}{labelyear}
@@ -5813,8 +5850,7 @@
       \range{pages}{4}
     \endentry
   \enddatalist
-  \missing{stmnuceo}
-  \missing{stmnucleo}
+  \missing{stmn32ucleo}
 \endrefsection
 \endinput
 
