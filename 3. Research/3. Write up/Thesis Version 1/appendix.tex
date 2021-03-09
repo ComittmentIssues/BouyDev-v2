@@ -1075,61 +1075,107 @@ typedef struct
 \chapter{Test Protocols}
 
 \section{Unit Tests}
+\label{app:Unittests}
+\begin{table}[H]
+	\centering
+	\caption{Initialisation test outlining procedure, test cases and relation to
+	 acceptance tests}
+     \label{tab:UT001}
+	\begin{tabular}{m{0.2\textwidth} m{0.7\textwidth}}
+		\multicolumn{2}{l}{\textbf{UT001} }\\
+		\hline
+		\textbf{Description} & Peripheral initialization test\\
+		\hline
+		\hline
+		\textbf{Test protocol} & The module is connected to the microcontroller with the corresponding subsystem API libraries and driver files. The initialization function is then run. After the function has completed, the return status from the function is evaluated. If the test was completed sucessfully, A "Module online!" is printed to the serial and the LED is switched on. \\
+		\hline
+		\hline
+	\end{tabular}
+\end{table}
 
 \begin{table}[H]
-    \centering
-    \caption{Unit Test 1: Hardware Verification  test outlining procedure, test cases and relation to acceptance tests}
-    \begin{tabular}{|m{0.2\textwidth}|m{0.75\textwidth}|}
-    \hline
-       \textbf{Unit Test 1: }  &  Hardware Verification \\
-       \hline
-        \textbf{Input: } &  \begin{enumerate}
-            \vspace{1mm}
-            \item Hardware Module
-            \item Function Pointer to hardware module's initialization function
-        \end{enumerate}\\
-        \hline
-        \textbf{Output: } & Return Status\\
-        \hline
-        \textbf{Tasks: } & \begin{enumerate}
-        \vspace{1mm}
-            \item Connect Sensor to micro-controller 
-            \item Supply system with power
-            \item run test protocol AT001
-            \item exit upon reception of return status
-        \end{enumerate}\\
-        \hline
-        \textbf{Test Case: } & \begin{enumerate}
-            \vspace{1mm}
-            \item Sensor Connected and Powered on - AT001
-            \item Nack Test - AT002
-            \item Sensor Disconnected - AT002
-        \end{enumerate}\\
-        \hline
+	\centering
+	\caption{Protocol for the deinitialisation test.}
+	\label{tab:UT002}
+	\begin{tabular}{m{0.2\textwidth} m{0.7\textwidth}}
+		\multicolumn{2}{l}{\textbf{UT002} }\\
+		\hline
+		\textbf{Description} & Peripheral initialization test\\
+		\hline
+		\hline
+		\textbf{Test protocol} & Test to be run after unit test UT001 in Table \ref{tab:UT001}. Module de initialisation function is to be run until completion. After the function has run, the configuration registers are checked for reset values. If the registers are reset, the function returns a success status and "Successfully deinitialised module!" is printed to the serial. If the LED was green, it is turned off. This test was also run before an initialisation function to ensure that the function does not result in hardfaults.\\
+		\hline
+		\hline
+	\end{tabular}
+\end{table}
 
-    \end{tabular}
+\begin{table}[H]
+	\centering
+	\caption{Protocol for the transmission test.}
+	\label{tab:UT003}
+	\begin{tabular}{m{0.2\textwidth} m{0.7\textwidth}}
+		\multicolumn{2}{l}{\textbf{UT003} }\\
+		\hline
+		\textbf{Description} & Transmission test\\
+		\hline
+		\hline
+		\textbf{Test protocol} & Module to be connected to the microcontroller with firmware loaded with the required communication peripherals to be initialised. The microcontroller transmits a set of data to the device in polling mode. If succesful, the function will return a succesful return status. Otherwise the error code will be returned.  \\
+		\hline
+		\hline
+	\end{tabular}
+\end{table}
 
-    \label{tab:UT001}
+\begin{table}[H]
+	\centering
+	\caption{Reception Test}
+	\label{tab:UT004}
+	\begin{tabular}{m{0.2\textwidth} m{0.7\textwidth}}
+		\multicolumn{2}{l}{\textbf{UT004} }\\
+		\hline
+		\textbf{Description} & Transmission test\\
+		\hline
+		\hline
+		\textbf{Test protocol} & Module to be connected to the microcontroller with firmware loaded with the required communication peripherals to be initialised. The microcontroller transmits a request to recieve data in polling mode. The device polls the peripheral for the data for a user specified period of time. If succesful, the function will return a succesful return status. Otherwise the error code will be returned.    \\
+		\hline
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Reception Test}
+	\label{tab:UT005}
+	\begin{tabular}{m{0.2\textwidth} m{0.7\textwidth}}
+		\multicolumn{2}{l}{\textbf{UT005} }\\
+		\hline
+		\textbf{Description} & Interrupt test\\
+		\hline
+		\hline
+		\textbf{Test protocol} & Module to be connected to the microcontroller with firmware loaded with the required communication peripherals to be initialised. The required interrupt is configured and the interrupt condition is created to run after initialisation. An internal timer is set to a user specified value and is polled while the program runs. When the condition is met and the trigger is generated, the timer is stopped and the device should enter the interrupt handler. If this was successful, a "Pass" is printed to the serial. If a timeout occurs then a "Fail" is printed to the screen. \\
+		\hline
+		\hline
+	\end{tabular}
 \end{table}
 
 
+\section{Subsystem test}
 \begin{table}[H]
     \centering
-    \caption{Unit Test 2: GPS Connection Test  test outlining procedure, test cases and relation to acceptance tests}
+    \caption{Subsystem test 2: Signal acquisition test outlining procedure, test cases and relation to acceptance tests.}
     \begin{tabular}{|m{0.2\textwidth}|m{0.75\textwidth}|}
     \hline
-       \textbf{Unit Test 2: }  &  GPS connection test\\
+       \textbf{SUBSYS002: }  &  Wireless module signal acquisition test\\
        \hline
         \textbf{Input: } &  None\\
         \hline
-        \textbf{Output: } & GPS Serial Output\\
+        \textbf{Output: } & Serial output\\
         \hline
         \textbf{Tasks: } & \begin{enumerate}
         \vspace{1mm}
-            \item Connect GPS to external Power
-            \item place system in open environment free of obstructions
-            \item set timeout to 5 minutes
-            \item wait for device to lock on to a gps signal
+            \item Connect module to external power.
+            \item place device in open environment free of obstructions.
+            \item set timeout to 5 minutes.
+            \item Request device return signal status
             \item evaluate return status
         \end{enumerate}\\
         \hline
@@ -1144,13 +1190,13 @@ typedef struct
         \hline
 
     \end{tabular}
-    \label{tab:UT002}
+    \label{tab:SUBSYS002}
 \end{table}
 
 
 \begin{table}[H]
     \centering
-    \caption{Unit Test 3: GPS Data Validity Test  test outlining procedure, test cases and relation to acceptance tests}
+    \caption{Unit Test 3: GPS data validity test outlining procedure, test cases and relation to acceptance tests}
     \begin{tabular}{|m{0.2\textwidth}|m{0.75\textwidth}|}
     \hline
        \textbf{Unit Test 3: }  &  GPS Data Validity Test\\
@@ -1174,40 +1220,41 @@ typedef struct
             \item Valid NMEA message with unrecognised address
             \item Valid NMEA message with invalid checksum
             \item Invalid message structure,
-            \item Null String
+            \item Null string
         \end{enumerate}\\
         \hline
     \end{tabular}
 
-    \label{tab:UT003}
+    \label{tab:SUBSYS}
 \end{table}
 
 \begin{table}[H]
     \centering
-    \caption{Unit Test 4: Memory Verification test procedure, test cases and relation to acceptance tests}
+    \caption{Unit Test 4: DMA circular buffer input stream tests procedure and test case.}
     \begin{tabular}{|m{0.2\textwidth}|m{0.75\textwidth}|}
     \hline
-       \textbf{Unit Test 4: }  &  Memory Module Validity Test\\
+       \textbf{Unit Test 4: }  &  DMA circular buffer verification test.\\
        \hline
-        \textbf{Input: } &  None\\
+        \textbf{Input: } &  Data of an unknown size\\
         \hline
-        \textbf{Output: } & Return Status\\
+        \textbf{Output: } & Return status and pointer to buffer in memory\\
         \hline
         \textbf{Tasks: } & \begin{enumerate}
         \vspace{1mm}
-            \item Connect To Memory Module
-            \item Verify Read Operation
-            \item Verify Write Operation
-            \item Verify Delete opperation
+            \item Connect to device through communication port
+            \item wait for data to be recieved
+            \item validate return status
+            \item validate data returned
             
         \end{enumerate}\\
         \hline
         \textbf{Test Case: } & \begin{enumerate}
             \vspace{1mm}
             \item byte
-            \item Page of ordered Data
-            \item Page of Un-ordered Data
-            \item random length of data
+            \item array of known length
+            \item string of unknown length
+            \item No data 
+            \item array of maximum integer size
         \end{enumerate}\\
         \hline
     \end{tabular}
@@ -1217,29 +1264,28 @@ typedef struct
 
 \begin{table}[H]
     \centering
-    \caption{Unit Test 5: Power Module Verification test outlining procedure, test cases and relation to acceptance tests}
+    \caption{Unit Test 5: Interrupt test proceedure,test cases and pass conditions}
     \begin{tabular}{|m{0.2\textwidth}|m{0.75\textwidth}|}
     \hline
-       \textbf{Unit Test 5: }  &  Power Module Verification Test\\
+       \textbf{Unit Test 5: }  &  Interrupt tests\\
        \hline
-        \textbf{Input: } &  Power Source Of Known Voltage\\
+        \textbf{Input: } &  Interrupt request\\
         \hline
-        \textbf{Output: } & Output Voltage\\
+        \textbf{Output: } & Light emitting diode (LED) and information printed to serial monitor.\\
         \hline
         \textbf{Tasks: } & \begin{enumerate}
         \vspace{1mm}
-            \item Connected Power Module to a variable input source
-            \item Connect voltmeter
-            \item Set Voltage to a known value and measure the output
-            \item The Output value should be 5V for $5V < V_{SS} < V_{max}$ 
+            \item Configure interrupt in firmware to be enabled
+            \item set the trigger condition
+            \item Run the test and initiate the interrupt trigger condition
+            \item If the code successfully enters the handler, flash an LED and print PASS to serial
         \end{enumerate}\\
         \hline
         \textbf{Test Case: } & \begin{enumerate}
             \vspace{1mm}
-            \item 5V Input - 5V output
-            \item 7.2V Input - 5V output
-            \item 0V Input - 0V output
-            \item 4.2V - 4.2V output
+            \item Manual interrupt trigger
+            \item Conditional interrupt trigger
+            
         \end{enumerate}\\
         \hline
     \end{tabular}
@@ -1249,10 +1295,10 @@ typedef struct
 
 \begin{table}[H]
     \centering
-    \caption{Unit Test 6: Transmission test  test outlining procedure, test cases and relation to acceptance tests}
+    \caption{Unit Test 6: Transmission test procedure, test cases and relation to acceptance tests}
     \begin{tabular}{|m{0.2\textwidth}|m{0.75\textwidth}|}
     \hline
-       \textbf{Unit Test 6: }  &  Iridium Transmission Test\\
+       \textbf{Unit Test 6: }  &  Iridium transmission test\\
        \hline
         \textbf{Input: } &  message buffer\\
         \hline

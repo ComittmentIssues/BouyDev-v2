@@ -3,47 +3,518 @@
 %****************************************************
 
 \chapter{Testing}
-\label{ch:ch4}
-A final version of the firmware is validated using the standards outlined in IEEE1012\footnote{IEEE Standard for System, Software, and Hardware Verification and Validation \cite{IEEE_STDVV}}. A series of unit tests were written to validate the subsystems and ensure that each module conforms to the outlined specification. Due to time constraints, rigorous data validation tests were not performed. In addition,IMU data and wave simulation testing will not be included.All subsystems are tested as a proof of concept using the unit tests outlined in the design methodology and the subsytem tests outlined in Appendix \ref{tab:UT001} to \ref{tab:UT008}. Finally, due to the 2020 COVID pandemic, final system evaluation could not be conducted in Antarctica. 
+\label{ch:ch6}
 
-Once subsystem testing was completed, the following  full system tests were conducted
+From Chapter \ref{ch:ch5}, A final set of firmware was developed for two versions of SHARC buoy. The firmware was written for the hardware platforms described in Chapter \ref{ch:ch4} to meet the user requirements (see Chapter \ref{ch:ch3}). This chapter outlines the testing procedure undertaken to validated the device on the following levels.
+
+\begin{enumerate}
+	\item low level
+	\item Subsystem level
+	\item Full system level
+	\item Remote test
+\end{enumerate}
+
+The testing procedure initiated with low level testing. This was conducted on the firmware with unit tests at each layer (see Figure \ref{fig:soft_arch}) to ensure that the functions written for each subsystem behaved as described in Chapter \ref{ch:ch4}. Then, testing was conducted on a subsystem level to test the base functionality of the module againts the system requirements. Then the system level tests were conducted to test the buoy's response in a controlled environment followed by a Remote level test where the buoy was deployed in an unknown environment to validate the overall performance against the user requirements. Due to time constraints, rigorous data validation tests were not performed. In addition, IMU data and wave simulation testing falls outside the scope of the project.All subsystems are tested as a proof of concept using the unit tests outlined in the design methodology and the subsytem tests outlined in Appendix \ref{tab:UT001} to \ref{tab:UT008}. Finally, due to the 2020 COVID pandemic, final system evaluation of SHARC buoy version 2 could not be conducted during a final research expedition to the Southern Ocean Marginal Ice Zone.  \par 
+
+
+
+\section{Subsystem tests}
+
+%Unit test:
+%describe and test the base functionality of different firmware modules
+
+
+In this section, the low level testing is described. As discussed in Sub section \ref{subsec:ch5_timing} Each subsystem has a different data requirement and data rate. The firmware was designed to cater to these requirements ensuring that the correct communication ports were initailised, the correct protocol was used and that an uninterrupted stream of data was created to prevent blocking and timing issues. \par 
+ 
+ \subsection{Unit Tests}
+The testing procedure for each subsystem is outlined below. The base functionality of each device is given with the unit test used to verify the functionality. The unit tests were designed IEEE1012\footcite{IEEE_STDVV} as a structural reference to ensure that the outcome of each tests was The unit used  were written to validate the low level functionality of the subsystems and ensure that each module conforms to the outlined specification. Included in each function is a numeric return status describing how the function exited. Table \ref{tab:utsumm} gives an overview of the unit tests shown in Appendix \ref{tab:UT001} to \ref{tab:UT008}.
 
 \begin{table}[H]
-    \centering
-    \caption{Description of accelerated system test protocol.}
-    \begin{tabular}{|m{0.2\textwidth}|m{0.7\textwidth}|}
-    \multicolumn{2}{l}{\textbf{SYS001} }\\
-    \hline
-    \textbf{Description} & Accelerated System Test\\
-    \hline
-    \textbf{Test Protocol:} &  The Buoy is fully assembled with all sensors connected and configured. The sample interval is set to 10 seconds with transmission occurring every 4 samples. Batteries are inserted and the device is placed inside the enclosure.The buoy is left outside in an area with an unobstructed view of the sky. The system is left to run for an hour and the incoming data is monitored through the Rock-block data portal.\\
-    \hline
-    \multicolumn{2}{l}{\textbf{SYS002} }\\
-    \hline
-    \textbf{Description} &  Power Test\\
-    \hline
-    \textbf{Test Protocol:} & The buoy was connected to an external power supply with all modules powered up and enabled. The INA219 power monitor was connected to an external data logger. The data logger measures the battery current, shunt voltage and load voltage of the system, The device was set with half an hour intervals and data was recorded for a single life cycle. The buoy was also set to output time-stamped state transitions to synchronise the current draw to each state of the system\\
-    \hline
-    \multicolumn{2}{l}{\textbf{SYS003} }\\
-    \hline
-    \textbf{Description} &  Freezer Test\\
-    \hline
-    \textbf{Test Protocol:} &  The Device was placed in a freezer for an hour to test the performance of the device in low temperatures. The device was modified to prevent transmissions from occurring. The freezer was set to $-20\degree C$  and the buoy status was visually monitored. After the test, the buoy was placed in a room-temperature environment where another accelerated test was performed.\\
-    \hline
-    \multicolumn{2}{l}{\textbf{SYS004} }\\
-    \hline
-    \textbf{Description} &  Full System Test\\
-    \hline
-    \textbf{Test Protocol:} &  All modules were assembled and the buoy placed in a power off state. The sample frequency was set to once every 30 minutes with IMU data logging every 2 hours. At the end of the sample period, the device transmitted two data packets: 4 x drift data packets and 1 x IMU data packet. The data was monitored through the rock-block message portal. \\
-    \hline
-    
-    \end{tabular} 
-    \label{tab:test_Systemtest_descrip}
+	\caption{Objectives of the unit tests defined in Appendix \ref{app:Unittests} showing how the test protocols help validate the firmware in the device peripheral layer.}
+	\label{tab:utsumm}
+	\setlength{\extrarowheight}{5pt}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{l >{\raggedright\arraybackslash}m{\textwidth}}
+			\hline
+			\textbf{Unit test} &\textbf{purpose}\\
+			\hline
+			\hline
+			%initialisation and de initialisation  tests - function routine
+			UT001 & Test the initialization and deinitialisation routine for each hardware sub module using the following acceptance criteria The test ensures the firmware can run a successful initialisation routine,the function can recognise when errors occur and the function can detect when the device is offline.\\
+			\hline
+			%Wireless module data acquisition - modules connecting to satelites
+			UT002 & Test the wireless modules line of sight by polling for signal strength or polling the device until it acquires data from a wireless source. \\
+			\hline
+			%General communication tests
+			UT003 & tests the data flow from the microcontroller through to the submodule by polling to transmit or receive data. Test returns an error code based on how the test exited.\\
+			\hline
+			%Data validation test - functions that validate data
+			UT004 & This test is used to verify functions used to safeguard against data corruption by checking that the function can recognise a valid and invalid data based on the implementation of the function.\\
+			\hline
+			%DMA circular buffer routines
+			UT005 &  Tests the UART DMA circular buffer implementation to ensure the stream does not corrupt data and can handle errors.\\
+			\hline
+			%General functions that interface with the sensor through communication functions
+			UT006 & Tests the functions that interface with the sensors to ensure that the data recieved is valid and no errors occur\\
+			\hline
+			%Error handling
+			UT007 & Tests a firmware function under fail conditions to ensure that the function responds by exiting with the appropriate status code without freezing or generating a hard fault.\\
+			\hline 
+			\hline
+		\end{tabular}
+	}
+
 \end{table}
+
+%TODO fix the unit tests in the appendix
+
+
+
+\subsection{GPS}
+
+\subsubsection{Communication peripheral functionality}
+
+The GPS module communicates through a Universal Asynchronous Receive/Transmission UART port with communication parameters shown in Table \ref{tab:gps_mod}. As discussed in Section \ref{subsec:CH5_gpsss}, a DMA circular buffer was implemented to provide a seamless stream of data directly to non-volatile memory. An input capture channel in slave reset mode was added to the receiver pin to turn the DMA stream off after the line was idle for a defined period. This allowed for a full message of unknown size to be transmitted without polling or generating an interrupt on a byte by byte basis. Table \ref{tab:gps_base} shows the baseline functionality required to achieve this and the methods used to verify this functionality
+
+	\begin{table}[H]
+		\centering
+		\caption{Baseline functionality of the GPS UART communication module of the firmware and the unit test used to verify this functionality}
+		\label{tab:gps_base}
+		\setlength{\extrarowheight}{5pt}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{c >{\raggedright\arraybackslash}m{\linewidth} l}
+				\hline
+				& \textbf{Base function} & \textbf{Validation} \\
+				\hline 
+				\hline
+				1 &  Initialise UART communication, TIM input capture slave reset and output compare, DMA peripheral to memory stream. & UT001\\
+				\hline
+				\multirow{2}{*}{2} & \multirow{2}{\linewidth}{Transmit a message through UART DMA stream.} & UT003 \\ && UT006\\
+				\hline
+					\multirow{3}{*}{3}  &  \multirow{3}{\linewidth}{Receive a message through UART DMA circular buffer.} & UT003\\ && UT005 \\ && UT006\\ 
+				\hline
+				4 & Handle interrupts generated from UART communication stream. & UT005\\
+				\hline
+				5 & Handle errors from the data stream. & UT007\\
+				\hline
+				\hline
+			\end{tabular}}
+	\end{table}
+
+To ensure the base level functional requirements were met, the device was tested under the conditions outlined in acceptance test AT001 (Table \ref{tab:AT001}). Then, robustness testing was performed using the conditions outlined in acceptance test AT002 Table \ref{tab:AT002} for fail conditions and AT004 for robustness testing Table \ref{tab:AT004}.
+\subsubsection{Subsystem functionality}
+
+On a subsystem level, the system needs to know the device is online and working. This can be achieved by requesting an acknowledgement. To do this, the processor transmits an acknowledgement string to the device. If successfilly recieved, the device will either return an ACK-ACK (acknowledge) or ACK-NACK (not acknowledged). No response means the device is offline while a NACK means the device does not recognise the message sent.Then, the device messages and communication parameters need to be configured. The u-blox NEO 7M and NEO M9N come preset with a UART baud rate of 9600 bits/s \cite{UBLOX_M7N_DATA} and 38400 bit/s \cite{UBLOX_M9N_DATA} respectively. The baud rate was increased to 115200 bits/s to allow for faster data reception resulting in a longer idle period between messages allowing for more efficient message detection. Then, the GSA, GLL and ZDA messages must be enabled. Finally, the incoming messages needed to be tested for validity before the data are extracted and placed in an ice drift packet. This results in the following subsystem functionality.
+
+	\begin{table}[H]
+	\centering
+	\caption{Baseline functionality of the GPS UART communication module of the firmware and the test used to verify subsystem functionality}
+	\label{tab:gps_subsys}
+	\setlength{\extrarowheight}{5pt}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{c >{\raggedright\arraybackslash}m{\linewidth} l}
+			\hline
+			& \textbf{Subsystem function} & \textbf{Validation} \\
+			\hline 
+			\hline
+			1 & Request acknowledgement from the GPS. & UT006\\
+			\hline
+			2 &  Configure GPS Baudrate to 115200 bit/s & UT006 \\
+			\hline
+			3 & Configure GPS messages to output ZDA, GLL and GSA messages & UT006\\ 
+			\hline
+			4 & Determine whether device has acquired satellite signal & UT002\\
+			\hline
+			5 & Recieve NMEA ZDA, GLL and GSA message strings & UT005\\
+			\hline
+			6 & Validate and classify message strings & UT004\\
+			\hline
+			7 & Timeout if no signal acquired & UT007\\
+			\hline
+			\hline
+	\end{tabular}}
+\end{table}
+
+Once complete, the full subsystem underwent robustness testing AT004 (Table \ref{tab:AT004}) and low temperature testing AT008 (Table \ref{tab:AT008}). Additionally, a power test  AT007 (Table \ref{tab:AT007}) was performed to ensure the power characteristics matched to those given in the datasheet. Finally the positional data was verified using a reference GPS and accurate epoch time counter.
+
+\subsection{Iridium modem}
+
+\subsubsection{Communication peripheral functionality}
+
+Much like the GPS, the Iridium modem transmits and receives data through a UART port. A circular buffer such as the one for the GPS was implemented for the Iridium modem to allow for efficient data transfer of messages of an unknown length. This would allow for variable-sized messages to be transmitted should any sensors need to be changed or data packets need to be resized. Furthermore, power control was required to keep the modem in a low power state. This was achieved through a digital microcontroller pin connected to the On/Off pin on the modem. The pin needed to stay active low in low power mode to ensure the device was switched off for the full cycle until necessary. This results in the following base functionality:
+
+
+\begin{table}[H]
+	\centering
+	\caption{Baseline functionality of the Iridium UART communication peripheral of the firmware and the test used to verify unit functionality.}
+	\label{tab:iridium_base}
+	\setlength{\extrarowheight}{5pt}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{c >{\raggedright\arraybackslash}m{\linewidth} l}
+			\hline
+			& \textbf{Base function} & \textbf{Validation} \\
+			\hline 
+			\hline
+			1 &  Initialise/deinitialise UART communication on the serial port with interrupt generated when the line is idle. & UT001\\
+			\hline
+			\multirow{2}{*}{2} & \multirow{2}{\linewidth}{Transmit a message through UART DMA stream.} & UT003 \\ && UT006\\
+			\hline
+			\multirow{3}{*}{3}  &  \multirow{3}{\linewidth}{Receive a message through UART DMA circular buffer.} & UT003\\ && UT005 \\ && UT006\\ 
+			\hline
+			4 & Handle interrupts from UART commnunication stream & UT005 \\
+			\hline
+			5 & Handle errors from UART communication stream & UT006 \\
+			\hline 
+			6 & Control the power mode with a digital output pin & UT008 \\
+			\hline
+			7 & Receive interrupts from ring alert pin & UT008 \\
+			\hline
+			\hline
+	\end{tabular}}
+\end{table}
+
+The base functionality was tested in ideal conditions described in AT001 (Table \ref{tab:AT001}), fault testing in conditions described in AT002 (Table \ref{tab:AT002}) and robustness testing in  AT004 (Table \ref{tab:AT004}).
+
+\subsubsection{Subsystem functionality}
+
+On a subsystem level, the firmware controls the RockBLOCK 9603 modem using AT commands. These are command strings that begin with "AT" and finish with a "$\backslash$r" character. The device comes preconfigured to communicate at 19200 bits/s with no flow control. To ensure the device is working, the microcontroller can request acknowledgement with the command "AT$\backslash$r" which shold return "OK" if successful. The subsystem should therefore be able to interpret the success of a command based on the return function. The modem accepts data in the form of binary or ASCII messages thereby requiring routines to upload data in either ASCII or binary format. Finally, the microcontroller initiates a transmission by sending the command "AT+SBDIX$\backslash$r". The transmission takes 10 seconds to complete before a return status is returned. Finally the device needs to be put to sleep mode to reduce current when inactive and turned on when required. This was done by interfacing with the modem through the digital on-off control pin. This results in the following subsystem functionality:
+
+\begin{table}[H]
+	\centering
+	\caption{Baseline functionality of the Iridium UART communication peripheral of the firmware and the test used to verify unit functionality.}
+	\label{tab:iridium_subsys}
+	\setlength{\extrarowheight}{5pt}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{c >{\raggedright\arraybackslash}m{\linewidth} l}
+			\hline
+			& \textbf{Subsystem function} & \textbf{Validation} \\
+			\hline 
+			\hline
+			1 &  Request acknowledgement & UT006\\
+			\hline
+			\multirow{2}{*}{2} & \multirow{2}{*}{Interpret return status*} & UT004\\&& UT005\\
+			\hline
+			3 &  Upload AT command &  UT006\\
+			
+			4 & Upload ASCII message & UT006 \\
+			\hline
+			5 & Upload Binary message & UT006 \\
+			\hline 
+			6 & Aqcuire network signal & UT002 \\
+			\hline
+			7 & Initiate satellite transmission & UT006 \\
+			\hline
+			8 & Handle transmission errors &  UT007\\
+			\hline
+			\hline
+	\end{tabular}}
+\end{table}
+
+Once complete, the full subsystem underwent robustness testing AT004 (Table \ref{tab:AT004}) and low temperature testing AT008 (Table \ref{tab:AT008}), a transmission test and a power test  AT007 (Table \ref{tab:AT007}) to confirm the power characteristics and to ensure that the device was turned off during all periods of inactivity.
+
+\subsection{Environmental sensor}
+\subsubsection{Communication peripheral functionality}
+
+The microcontroller interfaces with the BMP280 sensor through SPI. As shown in the data requirements, the device will be sampling data from the sensor in short burst reads. A maximum of 24 bytes is transferred at a given time and this occurs when reading the compensation registers \cite{BMP280_Datasheet}. Therefore, the sensor would be operated in a simple polling mode with data read in bursts per the recommendations of \textcite{BMP280_Datasheet} to ensure that data do not arrive fragmented. This would also greatly simplify the communication peripheral functionality which is shown in Table \ref{tab:env_base}. Finally, the software needs to be able to write to transmit data to specific registers on the sensors to control the configuration, output type and power mode
+
+\begin{table}[H]
+	\centering
+	\caption{Baseline functionality of the BMP280 SPI communication peripheral of the firmware and the tests used to verify unit functionality.}
+	\label{tab:env_base}
+	\setlength{\extrarowheight}{5pt}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{c >{\raggedright\arraybackslash}m{\linewidth} l}
+			\hline
+			& \textbf{Base function} & \textbf{Validation} \\
+			\hline 
+			\hline
+			1 &  Initialise/deinitialise SPI communication & UT001\\
+			\hline
+			2 & Read from an 8-bit register & UT003 \\
+			\hline
+			3 & write to an 8-bit register & UT003\\
+			\hline
+			4 & Validate incoming data & UT004\\
+			\hline
+			5 & Handle errors. & UT007\\
+			\hline
+			\hline
+	\end{tabular}}
+\end{table}
+
+The functional requirements were further validated using test protocols AT001 (Table \ref{tab:AT001}) for connectivity testing , AT002 (Table \ref{tab:AT002})  for fault testing and AT004 (Table \ref{tab:AT004}) for robustness testing. This ensured that the baseline functional requirements were met.
+
+\subsubsection{Subsystem functionality}  
+
+On a subsystem level, interactions with the BMP280 occur by reading and writing to the onboard registers. The device can be tested for functionality by reading the value from the \textit{whoami} register. This chec ensures the device is online and functional. Furthermore, the BMP280 is fully programmable and can be configured by writing to the \textit{ctrl\_meas} and \textit{config} registers at memory addresses 0xF4 and 0xF5 respectively. When a conversion takes place, the status register bits are set to 1 to signify that a conversion is taking place. Being able to read this register will allow for hte microcontroller to synchronize with the BMP280 measurement cycle. Finally the factory calibration values need to be read and calculated to calculate the temperature and pressure values from their raw ADC values. This results in the following Subsystem functionality shown in Table \ref{tab:env_subsys}.
+
+\begin{table}[H]
+	\centering
+	\caption{Baseline functionality of the BMP280 SPI communication peripheral of the firmware and the tests used to verify unit functionality.}
+	\label{tab:env_subsys}
+	\setlength{\extrarowheight}{5pt}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{c >{\raggedright\arraybackslash}m{\linewidth} l}
+			\hline
+			& \textbf{Subsystem function} & \textbf{Validation} \\
+			\hline 
+			\hline
+			1 & Read device ID. & UT004\\	\hline
+			2 & Configure device.& UT006 \\ \hline
+			3 & Set Power mode. & UT006\\ \hline
+			4 & Trigger conversions.& UT006\\ \hline
+			5 & Read measurement status. & UT006\\ \hline
+			6 & Read raw ADC values. & UT006\\ \hline
+			7 & Read factory calibration parameters.& UT006\\ \hline
+			8 & Calculate Pressure and temperature from ADC values. &UT004 \\ \hline
+			9 & Handle errors.& UT007 \\
+			\hline
+			\hline
+	\end{tabular}}
+\end{table}
+
+During testing, the sensor was configured in weather station mode which was recommended for environmental monitoring with sample rates greater than once per second \cite{BMP280_Datasheet}. These configuration parameters are shown in Table \ref{tab:bmp_param}
+
+\begin{table}[H]
+	\centering
+	\caption{Table showing the configuration parameters for the BMP280 environmental sensor for the final version of the buoy firmware.}
+	\label{tab:bmp_param}
+	\begin{tabular}{l c}
+		\hline
+		\hline
+		Temperature oversample & 1\\
+		\hline
+		Pressure oversample & 1\\
+		\hline
+		Infinite impulse response (IIR) coefficients & off\\
+		\hline
+		Measurement mode & Forced \\
+		\hline
+		Standby time [s] & off\\
+		\hline
+		\hline
+	\end{tabular}
+\end{table}
+
+ Placing the device in forced conversion mode required the microcontroller to manually trigger a conversion. The standby time measures the time between each measurement completed by the sensor. Since the device is in forced mode, this parameter is not used. When the device was not performing a measurement, it was in sleep mode which conserved power. The subsystem was fully tested using AT004 (Table \ref{tab:AT004}) and AT008 (Table \ref{tab:AT008}) to ensure the device performed under stress and in low temperature. Measurements were validated by placing the buoy in a controlled environment and comparing the measured temperature and pressure to an accurate reference.
+\subsection{Power monitor}
+
+
+\subsubsection{Communication peripheral functionality}
+
+The INA219 communicates with the microcontroller over I$^2$C. Unlike the BMP280 or the MPU6050, this device has a 16-bit architecture requiring a two-byte read of data. Data are sampled in 30 minute intervals with a single data point read from this device for shunt voltage, bus voltage, current and power. Therefore, in line with the approach taken with the BMP280, the micro controller will read and write from the sensor in polling mode. The device begins communication upon reception of an address b Any errors that occur during communication result in error codes returned that give more information about the type of issue encountered. The baseline functionality for the INA219 power monitor is shown in Table \ref{tab:pwr_base}.
+
+\begin{table}[H]
+	\centering
+	\caption{Baseline functionality of the INA219 I$^2$C communication peripheral of the firmware and the tests used to verify unit functionality.}
+	\label{tab:pwr_base}
+	\setlength{\extrarowheight}{5pt}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{c >{\raggedright\arraybackslash}m{\linewidth} l}
+			\hline
+			& \textbf{Subsystem function} & \textbf{Validation} \\
+			\hline 
+			\hline
+			1 & Initialise/deinitialise I$^2$C peripheral. & UT001\\	\hline
+			2 & Transmit data to a 16-bit register on the sensor.& UT003 \\ \hline
+			3 & Read data from a 16-bit register on the sensor. & UT003\\ \hline
+			4 & Validate incoming data& UT004\\ \hline
+			5 & Handle errors & UT007\\ \hline
+			\hline
+			\hline
+	\end{tabular}}
+\end{table}
+
+The functional requirements were further validated using test protocols AT001 (Table \ref{tab:AT001}) for connectivity testing , AT002 (Table \ref{tab:AT002})  for fault testing and AT004 (Table \ref{tab:AT004}) for robustness testing. This ensured that the baseline functional requirements were met.
+\subsubsection{Subsystem functionality}
+
+The microcontroller initiates communication with The INA219 by transmitting an address byte to the sensor. This address byte is set by the pins A1 and A0 \cite{INA219} and can take on 16 values. For this version, both pins were set to ground generating an address byte of 0b1000 0000 (0x80).  Transmitting this address byte allows the microcontroller to additionally check if the device is online. The device also comes preloaded with a configuration value in the register which resets during a power cycle \cite{INA219}. This value can also be used to chec for previous configurations or corrupted chips. The INA219 is also the only sensor in the SHARC buoy system to require a manual calibration before use. The process for calibrating this sensor is given in \cite{INA219} and was implemented in the firmware to calibrate the sensor for 16V bus range and a maximum 1.2 A. The function outputs an LSB value that scales the ADC readings from the sensor to match the actual power information being sampled. The device is fully programmable. Therefore, sensor configuration functions were written to easily configure the sensor through a parametric function. These functions were validated by reading the registers after a value was written to it to see if it had accepted the new configurations. Finally, the device was configured for a maximum bus range voltage of 16V with an ADC resolution of 12 bits for both shunt and bus voltages. The device was also configured to opperate in triggered mode where the microcontroller manually triggers a single measurement in the device. Once complete, the device is placed into sleep mode. This functionality is shown in Table \ref{tab:pwr_subsys}.
+
+\begin{table}[H]
+	\centering
+	\caption{Subsystem functionality of the INA219 I$^2$C communication peripheral of the firmware and the tests used to verify unit functionality.}
+	\label{tab:pwr_subsys}
+	\setlength{\extrarowheight}{5pt}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{c >{\raggedright\arraybackslash}m{\linewidth} l}
+			\hline
+			& \textbf{Subsystem function} & \textbf{Validation} \\
+			\hline 
+			\hline
+			1 & Request acknowledgment from the sensor. & UT004\\	\hline
+			2 & Configure device.& UT006 \\ \hline
+			3 & Calibrate device& UT006\\ \hline
+			4 & Trigger conversion & UT006\\ \hline
+			5 & Read data and convert from ADC value & UT006\\
+			\hline
+			\hline
+	\end{tabular}}
+\end{table}
+
+The subsystem was fully tested using AT004 (Table \ref{tab:AT004}) and AT008 (Table \ref{tab:AT008}) to ensure the device performed under stress and in low temperature. Power,  current and voltage values were verified by connecting the sensor across a load of known resistance and voltage and measuring the values.
+\subsection{Flash chips}
+
+\subsubsection{Communication peripheral functionality}
+The library for the AT45DB641E flash chips was written by N. Bowden and was designed to allow the microcontroller to interface with multiple flash chips on the same SPI port. each chip had a chip select pin connected to a unique GPIO pin on the microcontroller. This allowed for individual chips to be selected. This requires the microcontroller to keep track of which chips are connected to the lines in order to keep careful control over the flow of data between the chips. As a safeguard, the write protect pins of each chip were connected to a single control pin. This would prevent data from being corupted or unexpectedly overwritten. The flash chips communicate via SPI requiring the library to have the baseline functionality shown in Table \ref{tab:flash_comm}.
+
+\begin{table}[H]
+	\centering
+	\caption{Baseline functionality of the AT45DB641E flash chips SPI  communication peripheral of the firmware and the tests used to verify unit functionality.}
+	\label{tab:flash_comm}
+	\setlength{\extrarowheight}{5pt}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{c >{\raggedright\arraybackslash}m{\linewidth} l}
+			\hline
+			& \textbf{Subsystem function} & \textbf{Validation} \\
+			\hline 
+			\hline
+			1 & Initialise/Deinitialise SPI peripheral & UT001\\	\hline
+			2 & Initialise chip select and write protect pins.& UT001 \\ \hline
+			3 & SPI  write to a memory location. & UT003\\ \hline
+			4 & SPI read from a memory location.& UT003\\ \hline
+			5 & Enable/disable chips & UT008\\ \hline
+			6 & Enable/disable write protect & UT008 \\ \hline
+			7 & Handle errors & UT007\\ \hline
+			\hline
+			\hline
+	\end{tabular}}
+
+
+\end{table}
+The functional requirements were further validated using test protocols AT001 (Table \ref{tab:AT001}) for connectivity testing , AT002 (Table \ref{tab:AT002})  for fault testing and AT004 (Table \ref{tab:AT004}) for robustness testing. This ensured that the baseline functional requirements were met.
+
+\subsubsection{Subsystem functionality}
+
+Each chip is monitored by the firmware to ensure that there is sufficient memory and the devices are online. The chips are given a number and a status written to the very first byte of memory on each chip When one chip reaches full capacity,the status is set to full and the next chip is formatted and set to to active. When the last chip is full, the first chip is selected again and the memory cycle restarts If a memory chip suddenly stops working, the software will find the next working chip in order and set that to active. This method was tested by taking chips offline one at a time and writting to the last page of memory in the chip. This method forms a circular data buffer The number of the active chip is stored in the first byte of the 32 bit Back up registers in the RTC.The primary role of the flash chips is to provide a permanent, ordered storage solution to large data sets. The firmware was designed to manage the data by constantly tracking the amount of data saved to memory and the latest occupied memory address. Memory addresses are three bytes long and the memory address with the corresponding chip number These values are stored in the RTC Back up register. Packets of data are written to memory at the end of every sample routine in sequential order increment the memory address by the set number of bytes. The firmware reads the chip data by calculating the difference in the starting memory address and the last known memory address to determine th number of bytes to read and performing a burst read starting at the start address. This subsystem functionality is shown in Table \ref{tab:subsys_flash}
+
+\begin{table}[H]
+	\centering
+	\caption{Subsystem functionality of the AT45DB641E flash chips SPI communication peripheral of the firmware and the tests used to verify unit functionality.}
+	\label{tab:subsys_flash}
+	\setlength{\extrarowheight}{5pt}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{c >{\raggedright\arraybackslash}m{\linewidth} l}
+			\hline
+			& \textbf{Subsystem function} & \textbf{Validation} \\
+			\hline 
+			\hline
+			1 & Read chip status & UT004\\	\hline
+			2 & Set chip status.& UT006 \\ \hline
+			3 & Get memory address & UT006\\ \hline
+			4 &Set memory address& UT006\\ \hline
+			5 & Read Chip Data & UT006\\ \hline
+			6 & Write Chip Data & UT006 \\ \hline
+			7 & Delete Chip Data& UT006\\ \hline
+			8 & Get active chip & UT005\\ \hline
+			9 & Set active chip& UT007\\ \hline
+			10 & Handle errors & UT007\\ \hline
+			\hline
+			\hline
+	\end{tabular}}
+\end{table}
+
+The functional requirements were further validated using test protocols AT001 (Table \ref{tab:AT001}) for connectivity testing , AT002 (Table \ref{tab:AT002})  for fault testing and AT004 (Table \ref{tab:AT004}) for robustness testing.
+\subsection{IMU}
+
+\subsubsection{Communication peripheral functionality}
+The IMU communicates with the microcontroller via I$^2$C. The firmware transmitted data via polling methods. However, due to the long sample period required by the IMU (see Chapter \ref{ch:ch5}), this method would not be viable as it would block the CPU responding to other critical functions (See Section \ref{subsec:ch5_asynch}). A decision was made to use an interrupt based sampling method by setting an external interrupt line on the microcontroller and connecting it to the interrupt pin on the IMU. Therefore the baseline functionality for this device can be shown in Table \ref{tab:base_imu} 
+
+\begin{table}[H]
+	\centering
+	\caption{Baseline functionality of the Iridium UART communication peripheral of the firmware and the test used to verify unit functionality.}
+	\label{tab:base_imu}
+	\setlength{\extrarowheight}{5pt}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{c >{\raggedright\arraybackslash}m{\linewidth} l}
+			\hline
+			& \textbf{Base function} & \textbf{Validation} \\
+			\hline 
+			\hline
+			1 &  Initialise/deinitialise I$^2$C & UT001\\
+			\hline
+			2 & Initalise/deinitialse GPIO pin for digital input and External interrupt line & UT001\\
+			\hline
+			3 & Write data to 8-bit register on the sensor & UT003\\
+			\hline
+			4 & Read data from an 8-bit register on the senor & UT003\\
+			\hline
+			5 & Recieve data in an interrupt-based sample stream& UT005\\
+			\hline
+			6 & Handle interrupts & UT005 \\
+			\hline
+			7 & Handle errors & UT007 \\
+			\hline
+			\hline
+	\end{tabular}}
+\end{table}
+
+\subsubsection{Subsystem functionality}
+The IMU is fully programmable and requires functions to set the Sample rate, power mode, digital filter and the full scale resolution. To verify that the device had been configured, the registers were read to ensure the data in the register matched the byte that had just been written. To verify that the sensor was online, a function was created to read the device id and ensure it matched the value in \textcite{mpu6050}. To verify the sensor was functional, a self test was performed. This is a built in feature that can be activated by writing to the Self Test register. During this process, a value is produced which is measured relative to the factory trim values preloaded in the device. The test is passed if the difference falls within the parameters specified by \textcite{mpu6050}. In Section \ref{sec:dm}, the IMU was configured to output enough data to fit into a single transmission buffer (336 bytes). A single sample of the 6 axes results in a total of 12 bytes per sample. An interrupt would be generated on the interrupt line which triggered the processor to perform a burst read of the acceleramoter and gyroscope data registers on the device. The data was saved to a buffer and the interrupt would be cleared. The device was configured for a 5Hz sample rate and a full scale resolution of $\pm$2 g for the accelerometer and $\pm$ 500$\degree$ s$^{-1}$  for the gyroscope. The digital low pass filter was activated to remove High frequency noise and was set to a bandwidth of 94Hz. Hence, the subsystem functionality is shown in Table \ref{tab:subsys_imu}. 
+
+\begin{table}[H]
+	\centering
+	\caption{Subsystem functionality of the MPU6050 6 dof IMU and the tests used to verify subsystem functionality.}
+	\label{tab:subsys_imu}
+	\setlength{\extrarowheight}{5pt}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{c >{\raggedright\arraybackslash}m{\linewidth} l}
+			\hline
+			& \textbf{Subsystem function} & \textbf{Validation} \\
+			\hline 
+			\hline
+			1 & Read sensor ID & UT006\\	\hline
+			2 & Perform self test& UT009 \\ \hline %add validation function to unit test
+			3 & Configure accelerometer & UT003\\ \hline  
+			4 & Configure gyroscope & UT003\\ \hline
+			5 & Set sample rate & UT003\\ \hline
+			6 & Configure interrupt pin & UT008 \\ \hline
+			7 & Configure low pass filter bandwidth & \\ \hline
+			8 & Read raw gyroscope axis& UT003 \\ \hline
+			9 & Read raw accelerometer axis & UT003 \\ \hline
+			10 & Calculate acceleration& UT004\\ \hline 
+			11 & Calculate angular velocity & UT004\\ \hline
+			12 & Handle errors & UT007\\ \hline
+			\hline
+			\hline
+	\end{tabular}}
+\end{table}
+The subsystem was fully tested using AT004 (Table \ref{tab:AT004}) and AT008 (Table \ref{tab:AT008}) to ensure the device performed under stress and in low temperature. However, IMU data handling falls outside the scope of this thesis and therefore wasnt tested further. 
 
 \section{System Tests}
 \label{sec:ch4_systests}
 In this section, the results of the system tests outlined in Appendix \ref{tab:AT_SYS_EV} are discussed.
+\begin{table}[H]
+	\centering
+	\caption{Description of accelerated system test protocol.}
+	\begin{tabular}{|m{0.2\textwidth}|m{0.7\textwidth}|}
+		\multicolumn{2}{l}{\textbf{SYS001} }\\
+		\hline
+		\textbf{Description} & Accelerated System Test\\
+		\hline
+		\textbf{Test Protocol:} &  The Buoy is fully assembled with all sensors connected and configured. The sample interval is set to 10 seconds with transmission occurring every 4 samples. Batteries are inserted and the device is placed inside the enclosure.The buoy is left outside in an area with an unobstructed view of the sky. The system is left to run for an hour and the incoming data is monitored through the Rock-block data portal.\\
+		\hline
+		\multicolumn{2}{l}{\textbf{SYS002} }\\
+		\hline
+		\textbf{Description} &  Power Test\\
+		\hline
+		\textbf{Test Protocol:} & The buoy was connected to an external power supply with all modules powered up and enabled. The INA219 power monitor was connected to an external data logger. The data logger measures the battery current, shunt voltage and load voltage of the system, The device was set with half an hour intervals and data was recorded for a single life cycle. The buoy was also set to output time-stamped state transitions to synchronise the current draw to each state of the system\\
+		\hline
+		\multicolumn{2}{l}{\textbf{SYS003} }\\
+		\hline
+		\textbf{Description} &  Freezer Test\\
+		\hline
+		\textbf{Test Protocol:} &  The Device was placed in a freezer for an hour to test the performance of the device in low temperatures. The device was modified to prevent transmissions from occurring. The freezer was set to $-20\degree C$  and the buoy status was visually monitored. After the test, the buoy was placed in a room-temperature environment where another accelerated test was performed.\\
+		\hline
+		\multicolumn{2}{l}{\textbf{SYS004} }\\
+		\hline
+		\textbf{Description} &  Full System Test\\
+		\hline
+		\textbf{Test Protocol:} &  All modules were assembled and the buoy placed in a power off state. The sample frequency was set to once every 30 minutes with IMU data logging every 2 hours. At the end of the sample period, the device transmitted two data packets: 4 x drift data packets and 1 x IMU data packet. The data was monitored through the rock-block message portal. \\
+		\hline
+		
+	\end{tabular} 
+	\label{tab:test_Systemtest_descrip}
+\end{table}
 
 \subsection{Power Test}
 

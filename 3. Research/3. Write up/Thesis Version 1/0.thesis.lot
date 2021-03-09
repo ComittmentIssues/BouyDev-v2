@@ -128,17 +128,47 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.1}{\ignorespaces Description of accelerated system test protocol.\relax }}{123}{table.caption.129}%
+\contentsline {table}{\numberline {6.1}{\ignorespaces Objectives of the unit tests defined in Appendix \ref {app:Unittests} showing how the test protocols help validate the firmware in the device peripheral layer.\relax }}{123}{table.caption.129}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.2}{\ignorespaces Average current draw (mA) and cycle\relax }}{124}{table.caption.130}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Baseline functionality of the GPS UART communication module of the firmware and the unit test used to verify this functionality\relax }}{124}{table.caption.131}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.3}{\ignorespaces Table showing the parameters the GPS was configured with before deployment \relax }}{125}{table.caption.131}%
+\contentsline {table}{\numberline {6.3}{\ignorespaces Baseline functionality of the GPS UART communication module of the firmware and the test used to verify subsystem functionality\relax }}{125}{table.caption.133}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.4}{\ignorespaces Deployment conditions for buoy 1 (2019-WC-SB01) and buoy 2 (2019-WC-SB02) including deployment coordinates, time and environmental conditions\relax }}{126}{table.caption.134}%
+\contentsline {table}{\numberline {6.4}{\ignorespaces Baseline functionality of the Iridium UART communication peripheral of the firmware and the test used to verify unit functionality.\relax }}{126}{table.caption.135}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.5}{\ignorespaces Results of the full system acceptance tests indicated by a \text {$\mathsurround \z@ \mathchar "458$}in the appropriate column\relax }}{126}{table.caption.136}%
+\contentsline {table}{\numberline {6.5}{\ignorespaces Baseline functionality of the Iridium UART communication peripheral of the firmware and the test used to verify unit functionality.\relax }}{127}{table.caption.137}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.6}{\ignorespaces Results of the platform evaluation and how each functional requirement was addressed.\relax }}{128}{table.caption.137}%
+\contentsline {table}{\numberline {6.6}{\ignorespaces Baseline functionality of the BMP280 SPI communication peripheral of the firmware and the tests used to verify unit functionality.\relax }}{127}{table.caption.139}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.7}{\ignorespaces Baseline functionality of the BMP280 SPI communication peripheral of the firmware and the tests used to verify unit functionality.\relax }}{128}{table.caption.141}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.8}{\ignorespaces Table showing the configuration parameters for the BMP280 environmental sensor for the final version of the buoy firmware.\relax }}{128}{table.caption.142}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.9}{\ignorespaces Baseline functionality of the INA219 I$^2$C communication peripheral of the firmware and the tests used to verify unit functionality.\relax }}{129}{table.caption.144}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.10}{\ignorespaces Subsystem functionality of the INA219 I$^2$C communication peripheral of the firmware and the tests used to verify unit functionality.\relax }}{130}{table.caption.146}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.11}{\ignorespaces Baseline functionality of the AT45DB641E flash chips SPI communication peripheral of the firmware and the tests used to verify unit functionality.\relax }}{131}{table.caption.148}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.12}{\ignorespaces Subsystem functionality of the AT45DB641E flash chips SPI communication peripheral of the firmware and the tests used to verify unit functionality.\relax }}{132}{table.caption.150}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.13}{\ignorespaces Baseline functionality of the Iridium UART communication peripheral of the firmware and the test used to verify unit functionality.\relax }}{132}{table.caption.152}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.14}{\ignorespaces Subsystem functionality of the MPU6050 6 dof IMU and the tests used to verify subsystem functionality.\relax }}{133}{table.caption.154}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.15}{\ignorespaces Description of accelerated system test protocol.\relax }}{134}{table.caption.155}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.16}{\ignorespaces Average current draw (mA) and cycle\relax }}{135}{table.caption.156}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.17}{\ignorespaces Table showing the parameters the GPS was configured with before deployment \relax }}{136}{table.caption.157}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.18}{\ignorespaces Deployment conditions for buoy 1 (2019-WC-SB01) and buoy 2 (2019-WC-SB02) including deployment coordinates, time and environmental conditions\relax }}{137}{table.caption.160}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.19}{\ignorespaces Results of the full system acceptance tests indicated by a \text {$\mathsurround \z@ \mathchar "458$}in the appropriate column\relax }}{137}{table.caption.162}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.20}{\ignorespaces Results of the platform evaluation and how each functional requirement was addressed.\relax }}{139}{table.caption.163}%
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
@@ -146,66 +176,72 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
+\contentsline {table}{\numberline {B.1}{\ignorespaces Table showing the key stakeholders in the project, their level of involvement as well as their interests in the project\relax }}{160}{table.caption.173}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.1}{\ignorespaces Table showing the key stakeholders in the project, their level of involvement as well as their interests in the project\relax }}{149}{table.caption.147}%
+\contentsline {table}{\numberline {B.2}{\ignorespaces Acceptance test for subsystem connectivity testing\relax }}{161}{table.caption.174}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.2}{\ignorespaces Acceptance test for subsystem connectivity testing\relax }}{150}{table.caption.148}%
+\contentsline {table}{\numberline {B.3}{\ignorespaces Acceptance test for fault testing.\relax }}{162}{table.caption.175}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.3}{\ignorespaces Acceptance test for fault testing.\relax }}{151}{table.caption.149}%
+\contentsline {table}{\numberline {B.4}{\ignorespaces Acceptance Test for component selection\relax }}{163}{table.caption.176}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.4}{\ignorespaces Acceptance Test for component selection\relax }}{152}{table.caption.150}%
+\contentsline {table}{\numberline {B.5}{\ignorespaces Acceptance Test for Subsystem Robustness Testing\relax }}{163}{table.caption.177}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.5}{\ignorespaces Acceptance Test for Subsystem Robustness Testing\relax }}{152}{table.caption.151}%
+\contentsline {table}{\numberline {B.6}{\ignorespaces Acceptance Test for accelerated system testing\relax }}{164}{table.caption.178}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.6}{\ignorespaces Acceptance Test for accelerated system testing\relax }}{153}{table.caption.152}%
+\contentsline {table}{\numberline {B.7}{\ignorespaces Acceptance Test for Subsystem Calibration Testing\relax }}{165}{table.caption.179}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.7}{\ignorespaces Acceptance Test for Subsystem Calibration Testing\relax }}{154}{table.caption.153}%
+\contentsline {table}{\numberline {B.8}{\ignorespaces Acceptance Test for Power Test\relax }}{166}{table.caption.180}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.8}{\ignorespaces Acceptance Test for Power Test\relax }}{155}{table.caption.154}%
+\contentsline {table}{\numberline {B.9}{\ignorespaces Acceptance Test for Low Temperature Test\relax }}{167}{table.caption.181}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.9}{\ignorespaces Acceptance Test for Low Temperature Test\relax }}{156}{table.caption.155}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.10}{\ignorespaces Acceptance Test for final system deployment test.\relax }}{157}{table.caption.156}%
+\contentsline {table}{\numberline {B.10}{\ignorespaces Acceptance Test for final system deployment test.\relax }}{168}{table.caption.182}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {C.1}{\ignorespaces Description of Interrupt generated by the iridium module on an external digital input line.\relax }}{161}{table.caption.161}%
+\contentsline {table}{\numberline {C.1}{\ignorespaces Description of Interrupt generated by the iridium module on an external digital input line.\relax }}{172}{table.caption.187}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {C.2}{\ignorespaces Description of routine for interrupts generated by the IMU on an external digital input line.\relax }}{161}{table.caption.162}%
+\contentsline {table}{\numberline {C.2}{\ignorespaces Description of routine for interrupts generated by the IMU on an external digital input line.\relax }}{172}{table.caption.188}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {C.3}{\ignorespaces Description of event handling routine for a brown out recovery event.\relax }}{162}{table.caption.163}%
+\contentsline {table}{\numberline {C.3}{\ignorespaces Description of event handling routine for a brown out recovery event.\relax }}{173}{table.caption.189}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {C.4}{\ignorespaces Description of routine for handling low power events.\relax }}{162}{table.caption.164}%
+\contentsline {table}{\numberline {C.4}{\ignorespaces Description of routine for handling low power events.\relax }}{173}{table.caption.190}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {C.5}{\ignorespaces Description of routine for handling a software reset event.\relax }}{162}{table.caption.165}%
+\contentsline {table}{\numberline {C.5}{\ignorespaces Description of routine for handling a software reset event.\relax }}{173}{table.caption.191}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {C.6}{\ignorespaces Color guide for the initialization routine flow diagrams.\relax }}{163}{table.caption.166}%
-\defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {D.1}{\ignorespaces List of data services provided by Iridium for transmission of data over the satellite network including the bandwidth and purpose of the service taken from \cite {iridium_mobile}\relax }}{172}{table.caption.178}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {D.2}{\ignorespaces Strategies used by the devices to transfer data from remote locations. Table includes transmission technologies and services used as well and transmission strategies and transmission intervals where given. Prices are converted to Rands (R) via \cite {usdcoversion}.\relax }}{173}{table.D.2}%
+\contentsline {table}{\numberline {C.6}{\ignorespaces Color guide for the initialization routine flow diagrams.\relax }}{174}{table.caption.192}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.1}{\ignorespaces Unit Test 1: Hardware Verification test outlining procedure, test cases and relation to acceptance tests\relax }}{175}{table.caption.179}%
+\contentsline {table}{\numberline {D.1}{\ignorespaces List of data services provided by Iridium for transmission of data over the satellite network including the bandwidth and purpose of the service taken from \cite {iridium_mobile}\relax }}{183}{table.caption.204}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.2}{\ignorespaces Unit Test 2: GPS Connection Test test outlining procedure, test cases and relation to acceptance tests\relax }}{176}{table.caption.180}%
+\contentsline {table}{\numberline {D.2}{\ignorespaces Strategies used by the devices to transfer data from remote locations. Table includes transmission technologies and services used as well and transmission strategies and transmission intervals where given. Prices are converted to Rands (R) via \cite {usdcoversion}.\relax }}{184}{table.D.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.3}{\ignorespaces Unit Test 3: GPS Data Validity Test test outlining procedure, test cases and relation to acceptance tests\relax }}{177}{table.caption.181}%
+\addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.4}{\ignorespaces Unit Test 4: Memory Verification test procedure, test cases and relation to acceptance tests\relax }}{178}{table.caption.182}%
+\contentsline {table}{\numberline {E.1}{\ignorespaces Initialisation test outlining procedure, test cases and relation to acceptance tests\relax }}{186}{table.caption.205}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.5}{\ignorespaces Unit Test 5: Power Module Verification test outlining procedure, test cases and relation to acceptance tests\relax }}{178}{table.caption.183}%
+\contentsline {table}{\numberline {E.2}{\ignorespaces Protocol for the deinitialisation test.\relax }}{186}{table.caption.206}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.6}{\ignorespaces Unit Test 6: Transmission test test outlining procedure, test cases and relation to acceptance tests\relax }}{179}{table.caption.184}%
+\contentsline {table}{\numberline {E.3}{\ignorespaces Protocol for the transmission test.\relax }}{187}{table.caption.207}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.7}{\ignorespaces Unit Test 7: Temperature Verification test test outlining procedure, test cases and relation to acceptance tests\relax }}{180}{table.caption.185}%
+\contentsline {table}{\numberline {E.4}{\ignorespaces Reception Test\relax }}{187}{table.caption.208}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.8}{\ignorespaces Unit Test 8: Inertial Measurement Unit test outlining procedure, test cases and relation to acceptance tests\relax }}{180}{table.caption.186}%
+\contentsline {table}{\numberline {E.5}{\ignorespaces Reception Test\relax }}{187}{table.caption.209}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.9}{\ignorespaces Results of subsystem acceptance tests for each of the identified modules. Modules that were successfully validated were marked with a \text {$\mathsurround \z@ \mathchar "458$}, failed tests were marked by an X and tests that could not be applied to a subsystem were marked by an N/A\relax }}{181}{table.caption.187}%
+\contentsline {table}{\numberline {E.6}{\ignorespaces Subsystem test 2: Signal acquisition test outlining procedure, test cases and relation to acceptance tests.\relax }}{188}{table.caption.210}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {E.7}{\ignorespaces Unit Test 3: GPS data validity test outlining procedure, test cases and relation to acceptance tests\relax }}{189}{table.caption.211}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {E.8}{\ignorespaces Unit Test 4: DMA circular buffer input stream tests procedure and test case.\relax }}{190}{table.caption.212}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {E.9}{\ignorespaces Unit Test 5: Interrupt test proceedure,test cases and pass conditions\relax }}{190}{table.caption.213}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {E.10}{\ignorespaces Unit Test 6: Transmission test procedure, test cases and relation to acceptance tests\relax }}{191}{table.caption.214}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {E.11}{\ignorespaces Unit Test 7: Temperature Verification test test outlining procedure, test cases and relation to acceptance tests\relax }}{192}{table.caption.215}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {E.12}{\ignorespaces Unit Test 8: Inertial Measurement Unit test outlining procedure, test cases and relation to acceptance tests\relax }}{192}{table.caption.216}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {E.13}{\ignorespaces Results of subsystem acceptance tests for each of the identified modules. Modules that were successfully validated were marked with a \text {$\mathsurround \z@ \mathchar "458$}, failed tests were marked by an X and tests that could not be applied to a subsystem were marked by an N/A\relax }}{193}{table.caption.217}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }

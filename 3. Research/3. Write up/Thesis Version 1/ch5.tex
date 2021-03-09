@@ -217,7 +217,7 @@ Figure \ref{fig:ASM_chart} shows an abstract representation of the logical flow 
 The RTC periodic wake up unit is used as a counter in deep sleep mode. This is a 16-bit down-counting Auto Reload Register (ARR) that generates an interrupt on an internal wake up line when the system has slept for a length of time T as defined by the user. In addition, the sample counter gets reset after every transmission state and when the buoy enters a reset state. The number of samples before transmission was chosen to be four to optimize packet size for the transmission buffer and to reduce the on-time of the Iridium modem to conserve power. Since the Iridium Buffer is 340 Bytes long and the Transmission rate is per 50 bytes, the goal is to transmit as much data that would fit into the buffer as possible. Too frequent transmissions incur a high data cost but result in data integrity. Too few transmissions can result in lost sample points if a transmission is not received. As a result, transmissions will occur every 2 hours with an expected total of 12 transmissions each day. The reason for this will be discussed in Section \ref{sec:dm}.
 
 \subsection{Asynchronous behaviour}
-
+\label{subsec:ch5_asynch}
 Asynchronous behavior describes all functionality that occurs outside of the main loop. This can come from interrupts or external events which causes the system to exit the main loop regardless of state. For this version of the buoy, asynchronous functionality was considered for the Iridium modem to allow the device to receive messages. This would allow for users to interact with the device and receive data outside the scheduled transmission period. Further asynchronous functionality was added for the inertial measurement unit. This would allow for easier data flow from the sensor (see section \ref{sec:data_flow}) and allow for event-based sampling. The following are sources of  asynchronous behavior:
 
 \begin{enumerate}
@@ -544,10 +544,12 @@ NMEA messages are standardised in the format given in Table \ref{tab:GPS_data_fo
 \end{table}
 
 \subsubsection{GPS sampling strategy}
+\label{subsec:CH5_gpsss}
 %TODO: discuss data streaming over UART
 %TODO: discuss slave reset here and why i did it
 %TODO: dis
-The u-blox NEO-7M/NEO-M9N module continuously outputs data at a fixed rate of 1Hz \cite{UBLOX_M9N_INTERFACE} through Universal Synchronous/Asynchronous Transmission. The device comes preset with not all NMEA messages active. The messages were enabled by writing to the \textit{CFG-MSGOUT} register. This was achieved by transmitting a customised configuration string to the u-blox module. If successful, the receiver will return an acknowledgement message.\par 
+The u-blox NEO-7M/NEO-M9N module continuously outputs data at a fixed rate of 1Hz \cite{UBLOX_M9N_INTERFACE} through Universal Synchronous/Asynchronous Transmission. The device comes preset with not all NMEA messages active. The messages were enabled by writing to the \textit{CFG-MSGOUT} register. This was achieved by transmitting a customised configuration string to the u-blox module. If successful, the receiver will return an acknowledgment message.\par 
+
 Then a UART data stream was created to read the incoming messages. To achieve this, one could poll the receiver register for the byte information however this method requires additional processing power which increases the power consumption. Additionally, constantly polling the register can result in data being overwritten if it is not read fast enough. The STM32L4 microcontroller contains a direct memory access (DMA) controller \cite{stm32l4ref} which allows for data to be streamed directly from a peripheral to a specified address in memory. This method was preferred as it allows for data to be read from the sensor without constraining processor resources. \par 
 
 Reading data through a DMA channel requires knowledge of the number of bytes being received. However, as mentioned previously, this value is not known. Therefore, a solution was to manually turn off the DMA stream when no data were received for a certain length of time (i.e. an idle line condition). This was achieved by setting up a Timer channel in input capture mode on the receiver line in slave reset mode while another channel was configured in output compare mode. In this register, the expected idle period was stored. Incoming data would reset the counter in the input capture channel. If the counter reached the value in the output compare channel, an interrupt was generated which signalled the DMA to stop the transfer. The number of bytes transferred was stored, the DMA was reset and the data were stored. \par 
@@ -781,7 +783,7 @@ Finally, the total data accumulated over the required sample period is shown in 
 Therefore, a total of 72 KB is collected from each session. With the current memory configuration. a single sample can occupy 0.9\% of a single flash chip. With four 8 MB flash chips, The buoy can record 444 raw IMU datasets. If recorded every 2 hours, this amounts to 37 days worth of data. However, due to the low bandwidth of the Iridium modem, IMU data would need to be split into packets of 340 bytes. This would require 212 transmissions to deliver a single set of data. This is not advisable due to the high current consumption of the modem as well as the long transmission times. To send all data, advanced compression techniques or a robust wave data processing algorithm needs to be implemented which falls outside the scope of this project.For testing purposes, as a proof of concept, the IMU sample period was reduced to 5.6 seconds which resulted in 28 samples or 336 bytes of data.
 
 \subsection{Timing Requirements}
-
+\label{subsec:ch5_timing}
 
 
 Table \ref{tab:sensor_timing} below shows the timing requirements for each sensor.

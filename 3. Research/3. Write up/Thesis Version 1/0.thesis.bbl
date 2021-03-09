@@ -3576,23 +3576,6 @@
       \field{pages}{5046\bibrangedash 5051}
       \range{pages}{6}
     \endentry
-    \entry{UBLOX_M7N_DATA}{manual}{}
-      \field{sortinit}{N}
-      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labeltitlesource}{title}
-      \field{note}{Rev. R07}
-      \field{number}{UBX-13003830}
-      \field{title}{{NEO-7} {U-Blox} 7 {GNSS} modules data sheet.}
-      \field{year}{2014}
-      \verb{urlraw}
-      \verb https://www.u-blox.com/sites/default/files/products/documents/NEO-7_DataSheet_%28UBX-13003830%29.pdf
-      \endverb
-      \verb{url}
-      \verb https://www.u-blox.com/sites/default/files/products/documents/NEO-7_DataSheet_%28UBX-13003830%29.pdf
-      \endverb
-    \endentry
     \entry{usdcoversion}{online}{}
       \name{author}{1}{}{%
         {{hash=ea449af4f92ed7be7b370a2eb978e414}{%
@@ -5246,11 +5229,57 @@
       \field{pages}{6868\bibrangedash 6875}
       \range{pages}{8}
     \endentry
-    \entry{UBLOX_M9N_DATA}{manual}{}
+    \entry{UBLOX_M7N_DATA}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=043be56f4d65764da56cac20cb5b83a6}{%
+           family={u--blox},
+           familyi={u\bibinithyphendelim \bibinithyphendelim b\bibinitperiod}}}%
+      }
+      \strng{namehash}{043be56f4d65764da56cac20cb5b83a6}
+      \strng{fullhash}{043be56f4d65764da56cac20cb5b83a6}
+      \strng{bibnamehash}{043be56f4d65764da56cac20cb5b83a6}
+      \strng{authorbibnamehash}{043be56f4d65764da56cac20cb5b83a6}
+      \strng{authornamehash}{043be56f4d65764da56cac20cb5b83a6}
+      \strng{authorfullhash}{043be56f4d65764da56cac20cb5b83a6}
+      \field{extraname}{1}
       \field{sortinit}{u}
       \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Rev. R07}
+      \field{number}{UBX-13003830}
+      \field{title}{{NEO-7} {U-Blox} 7 {GNSS} modules data sheet.}
+      \field{year}{2014}
+      \verb{urlraw}
+      \verb https://www.u-blox.com/sites/default/files/products/documents/NEO-7_DataSheet_%28UBX-13003830%29.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.u-blox.com/sites/default/files/products/documents/NEO-7_DataSheet_%28UBX-13003830%29.pdf
+      \endverb
+    \endentry
+    \entry{UBLOX_M9N_DATA}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=043be56f4d65764da56cac20cb5b83a6}{%
+           family={u--blox},
+           familyi={u\bibinithyphendelim \bibinithyphendelim b\bibinitperiod}}}%
+      }
+      \strng{namehash}{043be56f4d65764da56cac20cb5b83a6}
+      \strng{fullhash}{043be56f4d65764da56cac20cb5b83a6}
+      \strng{bibnamehash}{043be56f4d65764da56cac20cb5b83a6}
+      \strng{authorbibnamehash}{043be56f4d65764da56cac20cb5b83a6}
+      \strng{authornamehash}{043be56f4d65764da56cac20cb5b83a6}
+      \strng{authorfullhash}{043be56f4d65764da56cac20cb5b83a6}
+      \field{extraname}{2}
+      \field{sortinit}{u}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Rev. R04}
       \field{number}{UBX-19014285}
@@ -5265,18 +5294,20 @@
     \endentry
     \entry{UBLOX_M9N_INTERFACE}{manual}{}
       \name{author}{1}{}{%
-        {{hash=e793a6d14967c3cbaa58d7485e48be84}{%
-           family={U-Blox},
-           familyi={U\bibinithyphendelim B\bibinitperiod}}}%
+        {{hash=043be56f4d65764da56cac20cb5b83a6}{%
+           family={u--blox},
+           familyi={u\bibinithyphendelim \bibinithyphendelim b\bibinitperiod}}}%
       }
-      \strng{namehash}{e793a6d14967c3cbaa58d7485e48be84}
-      \strng{fullhash}{e793a6d14967c3cbaa58d7485e48be84}
-      \strng{bibnamehash}{e793a6d14967c3cbaa58d7485e48be84}
-      \strng{authorbibnamehash}{e793a6d14967c3cbaa58d7485e48be84}
-      \strng{authornamehash}{e793a6d14967c3cbaa58d7485e48be84}
-      \strng{authorfullhash}{e793a6d14967c3cbaa58d7485e48be84}
-      \field{sortinit}{U}
+      \strng{namehash}{043be56f4d65764da56cac20cb5b83a6}
+      \strng{fullhash}{043be56f4d65764da56cac20cb5b83a6}
+      \strng{bibnamehash}{043be56f4d65764da56cac20cb5b83a6}
+      \strng{authorbibnamehash}{043be56f4d65764da56cac20cb5b83a6}
+      \strng{authornamehash}{043be56f4d65764da56cac20cb5b83a6}
+      \strng{authorfullhash}{043be56f4d65764da56cac20cb5b83a6}
+      \field{extraname}{3}
+      \field{sortinit}{u}
       \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradate}{2}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \true{uniqueprimaryauthor}
