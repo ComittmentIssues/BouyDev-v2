@@ -4,25 +4,23 @@
 
 \chapter{Recommendations}
 \label{ch:recommendations}
-\section{Improvements to Power Supply}
+\section{Improvements to the power system}
 
-As discussed in Section \ref{subsection:PWR}, The power system requires significant revision to improve the operational time time of the buoy. Using batteries with a higher specific energy can be a viable solution. Additionally, the power system can be revised to include a boost converter thereby allowing more batteries to be placed in parallel increasing the capacity of the power supply. An investigation needs to be conducted into the use of energy harvesters or renewable sources to compliment the power the power source. This can significantly improve the buoy's life cycle.
+As discussed in Section \ref{subsection:PWR}, the power system requires significant revision to improve the operational time of the buoy. Using batteries with a higher specific energy can be a viable solution. Additionally, the power system can be revised to include a boost converter thereby allowing more batteries to be placed in parallel increasing the capacity of the power supply. An investigation needs to be conducted into the use of energy harvesters or renewable sources to compliment the power the power source. This can significantly improve the buoy's life cycle.
 
-\section{Improvements to Hardware}
+\section{Improvements to hardware}
 
-The current PCB stack configuration provides too many points of failures. It is recommended to design a single, horizontally mounted PCB with all the sensors and micro-controller. Additionally, Low-powered LED arrays can be implemented to provide visual feedback on the status of the buoy.\par 
+The current PCB stack configuration provides too many points of failures. It is recommended to design a single, horizontally mounted PCB with all the sensors and micro-controller. Additionally, low-powered LED arrays can be implemented to provide better visual feedback on the status of the buoy.\par 
 
-The device Enclosure should be redesigned to allow for a larger power supply. In addition, the enclosure should include a mechanism for de-humidifying the internal electronics. 
+The device enclosure should be redesigned to allow for a larger power supply. In addition, the enclosure should include a mechanism for de-humidifying the internal electronics. 
 
-Finally, a dedicated power board and communication module board should be designed to replace the breakout boards that the GNSS and Iridium Modem modules arive on. This will greatly reduce the form factor and reduce the reliance on connectors that can act as points of failiure
-\section{Improvements to Communication Modules}
+Finally, a dedicated power board and communication module board should be designed to replace the breakout boards that the GNSS and Iridium modem modules arrive on. This will greatly reduce the form factor and reduce the reliance on connectors that can act as points of failure.
+\section{Improvements to the communication modules}
 
-The gain of the GNSS antenna should be increased to provide a higher positional accuracy and shorter acquisition time.
+The gain of the GPS antenna should be increased to provide a higher positional accuracy and shorter acquisition time. Furthermore, the RockBLOCK 9603 module should be replaced with either a SIM card based modem or an SBD modem with a larger data buffer.
+\section{Firmware improvements}
 
-The Rockblock 9603 module should be replaced with either a sim-card based modem or a modem with a larger data buffer.
-\section{Firmware Improvements}
-
-The firmware of the system was designed as a state machine. This technique is somewhat primitive since states are executed sequentially. This results in time delays as shown in Table \ref{tab:test_powtest_data}. This can be revised by implementing a Real Time Operating System (RTOS) for critical time optimisation. \par 
+The main control layer of the firmware was designed as a state machine. This technique is somewhat primitive since states are executed sequentially. This results in time delays as shown in Table \ref{tab:test_powtest_data}. This can be revised by implementing a Real Time Operating System (RTOS) for critical time optimisation. \par 
 
 Additionally, the firmware power optimisation strategy needs to be expended to configure the GNSS for power saving modes. This will significantly reduce the current consumption of the overall system.\par 
 
@@ -45,10 +43,10 @@ The Rock block 9603 has a ring indicator pin which produces a logic high when a 
 
 The move to a fully interrupt-based system will significantly improve power performance as well as reduce the reliance on timed-sequences.
 
-\section{Expansion of Nodes into a Network}
+\section{Expansion of nodes into a network}
 
 This project resulted in the design and procurement of a single sensing node. To increase the sensing capability, the devices can be expended to form a network with an additional communication protocol (such as LORA) can provide inter-buoy communication. Future projects can include an investigation into optimal buoy topologies or designing firmware to facilitate inter-buoy communication.
 
-\section{Future Deployments}
+\section{Future deployments}
 
 Following the completion of the new design, arrangements are being made to test and deploy the device through other groups. Contacts have been made with Alfred-Wegener Institute to deploy the device from the Polarstern Research Vessel. An additional prototype has been taken onboard the SA Aghulas II transporting researches to the SANAE IV base where the device will be tested on the continent before being deployed on sea ice.
