@@ -913,46 +913,49 @@ Full system calibration was partially satisfied. The power monitor circuit was c
 The system  completed low temperature tests in a -20 $\degree$ C freezer and could function normally afterwards. However, due to an issue with the flash chips, all data from the test was lost. The only indication the buoy was operational was through a debugging LED.In the future, more extensive low temperature tests should be conducted. An additional improvement is to link the device to a data-logger and conducted low-temperature data validation tests to ensure proper operation of the buoy in low temperatures.
 
 \subsection{Functional requirement validation}
-Once the testing was completed, the final system was evaluated against the system requirements. This ultimately proves if the steps undertaken in Chapter \ref{ch:ch3} had successfully fulfilled the requirements outlined by the stakeholders and evaluate the achievements of the device. These results are shown in Table \ref{tab:final_eval_funcreq}.
+Once the testing was completed, the system was evaluated against the system requirements. This section shows how the functional requirements were satisfied in the context of the overall project to increase remote sensing in the Southern Ocean. This ultimately proves if the steps undertaken in Chapter \ref{ch:ch3} had successfully fulfilled the requirements outlined by the stakeholders and evaluate the achievements of the device. These results are shown in Table \ref{tab:final_eval_funcreq}.
 
 \begin{table}[H]
     \centering
     \caption{Results of the platform evaluation and how each functional requirement was addressed.}
-    \begin{tabular}{|m{0.15\textwidth}|c| m{0.7\textwidth}|}
+    \setlength{\extrarowheight}{5pt}
+    \begin{tabular}{m{0.15\textwidth}l m{0.7\textwidth}|}
     \hline
-     Functional requirement   &  Validation & Discussion\\
+     \textbf{Functional requirement}   &  \textbf{Validation} & \textbf{Discussion}\\
      \hline
-     FR001 & Fully Met & \textit{The System shall have a protective enclosure against precipitation and frost}\\
-          \hline
-     FR002 & Fully Met &\textit{Enclosure shall be from strong, corrosion resistant materials with strong thermal Characteristics}\\
-          \hline
-     FR003 & Partially Met& \textit{The Device will protect electronics from internal humidity} - This requirement was partially met. When the device transitioned from sub zero temperatures to room temperature, condensation formed both inside and outside the device. While the electronics continued to work, this could result in unexpected failures and needs to be addressed in the next iteration.\\
-          \hline
-     FR004 & Fully Met & \textit{The Electronics will be elevated above the ground by 1 m to protect against freezing over}\\
-          \hline
-     FR005 &Fully Met & textit{System will transmit data via iridium modem}\\
-          \hline
-     FR006 &  Fully Met &\textit{System shall contain a global positioning (GNSS) device}\\
-          \hline
-     FR007 & Fully Met &\textit{device shall be battery powered} \\
-          \hline
-     FR008 & Fully Met &\textit{All Subsystems shall be rated for extreme temperatures}\\
-          \hline
-     FR009 & Fully Met& \textit{Device shall measure Ambient Temperature}\\
-          \hline
-     FR010 & Fully Met & \textit{Device shall measure Atmospheric Pressure}\\
-          \hline
-     FR011 & Partially Met &\textit{Device shall contain an Inertial Measurement Unit (IMU) to record acceleration (3-axes) and rotation (3-axes) of the ice floe.} - A proof of concept was implemented with the IMU capable of sampling all 6 axes for a total of 336 bytes of data. This is insufficient to calculate significant wave height.\\
-          \hline
-     FR012 & Fully Met & \textit{Device to contain sufficient memory for data storage}\\
-          \hline
-     FR013 & Fully Met &\textit{ Device to contain a processing unit to control sensors and process data}\\     
      \hline
-     FR014 & Fully Met & \textit{ Device to be optimised for low-power consumption and power event handling}\\
+     FR001 & Fully met & \textit{The system shall have a protective enclosure against precipitation and frost.}\\
           \hline
-     FR015 & Unsatisfied & \textit{Device shall be factory calibrated prior to shipping and delivered in a state where it can be deployed at a moment's notice} - the sensors were insufficiently calibrated to fully meet this requirement.\\
+     FR002 & Fully met &\textit{Enclosure shall be from strong, corrosion resistant materials with strong thermal characteristics}. This requirement was validated from the deployment tests during the 2019 SCALE Winter cruise. The buoy continued to transmit during rain, ocean spray and low temperatures thereby providing sufficient protection to the electronics.\\
           \hline
-    FR016 & Fully Met & \textit{The Device will cost less than currently available systems.} - The overall cost for a single system is: R8,421.13 \\
+     FR003 & Partially met& \textit{The device will protect electronics from internal humidity} - This requirement was partially met. When the device transitioned from sub zero temperatures to room temperature, condensation formed both inside and outside the device. While the electronics continued to work, this could result in unexpected failures and needs to be addressed in the next iteration.\\
+          \hline
+     FR004 & Fully met. & \textit{The electronics will be elevated above the ground by 1 m.} The buoy stand reaches 1.2 m to satisfy thsi requirement. \\
+          \hline
+     FR005 &Fully met & textit{All subsystems shall be rated for extreme temperatures}. This was an inherrent requirement for component selection which was validated with acceptance test AT005 (Table \ref{tab:AT005}). The devices would not have been included if this requirement was not met.\\
+          \hline
+     FR006 &  Fully met &\textit{System will transmit data via Iridium satellite network.} Data was received through the Rock Seven RockBLOCK data portal thereby validating remote communication capabilities.\\
+          \hline
+     FR007 & Fully met &\textit{Device shall be battery powered.} The device successfully survived for days on a single battery charge in low temperatures. \\
+          \hline
+     FR008 & Fully met &\textit{Device shall measure ice drift using a global positioning system (GPS). The GPS module successfully acquired satilite signal and produced time stamped coordinates. The average DOP was measured to be 5 below latitudes of $50 \degree$ S which, according to Table \ref{tab:gps_DOP} is a good measurement accuracy.}\\
+          \hline
+     FR009 & Partially met& \textit{Device shall measure ambient temperature}. The BMP280 could not be verified in low temperatures. The DS18B20 produced wildly inaccurate values as it was not calibrated properly.  \\
+          \hline
+     FR010 & Partially met & \textit{Device shall measure atmospheric pressure}. The BMP280 produced a pressure reading however the device could not be verified in low temperatures.\\
+          \hline
+     FR011 & Partially met. &\textit{Device shall contain an inertial measurement unit (IMU) to record acceleration (3-axes) and rotation (3-axes) of an ice floe.} - A proof of concept was implemented with the IMU capable of sampling all 6 axes for a total of 336 bytes of data. This is an insufficient to calculate significant wave height.\\
+          \hline
+     FR012 & Fully met & \textit{Device to contain sufficient memory for data storage}. The four flash chips have a total storage space of 8 MB. As shown in Section  \ref{sec:dm}, the chips have sufficient storage space to store 152.19 years worth of drift data which is enough to cover a seasonal cycle \cite{barber2005microwave}. Th chips can store37 days worth of raw IMU data sampled at 5 Hz for 20 minutes. Which allows for similar data collection periods experienced by \textcite{kohout2015device} who additionally implemented processing. \\
+          \hline
+     FR013 & Fully met &\textit{ Device to contain a processing unit to control sensors and process data.}\\     
+     \hline
+     FR014 & Fully met & \textit{ Device to be optimised for low-power consumption and power event handling}. The buoy successfully entered low power mode during periods of inactivity which resulted in a lower current draw than the other phases.\\
+          \hline
+     FR015 & Unsatisfied & \textit{Device shall be factory calibrated prior to shipping and delivered in a state where it can be deployed at a moment's notice.} The device entered the main loop and started running as soon as the power was on. However, the sensors were insufficiently calibrated to fully meet this requirement.\\
+          \hline
+    FR016 & Fully met & \textit{Device will cost less than currently available systems.} - The overall cost for a single system is R8,421. From the review of remote sensing devices, a comparison of device cost is shown in Table \ref{tab:device_price}. From this comparison, the SHARC Buoy is much cheaper than  WIIB \cite{rabault2019open} which costed R30,200 and had similar features. However, this device used more reliable components and implemented more complex data processing strategies resulting in better wave estimation calculations than the SHARC buoy. \\
+    \hline
     \hline
     \end{tabular}
 

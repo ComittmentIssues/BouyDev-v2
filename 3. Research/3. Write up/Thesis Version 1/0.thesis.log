@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.2.4)  10 MAR 2021 16:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.2.4)  10 MAR 2021 17:46
 entering extended mode
 **./0.thesis.tex
 (0.thesis.tex
@@ -2421,16 +2421,25 @@ Package pdftex.def Info: figs//temp_test_scale2019.png  used on input line 873.
 
 (pdftex.def)             Requested size: 452.9679pt x 274.4262pt.
  [148 <./figs//temp_test_scale2019.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 923--923
-[]|\T1/cmr/m/n/12 Functional
+Underfull \hbox (badness 10000) in paragraph at lines 924--924
+[]|\T1/cmr/bx/n/12 Functional
  []
 
 
-Overfull \hbox (38.65874pt too wide) in paragraph at lines 921--958
+Underfull \hbox (badness 10000) in paragraph at lines 924--924
+\T1/cmr/bx/n/12 re-quire-
+ []
+
+
+Overfull \hbox (39.74707pt too wide) in paragraph at lines 922--961
  [][] 
  []
 
-[149] [150] [151] [152] [153]) [154]
+[149]
+Overfull \vbox (492.19275pt too high) has occurred while \output is active []
+
+
+[150] [151] [152] [153]) [154]
 \openout2 = `ch7.aux'.
 
  (ch7.tex
@@ -2505,24 +2514,24 @@ Overfull \hbox (25.19998pt too wide) in paragraph at lines 563--587
  []
 
 [178]
-<figs//enclosure.pdf, id=4141, page=1, 1195.46625pt x 845.1575pt>
+<figs//enclosure.pdf, id=4148, page=1, 1195.46625pt x 845.1575pt>
 File: figs//enclosure.pdf Graphic file (type pdf)
 <use figs//enclosure.pdf, page 1>
 Package pdftex.def Info: figs//enclosure.pdf , page1 used on input line 595.
 (pdftex.def)             Requested size: 407.66833pt x 288.21378pt.
  [179]
-<figs//enclosure.pdf, id=4146, page=2, 1195.46625pt x 845.1575pt>
+<figs//enclosure.pdf, id=4153, page=2, 1195.46625pt x 845.1575pt>
 File: figs//enclosure.pdf Graphic file (type pdf)
 <use figs//enclosure.pdf, page 2>
 Package pdftex.def Info: figs//enclosure.pdf , page2 used on input line 602.
 (pdftex.def)             Requested size: 407.66833pt x 288.21378pt.
  [180 <./figs//enclosure.pdf, page is rotated 270 degrees>]
-<figs//enclosure.pdf, id=4160, page=3, 1195.46625pt x 845.1575pt>
+<figs//enclosure.pdf, id=4167, page=3, 1195.46625pt x 845.1575pt>
 File: figs//enclosure.pdf Graphic file (type pdf)
 <use figs//enclosure.pdf, page 3>
 Package pdftex.def Info: figs//enclosure.pdf , page3 used on input line 609.
 (pdftex.def)             Requested size: 407.66833pt x 288.21378pt.
-<figs//enclosure.pdf, id=4161, page=4, 1195.46625pt x 845.1575pt>
+<figs//enclosure.pdf, id=4168, page=4, 1195.46625pt x 845.1575pt>
 File: figs//enclosure.pdf Graphic file (type pdf)
 <use figs//enclosure.pdf, page 4>
 Package pdftex.def Info: figs//enclosure.pdf , page4 used on input line 616.
@@ -2559,26 +2568,26 @@ Overfull \hbox (25.19998pt too wide) in paragraph at lines 709--722
  []
 
 [184]
-<figs//GPS Initialization Algorithm .png, id=4197, 793.96625pt x 1012.78375pt>
+<figs//GPS Initialization Algorithm .png, id=4204, 793.96625pt x 1012.78375pt>
 File: figs//GPS Initialization Algorithm .png Graphic file (type png)
 <use figs//GPS Initialization Algorithm .png>
 Package pdftex.def Info: figs//GPS Initialization Algorithm .png  used on input
  line 748.
 (pdftex.def)             Requested size: 238.19171pt x 303.83746pt.
-<figs//Iridium Init Routine.png, id=4198, 713.66624pt x 703.62875pt>
+<figs//Iridium Init Routine.png, id=4205, 713.66624pt x 703.62875pt>
 File: figs//Iridium Init Routine.png Graphic file (type png)
 <use figs//Iridium Init Routine.png>
 Package pdftex.def Info: figs//Iridium Init Routine.png  used on input line 755
 .
 (pdftex.def)             Requested size: 214.10152pt x 211.09026pt.
  [185 <./figs//GPS Initialization Algorithm .png>]
-<figs//Flash Chip Init Routine.png, id=4204, 507.8975pt x 1034.86626pt>
+<figs//Flash Chip Init Routine.png, id=4211, 507.8975pt x 1034.86626pt>
 File: figs//Flash Chip Init Routine.png Graphic file (type png)
 <use figs//Flash Chip Init Routine.png>
 Package pdftex.def Info: figs//Flash Chip Init Routine.png  used on input line 
 763.
 (pdftex.def)             Requested size: 152.37042pt x 310.46227pt.
-<figs//Environmental Sensor Init Routine.png, id=4205, 643.40375pt x 763.85374p
+<figs//Environmental Sensor Init Routine.png, id=4212, 643.40375pt x 763.85374p
 t>
 File: figs//Environmental Sensor Init Routine.png Graphic file (type png)
 <use figs//Environmental Sensor Init Routine.png>
@@ -2586,13 +2595,13 @@ Package pdftex.def Info: figs//Environmental Sensor Init Routine.png  used on i
 nput line 770.
 (pdftex.def)             Requested size: 193.02261pt x 229.15788pt.
  [186 <./figs//Iridium Init Routine.png> <./figs//Flash Chip Init Routine.png>]
-<figs//INA219 Init routine.png, id=4212, 583.17876pt x 834.11626pt>
+<figs//INA219 Init routine.png, id=4219, 583.17876pt x 834.11626pt>
 File: figs//INA219 Init routine.png Graphic file (type png)
 <use figs//INA219 Init routine.png>
 Package pdftex.def Info: figs//INA219 Init routine.png  used on input line 777.
 
 (pdftex.def)             Requested size: 174.95497pt x 250.2368pt.
-<figs//MPU Init Diagram.png, id=4213, 522.95375pt x 673.51625pt>
+<figs//MPU Init Diagram.png, id=4220, 522.95375pt x 673.51625pt>
 File: figs//MPU Init Diagram.png Graphic file (type png)
 <use figs//MPU Init Diagram.png>
 Package pdftex.def Info: figs//MPU Init Diagram.png  used on input line 784.
@@ -2722,6 +2731,10 @@ LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `0.thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 89A0291C83D3C268FCEE3F174E0946FC;10687.
+
+Package biblatex Warning: Please rerun LaTeX.
+(biblatex)                Page breaks have changed.
+
 Package logreq Info: Writing requests to '0.thesis.run.xml'.
 \openout1 = `0.thesis.run.xml'.
 
@@ -2787,9 +2800,9 @@ TeX/fonts/type1/public/cm-super/sfti0700.pfb><C:/Users/jamie/AppData/Local/Prog
 rams/MiKTeX/fonts/type1/public/cm-super/sfti1000.pfb><C:/Users/jamie/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/public/cm-super/sfti1200.pfb><C:/Users/jamie/Ap
 pData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on 0.thesis.pdf (240 pages, 27198342 bytes).
+Output written on 0.thesis.pdf (240 pages, 27201622 bytes).
 PDF statistics:
- 4995 PDF objects out of 5155 (max. 8388607)
+ 5002 PDF objects out of 5155 (max. 8388607)
  1225 named destinations out of 1440 (max. 500000)
  1704 words of extra memory for PDF output out of 10000 (max. 10000000)
 
