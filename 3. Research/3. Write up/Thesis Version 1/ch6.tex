@@ -482,96 +482,290 @@ The subsystem was fully tested using AT004 (Table \ref{tab:AT004}) and AT008 (Ta
 
 \section{System Tests}
 \label{sec:ch4_systests}
-In this section, the results of the system tests outlined in Appendix \ref{tab:AT_SYS_EV} are discussed.
+
+The system tests were conducted using version two of the SHARC buoy system. For these tests the following sensors were enabled for ice drift and diagnostic measurements.
+
+\begin{enumerate}
+	\item u-blox NEO M9N
+	\item Bosch Sesnortech BMP280
+	\item Texas Instruments INA219
+\end{enumerate}
+
+These sensors were sampled at an interval of 30 minutes with the device placed into standby mode in between samples. During the test, the LED was configured to flash on when the device successfully activated a sensor. This LED was also configured to turn on when the buoy was in an active state. Finally debugging and diagnostic information was transferred to a computer through a USB cable. This data was timestamped and recorded to a log. Finally, the following sensors were enabled for wave in ice measurements. 
+\begin{enumerate}
+	\item TDK Invensense MPU6050
+\end{enumerate}
+
+the MPU6050 was set to sample every 2 hours by synchronising the sample interval to four ice drift samples. At the end of the 2 hour period, the transmission routine was completed. All sensors were configured as described in the subsystem tests and the following tests were performed.
+
+\subsection{SYS001 accelerated system test}
+
+\subsubsection{Scope}
+The accelerated system test aimed to test the systems ability to complete a single cycle described in Chapter \ref{ch:ch5}. This will verify the performance of the system against AT005 (Table \ref{tab:AT005}).
+\subsubsection{Protocol}
+
+The ice drift sample interval was set to 10 seconds with transmission occurring after four sample sessions. Batteries are inserted and the device is placed inside the enclosure. The buoy was placed in an area with an unobstructed view of the sky. The system was left to run for a single cycle from initialisation. Data was recorded from the buoy through a serial debug output to USB which connected to a serial monitor running on a computer to record and timestamp the output.\\
+\subsubsection{Configurations}
+GPS data was sampled at 1 Hz until a full packet of datum, diagnostic and positional information was achieved. The BMP280 and INA219 current sensors were sampled once per sample period and the MPU6050 was sampled at 5 Hz for 67.2 seconds.
+\subsubsection{Results}
+
+A sample of the Buoy output from SYS001 system test is shown in Table \ref{tab:SYS001_res1}. Data is timestamped debug outputs from the buoy showing the behavior of the system as well as the subsystems. Environmental data is shown in 16 bit signed integer representation as discussed in Chapter \ref{ch:ch5}.
+
 \begin{table}[H]
 	\centering
-	\caption{Description of accelerated system test protocol.}
-	\begin{tabular}{|m{0.2\textwidth}|m{0.7\textwidth}|}
-		\multicolumn{2}{l}{\textbf{SYS001} }\\
-		\hline
-		\textbf{Description} & Accelerated System Test\\
-		\hline
-		\textbf{Test Protocol:} &  The Buoy is fully assembled with all sensors connected and configured. The sample interval is set to 10 seconds with transmission occurring every 4 samples. Batteries are inserted and the device is placed inside the enclosure.The buoy is left outside in an area with an unobstructed view of the sky. The system is left to run for an hour and the incoming data is monitored through the Rock-block data portal.\\
-		\hline
-		\multicolumn{2}{l}{\textbf{SYS002} }\\
-		\hline
-		\textbf{Description} &  Power Test\\
-		\hline
-		\textbf{Test Protocol:} & The buoy was connected to an external power supply with all modules powered up and enabled. The INA219 power monitor was connected to an external data logger. The data logger measures the battery current, shunt voltage and load voltage of the system, The device was set with half an hour intervals and data was recorded for a single life cycle. The buoy was also set to output time-stamped state transitions to synchronise the current draw to each state of the system\\
-		\hline
-		\multicolumn{2}{l}{\textbf{SYS003} }\\
-		\hline
-		\textbf{Description} &  Freezer Test\\
-		\hline
-		\textbf{Test Protocol:} &  The Device was placed in a freezer for an hour to test the performance of the device in low temperatures. The device was modified to prevent transmissions from occurring. The freezer was set to $-20\degree C$  and the buoy status was visually monitored. After the test, the buoy was placed in a room-temperature environment where another accelerated test was performed.\\
-		\hline
-		\multicolumn{2}{l}{\textbf{SYS004} }\\
-		\hline
-		\textbf{Description} &  Full System Test\\
-		\hline
-		\textbf{Test Protocol:} &  All modules were assembled and the buoy placed in a power off state. The sample frequency was set to once every 30 minutes with IMU data logging every 2 hours. At the end of the sample period, the device transmitted two data packets: 4 x drift data packets and 1 x IMU data packet. The data was monitored through the rock-block message portal. \\
-		\hline
-		
-	\end{tabular} 
-	\label{tab:test_Systemtest_descrip}
+	\caption{System output during an accelerated test as described in SYS001. data output occurs over the period from initialation to first sample and sleep with a failed GPS signal acquisation.}
+	\label{tab:SYS001_res1}
+	\setlength{\extrarowheight}{5pt}
+	\resizebox{\textwidth}{!}{%
+	\begin{tabular}{l}
+	\hline
+	\hline
+	"11/21/2020 7:47:40 PM",Warning! Device encountered a Brown Out. Exiting Program...\\ \hline 
+	"11/21/2020 7:47:40 PM",Software Reset Detected. Initializing main program...\\ \hline 
+	"11/21/2020 7:47:40 PM",Setting Up Flash Chips...\\ \hline 
+	"11/21/2020 7:47:40 PM",Allocating Chip Statuses...\\ \hline 
+	"11/21/2020 7:47:40 PM",Chip 1 Status: 1\\ \hline 
+	"11/21/2020 7:47:40 PM",Chip 2 Status: 2\\ \hline 
+	"11/21/2020 7:47:40 PM",Chip 3 Status: 3\\ \hline 
+	"11/21/2020 7:47:40 PM",Chip 4 Status: 3\\ \hline 
+	"11/21/2020 7:48:02 PM",Error Connecting To Modem\\ \hline 
+	"11/21/2020 7:48:02 PM",Environmental Sensor Online!\\ \hline 
+	"11/21/2020 7:48:02 PM",Current Monitor Offline!\\ \hline 
+	"11/21/2020 7:48:02 PM",IMU Online\\ \hline 
+	"11/21/2020 7:48:02 PM",Device Online!\\ \hline 
+	"11/21/2020 7:48:02 PM",Current State: RESET 	 Next State: SAMPLE\\ \hline 
+	"11/21/2020 7:48:02 PM",Current State: SAMPLE 	 Next State: SLEEP\\ \hline 
+	"11/21/2020 7:48:19 PM",GPS Online! Acquiring Signal...\\ \hline 
+	"11/21/2020 7:48:49 PM",Failed to Acquire Signal\\ \hline 
+	"11/21/2020 7:48:49 PM",Logging Data...\\ \hline 
+	"11/21/2020 7:48:49 PM",local time: 1605988066, position: 0.000000 Lat, 0.000000 long\\ \hline 
+	"11/21/2020 7:48:49 PM",HDOP = 99.99, 	 PDOP = 99.99, VDOP = 99.160\\ \hline 
+	"11/21/2020 7:48:49 PM",Number of Satellites 0, Fix Type = 1\\ \hline 
+	"11/21/2020 7:48:49 PM",Environmental Sensor Online!\\ \hline 
+	"11/21/2020 7:48:49 PM",Temp = 2346°C 	 Pressure = 101285 Pa \\ \hline 
+	"11/21/2020 7:48:49 PM",Successfully saved drift data to chip 1\\ \hline 
+	"11/21/2020 7:48:49 PM",Current State: SLEEP 	 Next State: SAMPLE\\ \hline 
+	"11/21/2020 7:48:49 PM",Good Night! \\ 
+	\hline 
+	\hline
+	\end{tabular}
+	}	
 \end{table}
 
-\subsection{Power Test}
+Figure \ref{tab:SYS001_res1} shows an accelerated test from Initialisation to the end of the first sample cycle and sleep mode. The system was unable to acquire a GPS signal and therefore timed out while resuming normal operations. A successful GPS signal acquisition is shown below during the phases: first wake up to the end of second sample.
 
-A power test was conducted to monitor the current consumption of the buoy in various states. The INA219 sensor was disconnected from the system and connected to a data logger which sampled the Bus Voltage, Shunt Voltage, Current and Power at a sample rate of 1Hz. The buoy sample interval was set to half an hour. The device was connected to a bench-top power supply and the supply voltage was set to 7.2V input with positive and negative leads connected to where the battery was. The device was placed in a location with partially-obstructed line of site and set to run for a full cycle. The Results in Appendix \ref{fig:test_pwr_cycle} shows the current consumption of the device over a single buoy period.
+\begin{table}[H]
+	\centering
+	\caption{System output during an accelerated test as described in SYS001. data output occurs over the period from first wake up to the end of second sample with successful GPS signal acquisition.}
+	\setlength{\extrarowheight}{5pt}
+	\setlength{\textwidth}{5pt}
+		\begin{tabular}{l}
+			\hline
+			\hline
+		"11/21/2020 8:18:48 PM",Current State: SAMPLE 	 Next State: SLEEP\\ \hline 
+		"11/21/2020 8:18:50 PM",GPS Online! Acquiring Signal...\\ \hline 
+		"11/21/2020 8:18:58 PM",Logging Data...\\ \hline 
+		"11/21/2020 8:18:58 PM",local time: 1605989870, position: -3357.781250 Lat, 1822.458984 long\\ \hline 
+		"11/21/2020 8:18:58 PM",HDOP = 7.50, 	 PDOP = 1.86, VDOP = 7.160\\ \hline 
+		"11/21/2020 8:18:58 PM",Number of Satellites 4, Fix Type = 3\\ \hline 
+		"11/21/2020 8:18:58 PM",Environmental Sensor Online!\\ \hline 
+		"11/21/2020 8:18:58 PM",Temp = 2391°C 	 Pressure = 101215 Pa \\ \hline 
+		"11/21/2020 8:18:58 PM",Successfully saved drift data to chip 1\\ \hline 
+		"11/21/2020 8:18:58 PM",Current State: SLEEP 	 Next State: SAMPLE\\ \hline 
+		"11/21/2020 8:18:58 PM",Good Night! \\ \hline 
+		"11/21/2020 8:48:57 PM",Current State: SAMPLE 	 Next State: SLEEP\\ \hline  
+		\hline
+		\end{tabular}
+\end{table}
+
+\subsection{SYS002 power test}
+\subsubsection{Scope}
+The power test aims to verify to test power consumption characteristics of the buoy to determine the survivability of the device in standard operating conditions to verify the software robustness against AT007 (Table \ref{tab:AT007}).
+\subsubsection{Protocol}
+ The buoy was connected to a power source with all sensors enabled. The device sampling interval was set to 30 minutes between drift measurements as described above. The device was connect to an Agilent bench top power supply set to output a constant 7.2 V. A data logger was connected to the INA219 sensor and configured to sample current, supply voltage and power consumption. The test ran for a single cycle sampling data at a constant 1 Hz. The logger outputted data to a serial through USB to a computer which recorded the data. The test was completed after a single uninterrupted firmware cycle. This configuration is shown in Figure \ref{fig:pwrtest}.
+ \begin{figure}[H]
+ 	\centering
+ 	\includegraphics[width=\linewidth]{figs/pwrtest}
+ 	\caption{Diagram showing the configuration for the power test. All subsystems were connected and activated with version 2 sensors and firmware. Power was supplied by an Agilent xxxx bench top power supply set to a constant 7.2 V output. A data logger was connected to the INA219 sensor to sample the power information at a rate of 1 Hz}
+ 	\label{fig:pwrtest}
+ \end{figure}
+ 
+
+\subsubsection{Configurations}
+
+The INA219 sensor sampled at 1 Hz while the drift measurements were sampled in intervals of 30 minutes, the IMU was set to a sample rate of 5Hz for 67.2 seconds. 
+\subsubsection{Results}
+
+Based on the test protocol outlined above, data was successfully collected over a complete buoy lifecycle. The current consumption characteristics for a constant load voltage are shown in Figure \ref{fig:test_pwr_cycle}. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{Power Cycle.png}
+	\caption{Graph showing a typical current cycle of the buoy during the various phases. Data was sampled at 1Hz with all modules connected, sample intervals set to 30 mins the INA219 sensor connected to an external data logger and the device placed in a partially obstructed environment.}
+	\label{fig:test_pwr_cycle}
+\end{figure}
 
 
-The average current consumption is calculated as follows:
-
+State transitions were captured through a debug serial monitor and timestamped to synchronise the state changes to the current draw as shown in Figure \ref{fig:test_pwr_cycle}. Then, the average current draw was calculated for each phase of the buoy with the period defined as the time between state transitions. The equation to calculate the average current is shown below.
 \begin{equation}
-    I_{avg} = \frac{1}{T}\int_{0}^{T}i(t)dt = \frac{1}{T}\sum_{k=0}^{N}i(k)\Delta t
+	I_{avg} = \frac{1}{T}\int_{0}^{T}i(t)dt = \frac{1}{T}\sum_{k=0}^{N}i(k)\Delta t
 \end{equation}
 
-where the time step $\Delta t$ is 1Hz and $T $ is the total time taken for the buoy to complete 1 cycle. Then, The average current consumption and cycle duration was calculated for each phase in the buoy cycle. The results are shown in the table below
+where the time step $\Delta t$ is 1Hz and $T $ is the total time taken for the buoy to complete 1 cycle. Then, The average current consumption and cycle duration was calculated for each phase in the buoy cycle. The results are shown in Table \ref{tab:test_powtest_data}.
 
 \begin{table}[H]
-    \centering
-    \begin{tabular}{|l|c|c|}
-    \hline
-    \textbf{Cycle Phase: } & \textbf{Phase Duration (s):} & \textbf{Average current (mA):}\\
-    \hline
-     Initialization State & 20 & 494.37 \\
-     \hline
-     1st Sample State & 45 & 97.79 \\
-     \hline 
-     1st Sleep State & 1797 & 115.00 \\
-     \hline
-     2nd Sample State & 8 & 127.96\\
-     \hline
-     2nd Sleep State & 1797 & 114.41\\
-     \hline
-     3rd Sample Sate & 7 & 128.17\\
-     \hline
-     3rd Sleep State & 1797 & 112.87\\
-     \hline
-     4th Sample State (incl IMU) & 12  &129.71 \\
-     \hline
-     Transmit State & 135 & 157.01 \\
-     \hline
-     \hline
-     Full Cycle:    & 10033 & 114.09 \\
-     \hline
-     \hline
-    \end{tabular}
-    \caption{Average current draw (mA) and cycle}
-    \label{tab:test_powtest_data}
+	\centering
+	\setlength{\extrarowheight}{5pt}
+	\begin{tabular}{lcc}
+		\hline
+		\textbf{Cycle Phase: } & \textbf{Phase Duration (s):} & \textbf{Average current (mA):}\\
+		\hline
+		Initialization State & 20 & 494.37 \\
+		\hline
+		1st Sample State & 45 & 97.79 \\
+		\hline 
+		1st Sleep State & 1797 & 115.00 \\
+		\hline
+		2nd Sample State & 8 & 127.96\\
+		\hline
+		2nd Sleep State & 1797 & 114.41\\
+		\hline
+		3rd Sample Sate & 7 & 128.17\\
+		\hline
+		3rd Sleep State & 1797 & 112.87\\
+		\hline
+		4th Sample State (incl IMU) & 12  &129.71 \\
+		\hline
+		Transmit State & 135 & 157.01 \\
+		\hline
+		\hline
+		Full Cycle:    & 10033 & 114.09 \\
+		\hline
+		\hline
+	\end{tabular}
+	\caption{Average current draw (mA) and cycle}
+	\label{tab:test_powtest_data}
+\end{table}
+This shows that the buoy completes a cycle in 10033s (2 hours 47 minutes) which is 47 minutes longer than the predicted cycle. The average current conumption was 114.09 mA Finally, the average current consumption for each phase is displayed in Figure \ref{fig:test_powtest_avgcurr}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width =\textwidth]{State Current Draw.png}
+	\caption{Average Current consumption at each phase in the life-cycle of the buoy. Ordered chronologically}
+	\label{fig:test_powtest_avgcurr}
+\end{figure}
+
+From Figure \ref{fig:test_powtest_avgcurr}, the longest current draw occurs at start up at 494.37 mA, the second largest current draw occurs during transmission (157.01 mA) while the lowest current consumption occurs during  the first sample state  (97.79 mA) with the sleep states drawing consistently the lowest current (112.87 mA to 115.00 mA).
+
+\subsection{SYS003 low temperature test}
+
+\subsubsection{Scope}
+
+The low temperature test aimed to test the software performance in temperatures below 0$\degree$ C and verify this performance against AT007 (Table \ref{tab:AT007}). Successful completion of this test validates a critical user requirement of being able to withstand the climate of the Southern Ocean.
+\subsubsection{Protocol}
+
+All sensors were connected to the system and the Iridium modem was turned off. Sensors were set to the sampling intervals described at the begining of this section with the transmission routine removed from software. The device was powered with batteries and sealed with desiccant to prevent a build up of moisture. The device was placed in a commercial grade freezer to run for one hour saving data to the flash chips during its operation. The freezer was set to $-20\degree$ C and the buoy status was visually monitored. After the test, the buoy was placed in a room-temperature environment where another accelerated test SYS001 was performed.
+\subsubsection{Configurations}
+
+GPS set to timeout after 30 seconds, Sensors sampled in intervals of 30 minutes.
+\subsection{Results}
+
+During the test, the flash chip routine failed to save data resulting in all test data being lost.
+
+\subsection{SYS004 field test}
+
+\subsubsection{Scope}
+goal is to deploy the system in a controlled environment to test that the system can complete a full cycle from start up to transmission. This test verifies the length of time the buoy can survive for as well as the transmission capabilities and measured data against AT009 (Table \ref{tab:AT009}).
+
+\subsubsection{Protocol}
+All subsystems were connected with GPS data,environmental data power consumption data and imu data enabled for transmission. Ice drift data was sampled in intervals of 30 minutes with IMU data sampled in intervals of two hours. Both IMU and ice drift data were transmitted after the fourth ice drift sample session in two seperate consecutive transmissions. The sensors were configured as shown in subsystem with version 2 of the SHARC buoy firmware and hardware. The device was connected to an array of batteries and placed in an environment with good line of sight of the sky. The device was left to run until no more transmissions were received. The device was then removed and the data was analysed.
+
+\subsubsection{Configurations}
+GPS messages sampled every 1Hz until a valid fix, timeout if no fix reached within 30 seconds. power sensor and BMP280 sensors sampled by triggering a measurement once during the interval. Flash chips set to circular buffer mode with the first available chip used to store data. 
+
+\subsubsection{Results}
+
+The data from the device was transmitted to the Rock Seven RockBLOCK data portal. Table \ref{tab:deployment_results} below shows the data logs downloaded from the data portal.
+
+\begin{table}[H]
+	\centering
+	\caption{Data transmitted from the SHARC buoy as compressed binary messages in ASCII hexadecimal format. This table contains ice drift data shown in packets begining with 01 ("1") and IMU data in packets begining with 57 or "W". Also shown are diagnostic data including the transmitting device, payload size and number of credits used to transmit the message.}
+	\label{tab:deployment_results}
+	\setlength{\extrarowheight}{5pt}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{>{\raggedright\arraybackslash}m{2.5cm}>{\raggedright\arraybackslash}m{2.5cm}>{\raggedright\arraybackslash}m{2cm}>{\raggedright\arraybackslash}m{20cm}>{\raggedright\arraybackslash}m{2cm}>{\raggedright\arraybackslash}m{1cm}}
+			\hline 
+		\textbf{Date Time (UTC)} & \textbf{Device} & \textbf{Direction} & \textbf{Payload} & \textbf{Length (bytes)} & \textbf{Credits} \\ \hline\hline
+		12/31/2020 7:51 & RockBLOCK 17285 & MO &\seqsplit{ 57022600e235f8d844ff84004602bc008e3642d2aeff70004c03c80162364cd2c1ff6b004d02ac01383690d2d3ff68004e0192010c3628d2e3ff68004e01f600023672d2f4ff60004f02f001583608d2fbff63004c0396004c37a2d30bff5e004c03dcfec036acd313ff5e004d039afeac3838d31dff58004a02aafef038a0d324ff5600480188fdf8393cd32fff5900430028fdf639a4d333ff5e004000eefd723a7cd33cff610039028afde23ab4d341ff670038034eff883ba4d347ff69003402e4ff383b36d344ff6e002f0142fcb43c2cd351ff78002c014efe723b3ad351ff7b002801c401e63c8ed357ff820024021402083bccd35cff82002101e000863bdcd35fff86002001eeffe43aead362ff89001b021001d23b5ed366ff87001e032c03de3ab8d367ff81001c0294043a3b2ed36cff81001b02ea01e639d6d36fff7b001c022c027a3a5ad372ff78001c0d} & 338 & 7 \\ \hline
+		12/31/2020 7:51 & RockBLOCK 17285 & MO &\seqsplit{ 01008789ed5f51b2a2c524d1cb3c014f01a000622bb90000000d9a0100007c46bc158703eb010d019b90ed5f12e7a2c5eb909b3c012b01a0004f2fcc000000d5990100007c46b815ec0295010d02af97ed5fad1ca3c582a8db3e013a01a000532fdb000000ac990100007c46b8155303a3010d03c09eed5f2d52a3c5919b193f012301a0004c33e6000000a9990100007c46b41563030102} & 152 & 4 \\ \hline
+		12/31/2020 5:50 & RockBLOCK 17285 & MO &\seqsplit{ 570526fd5c39dcd770ff49001203e6fd2437fed1b7ff3100130304fc2a3a56d1cdff3900190440fbd6384ed1e1ff40001b04b6fbf83932d1eaff44002403f0fce0396cd1f8ff4a002704defdbe3930d206ff52002c0404fc8839d0d213ff5a003203aafbd239f6d219ff620032043efc6439a0d223ff69003303fcfcb03b1ed22eff720036038efd4839aed235ff7a0038037cfb1e3b4ed23dff8300380232fa5438e4d246ff8800340186fb9a3a4ad247ff92003603ccfef039e6d24fff9800380320ff423a3ad24fff9d00370288fe6c39d2d256ffa6003602f0fe0438f2d25bffa9003403fafe943972d25effb200360382ff5239b8d261ffb30035033a010e38e0d265ffb70036039800c23a32d26fffb6003a026c01a838ead26effb4003c025602de39acd272ffb6003e03ca023c3956d275ffad0042038402123920d27bffac004200e6047e3992d27bffa600430d} & 338 & 7 \\ \hline
+		12/31/2020 5:49 & RockBLOCK 17285 & MO &\seqsplit{ 0100e96ced5fb4a0a0c5022b073d015001a0005a2b740000002f9a0100007c46c815f60293010d010174ed5fcfd3a0c53aafb13d013e01a0005927710000004e9a0100007c46c4150f03c7010d02167bed5f2d07a1c5734babbc011900a000512b820000001d9a0100007c46bc15f302d7010d032b82ed5f8a3ba1c5d13f41bd012c01a00057279a0000002c9a0100007c46bc150703a301} & 152 & 4 \\ \hline
+		12/31/2020 3:47 & RockBLOCK 17285 & MO &\seqsplit{ 57019c01423c82d6efff84001bff64fddc3cd4d127ff6a000ffcccfece3bd6d137ff6f0008ffac01a83b76d14cff6bfffe030404583cbad15bff69000303d402083b24d169ff6e000000d0fdee3a2ad179ff6dfffc0454023039fcd17fff680006057803c43a04d188ff63000905ba04303a16d194ff66001106f801303910d19aff650014045cffda37a2d1a1ff64001d0356ffd43736d1aaff5e0027056a00dc374ad1afff59002d05f00288382ad1b5ff57003904e8028e3734d1b9ff51003d023e02d43796d1c1ff4d003d02e6fff436a4d1c2ff4d003d02da02a037c6d1caff40004603ee01fc3714d1c9ff3d0043049e00043862d1cfff3400450236fdd036e2d1d4ff39004101a6fe3a3752d1d6ff340042016afc743832d1daff36004001a2fe7e38c0d1deff35003b01baff24385ad1dfff3d003700c6fe303910d1e0ff46003100c6fbf23820d1e4ff52002a0d} & 338 & 7 \\ \hline
+		12/31/2020 3:47 & RockBLOCK 17285 & MO &\seqsplit{ 01006650ed5f4ae49fc5d2981641013301a0005d2768000000df990100007c46d4150103af010d017d57ed5f950da0c57b668140014401a0010b276a000000e8990100007c46d815ec02b7010d02945eed5f4d39a0c5ebe2363e020b01a001151f6d00000071990100007c46d015f702db010d03a865ed5f446ca0c5f41abb3b014d01a00060276e000000fd990100007c46d015f102af01} & 152 & 4 \\ \hline
+		 \hline \hline
+	\end{tabular}
+	}
 \end{table}
 
+Table \ref{tab:deployment_results} shows a section of the data recieved during a deployment test. The data includes both IMU data (demarcated with a 0x57 or "W") and ice drift data (demarcated with a 0x01 or "1"). These payloads are compressed data packets as discussed in Chapter \ref{ch:ch5}
 
+\section{Field testing}
 
-\section{Remote Deployment}
-\label{sec:ch4_remotedeployment}
-Remote testing of the system was conducted in the Southern Ocean during the SCALE\footnote{Southern Ocean Seasonal Experiment \url{http://scale.org.za/}} Antarctica Expedition. 6 prototype systems were brought on-board and carried to the Weddel Sea with the objective of testing the suitability, basic sensing capabilities, remote communication capability and GPS signal acquisition capabilities.However, during the expedition, the initial power system began to experience instabilities resulting in system failiures. Due to time and resource constraints, alternative power supplies were made for 3 systems. 2 systems were deployed in the 1st and 2nd Marginal Ice Zone (MIZ1 and MIZ2) respectively with One system being deployed on the Helideck of the Ship. These systems were tested in the electronics lab before deployment. The device was deployed with a DS18B20 temperature sensor and a UBlox Neo-7m 
+This section describes the field testing performed during the 2019 SCALE winter cruise in July.This test occurred early in the development cycle and used version 1 of the software and the hardware for the SHARC buoy system. The cruise took place onboard the SA Aghulas II and followed a trajectory towards the Weddel sea shown in Figure \ref{fig:scalepath}. This system was deployed with sensors, processors and configurations shown in the table below.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figs/SCALEpath}
+	\caption{Diagram showing the trajectory of the SA Aghulas II for the 2019 SCALE winter cruise from Cape Town to the Southern Ocean Marginal Ice Zone. Diagram created by E. Hepworth.}
+	\label{fig:scalepath}
+\end{figure}
+
+\begin{table}[H]
+	\centering
+	\caption{Hardware components used  during field testing for version 1 of SHARC buoy deployed during the 2019 SCALE winter cruise to the Southern Ocean Marginal Ice Zone.}
+	\setlength{\extrarowheight}{5pt}
+	\begin{tabular}{ll}
+		\hline
+		\textbf{Subsystem} & \textbf{Component} \\
+		\hline
+	     GPS & u-blox NEO-7M \\
+		\hline
+	 Temperature sensor & DS18B20 \\
+		\hline
+		 Microcontroller & STM32F407VG \\
+		\hline
+		 Memory & Internal microcontroller flash memory \\
+		\hline
+	    Remote communication & RockBLOCK 9603  \\
+		\hline
+		\hline
+	\end{tabular}
+\end{table}
+
+These components were connected to a double sided PCB and mounted vertically to the Base. The fully connected system can be seen in Figure \ref{fig:sharcv1}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figs/sharcv1}
+	\caption{SHARC buoy version 1 used for deployment testing during the 2019 SCALE winter cruise in July. The device contains an Iridium modem, GPS and temperature sensor for sea ice drift and ambient temperature measurements. Photo by R. Verrinder.}
+	\label{fig:sharcv1}
+\end{figure}
+
+Six prototype systems were brought onboard and carried to the Southern Ocean with the objective of testing the suitability, basic sensing capabilities, remote communication capability and GPS signal acquisition capabilities. During the expedition, the initial power system began to experience instabilities resulting in system failures. Due to time and resource constraints, alternative power supplies were made for three of the systems. Two systems were deployed in the first and second Marginal Ice Zone (MIZ1 and MIZ2) respectively, These locations can be seen in Figure \ref{label}. A final system was deployed on the helideck of the SA Aghulas II on the return journey to East London.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{figs/deploc}
+	\caption{SB01 and SB02 buoy deployment locations. Ice edge on 26 to 28 July 2019. Ice edge data provided by Ehlke from \url{https://www.natice.noaa.gov/products/ kml_daily.html}}
+	\label{fig:deploc}
+\end{figure}
+
+\subsection{Configuration}
+Before deplyoment, the system was testing using AT001 to AT004 for the subsystems and AT005 for the full system. Low temperature validation was performed on the deck of the ship while near the Southern Ocean. The device was configured to sample GPS and temperature data in intervals of 30 minutes with a single triggered temperature measurement and A GPS reading every 1 Hz until a signal was acquired. The configuration parameters are shown below.
 
 \begin{table}[H]
     \centering
-    \caption{Table showing the parameters the GPS was configured with before deployment }
-    \begin{tabular}{|l|c|}
+    \caption{Table showing the parameters the GPS was configured with before deployment. }
+    \begin{tabular}{lc}
     \hline
     \textbf{Model:} & Ublox Neo-7M \\
     \hline
@@ -585,7 +779,7 @@ Remote testing of the system was conducted in the Southern Ocean during the SCAL
        \hline
        \textbf{Active Networks:} & GPS, GLONASS \\
        \hline
-       \textbf{Satelites:} & 3 - 6 \\
+       \textbf{Satelites:} & 3 to 6 \\
        \hline
        \textbf{NMEA Messages:} & GLL, GSA, ZDA \\
        \hline
@@ -594,44 +788,64 @@ Remote testing of the system was conducted in the Southern Ocean during the SCAL
     \label{tab:test_remotetest_gpsconfig}
 \end{table}
 
-\subsubsection{Deployment procedure}
+\subsubsection{Deployment protocol}
 
-The  Buoy was switched on and sealed in the enclosure which was fastened to the tripod and placed on the deck of the ship. The buoy was placed in a basket along with three crew members who were fastened to the basket with personal harnesses. The Basked was attached to a crane, hoisted over the side of the ship and lowered towards the surface of the ocean. The crew members then identified a suitable Ice floe to place the buoy on. The floe had to have a diameter greater than 2m and visually capable of supporting the weight of the buoy. Once an ice floe was selected, the basked was maneuvered to hover 1m above the desired location.Figure \ref{fig:deployment}  shows the deployment of the buoys in the Marginal Ice Zone using this procedure. 
+The buoy was switched on and sealed in the enclosure which was fastened to the buoy stand and placed on the deck of the ship. The buoy was placed in a personnel basket along with three crew members who were fastened to the basket with personal harnesses. The basket was attached to a crane, hoisted over the side of the ship and lowered towards the surface of the ocean. The crew members then identified a suitable ice floe to place the buoy on. The floe had to have a diameter greater than 2 m and visually capable of supporting the weight of the buoy (i.e. no visible rafting or flooding). Once an ice floe was selected, the basked was maneuvered to hover 1 m above the desired location. Figure \ref{fig:deployment} shows the deployment of the buoys in the Marginal Ice Zone using this procedure. 
 
 \begin{figure}[H]
-    \centering
-    \begin{subfigure}[h]{0.3\textwidth}
-    \includegraphics[width = 4cm,height = 6cm]{buoy.jpg}
-    \caption{SHARC Buoy System}
-    \end{subfigure}%
-    \begin{subfigure}[h]{0.3\textwidth}
-    \includegraphics[width = 4cm,height=6cm]{basket.jpg}
-    \caption{Deployment Proceedure}
-    \end{subfigure}%
-    \begin{subfigure}[h]{0.3\textwidth}
-    \includegraphics[width = 4cm,height=6cm]{deployment.jpg}
-    \caption{Successful Deployment}
-    \end{subfigure}%
-    \caption{Figures Showing the  Fully Assembled SHARC Buoy device in a deployable state (a), The deployment procedure (b) and the results of a successful deployment showing a SHARC Buoy tethered to an Ice floe (c)}
-    \label{fig:deployment}
+	\centering
+	\begin{subfigure}[t]{0.3\textwidth}
+		
+		\begin{tikzpicture}
+			\node[anchor=south west,inner sep=0] (image) at (0,0) { 		\includegraphics[width = 0.95\linewidth,height=6cm]{SHARCv1full.PNG}};
+			\begin{scope}[x={(image.south east)},y={(image.north west)}]
+				\draw[color=black, ultra thin,fill=white] (0.0,0.0) rectangle (0.16,0.16) node[pos=.5] {A};
+			\end{scope}
+		\end{tikzpicture}
+
+	\end{subfigure}%
+	\begin{subfigure}[t]{0.3\textwidth}
+		\begin{tikzpicture}
+			\node[anchor=south west,inner sep=0] (image) at (0,0) { 		\includegraphics[width = 0.95\linewidth, height = 6cm]{basket.jpg}};
+			\begin{scope}[x={(image.south east)},y={(image.north west)}]
+				\draw[color=black, ultra thin,fill=white] (-0.01,0.0) rectangle (0.13,0.13) node[pos=.5] {B};
+			\end{scope}
+		\end{tikzpicture}
+
+	\end{subfigure}%
+	\begin{subfigure}[t]{0.3\textwidth}
+	\begin{tikzpicture}
+		\node[anchor=south west,inner sep=0] (image) at (0,0) { 		\includegraphics[width = 0.95\linewidth, height = 6cm]{deployment.jpg}};
+		\begin{scope}[x={(image.south east)},y={(image.north west)}]
+			\draw[color=black, ultra thin,fill=white] (-0.01,0.0) rectangle (0.13,0.13) node[pos=.5] {B};
+		\end{scope}
+	\end{tikzpicture}
+	
+\end{subfigure}%
+	\caption{Photos taken during field testing of the SHARC buoy system showing (A) the device fully assembled and secured to the stand (photo: R. Verrinder), (B) the device deployed onto an ice floe via a basket and crane deployment procedure, (C) SHARC buoy on an ice floe following a successful deployment. }
+	\label{fig:deployment}
 \end{figure}
-The buoy was then deployed from the basket with enough force for the spikes to penetrate into the sea ice thereby tethering the stand to the ice floe. Once complete, the buoy tracked GPS coordinates, signal diagnostic and ambient temperature. The conditions of the deployment are shown in the table below.
+
+The buoy was then deployed from the basket with enough force for the spikes to penetrate into the sea ice thereby tethering the stand to the ice floe. Once complete, the buoy tracked GPS coordinates, signal diagnostics, datum information and ambient temperature. The conditions of the deployment are shown in the table below.
 \begin{table}[H]
     \centering
     \caption{Deployment conditions for buoy 1 (2019-WC-SB01) and buoy 2 (2019-WC-SB02) including deployment coordinates, time and environmental conditions}
-    \begin{tabular}{|l|l|l|}
+    \setlength{\extrarowheight}{5pt}
+    \begin{tabular}{lll}
     \hline
-    Buoy Serial Number: & 2019-WC-SB01 & 2019-WC-SB02\\
+    \textbf{Buoy serial number} &\textbf{ 2019-WC-SB01} & \textbf{2019-WC-SB02}\\
     \hline
-    Latitude: & $56\degree 59'59.70" S$ & $57\degree 17'11.28"$\\
     \hline
-    Longitude: & $0\degree 0'36.96"E$ & $0\degree 1'18.30"E$\\
+    Latitude & $56\degree 59'59.70"$ S& $57\degree 17'11.28"$ S\\
     \hline
-    Date: & 26th July 2019 & 28th July 2019\\
+    Longitude & $0\degree 0'36.96"$ E& $0\degree 1'18.30"$ E\\
     \hline
-    Time: & 22h15 & 03h15\\
+    Date & 26th July 2019 & 28th July 2019\\
     \hline
-    Air Temperature: & $-10.7 \degree C$ & $-17.5 \degree C$\\
+    Time [UTC] & 22h15 & 03h15\\
+    \hline
+    Air temperature [$\degree$ C]& -10.7  & -17.5\\
+    \hline
     \hline
     \end{tabular}
 
@@ -641,24 +855,44 @@ The buoy was then deployed from the basket with enough force for the spikes to p
 \subsubsection{Results}
 \label{sec:ch4_results}
 
-The First Buoy transmitted one message after deployment before losing contact. The second buoy failed to transmit any messages. The 3rd buoy survived on the helideck for 1 week. The batteries were then changed and the buoy continued to transmit data continuously. GPS data collected from the transmission packets was compared to the GPS data recorded from the ship and the results are shown in the figure Figure \ref{fig:test_deploymenttest_GPS}.
+SB-WC-01 transmitted one message after deployment before losing contact possibly due to a power system failure. SB-WC-02 failed to transmit any messages which may have been due to mechanical failure as a result of deployment. SB-WC-3 survived on the helideck for one week until the batteries were changed. The buoy continued to transmit data continuously. GPS data collected from the transmission packets was compared to the GPS data recorded from the ship and the results are shown in Figure \ref{fig:test_deploymenttest_GPS}.
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width= \textwidth]{gps_trajectory_scale2019.png}
+	\caption{The GPS trajectory of the SA Aghulas II ship from the Marginal Ice Zone to East London. The plot shows the estimated position (magenta) taken from the buoy samples (red) compared to the actual trajectory (cyan). The positional error (PDOP) of each measurement is shown as an exaggerated area around the measured position.}
+	\label{fig:test_deploymenttest_GPS}
+\end{figure}
 
-Figure \ref{fig:test_deploymenttest_temp}  shows the ambient temperature sampled by the buoy during its journey from Antarctica to East London. The data collected was compared to the data from the ship's on-board weather station.
+Figure \ref{fig:test_deploymenttest_GPS} shows the measured GPS trajectory closely matched that of the ship however, there were significant gaps in the data set which was attributed to loss of GPS signal or failed Iridium transmissions. The dilation of precision appears the highest between 50 $\degree $ S and 55 $\degree $ S. As discussed in Section \ref{sec:ch2_drift}, this source of error may be attributed to strong ionospheric interference and poor satellite spread.
 
-\section{Final Evaluation}
+Finally, Figure \ref{fig:test_deploymenttest_temp}  shows the ambient temperature sampled by the buoy during its journey from Antarctica to East London. The data collected was compared to the data from the ship's on-board weather station.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width= \textwidth]{temp_test_scale2019.png}
+	\caption{Air Temperature recorded by the buoy (yellow) over 11 days compared to the air temperature recorded by the ship (blue) }
+	\label{fig:test_deploymenttest_temp}
+\end{figure}
+
+Figure \ref{fig:test_deploymenttest_temp} shows that the temperature sensor readings do not correlate at all with the reading from the ship. Furthermore, the gaps in the data sets lead to "spikes" appearing. The DS18B20 was not calibrated before deployment which may have caused these readings. Furthermore, the DS18B20 may have been unresponsive when the GPS signal was active resulting in missing data points. Finally, while the data points are inaccurate at low temperatures, the data trends towards higher temperatures as the ship reached higher latitudes. This trend was confirmed in the temperature measurements of the SA Aghulas II showing that the device was functional but very inaccurate.
+
+\section{Final evaluation}
 \label{sec:ch4_final_eval}
-The platform was evaluated both on a subsystem and full system level. Validation of the system occurred using the Acceptance tests AT001 to AT005 outlined in Chapter 3. Table \ref{tab:AT_SSYS_EV} shows the results of the acceptance tests and the traceability of the subsystems.\par
 
-The full system was evaluated using Acceptance Tests AT007 to AT009. Due to project timeline constraints, rigorous calibration tests (AT006) could not be performed on all the required subsystems. The results of the Acceptance tests are shown in the table below.
+In this section, the results of the platform system and subsystem tests are discussed. Due to timeline constraints, no calibration testing was carried out other than for the INA219 current sensor where this was necessary for the device to function. On a full system level, the results of the acceptance tests are shown in Table \ref{tab:AT_SYS_EV}
 \begin{table}[H]
     \centering
-    \caption{Results of the full system acceptance tests indicated by a \checkmark in the appropriate column}
-    \begin{tabular}{|c|c|c|c|}
-    \cline{2-4}
-    \multicolumn{1}{c|}{}&  \multicolumn{3}{|c|}{Full System Acceptance:} \\
+    \caption{Results of the full system acceptance tests indicated by a tick in the appropriate column.}
+    \setlength{\extrarowheight}{5pt}
+    \begin{tabular}{cccc}
     \hline
-    \textbf{Unit Test:} & \textbf{Fully Satisfied:} & \textbf{Partially Satisfied:} & \textbf{Not satisfied:} \\
+    
+    \multicolumn{1}{c}{}&  \multicolumn{3}{c}{\textbf{Full system acceptance}} \\
+    \hline
+    \hline
+    \textbf{Test ID} & \textbf{Fully satisfied} & \textbf{Partially Satisfied} & \textbf{Not satisfied} \\
+    \hline
    \hline
     AT006 & & \checkmark & \\
     \hline
@@ -668,24 +902,25 @@ The full system was evaluated using Acceptance Tests AT007 to AT009. Due to proj
     \hline
     AT009 & & & \checkmark \\
     \hline
+    \hline
     \end{tabular}
 
     \label{tab:AT_SYS_EV}
 \end{table}
 
-Full system calibration was partially satisfied. The power monitor circuit was calibrated successfully for the power supply and the IMU successfully passed the self-test however, additional IMU calibrations could not be performed. The extent of IMU functionality demonstrated by this platform is to prove functionality by initializing and sampling at a fixed known rate. Long-term data logging and wave measurements fall outside the scope of this project.It is recommended for future research to create an acceptance test for extensive IMU calibrations. Finally pressure measurements are difficult to verify without a calibrated barometer. In future work, verification of the environmental sensor should be conducted at a location with a calibrated weather station.
+Full system calibration was partially satisfied. The power monitor circuit was calibrated successfully for the power supply and the IMU successfully passed the self-test. However, extensive IMU calibrations could not be performed. The extent of IMU functionality demonstrated by this platform is to prove functionality by initialising and sampling at a fixed known rate. Furthermore, long-term data logging and wave measurements fall outside the scope of this project. It is recommended for future research to create an acceptance test for extensive IMU calibrations. Finally pressure measurements are difficult to verify without a calibrated barometer. In future work, verification of the environmental sensor should be conducted at a location with a calibrated weather station.
 
-The system successfully completed low temperature tests in a $-20\degree C$ freezer and could function normally afterwards. However, visual means (LED's, active visual monitoring) were used to monitor the performance in the freezer. In the future, more extensive low temperature tests should be conducted. An additional improvement is to link the device to a data-logger and conducted low-temperature data validation tests to ensure proper operation of the buoy in low temperatures.
+The system  completed low temperature tests in a -20 $\degree$ C freezer and could function normally afterwards. However, due to an issue with the flash chips, all data from the test was lost. The only indication the buoy was operational was through a debugging LED.In the future, more extensive low temperature tests should be conducted. An additional improvement is to link the device to a data-logger and conducted low-temperature data validation tests to ensure proper operation of the buoy in low temperatures.
 
-\subsection{System Validation}
-Once the testing was completed, the final system was evaluated against the system requirements. This ultimately proves if the steps undertaken in chapter 3 had successfully fulfilled the requirements outlined by the stakeholders and evaluate the achievements of the device. These results are shown in table \ref{tab:final_eval_funcreq} below.
+\subsection{Functional requirement validation}
+Once the testing was completed, the final system was evaluated against the system requirements. This ultimately proves if the steps undertaken in Chapter \ref{ch:ch3} had successfully fulfilled the requirements outlined by the stakeholders and evaluate the achievements of the device. These results are shown in Table \ref{tab:final_eval_funcreq}.
 
 \begin{table}[H]
     \centering
     \caption{Results of the platform evaluation and how each functional requirement was addressed.}
     \begin{tabular}{|m{0.15\textwidth}|c| m{0.7\textwidth}|}
     \hline
-     Functional Requirement   &  Validation & Discussion\\
+     Functional requirement   &  Validation & Discussion\\
      \hline
      FR001 & Fully Met & \textit{The System shall have a protective enclosure against precipitation and frost}\\
           \hline

@@ -1164,7 +1164,7 @@ typedef struct
     \caption{Subsystem test 2: Signal acquisition test outlining procedure, test cases and relation to acceptance tests.}
     \begin{tabular}{|m{0.2\textwidth}|m{0.75\textwidth}|}
     \hline
-       \textbf{SUBSYS002: }  &  Wireless module signal acquisition test\\
+       \textbf{SUBSYS001: }  &  Wireless module signal acquisition test\\
        \hline
         \textbf{Input: } &  None\\
         \hline
@@ -1190,16 +1190,16 @@ typedef struct
         \hline
 
     \end{tabular}
-    \label{tab:SUBSYS002}
+    \label{tab:SUBSYS001}
 \end{table}
 
 
 \begin{table}[H]
     \centering
-    \caption{Unit Test 3: GPS data validity test outlining procedure, test cases and relation to acceptance tests}
+    \caption{SUBSYS002: GPS data validity test outlining procedure, test cases and relation to acceptance tests}
     \begin{tabular}{|m{0.2\textwidth}|m{0.75\textwidth}|}
     \hline
-       \textbf{Unit Test 3: }  &  GPS Data Validity Test\\
+       \textbf{SUBSYS002: }  &  GPS Data Validity Test\\
        \hline
         \textbf{Input: } &  NMEA Message String\\
         \hline
@@ -1225,15 +1225,15 @@ typedef struct
         \hline
     \end{tabular}
 
-    \label{tab:SUBSYS}
+    \label{tab:SUBSYS002}
 \end{table}
 
 \begin{table}[H]
     \centering
-    \caption{Unit Test 4: DMA circular buffer input stream tests procedure and test case.}
+    \caption{SUBSYS003: DMA circular buffer input stream tests procedure and test case.}
     \begin{tabular}{|m{0.2\textwidth}|m{0.75\textwidth}|}
     \hline
-       \textbf{Unit Test 4: }  &  DMA circular buffer verification test.\\
+       \textbf{SUBSYS003: }  &  DMA circular buffer verification test.\\
        \hline
         \textbf{Input: } &  Data of an unknown size\\
         \hline
@@ -1259,15 +1259,15 @@ typedef struct
         \hline
     \end{tabular}
 
-    \label{tab:UT004}
+    \label{tab:SUBSYS003}
 \end{table}
 
 \begin{table}[H]
     \centering
-    \caption{Unit Test 5: Interrupt test proceedure,test cases and pass conditions}
+    \caption{SUBSYS004: Interrupt test proceedure,test cases and pass conditions}
     \begin{tabular}{|m{0.2\textwidth}|m{0.75\textwidth}|}
     \hline
-       \textbf{Unit Test 5: }  &  Interrupt tests\\
+       \textbf{SUBSYS004: }  &  Interrupt tests\\
        \hline
         \textbf{Input: } &  Interrupt request\\
         \hline
@@ -1290,15 +1290,15 @@ typedef struct
         \hline
     \end{tabular}
 
-    \label{tab:UT005}
+    \label{tab:SUBSYS004}
 \end{table}
 
 \begin{table}[H]
     \centering
-    \caption{Unit Test 6: Transmission test procedure, test cases and relation to acceptance tests}
+    \caption{SUBSYS005: Transmission test procedure, test cases and relation to acceptance tests}
     \begin{tabular}{|m{0.2\textwidth}|m{0.75\textwidth}|}
     \hline
-       \textbf{Unit Test 6: }  &  Iridium transmission test\\
+       \textbf{SUBSYS005: }  &  Iridium transmission test\\
        \hline
         \textbf{Input: } &  message buffer\\
         \hline
@@ -1325,12 +1325,12 @@ typedef struct
         \hline
     \end{tabular}
 
-    \label{tab:UT006}
+    \label{tab:SUBSYS005}
 \end{table}
 
 \begin{table}[H]
     \centering
-    \caption{Unit Test 7: Temperature Verification test  test outlining procedure, test cases and relation to acceptance tests}
+    \caption{SUBSYS006: Temperature Verification test  test outlining procedure, test cases and relation to acceptance tests}
     \begin{tabular}{|m{0.2\textwidth}|m{0.75\textwidth}|}
     \hline
        \textbf{Unit Test 7: }  &  Environmental Sensor Temperature Validation Test\\
@@ -1357,15 +1357,15 @@ typedef struct
         \hline
     \end{tabular}
 
-    \label{tab:UT007}
+    \label{tab:SUBSYS006}
 \end{table}
 
 \begin{table}[H]
     \centering
-    \caption{Unit Test 8: Inertial Measurement Unit test outlining procedure, test cases and relation to acceptance tests}
+    \caption{SUBSYS007: Inertial Measurement Unit test outlining procedure, test cases and relation to acceptance tests}
     \begin{tabular}{|m{0.2\textwidth}|m{0.75\textwidth}|}
     \hline
-       \textbf{Unit Test 8: }  &  Inertial Measurement Unit Validation Test\\
+       \textbf{SUBSYS007: }  &  Inertial Measurement Unit Validation Test\\
        \hline
         \textbf{Input: } &  None\\
         \hline
@@ -1388,10 +1388,11 @@ typedef struct
         \end{enumerate}\\
         \hline
     \end{tabular}
-    \label{tab:UT008}
+    \label{tab:SUBSYS007}
 \end{table}
 
-\section{System Tests}
+
+\section{System test results}
 \begin{table}[H]
     \centering
     \caption{Results of subsystem acceptance tests for each of the identified modules. Modules that were successfully validated were marked with a \checkmark, failed tests were marked by an X and tests that could not be applied to a subsystem were marked by an N/A}
@@ -1421,34 +1422,3 @@ typedef struct
 
     \label{tab:AT_SSYS_EV}
 \end{table}
-
-\chapter{Test results}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width = \textwidth]{Power Cycle.png}
-    \caption{Graph showing a typical current cycle of the buoy during the various phases. Data was sampled at 1Hz with all modules connected, sample intervals set to 30 mins the INA219 sensor connected to an external data logger and the device placed in a partially obstructed environment.}
-    \label{fig:test_pwr_cycle}
-\end{figure}
-
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width =\textwidth]{State Current Draw.png}
-    \caption{Average Current consumption at each phase in the life-cycle of the buoy. Ordered chronologically}
-    \label{fig:test_powtest_avgcurr}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{gps_trajectory_scale2019.png}
-    \caption{The GPS trajectory of the Aghulus 2 ship from the Marginal Ice Zone to East London. The plot shows the estimated position (magenta) taken from the buoy samples (red) compared to the actual trajectory (cyan). The positional error (PDOP) of each measurement is shown as an exaggerated area around the measured position}
-    \label{fig:test_deploymenttest_GPS}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{temp_test_scale2019.png}
-    \caption{Air Temperature recorded by the buoy (yellow) over 11 days compared to the air temperature recorded by the ship (blue) }
-    \label{fig:test_deploymenttest_temp}
-\end{figure}
