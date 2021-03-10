@@ -1078,16 +1078,16 @@ typedef struct
 \label{app:Unittests}
 \begin{table}[H]
 	\centering
-	\caption{Initialisation test outlining procedure, test cases and relation to
-	 acceptance tests}
+	\setlength{\extrarowheight}{5pt}
+	\caption{ Protocol for firmware initialisation/deinitialisation functional test.}
      \label{tab:UT001}
 	\begin{tabular}{m{0.2\textwidth} m{0.7\textwidth}}
 		\multicolumn{2}{l}{\textbf{UT001} }\\
 		\hline
-		\textbf{Description} & Peripheral initialization test\\
+		\textbf{Description} & Initialisation/deinitialisation test.\\
 		\hline
 		\hline
-		\textbf{Test protocol} & The module is connected to the microcontroller with the corresponding subsystem API libraries and driver files. The initialization function is then run. After the function has completed, the return status from the function is evaluated. If the test was completed sucessfully, A "Module online!" is printed to the serial and the LED is switched on. \\
+		\textbf{Test protocol} & The hardware module is connected to the microcontroller with the corresponding subsystem API libraries and driver files. The initialisation/deinitialsation function is run. After the function has completed, the return status from the function is evaluated. If the test was completed sucessfully, A "Module online!" is printed to the serial and the LED is switched on. \\
 		\hline
 		\hline
 	\end{tabular}
@@ -1095,12 +1095,13 @@ typedef struct
 
 \begin{table}[H]
 	\centering
-	\caption{Protocol for the deinitialisation test.}
+	\caption{Protocol for the signal acquisition firmware test, This test is specific to recievers with wireless capabilities. }
+		\setlength{\extrarowheight}{5pt}
 	\label{tab:UT002}
 	\begin{tabular}{m{0.2\textwidth} m{0.7\textwidth}}
 		\multicolumn{2}{l}{\textbf{UT002} }\\
 		\hline
-		\textbf{Description} & Peripheral initialization test\\
+		\textbf{Description} & Signal acquisition test.\\
 		\hline
 		\hline
 		\textbf{Test protocol} & Test to be run after unit test UT001 in Table \ref{tab:UT001}. Module de initialisation function is to be run until completion. After the function has run, the configuration registers are checked for reset values. If the registers are reset, the function returns a success status and "Successfully deinitialised module!" is printed to the serial. If the LED was green, it is turned off. This test was also run before an initialisation function to ensure that the function does not result in hardfaults.\\
@@ -1111,15 +1112,16 @@ typedef struct
 
 \begin{table}[H]
 	\centering
-	\caption{Protocol for the transmission test.}
+	\caption{protocol for testing the peripheral communication functional unit.}
+	\setlength{\textwidth}{5pt}
 	\label{tab:UT003}
 	\begin{tabular}{m{0.2\textwidth} m{0.7\textwidth}}
 		\multicolumn{2}{l}{\textbf{UT003} }\\
 		\hline
-		\textbf{Description} & Transmission test\\
+		\textbf{Description} & Peripheral Communication test\\
 		\hline
 		\hline
-		\textbf{Test protocol} & Module to be connected to the microcontroller with firmware loaded with the required communication peripherals to be initialised. The microcontroller transmits a set of data to the device in polling mode. If succesful, the function will return a succesful return status. Otherwise the error code will be returned.  \\
+		\textbf{Test protocol} & Module to be connected to the microcontroller with firmware loaded with the required communication peripherals to be initialised. The microcontroller either requests to recieve a byte of data or transmits a set of data in polling mode. If successful, the function will return a successful status. Otherwise am error code will be returned.  \\
 		\hline
 		\hline
 	\end{tabular}
@@ -1127,7 +1129,8 @@ typedef struct
 
 \begin{table}[H]
 	\centering
-	\caption{Reception Test}
+	\caption{Protocol for testing a software function that validates an input based on specific criteria}
+	\setlength{\extrarowheight}{5pt}
 	\label{tab:UT004}
 	\begin{tabular}{m{0.2\textwidth} m{0.7\textwidth}}
 		\multicolumn{2}{l}{\textbf{UT004} }\\
@@ -1135,7 +1138,7 @@ typedef struct
 		\textbf{Description} & Transmission test\\
 		\hline
 		\hline
-		\textbf{Test protocol} & Module to be connected to the microcontroller with firmware loaded with the required communication peripherals to be initialised. The microcontroller transmits a request to recieve data in polling mode. The device polls the peripheral for the data for a user specified period of time. If succesful, the function will return a succesful return status. Otherwise the error code will be returned.    \\
+		\textbf{Test protocol} & Test to be run as a unit test on the desired platform. An array of expected outputs from the sensor is written as a test case along with the expected output of the function. Then the input is passed through the function and stored after the function has been complete. The function output is compared to the expected output. The function passes if the output matches the expected output    \\
 		\hline
 		\hline
 	\end{tabular}
@@ -1143,255 +1146,71 @@ typedef struct
 
 \begin{table}[H]
 	\centering
-	\caption{Reception Test}
+	\caption{ Protocol for testing data streams and direct memory access (DMA) functions.}
 	\label{tab:UT005}
+		\setlength{\extrarowheight}{5pt}
 	\begin{tabular}{m{0.2\textwidth} m{0.7\textwidth}}
 		\multicolumn{2}{l}{\textbf{UT005} }\\
 		\hline
-		\textbf{Description} & Interrupt test\\
+		\textbf{Description} & Data stream test\\
 		\hline
 		\hline
-		\textbf{Test protocol} & Module to be connected to the microcontroller with firmware loaded with the required communication peripherals to be initialised. The required interrupt is configured and the interrupt condition is created to run after initialisation. An internal timer is set to a user specified value and is polled while the program runs. When the condition is met and the trigger is generated, the timer is stopped and the device should enter the interrupt handler. If this was successful, a "Pass" is printed to the serial. If a timeout occurs then a "Fail" is printed to the screen. \\
+		\textbf{Test protocol} & The hardware module is connected to the microcontroller with the DMA stream enabled. The microcontroller triggers the sensor to transmit a known amount of data through the DMA stream. The microcontroller waits for a signal to close the stream then stops the DMA transfer. The data from the stream is then compared to the data expected. The test fails immediately if errors or hard faults occur.\\
 		\hline
 		\hline
 	\end{tabular}
 \end{table}
 
-
-\section{Subsystem test}
 \begin{table}[H]
-    \centering
-    \caption{Subsystem test 2: Signal acquisition test outlining procedure, test cases and relation to acceptance tests.}
-    \begin{tabular}{|m{0.2\textwidth}|m{0.75\textwidth}|}
-    \hline
-       \textbf{SUBSYS001: }  &  Wireless module signal acquisition test\\
-       \hline
-        \textbf{Input: } &  None\\
-        \hline
-        \textbf{Output: } & Serial output\\
-        \hline
-        \textbf{Tasks: } & \begin{enumerate}
-        \vspace{1mm}
-            \item Connect module to external power.
-            \item place device in open environment free of obstructions.
-            \item set timeout to 5 minutes.
-            \item Request device return signal status
-            \item evaluate return status
-        \end{enumerate}\\
-        \hline
-        \textbf{Test Case: } & \begin{enumerate}
-            \vspace{1mm}
-            \item Open field, no obstructions - signal acquisition
-            \item Open Field, Partial obstructions - slow signal acquisition
-            \item Open Field, Full Obstructions - no signal acquisition
-            \item Indoors, Partial Obstruction - slow signal acquisition
-            \item Indoors, Full Obstructions - no signal acquisition
-        \end{enumerate}\\
-        \hline
-
-    \end{tabular}
-    \label{tab:SUBSYS001}
-\end{table}
-
-
-\begin{table}[H]
-    \centering
-    \caption{SUBSYS002: GPS data validity test outlining procedure, test cases and relation to acceptance tests}
-    \begin{tabular}{|m{0.2\textwidth}|m{0.75\textwidth}|}
-    \hline
-       \textbf{SUBSYS002: }  &  GPS Data Validity Test\\
-       \hline
-        \textbf{Input: } &  NMEA Message String\\
-        \hline
-        \textbf{Output: } & Evaluation Result\\
-        \hline
-        \textbf{Tasks: } & \begin{enumerate}
-        \vspace{1mm}
-            \item Compare input packet structure to NMEA standard
-            \item Compare packet address to accepted message strings and talker IDs
-            \item Calculate checksum and compare to transmitted checksum byte
-        \end{enumerate}\\
-        \hline
-        \textbf{Test Case: } & \begin{enumerate}
-            \vspace{1mm}
-            \item Valid GSA message string
-            \item Valid GLL message string
-            \item Valid ZDA message string
-            \item Valid NMEA message with unrecognised address
-            \item Valid NMEA message with invalid checksum
-            \item Invalid message structure,
-            \item Null string
-        \end{enumerate}\\
-        \hline
-    \end{tabular}
-
-    \label{tab:SUBSYS002}
+	\centering
+	\caption{ Protocol to test data streams and direct memory access (DMA) functions}
+	\label{tab:UT006}
+	\setlength{\extrarowheight}{5pt}
+	\begin{tabular}{m{0.2\textwidth} m{0.7\textwidth}}
+		\multicolumn{2}{l}{\textbf{UT006} }\\
+		\hline
+		\textbf{Description} & Hardware module functional test\\
+		\hline
+		\hline
+		\textbf{Test protocol} & Test requires the module library to be loaded onto the microcontroller with the hardware module connected. Function to be called after a successful initialisation. Load the function with a known parameter and wait for a return status. Evaluate the return status against a table to determine whether the function was successful. \\
+		\hline
+		\hline
+	\end{tabular}
 \end{table}
 
 \begin{table}[H]
-    \centering
-    \caption{SUBSYS003: DMA circular buffer input stream tests procedure and test case.}
-    \begin{tabular}{|m{0.2\textwidth}|m{0.75\textwidth}|}
-    \hline
-       \textbf{SUBSYS003: }  &  DMA circular buffer verification test.\\
-       \hline
-        \textbf{Input: } &  Data of an unknown size\\
-        \hline
-        \textbf{Output: } & Return status and pointer to buffer in memory\\
-        \hline
-        \textbf{Tasks: } & \begin{enumerate}
-        \vspace{1mm}
-            \item Connect to device through communication port
-            \item wait for data to be recieved
-            \item validate return status
-            \item validate data returned
-            
-        \end{enumerate}\\
-        \hline
-        \textbf{Test Case: } & \begin{enumerate}
-            \vspace{1mm}
-            \item byte
-            \item array of known length
-            \item string of unknown length
-            \item No data 
-            \item array of maximum integer size
-        \end{enumerate}\\
-        \hline
-    \end{tabular}
-
-    \label{tab:SUBSYS003}
+	\centering
+	\setlength{\extrarowheight}{5pt}
+	\caption{ Protocols for fault testing of software subsystem functions.}
+	\label{tab:UT007}
+	\begin{tabular}{m{0.2\textwidth} m{0.7\textwidth}}
+		\multicolumn{2}{l}{\textbf{UT007} }\\
+		\hline
+		\textbf{Description} & Unit fault testing\\
+		\hline
+		\hline
+		\textbf{Test protocol} & Firmware to be loaded onto the microcontroller with the module placed in the configurations shown in AT002 (Table \ref{tab:AT002}). the test passes if each configuration results in the corresponding error code being returned. The test fails if the function freezes or does not return a predicatble return code.  \\
+		\hline
+		\hline
+	\end{tabular}
 \end{table}
 
 \begin{table}[H]
-    \centering
-    \caption{SUBSYS004: Interrupt test proceedure,test cases and pass conditions}
-    \begin{tabular}{|m{0.2\textwidth}|m{0.75\textwidth}|}
-    \hline
-       \textbf{SUBSYS004: }  &  Interrupt tests\\
-       \hline
-        \textbf{Input: } &  Interrupt request\\
-        \hline
-        \textbf{Output: } & Light emitting diode (LED) and information printed to serial monitor.\\
-        \hline
-        \textbf{Tasks: } & \begin{enumerate}
-        \vspace{1mm}
-            \item Configure interrupt in firmware to be enabled
-            \item set the trigger condition
-            \item Run the test and initiate the interrupt trigger condition
-            \item If the code successfully enters the handler, flash an LED and print PASS to serial
-        \end{enumerate}\\
-        \hline
-        \textbf{Test Case: } & \begin{enumerate}
-            \vspace{1mm}
-            \item Manual interrupt trigger
-            \item Conditional interrupt trigger
-            
-        \end{enumerate}\\
-        \hline
-    \end{tabular}
-
-    \label{tab:SUBSYS004}
+	\centering
+	\setlength{\extrarowheight}{5pt}
+	\caption{ Protocols for testing digital input/output peripheral functional units.}
+	\label{tab:UT008}
+	\begin{tabular}{m{0.2\textwidth} m{0.7\textwidth}}
+		\multicolumn{2}{l}{\textbf{UT007} }\\
+		\hline
+		\textbf{Description} & GPIO functional unit tests\\
+		\hline
+		\hline
+		\textbf{Test protocol} & Firmware to be loaded onto the microcontroller with an LED attached to the digital pin. Pin to be configured in digital output mode. A logic high must be written to the pin resulting in a pass if the LED turns on. Then a logic low is written resulting in a pass if the LED turns off. For input testing, a push button in normally open mode must be attached to the pin and configured in pull up mode. A logic high should be read while the button is open and a logic low should be read while the button is pressed. \\
+		\hline
+		\hline
+	\end{tabular}
 \end{table}
-
-\begin{table}[H]
-    \centering
-    \caption{SUBSYS005: Transmission test procedure, test cases and relation to acceptance tests}
-    \begin{tabular}{|m{0.2\textwidth}|m{0.75\textwidth}|}
-    \hline
-       \textbf{SUBSYS005: }  &  Iridium transmission test\\
-       \hline
-        \textbf{Input: } &  message buffer\\
-        \hline
-        \textbf{Output: } & Transmission status\\
-        \hline
-        \textbf{Tasks: } & \begin{enumerate}
-        \vspace{1mm}
-            \item upload a message of known size to the module
-            \item Initiate a Transmission
-            \item evaluate return status
-        \end{enumerate}\\
-        \hline
-        \textbf{Test Case: } & \begin{enumerate}
-            \vspace{1mm}
-            \item null message
-            \item 1 byte message
-            \item 50 byte message
-            \item 120 byte message
-            \item 340 byte message
-            \item binary message
-            \item ascii message
-            
-        \end{enumerate}\\
-        \hline
-    \end{tabular}
-
-    \label{tab:SUBSYS005}
-\end{table}
-
-\begin{table}[H]
-    \centering
-    \caption{SUBSYS006: Temperature Verification test  test outlining procedure, test cases and relation to acceptance tests}
-    \begin{tabular}{|m{0.2\textwidth}|m{0.75\textwidth}|}
-    \hline
-       \textbf{Unit Test 7: }  &  Environmental Sensor Temperature Validation Test\\
-       \hline
-        \textbf{Input: } &  Ambient Temperature\\
-        \hline
-        \textbf{Output: } &  Sensor Temperature Value\\
-        \hline
-        \textbf{Tasks: } & \begin{enumerate}
-        \vspace{1mm}
-            \item place sensor in an environment where the temperature is known
-            \item Measure Ambient Temperature ADC value and read from sensor
-            \item perform temperature compensation
-            \item compare value to external measurement
-        \end{enumerate}\\
-        \hline
-        \textbf{Test Case: } & \begin{enumerate}
-            \vspace{1mm}
-            \item $\pm 25\degree$ (Standard Temperature and Pressure)
-            \item $10 \degree$ (Cold Test)
-            \item $0\degree$ (Sub Zero Test)
-            \item $-20 \degree$ (Extreme Freeze Test)
-        \end{enumerate}\\
-        \hline
-    \end{tabular}
-
-    \label{tab:SUBSYS006}
-\end{table}
-
-\begin{table}[H]
-    \centering
-    \caption{SUBSYS007: Inertial Measurement Unit test outlining procedure, test cases and relation to acceptance tests}
-    \begin{tabular}{|m{0.2\textwidth}|m{0.75\textwidth}|}
-    \hline
-       \textbf{SUBSYS007: }  &  Inertial Measurement Unit Validation Test\\
-       \hline
-        \textbf{Input: } &  None\\
-        \hline
-        \textbf{Output: } & Test return status \\
-        \hline
-        \textbf{Tasks: } & \begin{enumerate}
-        \vspace{1mm}
-            \item perform Self-Test, verify self test values within $14\%$ of the factory set value
-            \item enable all axes and read data
-            \item enable interrupt pin and test response in Interrupt handler
-            \item set device to sleep, wake up and take a reading
-        \end{enumerate}\\
-        \hline
-        \textbf{Test Case: } & \begin{enumerate}
-            \vspace{1mm}
-                \item Device Connected 
-                \item Device Disconnected
-                \item Device at Rest
-                \item Device in motion
-        \end{enumerate}\\
-        \hline
-    \end{tabular}
-    \label{tab:SUBSYS007}
-\end{table}
-
-
 \section{System test results}
 \begin{table}[H]
     \centering

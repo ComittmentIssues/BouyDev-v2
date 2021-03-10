@@ -27,7 +27,7 @@ The testing procedure initiated with low level testing. This was conducted on th
 In this section, the low level testing is described. As discussed in Sub section \ref{subsec:ch5_timing} Each subsystem has a different data requirement and data rate. The firmware was designed to cater to these requirements ensuring that the correct communication ports were initailised, the correct protocol was used and that an uninterrupted stream of data was created to prevent blocking and timing issues. \par 
  
  \subsection{Unit Tests}
-The testing procedure for each subsystem is outlined below. The base functionality of each device is given with the unit test used to verify the functionality. The unit tests were designed IEEE1012\footcite{IEEE_STDVV} as a structural reference to ensure that the outcome of each tests was The unit used  were written to validate the low level functionality of the subsystems and ensure that each module conforms to the outlined specification. Included in each function is a numeric return status describing how the function exited. Table \ref{tab:utsumm} gives an overview of the unit tests shown in Appendix \ref{tab:UT001} to \ref{tab:UT008}.
+The testing procedure for each subsystem is outlined below. The base functionality of each device is given with the unit test used to verify the functionality. The unit tests were designed using IEEE1012\footcite{IEEE_STDVV} as a structural reference to ensure that the outcome of each tests was The unit used  were written to validate the low level functionality of the subsystems and ensure that each module conforms to the outlined specification. Included in each function is a numeric return status describing how the function exited. Table \ref{tab:utsumm} gives an overview of the unit tests shown in Appendix \ref{tab:UT001} to \ref{tab:UT008}.
 
 \begin{table}[H]
 	\caption{Objectives of the unit tests defined in Appendix \ref{app:Unittests} showing how the test protocols help validate the firmware in the device peripheral layer.}
@@ -60,6 +60,10 @@ The testing procedure for each subsystem is outlined below. The base functionali
 			%Error handling
 			UT007 & Tests a firmware function under fail conditions to ensure that the function responds by exiting with the appropriate status code without freezing or generating a hard fault.\\
 			\hline 
+						%Error handling
+			UT007 & Tests a firmware function under fail conditions to ensure that the function responds by exiting with the appropriate status code without freezing or generating a hard fault.\\
+			\hline
+			UT008 & Tests a firmware function designed to interface with a digital logic input/output pin.\\
 			\hline
 		\end{tabular}
 	}
@@ -710,7 +714,7 @@ The data from the device was transmitted to the Rock Seven RockBLOCK data portal
 Table \ref{tab:deployment_results} shows a section of the data recieved during a deployment test. The data includes both IMU data (demarcated with a 0x57 or "W") and ice drift data (demarcated with a 0x01 or "1"). These payloads are compressed data packets as discussed in Chapter \ref{ch:ch5}
 
 \section{Field testing}
-
+\label{sec:ch4_remotedeployment}
 This section describes the field testing performed during the 2019 SCALE winter cruise in July.This test occurred early in the development cycle and used version 1 of the software and the hardware for the SHARC buoy system. The cruise took place onboard the SA Aghulas II and followed a trajectory towards the Weddel sea shown in Figure \ref{fig:scalepath}. This system was deployed with sensors, processors and configurations shown in the table below.
 
 \begin{figure}[H]
@@ -750,7 +754,7 @@ These components were connected to a double sided PCB and mounted vertically to 
 	\label{fig:sharcv1}
 \end{figure}
 
-Six prototype systems were brought onboard and carried to the Southern Ocean with the objective of testing the suitability, basic sensing capabilities, remote communication capability and GPS signal acquisition capabilities. During the expedition, the initial power system began to experience instabilities resulting in system failures. Due to time and resource constraints, alternative power supplies were made for three of the systems. Two systems were deployed in the first and second Marginal Ice Zone (MIZ1 and MIZ2) respectively, These locations can be seen in Figure \ref{label}. A final system was deployed on the helideck of the SA Aghulas II on the return journey to East London.
+Six prototype systems were brought onboard and carried to the Southern Ocean with the objective of testing the suitability, basic sensing capabilities, remote communication capability and GPS signal acquisition capabilities. During the expedition, the initial power system began to experience instabilities resulting in system failures. Due to time and resource constraints, alternative power supplies were made for three of the systems. Two systems were deployed in the first and second Marginal Ice Zone (MIZ1 and MIZ2) respectively, These locations can be seen in Figure \ref{fig:deploc}. A final system was deployed on the helideck of the SA Aghulas II on the return journey to East London.
 
 \begin{figure}[H]
 	\centering
