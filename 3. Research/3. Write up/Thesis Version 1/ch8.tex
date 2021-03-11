@@ -28,25 +28,25 @@ In this version of the firmware, a simple set of unit tests were implemented to 
 
 Due to time constraints, a fully realisable wave data algorithm could not be implemented. This can be expended on in a future project conducting an investigation into the most suitable wave-measurement algorithm and can include full IMU calibration techniques, evaluation of the current IMU as well as open-ocean and open-ocean with rigid platform tests. \par 
 
-The latest hardware platform allows for critical components such as the IMU to connect an interrupt pin to an internal wake up line on the microcontroller. This feature can be expended in the future to allow for interrupts to be generated when a specific event is detected. These features can be expanded based on the following devices
+The latest hardware platform allows for critical components such as the IMU to connect an interrupt pin to an internal wake up line on the microcontroller. This feature can be expended in the future to allow for interrupts to be generated when a specific event is detected. These features can be expanded based on the following devices.
 
 \paragraph{GPS}
 
-The device can be put to sleep and woken up when a GPS signal is acquired. Thereby reducing the reliance on polling for signal acquisition
+The device can be put to sleep and woken up when a GPS signal is acquired. Thereby reducing the reliance on polling for signal acquisition.
 
 \paragraph{IMU}
 The interrupt pin can be configured to detect motion of a specified magnitude and frequency which can allow for more precise detection and measurement of significant wave height and dominant wave frequency. This feature can also be expanded to detect Ice Collisions.
 
 \paragraph{Iridium}
 
-The Rock block 9603 has a ring indicator pin which produces a logic high when a message is incoming to the modem. This feature can allow for ad-hoc programming of the device as well as asynchronous data retrieval thereby allowing for more precise monitoring of the device. 
+The RockBLOCK 9603 has a ring indicator pin which produces a logic high when a message is incoming to the modem. This feature can allow for ad-hoc programming of the device as well as asynchronous data retrieval thereby allowing for more precise monitoring of the device. 
 
 The move to a fully interrupt-based system will significantly improve power performance as well as reduce the reliance on timed-sequences.
 
 \section{Expansion of nodes into a network}
 
-This project resulted in the design and procurement of a single sensing node. To increase the sensing capability, the devices can be expended to form a network with an additional communication protocol (such as LORA) can provide inter-buoy communication. Future projects can include an investigation into optimal buoy topologies or designing firmware to facilitate inter-buoy communication.
+This project resulted in the design and procurement of a single sensing node. To increase the sensing capability, the devices can be expanded to form a network with an additional communication protocol (such as LORA) can provide inter-buoy communication. Future projects can include an investigation into optimal buoy topologies or designing firmware to facilitate inter-buoy communication.
 
 \section{Future deployments}
 
-Following the completion of the new design, arrangements are being made to test and deploy the device through other groups. Contacts have been made with Alfred-Wegener Institute to deploy the device from the Polarstern Research Vessel. An additional prototype has been taken onboard the SA Aghulas II transporting researches to the SANAE IV base where the device will be tested on the continent before being deployed on sea ice.
+Following the completion of the new design, arrangements are being made to test and deploy the device through other groups. Contacts have been made with Alfred-Wegener Institute to deploy the device from the Polarstern Research Vessel. An additional prototype has been taken onboard the SA Aghulas II transporting researchers and supplies to the SANAE IV base where the device will be tested on the continent before being deployed on sea ice.

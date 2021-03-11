@@ -1,15 +1,15 @@
 [0] Config.pm:311> INFO - This is Biber 2.16
 [0] Config.pm:314> INFO - Logfile is '0.thesis.blg'
-[156] biber-MSWIN64:340> INFO - === 
-[213] Biber.pm:415> INFO - Reading '0.thesis.bcf'
-[975] Biber.pm:952> INFO - Found 142 citekeys in bib section 0
-[996] Biber.pm:4340> INFO - Processing section 0
-[1010] Biber.pm:4531> INFO - Looking for bibtex format file 'thesis.bib' for section 0
-[1096] bibtex.pm:1689> INFO - LaTeX decoding ...
-[1361] bibtex.pm:1494> INFO - Found BibTeX data source 'thesis.bib'
-[2603] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[2603] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[2604] Biber.pm:4168> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
-[2604] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
-[2893] bbl.pm:654> INFO - Writing '0.thesis.bbl' with encoding 'UTF-8'
-[3007] bbl.pm:757> INFO - Output to 0.thesis.bbl
+[270] biber-MSWIN64:340> INFO - === 
+[379] Biber.pm:415> INFO - Reading '0.thesis.bcf'
+[1268] Biber.pm:952> INFO - Found 142 citekeys in bib section 0
+[1296] Biber.pm:4340> INFO - Processing section 0
+[1327] Biber.pm:4531> INFO - Looking for bibtex format file 'thesis.bib' for section 0
+[1417] bibtex.pm:1689> INFO - LaTeX decoding ...
+[1749] bibtex.pm:1494> INFO - Found BibTeX data source 'thesis.bib'
+[2982] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[2982] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[2982] Biber.pm:4168> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[2982] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
+[3306] bbl.pm:654> INFO - Writing '0.thesis.bbl' with encoding 'UTF-8'
+[3416] bbl.pm:757> INFO - Output to 0.thesis.bbl

@@ -1093,6 +1093,39 @@
       \field{pages}{245\bibrangedash 249}
       \range{pages}{5}
     \endentry
+    \entry{flashchipimage}{online}{}
+      \name{author}{1}{}{%
+        {{hash=2292e89b56df0af9fe6716065e552f1e}{%
+           family={Digi-key},
+           familyi={D\bibinithyphendelim k\bibinitperiod}}}%
+      }
+      \strng{namehash}{2292e89b56df0af9fe6716065e552f1e}
+      \strng{fullhash}{2292e89b56df0af9fe6716065e552f1e}
+      \strng{bibnamehash}{2292e89b56df0af9fe6716065e552f1e}
+      \strng{authorbibnamehash}{2292e89b56df0af9fe6716065e552f1e}
+      \strng{authornamehash}{2292e89b56df0af9fe6716065e552f1e}
+      \strng{authorfullhash}{2292e89b56df0af9fe6716065e552f1e}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{AT45DB641E--SHN--T}}
+      \field{urlday}{7}
+      \field{urlmonth}{3}
+      \field{urlyear}{2021}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.digikey.com/en/products/detail/adesto-technologies/AT45DB641E-SHN-T/4494308
+      \endverb
+      \verb{url}
+      \verb https://www.digikey.com/en/products/detail/adesto-technologies/AT45DB641E-SHN-T/4494308
+      \endverb
+    \endentry
     \entry{ds18b20}{online}{}
       \name{author}{1}{}{%
         {{hash=418a79ecacd74d226f063a3d8e245d8e}{%
@@ -3609,39 +3642,6 @@
       \endverb
       \verb{url}
       \verb https://www1.oanda.com/currency/converter/
-      \endverb
-    \endentry
-    \entry{flashchipimage}{online}{}
-      \name{author}{1}{}{%
-        {{hash=3a0e9336be556965750c0ebb6133fb8c}{%
-           family={Octopart},
-           familyi={O\bibinitperiod}}}%
-      }
-      \strng{namehash}{3a0e9336be556965750c0ebb6133fb8c}
-      \strng{fullhash}{3a0e9336be556965750c0ebb6133fb8c}
-      \strng{bibnamehash}{3a0e9336be556965750c0ebb6133fb8c}
-      \strng{authorbibnamehash}{3a0e9336be556965750c0ebb6133fb8c}
-      \strng{authornamehash}{3a0e9336be556965750c0ebb6133fb8c}
-      \strng{authorfullhash}{3a0e9336be556965750c0ebb6133fb8c}
-      \field{sortinit}{O}
-      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{{AT45DB641E--SHN2B--T}}
-      \field{urlday}{7}
-      \field{urlmonth}{3}
-      \field{urlyear}{2021}
-      \field{year}{2021}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://octopart.com/at45db641e-shn2b-t-adesto+technologies-31435401
-      \endverb
-      \verb{url}
-      \verb https://octopart.com/at45db641e-shn2b-t-adesto+technologies-31435401
       \endverb
     \endentry
     \entry{orbcomm2021website}{online}{}

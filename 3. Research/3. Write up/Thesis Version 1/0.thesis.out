@@ -29,7 +29,7 @@
 \BOOKMARK [1][-]{section.2.4}{Conclusion}{chapter.2}% 29
 \BOOKMARK [0][-]{chapter.3}{Design methodology}{}% 30
 \BOOKMARK [1][-]{section.3.1}{Design overview}{chapter.3}% 31
-\BOOKMARK [1][-]{section.3.2}{User Requirements}{chapter.3}% 32
+\BOOKMARK [1][-]{section.3.2}{User requirements}{chapter.3}% 32
 \BOOKMARK [2][-]{subsection.3.2.1}{Analysis of UR001}{section.3.2}% 33
 \BOOKMARK [2][-]{subsection.3.2.2}{Analysis of UR002}{section.3.2}% 34
 \BOOKMARK [2][-]{subsection.3.2.3}{Analysis of UR003}{section.3.2}% 35
@@ -48,7 +48,7 @@
 \BOOKMARK [1][-]{section.3.5}{Conclusion}{chapter.3}% 48
 \BOOKMARK [0][-]{chapter.4}{Platform design}{}% 49
 \BOOKMARK [1][-]{section.4.1}{Mechanical features}{chapter.4}% 50
-\BOOKMARK [2][-]{subsection.4.1.1}{Buoy Stand}{section.4.1}% 51
+\BOOKMARK [2][-]{subsection.4.1.1}{Buoy stand}{section.4.1}% 51
 \BOOKMARK [2][-]{subsection.4.1.2}{Enclosure}{section.4.1}% 52
 \BOOKMARK [1][-]{section.4.2}{Electronics}{chapter.4}% 53
 \BOOKMARK [2][-]{subsection.4.2.1}{GPS}{section.4.2}% 54
@@ -87,7 +87,7 @@
 \BOOKMARK [1][-]{section.5.6}{Conclusion}{chapter.5}% 87
 \BOOKMARK [0][-]{chapter.6}{Testing}{}% 88
 \BOOKMARK [1][-]{section.6.1}{Subsystem tests}{chapter.6}% 89
-\BOOKMARK [2][-]{subsection.6.1.1}{Unit Tests}{section.6.1}% 90
+\BOOKMARK [2][-]{subsection.6.1.1}{Unit tests}{section.6.1}% 90
 \BOOKMARK [2][-]{subsection.6.1.2}{GPS}{section.6.1}% 91
 \BOOKMARK [2][-]{subsection.6.1.3}{Iridium modem}{section.6.1}% 92
 \BOOKMARK [2][-]{subsection.6.1.4}{Environmental sensor}{section.6.1}% 93
@@ -126,16 +126,16 @@
 \BOOKMARK [1][-]{section.8.4}{Firmware improvements}{chapter.8}% 126
 \BOOKMARK [1][-]{section.8.5}{Expansion of nodes into a network}{chapter.8}% 127
 \BOOKMARK [1][-]{section.8.6}{Future deployments}{chapter.8}% 128
-\BOOKMARK [0][-]{appendix.A}{Numerical modeling}{}% 129
+\BOOKMARK [0][-]{appendix.A}{Numerical modelling}{}% 129
 \BOOKMARK [1][-]{section.A.1}{Modeling of polar stochastic processes}{appendix.A}% 130
-\BOOKMARK [2][-]{subsection.A.1.1}{Numerical Modeling of Sea Ice}{section.A.1}% 131
-\BOOKMARK [1][-]{section.A.2}{Modeling of GPS dilation of precision}{appendix.A}% 132
-\BOOKMARK [1][-]{section.A.3}{Numerical Techniques for modeling ocean waves}{appendix.A}% 133
-\BOOKMARK [2][-]{subsection.A.3.1}{Kuik Method}{section.A.3}% 134
-\BOOKMARK [2][-]{subsection.A.3.2}{Welch-Earle Method}{section.A.3}% 135
+\BOOKMARK [2][-]{subsection.A.1.1}{Numerical modelling of sea ice}{section.A.1}% 131
+\BOOKMARK [1][-]{section.A.2}{ Modeling of GPS dilation of precision}{appendix.A}% 132
+\BOOKMARK [1][-]{section.A.3}{Numerical techniques for modelling ocean waves}{appendix.A}% 133
+\BOOKMARK [2][-]{subsection.A.3.1}{Kuik method}{section.A.3}% 134
+\BOOKMARK [2][-]{subsection.A.3.2}{Welch-Earle method}{section.A.3}% 135
 \BOOKMARK [1][-]{section.A.4}{Temperature sensing measurement techniques}{appendix.A}% 136
 \BOOKMARK [1][-]{section.A.5}{Pressure sensing techniques}{appendix.A}% 137
-\BOOKMARK [0][-]{appendix.B}{Project Design}{}% 138
+\BOOKMARK [0][-]{appendix.B}{Project design}{}% 138
 \BOOKMARK [1][-]{section.B.1}{Stakeholder analysis}{appendix.B}% 139
 \BOOKMARK [1][-]{section.B.2}{Acceptance test protocols}{appendix.B}% 140
 \BOOKMARK [1][-]{section.B.3}{Schematics and renders}{appendix.B}% 141
@@ -143,10 +143,10 @@
 \BOOKMARK [1][-]{section.C.1}{Events and interrupt handling protocols}{appendix.C}% 143
 \BOOKMARK [1][-]{section.C.2}{Initialization Routines}{appendix.C}% 144
 \BOOKMARK [1][-]{section.C.3}{Code}{appendix.C}% 145
-\BOOKMARK [2][-]{subsection.C.3.1}{BMP280 Temperature compensation formula}{section.C.3}% 146
-\BOOKMARK [2][-]{subsection.C.3.2}{INA219 Calibration Algorithm}{section.C.3}% 147
-\BOOKMARK [2][-]{subsection.C.3.3}{Data Structs}{section.C.3}% 148
-\BOOKMARK [0][-]{appendix.D}{Supplementary Tables}{}% 149
-\BOOKMARK [0][-]{appendix.E}{Test Protocols}{}% 150
-\BOOKMARK [1][-]{section.E.1}{Unit Tests}{appendix.E}% 151
+\BOOKMARK [2][-]{subsection.C.3.1}{BMP280 temperature compensation formula}{section.C.3}% 146
+\BOOKMARK [2][-]{subsection.C.3.2}{INA219 calibration algorithm}{section.C.3}% 147
+\BOOKMARK [2][-]{subsection.C.3.3}{Data structs}{section.C.3}% 148
+\BOOKMARK [0][-]{appendix.D}{Supplementary tables}{}% 149
+\BOOKMARK [0][-]{appendix.E}{Test protocols}{}% 150
+\BOOKMARK [1][-]{section.E.1}{Unit tests}{appendix.E}% 151
 \BOOKMARK [1][-]{section.E.2}{System test results}{appendix.E}% 152
