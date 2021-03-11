@@ -134,19 +134,19 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {table}{\numberline {5.15}{\ignorespaces Description of output values from the MPU6050 IMU showing variable name, size and significance.\relax }}{113}{table.caption.128}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.16}{\ignorespaces Parameters of the IMU and their configured value for this application.\relax }}{114}{table.caption.129}%
+\contentsline {table}{\numberline {5.16}{\ignorespaces Parameters of the IMU and their configured value for this application.\relax }}{113}{table.caption.129}%
 \defcounter {refsection}{0}\relax 
 \contentsline {table}{\numberline {5.17}{\ignorespaces Breakdown of data accumulated from the IMU with the sample parameters mentioned in Table \ref {tab:IMU_param}.\relax }}{114}{table.caption.130}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.18}{\ignorespaces Timing requirements for each sensor showing the interval between samples and the number of samples collected during each session.\relax }}{115}{table.caption.131}%
+\contentsline {table}{\numberline {5.18}{\ignorespaces Timing requirements for each sensor showing the interval between samples and the number of samples collected during each session.\relax }}{114}{table.caption.131}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
 \contentsline {table}{\numberline {6.1}{\ignorespaces Objectives of the unit tests defined in Appendix \ref {app:Unittests} showing how the test protocols help validate the firmware in the device peripheral layer.\relax }}{122}{table.caption.137}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.2}{\ignorespaces Baseline functionality of the GPS UART communication module of the firmware and the unit test used to verify this functionality\relax }}{123}{table.caption.139}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Baseline functionality of the GPS UART communication module of the firmware and the unit test used to verify this functionality.\relax }}{123}{table.caption.139}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.3}{\ignorespaces Baseline functionality of the GPS UART communication module of the firmware and the test used to verify subsystem functionality\relax }}{124}{table.caption.141}%
+\contentsline {table}{\numberline {6.3}{\ignorespaces Baseline functionality of the GPS UART communication module of the firmware and the test used to verify subsystem functionality.\relax }}{124}{table.caption.141}%
 \defcounter {refsection}{0}\relax 
 \contentsline {table}{\numberline {6.4}{\ignorespaces Baseline functionality of the Iridium UART communication peripheral of the firmware and the test used to verify unit functionality.\relax }}{125}{table.caption.143}%
 \defcounter {refsection}{0}\relax 
@@ -162,21 +162,21 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {table}{\numberline {6.10}{\ignorespaces Subsystem functionality of the INA219 I$^2$C communication peripheral of the firmware and the tests used to verify unit functionality.\relax }}{129}{table.caption.154}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.11}{\ignorespaces Baseline functionality of the AT45DB641E flash chips SPI communication peripheral of the firmware and the tests used to verify unit functionality.\relax }}{130}{table.caption.156}%
+\contentsline {table}{\numberline {6.11}{\ignorespaces Baseline function of the AT45DB641E Flash chips SPI communication peripheral of the firmware and the tests used to verify unit functionality.\relax }}{130}{table.caption.156}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.12}{\ignorespaces Subsystem functionality of the AT45DB641E flash chips SPI communication peripheral of the firmware and the tests used to verify unit functionality.\relax }}{131}{table.caption.158}%
+\contentsline {table}{\numberline {6.12}{\ignorespaces Subsystem functionality of the AT45DB641E Flash chips SPI communication peripheral of the firmware and the tests used to verify unit functionality.\relax }}{131}{table.caption.158}%
 \defcounter {refsection}{0}\relax 
 \contentsline {table}{\numberline {6.13}{\ignorespaces Baseline functionality of the Iridium UART communication peripheral of the firmware and the test used to verify unit functionality.\relax }}{131}{table.caption.160}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.14}{\ignorespaces Subsystem functionality of the MPU6050 6 dof IMU and the tests used to verify subsystem functionality.\relax }}{132}{table.caption.162}%
+\contentsline {table}{\numberline {6.14}{\ignorespaces Subsystem functionality of the MPU6050 six DoF IMU and the tests used to verify subsystem functionality.\relax }}{132}{table.caption.162}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.15}{\ignorespaces System output during an accelerated test as described in SYS001. data output occurs over the period from initialation to first sample and sleep with a failed GPS signal acquisation.\relax }}{135}{table.caption.167}%
+\contentsline {table}{\numberline {6.15}{\ignorespaces System output during an accelerated test as described in SYS001. Data output occurs over the period from initialation to first sample and sleep with a failed GPS signal acquisition.\relax }}{135}{table.caption.167}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.16}{\ignorespaces System output during an accelerated test as described in SYS001. data output occurs over the period from first wake up to the end of second sample with successful GPS signal acquisition.\relax }}{136}{table.caption.168}%
+\contentsline {table}{\numberline {6.16}{\ignorespaces System output during an accelerated test as described in SYS001.The data output occurs over the period from first wake up to the end of second sample with successful GPS signal acquisition.\relax }}{136}{table.caption.168}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.17}{\ignorespaces Average current draw (mA) and cycle\relax }}{139}{table.caption.175}%
+\contentsline {table}{\numberline {6.17}{\ignorespaces Average current draw (mA) and cycle duration over the full sample period.\relax }}{139}{table.caption.175}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.18}{\ignorespaces Data transmitted from the SHARC buoy as compressed binary messages in ASCII hexadecimal format. This table contains ice drift data shown in packets begining with 01 ("1") and IMU data in packets begining with 57 or "W". Also shown are diagnostic data including the transmitting device, payload size and number of credits used to transmit the message.\relax }}{141}{table.caption.184}%
+\contentsline {table}{\numberline {6.18}{\ignorespaces Data transmitted from the SHARC buoy as compressed binary messages in ASCII hexadecimal format. This table contains ice drift data shown in packets begining with 01 ("1") and IMU data in packets beginning with 57 or "W". Also shown are diagnostic data including the transmitting device, payload size and number of credits used to transmit the message.\relax }}{142}{table.caption.184}%
 \defcounter {refsection}{0}\relax 
 \contentsline {table}{\numberline {6.19}{\ignorespaces Hardware components used during field testing for version 1 of SHARC buoy deployed during the 2019 SCALE winter cruise to the Southern Ocean Marginal Ice Zone.\relax }}{143}{table.caption.186}%
 \defcounter {refsection}{0}\relax 
@@ -184,9 +184,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {table}{\numberline {6.21}{\ignorespaces Deployment conditions for buoy 1 (2019-WC-SB01) and buoy 2 (2019-WC-SB02) including deployment coordinates, time and environmental conditions\relax }}{146}{table.caption.192}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.22}{\ignorespaces Results of the full system acceptance tests indicated by a tick in the appropriate column.\relax }}{148}{table.caption.196}%
+\contentsline {table}{\numberline {6.22}{\ignorespaces Results of the full system acceptance tests indicated by a tick in the appropriate column.\relax }}{149}{table.caption.196}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.23}{\ignorespaces Results of the platform evaluation and how each functional requirement was addressed.\relax }}{149}{table.caption.197}%
+\contentsline {table}{\numberline {6.23}{\ignorespaces Results of the platform evaluation and how each functional requirement was addressed.\relax }}{150}{table.caption.197}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 

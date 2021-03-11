@@ -152,7 +152,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5.1}Software architecture}{87}{section.5.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1.1}Hardware abstract layer}{88}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.1}Hardware abstraction layer}{88}{subsection.5.1.1}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.1.2}Subsystem application peripheral interface (API) layer}{89}{subsection.5.1.2}%
 \defcounter {refsection}{0}\relax 
@@ -198,11 +198,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.4.6}Wave measurement data}{112}{subsection.5.4.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{IMU sampling strategy}{113}{subsubsection*.127}%
+\contentsline {subsubsection}{IMU sampling strategy}{112}{subsubsection*.127}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4.7}Timing Requirements}{114}{subsection.5.4.7}%
+\contentsline {subsection}{\numberline {5.4.7}Timing requirements}{114}{subsection.5.4.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.5}Data Flow}{116}{section.5.5}%
+\contentsline {section}{\numberline {5.5}Data flow}{115}{section.5.5}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5.6}Conclusion}{120}{section.5.6}%
 \defcounter {refsection}{0}\relax 
@@ -212,9 +212,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {6.1.1}Unit tests}{122}{subsection.6.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1.2}GPS}{123}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.2}GPS}{122}{subsection.6.1.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Communication peripheral functionality}{123}{subsubsection*.138}%
+\contentsline {subsubsection}{Communication peripheral functionality}{122}{subsubsection*.138}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{Subsystem functionality}{123}{subsubsection*.140}%
 \defcounter {refsection}{0}\relax 
@@ -248,7 +248,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{Subsystem functionality}{132}{subsubsection*.161}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.2}System Tests}{133}{section.6.2}%
+\contentsline {section}{\numberline {6.2}System tests}{133}{section.6.2}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {6.2.1}SYS001 accelerated system test}{133}{subsection.6.2.1}%
 \defcounter {refsection}{0}\relax 
@@ -284,7 +284,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{Scope}{140}{subsubsection*.180}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Protocol}{140}{subsubsection*.181}%
+\contentsline {subsubsection}{Protocol}{141}{subsubsection*.181}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{Configurations}{141}{subsubsection*.182}%
 \defcounter {refsection}{0}\relax 
@@ -292,33 +292,33 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {6.3}Field testing}{142}{section.6.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.3.1}Configuration}{144}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.1}Configuration}{145}{subsection.6.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Deployment protocol}{145}{subsubsection*.190}%
+\contentsline {subsubsection}{Deployment protocol}{146}{subsubsection*.190}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Results}{146}{subsubsection*.193}%
+\contentsline {subsubsection}{Results}{147}{subsubsection*.193}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.4}Final evaluation}{147}{section.6.4}%
+\contentsline {section}{\numberline {6.4}Final evaluation}{148}{section.6.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.4.1}Functional requirement validation}{148}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.1}Functional requirement validation}{149}{subsection.6.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.5}Discussion}{150}{section.6.5}%
+\contentsline {section}{\numberline {6.5}Discussion}{151}{section.6.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.5.1}Power requirements}{150}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.1}Power requirements}{151}{subsection.6.5.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.5.2}System performance}{151}{subsection.6.5.2}%
+\contentsline {subsection}{\numberline {6.5.2}System performance}{152}{subsection.6.5.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.5.3}Mechanical features}{151}{subsection.6.5.3}%
+\contentsline {subsection}{\numberline {6.5.3}Mechanical features}{152}{subsection.6.5.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.5.4}Power system}{152}{subsection.6.5.4}%
+\contentsline {subsection}{\numberline {6.5.4}Power system}{153}{subsection.6.5.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.5.5}Future work on wave measurements}{152}{subsection.6.5.5}%
+\contentsline {subsection}{\numberline {6.5.5}Future work on wave measurements}{153}{subsection.6.5.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.5.6}Short-burst data modems vs Telephone modems}{153}{subsection.6.5.6}%
+\contentsline {subsection}{\numberline {6.5.6}Short-burst data modems VS. Telephone modems}{154}{subsection.6.5.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.5.7}Evaluation against the State of the Art}{153}{subsection.6.5.7}%
+\contentsline {subsection}{\numberline {6.5.7}Evaluation against the State of the Art}{154}{subsection.6.5.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.6}Conclusion}{153}{section.6.6}%
+\contentsline {section}{\numberline {6.6}Conclusion}{154}{section.6.6}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {7}Conclusion}{155}{chapter.7}%
 \defcounter {refsection}{0}\relax 
