@@ -1,46 +1,17 @@
-[0] Config.pm:311> INFO - This is Biber 2.16 running in TOOL mode
+[0] Config.pm:311> INFO - This is Biber 2.16
 [0] Config.pm:314> INFO - Logfile is '0.thesis.blg'
-[122] biber-MSWIN64:340> INFO - === 
-[132] Biber.pm:316> DEBUG - Adding 'entry' list 'tool' for pseudo-section 99999
-[145] Biber.pm:4454> DEBUG - Looking for directly cited keys: 
-[163] Biber.pm:4527> INFO - Looking for bibtex format file '0.thesis'
-[180] Utils.pm:286> DEBUG - Looking for file '0.thesis' via kpsewhich
-[950] Utils.pm:301> DEBUG - Found '0.thesis' via kpsewhich
-[981] bibtex.pm:181> DEBUG - Caching data for BibTeX format file './0.thesis.tex' for section 99999
-[982] bibtex.pm:1638> DEBUG - File '0.thesis.tex' is converted to UTF8 as 'C:\Users\jamie\AppData\Local\Temp\biber_tmp_KEoX\313d326edd5c978b8ea4861b3aff97db_6544.utf8'
-[1030] bibtex.pm:1689> INFO - LaTeX decoding ...
-[1034] bibtex.pm:1494> INFO - Found BibTeX data source './0.thesis.tex'
-[1035] Utils.pm:395> WARN - Invalid or undefined BibTeX entry key in file 'C:\Users\jamie\AppData\Local\Temp\biber_tmp_KEoX\313d326edd5c978b8ea4861b3aff97db_6544.utf8', skipping ...
-[1035] bibtex.pm:193> DEBUG - All citekeys will be used for section '99999'
-[1035] bibtex.pm:224> DEBUG - Added all citekeys to section '99999': 
-[1035] bibtex.pm:231> DEBUG - Added dynamic sets to section '99999': 
-[1035] Biber.pm:4538> DEBUG - Directly cited keys not found for section '99999': 
-[1035] Biber.pm:4548> DEBUG - Building dependents for keys: 
-[1035] Biber.pm:4558> DEBUG - Citekeys for section '99999' after fetching data: 
-[1035] Biber.pm:1516> DEBUG - Calculating explicit and implicit xref/crossrefs for section 99999
-[1035] Biber.pm:2994> DEBUG - Populated datalist 'tool/global//global/global' of type 'entry' with attributes 'tool/global//global/global' in section 99999 with keys: 
-[1036] Biber.pm:2800> DEBUG - Postprocessing visible names for section 99999
-[1036] Biber.pm:4123> DEBUG - Sorting is by default case-SENSITIVE
-[1036] Biber.pm:4129> DEBUG - Keys before sort:
-[1036] Biber.pm:4145> DEBUG - Locale for sorting is 'en_US'
-[1043] UCollate.pm:56> DEBUG - Collation options: (
-  "normalization",
-  "prenormalized",
-  "level",
-  4,
-  "variable",
-  "non-ignorable",
-  "upper_before_lower",
-  1,
-)
-[1043] UCollate.pm:68> INFO - Overriding locale 'en_US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1043] UCollate.pm:68> INFO - Overriding locale 'en_US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1043] Biber.pm:4168> INFO - Sorting list 'tool/global//global/global' of type 'entry' with template 'tool' and locale 'en_US'
-[1043] Biber.pm:4169> DEBUG - Sorting with Unicode::Collate (normalization => prenormalized, upper_before_lower => 1, variable => non-ignorable, level => 4, UCA version: 13.0.0, Locale: default)
-[1043] Biber.pm:4174> INFO - No sort tailoring available for locale 'en_US'
-[1044] Biber.pm:4273> DEBUG - Keys after sort:
-[1044] bibtex.pm:435> DEBUG - Preparing final output using class Biber::Output::bibtex...
-[1044] bibtex.pm:439> INFO - Writing '0_bibertool.bib' with encoding 'UTF-8'
-[1044] bibtex.pm:454> DEBUG - Writing entries in bibtex format
-[1045] bibtex.pm:479> INFO - Output to 0_bibertool.bib
-[1045] Biber.pm:128> INFO - WARNINGS: 1
+[150] biber-MSWIN64:340> INFO - === 
+[201] Biber.pm:415> INFO - Reading '0.thesis.bcf'
+[1014] Biber.pm:952> INFO - Found 141 citekeys in bib section 0
+[1036] Biber.pm:4340> INFO - Processing section 0
+[1051] Biber.pm:4531> INFO - Looking for bibtex format file 'thesis.bib' for section 0
+[1120] bibtex.pm:1689> INFO - LaTeX decoding ...
+[1443] bibtex.pm:1494> INFO - Found BibTeX data source 'thesis.bib'
+[2286] Utils.pm:395> WARN - I didn't find a database entry for 'planck2019evolution' (section 0)
+[2539] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[2539] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[2539] Biber.pm:4168> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[2539] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
+[2803] bbl.pm:654> INFO - Writing '0.thesis.bbl' with encoding 'UTF-8'
+[2914] bbl.pm:757> INFO - Output to 0.thesis.bbl
+[2919] Biber.pm:128> INFO - WARNINGS: 1

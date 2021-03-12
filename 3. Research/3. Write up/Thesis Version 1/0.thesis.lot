@@ -14,244 +14,244 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {2.1}{\ignorespaces Devices used for the comparison including the device name, lead developer and the institution. These consist of both commercial and institutional devices for in situ sea ice and wave measurements.\relax }}{20}{table.caption.22}%
+\contentsline {table}{\numberline {2.1}{\ignorespaces Devices used for the comparison including the device name, lead developer and the institution. These consist of both commercial and institutional devices for in situ sea ice and wave measurements.\relax }}{19}{table.caption.22}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {2.2}{\ignorespaces The following Iridium modems are compared in their key specifications. Devices in the table were suitable for IoT applications based on prevalence in literature and recommendations from the manufacturer. Key parameters include weight, power consumption and transmission latency. Information is taken from \cite {iridium_product} with prices as of February 2021. \relax }}{21}{table.caption.24}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces The following Iridium modems are compared in their key specifications. Devices in the table were suitable for IoT applications based on prevalence in literature and recommendations from the manufacturer. Key parameters include weight, power consumption and transmission latency. Information is taken from \cite {iridium_product} with prices as of February 2021. \relax }}{20}{table.caption.24}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {2.3}{\ignorespaces A comparison of power supply strategies of the different devices showing the the power source, topology of the power supply module as well as the voltage supplied at the output of the module. Information that was unavailable at the time of research has been labeled as "Not Reported".\relax }}{24}{table.caption.26}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces A comparison of power supply strategies of the different devices showing the the power source, topology of the power supply module as well as the voltage supplied at the output of the module. Information that was unavailable at the time of research has been labeled as "Not Reported".\relax }}{23}{table.caption.26}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {2.4}{\ignorespaces Comparison between the functionality and purpose of the buoy showing the critical measurements as well as the significant deployment locations either in the polar ice zones or in a location critical to the validation of the device.\relax }}{26}{table.caption.27}%
+\contentsline {table}{\numberline {2.4}{\ignorespaces Comparison between the functionality and purpose of the buoy showing the critical measurements as well as the significant deployment locations either in the polar ice zones or in a location critical to the validation of the device.\relax }}{25}{table.caption.27}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {2.5}{\ignorespaces Comparison of price and weight of each device according to the published literature or commercial listing. Weight provides an indicator of the ease of handling whereas price provides an indicator of affordability. Prices have been converted to South African Rand (R) online \cite {usdcoversion}where applicable while weight has been converted to kg. "Not Reported" or "N/R" is given where a value could not be obtained.\relax }}{30}{table.caption.31}%
+\contentsline {table}{\numberline {2.5}{\ignorespaces Comparison of price and weight of each device according to the published literature or commercial listing. Weight provides an indicator of the ease of handling whereas price provides an indicator of affordability. Prices have been converted to South African Rand (R) online \cite {usdcoversion}where applicable while weight has been converted to kg. "Not Reported" or "N/R" is given where a value could not be obtained.\relax }}{29}{table.caption.31}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {2.6}{\ignorespaces Comparison of the processing strategy implemented by each device. Multiple processors have been used in a selection of devices, hence included in the comparison is the number of processors used, the type of processor and the function of each processor. \relax }}{33}{table.caption.33}%
+\contentsline {table}{\numberline {2.6}{\ignorespaces Comparison of the processing strategy implemented by each device. Multiple processors have been used in a selection of devices, hence included in the comparison is the number of processors used, the type of processor and the function of each processor. \relax }}{32}{table.caption.33}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {2.7}{\ignorespaces Comparison of the inertial measurement systems selected for each device showing the sensors included as well as the degrees of freedom.\relax }}{36}{table.caption.36}%
+\contentsline {table}{\numberline {2.7}{\ignorespaces Comparison of the inertial measurement systems selected for each device showing the sensors included as well as the degrees of freedom.\relax }}{35}{table.caption.36}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {2.8}{\ignorespaces Comparison of sampling strategies implemented in each device. This includes the desired measurands, sample rate and sample period of each IMU session.\relax }}{37}{table.caption.38}%
+\contentsline {table}{\numberline {2.8}{\ignorespaces Comparison of sampling strategies implemented in each device. This includes the desired measurands, sample rate and sample period of each IMU session.\relax }}{36}{table.caption.38}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {2.9}{\ignorespaces Table showing the ratings for a dilution of precision (DOP) measurement with a numerical range corresponding to a rating as shown by \textcite {tahsin2015analysis}. These ranges provide context for positional accuracies associated with GPS measurements with a DOP of 1 being an ideal reliable measurement with an associated small margin of uncertainty whereas a DOP of 20 is completely unreliable with a large uncertainty. \relax }}{42}{table.caption.43}%
+\contentsline {table}{\numberline {2.9}{\ignorespaces Table showing the ratings for a dilution of precision (DOP) measurement with a numerical range corresponding to a rating as shown by \textcite {tahsin2015analysis}. These ranges provide context for positional accuracies associated with GPS measurements with a DOP of 1 being an ideal reliable measurement with an associated small margin of uncertainty whereas a DOP of 20 is completely unreliable with a large uncertainty. \relax }}{41}{table.caption.43}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {2.10}{\ignorespaces Comparison between different GPS devices, sampled data and periods between samples implemented by each device.\relax }}{43}{table.caption.45}%
+\contentsline {table}{\numberline {2.10}{\ignorespaces Comparison between different GPS devices, sampled data and periods between samples implemented by each device.\relax }}{42}{table.caption.45}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {2.11}{\ignorespaces Comparison of the different components used by each device for temperature measurement as well as the sensor type and the measurement objectives of the device. Each device measures temperature of a different process. For example: the WIIB measure air temperature whereas a device like the SIMB measures temperature profiles of ice floes in addition to air temperature.\relax }}{45}{table.caption.47}%
+\contentsline {table}{\numberline {2.11}{\ignorespaces Comparison of the different components used by each device for temperature measurement as well as the sensor type and the measurement objectives of the device. Each device measures temperature of a different process. For example: the WIIB measure air temperature whereas a device like the SIMB measures temperature profiles of ice floes in addition to air temperature.\relax }}{44}{table.caption.47}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {2.12}{\ignorespaces Comparison of the different pressure sensing components used by each device as well as the measurement objective guiding the selection of the component. "Not Reported" is given where a device includes a pressure sensor but provides no information to its use. "-" is given where a column does not apply to the device. "None" is given where a device does not contain a pressure sensor.\relax }}{46}{table.caption.48}%
-\defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.1}{\ignorespaces User requirements obtained by meeting with the principal stakeholders. These will be used to determine the desired functionality of the buoy.\relax }}{51}{table.caption.50}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.2}{\ignorespaces Comparison of standard measurements for meteorological data including temporal resolution, measurement unit and accuracy from: \cite {worldmeteorologicalorganization_2010}\relax }}{54}{table.caption.52}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.3}{\ignorespaces Requirements addressing the mechanical needs for the system during operation.\relax }}{57}{table.caption.55}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.4}{\ignorespaces Requirements addressing the electronic needs for the system including the modules, components and sensors that satisfy the user requirements.\relax }}{58}{table.caption.56}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.5}{\ignorespaces Software functional requirements for the system addressing the system function, performance, operation and control during the lifetime of the device.\relax }}{58}{table.caption.57}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.6}{\ignorespaces Other system requirements being addressed.\relax }}{58}{table.caption.58}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.7}{\ignorespaces Table showing the subsystems that are critical to the functionality of the buoy and the level of importance indicated by rank\relax }}{59}{table.caption.59}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.8}{\ignorespaces Technical specifications for the overall system\relax }}{62}{table.caption.62}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3.9}{\ignorespaces A summary of acceptance test protocols from Appendix \ref {app:atp} showing the target and purpose of the test.\relax }}{63}{table.caption.63}%
+\contentsline {table}{\numberline {2.12}{\ignorespaces Comparison of the different pressure sensing components used by each device as well as the measurement objective guiding the selection of the component. "Not Reported" is given where a device includes a pressure sensor but provides no information to its use. "-" is given where a column does not apply to the device. "None" is given where a device does not contain a pressure sensor.\relax }}{45}{table.caption.48}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.1}{\ignorespaces Primary measurements of the buoy enclosure taken from the schematic in Appendix \ref {app:appendix.schem}.\relax }}{66}{table.caption.66}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces User requirements obtained by meeting with the principal stakeholders. These will be used to determine the desired functionality of the buoy.\relax }}{50}{table.caption.50}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.2}{\ignorespaces Comparison of key parameters between the initial u-blox NEO-7M GNSS module and the updated u-blox NEO-N9M module.\relax }}{68}{table.caption.68}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Comparison of standard measurements for meteorological data including temporal resolution, measurement unit and accuracy from: \cite {worldmeteorologicalorganization_2010}\relax }}{53}{table.caption.52}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.3}{\ignorespaces Pinout for the Rock7 RockBLOCK 9603 Iridium modem.\relax }}{70}{table.caption.70}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Requirements addressing the mechanical needs for the system during operation.\relax }}{56}{table.caption.55}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.4}{\ignorespaces Table showing the mechanical feature parameters of the Rock7 RockBLOCK 9603 module \cite {9603}.\relax }}{70}{table.caption.71}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces Requirements addressing the electronic needs for the system including the modules, components and sensors that satisfy the user requirements.\relax }}{57}{table.caption.56}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.5}{\ignorespaces Table showing the power consumption parameters of the Rock7 RockBLOCK 9603 module \cite {9603}.\relax }}{71}{table.caption.72}%
+\contentsline {table}{\numberline {3.5}{\ignorespaces Software functional requirements for the system addressing the system function, performance, operation and control during the lifetime of the device.\relax }}{57}{table.caption.57}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.6}{\ignorespaces Table showing the communication parameters of the Rock7 RockBLOCK 9603 module \cite {9603}.\relax }}{71}{table.caption.73}%
+\contentsline {table}{\numberline {3.6}{\ignorespaces Other system requirements being addressed.\relax }}{57}{table.caption.58}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.7}{\ignorespaces Comparison of performance between the Bosch Sensortech BMP280 and Maxim Integrated DS18B20 environmental sensors. The term "Not applicable" or N/A is given where a parameter does not apply to a device.\relax }}{72}{table.caption.75}%
+\contentsline {table}{\numberline {3.7}{\ignorespaces Table showing the subsystems that are critical to the functionality of the buoy and the level of importance indicated by rank\relax }}{58}{table.caption.59}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.8}{\ignorespaces Comparison between supply voltage and current draw of the BMP280 and DS18B20.\relax }}{73}{table.caption.76}%
+\contentsline {table}{\numberline {3.8}{\ignorespaces Technical specifications for the overall system\relax }}{61}{table.caption.62}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.9}{\ignorespaces Performance specifications for the INA219 current monitor chip.\relax }}{74}{table.caption.78}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.10}{\ignorespaces Power specifications for the INA219 current monitor chip.\relax }}{74}{table.caption.79}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.11}{\ignorespaces Performance characteristics of the TDK Invensense MPU6050 6-axis inertial measurement unit (IMU) showing the accelerometer performance. \relax }}{75}{table.caption.81}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.12}{\ignorespaces Performance characteristics of the TDK Invensense MPU6050 6-axis inertial measurement unit (IMU) showing the gyroscope performance. \relax }}{75}{table.caption.82}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.13}{\ignorespaces Performance characteristics of the TDK Invensense MPU6050 6-axis inertial measurement unit (IMU) showing the device temperature rating, power consumption and price. \relax }}{76}{table.caption.83}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.14}{\ignorespaces Key performance characteristics for the AT45DB641E flash chips \cite {AT45DB641E} including temperature rating, power consumption, storage capacity and price.\relax }}{77}{table.caption.85}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.15}{\ignorespaces Type and number of communication ports to facilitate communication among all the external modules.\relax }}{78}{table.caption.86}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.16}{\ignorespaces Electrical parameters and power consumption characteristics for the STM32L476RG microcontroller. \relax }}{79}{table.caption.88}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.17}{\ignorespaces Processing characteristics and parameters for the STM32L476RG microcontroller. \relax }}{79}{table.caption.89}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.18}{\ignorespaces Communication ports and specifications for the STM32L476RG microcontroller. \relax }}{80}{table.caption.90}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.19}{\ignorespaces Current consumption of various components as well as the estimated maximum possible current draw.\relax }}{80}{table.caption.91}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.20}{\ignorespaces Key performance characteristics for the Texas Instruments LP3876 linear low dropout regulator \cite {LP3876}.\relax }}{82}{table.caption.93}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4.21}{\ignorespaces Approximate procurement cost for a single SHARC buoy node.\relax }}{84}{table.caption.95}%
+\contentsline {table}{\numberline {3.9}{\ignorespaces A summary of acceptance test protocols from Appendix \ref {app:atp} showing the target and purpose of the test.\relax }}{62}{table.caption.63}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.1}{\ignorespaces Configuration parameters for the system clock and real time clock (RTC) including sources and frequencies.\relax }}{94}{table.caption.101}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Primary measurements of the buoy enclosure taken from the schematic in Appendix \ref {app:appendix.schem}.\relax }}{65}{table.caption.66}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.2}{\ignorespaces Power mode selection for each phase of the buoy's operational cycle. Power modes are preset by STMicroelectronics and are based on the device's architecture. A full explanation of each power mode can be found in \cite {stm32l4ref}.\relax }}{95}{table.caption.103}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Comparison of key parameters between the initial u-blox NEO-7M GNSS module and the updated u-blox NEO-N9M module.\relax }}{67}{table.caption.68}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.3}{\ignorespaces Numerical and 8-bit unsigned integer representation of the synchronous states on the STM32L4 microcontroller.\relax }}{100}{table.caption.107}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Pinout for the Rock7 RockBLOCK 9603 Iridium modem.\relax }}{69}{table.caption.70}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.4}{\ignorespaces Table showing the types of states that the system checks for ordered by priority with 1 being the highest priority and 3 being the lowest.\relax }}{102}{table.caption.109}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Table showing the mechanical feature parameters of the Rock7 RockBLOCK 9603 module \cite {9603}.\relax }}{69}{table.caption.71}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.5}{\ignorespaces Table Showing the device behavior in case of a critical failure in one or more of the subsystems. Critical failures are defined in AT006 (Table \ref {tab:AT006}) testing protocol.\relax }}{106}{table.caption.112}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Table showing the power consumption parameters of the Rock7 RockBLOCK 9603 module \cite {9603}.\relax }}{70}{table.caption.72}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.6}{\ignorespaces Breakdown of a typical NMEA message string with fields indicating start/stop sequences and character information.\relax }}{108}{table.caption.117}%
+\contentsline {table}{\numberline {4.6}{\ignorespaces Table showing the communication parameters of the Rock7 RockBLOCK 9603 module \cite {9603}.\relax }}{70}{table.caption.73}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.7}{\ignorespaces Description of ZDA message string showing variables, description and how the example datum 5th September 2002 08:27:10 am is stored.\relax }}{109}{table.caption.118}%
+\contentsline {table}{\numberline {4.7}{\ignorespaces Comparison of performance between the Bosch Sensortech BMP280 and Maxim Integrated DS18B20 environmental sensors. The term "Not applicable" or N/A is given where a parameter does not apply to a device.\relax }}{71}{table.caption.75}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.8}{\ignorespaces Description of GSA message string showing variables, description of parameters and how the variables are stored.\relax }}{109}{table.caption.119}%
+\contentsline {table}{\numberline {4.8}{\ignorespaces Comparison between supply voltage and current draw of the BMP280 and DS18B20.\relax }}{72}{table.caption.76}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.9}{\ignorespaces Description of GLL message string showing variables, description and how a set of coordinates e.g. (47$\degree $17.11364'N, 8$\degree $ 33.91565' ) is stored.\relax }}{110}{table.caption.120}%
+\contentsline {table}{\numberline {4.9}{\ignorespaces Performance specifications for the INA219 current monitor chip.\relax }}{73}{table.caption.78}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.10}{\ignorespaces Data collected from the GPS in a single sample session. Square brackets denote a numbered sequence of like variable types.\relax }}{111}{table.caption.122}%
+\contentsline {table}{\numberline {4.10}{\ignorespaces Power specifications for the INA219 current monitor chip.\relax }}{73}{table.caption.79}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.11}{\ignorespaces Description of output values from BMP280 post processing.\relax }}{112}{table.caption.123}%
+\contentsline {table}{\numberline {4.11}{\ignorespaces Performance characteristics of the TDK Invensense MPU6050 6-axis inertial measurement unit (IMU) showing the accelerometer performance. \relax }}{74}{table.caption.81}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.12}{\ignorespaces Description of parameters used to calibrate the INA219 current sensor.\relax }}{112}{table.caption.124}%
+\contentsline {table}{\numberline {4.12}{\ignorespaces Performance characteristics of the TDK Invensense MPU6050 6-axis inertial measurement unit (IMU) showing the gyroscope performance. \relax }}{74}{table.caption.82}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.13}{\ignorespaces Description of output values from INA219 current sensor.\relax }}{113}{table.caption.125}%
+\contentsline {table}{\numberline {4.13}{\ignorespaces Performance characteristics of the TDK Invensense MPU6050 6-axis inertial measurement unit (IMU) showing the device temperature rating, power consumption and price. \relax }}{75}{table.caption.83}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.14}{\ignorespaces Total drift data collected during a single sample point.\relax }}{113}{table.caption.126}%
+\contentsline {table}{\numberline {4.14}{\ignorespaces Key performance characteristics for the AT45DB641E flash chips \cite {AT45DB641E} including temperature rating, power consumption, storage capacity and price.\relax }}{76}{table.caption.85}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.15}{\ignorespaces Description of output values from the MPU6050 IMU showing variable name, size and significance.\relax }}{114}{table.caption.128}%
+\contentsline {table}{\numberline {4.15}{\ignorespaces Type and number of communication ports to facilitate communication among all the external modules.\relax }}{77}{table.caption.86}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.16}{\ignorespaces Parameters of the IMU and their configured value for this application.\relax }}{114}{table.caption.129}%
+\contentsline {table}{\numberline {4.16}{\ignorespaces Electrical parameters and power consumption characteristics for the STM32L476RG microcontroller. \relax }}{78}{table.caption.88}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.17}{\ignorespaces Breakdown of data accumulated from the IMU with the sample parameters mentioned in Table \ref {tab:IMU_param}.\relax }}{115}{table.caption.130}%
+\contentsline {table}{\numberline {4.17}{\ignorespaces Processing characteristics and parameters for the STM32L476RG microcontroller. \relax }}{78}{table.caption.89}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5.18}{\ignorespaces Timing requirements for each sensor showing the interval between samples and the number of samples collected during each session.\relax }}{115}{table.caption.131}%
+\contentsline {table}{\numberline {4.18}{\ignorespaces Communication ports and specifications for the STM32L476RG microcontroller. \relax }}{79}{table.caption.90}%
 \defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.19}{\ignorespaces Current consumption of various components as well as the estimated maximum possible current draw.\relax }}{79}{table.caption.91}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.1}{\ignorespaces Objectives of the unit tests defined in Appendix \ref {app:Unittests} showing how the test protocols help validate the firmware in the device peripheral layer.\relax }}{123}{table.caption.137}%
+\contentsline {table}{\numberline {4.20}{\ignorespaces Key performance characteristics for the Texas Instruments LP3876 linear low dropout regulator \cite {LP3876}.\relax }}{81}{table.caption.93}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.2}{\ignorespaces Baseline functionality of the GPS UART communication module of the firmware and the unit test used to verify this functionality.\relax }}{124}{table.caption.139}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.3}{\ignorespaces Baseline functionality of the GPS UART communication module of the firmware and the test used to verify subsystem functionality.\relax }}{125}{table.caption.141}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.4}{\ignorespaces Baseline functionality of the Iridium UART communication peripheral of the firmware and the test used to verify unit functionality.\relax }}{126}{table.caption.143}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.5}{\ignorespaces Baseline functionality of the Iridium UART communication peripheral of the firmware and the test used to verify unit functionality.\relax }}{127}{table.caption.145}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.6}{\ignorespaces Baseline functionality of the BMP280 SPI communication peripheral of the firmware and the tests used to verify unit functionality.\relax }}{127}{table.caption.147}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.7}{\ignorespaces Baseline functionality of the BMP280 SPI communication peripheral of the firmware and the tests used to verify unit functionality.\relax }}{128}{table.caption.149}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.8}{\ignorespaces Table showing the configuration parameters for the BMP280 environmental sensor for the final version of the buoy firmware.\relax }}{128}{table.caption.150}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.9}{\ignorespaces Baseline functionality of the INA219 I$^2$C communication peripheral of the firmware and the tests used to verify unit functionality.\relax }}{129}{table.caption.152}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.10}{\ignorespaces Subsystem functionality of the INA219 I$^2$C communication peripheral of the firmware and the tests used to verify unit functionality.\relax }}{130}{table.caption.154}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.11}{\ignorespaces Baseline function of the AT45DB641E Flash chips SPI communication peripheral of the firmware and the tests used to verify unit functionality.\relax }}{131}{table.caption.156}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.12}{\ignorespaces Subsystem functionality of the AT45DB641E Flash chips SPI communication peripheral of the firmware and the tests used to verify unit functionality.\relax }}{132}{table.caption.158}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.13}{\ignorespaces Baseline functionality of the Iridium UART communication peripheral of the firmware and the test used to verify unit functionality.\relax }}{132}{table.caption.160}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.14}{\ignorespaces Subsystem functionality of the MPU6050 six DoF IMU and the tests used to verify subsystem functionality.\relax }}{133}{table.caption.162}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.15}{\ignorespaces System output during an accelerated test as described in SYS001. Data output occurs over the period from initialation to first sample and sleep with a failed GPS signal acquisition.\relax }}{136}{table.caption.167}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.16}{\ignorespaces System output during an accelerated test as described in SYS001.The data output occurs over the period from first wake up to the end of second sample with successful GPS signal acquisition.\relax }}{137}{table.caption.168}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.17}{\ignorespaces Average current draw (mA) and cycle duration over the full sample period.\relax }}{139}{table.caption.175}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.18}{\ignorespaces Data transmitted from the SHARC buoy as compressed binary messages in ASCII hexadecimal format. This table contains ice drift data shown in packets begining with 01 ("1") and IMU data in packets beginning with 57 or "W". Also shown are diagnostic data including the transmitting device, payload size and number of credits used to transmit the message.\relax }}{142}{table.caption.184}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.19}{\ignorespaces Hardware components used during field testing for version 1 of SHARC buoy deployed during the 2019 SCALE winter cruise to the Southern Ocean Marginal Ice Zone.\relax }}{143}{table.caption.186}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.20}{\ignorespaces Table showing the parameters the GPS was configured with before deployment. \relax }}{145}{table.caption.189}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.21}{\ignorespaces Deployment conditions for buoy 1 (2019-WC-SB01) and buoy 2 (2019-WC-SB02) including deployment coordinates, time and environmental conditions\relax }}{146}{table.caption.192}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.22}{\ignorespaces Results of the full system acceptance tests indicated by a tick in the appropriate column.\relax }}{149}{table.caption.196}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.23}{\ignorespaces Results of the platform evaluation and how each functional requirement was addressed.\relax }}{150}{table.caption.197}%
+\contentsline {table}{\numberline {4.21}{\ignorespaces Approximate procurement cost for a single SHARC buoy node.\relax }}{83}{table.caption.95}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.1}{\ignorespaces Configuration parameters for the system clock and real time clock (RTC) including sources and frequencies.\relax }}{93}{table.caption.101}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.2}{\ignorespaces Power mode selection for each phase of the buoy's operational cycle. Power modes are preset by STMicroelectronics and are based on the device's architecture. A full explanation of each power mode can be found in \cite {stm32l4ref}.\relax }}{94}{table.caption.103}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.3}{\ignorespaces Numerical and 8-bit unsigned integer representation of the synchronous states on the STM32L4 microcontroller.\relax }}{99}{table.caption.107}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.4}{\ignorespaces Table showing the types of states that the system checks for ordered by priority with 1 being the highest priority and 3 being the lowest.\relax }}{101}{table.caption.109}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.5}{\ignorespaces Table Showing the device behavior in case of a critical failure in one or more of the subsystems. Critical failures are defined in AT006 (Table \ref {tab:AT006}) testing protocol.\relax }}{105}{table.caption.112}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.6}{\ignorespaces Breakdown of a typical NMEA message string with fields indicating start/stop sequences and character information.\relax }}{107}{table.caption.117}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.7}{\ignorespaces Description of ZDA message string showing variables, description and how the example datum 5th September 2002 08:27:10 am is stored.\relax }}{108}{table.caption.118}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.8}{\ignorespaces Description of GSA message string showing variables, description of parameters and how the variables are stored.\relax }}{108}{table.caption.119}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.9}{\ignorespaces Description of GLL message string showing variables, description and how a set of coordinates e.g. (47$\degree $17.11364'N, 8$\degree $ 33.91565' ) is stored.\relax }}{109}{table.caption.120}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.10}{\ignorespaces Data collected from the GPS in a single sample session. Square brackets denote a numbered sequence of like variable types.\relax }}{110}{table.caption.122}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.11}{\ignorespaces Description of output values from BMP280 post processing.\relax }}{111}{table.caption.123}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.12}{\ignorespaces Description of parameters used to calibrate the INA219 current sensor.\relax }}{111}{table.caption.124}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.13}{\ignorespaces Description of output values from INA219 current sensor.\relax }}{112}{table.caption.125}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.14}{\ignorespaces Total drift data collected during a single sample point.\relax }}{112}{table.caption.126}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.15}{\ignorespaces Description of output values from the MPU6050 IMU showing variable name, size and significance.\relax }}{113}{table.caption.128}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.16}{\ignorespaces Parameters of the IMU and their configured value for this application.\relax }}{113}{table.caption.129}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.17}{\ignorespaces Breakdown of data accumulated from the IMU with the sample parameters mentioned in Table \ref {tab:IMU_param}.\relax }}{114}{table.caption.130}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {5.18}{\ignorespaces Timing requirements for each sensor showing the interval between samples and the number of samples collected during each session.\relax }}{114}{table.caption.131}%
+\defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.1}{\ignorespaces Objectives of the unit tests defined in Appendix \ref {app:Unittests} showing how the test protocols help validate the firmware in the device peripheral layer.\relax }}{122}{table.caption.137}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.2}{\ignorespaces Baseline functionality of the GPS UART communication module of the firmware and the unit test used to verify this functionality.\relax }}{123}{table.caption.139}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.3}{\ignorespaces Baseline functionality of the GPS UART communication module of the firmware and the test used to verify subsystem functionality.\relax }}{124}{table.caption.141}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.4}{\ignorespaces Baseline functionality of the Iridium UART communication peripheral of the firmware and the test used to verify unit functionality.\relax }}{125}{table.caption.143}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.5}{\ignorespaces Baseline functionality of the Iridium UART communication peripheral of the firmware and the test used to verify unit functionality.\relax }}{126}{table.caption.145}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.6}{\ignorespaces Baseline functionality of the BMP280 SPI communication peripheral of the firmware and the tests used to verify unit functionality.\relax }}{126}{table.caption.147}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.7}{\ignorespaces Baseline functionality of the BMP280 SPI communication peripheral of the firmware and the tests used to verify unit functionality.\relax }}{127}{table.caption.149}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.8}{\ignorespaces Table showing the configuration parameters for the BMP280 environmental sensor for the final version of the buoy firmware.\relax }}{127}{table.caption.150}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.9}{\ignorespaces Baseline functionality of the INA219 I$^2$C communication peripheral of the firmware and the tests used to verify unit functionality.\relax }}{128}{table.caption.152}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.10}{\ignorespaces Subsystem functionality of the INA219 I$^2$C communication peripheral of the firmware and the tests used to verify unit functionality.\relax }}{129}{table.caption.154}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.11}{\ignorespaces Baseline function of the AT45DB641E Flash chips SPI communication peripheral of the firmware and the tests used to verify unit functionality.\relax }}{130}{table.caption.156}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.12}{\ignorespaces Subsystem functionality of the AT45DB641E Flash chips SPI communication peripheral of the firmware and the tests used to verify unit functionality.\relax }}{131}{table.caption.158}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.13}{\ignorespaces Baseline functionality of the Iridium UART communication peripheral of the firmware and the test used to verify unit functionality.\relax }}{131}{table.caption.160}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.14}{\ignorespaces Subsystem functionality of the MPU6050 six DoF IMU and the tests used to verify subsystem functionality.\relax }}{132}{table.caption.162}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.15}{\ignorespaces System output during an accelerated test as described in SYS001. Data output occurs over the period from initialation to first sample and sleep with a failed GPS signal acquisition.\relax }}{135}{table.caption.167}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.16}{\ignorespaces System output during an accelerated test as described in SYS001.The data output occurs over the period from first wake up to the end of second sample with successful GPS signal acquisition.\relax }}{136}{table.caption.168}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.17}{\ignorespaces Average current draw (mA) and cycle duration over the full sample period.\relax }}{138}{table.caption.175}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.18}{\ignorespaces Data transmitted from the SHARC buoy as compressed binary messages in ASCII hexadecimal format. This table contains ice drift data shown in packets begining with 01 ("1") and IMU data in packets beginning with 57 or "W". Also shown are diagnostic data including the transmitting device, payload size and number of credits used to transmit the message.\relax }}{141}{table.caption.184}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.19}{\ignorespaces Hardware components used during field testing for version 1 of SHARC buoy deployed during the 2019 SCALE winter cruise to the Southern Ocean Marginal Ice Zone.\relax }}{142}{table.caption.186}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.20}{\ignorespaces Table showing the parameters the GPS was configured with before deployment. \relax }}{144}{table.caption.189}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.21}{\ignorespaces Deployment conditions for buoy 1 (2019-WC-SB01) and buoy 2 (2019-WC-SB02) including deployment coordinates, time and environmental conditions\relax }}{145}{table.caption.192}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.22}{\ignorespaces Results of the full system acceptance tests indicated by a tick in the appropriate column.\relax }}{148}{table.caption.196}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6.23}{\ignorespaces Results of the platform evaluation and how each functional requirement was addressed.\relax }}{149}{table.caption.197}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.1}{\ignorespaces Table showing the key stakeholders in the project, their level of involvement as well as their interests in the project.\relax }}{171}{table.caption.207}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.2}{\ignorespaces Acceptance test protocol for subsystem connectivity testing.\relax }}{172}{table.caption.208}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.3}{\ignorespaces Acceptance test protocol for fault testing.\relax }}{173}{table.caption.209}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.4}{\ignorespaces Acceptance test protocol for component selection.\relax }}{174}{table.caption.210}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.5}{\ignorespaces Acceptance test protocol for Subsystem Robustness Testing\relax }}{174}{table.caption.211}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.6}{\ignorespaces Acceptance test protocol for accelerated system testing.\relax }}{175}{table.caption.212}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.7}{\ignorespaces Acceptance test protocol for subsystem calibration testing.\relax }}{176}{table.caption.213}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.8}{\ignorespaces Acceptance test protocl for power test.\relax }}{177}{table.caption.214}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.9}{\ignorespaces Acceptance test protocol protocol for low temperature test.\relax }}{178}{table.caption.215}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.10}{\ignorespaces Acceptance test protocol for final system deployment test.\relax }}{179}{table.caption.216}%
+\addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {C.1}{\ignorespaces Description of interrupt generated by the Iridium module on an external digital input line.\relax }}{183}{table.caption.221}%
+\contentsline {table}{\numberline {B.1}{\ignorespaces Table showing the key stakeholders in the project, their level of involvement as well as their interests in the project.\relax }}{170}{table.caption.207}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {C.2}{\ignorespaces Description of routine for interrupts generated by the IMU on an external digital input line.\relax }}{184}{table.caption.222}%
+\contentsline {table}{\numberline {B.2}{\ignorespaces Acceptance test protocol for subsystem connectivity testing.\relax }}{171}{table.caption.208}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {C.3}{\ignorespaces Description of event handling routine for a brown out recovery event.\relax }}{184}{table.caption.223}%
+\contentsline {table}{\numberline {B.3}{\ignorespaces Acceptance test protocol for fault testing.\relax }}{172}{table.caption.209}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {C.4}{\ignorespaces Description of routine for handling low power events.\relax }}{185}{table.caption.224}%
+\contentsline {table}{\numberline {B.4}{\ignorespaces Acceptance test protocol for component selection.\relax }}{173}{table.caption.210}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {C.5}{\ignorespaces Description of routine for handling a software reset event.\relax }}{185}{table.caption.225}%
+\contentsline {table}{\numberline {B.5}{\ignorespaces Acceptance test protocol for Subsystem Robustness Testing\relax }}{173}{table.caption.211}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {C.6}{\ignorespaces Colour guide for the initialization routine flow diagrams.\relax }}{185}{table.caption.226}%
+\contentsline {table}{\numberline {B.6}{\ignorespaces Acceptance test protocol for accelerated system testing.\relax }}{174}{table.caption.212}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {B.7}{\ignorespaces Acceptance test protocol for subsystem calibration testing.\relax }}{175}{table.caption.213}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {B.8}{\ignorespaces Acceptance test protocl for power test.\relax }}{176}{table.caption.214}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {B.9}{\ignorespaces Acceptance test protocol protocol for low temperature test.\relax }}{177}{table.caption.215}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {B.10}{\ignorespaces Acceptance test protocol for final system deployment test.\relax }}{178}{table.caption.216}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {D.1}{\ignorespaces List of data services provided by Iridium for transmission of data over the satellite network including the bandwidth and purpose of the service taken from \cite {iridium_mobile}.\relax }}{194}{table.caption.238}%
+\contentsline {table}{\numberline {C.1}{\ignorespaces Description of interrupt generated by the Iridium module on an external digital input line.\relax }}{182}{table.caption.221}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {D.2}{\ignorespaces Strategies used by the devices to transfer data from remote locations. Table includes transmission technologies and services used as well and transmission strategies and transmission intervals where given. Prices are converted to Rands (R) via \cite {usdcoversion}.\relax }}{195}{table.caption.239}%
+\contentsline {table}{\numberline {C.2}{\ignorespaces Description of routine for interrupts generated by the IMU on an external digital input line.\relax }}{183}{table.caption.222}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {C.3}{\ignorespaces Description of event handling routine for a brown out recovery event.\relax }}{183}{table.caption.223}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {C.4}{\ignorespaces Description of routine for handling low power events.\relax }}{184}{table.caption.224}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {C.5}{\ignorespaces Description of routine for handling a software reset event.\relax }}{184}{table.caption.225}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {C.6}{\ignorespaces Colour guide for the initialization routine flow diagrams.\relax }}{184}{table.caption.226}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.1}{\ignorespaces Protocol for firmware initialisation/deinitialisation functional test.\relax }}{196}{table.caption.240}%
+\contentsline {table}{\numberline {D.1}{\ignorespaces List of data services provided by Iridium for transmission of data over the satellite network including the bandwidth and purpose of the service taken from \cite {iridium_mobile}.\relax }}{193}{table.caption.238}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.2}{\ignorespaces Protocol for the signal acquisition firmware test, This test is specific to receivers with wireless capabilities. \relax }}{196}{table.caption.241}%
+\contentsline {table}{\numberline {D.2}{\ignorespaces Strategies used by the devices to transfer data from remote locations. Table includes transmission technologies and services used as well and transmission strategies and transmission intervals where given. Prices are converted to Rands (R) via \cite {usdcoversion}.\relax }}{194}{table.caption.239}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.3}{\ignorespaces protocol for testing the peripheral communication functional unit. \relax }}{197}{table.caption.242}%
+\addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.4}{\ignorespaces Protocol for testing a software function for validating sensor data.\relax }}{197}{table.caption.243}%
+\contentsline {table}{\numberline {E.1}{\ignorespaces Protocol for firmware initialisation/deinitialisation functional test.\relax }}{195}{table.caption.240}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.5}{\ignorespaces Protocol for testing data streams and direct memory access (DMA) functions.\relax }}{197}{table.caption.244}%
+\contentsline {table}{\numberline {E.2}{\ignorespaces Protocol for the signal acquisition firmware test, This test is specific to receivers with wireless capabilities. \relax }}{195}{table.caption.241}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.6}{\ignorespaces Protocol to test functions that interface with sensors by configuring settings in the register or reading data from a register.\relax }}{198}{table.caption.245}%
+\contentsline {table}{\numberline {E.3}{\ignorespaces protocol for testing the peripheral communication functional unit. \relax }}{196}{table.caption.242}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.7}{\ignorespaces Protocols for fault testing of software subsystem functions.\relax }}{198}{table.caption.246}%
+\contentsline {table}{\numberline {E.4}{\ignorespaces Protocol for testing a software function for validating sensor data.\relax }}{196}{table.caption.243}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.8}{\ignorespaces Protocols for testing digital input/output peripheral functional units.\relax }}{198}{table.caption.247}%
+\contentsline {table}{\numberline {E.5}{\ignorespaces Protocol for testing data streams and direct memory access (DMA) functions.\relax }}{196}{table.caption.244}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.9}{\ignorespaces Results of subsystem acceptance tests for each of the identified modules. Modules that were successfully validated were marked with a \text {$\mathsurround \z@ \mathchar "458$}, failed tests were marked by an X and tests that could not be applied to a subsystem were marked by an N/A.\relax }}{199}{table.caption.248}%
+\contentsline {table}{\numberline {E.6}{\ignorespaces Protocol to test functions that interface with sensors by configuring settings in the register or reading data from a register.\relax }}{197}{table.caption.245}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {E.7}{\ignorespaces Protocols for fault testing of software subsystem functions.\relax }}{197}{table.caption.246}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {E.8}{\ignorespaces Protocols for testing digital input/output peripheral functional units.\relax }}{197}{table.caption.247}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {E.9}{\ignorespaces Results of subsystem acceptance tests for each of the identified modules. Modules that were successfully validated were marked with a \text {$\mathsurround \z@ \mathchar "458$}, failed tests were marked by an X and tests that could not be applied to a subsystem were marked by an N/A.\relax }}{198}{table.caption.248}%
