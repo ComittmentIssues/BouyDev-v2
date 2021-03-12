@@ -5,7 +5,7 @@
 
 \chapter{Numerical modelling}
 
-\section{Modeling of polar stochastic processes}
+\section{Modelling of polar stochastic processes}
 \label{app:modelling}
 In this section,  an analysis of modelling techniques for the polar region is provided. Here, the focus is on developing models for Polar sea ice mechanics and dynamics. An overview of these models is given with a description of the variables and the scope of each model.
 
@@ -76,7 +76,7 @@ $m_n[\eta]$ describes the mean square surface sea elevation of a particle and is
 
 The significant wave height can be considered four times the standard deviation of the surface elevation \cite{meylan2014situ}. Finally, by determining the significant wave height, the dominant wave period can be calculated as $\frac{1}{f_d}$ where $f_d$ is the frequency at which the dominant wave period occurs \cite{meylan2014situ}.
 
-\section{ Modeling of GPS dilation of precision}
+\section{ Modeling of GPS dilution of precision}
 \label{appendix:GPS_DOP} 
 Given a user's position on the earth, the distance from the user to the satellite is characterised by the following equation.
 \begin{equation}
@@ -155,7 +155,7 @@ Where $E\{\textbf{vv}^T\} = \sigma^2 I$. If all components of $\sigma$ are uncor
 and thus the GDOP factor can be calculated from the RMS values of $\sigma^2$ i.e.
 \begin{equation}
 	GDOP = \frac{\sqrt{\sigma_{xx}^2+\sigma_{yy}^2+ \sigma_{zz}^2+\sigma_{tt}^2}}{\sigma}
-\end{equation} where $\sigma_{xx}^2$,$\sigma_{yy}^2$,$\sigma_{zz}^2$,$\sigma_{tt}^2$ are the RMS values of the x,y and z time components respectively. THe value GDOP can also be decomposed into the positional dilation of precision (PDOP), time dilation of precision (TDOP), horizontal dilation of precision HDOP, and vertical dilation of precision (VDOP) which characterise the effects satellite spread on the 3-dimensional position, time, horizontal position and altitude respectively.\par
+\end{equation} where $\sigma_{xx}^2$,$\sigma_{yy}^2$,$\sigma_{zz}^2$,$\sigma_{tt}^2$ are the RMS values of the x,y and z time components respectively. THe value GDOP can also be decomposed into the positional dilution of precision (PDOP), time dilution of precision (TDOP), horizontal dilution of precision HDOP, and vertical dilution of precision (VDOP) which characterise the effects satellite spread on the 3-dimensional position, time, horizontal position and altitude respectively.\par
 
 \section{Numerical techniques for modelling ocean waves}
 
@@ -973,9 +973,9 @@ For this project, a stakeholder is defined as any user or set of users who will 
 		* Structure to Hold the GPS data signal diagnostics
 		*
 		* Variables:	Name.............Type.................................Description
-		* 				PDOP.............DOP_t................................Positional Dilation of Precision (3D)
-		* 				HDOP.............DOP_t................................Horizontal Dilation of Precision
-		* 				VDOP.............DOP_t................................Vertical   Dilation of Precision
+		* 				PDOP.............DOP_t................................Positional dilution of Precision (3D)
+		* 				HDOP.............DOP_t................................Horizontal dilution of Precision
+		* 				VDOP.............DOP_t................................Vertical   dilution of Precision
 		* 				num_sats.........uint8_t..............................Number of Satelites used to obtain positional Fix
 		* 				fix_type.........uint8_t..............................number between 1-3 describing the type of fix obtained
 		*
