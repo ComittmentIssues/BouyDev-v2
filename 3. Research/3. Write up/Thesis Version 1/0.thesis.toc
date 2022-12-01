@@ -4,7 +4,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{Abstract}{ii}{chapter*.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Acknowledgements}{iii}{chapter*.4}%
+\contentsline {chapter}{Acknowledgments}{iii}{chapter*.4}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \defcounter {refsection}{0}\relax 
@@ -148,7 +148,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.4}Conclusion}{85}{section.4.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Software Design}{86}{chapter.5}%
+\contentsline {chapter}{\numberline {5}Software design}{86}{chapter.5}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5.1}Software architecture}{87}{section.5.1}%
 \defcounter {refsection}{0}\relax 
@@ -278,25 +278,25 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{Configurations}{140}{subsubsection*.179}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2.4}Results}{140}{subsection.6.2.4}%
+\contentsline {subsubsection}{Results}{140}{subsubsection*.180}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2.5}SYS004 field test}{140}{subsection.6.2.5}%
+\contentsline {subsection}{\numberline {6.2.4}SYS004 field test}{140}{subsection.6.2.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Scope}{140}{subsubsection*.180}%
+\contentsline {subsubsection}{Scope}{140}{subsubsection*.181}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Protocol}{140}{subsubsection*.181}%
+\contentsline {subsubsection}{Protocol}{140}{subsubsection*.182}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Configurations}{140}{subsubsection*.182}%
+\contentsline {subsubsection}{Configurations}{140}{subsubsection*.183}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Results}{141}{subsubsection*.183}%
+\contentsline {subsubsection}{Results}{141}{subsubsection*.184}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {6.3}Field testing}{141}{section.6.3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {6.3.1}Configuration}{144}{subsection.6.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Deployment protocol}{145}{subsubsection*.190}%
+\contentsline {subsection}{\numberline {6.3.2}Deployment protocol}{145}{subsection.6.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Results}{146}{subsubsection*.193}%
+\contentsline {subsection}{\numberline {6.3.3}Results}{146}{subsection.6.3.3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {6.4}Final evaluation}{147}{section.6.4}%
 \defcounter {refsection}{0}\relax 
@@ -330,7 +330,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {7.4}Verification's against the state of the art}{155}{section.7.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.5}Final Remarks}{156}{section.7.5}%
+\contentsline {section}{\numberline {7.5}Final remarks}{156}{section.7.5}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {8}Recommendations}{157}{chapter.8}%
 \defcounter {refsection}{0}\relax 
@@ -342,11 +342,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {8.4}Firmware improvements}{158}{section.8.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{GPS}{158}{paragraph*.198}%
+\contentsline {paragraph}{GPS}{158}{paragraph*.197}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{IMU}{158}{paragraph*.199}%
+\contentsline {paragraph}{IMU}{158}{paragraph*.198}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Iridium}{158}{paragraph*.200}%
+\contentsline {paragraph}{Iridium}{158}{paragraph*.199}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {8.5}Expansion of nodes into a network}{159}{section.8.5}%
 \defcounter {refsection}{0}\relax 
@@ -358,7 +358,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {A.1.1}Numerical modelling of sea ice}{160}{subsection.A.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Numerical modelling of ocean waves}{161}{subsubsection*.201}%
+\contentsline {subsubsection}{Numerical modelling of ocean waves}{161}{subsubsection*.200}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {A.2} Modeling of GPS dilution of precision}{163}{section.A.2}%
 \defcounter {refsection}{0}\relax 
@@ -370,17 +370,17 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {A.4}Temperature sensing measurement techniques}{167}{section.A.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Thermistors}{167}{subsubsection*.202}%
+\contentsline {subsubsection}{Thermistors}{167}{subsubsection*.201}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Silicon temperature devices}{167}{subsubsection*.203}%
+\contentsline {subsubsection}{Silicon temperature devices}{167}{subsubsection*.202}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {A.5}Pressure sensing techniques}{168}{section.A.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Diaphragm based sensors}{168}{subsubsection*.204}%
+\contentsline {subsubsection}{Diaphragm based sensors}{168}{subsubsection*.203}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Piezoresistive sensors}{169}{subsubsection*.205}%
+\contentsline {subsubsection}{Piezoresistive sensors}{169}{subsubsection*.204}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Capacitive sensors}{169}{subsubsection*.206}%
+\contentsline {subsubsection}{Capacitive sensors}{169}{subsubsection*.205}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {B}Project design}{170}{appendix.B}%
 \defcounter {refsection}{0}\relax 
@@ -394,7 +394,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {C.1}Events and interrupt handling protocols}{182}{section.C.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {C.2}Initialization Routines}{184}{section.C.2}%
+\contentsline {section}{\numberline {C.2}Initialization routines}{184}{section.C.2}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {C.3}Code}{188}{section.C.3}%
 \defcounter {refsection}{0}\relax 

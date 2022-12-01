@@ -276,7 +276,7 @@ During testing, the sensor was configured in weather station mode which was reco
 	\centering
 	\caption{Table showing the configuration parameters for the BMP280 environmental sensor for the final version of the buoy firmware.}
 	\label{tab:bmp_param}
-	\tiny
+	\small
 	\begin{tabular}{l c}
 		\hline
 		\hline
@@ -581,11 +581,11 @@ Figure \ref{tab:SYS001_res1} shows an accelerated test from initialisation to th
 \subsubsection{Scope}
 The power test aims to verify to test power consumption characteristics of the buoy to determine the survivability of the device in standard operating conditions to verify the software robustness against AT007 (Table \ref{tab:AT007}).
 \subsubsection{Protocol}
- The buoy was connected to a power source with all sensors enabled. The device sampling interval was set to 30 minutes between drift measurements as described above. The device was connect to an Agilent E3630A 0 to 6V, 2.5 A bench top power supply set to output a constant 7.2 V. A data logger was connected to the INA219 sensor and configured to sample current, supply voltage and power consumption. The test ran for a single cycle sampling data at a constant 1 Hz. The logger outputted data to a serial through USB to a computer which recorded the data. The test was completed after a single uninterrupted firmware cycle. This configuration is shown in Figure \ref{fig:pwrtest}.
+ The buoy was connected to a power source with all sensors enabled. The device sampling interval was set to 30 minutes between drift measurements as described above. The device was connect to an Agilent E3630A 0 to 6 V, 2.5 A bench top power supply set to output a constant 7.2 V. A data logger was connected to the INA219 sensor and configured to sample current, supply voltage and power consumption. The test ran for a single cycle sampling data at a constant 1 Hz. The logger outputted data to a serial through USB to a computer which recorded the data. The test was completed after a single uninterrupted firmware cycle. This configuration is shown in Figure \ref{fig:pwrtest}.
  \begin{figure}[H]
  	\centering
  	\includegraphics[width=\linewidth]{figs/pwrtest}
- 	\caption{Diagram showing the configuration for the power test. All subsystems were connected and activated with version 2 sensors and firmware. Power was supplied by an Agilent xxxx bench top power supply set to a constant 7.2 V output. A data logger was connected to the INA219 sensor to sample the power information at a rate of 1 Hz}
+ 	\caption{Diagram showing the configuration for the power test. All subsystems were connected and activated with version 2 sensors and firmware. Power was supplied by an Agilent E3630A bench top power supply set to a constant 7.2 V output. A data logger was connected to the INA219 sensor to sample the power information at a rate of 1 Hz}
  	\label{fig:pwrtest}
  \end{figure}
  
@@ -670,7 +670,7 @@ All sensors were connected to the system and the Iridium modem was turned off. S
 \subsubsection{Configurations}
 
 GPS set to timeout after 30 seconds, sensors sampled in intervals of 30 minutes.
-\subsection{Results}
+\subsubsection{Results}
 
 During the test, the Flash chip routine failed to save data resulting in all test data being lost. The firmware contained functions to clear memory when the buoy boots up and enters initialisation phase. When the device was taken out the freezer, these functions may have deleted the data from the Flash chips. Another reason could be that moisture entered the device causing the chips to malfunction and not save any data as a result.
 
@@ -794,7 +794,7 @@ Before deployment, the system was testing using AT001 to AT004 for the subsystem
  \label{tab:test_remotetest_gpsconfig}
 \end{table}
 
-\subsubsection{Deployment protocol}
+\subsection{Deployment protocol}
 
 The buoy was switched on and sealed in the enclosure which was fastened to the buoy stand and placed on the deck of the ship. The buoy was placed in a personnel basket along with three crew members who were fastened to the basket with personnel harnesses. The basket was attached to a crane, hoisted over the side of the ship and lowered towards the surface of the ocean. The crew members then identified a suitable ice floe to place the buoy on. The floe had to have a diameter greater than 2 m and be visually capable of supporting the weight of the buoy (i.e. no visible rafting or flooding). Once an ice floe was selected, the personnel basket was maneuvered to hover 1 m above the desired location. Figure \ref{fig:deployment} shows the deployment of the buoys in the Marginal Ice Zone using this procedure. 
 
@@ -859,7 +859,7 @@ The buoy was then deployed from the basket with enough force for the spikes to p
  \label{tab:test_remotetest_Deployemt }
 \end{table}
 
-\subsubsection{Results}
+\subsection{Results}
 \label{sec:ch4_results}
 
 SB-WC-01 transmitted one message after deployment before losing contact possibly due to a power system failure. SB-WC-02 failed to transmit any messages which may have been due to mechanical failure as a result of deployment. SB-WC-3 survived on the helideck for one week until the batteries were changed. The buoy continued to transmit data continuously. GPS data collected from the transmission packets was compared to the GPS data recorded from the ship and the results are shown in Figure \ref{fig:test_deploymenttest_GPS}.

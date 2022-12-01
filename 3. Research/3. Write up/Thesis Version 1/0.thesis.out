@@ -1,6 +1,6 @@
 \BOOKMARK [0][-]{chapter*.2}{Declaration}{}% 1
 \BOOKMARK [0][-]{chapter*.3}{Abstract}{}% 2
-\BOOKMARK [0][-]{chapter*.4}{Acknowledgements}{}% 3
+\BOOKMARK [0][-]{chapter*.4}{Acknowledgments}{}% 3
 \BOOKMARK [0][-]{chapter.1}{Introduction}{}% 4
 \BOOKMARK [1][-]{section.1.1}{Background to investigation}{chapter.1}% 5
 \BOOKMARK [2][-]{subsection.1.1.1}{Antarctic sea ice and the Marginal Ice Zone}{section.1.1}% 6
@@ -61,7 +61,7 @@
 \BOOKMARK [2][-]{subsection.4.2.8}{Power electronics}{section.4.2}% 61
 \BOOKMARK [1][-]{section.4.3}{Final assembly}{chapter.4}% 62
 \BOOKMARK [1][-]{section.4.4}{Conclusion}{chapter.4}% 63
-\BOOKMARK [0][-]{chapter.5}{Software Design}{}% 64
+\BOOKMARK [0][-]{chapter.5}{Software design}{}% 64
 \BOOKMARK [1][-]{section.5.1}{Software architecture}{chapter.5}% 65
 \BOOKMARK [2][-]{subsection.5.1.1}{Hardware abstraction layer}{section.5.1}% 66
 \BOOKMARK [2][-]{subsection.5.1.2}{Subsystem application peripheral interface \(API\) layer}{section.5.1}% 67
@@ -98,55 +98,56 @@
 \BOOKMARK [2][-]{subsection.6.2.1}{SYS001 accelerated system test}{section.6.2}% 98
 \BOOKMARK [2][-]{subsection.6.2.2}{SYS002 power test}{section.6.2}% 99
 \BOOKMARK [2][-]{subsection.6.2.3}{SYS003 low temperature test}{section.6.2}% 100
-\BOOKMARK [2][-]{subsection.6.2.4}{Results}{section.6.2}% 101
-\BOOKMARK [2][-]{subsection.6.2.5}{SYS004 field test}{section.6.2}% 102
-\BOOKMARK [1][-]{section.6.3}{Field testing}{chapter.6}% 103
-\BOOKMARK [2][-]{subsection.6.3.1}{Configuration}{section.6.3}% 104
-\BOOKMARK [1][-]{section.6.4}{Final evaluation}{chapter.6}% 105
-\BOOKMARK [2][-]{subsection.6.4.1}{Functional requirement validation}{section.6.4}% 106
-\BOOKMARK [1][-]{section.6.5}{Discussion}{chapter.6}% 107
-\BOOKMARK [2][-]{subsection.6.5.1}{Power requirements}{section.6.5}% 108
-\BOOKMARK [2][-]{subsection.6.5.2}{System performance}{section.6.5}% 109
-\BOOKMARK [2][-]{subsection.6.5.3}{Mechanical features}{section.6.5}% 110
-\BOOKMARK [2][-]{subsection.6.5.4}{Power system}{section.6.5}% 111
-\BOOKMARK [2][-]{subsection.6.5.5}{Future work on wave measurements}{section.6.5}% 112
-\BOOKMARK [2][-]{subsection.6.5.6}{Short-burst data modems VS. Telephone modems}{section.6.5}% 113
-\BOOKMARK [2][-]{subsection.6.5.7}{Evaluation against the State of the Art}{section.6.5}% 114
-\BOOKMARK [1][-]{section.6.6}{Conclusion}{chapter.6}% 115
-\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 116
-\BOOKMARK [1][-]{section.7.1}{Key contributions to firmware and validation}{chapter.7}% 117
-\BOOKMARK [1][-]{section.7.2}{User requirement verification}{chapter.7}% 118
-\BOOKMARK [1][-]{section.7.3}{Full system testing}{chapter.7}% 119
-\BOOKMARK [1][-]{section.7.4}{Verification's against the state of the art}{chapter.7}% 120
-\BOOKMARK [1][-]{section.7.5}{Final Remarks}{chapter.7}% 121
-\BOOKMARK [0][-]{chapter.8}{Recommendations}{}% 122
-\BOOKMARK [1][-]{section.8.1}{Improvements to the power system}{chapter.8}% 123
-\BOOKMARK [1][-]{section.8.2}{Improvements to hardware}{chapter.8}% 124
-\BOOKMARK [1][-]{section.8.3}{Improvements to the communication modules}{chapter.8}% 125
-\BOOKMARK [1][-]{section.8.4}{Firmware improvements}{chapter.8}% 126
-\BOOKMARK [1][-]{section.8.5}{Expansion of nodes into a network}{chapter.8}% 127
-\BOOKMARK [1][-]{section.8.6}{Future deployments}{chapter.8}% 128
-\BOOKMARK [0][-]{appendix.A}{Numerical modelling}{}% 129
-\BOOKMARK [1][-]{section.A.1}{Modelling of polar stochastic processes}{appendix.A}% 130
-\BOOKMARK [2][-]{subsection.A.1.1}{Numerical modelling of sea ice}{section.A.1}% 131
-\BOOKMARK [1][-]{section.A.2}{ Modeling of GPS dilution of precision}{appendix.A}% 132
-\BOOKMARK [1][-]{section.A.3}{Numerical techniques for modelling ocean waves}{appendix.A}% 133
-\BOOKMARK [2][-]{subsection.A.3.1}{Kuik method}{section.A.3}% 134
-\BOOKMARK [2][-]{subsection.A.3.2}{Welch-Earle method}{section.A.3}% 135
-\BOOKMARK [1][-]{section.A.4}{Temperature sensing measurement techniques}{appendix.A}% 136
-\BOOKMARK [1][-]{section.A.5}{Pressure sensing techniques}{appendix.A}% 137
-\BOOKMARK [0][-]{appendix.B}{Project design}{}% 138
-\BOOKMARK [1][-]{section.B.1}{Stakeholder analysis}{appendix.B}% 139
-\BOOKMARK [1][-]{section.B.2}{Acceptance test protocols}{appendix.B}% 140
-\BOOKMARK [1][-]{section.B.3}{Schematics and renders}{appendix.B}% 141
-\BOOKMARK [0][-]{appendix.C}{Software design}{}% 142
-\BOOKMARK [1][-]{section.C.1}{Events and interrupt handling protocols}{appendix.C}% 143
-\BOOKMARK [1][-]{section.C.2}{Initialization Routines}{appendix.C}% 144
-\BOOKMARK [1][-]{section.C.3}{Code}{appendix.C}% 145
-\BOOKMARK [2][-]{subsection.C.3.1}{BMP280 temperature compensation formula}{section.C.3}% 146
-\BOOKMARK [2][-]{subsection.C.3.2}{INA219 calibration algorithm}{section.C.3}% 147
-\BOOKMARK [2][-]{subsection.C.3.3}{Data structs}{section.C.3}% 148
-\BOOKMARK [0][-]{appendix.D}{Supplementary tables}{}% 149
-\BOOKMARK [0][-]{appendix.E}{Test protocols}{}% 150
-\BOOKMARK [1][-]{section.E.1}{Unit tests}{appendix.E}% 151
-\BOOKMARK [1][-]{section.E.2}{System test results}{appendix.E}% 152
+\BOOKMARK [2][-]{subsection.6.2.4}{SYS004 field test}{section.6.2}% 101
+\BOOKMARK [1][-]{section.6.3}{Field testing}{chapter.6}% 102
+\BOOKMARK [2][-]{subsection.6.3.1}{Configuration}{section.6.3}% 103
+\BOOKMARK [2][-]{subsection.6.3.2}{Deployment protocol}{section.6.3}% 104
+\BOOKMARK [2][-]{subsection.6.3.3}{Results}{section.6.3}% 105
+\BOOKMARK [1][-]{section.6.4}{Final evaluation}{chapter.6}% 106
+\BOOKMARK [2][-]{subsection.6.4.1}{Functional requirement validation}{section.6.4}% 107
+\BOOKMARK [1][-]{section.6.5}{Discussion}{chapter.6}% 108
+\BOOKMARK [2][-]{subsection.6.5.1}{Power requirements}{section.6.5}% 109
+\BOOKMARK [2][-]{subsection.6.5.2}{System performance}{section.6.5}% 110
+\BOOKMARK [2][-]{subsection.6.5.3}{Mechanical features}{section.6.5}% 111
+\BOOKMARK [2][-]{subsection.6.5.4}{Power system}{section.6.5}% 112
+\BOOKMARK [2][-]{subsection.6.5.5}{Future work on wave measurements}{section.6.5}% 113
+\BOOKMARK [2][-]{subsection.6.5.6}{Short-burst data modems VS. Telephone modems}{section.6.5}% 114
+\BOOKMARK [2][-]{subsection.6.5.7}{Evaluation against the State of the Art}{section.6.5}% 115
+\BOOKMARK [1][-]{section.6.6}{Conclusion}{chapter.6}% 116
+\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 117
+\BOOKMARK [1][-]{section.7.1}{Key contributions to firmware and validation}{chapter.7}% 118
+\BOOKMARK [1][-]{section.7.2}{User requirement verification}{chapter.7}% 119
+\BOOKMARK [1][-]{section.7.3}{Full system testing}{chapter.7}% 120
+\BOOKMARK [1][-]{section.7.4}{Verification's against the state of the art}{chapter.7}% 121
+\BOOKMARK [1][-]{section.7.5}{Final remarks}{chapter.7}% 122
+\BOOKMARK [0][-]{chapter.8}{Recommendations}{}% 123
+\BOOKMARK [1][-]{section.8.1}{Improvements to the power system}{chapter.8}% 124
+\BOOKMARK [1][-]{section.8.2}{Improvements to hardware}{chapter.8}% 125
+\BOOKMARK [1][-]{section.8.3}{Improvements to the communication modules}{chapter.8}% 126
+\BOOKMARK [1][-]{section.8.4}{Firmware improvements}{chapter.8}% 127
+\BOOKMARK [1][-]{section.8.5}{Expansion of nodes into a network}{chapter.8}% 128
+\BOOKMARK [1][-]{section.8.6}{Future deployments}{chapter.8}% 129
+\BOOKMARK [0][-]{appendix.A}{Numerical modelling}{}% 130
+\BOOKMARK [1][-]{section.A.1}{Modelling of polar stochastic processes}{appendix.A}% 131
+\BOOKMARK [2][-]{subsection.A.1.1}{Numerical modelling of sea ice}{section.A.1}% 132
+\BOOKMARK [1][-]{section.A.2}{ Modeling of GPS dilution of precision}{appendix.A}% 133
+\BOOKMARK [1][-]{section.A.3}{Numerical techniques for modelling ocean waves}{appendix.A}% 134
+\BOOKMARK [2][-]{subsection.A.3.1}{Kuik method}{section.A.3}% 135
+\BOOKMARK [2][-]{subsection.A.3.2}{Welch-Earle method}{section.A.3}% 136
+\BOOKMARK [1][-]{section.A.4}{Temperature sensing measurement techniques}{appendix.A}% 137
+\BOOKMARK [1][-]{section.A.5}{Pressure sensing techniques}{appendix.A}% 138
+\BOOKMARK [0][-]{appendix.B}{Project design}{}% 139
+\BOOKMARK [1][-]{section.B.1}{Stakeholder analysis}{appendix.B}% 140
+\BOOKMARK [1][-]{section.B.2}{Acceptance test protocols}{appendix.B}% 141
+\BOOKMARK [1][-]{section.B.3}{Schematics and renders}{appendix.B}% 142
+\BOOKMARK [0][-]{appendix.C}{Software design}{}% 143
+\BOOKMARK [1][-]{section.C.1}{Events and interrupt handling protocols}{appendix.C}% 144
+\BOOKMARK [1][-]{section.C.2}{Initialization routines}{appendix.C}% 145
+\BOOKMARK [1][-]{section.C.3}{Code}{appendix.C}% 146
+\BOOKMARK [2][-]{subsection.C.3.1}{BMP280 temperature compensation formula}{section.C.3}% 147
+\BOOKMARK [2][-]{subsection.C.3.2}{INA219 calibration algorithm}{section.C.3}% 148
+\BOOKMARK [2][-]{subsection.C.3.3}{Data structs}{section.C.3}% 149
+\BOOKMARK [0][-]{appendix.D}{Supplementary tables}{}% 150
+\BOOKMARK [0][-]{appendix.E}{Test protocols}{}% 151
+\BOOKMARK [1][-]{section.E.1}{Unit tests}{appendix.E}% 152
+\BOOKMARK [1][-]{section.E.2}{System test results}{appendix.E}% 153

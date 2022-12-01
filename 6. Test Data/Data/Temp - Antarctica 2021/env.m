@@ -1,20 +1,31 @@
 
 hold off
 
-log3 = readtable('PolarStern_Buoy1_Decoded.csv','VariableNamingRule', 'preserve');
-
+log3 = readtable('SB02_POLARSTERN_MAR_2021_decode.csv','VariableNamingRule', 'preserve');
+location = "the Packed Ice Zone"
 temp3 = log3.Temperature;
 press3 = log3.Pressure/1000.000;
-
+%make a vector of time
+t1 = datetime(2021,2,20,16,25,0);
+t2 = datetime(2021,2,25,3,07,0);
+time = t1:minutes(30):t2
 %date times 
 log3.Date.Format = 'dd/MM/yyyy HH:mm:ss';
 datearr = log3.Date + log3.Time;
+%date_min = "20-Feb-2021";
+%date_max = "25-Feb-2-21";
+
 date_min = datestr(min(log3.Date));
 date_max = datestr(max(log3.Date));
 x_vals = datenum(datearr);
+% x_vals = datenum(time(1:188));
 % first axis for time in hours
+
+
+
+figure(1);
+figure('units','normalized','outerposition',[0 0 1 1])
 ax1 = gca;
-datetick(ax1,'x','HH:MM');
 ax1_pos = ax1.Position; % position of first axes
 % Second Axis for date
 ax2 = axes('Position',ax1_pos,...
@@ -22,11 +33,10 @@ ax2 = axes('Position',ax1_pos,...
     'Color','none');
 ax2.XTick = x_vals;
 ax2.XRuler.TickLabelGapOffset = +16;
+datetick(ax1,'x','HH:MM');
 
-figure(1);
-figure('units','normalized','outerposition',[0 0 1 1])
-plot(x_vals,temp3);
-[t,s] = title("Ambient Temperature measured by SHARC Buoy from " +date_min+" to "+date_max);
+scatter(x_vals,temp3);
+[t,s] = title("Ambient Temperature measured by SHARC Buoy at "+location+" from " +date_min+" to "+date_max);
 t.FontSize = 18;
 grid(ax1,'on');
 grid(ax2,'minor');
@@ -35,7 +45,8 @@ set(ax1,'YTickLabel',[]);
 ylabel("Temperature (°C)")
 xlim([x_vals(1), x_vals(end)])
 saveas(gcf,"temp_"+date_min+"_"+date_max+".png")
-figure(2)
+
+figure(2);
 % first axis for time in hours
 figure('units','normalized','outerposition',[0 0 1 1])
 ax1 = gca;
@@ -47,8 +58,8 @@ ax2 = axes('Position',ax1_pos,...
     'Color','none');
 ax2.XTick = x_vals;
 ax2.XRuler.TickLabelGapOffset = +16;
-plot(x_vals,press3)
-[t,s] = title("Atmospheric Pressure measured by SHARC Buoy from " +date_min+" to "+date_max);
+scatter(x_vals,press3)
+[t,s] = title("Atmospheric Pressure measured by SHARC Buoy at "+location+" from " +date_min+" to "+date_max);
 t.FontSize = 18;
 grid(ax1,'on');
 grid(ax2,'minor');
@@ -58,13 +69,13 @@ ylabel("Pressure (KPa)")
 ylim([min(press3),max(press3)])
 xlim([x_vals(1), x_vals(end)])
 saveas(gcf,"press_"+date_min+"_"+date_max+".png")
-% battery voltage
 
+% battery voltage
 V_bat = table2array(log3(:,15))+ table2array(log3(:,14))/1000.00 ;
 Current = table2array(log3(:,16));
 Power =  table2array(log3(:,17));
 
-figure(3)
+figure(3);
 figure('units','normalized','outerposition',[0 0 1 1])
 ax1 = gca;
 datetick(ax1,'x','HH:MM');
@@ -76,7 +87,7 @@ ax2 = axes('Position',ax1_pos,...
 ax2.XTick = x_vals;
 ax2.XRuler.TickLabelGapOffset = +16;
 plot(x_vals,V_bat);
-[t,s] = title("Battery Voltage from " +date_min+" to "+date_max);
+[t,s] = title("Battery voltage measured at "+location+" from " +date_min+" to "+date_max);
 t.FontSize = 18;
 grid(ax1,'on');
 grid(ax2,'minor');
@@ -99,7 +110,7 @@ ax2 = axes('Position',ax1_pos,...
 ax2.XTick = x_vals;
 ax2.XRuler.TickLabelGapOffset = +16;
 plot(x_vals,Current);
-[t,s] = title("Current from " +date_min+" to "+date_max);
+[t,s] = title("Current measured by SHARC buoy at "+location+" from " +date_min+" to "+date_max);
 t.FontSize = 18;
 grid(ax1,'on');
 grid(ax2,'minor');
@@ -122,7 +133,7 @@ ax2 = axes('Position',ax1_pos,...
 ax2.XTick = x_vals;
 ax2.XRuler.TickLabelGapOffset = +16;
 plot(x_vals,Power);
-[t,s] = title("Power consumption from " +date_min+" to "+date_max);
+[t,s] = title("Power consumption of SHARC buoy at "+location+" from " +date_min+" to "+date_max);
 t.FontSize = 18;
 grid(ax1,'on');
 grid(ax2,'minor');

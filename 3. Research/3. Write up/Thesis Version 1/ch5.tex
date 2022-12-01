@@ -1,4 +1,4 @@
-\chapter{Software Design}
+\chapter{Software design}
 \label{ch:ch5}
 This chapter outlines the software design methodology for the SHARC buoy based on the hardware design and components selections in Chapter \ref{ch:ch4}. This chapter describes the firmware written for SHARC buoy version 2. This version contains the STMicroelectronics STM32L476RG 32-bit microcontroller, \cite{stm32l4} which contains the Arm Cortex-M4 processor \cite{ARMprocessor}; a low powered 32-bit microcontroller, based on the Armv7E-M central processing unit (CPU) architecture and Harvard bus matrix architecture. A high-level overview of this microprocessor is shown in Figure \ref{fig:cpu}.
 
@@ -826,7 +826,7 @@ As mentioned in the previous sections, ice drift measurements are sampled once e
 	\label{fig:buoyactivity diagram}
 \end{figure}
 
-Figure \ref{fig:buoyactivity diagram} shows that the largest current consumption is expected to occur at start up. This is due to the large start up current of the Iridium modem (see Table \ref{tab:ir_specs}). The device is also expected to consume more current during the transmission period. Once again, this is attributed to the power characteristics of the Iridium modem. Finally, the buoy is expected to be inactive for periods relatively longer than the periods of activity. This is dependent on the signal acquisition time of the GPS receiver (see Table \ref{tab:neo7}) as well as the time taken to complete a transmission. The firmware is therefore developed to ensure careful tracking of state transitions and timings to ensure activities are completed in ordered sequence. Finally the fourth state will be the longest period of activity since this is when the IMU will be sampled.
+Figure \ref{fig:buoyactivity diagram} shows that the largest current consumption is expected to occur at start up. This is due to the large start up current of the Iridium modem (see Table \ref{tab:ir_specspower}). The device is also expected to consume more current during the transmission period. Once again, this is attributed to the power characteristics of the Iridium modem. Finally, the buoy is expected to be inactive for periods relatively longer than the periods of activity. This is dependent on the signal acquisition time of the GPS receiver (see Table \ref{tab:neo7}) as well as the time taken to complete a transmission. The firmware is therefore developed to ensure careful tracking of state transitions and timings to ensure activities are completed in ordered sequence. Finally the fourth state will be the longest period of activity since this is when the IMU will be sampled.
 \section{Data flow}
 \label{sec:data_flow}
 

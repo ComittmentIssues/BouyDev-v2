@@ -176,19 +176,17 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {table}{\numberline {6.17}{\ignorespaces Average current draw (mA) and cycle duration over the full sample period.\relax }}{138}{table.caption.175}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.18}{\ignorespaces Data transmitted from the SHARC buoy as compressed binary messages in ASCII hexadecimal format. This table contains ice drift data shown in packets begining with 01 ("1") and IMU data in packets beginning with 57 or "W". Also shown are diagnostic data including the transmitting device, payload size and number of credits used to transmit the message.\relax }}{141}{table.caption.184}%
+\contentsline {table}{\numberline {6.18}{\ignorespaces Data transmitted from the SHARC buoy as compressed binary messages in ASCII hexadecimal format. This table contains ice drift data shown in packets begining with 01 ("1") and IMU data in packets beginning with 57 or "W". Also shown are diagnostic data including the transmitting device, payload size and number of credits used to transmit the message.\relax }}{141}{table.caption.185}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.19}{\ignorespaces Hardware components used during field testing for version 1 of SHARC buoy deployed during the 2019 SCALE winter cruise to the Southern Ocean Marginal Ice Zone.\relax }}{142}{table.caption.186}%
+\contentsline {table}{\numberline {6.19}{\ignorespaces Hardware components used during field testing for version 1 of SHARC buoy deployed during the 2019 SCALE winter cruise to the Southern Ocean Marginal Ice Zone.\relax }}{142}{table.caption.187}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.20}{\ignorespaces Table showing the parameters the GPS was configured with before deployment. \relax }}{144}{table.caption.189}%
+\contentsline {table}{\numberline {6.20}{\ignorespaces Table showing the parameters the GPS was configured with before deployment. \relax }}{144}{table.caption.190}%
 \defcounter {refsection}{0}\relax 
 \contentsline {table}{\numberline {6.21}{\ignorespaces Deployment conditions for buoy 1 (2019-WC-SB01) and buoy 2 (2019-WC-SB02) including deployment coordinates, time and environmental conditions\relax }}{145}{table.caption.192}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.22}{\ignorespaces Results of the full system acceptance tests indicated by a tick in the appropriate column.\relax }}{148}{table.caption.196}%
+\contentsline {table}{\numberline {6.22}{\ignorespaces Results of the full system acceptance tests indicated by a tick in the appropriate column.\relax }}{148}{table.caption.195}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6.23}{\ignorespaces Results of the platform evaluation and how each functional requirement was addressed.\relax }}{149}{table.caption.197}%
-\defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
+\contentsline {table}{\numberline {6.23}{\ignorespaces Results of the platform evaluation and how each functional requirement was addressed.\relax }}{149}{table.caption.196}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
@@ -196,62 +194,64 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.1}{\ignorespaces Table showing the key stakeholders in the project, their level of involvement as well as their interests in the project.\relax }}{170}{table.caption.207}%
+\addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.2}{\ignorespaces Acceptance test protocol for subsystem connectivity testing.\relax }}{171}{table.caption.208}%
+\contentsline {table}{\numberline {B.1}{\ignorespaces Table showing the key stakeholders in the project, their level of involvement as well as their interests in the project.\relax }}{170}{table.caption.206}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.3}{\ignorespaces Acceptance test protocol for fault testing.\relax }}{172}{table.caption.209}%
+\contentsline {table}{\numberline {B.2}{\ignorespaces Acceptance test protocol for subsystem connectivity testing.\relax }}{171}{table.caption.207}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.4}{\ignorespaces Acceptance test protocol for component selection.\relax }}{173}{table.caption.210}%
+\contentsline {table}{\numberline {B.3}{\ignorespaces Acceptance test protocol for fault testing.\relax }}{172}{table.caption.208}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.5}{\ignorespaces Acceptance test protocol for Subsystem Robustness Testing\relax }}{173}{table.caption.211}%
+\contentsline {table}{\numberline {B.4}{\ignorespaces Acceptance test protocol for component selection.\relax }}{173}{table.caption.209}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.6}{\ignorespaces Acceptance test protocol for accelerated system testing.\relax }}{174}{table.caption.212}%
+\contentsline {table}{\numberline {B.5}{\ignorespaces Acceptance test protocol for Subsystem Robustness Testing\relax }}{173}{table.caption.210}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.7}{\ignorespaces Acceptance test protocol for subsystem calibration testing.\relax }}{175}{table.caption.213}%
+\contentsline {table}{\numberline {B.6}{\ignorespaces Acceptance test protocol for accelerated system testing.\relax }}{174}{table.caption.211}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.8}{\ignorespaces Acceptance test protocl for power test.\relax }}{176}{table.caption.214}%
+\contentsline {table}{\numberline {B.7}{\ignorespaces Acceptance test protocol for subsystem calibration testing.\relax }}{175}{table.caption.212}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.9}{\ignorespaces Acceptance test protocol protocol for low temperature test.\relax }}{177}{table.caption.215}%
+\contentsline {table}{\numberline {B.8}{\ignorespaces Acceptance test protocl for power test.\relax }}{176}{table.caption.213}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {B.10}{\ignorespaces Acceptance test protocol for final system deployment test.\relax }}{178}{table.caption.216}%
+\contentsline {table}{\numberline {B.9}{\ignorespaces Acceptance test protocol protocol for low temperature test.\relax }}{177}{table.caption.214}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {B.10}{\ignorespaces Acceptance test protocol for final system deployment test.\relax }}{178}{table.caption.215}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {C.1}{\ignorespaces Description of interrupt generated by the Iridium module on an external digital input line.\relax }}{182}{table.caption.221}%
+\contentsline {table}{\numberline {C.1}{\ignorespaces Description of interrupt generated by the Iridium module on an external digital input line.\relax }}{182}{table.caption.220}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {C.2}{\ignorespaces Description of routine for interrupts generated by the IMU on an external digital input line.\relax }}{183}{table.caption.222}%
+\contentsline {table}{\numberline {C.2}{\ignorespaces Description of routine for interrupts generated by the IMU on an external digital input line.\relax }}{183}{table.caption.221}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {C.3}{\ignorespaces Description of event handling routine for a brown out recovery event.\relax }}{183}{table.caption.223}%
+\contentsline {table}{\numberline {C.3}{\ignorespaces Description of event handling routine for a brown out recovery event.\relax }}{183}{table.caption.222}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {C.4}{\ignorespaces Description of routine for handling low power events.\relax }}{184}{table.caption.224}%
+\contentsline {table}{\numberline {C.4}{\ignorespaces Description of routine for handling low power events.\relax }}{184}{table.caption.223}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {C.5}{\ignorespaces Description of routine for handling a software reset event.\relax }}{184}{table.caption.225}%
+\contentsline {table}{\numberline {C.5}{\ignorespaces Description of routine for handling a software reset event.\relax }}{184}{table.caption.224}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {C.6}{\ignorespaces Colour guide for the initialization routine flow diagrams.\relax }}{184}{table.caption.226}%
-\defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {D.1}{\ignorespaces List of data services provided by Iridium for transmission of data over the satellite network including the bandwidth and purpose of the service taken from \cite {iridium_mobile}.\relax }}{193}{table.caption.238}%
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {D.2}{\ignorespaces Strategies used by the devices to transfer data from remote locations. Table includes transmission technologies and services used as well and transmission strategies and transmission intervals where given. Prices are converted to Rands (R) via \cite {usdcoversion}.\relax }}{194}{table.caption.239}%
+\contentsline {table}{\numberline {C.6}{\ignorespaces Colour guide for the initialization routine flow diagrams.\relax }}{184}{table.caption.225}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.1}{\ignorespaces Protocol for firmware initialisation/deinitialisation functional test.\relax }}{195}{table.caption.240}%
+\contentsline {table}{\numberline {D.1}{\ignorespaces List of data services provided by Iridium for transmission of data over the satellite network including the bandwidth and purpose of the service taken from \cite {iridium_mobile}.\relax }}{193}{table.caption.237}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.2}{\ignorespaces Protocol for the signal acquisition firmware test, This test is specific to receivers with wireless capabilities. \relax }}{195}{table.caption.241}%
+\contentsline {table}{\numberline {D.2}{\ignorespaces Strategies used by the devices to transfer data from remote locations. Table includes transmission technologies and services used as well and transmission strategies and transmission intervals where given. Prices are converted to Rands (R) via \cite {usdcoversion}.\relax }}{194}{table.caption.238}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.3}{\ignorespaces protocol for testing the peripheral communication functional unit. \relax }}{196}{table.caption.242}%
+\addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.4}{\ignorespaces Protocol for testing a software function for validating sensor data.\relax }}{196}{table.caption.243}%
+\contentsline {table}{\numberline {E.1}{\ignorespaces Protocol for firmware initialisation/deinitialisation functional test.\relax }}{195}{table.caption.239}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.5}{\ignorespaces Protocol for testing data streams and direct memory access (DMA) functions.\relax }}{196}{table.caption.244}%
+\contentsline {table}{\numberline {E.2}{\ignorespaces Protocol for the signal acquisition firmware test, This test is specific to receivers with wireless capabilities. \relax }}{195}{table.caption.240}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.6}{\ignorespaces Protocol to test functions that interface with sensors by configuring settings in the register or reading data from a register.\relax }}{197}{table.caption.245}%
+\contentsline {table}{\numberline {E.3}{\ignorespaces protocol for testing the peripheral communication functional unit. \relax }}{196}{table.caption.241}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.7}{\ignorespaces Protocols for fault testing of software subsystem functions.\relax }}{197}{table.caption.246}%
+\contentsline {table}{\numberline {E.4}{\ignorespaces Protocol for testing a software function for validating sensor data.\relax }}{196}{table.caption.242}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.8}{\ignorespaces Protocols for testing digital input/output peripheral functional units.\relax }}{197}{table.caption.247}%
+\contentsline {table}{\numberline {E.5}{\ignorespaces Protocol for testing data streams and direct memory access (DMA) functions.\relax }}{196}{table.caption.243}%
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {E.9}{\ignorespaces Results of subsystem acceptance tests for each of the identified modules. Modules that were successfully validated were marked with a \text {$\mathsurround \z@ \mathchar "458$}, failed tests were marked by an X and tests that could not be applied to a subsystem were marked by an N/A.\relax }}{198}{table.caption.248}%
+\contentsline {table}{\numberline {E.6}{\ignorespaces Protocol to test functions that interface with sensors by configuring settings in the register or reading data from a register.\relax }}{197}{table.caption.244}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {E.7}{\ignorespaces Protocols for fault testing of software subsystem functions.\relax }}{197}{table.caption.245}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {E.8}{\ignorespaces Protocols for testing digital input/output peripheral functional units.\relax }}{197}{table.caption.246}%
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {E.9}{\ignorespaces Results of subsystem acceptance tests for each of the identified modules. Modules that were successfully validated were marked with a \text {$\mathsurround \z@ \mathchar "458$}, failed tests were marked by an X and tests that could not be applied to a subsystem were marked by an N/A.\relax }}{198}{table.caption.247}%

@@ -284,11 +284,11 @@ Two versions of the buoy were developed from 2019 to 2020 with different sensing
 		\hline
 		Temperature range [$^\circ$ C ]& -40 to 85& -55 to 125 \\
 		\hline
-		Temperature sensor accuracy\tablefootnote{At temperatures below 0$^\circ$} [$^\circ$ C]& $\pm$1 & $\pm$ 1 \\
+		Temperature sensor accuracy\tablefootnote{At temperatures below 0$^\circ$ C} [$^\circ$ C]& $\pm$1 & $\pm$ 1 \\
 		\hline
 		Pressure range [hPa]  & 300 to 1100 & N/A \\
 		\hline
-		Pressure sensor accuracy\tablefootnote{At temperatures below 0$^\circ$} [hPa] & $\pm$1.7 & N/A\\
+		Pressure sensor accuracy\tablefootnote{At temperatures below 0$^\circ$ C} [hPa] & $\pm$1.7 & N/A\\
 		\hline
 		Price\tablefootnote{As of March 2021 } & R47\tablefootnote{Source: \url{https://www.digikey.co.za/short/80dv2nhm}}& R77\tablefootnote{Source: \url{https://www.digikey.co.za/short/mqb0qm4j}} \\
 		\hline
@@ -297,7 +297,7 @@ Two versions of the buoy were developed from 2019 to 2020 with different sensing
 	\label{tab:senv_spec}
 \end{table}
 
-Table \ref{tab:senv_spec} shows a comparison between the Bosch Sensortech BMP280 and Maxim DS18B20 performance characteristics. The temperature ranges of both sensors are capable of measuring subzero temperatures at an accuracy of $\pm1^\circ$ C which, is required to survive in the Southern Ocean climate as discussed in Chapter \ref{ch:chapter2}. Only the BMP280 can measure temperature and pressure, whereas the DS18B20 can only measure temperature. Furthermore, the BMP280 cost R47 cheaper than the DS18B20 at R77. However, this is for the standalone BMP280. This device can be, optionally,  ordered on an Adafruit breakout board. However, this increases the price to R218\footnote{Source: \url{https://www.digikey.co.za/short/qbn473mr}}. Therefore, the BMP280 was selected for version 2 as it contains more environmental sensing features for a lower price. The power consumption characteristics of each device are shown in Table \ref{tab:env_power}.
+Table \ref{tab:senv_spec} shows a comparison between the Bosch Sensortech BMP280 and Maxim DS18B20 performance characteristics. The temperature ranges of both sensors are capable of measuring subzero temperatures at an accuracy of $\pm1^\circ$ C which, is required to survive in the Southern Ocean climate as discussed in Chapter \ref{ch:chapter2}. Only the BMP280 can measure temperature and pressure, whereas the DS18B20 can only measure temperature. Furthermore, the BMP280 cost R47.00 cheaper than the DS18B20 at R77.00. However, this is for the standalone BMP280. This device can be, optionally,  ordered on an Adafruit breakout board. However, this increases the price to R218\footnote{Source: \url{https://www.digikey.co.za/short/qbn473mr}}. Therefore, the BMP280 was selected for version 2 as it contains more environmental sensing features for a lower price. The power consumption characteristics of each device are shown in Table \ref{tab:env_power}.
 
 \begin{table}[H]
 	\centering
@@ -561,7 +561,7 @@ From Subsections \ref{subsec:ch3_gps} to \ref{subsec:ch3_mem}, the modules given
 	\label{fig:mcus}
 \end{figure}
 
-The first version of the buoy contained the STMicroelectronics STM32F407VGT6 \cite{stmdisc} which is available on a 100-pin Discovery development board. However, this device was found to have more peripherals than necessary and had a large power requirement. Therefore the device was replaced by the STMicroelectronics STM32F446RE \cite{stm32nucleo}. This device came on the STMicroelectronics Nucleo development board and had reduced peripherals and more optimal performance. The final processor selected was the STMicroelectronics STM32L476RG \cite{stm32l4}. Development boards were selected for the prototyping phase as they were quick to set up and program. In Figure \ref{fig:mcus}, both the Discovery and the Nucleo have pinheaders allowing for quick interfacing with the peripherals of the microcontroller. Which matched the STM32F446RE in pinout and number of peripherals. However, it was more optimised for low power operation. This microcontroller had additional wake-up pins and lower current consumption. Furthermore, the Nucleo boards have an on-board STLink debugger to program the microcontroller. However, this can be removed to reduce the physical size of the module. The STM32L476RG can be configured to detect brownout events and low power events. This provides critical feedback regarding the device's performance. Some key performance parameters of the STM32L476RE are shown in Table \ref{tab:stm_specelec} to \ref{tab:stm_speccom} .
+The first version of the buoy contained the STMicroelectronics STM32F407VGT6 \cite{stmdisc} which is available on a 100-pin Discovery development board. However, this device was found to have more peripherals than necessary and had a large power requirement. Therefore the device was replaced by the STMicroelectronics STM32F446RE \cite{stm32nucleo}. This device came on the STMicroelectronics Nucleo development board and had reduced peripherals and more optimal performance. The final processor selected was the STMicroelectronics STM32L476RG \cite{stm32l4}. Development boards were selected for the prototyping phase as they were quick to set up and program. In Figure \ref{fig:mcus}, both the Discovery and the Nucleo have pin headers allowing for quick interfacing with the peripherals of the microcontroller. Which matched the STM32F446RE in pinout and number of peripherals. However, it was more optimised for low power operation. This microcontroller had additional wake-up pins and lower current consumption. Furthermore, the Nucleo boards have an on-board STLink debugger to program the microcontroller. However, this can be removed to reduce the physical size of the module. The STM32L476RG can be configured to detect brownout events and low power events. This provides critical feedback regarding the device's performance. Some key performance parameters of the STM32L476RE are shown in Table \ref{tab:stm_specelec} to \ref{tab:stm_speccom} .
 
 \begin{table}[H]
 	\centering
@@ -642,7 +642,7 @@ The first version of the buoy contained the STMicroelectronics STM32F407VGT6 \ci
 	\label{tab:stm_speccom}
 \end{table}
 
-Tables \ref{tab:stm_specelec} to \ref{tab:stm_speccom} show the performance characteristics of the STM32L476RG. It features seven general purpose timers as well as two advanced timers and two low power timers. In addition, the device has five wake up pins which allow the device to be woken up from deep sleep (shutdown) via an external source. The device is capable of  digital siganl processing (DSP) using external libraries provided by the manufacturer. This allows the device to perform wave spectra calculations as described by \textcite{kuik1988method} and \textcite{earle1996nondirectional}. Furthermore, the STM32L4 Nucleo board contains an onboard real-time clock (RTC) with a 32.768 kHz LSE crystal to provide an accurate reference for time-based applications thereby making it the ideal component to be a processor for the buoy.
+Tables \ref{tab:stm_specelec} to \ref{tab:stm_speccom} show the performance characteristics of the STM32L476RG. It features seven general purpose timers as well as two advanced timers and two low power timers. In addition, the device has five wake up pins which allow the device to be woken up from deep sleep (shutdown) via an external source. The device is capable of  digital signal processing (DSP) using external libraries provided by the manufacturer. This allows the device to perform wave spectra calculations as described by \textcite{kuik1988method} and \textcite{earle1996nondirectional}. Furthermore, the STM32L4 Nucleo board contains an onboard real-time clock (RTC) with a 32.768 kHz LSE crystal to provide an accurate reference for time-based applications thereby making it the ideal component to be a processor for the buoy.
 
 \subsection{Power electronics}
 

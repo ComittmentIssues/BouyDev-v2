@@ -122,25 +122,23 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Diagram showing the configuration for the power test. All subsystems were connected and activated with version 2 sensors and firmware. Power was supplied by an Agilent xxxx bench top power supply set to a constant 7.2 V output. A data logger was connected to the INA219 sensor to sample the power information at a rate of 1 Hz\relax }}{137}{figure.caption.171}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Diagram showing the configuration for the power test. All subsystems were connected and activated with version 2 sensors and firmware. Power was supplied by an Agilent E3630A bench top power supply set to a constant 7.2 V output. A data logger was connected to the INA219 sensor to sample the power information at a rate of 1 Hz\relax }}{137}{figure.caption.171}%
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {6.2}{\ignorespaces Graph showing a typical current cycle of the buoy during the various phases. (Cyan) initialsation phase, (Black) sample phase, (Red) sleep phase and (Green) transmit phase. Data were sampled at 1 Hz with all modules connected, sample intervals set to 30 minutes the INA219 sensor connected to an external data logger and the device placed in a partially obstructed environment.\relax }}{138}{figure.caption.174}%
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {6.3}{\ignorespaces Average current consumption at each phase in the operational cycle of the buoy. Ordered chronologically.\relax }}{139}{figure.caption.176}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Diagram showing the trajectory of the SA Aghulas II for the 2019 SCALE winter cruise from Cape Town to the Southern Ocean Marginal Ice Zone along the Good Hope line. Diagram created by SCALE planning team.\relax }}{142}{figure.caption.185}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Diagram showing the trajectory of the SA Aghulas II for the 2019 SCALE winter cruise from Cape Town to the Southern Ocean Marginal Ice Zone along the Good Hope line. Diagram created by SCALE planning team.\relax }}{142}{figure.caption.186}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.5}{\ignorespaces SHARC buoy version 1 used for deployment testing during the 2019 SCALE winter cruise in July. The device contains an Iridium modem, GPS and temperature sensor for sea ice drift and ambient temperature measurements. Photo by R. Verrinder.\relax }}{143}{figure.caption.187}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces SHARC buoy version 1 used for deployment testing during the 2019 SCALE winter cruise in July. The device contains an Iridium modem, GPS and temperature sensor for sea ice drift and ambient temperature measurements. Photo by R. Verrinder.\relax }}{143}{figure.caption.188}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.6}{\ignorespaces SB01 and SB02 buoy deployment locations. Ice edge on 26 to 28 July 2019. Ice edge data provided by E. Hepworth from \url {https://www.natice.noaa.gov/products/ kml_daily.html}\relax }}{144}{figure.caption.188}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces SB01 and SB02 buoy deployment locations. Ice edge on 26 to 28 July 2019. Ice edge data provided by E. Hepworth from \url {https://www.natice.noaa.gov/products/ kml_daily.html}\relax }}{144}{figure.caption.189}%
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {6.7}{\ignorespaces Photos taken during field testing of the SHARC buoy system showing (A) the device fully assembled and secured to the stand (photo: R. Verrinder), (B) the device deployed onto an ice floe via a basket and crane deployment procedure, (C) SHARC buoy on an ice floe following a successful deployment. \relax }}{145}{figure.caption.191}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.8}{\ignorespaces The GPS trajectory of the SA Aghulas II ship from the Marginal Ice Zone to East London. The plot shows the estimated position (magenta) taken from the buoy samples (red) compared to the actual trajectory (cyan). The positional error (PDOP) of each measurement is shown as an exaggerated area around the measured position.\relax }}{146}{figure.caption.194}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces The GPS trajectory of the SA Aghulas II ship from the Marginal Ice Zone to East London. The plot shows the estimated position (magenta) taken from the buoy samples (red) compared to the actual trajectory (cyan). The positional error (PDOP) of each measurement is shown as an exaggerated area around the measured position.\relax }}{146}{figure.caption.193}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.9}{\ignorespaces Air temperature recorded by the buoy (yellow) over 11 days compared to the air temperature recorded by the ship (blue). \relax }}{147}{figure.caption.195}%
-\defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Air temperature recorded by the buoy (yellow) over 11 days compared to the air temperature recorded by the ship (blue). \relax }}{147}{figure.caption.194}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
@@ -148,37 +146,39 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Schematic of top enclosure which protects the electronics.\relax }}{179}{figure.caption.217}%
+\addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {B.2}{\ignorespaces Schematic of bottom enclosure for the batteries and power system.\relax }}{180}{figure.caption.218}%
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Schematic of top enclosure which protects the electronics.\relax }}{179}{figure.caption.216}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {B.3}{\ignorespaces Schematic of the connector block which provides a base for the electronics to be mounted on. \relax }}{180}{figure.caption.219}%
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Schematic of bottom enclosure for the batteries and power system.\relax }}{180}{figure.caption.217}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {B.4}{\ignorespaces Full enclosure schematic.\relax }}{181}{figure.caption.220}%
+\contentsline {figure}{\numberline {B.3}{\ignorespaces Schematic of the connector block which provides a base for the electronics to be mounted on. \relax }}{180}{figure.caption.218}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {B.4}{\ignorespaces Full enclosure schematic.\relax }}{181}{figure.caption.219}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {C.1}{\ignorespaces u-blox NEO-7M and u-blox NEO-M9N initialisation routine.\relax }}{185}{figure.caption.227}%
+\contentsline {figure}{\numberline {C.1}{\ignorespaces u-blox NEO-7M and u-blox NEO-M9N initialisation routine.\relax }}{185}{figure.caption.226}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {C.2}{\ignorespaces Rock Seven RockBLOCK 9603 initialisation routine.\relax }}{185}{figure.caption.228}%
+\contentsline {figure}{\numberline {C.2}{\ignorespaces Rock Seven RockBLOCK 9603 initialisation routine.\relax }}{185}{figure.caption.227}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {C.3}{\ignorespaces Adesto Technologies AT45DB641E initialisation routine.\relax }}{186}{figure.caption.229}%
+\contentsline {figure}{\numberline {C.3}{\ignorespaces Adesto Technologies AT45DB641E initialisation routine.\relax }}{186}{figure.caption.228}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {C.4}{\ignorespaces Bosch Sensortech BMP280 initialisation routine.\relax }}{186}{figure.caption.230}%
+\contentsline {figure}{\numberline {C.4}{\ignorespaces Bosch Sensortech BMP280 initialisation routine.\relax }}{186}{figure.caption.229}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {C.5}{\ignorespaces Texas Instruments INA219 initialisation routine.\relax }}{187}{figure.caption.231}%
+\contentsline {figure}{\numberline {C.5}{\ignorespaces Texas Instruments INA219 initialisation routine.\relax }}{187}{figure.caption.230}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {C.6}{\ignorespaces TDK Invensense MPU6050 initialization routine.\relax }}{187}{figure.caption.232}%
+\contentsline {figure}{\numberline {C.6}{\ignorespaces TDK Invensense MPU6050 initialisation routine.\relax }}{187}{figure.caption.231}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {C.7}{\ignorespaces Function written to compensate a 32 bit Temperature reading for sensor irregularities using the 32 bit version of the recommended compensation formula from the datasheet \cite {BMP280_Datasheet}. The formula uses the compensation parameters stored on the sensor\relax }}{188}{figure.caption.233}%
+\contentsline {figure}{\numberline {C.7}{\ignorespaces Function written to compensate a 32 bit Temperature reading for sensor irregularities using the 32 bit version of the recommended compensation formula from the datasheet \cite {BMP280_Datasheet}. The formula uses the compensation parameters stored on the sensor\relax }}{188}{figure.caption.232}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {C.8}{\ignorespaces Function written to compensate a 32-bit pressure reading for sensor irregularities using the 32-bit version of the recommended compensation formula from \cite {BMP280_Datasheet}. The formula uses the factory trim compensation parameters stored on the sensor.\relax }}{189}{figure.caption.234}%
+\contentsline {figure}{\numberline {C.8}{\ignorespaces Function written to compensate a 32-bit pressure reading for sensor irregularities using the 32-bit version of the recommended compensation formula from \cite {BMP280_Datasheet}. The formula uses the factory trim compensation parameters stored on the sensor.\relax }}{189}{figure.caption.233}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {C.9}{\ignorespaces Calibration routine for INA219 current sensor for a maximum current of 1.2 A, maximum bus voltage of 16 V and maximum shunt voltage of 160 mV.\relax }}{191}{figure.caption.235}%
+\contentsline {figure}{\numberline {C.9}{\ignorespaces Calibration routine for INA219 current sensor for a maximum current of 1.2 A, maximum bus voltage of 16 V and maximum shunt voltage of 160 mV.\relax }}{191}{figure.caption.234}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {C.10}{\ignorespaces Coord\_t data structure to store incoming GPS coordinates as IEEE754 32-bit floats.\relax }}{191}{figure.caption.236}%
+\contentsline {figure}{\numberline {C.10}{\ignorespaces Coord\_t data structure to store incoming GPS coordinates as IEEE754 32-bit floats.\relax }}{191}{figure.caption.235}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {C.11}{\ignorespaces Data structure for storing GPS signal diagnostic information.\relax }}{192}{figure.caption.237}%
+\contentsline {figure}{\numberline {C.11}{\ignorespaces Data structure for storing GPS signal diagnostic information.\relax }}{192}{figure.caption.236}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
